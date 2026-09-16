@@ -1,11 +1,7 @@
 {
   "artifact_type": "technical-plan",
-  "architecture": {
-    "frontend": "React SPA",
-    "backend": "Java Springboot",
-    "data": "MySQL"
-  },
+  "confirmation_status": "confirmed",
+  "architecture": {"frontend": "React SPA", "backend": "Java Springboot", "data": "MySQL"},
   "entities": [],
-  "api_endpoints": [],
-  "confirmation_status": "confirmed"
+  "api_endpoints": []
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 7,
+  "configRevision": 9,
   "appName": "调查问卷",
   "appIcon": "AppstoreOutlined",
   "senario": "帮我开发一个用于收集大学生职业发展规划的调查问卷，只需要一个表单",
@@ -513,7 +513,7 @@
       "versionLabel": "v1.3",
       "major": 1,
       "minor": 3,
-      "status": "iterating",
+      "status": "released",
       "parentVersionId": "1789456630113-6fv84l-v1-2",
       "createdAt": 1789548213518,
       "lifecycle": {
@@ -521,56 +521,24 @@
           "id": "1789456630113-6fv84l",
           "name": "调查问卷"
         },
-        "updatedAt": "2026-09-16T01:25:49.090961Z",
-        "revision": 27,
+        "updatedAt": "2026-09-16T09:43:32.887093Z",
+        "revision": 5,
         "developmentArtifacts": {
-          "pages": {
-            "home": {
-              "initialDevelopmentStatus": "completed",
-              "completedAt": "2026-09-15T08:52:02.003643Z",
-              "completedRunId": "mock-acceptance-run-0001",
-              "completedThreadId": "mock-acceptance-thread-0001"
-            },
-            "survey_form": {
-              "initialDevelopmentStatus": "completed",
-              "completedAt": "2026-09-15T08:52:02.003643Z",
-              "completedRunId": "mock-acceptance-run-0001",
-              "completedThreadId": "mock-acceptance-thread-0001"
-            }
-          },
-          "entities": {
-            "SurveySubmission": {
-              "initialDevelopmentStatus": "pending"
-            }
-          },
-          "endpoints": {
-            "survey_api": {
-              "survey_api.get_info": {
-                "initialDevelopmentStatus": "completed",
-                "completedAt": "2026-09-15T08:52:02.003643Z",
-                "completedRunId": "mock-acceptance-run-0001",
-                "completedThreadId": "mock-acceptance-thread-0001"
-              },
-              "survey_api.submit": {
-                "initialDevelopmentStatus": "completed",
-                "completedAt": "2026-09-15T08:52:02.003643Z",
-                "completedRunId": "mock-acceptance-run-0001",
-                "completedThreadId": "mock-acceptance-thread-0001"
-              }
-            }
-          },
-          "catalogError": null
+          "pages": {},
+          "entities": {},
+          "endpoints": {},
+          "catalogError": "开发产物目录不可用：TechnicalPlan.api_contracts 必须是对象数组。"
         },
         "initialization": {
           "stage": "ready_for_workbench",
           "status": "completed",
-          "threadId": "5ddba1a3-de64-49bb-b6b5-64bb93f527c8"
+          "threadId": "97224cab-fc25-4e1f-9378-af93db39b7a8"
         },
         "activeRunId": "mock-acceptance-run-0001",
         "activeExecutions": {
           "mock-acceptance-run-0001": {
             "scope": "application",
-            "targetId": "application",
+            "targetId": "1789456630113-6fv84l",
             "pageId": null,
             "threadId": "mock-acceptance-thread-0001",
             "runId": "mock-acceptance-run-0001",
@@ -582,19 +550,19 @@
             "pendingInteraction": {
               "id": "mock-page-acceptance-0001",
               "type": "page_acceptance",
-              "basedOnRevision": 24,
+              "basedOnRevision": 1,
               "payload": {
                 "mode": "page_acceptance",
                 "pageId": "home",
                 "previewUrl": "http://localhost:3000"
               },
               "artifactRefs": [],
-              "createdAt": "2026-09-16T01:07:51.548309Z",
+              "createdAt": "2026-09-16T09:33:25.733246Z",
               "submittedAt": null
             },
             "error": null,
-            "startedAt": "2026-09-15T08:52:02.003643Z",
-            "updatedAt": "2026-09-16T01:07:51.548309Z"
+            "startedAt": "2026-09-16T09:33:25.733246Z",
+            "updatedAt": "2026-09-16T09:33:25.733246Z"
           }
         },
         "resourceLocks": {
@@ -610,33 +578,93 @@
         "extensions": {
           "testExecutionStatus": "passed",
           "reviewStatus": "passed",
-          "acceptanceStatus": "passed",
           "planningRefresh": {
             "schemaVersion": "planning-refresh.v1",
             "source": "none",
             "status": "idle",
             "message": "当前没有可恢复的 PendingPlan。"
-          }
+          },
+          "acceptanceStatus": "passed"
         },
         "testEntryGate": {
           "allowed": false,
-          "total": 5,
-          "completed": 4,
-          "pending": 1,
+          "total": 0,
+          "completed": 0,
+          "pending": 0,
           "inProgress": 0,
-          "blockers": [
-            {
-              "type": "entity",
-              "entityId": "SurveySubmission",
-              "pageId": null,
-              "apiContractId": null,
-              "endpointId": null
-            }
-          ],
-          "reason": "完成全部开发产物后可进入测试，当前 4/5。"
+          "blockers": [],
+          "reason": "开发产物目录不可用：TechnicalPlan.api_contracts 必须是对象数组。"
+        }
+      },
+      "releasedAt": 1789560968416,
+      "description": "测试1",
+      "gitRef": {
+        "commitSha": "ab9f79cc6a7641696fa730c02596c92cf9aa596a",
+        "tag": "v1.3",
+        "committedAt": 1789560968416
+      },
+      "artifactSummary": {
+        "pageIds": [
+          "工作台"
+        ],
+        "deployableScript": "deploy-v1.3.sh"
+      },
+      "snapshot": {
+        "pageIds": [
+          "工作台"
+        ]
+      }
+    },
+    {
+      "id": "1789456630113-6fv84l-v1-4",
+      "versionLabel": "v1.4",
+      "major": 1,
+      "minor": 4,
+      "status": "iterating",
+      "parentVersionId": "1789456630113-6fv84l-v1-3",
+      "createdAt": 1789561217518,
+      "lifecycle": {
+        "application": {
+          "id": "1789456630113-6fv84l",
+          "name": "调查问卷"
+        },
+        "updatedAt": "2026-09-16T12:20:17.512596Z",
+        "revision": 1,
+        "developmentArtifacts": {
+          "pages": {},
+          "entities": {},
+          "endpoints": {},
+          "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/2026091501/.xcodeagent/plans/product-plan.json'"
+        },
+        "initialization": {
+          "stage": "collecting_requirement",
+          "status": "pending",
+          "threadId": "cbb7374f-5af6-4432-871d-675feb314e46"
+        },
+        "activeRunId": "f2f2ecc6-f9b6-4350-8c25-216bac6fad13",
+        "activeExecutions": {},
+        "resourceLocks": {
+          "application": null,
+          "pages": {},
+          "apiContracts": {},
+          "endpoints": {},
+          "dataSources": {}
+        },
+        "pendingRevisionImpact": null,
+        "activeFormalRevision": null,
+        "error": null,
+        "extensions": {},
+        "testEntryGate": {
+          "allowed": false,
+          "total": 0,
+          "completed": 0,
+          "pending": 0,
+          "inProgress": 0,
+          "blockers": [],
+          "reason": "应用尚未完成创建规划。"
         }
       }
     }
   ],
-  "currentVersionId": "1789456630113-6fv84l-v1-3"
+  "currentVersionId": "1789456630113-6fv84l-v1-4"
 }
