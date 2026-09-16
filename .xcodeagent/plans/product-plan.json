@@ -1,178 +1,23 @@
 {
   "schema_version": "product-plan.v5",
   "version": "0.1.0",
-  "generated_at": "2026-09-15T07:20:07.269165+00:00",
-  "requirement_spec_sha256": "7d7de9068b74a0e67cc9cba8fa658ec06c73523b096e5b65d50cc1d374d43c58",
   "app": {
     "name": "调查问卷",
-    "summary": "用于收集大学生职业发展规划的调查问卷应用，提供一个表单供学生填写并提交。"
+    "summary": "调查问卷应用"
   },
-  "business_flows": [
-    {
-      "name": "填写调查问卷",
-      "steps": [
-        "学生进入问卷填写页面",
-        "学生填写职业发展规划相关信息",
-        "学生提交问卷"
-      ],
-      "id": "fill_survey",
-      "description": "学生进入问卷填写页面，填写职业发展规划相关信息并提交问卷"
-    }
-  ],
+  "business_flows": [],
   "pages": [
     {
       "pageId": "home",
       "name": "首页",
       "path": "/page/home",
       "module_id": "survey",
-      "description": "调查问卷应用首页，展示问卷填写入口",
-      "goal": "向学生介绍大学生职业发展规划调查问卷的目的与填写要求，并提供进入问卷填写页面的入口",
-      "information_items": [
-        {
-          "itemId": "survey_title",
-          "label": "问卷标题",
-          "description": "展示调查问卷的名称，让学生明确当前问卷主题为大学生职业发展规划调查"
-        },
-        {
-          "itemId": "survey_purpose",
-          "label": "问卷目的",
-          "description": "说明本问卷用于了解大学生的职业发展规划情况，帮助学生认识填写问卷的意义"
-        },
-        {
-          "itemId": "survey_entry_guide",
-          "label": "填写入口指引",
-          "description": "提示学生点击入口按钮进入问卷填写页面开始作答"
-        }
-      ],
-      "actions": [
-        {
-          "actionId": "enter_survey",
-          "name": "进入问卷填写",
-          "description": "学生点击入口按钮，跳转至问卷填写页面",
-          "requiresConfirmation": false,
-          "behavior": {
-            "type": "navigation",
-            "expectedResult": "学生从首页跳转至问卷填写页面，可以开始填写问卷",
-            "targetPageId": "survey_form"
-          }
-        }
-      ],
-      "navigation_targets": [
-        "survey_form"
-      ],
-      "state_requirements": {
-        "loading": "首页内容初始化时展示加载状态，加载完成后展示问卷标题、目的与入口按钮",
-        "empty": "若问卷入口尚未可用，首页展示暂无可填写问卷的空状态提示",
-        "error": "首页内容加载失败时展示错误提示，并提供重新加载入口",
-        "success": "首页内容加载成功后正常展示问卷标题、目的说明与填写入口按钮",
-        "validation": "首页无用户输入项，无需校验状态"
-      },
-      "acceptance_criteria": [
-        "首页展示问卷标题、问卷目的说明与进入问卷填写的入口按钮",
-        "学生点击入口按钮后跳转至问卷填写页面",
-        "首页内容加载失败时展示错误提示并允许重新加载"
-      ]
-    },
-    {
-      "pageId": "survey_form",
-      "name": "问卷填写",
-      "path": "/page/survey",
-      "module_id": "survey",
-      "description": "大学生职业发展规划调查问卷填写表单",
-      "goal": "让学生填写个人基本信息、职业目标、自我能力评估与发展规划等职业发展规划相关信息，并提交问卷",
-      "information_items": [
-        {
-          "itemId": "personal_info_section",
-          "label": "个人基本信息",
-          "description": "展示需要学生填写的姓名、学号、专业、年级等个人基本信息的填写区域"
-        },
-        {
-          "itemId": "career_goal_section",
-          "label": "职业目标",
-          "description": "展示需要学生填写的期望职业方向、目标行业、目标岗位等职业目标信息的填写区域"
-        },
-        {
-          "itemId": "self_assessment_section",
-          "label": "自我能力评估",
-          "description": "展示需要学生对自身专业技能、软实力、兴趣特长等进行评估的填写区域"
-        },
-        {
-          "itemId": "development_plan_section",
-          "label": "发展规划",
-          "description": "展示需要学生填写在校期间与毕业后的职业发展行动计划与时间安排的填写区域"
-        },
-        {
-          "itemId": "submission_guide",
-          "label": "提交说明",
-          "description": "提示学生确认信息填写无误后再提交问卷"
-        }
-      ],
-      "actions": [
-        {
-          "actionId": "submit_survey",
-          "name": "提交问卷",
-          "description": "学生确认填写内容后提交问卷",
-          "requiresConfirmation": true,
-          "behavior": {
-            "type": "business",
-            "expectedResult": "问卷提交成功后页面展示提交成功提示，并告知学生问卷已提交完成"
-          }
-        },
-        {
-          "actionId": "reset_form",
-          "name": "重置表单",
-          "description": "学生清空当前已填写的所有问卷内容，重新开始填写",
-          "requiresConfirmation": true,
-          "behavior": {
-            "type": "interface",
-            "expectedResult": "表单中所有已填写内容被清空，恢复为初始未填写状态"
-          }
-        },
-        {
-          "actionId": "back_to_home",
-          "name": "返回首页",
-          "description": "学生返回首页查看问卷介绍",
-          "requiresConfirmation": false,
-          "behavior": {
-            "type": "navigation",
-            "expectedResult": "学生从问卷填写页面返回首页",
-            "targetPageId": "home"
-          }
-        }
-      ],
-      "navigation_targets": [
-        "home"
-      ],
-      "state_requirements": {
-        "loading": "问卷提交过程中提交按钮展示加载状态，防止学生重复提交",
-        "empty": "表单初始进入时所有字段为空，等待学生填写",
-        "error": "问卷提交失败时展示错误提示，保留学生已填写内容以便重新提交",
-        "success": "问卷提交成功后展示成功提示，告知学生问卷已提交完成",
-        "validation": "必填字段未填写或填写格式不符合要求时，在对应字段下方展示校验提示，并阻止提交"
-      },
-      "acceptance_criteria": [
-        "问卷填写页面展示个人基本信息、职业目标、自我能力评估与发展规划等填写区域",
-        "学生可以填写各区域的问卷内容",
-        "必填字段未填写时展示校验提示并阻止提交",
-        "学生点击提交按钮后弹出确认提示，确认后提交问卷",
-        "问卷提交成功后展示成功提示",
-        "问卷提交失败时展示错误提示并保留已填写内容",
-        "学生可以点击重置按钮清空所有已填写内容",
-        "学生可以点击返回首页按钮回到首页"
-      ]
+      "description": "首页",
+      "goal": "展示问卷入口",
+      "information_items": []
     }
   ],
-  "authorizationTargets": {
-    "pageRules": [],
-    "operationRules": []
-  },
-  "product_acceptance_criteria": [
-    "应用提供首页与问卷填写两个页面，学生可以从首页进入问卷填写页面",
-    "学生可以在问卷填写页面填写个人基本信息、职业目标、自我能力评估与发展规划等内容",
-    "学生可以提交问卷，提交成功后获得明确的成功反馈",
-    "问卷必填字段未填写时无法提交，并展示清晰的校验提示",
-    "问卷提交失败时保留学生已填写内容，允许重新提交",
-    "应用在PC端以侧边导航布局展示，启用页头、不启用页脚"
-  ],
+  "entities": [],
+  "api_contracts": [],
   "confirmation_status": "confirmed"
 }

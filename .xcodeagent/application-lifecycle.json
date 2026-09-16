@@ -3,56 +3,24 @@
     "id": "1789456630113-6fv84l",
     "name": "调查问卷"
   },
-  "updatedAt": "2026-09-16T01:25:49.090961Z",
-  "revision": 26,
+  "updatedAt": "2026-09-16T09:43:32.887093Z",
+  "revision": 4,
   "developmentArtifacts": {
-    "pages": {
-      "home": {
-        "initialDevelopmentStatus": "completed",
-        "completedAt": "2026-09-15T08:52:02.003643Z",
-        "completedRunId": "mock-acceptance-run-0001",
-        "completedThreadId": "mock-acceptance-thread-0001"
-      },
-      "survey_form": {
-        "initialDevelopmentStatus": "completed",
-        "completedAt": "2026-09-15T08:52:02.003643Z",
-        "completedRunId": "mock-acceptance-run-0001",
-        "completedThreadId": "mock-acceptance-thread-0001"
-      }
-    },
-    "entities": {
-      "SurveySubmission": {
-        "initialDevelopmentStatus": "pending"
-      }
-    },
-    "endpoints": {
-      "survey_api": {
-        "survey_api.get_info": {
-          "initialDevelopmentStatus": "completed",
-          "completedAt": "2026-09-15T08:52:02.003643Z",
-          "completedRunId": "mock-acceptance-run-0001",
-          "completedThreadId": "mock-acceptance-thread-0001"
-        },
-        "survey_api.submit": {
-          "initialDevelopmentStatus": "completed",
-          "completedAt": "2026-09-15T08:52:02.003643Z",
-          "completedRunId": "mock-acceptance-run-0001",
-          "completedThreadId": "mock-acceptance-thread-0001"
-        }
-      }
-    },
-    "catalogError": null
+    "pages": {},
+    "entities": {},
+    "endpoints": {},
+    "catalogError": "开发产物目录不可用：TechnicalPlan.api_contracts 必须是对象数组。"
   },
   "initialization": {
     "stage": "ready_for_workbench",
     "status": "completed",
-    "threadId": "5ddba1a3-de64-49bb-b6b5-64bb93f527c8"
+    "threadId": "97224cab-fc25-4e1f-9378-af93db39b7a8"
   },
   "activeRunId": "mock-acceptance-run-0001",
   "activeExecutions": {
     "mock-acceptance-run-0001": {
       "scope": "application",
-      "targetId": "application",
+      "targetId": "1789456630113-6fv84l",
       "pageId": null,
       "threadId": "mock-acceptance-thread-0001",
       "runId": "mock-acceptance-run-0001",
@@ -64,19 +32,19 @@
       "pendingInteraction": {
         "id": "mock-page-acceptance-0001",
         "type": "page_acceptance",
-        "basedOnRevision": 24,
+        "basedOnRevision": 1,
         "payload": {
           "mode": "page_acceptance",
           "pageId": "home",
           "previewUrl": "http://localhost:3000"
         },
         "artifactRefs": [],
-        "createdAt": "2026-09-16T01:07:51.548309Z",
+        "createdAt": "2026-09-16T09:33:25.733246Z",
         "submittedAt": null
       },
       "error": null,
-      "startedAt": "2026-09-15T08:52:02.003643Z",
-      "updatedAt": "2026-09-16T01:07:51.548309Z"
+      "startedAt": "2026-09-16T09:33:25.733246Z",
+      "updatedAt": "2026-09-16T09:33:25.733246Z"
     }
   },
   "developmentContinuations": {},
@@ -92,7 +60,6 @@
   "error": null,
   "extensions": {
     "testExecutionStatus": "passed",
-    "reviewStatus": "passed",
-    "acceptanceStatus": "pending"
+    "reviewStatus": "passed"
   }
 }
