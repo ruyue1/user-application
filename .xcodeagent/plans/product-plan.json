@@ -1,10 +1,1 @@
-{
-  "schema_version": "product-plan.v5",
-  "version": "0.1.0",
-  "confirmation_status": "confirmed",
-  "app": {"name": "调查问卷", "summary": "调查问卷应用"},
-  "business_flows": [],
-  "pages": [{"pageId": "home", "name": "首页", "path": "/page/home", "module_id": "survey", "description": "首页", "goal": "展示问卷入口", "information_items": []}],
-  "entities": [],
-  "api_contracts": []
-}
+{"schema_version":"product-plan.v5","version":"0.1.0","confirmation_status":"confirmed","app":{"name":"调查问卷","summary":"mock"},"business_flows":[],"pages":[{"pageId":"home","name":"首页","path":"/page/home","module_id":"survey","description":"mock","goal":"mock","information_items":[]}],"entities":[],"api_contracts":[]}

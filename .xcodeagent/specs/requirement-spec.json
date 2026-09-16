@@ -1,11 +1,1 @@
-{
-  "version": "1.0",
-  "status": "draft",
-  "confirmation_status": "confirmed",
-  "summary": "用于收集大学生职业发展规划的调查问卷应用",
-  "source_request": "帮我开发一个调查问卷",
-  "app_info": {"name": "调查问卷", "summary": "调查问卷应用"},
-  "user_roles": [{"name": "学生", "id": "student"}],
-  "feature_modules": [{"name": "问卷调查", "id": "survey", "priority": "must"}],
-  "pages": []
-}
+{"version":"1.0","status":"draft","confirmation_status":"confirmed","summary":"调查问卷","source_request":"mock","app_info":{"name":"调查问卷","summary":"mock"},"user_roles":[],"feature_modules":[],"pages":[]}

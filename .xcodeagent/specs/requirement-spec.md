@@ -1,1 +1,1 @@
-mock requirement spec
+mock spec

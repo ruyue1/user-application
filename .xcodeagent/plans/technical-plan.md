@@ -1,1 +1,1 @@
-mock technical plan
+mock tech plan

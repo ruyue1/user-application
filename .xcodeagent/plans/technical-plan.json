@@ -1,7 +1,1 @@
-{
-  "artifact_type": "technical-plan",
-  "confirmation_status": "confirmed",
-  "architecture": {"frontend": "React SPA", "backend": "Java Springboot", "data": "MySQL"},
-  "entities": [],
-  "api_endpoints": []
-}
+{"artifact_type":"technical-plan","confirmation_status":"confirmed","architecture":{"frontend":"mock","backend":"mock","data":"mock"},"entities":[],"api_endpoints":[]}
