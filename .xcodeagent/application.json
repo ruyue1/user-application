@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 6,
+  "configRevision": 1,
+  "appName": "调查问卷",
+  "appIcon": "AppstoreOutlined",
+  "senario": "帮我开发一个用于收集大学生职业发展规划的调查问卷，只需要一个表单",
+  "versionNo": "v1.0",
+  "repoUrl": "https://github.com/ruyue1/user-application",
+  "terminal": "PC",
+  "layout": {
+    "type": "side",
+    "useHeader": true,
+    "useFooter": false
+  },
+  "theme": {
+    "primaryColor": "#6b3cf0"
+  },
+  "datasource": {
+    "type": "database"
+  },
+  "env": [],
+  "menus": {
+    "enable": true,
+    "rootPath": "/page",
+    "homeMenuKey": "",
+    "items": []
+  },
+  "apis": [],
+  "auth": {
+    "enable": false,
+    "authnSource": "",
+    "yht": {
+      "clientId": ""
+    }
+  },
+  "authorization": {
+    "enabled": false,
+    "initialAdministratorSubjects": []
+  },
+  "track": {
+    "enable": false,
+    "uploadId": "",
+    "apiHost": "",
+    "method": "post"
+  },
+  "apiTrack": {
+    "enable": false,
+    "businessId": "",
+    "traceBaggage": "",
+    "apiTrackHost": ""
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "application": {
+    "id": "1789456630113-6fv84l",
+    "name": "调查问卷"
+  },
+  "updatedAt": "2026-09-15T07:37:30.320757Z",
+  "revision": 22,
+  "developmentArtifacts": {
+    "pages": {
+      "home": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null
+      },
+      "survey_form": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null
+      }
+    },
+    "entities": {
+      "SurveySubmission": {
+        "initialDevelopmentStatus": "pending"
+      }
+    },
+    "endpoints": {
+      "survey_api": {
+        "survey_api.get_info": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null
+        },
+        "survey_api.submit": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null
+        }
+      }
+    },
+    "catalogError": null
+  },
+  "initialization": {
+    "stage": "ready_for_workbench",
+    "status": "completed",
+    "threadId": "5ddba1a3-de64-49bb-b6b5-64bb93f527c8"
+  },
+  "activeRunId": null,
+  "activeExecutions": {},
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}

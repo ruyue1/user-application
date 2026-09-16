@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v3",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "7d07be40bee74ee5b6030c6a0e0f4e65",
+  "apiContractId": "survey_api",
+  "endpointId": "survey_api.get_info",
+  "endpointContract": {
+    "id": "survey_api.get_info",
+    "method": "GET",
+    "path": "/api/survey/info",
+    "summary": "获取调查问卷的标题、目的与填写入口指引信息，用于首页展示",
+    "parameters": [],
+    "request_schema_ref": null,
+    "response_schema_ref": "SurveyInfoOutput",
+    "error_codes": [
+      "UNAUTHORIZED",
+      "INTERNAL_ERROR"
+    ],
+    "authentication": {
+      "required": true
+    }
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "title",
+        "type": "string",
+        "required": true,
+        "description": "调查问卷的标题，让学生明确当前问卷主题为大学生职业发展规划调查"
+      },
+      "mappingType": "business_description",
+      "businessDescription": "模拟数据"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "purpose",
+        "type": "string",
+        "required": true,
+        "description": "问卷目的说明，帮助学生认识填写问卷的意义"
+      },
+      "mappingType": "business_description",
+      "businessDescription": "模拟数据"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "entryGuide",
+        "type": "string",
+        "required": true,
+        "description": "填写入口指引，提示学生点击入口按钮进入问卷填写页面"
+      },
+      "mappingType": "business_description",
+      "businessDescription": "模拟数据"
+    }
+  ],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "9f55420394b1f6590bbd86ee3ad676bb398193db67e1f9edea5a356c105fe25f"
+    }
+  ],
+  "confirmedAt": "2026-09-15T07:37:09.063600Z"
+}

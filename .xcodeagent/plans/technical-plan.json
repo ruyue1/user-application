@@ -1,0 +1,363 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "A React single-page application uses a PC side-navigation layout with a header (no footer). The home page displays survey introduction content fetched from the backend. The survey form page provides a multi-section questionnaire with client-side required-field validation; on submission failure the form retains entered values for re-submission. Communication with the backend is through REST JSON APIs.",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [
+    {
+      "id": "SurveySubmission",
+      "name": "调查问卷提交",
+      "description": "学生提交的职业发展规划调查问卷记录，包含个人基本信息、职业目标、自我能力评估与发展规划等内容。",
+      "fields": [
+        {
+          "label": "姓名",
+          "description": "学生的姓名",
+          "name": "student_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "学号",
+          "description": "学生的学号",
+          "name": "student_id",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "专业",
+          "description": "学生所学专业",
+          "name": "major",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "年级",
+          "description": "学生所在年级",
+          "name": "grade",
+          "type": "enum",
+          "required": true,
+          "enum_values": [
+            "大一",
+            "大二",
+            "大三",
+            "大四",
+            "研究生"
+          ]
+        },
+        {
+          "label": "期望职业方向",
+          "description": "学生期望的职业发展方向",
+          "name": "career_direction",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "目标行业",
+          "description": "学生希望进入的目标行业",
+          "name": "target_industry",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "目标岗位",
+          "description": "学生期望的目标岗位",
+          "name": "target_position",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "专业技能",
+          "description": "学生对自身专业技能的评估",
+          "name": "professional_skills",
+          "type": "long_text",
+          "required": true
+        },
+        {
+          "label": "软实力",
+          "description": "学生对自身软实力的评估",
+          "name": "soft_skills",
+          "type": "long_text",
+          "required": true
+        },
+        {
+          "label": "兴趣特长",
+          "description": "学生的兴趣与特长",
+          "name": "interests",
+          "type": "long_text",
+          "required": true
+        },
+        {
+          "label": "在校期间发展计划",
+          "description": "学生在校期间的职业发展行动计划",
+          "name": "in_school_plan",
+          "type": "long_text",
+          "required": true
+        },
+        {
+          "label": "毕业后发展计划",
+          "description": "学生毕业后的职业发展行动计划",
+          "name": "post_graduation_plan",
+          "type": "long_text",
+          "required": true
+        },
+        {
+          "label": "时间安排",
+          "description": "学生职业发展的时间安排",
+          "name": "timeline",
+          "type": "long_text",
+          "required": true
+        },
+        {
+          "label": "提交时间",
+          "description": "问卷提交的时间戳",
+          "name": "submitted_at",
+          "type": "datetime",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "api_contracts": [
+    {
+      "id": "survey_api",
+      "entity_ids": [
+        "SurveySubmission"
+      ],
+      "base_path": "/api/survey",
+      "authentication": {
+        "required": true
+      },
+      "schemas": {
+        "SurveyInfoOutput": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "调查问卷的标题，让学生明确当前问卷主题为大学生职业发展规划调查"
+            },
+            "purpose": {
+              "type": "string",
+              "description": "问卷目的说明，帮助学生认识填写问卷的意义"
+            },
+            "entryGuide": {
+              "type": "string",
+              "description": "填写入口指引，提示学生点击入口按钮进入问卷填写页面"
+            }
+          },
+          "required": [
+            "title",
+            "purpose",
+            "entryGuide"
+          ]
+        },
+        "SurveySubmissionInput": {
+          "type": "object",
+          "properties": {
+            "studentName": {
+              "type": "string",
+              "description": "学生姓名",
+              "entity_field_ref": "SurveySubmission.student_name"
+            },
+            "studentId": {
+              "type": "string",
+              "description": "学生学号",
+              "entity_field_ref": "SurveySubmission.student_id"
+            },
+            "major": {
+              "type": "string",
+              "description": "学生专业",
+              "entity_field_ref": "SurveySubmission.major"
+            },
+            "grade": {
+              "type": "string",
+              "description": "学生年级",
+              "enum": [
+                "大一",
+                "大二",
+                "大三",
+                "大四",
+                "研究生"
+              ],
+              "entity_field_ref": "SurveySubmission.grade"
+            },
+            "careerDirection": {
+              "type": "string",
+              "description": "期望职业方向",
+              "entity_field_ref": "SurveySubmission.career_direction"
+            },
+            "targetIndustry": {
+              "type": "string",
+              "description": "目标行业",
+              "entity_field_ref": "SurveySubmission.target_industry"
+            },
+            "targetPosition": {
+              "type": "string",
+              "description": "目标岗位",
+              "entity_field_ref": "SurveySubmission.target_position"
+            },
+            "professionalSkills": {
+              "type": "string",
+              "description": "专业技能评估",
+              "entity_field_ref": "SurveySubmission.professional_skills"
+            },
+            "softSkills": {
+              "type": "string",
+              "description": "软实力评估",
+              "entity_field_ref": "SurveySubmission.soft_skills"
+            },
+            "interests": {
+              "type": "string",
+              "description": "兴趣特长",
+              "entity_field_ref": "SurveySubmission.interests"
+            },
+            "inSchoolPlan": {
+              "type": "string",
+              "description": "在校期间发展计划",
+              "entity_field_ref": "SurveySubmission.in_school_plan"
+            },
+            "postGraduationPlan": {
+              "type": "string",
+              "description": "毕业后发展计划",
+              "entity_field_ref": "SurveySubmission.post_graduation_plan"
+            },
+            "timeline": {
+              "type": "string",
+              "description": "时间安排",
+              "entity_field_ref": "SurveySubmission.timeline"
+            }
+          },
+          "required": [
+            "studentName",
+            "studentId",
+            "major",
+            "grade",
+            "careerDirection",
+            "targetIndustry",
+            "targetPosition",
+            "professionalSkills",
+            "softSkills",
+            "interests",
+            "inSchoolPlan",
+            "postGraduationPlan",
+            "timeline"
+          ]
+        },
+        "SurveySubmissionOutput": {
+          "type": "object",
+          "properties": {
+            "submissionId": {
+              "type": "string",
+              "description": "问卷提交记录的唯一标识"
+            },
+            "submittedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "问卷提交时间",
+              "entity_field_ref": "SurveySubmission.submitted_at"
+            },
+            "message": {
+              "type": "string",
+              "description": "提交成功反馈信息，告知学生问卷已提交完成"
+            }
+          },
+          "required": [
+            "submissionId",
+            "submittedAt",
+            "message"
+          ]
+        }
+      },
+      "endpoints": [
+        {
+          "id": "survey_api.get_info",
+          "method": "GET",
+          "path": "/api/survey/info",
+          "summary": "获取调查问卷的标题、目的与填写入口指引信息，用于首页展示",
+          "parameters": [],
+          "request_schema_ref": null,
+          "response_schema_ref": "SurveyInfoOutput",
+          "error_codes": [
+            "UNAUTHORIZED",
+            "INTERNAL_ERROR"
+          ],
+          "authentication": {
+            "required": true
+          }
+        },
+        {
+          "id": "survey_api.submit",
+          "method": "POST",
+          "path": "/api/survey/submissions",
+          "summary": "提交学生填写的职业发展规划调查问卷，服务端校验必填字段后持久化并返回成功反馈",
+          "parameters": [],
+          "request_schema_ref": "SurveySubmissionInput",
+          "response_schema_ref": "SurveySubmissionOutput",
+          "error_codes": [
+            "UNAUTHORIZED",
+            "VALIDATION_ERROR",
+            "INTERNAL_ERROR"
+          ],
+          "authentication": {
+            "required": true
+          }
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "home",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "survey_api.get_info",
+            "usage": "page_load",
+            "trigger": "学生进入首页时加载问卷标题、目的与入口指引信息",
+            "required_for_initial_load": true
+          }
+        ],
+        "action_implementations": []
+      }
+    },
+    {
+      "pageId": "survey_form",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "survey_api.submit",
+            "usage": "form_submission",
+            "trigger": "学生确认填写内容后点击提交问卷按钮",
+            "required_for_initial_load": false
+          }
+        ],
+        "action_implementations": [
+          {
+            "actionId": "submit_survey",
+            "endpointId": "survey_api.submit"
+          }
+        ]
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v2",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": [],
+      "initialAdminRoleSeedKey": ""
+    },
+    "fingerprint": "sha256:d8d6e21875a11953e8963a3928f9731b238fb1884c03510a65d7352d333f3b6b"
+  },
+  "sourceConfigRevision": 1,
+  "product_plan_sha256": "91be4896958f77223b80e94faf4c7c4bc2d9c54edd692ce1fa6ec57228f3cd7d",
+  "ui_designs_sha256": "26eb9aa6a54f8d13880c86de8ca08385d471b7205a87fb7f6051ff33f53b0316",
+  "confirmation_status": "confirmed"
+}
