@@ -3,7 +3,7 @@
     "id": "1789456630113-6fv84l",
     "name": "调查问卷"
   },
-  "updatedAt": "2026-09-16T14:04:59.616770Z",
+  "updatedAt": "2026-09-16T14:10:57.902626Z",
   "revision": 3,
   "developmentArtifacts": {
     "pages": {},
@@ -14,23 +14,23 @@
   "initialization": {
     "stage": "ready_for_workbench",
     "status": "completed",
-    "threadId": "19fc2246-45f4-4536-98df-cc11c66cb3a2"
+    "threadId": "6a29e475-d8d9-47b4-9f22-b4ee16391e03"
   },
-  "activeRunId": "mock-acceptance-run-v1.7",
+  "activeRunId": "mock-acceptance-run-v1.8",
   "activeExecutions": {
-    "mock-acceptance-run-v1.7": {
+    "mock-acceptance-run-v1.8": {
       "scope": "application",
       "targetId": "1789456630113-6fv84l",
       "pageId": null,
-      "threadId": "mock-acceptance-run-v1.7",
-      "runId": "mock-acceptance-run-v1.7",
+      "threadId": "mock-acceptance-run-v1.8",
+      "runId": "mock-acceptance-run-v1.8",
       "phase": "acceptance",
       "status": "awaiting_user",
       "resourceKeys": [],
       "developmentPurpose": null,
       "developmentTarget": null,
       "pendingInteraction": {
-        "id": "mock-page-acceptance-v1.7",
+        "id": "mock-page-acceptance-v1.8",
         "type": "page_acceptance",
         "basedOnRevision": 1,
         "payload": {
@@ -39,12 +39,12 @@
           "previewUrl": "http://localhost:3000"
         },
         "artifactRefs": [],
-        "createdAt": "2026-09-16T14:02:55.895377Z",
+        "createdAt": "2026-09-16T14:08:38.746682Z",
         "submittedAt": null
       },
       "error": null,
-      "startedAt": "2026-09-16T14:02:55.895377Z",
-      "updatedAt": "2026-09-16T14:02:55.895377Z"
+      "startedAt": "2026-09-16T14:08:38.746682Z",
+      "updatedAt": "2026-09-16T14:08:38.746682Z"
     }
   },
   "developmentContinuations": {},
