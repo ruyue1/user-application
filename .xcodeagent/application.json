@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 1,
+  "configRevision": 3,
   "appName": "调查问卷",
   "appIcon": "AppstoreOutlined",
   "senario": "帮我开发一个用于收集大学生职业发展规划的调查问卷，只需要一个表单",
@@ -48,5 +48,292 @@
     "businessId": "",
     "traceBaggage": "",
     "apiTrackHost": ""
-  }
+  },
+  "id": "1789456630113-6fv84l",
+  "workspaceRoot": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026091501",
+  "name": "调查问卷",
+  "lastOpenedAt": 1789457722809,
+  "source": "existing-workspace",
+  "pages": [
+    "工作台"
+  ],
+  "defaultPage": "工作台",
+  "versions": [
+    {
+      "id": "1789456630113-6fv84l-v1-0",
+      "versionLabel": "v1.0",
+      "major": 1,
+      "minor": 0,
+      "status": "released",
+      "createdAt": 1789543425567,
+      "lifecycle": {
+        "application": {
+          "id": "1789456630113-6fv84l",
+          "name": "调查问卷"
+        },
+        "updatedAt": "2026-09-16T01:25:49.090961Z",
+        "revision": 27,
+        "developmentArtifacts": {
+          "pages": {
+            "home": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-09-15T08:52:02.003643Z",
+              "completedRunId": "mock-acceptance-run-0001",
+              "completedThreadId": "mock-acceptance-thread-0001"
+            },
+            "survey_form": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-09-15T08:52:02.003643Z",
+              "completedRunId": "mock-acceptance-run-0001",
+              "completedThreadId": "mock-acceptance-thread-0001"
+            }
+          },
+          "entities": {
+            "SurveySubmission": {
+              "initialDevelopmentStatus": "pending"
+            }
+          },
+          "endpoints": {
+            "survey_api": {
+              "survey_api.get_info": {
+                "initialDevelopmentStatus": "completed",
+                "completedAt": "2026-09-15T08:52:02.003643Z",
+                "completedRunId": "mock-acceptance-run-0001",
+                "completedThreadId": "mock-acceptance-thread-0001"
+              },
+              "survey_api.submit": {
+                "initialDevelopmentStatus": "completed",
+                "completedAt": "2026-09-15T08:52:02.003643Z",
+                "completedRunId": "mock-acceptance-run-0001",
+                "completedThreadId": "mock-acceptance-thread-0001"
+              }
+            }
+          },
+          "catalogError": null
+        },
+        "initialization": {
+          "stage": "ready_for_workbench",
+          "status": "completed",
+          "threadId": "5ddba1a3-de64-49bb-b6b5-64bb93f527c8"
+        },
+        "activeRunId": "mock-acceptance-run-0001",
+        "activeExecutions": {
+          "mock-acceptance-run-0001": {
+            "scope": "application",
+            "targetId": "application",
+            "pageId": null,
+            "threadId": "mock-acceptance-thread-0001",
+            "runId": "mock-acceptance-run-0001",
+            "phase": "acceptance",
+            "status": "awaiting_user",
+            "resourceKeys": [],
+            "developmentPurpose": null,
+            "developmentTarget": null,
+            "pendingInteraction": {
+              "id": "mock-page-acceptance-0001",
+              "type": "page_acceptance",
+              "basedOnRevision": 24,
+              "payload": {
+                "mode": "page_acceptance",
+                "pageId": "home",
+                "previewUrl": "http://localhost:3000"
+              },
+              "artifactRefs": [],
+              "createdAt": "2026-09-16T01:07:51.548309Z",
+              "submittedAt": null
+            },
+            "error": null,
+            "startedAt": "2026-09-15T08:52:02.003643Z",
+            "updatedAt": "2026-09-16T01:07:51.548309Z"
+          }
+        },
+        "resourceLocks": {
+          "application": null,
+          "pages": {},
+          "apiContracts": {},
+          "endpoints": {},
+          "dataSources": {}
+        },
+        "pendingRevisionImpact": null,
+        "activeFormalRevision": null,
+        "error": null,
+        "extensions": {
+          "testExecutionStatus": "passed",
+          "reviewStatus": "passed",
+          "acceptanceStatus": "passed",
+          "planningRefresh": {
+            "schemaVersion": "planning-refresh.v1",
+            "source": "none",
+            "status": "idle",
+            "message": "当前没有可恢复的 PendingPlan。"
+          }
+        },
+        "testEntryGate": {
+          "allowed": false,
+          "total": 5,
+          "completed": 4,
+          "pending": 1,
+          "inProgress": 0,
+          "blockers": [
+            {
+              "type": "entity",
+              "entityId": "SurveySubmission",
+              "pageId": null,
+              "apiContractId": null,
+              "endpointId": null
+            }
+          ],
+          "reason": "完成全部开发产物后可进入测试，当前 4/5。"
+        }
+      },
+      "releasedAt": 1789543454994,
+      "description": "生成新版本测试",
+      "gitRef": {
+        "commitSha": "75ae5c1bdb15da2de29aedc5b13d8e0279563874",
+        "tag": "v1.0",
+        "committedAt": 1789543454994
+      },
+      "artifactSummary": {
+        "pageIds": [
+          "工作台"
+        ],
+        "deployableScript": "deploy-v1.0.sh"
+      },
+      "snapshot": {
+        "pageIds": [
+          "工作台"
+        ]
+      }
+    },
+    {
+      "id": "1789456630113-6fv84l-v1-1",
+      "versionLabel": "v1.1",
+      "major": 1,
+      "minor": 1,
+      "status": "iterating",
+      "parentVersionId": "1789456630113-6fv84l-v1-0",
+      "createdAt": 1789544344877,
+      "lifecycle": {
+        "application": {
+          "id": "1789456630113-6fv84l",
+          "name": "调查问卷"
+        },
+        "updatedAt": "2026-09-16T01:25:49.090961Z",
+        "revision": 27,
+        "developmentArtifacts": {
+          "pages": {
+            "home": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-09-15T08:52:02.003643Z",
+              "completedRunId": "mock-acceptance-run-0001",
+              "completedThreadId": "mock-acceptance-thread-0001"
+            },
+            "survey_form": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-09-15T08:52:02.003643Z",
+              "completedRunId": "mock-acceptance-run-0001",
+              "completedThreadId": "mock-acceptance-thread-0001"
+            }
+          },
+          "entities": {
+            "SurveySubmission": {
+              "initialDevelopmentStatus": "pending"
+            }
+          },
+          "endpoints": {
+            "survey_api": {
+              "survey_api.get_info": {
+                "initialDevelopmentStatus": "completed",
+                "completedAt": "2026-09-15T08:52:02.003643Z",
+                "completedRunId": "mock-acceptance-run-0001",
+                "completedThreadId": "mock-acceptance-thread-0001"
+              },
+              "survey_api.submit": {
+                "initialDevelopmentStatus": "completed",
+                "completedAt": "2026-09-15T08:52:02.003643Z",
+                "completedRunId": "mock-acceptance-run-0001",
+                "completedThreadId": "mock-acceptance-thread-0001"
+              }
+            }
+          },
+          "catalogError": null
+        },
+        "initialization": {
+          "stage": "ready_for_workbench",
+          "status": "completed",
+          "threadId": "5ddba1a3-de64-49bb-b6b5-64bb93f527c8"
+        },
+        "activeRunId": "mock-acceptance-run-0001",
+        "activeExecutions": {
+          "mock-acceptance-run-0001": {
+            "scope": "application",
+            "targetId": "application",
+            "pageId": null,
+            "threadId": "mock-acceptance-thread-0001",
+            "runId": "mock-acceptance-run-0001",
+            "phase": "acceptance",
+            "status": "awaiting_user",
+            "resourceKeys": [],
+            "developmentPurpose": null,
+            "developmentTarget": null,
+            "pendingInteraction": {
+              "id": "mock-page-acceptance-0001",
+              "type": "page_acceptance",
+              "basedOnRevision": 24,
+              "payload": {
+                "mode": "page_acceptance",
+                "pageId": "home",
+                "previewUrl": "http://localhost:3000"
+              },
+              "artifactRefs": [],
+              "createdAt": "2026-09-16T01:07:51.548309Z",
+              "submittedAt": null
+            },
+            "error": null,
+            "startedAt": "2026-09-15T08:52:02.003643Z",
+            "updatedAt": "2026-09-16T01:07:51.548309Z"
+          }
+        },
+        "resourceLocks": {
+          "application": null,
+          "pages": {},
+          "apiContracts": {},
+          "endpoints": {},
+          "dataSources": {}
+        },
+        "pendingRevisionImpact": null,
+        "activeFormalRevision": null,
+        "error": null,
+        "extensions": {
+          "testExecutionStatus": "passed",
+          "reviewStatus": "passed",
+          "acceptanceStatus": "passed",
+          "planningRefresh": {
+            "schemaVersion": "planning-refresh.v1",
+            "source": "none",
+            "status": "idle",
+            "message": "当前没有可恢复的 PendingPlan。"
+          }
+        },
+        "testEntryGate": {
+          "allowed": false,
+          "total": 5,
+          "completed": 4,
+          "pending": 1,
+          "inProgress": 0,
+          "blockers": [
+            {
+              "type": "entity",
+              "entityId": "SurveySubmission",
+              "pageId": null,
+              "apiContractId": null,
+              "endpointId": null
+            }
+          ],
+          "reason": "完成全部开发产物后可进入测试，当前 4/5。"
+        }
+      }
+    }
+  ],
+  "currentVersionId": "1789456630113-6fv84l-v1-1"
 }
