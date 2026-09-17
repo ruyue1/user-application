@@ -1,0 +1,6 @@
+{
+  "name": "获取问卷信息",
+  "description": "获取调查问卷的基本信息，用于首页展示",
+  "method": "GET",
+  "path": "/api/survey/info"
+}
