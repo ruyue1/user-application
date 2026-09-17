@@ -3,8 +3,8 @@
     "id": "1789456630113-6fv84l",
     "name": "调查问卷"
   },
-  "updatedAt": "2026-09-17T07:35:34.019302Z",
-  "revision": 3,
+  "updatedAt": "2026-09-17T08:01:48.870704Z",
+  "revision": 5,
   "developmentArtifacts": {
     "pages": {},
     "entities": {},
@@ -14,7 +14,7 @@
   "initialization": {
     "stage": "ready_for_workbench",
     "status": "completed",
-    "threadId": "e5bfd21b-8f11-4b5a-b6dc-787fcbef0d93"
+    "threadId": "70083b82-0504-479a-854f-0a7412b6f66b"
   },
   "activeRunId": "mock-acceptance-run-manual",
   "activeExecutions": {
@@ -32,19 +32,19 @@
       "pendingInteraction": {
         "id": "mock-page-acceptance-manual",
         "type": "page_acceptance",
-        "basedOnRevision": 1,
+        "basedOnRevision": 3,
         "payload": {
           "mode": "page_acceptance",
           "pageId": "home",
           "previewUrl": "http://localhost:3000"
         },
         "artifactRefs": [],
-        "createdAt": "2026-09-17T07:33:47.239547Z",
+        "createdAt": "2026-09-17T08:00:18.904329Z",
         "submittedAt": null
       },
       "error": null,
-      "startedAt": "2026-09-17T07:33:47.239547Z",
-      "updatedAt": "2026-09-17T07:33:47.239547Z"
+      "startedAt": "2026-09-17T08:00:18.904329Z",
+      "updatedAt": "2026-09-17T08:00:18.904329Z"
     }
   },
   "developmentContinuations": {},
