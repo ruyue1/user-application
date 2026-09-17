@@ -1,6 +1,0 @@
-{
-  "name": "提交问卷",
-  "description": "学生提交填写好的调查问卷",
-  "method": "POST",
-  "path": "/api/survey/submit"
-}

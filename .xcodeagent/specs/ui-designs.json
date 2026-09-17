@@ -1,6 +1,0 @@
-{
-  "designs": [
-    {"pageId": "home", "description": "首页采用侧边导航+顶部页头布局，主区域展示问卷介绍文案和进入填写按钮"},
-    {"pageId": "survey_form", "description": "问卷填写页采用分区表单布局，包含个人信息区、职业规划区，底部有提交按钮"}
-  ]
-}
