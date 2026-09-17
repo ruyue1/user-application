@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 21,
+  "configRevision": 23,
   "appName": "调查问卷",
   "appIcon": "AppstoreOutlined",
   "senario": "帮我开发一个用于收集大学生职业发展规划的调查问卷，只需要一个表单",
@@ -1262,7 +1262,7 @@
       "versionLabel": "v1.10",
       "major": 1,
       "minor": 10,
-      "status": "iterating",
+      "status": "released",
       "parentVersionId": "1789456630113-6fv84l-v1-9",
       "createdAt": 1789608951205,
       "lifecycle": {
@@ -1270,7 +1270,114 @@
           "id": "1789456630113-6fv84l",
           "name": "调查问卷"
         },
-        "updatedAt": "2026-09-17T01:35:51.199818Z",
+        "updatedAt": "2026-09-17T01:42:58.715097Z",
+        "revision": 6,
+        "developmentArtifacts": {
+          "pages": {},
+          "entities": {},
+          "endpoints": {},
+          "catalogError": "开发产物目录不可用：TechnicalPlan.api_contracts 必须是对象数组。"
+        },
+        "initialization": {
+          "stage": "ready_for_workbench",
+          "status": "completed",
+          "threadId": "ad8f933c-7416-426d-8908-b9e82b3f398d"
+        },
+        "activeRunId": "mock-acceptance-run-v1.10",
+        "activeExecutions": {
+          "mock-acceptance-run-v1.10": {
+            "scope": "application",
+            "targetId": "1789456630113-6fv84l",
+            "pageId": null,
+            "threadId": "mock-acceptance-run-v1.10",
+            "runId": "mock-acceptance-run-v1.10",
+            "phase": "acceptance",
+            "status": "awaiting_user",
+            "resourceKeys": [],
+            "developmentPurpose": null,
+            "developmentTarget": null,
+            "pendingInteraction": {
+              "id": "mock-page-acceptance-v1.10",
+              "type": "page_acceptance",
+              "basedOnRevision": 3,
+              "payload": {
+                "mode": "page_acceptance",
+                "pageId": "home",
+                "previewUrl": "http://localhost:3000"
+              },
+              "artifactRefs": [],
+              "createdAt": "2026-09-17T01:41:47.522954Z",
+              "submittedAt": null
+            },
+            "error": null,
+            "startedAt": "2026-09-17T01:41:47.522954Z",
+            "updatedAt": "2026-09-17T01:41:47.522954Z"
+          }
+        },
+        "resourceLocks": {
+          "application": null,
+          "pages": {},
+          "apiContracts": {},
+          "endpoints": {},
+          "dataSources": {}
+        },
+        "pendingRevisionImpact": null,
+        "activeFormalRevision": null,
+        "error": null,
+        "extensions": {
+          "testExecutionStatus": "passed",
+          "reviewStatus": "passed",
+          "planningRefresh": {
+            "schemaVersion": "planning-refresh.v1",
+            "source": "none",
+            "status": "idle",
+            "message": "当前没有可恢复的 PendingPlan。"
+          },
+          "acceptanceStatus": "passed"
+        },
+        "testEntryGate": {
+          "allowed": false,
+          "total": 0,
+          "completed": 0,
+          "pending": 0,
+          "inProgress": 0,
+          "blockers": [],
+          "reason": "开发产物目录不可用：TechnicalPlan.api_contracts 必须是对象数组。"
+        }
+      },
+      "releasedAt": 1789609427201,
+      "description": "1",
+      "gitRef": {
+        "commitSha": "59618cd4130eec39914dedbb7d85b20f470eea9e",
+        "tag": "v1.10",
+        "committedAt": 1789609427201
+      },
+      "artifactSummary": {
+        "pageIds": [
+          "工作台"
+        ],
+        "deployableScript": "deploy-v1.10.sh"
+      },
+      "snapshot": {
+        "pageIds": [
+          "工作台"
+        ]
+      }
+    },
+    {
+      "id": "1789456630113-6fv84l-v1-11",
+      "versionLabel": "v1.11",
+      "major": 1,
+      "minor": 11,
+      "status": "iterating",
+      "parentVersionId": "1789456630113-6fv84l-v1-10",
+      "createdAt": 1789609430285,
+      "lifecycle": {
+        "application": {
+          "id": "1789456630113-6fv84l",
+          "name": "调查问卷"
+        },
+        "updatedAt": "2026-09-17T01:43:50.281507Z",
         "revision": 1,
         "developmentArtifacts": {
           "pages": {},
@@ -1281,9 +1388,9 @@
         "initialization": {
           "stage": "collecting_requirement",
           "status": "pending",
-          "threadId": "ad8f933c-7416-426d-8908-b9e82b3f398d"
+          "threadId": "7f850954-fd12-44d3-9441-7ab93f53d67d"
         },
-        "activeRunId": "282bca45-ea12-4aa4-8d51-328cada24827",
+        "activeRunId": "d34db8cb-4fae-4ac8-bba6-a717f4460c96",
         "activeExecutions": {},
         "resourceLocks": {
           "application": null,
@@ -1308,5 +1415,5 @@
       }
     }
   ],
-  "currentVersionId": "1789456630113-6fv84l-v1-10"
+  "currentVersionId": "1789456630113-6fv84l-v1-11"
 }
