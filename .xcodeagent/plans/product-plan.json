@@ -1,65 +1,134 @@
 {
   "schema_version": "product-plan.v5",
   "version": "0.1.0",
-  "generated_at": "2026-09-19T14:43:44.219401+00:00",
-  "requirement_spec_sha256": "58aed8e092b71647625c05991315deeaccd5d07e64784375189e6ca1a5e36f23",
+  "generated_at": "2026-09-19T14:47:39.357853+00:00",
+  "requirement_spec_sha256": "36a6746a419307da4bd25afe7b5b99382518f6ab13d6295cf2d666e2f62d0f8a",
   "app": {
     "name": "欢迎页",
-    "summary": "「欢迎页」是一个面向内部员工的纯展示型 PC 应用，提供单一欢迎页，页面直接展示写死的文案“hello world”，不依赖任何后端 API 接口；采用 side（侧边）导航布局，页头启用、页脚禁用，数据源类型为 database，认证不启用，不涉及权限控制。本轮按需求文档、产品规划、UI 设计（可跳过）和技术规划顺序推进，不直接生成业务代码。"
+    "summary": "「欢迎页」是一个面向内部员工的纯展示型 PC 应用，采用 side（侧边）导航布局，页头启用、页脚禁用。应用包含两个静态展示页面：原有的欢迎页直接展示写死的文案“hello world”，本次新增的 Agent 展示页直接展示写死的字符串“hello agent!”。两个页面均不依赖任何后端 API 接口，认证不启用，不涉及权限控制。"
   },
   "business_flows": [
     {
       "name": "查看欢迎页",
       "steps": [
         "内部员工在 PC 浏览器打开「欢迎页」应用",
-        "应用直接进入欢迎页首页，展示 side 导航布局与启用的页头",
+        "应用进入欢迎页首页，展示 side 导航布局与启用的页头",
         "页面渲染写死的字符串“hello world”欢迎文案",
         "内部员工阅读文案后离开或关闭页面"
       ],
-      "id": "flow_view_welcome_page",
-      "description": "内部员工打开应用后直接进入欢迎页并阅读写死的 hello world 欢迎文案。"
+      "id": "view_welcome_page",
+      "description": "内部员工打开应用后直接进入欢迎页，阅读写死的 hello world 欢迎文案。"
+    },
+    {
+      "name": "查看 Agent 展示页",
+      "steps": [
+        "内部员工在 PC 浏览器打开「欢迎页」应用",
+        "内部员工通过 side 导航进入 Agent 展示页",
+        "页面直接渲染写死的字符串“hello agent!”，不发起任何后端接口请求",
+        "内部员工阅读文案后可返回欢迎页或关闭页面"
+      ],
+      "id": "view_agent_greeting_page",
+      "description": "内部员工通过导航进入新增的 Agent 展示页，查看写死的字符串“hello agent!”。"
     }
   ],
   "pages": [
     {
       "pageId": "home",
       "name": "欢迎页",
-      "path": "/page/home",
-      "module_id": "module_welcome_display",
-      "description": "应用首页与唯一页面，面向内部员工展示写死的欢迎文案“hello world”；使用 side 导航布局，页头启用、页脚禁用，无任何后端 API 交互。",
+      "path": "/page/page/home",
+      "module_id": "welcome_display",
+      "description": "应用首页，面向内部员工展示写死的欢迎文案“hello world”；使用 side 导航布局，页头启用、页脚禁用，无任何后端 API 交互。",
       "goal": "让内部员工打开应用后立即看到写死的欢迎文案“hello world”，无需任何操作即可完成信息获取。",
       "information_items": [
         {
-          "itemId": "welcome_message",
+          "itemId": "home_welcome_text",
           "label": "欢迎文案",
-          "description": "页面中央展示的写死字符串“hello world”，作为应用唯一的信息内容。"
+          "description": "页面直接展示的写死字符串“hello world”，作为内部员工进入应用后看到的主要信息。"
         },
         {
-          "itemId": "page_header",
-          "label": "页头",
-          "description": "启用的页头区域，用于承载应用名称等基础标识信息。"
-        },
-        {
-          "itemId": "side_navigation",
-          "label": "侧边导航",
-          "description": "side 布局的侧边导航区域，当前仅包含欢迎页一个入口。"
+          "itemId": "home_navigation_menu",
+          "label": "侧边导航菜单",
+          "description": "side 布局下展示的导航菜单，包含欢迎页与 Agent 展示页入口，供内部员工在页面之间切换。"
         }
       ],
-      "actions": [],
-      "navigation_targets": [],
+      "actions": [
+        {
+          "actionId": "home_navigate_to_agent_greeting",
+          "name": "进入 Agent 展示页",
+          "description": "内部员工通过侧边导航菜单点击 Agent 展示页入口，切换到 Agent 展示页。",
+          "requiresConfirmation": false,
+          "behavior": {
+            "type": "navigation",
+            "expectedResult": "页面切换到 Agent 展示页，展示写死的字符串“hello agent!”。",
+            "targetPageId": "agent_greeting"
+          }
+        }
+      ],
+      "navigation_targets": [
+        "agent_greeting"
+      ],
       "state_requirements": {
-        "loading": "页面打开时直接展示欢迎文案，不出现加载中提示或骨架屏。",
-        "empty": "欢迎文案为写死内容，不存在空状态。",
-        "error": "页面不依赖任何后端接口，不存在接口错误状态。",
-        "success": "页面正常打开后，欢迎文案“hello world”完整可见。",
-        "validation": "页面无用户输入，不涉及校验状态。"
+        "loading": "页面为静态展示内容，打开后直接呈现欢迎文案，不出现加载中提示。",
+        "empty": "页面始终展示写死的欢迎文案“hello world”，不存在空内容状态。",
+        "error": "页面不依赖任何后端接口，正常访问时不出现错误提示。",
+        "success": "页面成功打开后，欢迎文案“hello world”与侧边导航菜单完整可见。",
+        "validation": "页面不包含任何输入控件，不涉及校验状态。"
       },
       "acceptance_criteria": [
-        "内部员工在 PC 浏览器打开应用后直接进入欢迎页，无需登录或额外操作。",
-        "欢迎页展示写死的字符串“hello world”。",
-        "欢迎页采用 side 侧边导航布局，页头启用、页脚禁用。",
-        "欢迎页不发起任何后端 API 请求，页面内容不依赖外部数据。",
-        "欢迎页在 PC 终端下可正常阅读，文案完整可见。"
+        "内部员工打开应用后默认进入欢迎页，页面展示写死的字符串“hello world”。",
+        "欢迎页使用 side 导航布局，页头启用、页脚禁用。",
+        "欢迎页不发起任何后端接口请求，也不展示加载中或错误提示。",
+        "内部员工可通过侧边导航菜单进入 Agent 展示页。"
+      ]
+    },
+    {
+      "pageId": "agent_greeting",
+      "name": "Agent 展示页",
+      "path": "/page/page/hello-agent",
+      "module_id": "agent_greeting_display",
+      "description": "新增的纯展示页面，面向内部员工展示写死的字符串“hello agent!”；不涉及任何后端 API 交互，也不包含任何输入或操作控件。",
+      "goal": "让内部员工通过侧边导航进入该页面后，直接看到写死的字符串“hello agent!”，无需任何操作即可完成信息获取。",
+      "information_items": [
+        {
+          "itemId": "agent_greeting_text",
+          "label": "Agent 展示文案",
+          "description": "页面直接展示的写死字符串“hello agent!”，作为内部员工进入该页面后看到的主要信息。"
+        },
+        {
+          "itemId": "agent_greeting_navigation_menu",
+          "label": "侧边导航菜单",
+          "description": "side 布局下展示的导航菜单，包含欢迎页与 Agent 展示页入口，供内部员工在页面之间切换。"
+        }
+      ],
+      "actions": [
+        {
+          "actionId": "agent_greeting_navigate_to_home",
+          "name": "返回欢迎页",
+          "description": "内部员工通过侧边导航菜单点击欢迎页入口，切换回欢迎页。",
+          "requiresConfirmation": false,
+          "behavior": {
+            "type": "navigation",
+            "expectedResult": "页面切换回欢迎页，展示写死的字符串“hello world”。",
+            "targetPageId": "home"
+          }
+        }
+      ],
+      "navigation_targets": [
+        "home"
+      ],
+      "state_requirements": {
+        "loading": "页面为静态展示内容，打开后直接呈现 Agent 展示文案，不出现加载中提示。",
+        "empty": "页面始终展示写死的字符串“hello agent!”，不存在空内容状态。",
+        "error": "页面不依赖任何后端接口，正常访问时不出现错误提示。",
+        "success": "页面成功打开后，字符串“hello agent!”与侧边导航菜单完整可见。",
+        "validation": "页面不包含任何输入控件，不涉及校验状态。"
+      },
+      "acceptance_criteria": [
+        "内部员工通过侧边导航进入 Agent 展示页后，页面展示写死的字符串“hello agent!”。",
+        "Agent 展示页使用 side 导航布局，页头启用、页脚禁用。",
+        "Agent 展示页不发起任何后端接口请求，也不展示加载中或错误提示。",
+        "Agent 展示页不包含任何输入或操作控件，仅提供静态展示内容。",
+        "内部员工可通过侧边导航菜单返回欢迎页。"
       ]
     }
   ],
@@ -68,13 +137,12 @@
     "operationRules": []
   },
   "product_acceptance_criteria": [
-    "应用名称为「欢迎页」，面向内部员工，目标终端为 PC。",
-    "应用仅包含一个页面：欢迎页，路径为 /page/home。",
-    "欢迎页直接展示写死的字符串“hello world”。",
-    "欢迎页采用 side 侧边导航布局，页头启用、页脚禁用。",
-    "应用不启用认证，不涉及权限控制，内部员工打开即可访问。",
-    "应用不依赖任何后端 API 接口，页面内容不随外部数据变化。",
-    "内部员工打开应用后无需任何操作即可看到欢迎文案。"
+    "应用包含欢迎页与 Agent 展示页两个页面，均可通过 side 导航布局访问。",
+    "欢迎页展示写死的字符串“hello world”，Agent 展示页展示写死的字符串“hello agent!”。",
+    "两个页面均不依赖任何后端 API 接口，打开后直接呈现静态文案。",
+    "应用采用 side 导航布局，页头启用、页脚禁用。",
+    "应用不启用认证，不涉及权限控制，内部员工可直接访问两个页面。",
+    "两个页面均不包含任何输入控件，不涉及校验状态。"
   ],
   "confirmation_status": "confirmed"
 }

@@ -5,7 +5,7 @@
 
 ## 技术架构
 
-- 前端：A React single-page PC client renders a static welcome page with side navigation and an enabled header; it performs no API calls and displays the hardcoded text 'hello world'.
+- 前端：A React single-page PC client with a side navigation layout, enabled header, and disabled footer. It renders two static pages (welcome and Agent greeting) with hard-coded text and performs no backend API calls.
 - 后端：后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。
 - 数据：数据库固定使用 MySQL8，缓存固定使用 Redis。
 
@@ -20,6 +20,14 @@
 ## 页面技术引用
 
 ### `home`
+
+Endpoint 依赖：
+  - 无
+
+业务 Action 实现：
+  - 无
+
+### `agent_greeting`
 
 Endpoint 依赖：
   - 无

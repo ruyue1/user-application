@@ -1,22 +1,22 @@
 {
-  "planning_run_id": "planning-af9efdd1922a4871a032301b5e7add12",
-  "workflow_run_id": "a128cee2-d513-4734-8033-f3a008d6d8dd",
-  "thread_id": "f44ed490-0a4d-4a8d-94d5-038e3296ef79",
+  "planning_run_id": "planning-4e61468c13e24852a83af951b25d50bc",
+  "workflow_run_id": "5428081a-40f0-4eba-8024-b363847144b0",
+  "thread_id": "a8a07dc8-b27b-451f-b961-e63fd9ce2dbf",
   "revision": 8,
   "status": "active",
   "phase": "persisting_pending",
   "build_execution_scope": {
     "type": "page",
-    "targetId": "home"
+    "targetId": "agent_greeting"
   },
-  "input_fingerprint": "b7080024adf5db297006b65e55f9c8dcffc2c22f818224979a8e94115786ef9a",
+  "input_fingerprint": "52b95b5386bdf550e8d1966b325eb9cbd86a4b8f87963aa77a32802f3fe1c522",
   "base_confirmed_plan_digest": null,
   "required_unit_ids": [
     "frontend:shell",
-    "page:home"
+    "page:agent_greeting"
   ],
   "planning_unit_ids": [
-    "page:home"
+    "page:agent_greeting"
   ],
   "global_repair_round": 0,
   "global_repair_limit": 2,
@@ -39,8 +39,8 @@
       "round_history": [],
       "expected_identity": null
     },
-    "page:home": {
-      "unit_id": "page:home",
+    "page:agent_greeting": {
+      "unit_id": "page:agent_greeting",
       "kind": "page",
       "participation": "generate_only",
       "generation_strategy": "model",
@@ -50,14 +50,14 @@
       "total_attempts": 1,
       "retained_task_ids": [],
       "reusable_capabilities": [],
-      "latest_candidate_id": "candidate-84a745e2bbb64ae0bccf17ba0ccb5c4c",
+      "latest_candidate_id": "candidate-2ae58e3e3c6e44c9b0b15b83922bad0a",
       "candidate_task_count": 1,
       "current_issues": [],
       "round_history": [],
       "expected_identity": null
     }
   },
-  "started_at": "2026-09-19T14:44:12.996728Z",
-  "updated_at": "2026-09-19T14:44:21.174576Z",
+  "started_at": "2026-09-19T14:47:50.412635Z",
+  "updated_at": "2026-09-19T14:47:55.663737Z",
   "failure": null
 }

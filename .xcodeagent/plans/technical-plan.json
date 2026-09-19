@@ -1,7 +1,7 @@
 {
   "artifact_type": "technical-plan",
   "architecture": {
-    "frontend": "A React single-page PC client renders a static welcome page with side navigation and an enabled header; it performs no API calls and displays the hardcoded text 'hello world'.",
+    "frontend": "A React single-page PC client with a side navigation layout, enabled header, and disabled footer. It renders two static pages (welcome and Agent greeting) with hard-coded text and performs no backend API calls.",
     "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
     "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
   },
@@ -10,6 +10,13 @@
   "pages": [
     {
       "pageId": "home",
+      "references": {
+        "endpoint_dependencies": [],
+        "action_implementations": []
+      }
+    },
+    {
+      "pageId": "agent_greeting",
       "references": {
         "endpoint_dependencies": [],
         "action_implementations": []
@@ -34,8 +41,8 @@
     },
     "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
   },
-  "sourceConfigRevision": 1,
-  "product_plan_sha256": "03befd59835f979ff7b32f1b3e0a4cce4364bc148727a36c3c6ae204e60ca614",
-  "ui_designs_sha256": "70a00adacd04700204fbafd7581f3884b56e39f03f43aba90127ba46d43436e8",
+  "sourceConfigRevision": 3,
+  "product_plan_sha256": "618aea4600da79d0ae98c2b50dad5e41702ac7fa5a15150ff615dde4cf3ca7a4",
+  "ui_designs_sha256": "8af59457921cbb20294a82b27f38993c3a068b3f13ab85d0bb1cf92a0082a935",
   "confirmation_status": "confirmed"
 }
