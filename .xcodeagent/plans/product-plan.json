@@ -1,0 +1,80 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-09-19T14:43:44.219401+00:00",
+  "requirement_spec_sha256": "58aed8e092b71647625c05991315deeaccd5d07e64784375189e6ca1a5e36f23",
+  "app": {
+    "name": "欢迎页",
+    "summary": "「欢迎页」是一个面向内部员工的纯展示型 PC 应用，提供单一欢迎页，页面直接展示写死的文案“hello world”，不依赖任何后端 API 接口；采用 side（侧边）导航布局，页头启用、页脚禁用，数据源类型为 database，认证不启用，不涉及权限控制。本轮按需求文档、产品规划、UI 设计（可跳过）和技术规划顺序推进，不直接生成业务代码。"
+  },
+  "business_flows": [
+    {
+      "name": "查看欢迎页",
+      "steps": [
+        "内部员工在 PC 浏览器打开「欢迎页」应用",
+        "应用直接进入欢迎页首页，展示 side 导航布局与启用的页头",
+        "页面渲染写死的字符串“hello world”欢迎文案",
+        "内部员工阅读文案后离开或关闭页面"
+      ],
+      "id": "flow_view_welcome_page",
+      "description": "内部员工打开应用后直接进入欢迎页并阅读写死的 hello world 欢迎文案。"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "home",
+      "name": "欢迎页",
+      "path": "/page/home",
+      "module_id": "module_welcome_display",
+      "description": "应用首页与唯一页面，面向内部员工展示写死的欢迎文案“hello world”；使用 side 导航布局，页头启用、页脚禁用，无任何后端 API 交互。",
+      "goal": "让内部员工打开应用后立即看到写死的欢迎文案“hello world”，无需任何操作即可完成信息获取。",
+      "information_items": [
+        {
+          "itemId": "welcome_message",
+          "label": "欢迎文案",
+          "description": "页面中央展示的写死字符串“hello world”，作为应用唯一的信息内容。"
+        },
+        {
+          "itemId": "page_header",
+          "label": "页头",
+          "description": "启用的页头区域，用于承载应用名称等基础标识信息。"
+        },
+        {
+          "itemId": "side_navigation",
+          "label": "侧边导航",
+          "description": "side 布局的侧边导航区域，当前仅包含欢迎页一个入口。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面打开时直接展示欢迎文案，不出现加载中提示或骨架屏。",
+        "empty": "欢迎文案为写死内容，不存在空状态。",
+        "error": "页面不依赖任何后端接口，不存在接口错误状态。",
+        "success": "页面正常打开后，欢迎文案“hello world”完整可见。",
+        "validation": "页面无用户输入，不涉及校验状态。"
+      },
+      "acceptance_criteria": [
+        "内部员工在 PC 浏览器打开应用后直接进入欢迎页，无需登录或额外操作。",
+        "欢迎页展示写死的字符串“hello world”。",
+        "欢迎页采用 side 侧边导航布局，页头启用、页脚禁用。",
+        "欢迎页不发起任何后端 API 请求，页面内容不依赖外部数据。",
+        "欢迎页在 PC 终端下可正常阅读，文案完整可见。"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "应用名称为「欢迎页」，面向内部员工，目标终端为 PC。",
+    "应用仅包含一个页面：欢迎页，路径为 /page/home。",
+    "欢迎页直接展示写死的字符串“hello world”。",
+    "欢迎页采用 side 侧边导航布局，页头启用、页脚禁用。",
+    "应用不启用认证，不涉及权限控制，内部员工打开即可访问。",
+    "应用不依赖任何后端 API 接口，页面内容不随外部数据变化。",
+    "内部员工打开应用后无需任何操作即可看到欢迎文案。"
+  ],
+  "confirmation_status": "confirmed"
+}

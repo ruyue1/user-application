@@ -1,0 +1,41 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "A React single-page PC client renders a static welcome page with side navigation and an enabled header; it performs no API calls and displays the hardcoded text 'hello world'.",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [],
+  "api_contracts": [],
+  "pages": [
+    {
+      "pageId": "home",
+      "references": {
+        "endpoint_dependencies": [],
+        "action_implementations": []
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 1,
+  "product_plan_sha256": "03befd59835f979ff7b32f1b3e0a4cce4364bc148727a36c3c6ae204e60ca614",
+  "ui_designs_sha256": "70a00adacd04700204fbafd7581f3884b56e39f03f43aba90127ba46d43436e8",
+  "confirmation_status": "confirmed"
+}
