@@ -6,3 +6,6 @@ allowBuilds:
 # Fail installation when a newly introduced dependency requires an
 # unreviewed build script, instead of silently skipping it.
 strictDepBuilds: true
+
+overrides:
+  form-data: 4.0.5

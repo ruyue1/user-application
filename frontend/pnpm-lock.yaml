@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  form-data: 4.0.5
+
 importers:
 
   .:
@@ -24,8 +27,8 @@ importers:
         specifier: ^5.22.6
         version: 5.29.3(date-fns@4.4.0)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       axios:
-        specifier: ^1.3.6
-        version: 1.20.0
+        specifier: 1.15.0
+        version: 1.15.0
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -1239,10 +1242,6 @@ packages:
   add-dom-event-listener@1.1.0:
     resolution: {integrity: sha512-WCxx1ixHT0GQU9hb0KI/mhgRQhnU+U3GvwY6ZvVjYq8rsihIGoaIOUbY0yMPBxLH5MDtr0kz3fisWGNcbWW7Jw==}
 
-  agent-base@6.0.0:
-    resolution: {integrity: sha512-j1Q7cSCqN+AwrmDd+pzgqc0/NpC655x2bUf5ZjRIO77DcNBFmh+OgRNzF6OKdCC9RSCb19fGd99+bhXFdkRNqw==}
-    engines: {node: '>= 6.0.0'}
-
   ahooks@3.10.0:
     resolution: {integrity: sha512-gwlBIjvG6x9UDOxZJeJ9l4x/nlrfrHBEqmau0b2mqchwWKOwAGAMXVE7rJXy883y9hzUTn+xlHgJHcJrf98Haw==}
     peerDependencies:
@@ -1342,8 +1341,8 @@ packages:
   aws4@1.13.2:
     resolution: {integrity: sha512-lHe62zvbTB5eEABUVi/AwVh0ZKY9rMMDhmm+eeyuuUQbQ3+J+fONVQOZyj+DdrvD4BY33uYniyRJ4UJIaSKAfw==}
 
-  axios@1.20.0:
-    resolution: {integrity: sha512-r8aOh8j9cGKpgQAqpzrUHnSIc6a59Y3Xf/cv8sy1DrHCkZHzQGEuoq1tARk6qSyDdtQGSDgpb9kFlruzPvrgwg==}
+  axios@1.15.0:
+    resolution: {integrity: sha512-wWyJDlAatxk30ZJer+GeCWS209sA42X+N5jU2jy6oHTp7ufw8uzUTVFBX9+wTfAlhiJXGS0Bq7X6efruWjuK9Q==}
 
   babel-jest@27.0.0:
     resolution: {integrity: sha512-XbJIMSvDJNgWjWtormGfbaOpwWJLl4s56RRmVPyN3wE32txby3GHITsVY5I0OFo7siV5Bukuc/2F+EhwucY/dQ==}
@@ -1504,10 +1503,6 @@ packages:
 
   color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
-
-  combined-stream@1.0.6:
-    resolution: {integrity: sha512-cN6NJ9NnPLDiP/CpmVC1knLFqNjD9Hi1vPsacL/WQP3v8cqVbZpbpX6NHmYJo2fR4B80CgE4cEgPWiDauAQzPw==}
-    engines: {node: '>= 0.8'}
 
   combined-stream@1.0.8:
     resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
@@ -2014,12 +2009,8 @@ packages:
   forever-agent@0.6.1:
     resolution: {integrity: sha512-j0KLYPhm6zeac4lz3oJ3o65qvgQCcPubiyotZrXqEaG4hNagNYO8qdlUrX5vwqv9ohqeT/Z3j6+yW067yWWdUw==}
 
-  form-data@2.3.2:
-    resolution: {integrity: sha512-6DD2fGWwyxCca2EASUT50GsxWEuwNQDpjMhD9TTaBvI1NE3nLkCr5v7nRdtlmG5g+mNqosdOVHVro+UGmp0Kcw==}
-    engines: {node: '>= 0.12'}
-
-  form-data@4.0.6:
-    resolution: {integrity: sha512-vKatAh4SlVfgbv+YtmhiRjhEMJsYpsG1Y2rMQtR+SVSbytsSD1YGzDIcrAJmdFec88u/+VoGmxnl+80gL1tRCQ==}
+  form-data@4.0.5:
+    resolution: {integrity: sha512-8RipRLol37bNs2bhoV67fiTEvdTrbMUYcFTiy3+wuuOnUog2QBHCZWXDRijWQfAkhBj2Uf5UnVaiWwA5vdd82w==}
     engines: {node: '>= 6'}
 
   fraction.js@5.3.4:
@@ -2143,10 +2134,6 @@ packages:
     resolution: {integrity: sha512-CAbnr6Rz4CYQkLYUtSNXxQPUH2gK8f3iWexVlsnMeD+GjlsQ0Xsy1cOX+mN3dtxYomRy21CiOzU8Uhw6OwncEQ==}
     engines: {node: '>=0.8', npm: '>=1.3.7'}
 
-  https-proxy-agent@5.0.1:
-    resolution: {integrity: sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==}
-    engines: {node: '>= 6'}
-
   human-signals@2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
@@ -2154,10 +2141,6 @@ packages:
   iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
-
-  iconv-lite@0.4.4:
-    resolution: {integrity: sha512-BnjNp13aZpK4WBGbmjaNHN2MCp3P850n8zd/JLinQJ8Lsnq2Br4o2467C2waMsY5kr7Z41SL1gEqh8Vbfzg15A==}
-    engines: {node: '>=0.8.0'}
 
   iconv-lite@0.6.0:
     resolution: {integrity: sha512-43ZpGYZ9QtuutX5l6WC1DSO8ane9N+Ct5qPLF2OV7vM9abM69gnAbVkh66ibaZd3aOGkoP1ZmringlKhLBkw2Q==}
@@ -3978,7 +3961,7 @@ packages:
 
   uuid@3.3.2:
     resolution: {integrity: sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==}
-    deprecated: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   uvu@0.5.6:
@@ -4067,6 +4050,7 @@ packages:
 
   whatwg-encoding@1.0.5:
     resolution: {integrity: sha512-b5lim54JOPN9HtzvK9HFXvBma/rnfFeqsic0hSpjtDbVxR3dJKLc+KB4V6GgiGOvl7CY/KNh8rxSo9DKQrnUEw==}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-mimetype@2.3.0:
     resolution: {integrity: sha512-M4yMwr6mAnQz76TbJm914+gPpB/nCwvZbJU28cUD6dR004SAxDLOOSUaB1JDRqLtaOV/vi0IC5lEAGFgrjGv/g==}
@@ -4888,11 +4872,7 @@ snapshots:
       jest-runner: 27.0.0
       jest-runtime: 27.0.0
     transitivePeerDependencies:
-      - bufferutil
-      - canvas
       - supports-color
-      - ts-node
-      - utf-8-validate
 
   '@jest/transform@27.0.0':
     dependencies:
@@ -5403,12 +5383,6 @@ snapshots:
     dependencies:
       object-assign: 4.1.1
 
-  agent-base@6.0.0:
-    dependencies:
-      debug: 4.4.3
-    transitivePeerDependencies:
-      - supports-color
-
   ahooks@3.10.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.29.7
@@ -5568,15 +5542,13 @@ snapshots:
 
   aws4@1.13.2: {}
 
-  axios@1.20.0:
+  axios@1.15.0:
     dependencies:
       follow-redirects: 1.16.0
-      form-data: 4.0.6
-      https-proxy-agent: 5.0.1
+      form-data: 4.0.5
       proxy-from-env: 2.1.0
     transitivePeerDependencies:
       - debug
-      - supports-color
 
   babel-jest@27.0.0(@babel/core@7.29.7):
     dependencies:
@@ -5750,10 +5722,6 @@ snapshots:
 
   color-name@1.1.4: {}
 
-  combined-stream@1.0.6:
-    dependencies:
-      delayed-stream: 1.0.0
-
   combined-stream@1.0.8:
     dependencies:
       delayed-stream: 1.0.0
@@ -5775,6 +5743,7 @@ snapshots:
   copy-anything@3.0.5:
     dependencies:
       is-what: 4.1.16
+    optional: true
 
   copy-to-clipboard@3.3.3:
     dependencies:
@@ -6327,13 +6296,7 @@ snapshots:
 
   forever-agent@0.6.1: {}
 
-  form-data@2.3.2:
-    dependencies:
-      asynckit: 0.4.0
-      combined-stream: 1.0.6
-      mime-types: 2.1.19
-
-  form-data@4.0.6:
+  form-data@4.0.5:
     dependencies:
       asynckit: 0.4.0
       combined-stream: 1.0.8
@@ -6463,21 +6426,11 @@ snapshots:
       jsprim: 1.4.2
       sshpk: 1.18.0
 
-  https-proxy-agent@5.0.1:
-    dependencies:
-      agent-base: 6.0.0
-      debug: 4.4.3
-    transitivePeerDependencies:
-      - supports-color
-
   human-signals@2.1.0: {}
 
   iconv-lite@0.4.24:
     dependencies:
       safer-buffer: 2.1.2
-
-  iconv-lite@0.4.4:
-    optional: true
 
   iconv-lite@0.6.0:
     dependencies:
@@ -6655,7 +6608,8 @@ snapshots:
       call-bound: 1.0.4
       get-intrinsic: 1.3.0
 
-  is-what@4.1.16: {}
+  is-what@4.1.16:
+    optional: true
 
   isarray@2.0.5: {}
 
@@ -6721,7 +6675,11 @@ snapshots:
       stack-utils: 2.0.6
       throat: 6.0.2
     transitivePeerDependencies:
+      - bufferutil
+      - canvas
       - supports-color
+      - ts-node
+      - utf-8-validate
 
   jest-cli@27.0.0:
     dependencies:
@@ -7203,6 +7161,7 @@ snapshots:
       source-map: 0.6.1
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   leven@3.1.0: {}
 
@@ -7692,7 +7651,7 @@ snapshots:
   needle@2.5.2:
     dependencies:
       debug: 3.2.7
-      iconv-lite: 0.4.4
+      iconv-lite: 0.4.24
       sax: 1.6.1
     transitivePeerDependencies:
       - supports-color
@@ -7781,7 +7740,8 @@ snapshots:
       is-decimal: 2.0.1
       is-hexadecimal: 2.0.1
 
-  parse-node-version@1.0.1: {}
+  parse-node-version@1.0.1:
+    optional: true
 
   parse5@5.1.1: {}
 
@@ -8420,7 +8380,7 @@ snapshots:
       combined-stream: 1.0.8
       extend: 3.0.2
       forever-agent: 0.6.1
-      form-data: 2.3.2
+      form-data: 4.0.5
       har-validator: 5.1.5
       http-signature: 1.2.0
       is-typedarray: 1.0.0
