@@ -1,0 +1,470 @@
+{
+  "schema_version": "build-dag.v4",
+  "application": {
+    "unit_id": "application:root",
+    "status": "prepared"
+  },
+  "build_units": {
+    "application:root": {
+      "id": "application:root",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:shell": {
+      "id": "frontend:shell",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "generation_strategy": "prerequisite_only",
+      "participation": "prerequisite_only",
+      "generation_status": "not_required",
+      "input_fingerprint": "99ba9989baf0b60e7a4fb779cf6ca6b4642ff5295c811a95273134cb6d661551"
+    },
+    "frontend:api-client": {
+      "id": "frontend:api-client",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:auth-guard": {
+      "id": "frontend:auth-guard",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:bootstrap": {
+      "id": "backend:bootstrap",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "app:integration": {
+      "id": "app:integration",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "page:page_home": {
+      "id": "page:page_home",
+      "kind": "page",
+      "page_id": "page_home",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "page:page_hello_agent": {
+      "id": "page:page_hello_agent",
+      "kind": "page",
+      "page_id": "page_hello_agent",
+      "status": "prepared",
+      "task_ids": [
+        "page:page_hello_agent::page"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "page_implementation_contract",
+        "target": {
+          "type": "page",
+          "id": "page_hello_agent",
+          "page_key": "PageHelloAgent"
+        },
+        "page_implementation_contract": {
+          "id": "page_hello_agent",
+          "ui_design_path": "",
+          "ui_design_sha256": ""
+        },
+        "endpoint_ids": [],
+        "entity_ids": [],
+        "endpoint_designs": [],
+        "mapping_flows": []
+      },
+      "input_fingerprint": "0918ffad5e87775cdb1ef62b126e19e61ccf3ad07150d3bffad93d0dc0bc9b58"
+    }
+  },
+  "unit_graph": {
+    "schema_version": "build-unit-graph.v3",
+    "nodes": [
+      "application:root",
+      "frontend:shell",
+      "frontend:api-client",
+      "frontend:auth-guard",
+      "backend:bootstrap",
+      "app:integration",
+      "page:page_home",
+      "page:page_hello_agent"
+    ],
+    "edges": [
+      {
+        "from": "application:root",
+        "to": "frontend:shell",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:api-client",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:auth-guard",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:bootstrap",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "page:page_home",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:page_home",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:page_home",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:page_home",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:page_hello_agent",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:page_hello_agent",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:page_hello_agent",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:page_hello_agent",
+        "to": "app:integration",
+        "type": "depends_on"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "unit_skeleton": {
+    "input_fingerprint": "704d3dc662c25257ea6343946f605a49293a69c13e1b797386d0685423bb40f9",
+    "project_plan_version": null,
+    "workspace_revision": "f15b3158e8f5fc1b3eb45baf",
+    "reused": false
+  },
+  "task_registry": {
+    "page:page_hello_agent::page": {
+      "id": "page:page_hello_agent::page",
+      "unit_id": "page:page_hello_agent",
+      "owner": "frontend",
+      "task_type": "frontend.code",
+      "status": "completed",
+      "title": "实现 Hello Agent 静态展示页 PageHelloAgent",
+      "description": "在 frontend/src/pages/PageHelloAgent/index.tsx 新建并实现页面 page_hello_agent 的 React 页面组件：页面居中展示写死的字符串“hello agent!”。严格遵守冻结的 PageImplementationContract：requiredEndpointIds 为空，页面不发起任何数据请求，不引入 API 客户端调用；不包含表单、按钮等任何交互入口，也不展示 loading、空数据或错误提示。页面无需登录即可访问，权限与跳转由平台侧负责，本任务不处理路由注册、菜单注册或权限守卫。PageKey 固定为 PageHelloAgent，页面入口固定为 frontend/src/pages/PageHelloAgent/index.tsx，不得自行推导或改写。样式可采用内联样式或页面自有样式，仅服务于居中展示需求。",
+      "target_files": [
+        "frontend/src/pages/PageHelloAgent/index.tsx"
+      ],
+      "allowed_paths": [
+        "frontend/src/pages/PageHelloAgent/index.tsx"
+      ],
+      "change_scope": [
+        {
+          "path": "frontend/src/pages/PageHelloAgent/index.tsx",
+          "operation": "add",
+          "description": "新增 PageHelloAgent 页面组件文件，居中渲染静态文本“hello agent!”，无请求、无交互、无加载/空态/错误态"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "page:page_hello_agent::page::deliverable",
+          "kind": "frontend.page",
+          "target_id": "page_hello_agent",
+          "paths": [
+            "frontend/src/pages/PageHelloAgent/index.tsx"
+          ],
+          "provides": [
+            "frontend.page:page_hello_agent"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "can_run_in_parallel": true,
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "impact_scope": {
+        "affected_modules": [
+          "frontend/src/pages/PageHelloAgent"
+        ],
+        "public_contracts": [
+          "frontend.page:page_hello_agent"
+        ],
+        "risks": [
+          "新增页面文件尚未接入路由注册，需由平台侧导航装配完成可达性",
+          "若后续 PageImplementationContract 增加数据请求或交互要求，需重新规划该页面实现"
+        ],
+        "summary": "新增 page_hello_agent 页面入口文件，实现居中展示“hello agent!”的纯静态展示页，不涉及接口、路由、权限及平台职责。"
+      },
+      "source_refs": {
+        "type": "page_implementation_contract",
+        "target": {
+          "type": "page",
+          "id": "page_hello_agent",
+          "page_key": "PageHelloAgent"
+        },
+        "page_implementation_contract": {
+          "id": "page_hello_agent",
+          "ui_design_path": "",
+          "ui_design_sha256": ""
+        },
+        "endpoint_ids": [],
+        "entity_ids": [],
+        "endpoint_designs": [],
+        "mapping_flows": []
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "page:page_hello_agent"
+      ],
+      "unit_dependencies": [
+        "frontend:shell",
+        "frontend:api-client"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [
+        "frontend:api-client"
+      ],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:page:page_hello_agent::page:file_operation:c4dd07f7421e",
+          "kind": "file_operation",
+          "description": "工程文件 frontend/src/pages/PageHelloAgent/index.tsx 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/PageHelloAgent/index.tsx"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:page_hello_agent::page:scope_boundary:ce0277ca1f70",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/PageHelloAgent/index.tsx"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "frontend/src/pages/PageHelloAgent/index.tsx"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:page_hello_agent::page:page_entry:84f6d7f5446b",
+          "kind": "page_entry",
+          "description": "页面交付物必须包含可读取的 index.tsx 页面入口。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/PageHelloAgent/index.tsx"
+          ],
+          "expected": {
+            "page_id": "page_hello_agent",
+            "entry_path": "frontend/src/pages/PageHelloAgent/index.tsx"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:page_hello_agent::page:page_default_export:6fae0df621f2",
+          "kind": "page_default_export",
+          "description": "页面入口必须提供 default export，确保路由可以加载页面组件。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/PageHelloAgent/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/PageHelloAgent/index.tsx",
+            "requires_default_export": true
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:page_hello_agent::page:page_placeholder:7c2b770d5aeb",
+          "kind": "page_placeholder",
+          "description": "页面入口不得保留模板占位内容。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/PageHelloAgent/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/PageHelloAgent/index.tsx",
+            "forbidden_markers": [
+              "hello agent!",
+              "待 Agent 生成真实内容",
+              "待agent生成真实内容",
+              "临时占位",
+              "placeholder content"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:page_hello_agent::page:frontend_api_boundary:85e28508deec",
+          "kind": "frontend_api_boundary",
+          "description": "页面和任务内组件不得直接调用 fetch、axios 或 service；业务接口必须经 src/apis/ 与 useRequest。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/PageHelloAgent/index.tsx"
+          ],
+          "expected": {},
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": [],
+      "failure_category": null,
+      "updated_at": "2026-09-21T11:57:39.165118+00:00",
+      "scheduler": {
+        "started_at": "2026-09-21T11:57:13.851986+00:00"
+      },
+      "failure_detail": null,
+      "updated_by": "build-scheduler",
+      "acceptance_evidence": [],
+      "business_acceptance_summary": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0,
+        "blocked": 0,
+        "skipped": 0,
+        "duration_ms_total": 0,
+        "duration_ms_avg": 0,
+        "by_kind": {}
+      },
+      "last_result_status": "completed",
+      "business_acceptance_evidence": [],
+      "acceptance_status": {
+        "engineering": "skipped",
+        "business": "skipped"
+      },
+      "failure_reason": null
+    }
+  },
+  "task_graph": {
+    "schema_version": "build-task-graph.v3",
+    "nodes": [
+      "page:page_hello_agent::page"
+    ],
+    "edges": [],
+    "roots": [
+      "page:page_hello_agent::page"
+    ],
+    "leaves": [
+      "page:page_hello_agent::page"
+    ],
+    "topological_order": [
+      "page:page_hello_agent::page"
+    ],
+    "execution_layers": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "page:page_hello_agent::page"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "summary": {
+    "total": 1,
+    "frontend": 1,
+    "backend": 0,
+    "database": 0,
+    "pending": 0,
+    "running": 0,
+    "completed": 1,
+    "already_satisfied": 0,
+    "failed": 0,
+    "results": 1
+  },
+  "execution": {
+    "batches": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "page:page_hello_agent::page"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      }
+    ],
+    "blocked_batches": []
+  },
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "page_hello_agent"
+  },
+  "template_context": {
+    "state_path": ".xcodeagent/template-state.json",
+    "template_revision": "2026.09.13.1",
+    "effective_capabilities": {}
+  },
+  "status": "ready",
+  "confirmation_status": "confirmed",
+  "confirmed_at": "2026-09-21T11:57:13.827232+00:00",
+  "confirmed_from": {
+    "planning_run_id": "planning-92fb6ac6e16945e7be1f96e3701709c7",
+    "draft_digest": "10fd11a2f353109177a009fccc4573db292d48430519e082e10214c843eedf7f"
+  },
+  "last_update": {
+    "stage": "build_scheduler",
+    "updated_by": "build-scheduler",
+    "updated_at": "2026-09-21T11:57:39.166365+00:00"
+  }
+}

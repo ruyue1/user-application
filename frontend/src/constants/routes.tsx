@@ -8,5 +8,9 @@ export const PAGE_ROUTES: PageRouteDefinition[] = [
     name: "Hello World 展示页",
     pageId: "page_home",
   },
+  {
+    name: "Hello Agent 展示页",
+    pageId: "page_hello_agent",
+  },
   // XCODEAGENT_BUSINESS_ROUTES_END
 ];
