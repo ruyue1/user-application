@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "generated_at": "2026-09-21T11:57:52.551330+00:00",
+  "generated_at": "2026-09-21T12:01:02.640187+00:00",
   "passed": true,
   "checks": [
     {
@@ -24,13 +24,13 @@
         "returncode": 0,
         "timed_out": false,
         "error": null,
-        "started_at": "2026-09-21T11:57:43.077175+00:00",
-        "finished_at": "2026-09-21T11:57:43.556186+00:00",
+        "started_at": "2026-09-21T12:00:47.978090+00:00",
+        "finished_at": "2026-09-21T12:00:48.461385+00:00",
         "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092110/.xcodeagent/runtime/tests/frontend_install/stdout.log",
         "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092110/.xcodeagent/runtime/tests/frontend_install/stderr.log",
         "stdout_log_virtual": "/.xcodeagent/runtime/tests/frontend_install/stdout.log",
         "stderr_log_virtual": "/.xcodeagent/runtime/tests/frontend_install/stderr.log",
-        "stdout_tail": "Already up to date\nDone in 253ms using pnpm v11.9.0\n",
+        "stdout_tail": "Already up to date\nDone in 254ms using pnpm v11.9.0\n",
         "stderr_tail": "[WARN] The \"pnpm\" field in package.json is no longer read by pnpm. The following keys were ignored: \"pnpm.overrides\". See https://pnpm.io/settings for the new home of each setting.\n"
       }
     },
@@ -56,13 +56,13 @@
         "returncode": 0,
         "timed_out": false,
         "error": null,
-        "started_at": "2026-09-21T11:57:43.557038+00:00",
-        "finished_at": "2026-09-21T11:57:49.332375+00:00",
+        "started_at": "2026-09-21T12:00:48.462425+00:00",
+        "finished_at": "2026-09-21T12:00:54.650840+00:00",
         "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092110/.xcodeagent/runtime/tests/frontend_build/stdout.log",
         "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092110/.xcodeagent/runtime/tests/frontend_build/stderr.log",
         "stdout_log_virtual": "/.xcodeagent/runtime/tests/frontend_build/stdout.log",
         "stderr_log_virtual": "/.xcodeagent/runtime/tests/frontend_build/stderr.log",
-        "stdout_tail": "vite v6.4.3 building for production...\ntransforming...\n✓ 3887 modules transformed.\nrendering chunks...\ncomputing gzip size...\nbuild/index.html                    0.71 kB │ gzip:   0.41 kB\nbuild/assets/index-DB_RL7Qy.css     5.08 kB │ gzip:   1.64 kB\nbuild/assets/index-oTGZRdur.js      0.20 kB │ gzip:   0.21 kB\nbuild/assets/index-Cy3cig5M.js      0.35 kB │ gzip:   0.26 kB\nbuild/assets/index-DCSZdVnT.js      0.38 kB │ gzip:   0.29 kB\nbuild/assets/ProCard-j_SagC0n.js   63.08 kB │ gzip:  19.76 kB\nbuild/assets/index-Vxx38Py1.js    771.55 kB │ gzip: 254.08 kB\n✓ built in 3.38s\n",
+        "stdout_tail": "vite v6.4.3 building for production...\ntransforming...\n✓ 3888 modules transformed.\nrendering chunks...\ncomputing gzip size...\nbuild/index.html                    0.71 kB │ gzip:   0.41 kB\nbuild/assets/index-DB_RL7Qy.css     5.08 kB │ gzip:   1.64 kB\nbuild/assets/index-B8teANJP.js      0.20 kB │ gzip:   0.21 kB\nbuild/assets/index-D9R2SvUO.js      0.35 kB │ gzip:   0.27 kB\nbuild/assets/index-DifL2GxT.js      0.36 kB │ gzip:   0.29 kB\nbuild/assets/index-lhVJ_KXE.js      0.38 kB │ gzip:   0.29 kB\nbuild/assets/ProCard-BPO46m_Q.js   63.08 kB │ gzip:  19.76 kB\nbuild/assets/index-BsS6Imnq.js    771.74 kB │ gzip: 254.13 kB\n✓ built in 3.72s\n",
         "stderr_tail": "[WARN] The \"pnpm\" field in package.json is no longer read by pnpm. The following keys were ignored: \"pnpm.overrides\". See https://pnpm.io/settings for the new home of each setting.\n$ tsc -b && vite build\n\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n"
       }
     },
@@ -107,7 +107,7 @@
         "stdout_log": null,
         "stderr_log": null
       },
-      "source_fingerprint": "b4892af50a607d86f66d6a03c046710e146d106edd7c36e1cc6a0cba62dd4134"
+      "source_fingerprint": "59afd1cffd3e70c07ee7dba1217389f39695badd3dda6634fb8da1336aac6255"
     },
     {
       "id": "backend_static_check",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 7,
+  "configRevision": 8,
   "appName": "agent欢迎页",
   "appIcon": "AppstoreOutlined",
   "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
@@ -59,21 +59,6 @@
     "traceBaggage": "",
     "apiTrackHost": ""
   },
-  "id": "1789991479868-vuacqg",
-  "name": "agent欢迎页",
-  "workspaceRoot": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092110",
-  "projectParentPath": "",
-  "projectDirectoryName": "2026092110",
-  "source": "new",
-  "legacyTheme": "custom",
-  "legacyLayout": "side-nav",
-  "enableTabs": false,
-  "pages": [
-    "默认页面"
-  ],
-  "defaultPage": "默认页面",
-  "hasDynamicRoutes": false,
-  "lastOpenedAt": 1789991821624,
   "versions": [
     {
       "id": "1789991479868-vuacqg-v1-0",
@@ -743,6 +728,5 @@
       }
     }
   ],
-  "planningThreadId": "42ef6ffd-e8d6-4edc-a786-67d7f34e9131",
   "currentVersionId": "1789991479868-vuacqg-v1-2"
 }

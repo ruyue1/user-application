@@ -1,0 +1,55 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "A React single-page static display client renders three read-only pages through side navigation; it performs no REST calls, form submissions, or data mutations.",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [],
+  "api_contracts": [],
+  "pages": [
+    {
+      "pageId": "page_home",
+      "references": {
+        "endpoint_dependencies": [],
+        "action_implementations": []
+      }
+    },
+    {
+      "pageId": "page_hello_agent",
+      "references": {
+        "endpoint_dependencies": [],
+        "action_implementations": []
+      }
+    },
+    {
+      "pageId": "page_hello_greeting",
+      "references": {
+        "endpoint_dependencies": [],
+        "action_implementations": []
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 7,
+  "product_plan_sha256": "b0b21112b2b468ef686a9607f4fb8c2c6721935cd23e54807cb3d63974a542b4",
+  "ui_designs_sha256": "1e961078220c118177a3e3593a1c160c4fbb2447b585b351b5b3ccec82c8e6db",
+  "confirmation_status": "confirmed"
+}
