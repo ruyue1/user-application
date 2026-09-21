@@ -1,0 +1,41 @@
+{
+  "application": {
+    "id": "1789991479868-vuacqg",
+    "name": "agent欢迎页"
+  },
+  "updatedAt": "2026-09-21T11:52:08.974011Z",
+  "revision": 12,
+  "developmentArtifacts": {
+    "pages": {
+      "page_home": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null
+      }
+    },
+    "entities": {},
+    "endpoints": {},
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "dabba9bf-ef92-405d-bcbc-f5c49791d0cc"
+  },
+  "activeRunId": "915292d7-0bf5-48d4-ada4-9d1bb15ce403",
+  "activeExecutions": {},
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}

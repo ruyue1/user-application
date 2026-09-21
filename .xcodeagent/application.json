@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 6,
+  "configRevision": 2,
+  "appName": "agent欢迎页",
+  "appIcon": "AppstoreOutlined",
+  "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
+  "versionNo": "v1.0",
+  "repoUrl": "https://github.com/ruyue1/user-application",
+  "terminal": "PC",
+  "layout": {
+    "type": "side",
+    "useHeader": true,
+    "useFooter": false
+  },
+  "theme": {
+    "primaryColor": "#6b3cf0"
+  },
+  "datasource": {
+    "type": "database",
+    "db": {
+      "useBuiltin": false,
+      "plantMode": {
+        "domain": "1227.0.0.1",
+        "port": 3306,
+        "userName": "root",
+        "pwd": "xcodeagent-secret:v1:rsa-oaep-256:platform-key-v1:h-ReTeiAQUbfV2tesG7IklWJB1cargx0vQt-wE7BFjkziry-GuH0ASRZhJWqiuv8XfZeFzKMJ_LGDXzfrd873AsG2Xda49ohj3Pj8taqYkyAdRKbPmDwkSqtomBOigf6e3-Mik57EK99AMy5VZWiRCQMJ7kJPXfstjVYJCi7MXZjOyM_xE8p4A6d7gYbH5eNXIq3i_OV01jCwsHa0uJmF2NVzJ7cb55Zc4TTMcldg4pogmGdFaVOTfnGmktG6_UYhjrNPVQrfoCBVwTJgKaQSZeLRkcpFcMcNZdirU2KXgF0w70c35dLGQ8gWCpArQOHc1dJyv7kAJqfkx5b7T-0IKgKV-xsNVeeniRiNNWo5hOU-6smCliJr_dZNjCB5Waqt4pmdOzUbUUx5pYVdajdNj4EU19yFn0vIepbcBUzDsDyAWQg6s9m097ChH7C8I-4TS6Vz86rVgsA8ohaG-8gXZ1q8b6hCYaYjq2T7GEiehWAyqDZ_9mLmpw_pG1mtAje",
+        "schema": "xc"
+      }
+    }
+  },
+  "env": [],
+  "menus": {
+    "enable": true,
+    "rootPath": "/page",
+    "homeMenuKey": "",
+    "items": []
+  },
+  "apis": [],
+  "auth": {
+    "enable": false,
+    "authnSource": "",
+    "yht": {
+      "clientId": ""
+    }
+  },
+  "authorization": {
+    "enabled": false,
+    "initialAdministratorSubjects": []
+  },
+  "track": {
+    "enable": false,
+    "uploadId": "",
+    "apiHost": "",
+    "method": "post"
+  },
+  "apiTrack": {
+    "enable": false,
+    "businessId": "",
+    "traceBaggage": "",
+    "apiTrackHost": ""
+  },
+  "versions": []
+}
