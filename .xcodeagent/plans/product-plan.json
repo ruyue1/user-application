@@ -1,11 +1,11 @@
 {
   "schema_version": "product-plan.v5",
   "version": "0.1.0",
-  "generated_at": "2026-09-21T11:51:54.936639+00:00",
-  "requirement_spec_sha256": "00fcc2d75052401ba84792227dca49b3ff89423751de555fee6a3c8e7a4fcb63",
+  "generated_at": "2026-09-21T11:56:37.781287+00:00",
+  "requirement_spec_sha256": "ace5f82cd489c2e6c6304ce6c2b6ff9184c2a55d6e24b56c276e2efe0987c3f8",
   "app": {
     "name": "agent欢迎页",
-    "summary": "「agent欢迎页」是一个面向 PC 端的纯展示型应用，页面仅展示写死的字符串“hello world”，不包含任何后端 API 接口、认证或权限控制。应用采用 side 导航布局，页头启用、页脚禁用；当前用户确认的唯一业务参与者为访客（匿名浏览者），无需登录即可直接打开并查看展示内容。"
+    "summary": "「agent欢迎页」是一个面向 PC 端的纯展示型应用，本次迭代在原有 Hello World 展示页之外新增一个纯展示页面，居中展示写死的字符串“hello agent!”。两个页面均为静态文案展示，不包含任何后端 API 接口、表单交互或数据读写，也不涉及认证与权限控制。应用沿用 side 导航布局，页头启用、页脚禁用；当前用户确认的业务参与者为访客（匿名浏览者），无需登录即可直接打开导航中的任一展示页面查看内容。"
   },
   "business_flows": [
     {
@@ -18,38 +18,78 @@
       ],
       "id": "flow_view_hello_world",
       "description": "访客无需登录即可打开应用首页，查看写死的 hello world 字符串"
+    },
+    {
+      "name": "查看 Hello Agent 展示内容",
+      "steps": [
+        "访客在浏览器中打开 agent欢迎页 应用地址",
+        "访客通过 side 导航点击进入 Hello Agent 展示页",
+        "页面展示写死的字符串“hello agent!”",
+        "访客浏览完成后关闭或离开页面"
+      ],
+      "id": "flow_view_hello_agent",
+      "description": "访客无需登录即可进入新增展示页，查看写死的 hello agent! 字符串"
     }
   ],
   "pages": [
     {
       "pageId": "page_home",
       "name": "Hello World 展示页",
-      "path": "/page/page-home",
-      "module_id": "mod_hello_world_display",
+      "path": "/page/page/page-home",
+      "module_id": "module_hello_world_display",
       "description": "应用首页，纯展示页面，居中展示写死的字符串“hello world”，无表单、无交互操作、无数据请求",
       "goal": "让访客无需登录即可直接看到写死的字符串“hello world”，完成纯展示型应用的浏览目标。",
       "information_items": [
         {
           "itemId": "page_home_hello_world_text",
           "label": "Hello World 文案",
-          "description": "页面居中展示的写死字符串“hello world”，是访客在本应用唯一需要阅读的业务信息。"
+          "description": "页面居中展示的写死字符串“hello world”，是访客在本页需要看到的唯一业务信息。"
         }
       ],
       "actions": [],
       "navigation_targets": [],
       "state_requirements": {
-        "loading": "页面为纯静态展示，无需展示加载中状态，打开后直接呈现 hello world 文案。",
-        "empty": "页面内容为写死字符串，不存在空数据场景，始终展示 hello world 文案。",
-        "error": "页面不请求任何数据，不存在数据加载错误场景；若页面无法打开，由浏览器自身呈现访问错误。",
+        "loading": "页面为静态文案展示，打开后直接呈现“hello world”，无需展示加载提示。",
+        "empty": "页面内容为写死字符串，不存在内容为空的情况；若文案缺失应视为异常而非空状态。",
+        "error": "页面不依赖任何数据请求，正常打开时不应出现错误提示。",
         "success": "页面成功打开后，居中展示写死的字符串“hello world”。",
-        "validation": "页面无表单、无输入项，不需要任何校验状态。"
+        "validation": "页面无表单与输入项，不涉及校验状态。"
       },
       "acceptance_criteria": [
-        "访客在浏览器中打开应用地址后，直接进入 Hello World 展示页，无需登录或任何身份确认。",
-        "页面居中展示写死的字符串“hello world”，文案内容与大小写完全一致。",
-        "页面不出现表单、按钮、链接或其他需要访客主动操作才能查看文案的交互元素。",
-        "页面不发起任何后端数据请求，也不展示加载中、空数据或数据错误提示。",
-        "应用采用 side 导航布局，页头启用、页脚禁用，访客可看到页头与侧边导航区域。"
+        "访客无需登录即可打开 Hello World 展示页。",
+        "页面居中展示写死的字符串“hello world”。",
+        "页面不包含表单、按钮等交互操作入口。",
+        "页面不发起任何数据请求，也不展示加载、空数据或错误提示。"
+      ]
+    },
+    {
+      "pageId": "page_hello_agent",
+      "name": "Hello Agent 展示页",
+      "path": "/page/page/hello-agent",
+      "module_id": "module_hello_agent_display",
+      "description": "本次迭代新增的纯展示页面，居中展示写死的字符串“hello agent!”，无表单、无交互操作、无数据请求、无后端接口调用",
+      "goal": "让访客无需登录即可通过 side 导航进入本页，直接看到写死的字符串“hello agent!”，完成新增纯展示页面的浏览目标。",
+      "information_items": [
+        {
+          "itemId": "page_hello_agent_text",
+          "label": "Hello Agent 文案",
+          "description": "页面居中展示的写死字符串“hello agent!”，是访客在本页需要看到的唯一业务信息。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面为静态文案展示，打开后直接呈现“hello agent!”，无需展示加载提示。",
+        "empty": "页面内容为写死字符串，不存在内容为空的情况；若文案缺失应视为异常而非空状态。",
+        "error": "页面不依赖任何数据请求，正常打开时不应出现错误提示。",
+        "success": "页面成功打开后，居中展示写死的字符串“hello agent!”。",
+        "validation": "页面无表单与输入项，不涉及校验状态。"
+      },
+      "acceptance_criteria": [
+        "访客无需登录即可通过 side 导航进入 Hello Agent 展示页。",
+        "页面居中展示写死的字符串“hello agent!”。",
+        "页面不包含表单、按钮等交互操作入口。",
+        "页面不发起任何数据请求，也不展示加载、空数据或错误提示。"
       ]
     }
   ],
@@ -58,12 +98,12 @@
     "operationRules": []
   },
   "product_acceptance_criteria": [
-    "访客无需登录即可打开 agent欢迎页 并直接看到写死的字符串“hello world”。",
-    "应用仅包含一个 Hello World 展示页，页面路径为 /page/page-home，与需求中的页面一一对应。",
-    "应用采用 side 导航布局，页头启用、页脚禁用。",
-    "应用不包含任何后端 API 接口、认证流程或权限控制，访客为唯一业务参与者。",
-    "页面展示的 hello world 文案为写死内容，不依赖任何数据源、数据库或外部服务。",
-    "访客在 PC 端浏览器中可正常浏览该页面，页面无表单、无数据请求、无业务操作入口。"
+    "访客无需登录即可打开 agent欢迎页 应用并浏览任一展示页面。",
+    "应用提供 side 导航，访客可在 Hello World 展示页与 Hello Agent 展示页之间切换。",
+    "Hello World 展示页居中展示写死的字符串“hello world”。",
+    "Hello Agent 展示页居中展示写死的字符串“hello agent!”。",
+    "两个展示页面均不包含表单、交互操作入口或数据读写行为。",
+    "两个展示页面均不依赖后端接口，打开后直接呈现静态文案。"
   ],
   "confirmation_status": "confirmed"
 }
