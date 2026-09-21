@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "generated_at": "2026-09-21T08:30:48.224765+00:00",
+  "summary": "面向 PC 端的单页应用：唯一页面显示当前时间，无后端 API、无数据实体。导航布局为侧边栏，页头启用、页脚禁用，不启用登录认证，不涉及权限控制。",
+  "source_request": "请为新应用「年龄录入」完成需求、产品、UI（可跳过）和技术规划。；应用场景：只有一个页面，页面上显示当前时间，没有任何后端api和实体；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+  "app_info": {
+    "name": "年龄录入",
+    "summary": "面向 PC 端的单页应用：唯一页面显示当前时间，无后端 API、无数据实体。导航布局为侧边栏，页头启用、页脚禁用，不启用登录认证，不涉及权限控制。",
+    "target": "",
+    "menu_enabled": true,
+    "route_root_path": "/page"
+  },
+  "user_roles": [
+    {
+      "name": "普通用户",
+      "description": "打开应用页面并查看当前时间的普通访问用户",
+      "id": "general_user"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "时间展示",
+      "description": "应用唯一功能模块，在页面上显示当前时间",
+      "priority": "must",
+      "id": "time_display"
+    }
+  ],
+  "pages": [
+    {
+      "name": "首页",
+      "path": "/page/home",
+      "module_id": "time_display",
+      "description": "应用唯一页面，显示当前时间",
+      "pageId": "home",
+      "route_root_path": "/"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "查看当前时间",
+      "steps": [
+        "用户打开应用首页",
+        "页面加载并显示当前时间",
+        "页面上的时间随系统时间持续更新"
+      ],
+      "id": "view_current_time",
+      "description": "用户打开应用首页并在页面上查看当前时间"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\n  \"version\": \"1.0\",\n  \"status\": \"draft\",\n  \"generated_at\": \"2025-01-01T00:00:00Z\",\n  \"app_info\": {\n    \"name\": \"年龄录入\",\n    \"summary\": \"面向 PC 端的单页应用：唯一页面显示当前时间，无后端 API、无数据实体。导航布局为侧边栏，页头启用、页脚禁用，不启用登录认证，不涉及权限控制。\"\n  },\n  \"user_roles\": [\n    {\n      \"id\": \"general_user\",\n      \"name\": \"普通用户\",\n      \"description\": \"打开应用页面并查看当前时间的普通访问用户\"\n    }\n  ],\n  \"feature_modules\": [\n    {\n      \"id\": \"time_display\",\n      \"name\": \"时间展示\",\n      \"description\": \"应用唯一功能模块，在页面上显示当前时间\"\n    }\n  ],\n  \"pages\": [\n    {\n      \"pageId\": \"home\",\n      \"name\": \"首页\",\n      \"path\": \"/\",\n      \"module_id\": \"time_display\",\n      \"description\": \"应用唯一页面，显示当前时间\",\n      \"route_root_path\": \"/\"\n    }\n  ],\n  \"business_flows\": [\n    {\n      \"id\": \"view_current_time\",\n      \"name\": \"查看当前时间\",\n      \"description\": \"用户打开应用首页并在页面上查看当前时间\",\n      \"steps\": [\n        \"用户打开应用首页\",\n        \"页面加载并显示当前时间\",\n        \"页面上的时间随系统时间持续更新\"\n      ]\n    }\n  ],\n  \"authentication_requirements\": {\n    \"enabled\": false,\n    \"sourceRefs\": []\n  }\n}",
+  "approved": true,
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "z-ai/glm-5.3-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model",
+  "confirmation_status": "confirmed"
+}

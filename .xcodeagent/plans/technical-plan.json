@@ -1,0 +1,41 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "A PC-oriented single-page client renders one home page inside a sidebar navigation layout with header enabled and footer disabled. The current time, including date and hours-minutes-seconds, is generated from the client clock on load and refreshed continuously via a local timer, requiring no user interaction and no navigation entries to other pages.",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [],
+  "api_contracts": [],
+  "pages": [
+    {
+      "pageId": "home",
+      "references": {
+        "endpoint_dependencies": [],
+        "action_implementations": []
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 2,
+  "product_plan_sha256": "8944ce52017034d7fa4f119e5622029341811ca2ccf5706f718ff3444f110d2c",
+  "ui_designs_sha256": "3529333614095e1e3dc6ac245d7f55a07e5f0fad1a4b788c94dc1e2a840a805e",
+  "confirmation_status": "confirmed"
+}

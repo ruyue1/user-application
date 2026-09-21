@@ -1,0 +1,41 @@
+{
+  "application": {
+    "id": "1789979315637-bd34az",
+    "name": "年龄录入"
+  },
+  "updatedAt": "2026-09-21T08:47:32.541959Z",
+  "revision": 12,
+  "developmentArtifacts": {
+    "pages": {
+      "home": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null
+      }
+    },
+    "entities": {},
+    "endpoints": {},
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "53a8487c-6211-4b63-b94a-3beebd035fe0"
+  },
+  "activeRunId": "903ee7bf-f39e-4d3b-862d-ef3bedecb751",
+  "activeExecutions": {},
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}
