@@ -1,12 +1,12 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "status": "draft",
-  "generated_at": "2026-09-21T08:30:48.224765+00:00",
-  "summary": "面向 PC 端的单页应用：唯一页面显示当前时间，无后端 API、无数据实体。导航布局为侧边栏，页头启用、页脚禁用，不启用登录认证，不涉及权限控制。",
-  "source_request": "请为新应用「年龄录入」完成需求、产品、UI（可跳过）和技术规划。；应用场景：只有一个页面，页面上显示当前时间，没有任何后端api和实体；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+  "generated_at": "2026-09-22T02:06:38.274587+00:00",
+  "summary": "面向 PC 端的单页应用：唯一页面显示当前时间，并在页面上添加一个按钮，点击后展示123。无数据实体，不启用登录认证，不涉及权限控制。导航布局为侧边栏，页头启用、页脚禁用。",
+  "source_request": "以下是上一迭代的应用现状总结（来自 AGENTS.md），请基于此理解当前应用状态：；# 迭代上下文；> 本文件记录每个已发布版本的设计与计划产物摘要，供下一轮迭代的大模型作为起点。；## v1.0（2026-09-22 01:42:18 UTC）；**版本说明**：333；### 应用现状；应用名称：年龄录入；应用场景：只有一个页面，页面上显示当前时间，没有任何后端api和实体；目标终端：PC；导航布局：布局=side, 页头=启用, 页脚=禁用；主题色：#6b3cf0；数据源类型：database；认证：不启用；权限控制：不启用；### 需求规格；> 面向 PC 端的单页应用：唯一页面显示当前时间，无后端 API、无数据实体。导航布局为侧边栏，页头启用、页脚禁用，不启用登录认证，不涉及权限控制。；**用户角色**：；普通用户：打开应用页面并查看当前时间的普通访问用户；**功能模块**：；时间展示（must）：应用唯一功能模块，在页面上显示当前时间；### 产品计划；**页面**：；**首页**（home，路径：/page/home）；描述：应用唯一页面，显示当前时间；目标：让用户打开应用后无需任何操作即可直观、准确地看到当前系统时间，作为应用唯一的信息展示页面；**业务流程**：；查看当前时间；用户打开应用首页并在页面上查看当前时间；步骤：用户打开应用首页；步骤：页面加载并显示当前时间；步骤：页面上的时间随系统时间持续更新；### 技术计划；前端架构：A PC-oriented single-page client renders one home page inside a sidebar navigation layout with header enabled and footer disabled. The current time, including date and hours-minutes-seconds, is generated from the client clock on load and refreshed continuously via a local timer, requiring no user interaction and no navigation entries to other pages.；后端架构：后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。；数据层：数据库固定使用 MySQL8，缓存固定使用 Redis。；；本次迭代的新需求：；页面上添加一个按钮，展示123",
   "app_info": {
     "name": "年龄录入",
-    "summary": "面向 PC 端的单页应用：唯一页面显示当前时间，无后端 API、无数据实体。导航布局为侧边栏，页头启用、页脚禁用，不启用登录认证，不涉及权限控制。",
+    "summary": "面向 PC 端的单页应用：唯一页面显示当前时间，并在页面上添加一个按钮，点击后展示123。无数据实体，不启用登录认证，不涉及权限控制。导航布局为侧边栏，页头启用、页脚禁用。",
     "target": "",
     "menu_enabled": true,
     "route_root_path": "/page"
@@ -14,16 +14,22 @@
   "user_roles": [
     {
       "name": "普通用户",
-      "description": "打开应用页面并查看当前时间的普通访问用户",
-      "id": "general_user"
+      "description": "打开应用页面查看当前时间，并可点击按钮展示123的普通访问用户",
+      "id": "normal_user"
     }
   ],
   "feature_modules": [
     {
       "name": "时间展示",
-      "description": "应用唯一功能模块，在页面上显示当前时间",
+      "description": "应用基础功能模块，在首页显示当前时间并随系统时间持续更新",
       "priority": "must",
       "id": "time_display"
+    },
+    {
+      "name": "按钮展示",
+      "description": "本次迭代新增功能模块，在页面上添加一个按钮，点击后展示123",
+      "priority": "must",
+      "id": "button_display"
     }
   ],
   "pages": [
@@ -31,7 +37,7 @@
       "name": "首页",
       "path": "/page/home",
       "module_id": "time_display",
-      "description": "应用唯一页面，显示当前时间",
+      "description": "应用唯一页面，显示当前时间，并包含一个点击后展示123的按钮",
       "pageId": "home",
       "route_root_path": "/"
     }
@@ -47,6 +53,17 @@
       ],
       "id": "view_current_time",
       "description": "用户打开应用首页并在页面上查看当前时间"
+    },
+    {
+      "name": "点击按钮展示123",
+      "steps": [
+        "用户打开应用首页",
+        "用户在页面上找到展示123的按钮",
+        "用户点击该按钮",
+        "页面展示123"
+      ],
+      "id": "show_123_by_button",
+      "description": "用户在首页点击按钮，页面展示123"
     }
   ],
   "authorization_requirements": {
@@ -59,7 +76,7 @@
   },
   "acceptance_criteria": [],
   "clarification_questions": [],
-  "agent_note": "{\n  \"version\": \"1.0\",\n  \"status\": \"draft\",\n  \"generated_at\": \"2025-01-01T00:00:00Z\",\n  \"app_info\": {\n    \"name\": \"年龄录入\",\n    \"summary\": \"面向 PC 端的单页应用：唯一页面显示当前时间，无后端 API、无数据实体。导航布局为侧边栏，页头启用、页脚禁用，不启用登录认证，不涉及权限控制。\"\n  },\n  \"user_roles\": [\n    {\n      \"id\": \"general_user\",\n      \"name\": \"普通用户\",\n      \"description\": \"打开应用页面并查看当前时间的普通访问用户\"\n    }\n  ],\n  \"feature_modules\": [\n    {\n      \"id\": \"time_display\",\n      \"name\": \"时间展示\",\n      \"description\": \"应用唯一功能模块，在页面上显示当前时间\"\n    }\n  ],\n  \"pages\": [\n    {\n      \"pageId\": \"home\",\n      \"name\": \"首页\",\n      \"path\": \"/\",\n      \"module_id\": \"time_display\",\n      \"description\": \"应用唯一页面，显示当前时间\",\n      \"route_root_path\": \"/\"\n    }\n  ],\n  \"business_flows\": [\n    {\n      \"id\": \"view_current_time\",\n      \"name\": \"查看当前时间\",\n      \"description\": \"用户打开应用首页并在页面上查看当前时间\",\n      \"steps\": [\n        \"用户打开应用首页\",\n        \"页面加载并显示当前时间\",\n        \"页面上的时间随系统时间持续更新\"\n      ]\n    }\n  ],\n  \"authentication_requirements\": {\n    \"enabled\": false,\n    \"sourceRefs\": []\n  }\n}",
+  "agent_note": "{\"version\":\"1.1\",\"status\":\"draft\",\"generated_at\":\"2026-09-22T02:30:00Z\",\"app_info\":{\"name\":\"年龄录入\",\"summary\":\"面向 PC 端的单页应用：唯一页面显示当前时间，并在页面上添加一个按钮，点击后展示123。无数据实体，不启用登录认证，不涉及权限控制。导航布局为侧边栏，页头启用、页脚禁用。\"},\"user_roles\":[{\"id\":\"normal_user\",\"name\":\"普通用户\",\"description\":\"打开应用页面查看当前时间，并可点击按钮展示123的普通访问用户\"}],\"feature_modules\":[{\"id\":\"time_display\",\"name\":\"时间展示\",\"description\":\"应用基础功能模块，在首页显示当前时间并随系统时间持续更新\"},{\"id\":\"button_display\",\"name\":\"按钮展示\",\"description\":\"本次迭代新增功能模块，在页面上添加一个按钮，点击后展示123\"}],\"pages\":[{\"pageId\":\"home\",\"name\":\"首页\",\"path\":\"/\",\"route_root_path\":\"/\",\"module_id\":\"time_display\",\"description\":\"应用唯一页面，显示当前时间，并包含一个点击后展示123的按钮\"}],\"business_flows\":[{\"id\":\"view_current_time\",\"name\":\"查看当前时间\",\"description\":\"用户打开应用首页并在页面上查看当前时间\",\"steps\":[\"用户打开应用首页\",\"页面加载并显示当前时间\",\"页面上的时间随系统时间持续更新\"]},{\"id\":\"show_123_by_button\",\"name\":\"点击按钮展示123\",\"description\":\"用户在首页点击按钮，页面展示123\",\"steps\":[\"用户打开应用首页\",\"用户在页面上找到展示123的按钮\",\"用户点击该按钮\",\"页面展示123\"]}],\"authentication_requirements\":{\"enabled\":false,\"sourceRefs\":[]},\"authorization_requirements\":{\"restrictedPages\":[],\"restrictedOperations\":[]}}",
   "approved": true,
   "agent_spec_used": true,
   "clarification_status": "clear",
