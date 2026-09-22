@@ -1,0 +1,41 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "A PC-oriented React single-page application with a sidebar navigation layout, header enabled and footer disabled. The sole page (/page/home) renders the current time (date plus hours, minutes, seconds) from the browser system clock and keeps it continuously updated with a one-second timer; the 展示123 button immediately reveals the content 123 through pure client-side interface logic, requiring no page refresh and no backend call.",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [],
+  "api_contracts": [],
+  "pages": [
+    {
+      "pageId": "home",
+      "references": {
+        "endpoint_dependencies": [],
+        "action_implementations": []
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 10,
+  "product_plan_sha256": "8c07a26332e6d13af09dc50cb8fd7881af4b08364eb4156ecb8dd7d2dbb8c344",
+  "ui_designs_sha256": "3d4d6cd6c045eb99eb53ead565214f4ff4a71a75235b9f769bb1ff305350db34",
+  "confirmation_status": "pending_user_confirmation"
+}

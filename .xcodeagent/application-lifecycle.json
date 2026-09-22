@@ -3,8 +3,8 @@
     "id": "1789979315637-bd34az",
     "name": "年龄录入"
   },
-  "updatedAt": "2026-09-22T02:07:29.689128Z",
-  "revision": 6,
+  "updatedAt": "2026-09-22T02:09:14.754388Z",
+  "revision": 9,
   "developmentArtifacts": {
     "pages": {
       "home": {
@@ -16,15 +16,15 @@
     },
     "entities": {},
     "endpoints": {},
-    "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/sbw/Documents/xc50/.xcodeagent/plans/technical-plan.json'",
+    "catalogError": "开发产物目录不可用：technical-plan 尚未确认。",
     "outOfScope": []
   },
   "initialization": {
-    "stage": "awaiting_ui_design_confirmation",
+    "stage": "awaiting_technical_plan_confirmation",
     "status": "awaiting_user",
     "threadId": "116c6e50-3417-40ff-b7c7-d45fa8ad9678"
   },
-  "activeRunId": "461499a8-9dd6-49cb-8684-8c48be879f9a",
+  "activeRunId": "382679ce-ed4e-4dff-a11c-47d17e221b5a",
   "activeExecutions": {},
   "developmentContinuations": {},
   "resourceLocks": {

@@ -1,51 +1,6 @@
 {
   "schema_version": "ui-manifest.v3",
-  "confirmation_status": "pending_user_confirmation",
+  "confirmation_status": "skipped",
   "product_plan_sha256": "8c07a26332e6d13af09dc50cb8fd7881af4b08364eb4156ecb8dd7d2dbb8c344",
-  "pages": [
-    {
-      "pageId": "home",
-      "page_key": "Home",
-      "preview_path": "/page/home",
-      "code_path": "",
-      "status": "pending",
-      "bindings": {
-        "actions": [
-          {
-            "actionId": "home_show_123",
-            "controlIds": []
-          }
-        ],
-        "information_items": [
-          {
-            "informationItemId": "home_current_time",
-            "controlIds": []
-          },
-          {
-            "informationItemId": "home_display_123",
-            "controlIds": []
-          }
-        ]
-      },
-      "verification": {
-        "status": "pending",
-        "code_sha256": "",
-        "checks": [
-          {
-            "id": "product-action-bindings",
-            "status": "failed"
-          },
-          {
-            "id": "product-information-bindings",
-            "status": "failed"
-          },
-          {
-            "id": "no-unowned-business-ui",
-            "status": "passed"
-          }
-        ],
-        "errors": []
-      }
-    }
-  ]
+  "pages": []
 }
