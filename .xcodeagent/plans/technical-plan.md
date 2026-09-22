@@ -1,0 +1,40 @@
+# 技术规划
+
+- 状态：已确认
+- 类型：technical-plan
+
+## 技术架构
+
+- 前端：A React single-page client renders two static PC-oriented display pages: the welcome page at the application root and the agent greeting page at its own route. Both pages are pure presentation views with centered hard-coded text and no user-triggered interactions, no authentication UI, and no backend API communication.
+- 后端：后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。
+- 数据：数据库固定使用 MySQL8，缓存固定使用 Redis。
+
+## 业务实体
+
+- 无
+
+## API 契约
+
+- 无
+
+## 页面技术引用
+
+### `home`
+
+Endpoint 依赖：
+  - 无
+
+业务 Action 实现：
+  - 无
+
+### `hello_agent`
+
+Endpoint 依赖：
+  - 无
+
+业务 Action 实现：
+  - 无
+
+## 权限资源目录（系统编译，只读）
+
+- 未启用运行态权限管理。

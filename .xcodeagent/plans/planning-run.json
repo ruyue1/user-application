@@ -1,0 +1,63 @@
+{
+  "planning_run_id": "planning-654ad0aff4204dbe912102afa168a159",
+  "workflow_run_id": "f02ae8bb-4bb4-4733-b9d1-2edd5f2a5780",
+  "thread_id": "f08f495f-79f6-4764-95b6-45ea0a54f5cb",
+  "revision": 8,
+  "status": "active",
+  "phase": "persisting_pending",
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "hello_agent"
+  },
+  "input_fingerprint": "e18ff99cb2bc0bcda3acd840efec1b2c9bd27e6490577ab9da50c1c796539fbc",
+  "base_confirmed_plan_digest": null,
+  "required_unit_ids": [
+    "frontend:shell",
+    "page:hello_agent"
+  ],
+  "planning_unit_ids": [
+    "page:hello_agent"
+  ],
+  "global_repair_round": 0,
+  "global_repair_limit": 2,
+  "global_issues": [],
+  "unit_states": {
+    "frontend:shell": {
+      "unit_id": "frontend:shell",
+      "kind": "frontend",
+      "participation": "prerequisite_only",
+      "generation_strategy": "prerequisite_only",
+      "generation_status": "not_required",
+      "generation_round": 1,
+      "attempt_in_round": 0,
+      "total_attempts": 0,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": null,
+      "candidate_task_count": 0,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "page:hello_agent": {
+      "unit_id": "page:hello_agent",
+      "kind": "page",
+      "participation": "generate_only",
+      "generation_strategy": "model",
+      "generation_status": "candidate_ready",
+      "generation_round": 1,
+      "attempt_in_round": 1,
+      "total_attempts": 1,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": "candidate-642d194955ac41f49ffdabf23024b6c8",
+      "candidate_task_count": 1,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    }
+  },
+  "started_at": "2026-09-22T03:27:53.188130Z",
+  "updated_at": "2026-09-22T03:27:58.507820Z",
+  "failure": null
+}

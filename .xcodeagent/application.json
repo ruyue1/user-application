@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 4,
+  "configRevision": 5,
   "appName": "agent欢迎页",
   "appIcon": "AppstoreOutlined",
   "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
@@ -406,14 +406,5 @@
       }
     }
   ],
-  "id": "1790046504242-twkm2t",
-  "workspaceRoot": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092201",
-  "name": "agent欢迎页",
-  "lastOpenedAt": 1790046548733,
-  "source": "existing-workspace",
-  "pages": [
-    "工作台"
-  ],
-  "defaultPage": "工作台",
   "currentVersionId": "1790046504242-twkm2t-v1-1"
 }

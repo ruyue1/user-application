@@ -1,0 +1,48 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "A React single-page client renders two static PC-oriented display pages: the welcome page at the application root and the agent greeting page at its own route. Both pages are pure presentation views with centered hard-coded text and no user-triggered interactions, no authentication UI, and no backend API communication.",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [],
+  "api_contracts": [],
+  "pages": [
+    {
+      "pageId": "home",
+      "references": {
+        "endpoint_dependencies": [],
+        "action_implementations": []
+      }
+    },
+    {
+      "pageId": "hello_agent",
+      "references": {
+        "endpoint_dependencies": [],
+        "action_implementations": []
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 4,
+  "product_plan_sha256": "592d05978a2ee04ffffdf4eb9b28609b96f0e8e63885b32d2e8284459ddc9966",
+  "ui_designs_sha256": "c58c0127eb21f4014049a87a354c0d1d16e5fd6fa6b327bddbb15ff39cfcd838",
+  "confirmation_status": "confirmed"
+}
