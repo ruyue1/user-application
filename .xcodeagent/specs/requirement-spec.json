@@ -1,25 +1,20 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "status": "draft",
-  "generated_at": "2026-09-22T03:08:36.059649+00:00",
-  "summary": "面向 PC 端的纯展示型应用，首页展示写死的字符串 “hello world”，不包含任何后端 API 接口，不启用认证与权限控制。",
-  "source_request": "请为新应用「agent欢迎页」完成需求、产品、UI（可跳过）和技术规划。；应用场景：我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+  "generated_at": "2026-09-22T03:23:54.185975+00:00",
+  "summary": "面向 PC 端的纯展示型应用，在保留原有首页写死字符串 “hello world” 展示的基础上，新增一个纯展示页面，居中展示写死的字符串 “hello agent!”，两个页面均不包含任何后端 API 接口，不启用认证与权限控制。",
+  "source_request": "以下是上一迭代的应用现状总结（来自 AGENTS.md），请基于此理解当前应用状态：；# 迭代上下文；> 本文件记录每个已发布版本的设计与计划产物摘要，供下一轮迭代的大模型作为起点。；## v1.0（2026-09-22 03:17:54 UTC）；**版本说明**：111；### 应用现状；应用名称：agent欢迎页；应用场景：我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口；目标终端：PC；导航布局：布局=side, 页头=启用, 页脚=禁用；主题色：#6b3cf0；数据源类型：database；认证：不启用；权限控制：不启用；### 需求规格；> 面向 PC 端的纯展示型应用，首页展示写死的字符串 “hello world”，不包含任何后端 API 接口，不启用认证与权限控制。；**用户角色**：；业务用户：访问 agent欢迎页 并查看 hello world 静态展示内容的访客用户；**功能模块**：；欢迎页展示（must）：承载首页 hello world 静态文案展示能力，仅前端渲染，不依赖后端接口；### 产品计划；**页面**：；**欢迎页**（home，路径：/page/home）；描述：应用首页，居中展示写死的字符串 “hello world”，无任何交互与数据请求；目标：让访问者在进入应用后立即看到写死的欢迎文案 “hello world”，确认应用已正常打开。；**业务流程**：；查看欢迎页；用户打开应用后进入首页查看 hello world 展示内容的流程；步骤：用户访问应用根路径进入欢迎页；步骤：页面加载并渲染写死的字符串 “hello world”；步骤：用户查看展示内容，流程结束；### 技术计划；前端架构：A React single-page client renders a static welcome page at the application root and displays the hard-coded string \"hello world\" without any user-triggered operations.；后端架构：后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。；数据层：数据库固定使用 MySQL8，缓存固定使用 Redis。；；本次迭代的新需求：；我要新增一个用于纯展示的页面，展示字符串“hello agent!”，不需要任何后端api接口",
   "app_info": {
     "name": "agent欢迎页",
-    "summary": "面向 PC 端的纯展示型应用，首页展示写死的字符串 “hello world”，不包含任何后端 API 接口，不启用认证与权限控制。",
+    "summary": "面向 PC 端的纯展示型应用，在保留原有首页写死字符串 “hello world” 展示的基础上，新增一个纯展示页面，居中展示写死的字符串 “hello agent!”，两个页面均不包含任何后端 API 接口，不启用认证与权限控制。",
     "target": "",
-    "route_root_path": "/page",
-    "navigation": {
-      "layout": "side",
-      "header_enabled": true,
-      "footer_enabled": false
-    },
-    "menu_enabled": true
+    "menu_enabled": true,
+    "route_root_path": "/page"
   },
   "user_roles": [
     {
       "name": "业务用户",
-      "description": "访问 agent欢迎页 并查看 hello world 静态展示内容的访客用户",
+      "description": "访问 agent欢迎页 并查看 “hello world” 与 “hello agent!” 静态展示内容的访客用户",
       "id": "business_user"
     }
   ],
@@ -29,15 +24,28 @@
       "description": "承载首页 hello world 静态文案展示能力，仅前端渲染，不依赖后端接口",
       "priority": "must",
       "id": "welcome_display"
+    },
+    {
+      "name": "agent 问候展示",
+      "description": "承载新增纯展示页面的 “hello agent!” 静态文案展示能力，仅前端渲染，不依赖后端接口",
+      "priority": "must",
+      "id": "agent_greeting_display"
     }
   ],
   "pages": [
     {
       "name": "欢迎页",
-      "path": "/page/home",
+      "path": "/page/page/home",
       "module_id": "welcome_display",
       "description": "应用首页，居中展示写死的字符串 “hello world”，无任何交互与数据请求",
       "pageId": "home"
+    },
+    {
+      "name": "agent 问候页",
+      "path": "/page/page/hello-agent",
+      "module_id": "agent_greeting_display",
+      "description": "新增的纯展示页面，居中展示写死的字符串 “hello agent!”，无任何交互与数据请求",
+      "pageId": "hello_agent"
     }
   ],
   "entities": [],
@@ -51,6 +59,16 @@
       ],
       "id": "view_welcome_page",
       "description": "用户打开应用后进入首页查看 hello world 展示内容的流程"
+    },
+    {
+      "name": "查看 agent 问候页",
+      "steps": [
+        "用户进入应用并打开 agent 问候页",
+        "页面加载并渲染写死的字符串 “hello agent!”",
+        "用户查看展示内容，流程结束"
+      ],
+      "id": "view_agent_greeting_page",
+      "description": "用户进入新增的纯展示页面查看 hello agent! 展示内容的流程"
     }
   ],
   "authorization_requirements": {
@@ -63,7 +81,7 @@
   },
   "acceptance_criteria": [],
   "clarification_questions": [],
-  "agent_note": "{\n  \"version\": \"1.0\",\n  \"status\": \"draft\",\n  \"generated_at\": \"2025-01-01T00:00:00Z\",\n  \"app_info\": {\n    \"name\": \"agent欢迎页\",\n    \"summary\": \"面向 PC 端的纯展示型应用，首页展示写死的字符串 “hello world”，不包含任何后端 API 接口，不启用认证与权限控制。\",\n    \"route_root_path\": \"/\",\n    \"navigation\": {\n      \"layout\": \"side\",\n      \"header_enabled\": true,\n      \"footer_enabled\": false\n    }\n  },\n  \"user_roles\": [\n    {\n      \"id\": \"business_user\",\n      \"name\": \"业务用户\",\n      \"description\": \"访问 agent欢迎页 并查看 hello world 静态展示内容的访客用户\"\n    }\n  ],\n  \"feature_modules\": [\n    {\n      \"id\": \"welcome_display\",\n      \"name\": \"欢迎页展示\",\n      \"description\": \"承载首页 hello world 静态文案展示能力，仅前端渲染，不依赖后端接口\"\n    }\n  ],\n  \"pages\": [\n    {\n      \"pageId\": \"home\",\n      \"name\": \"欢迎页\",\n      \"path\": \"/\",\n      \"module_id\": \"welcome_display\",\n      \"description\": \"应用首页，居中展示写死的字符串 “hello world”，无任何交互与数据请求\"\n    }\n  ],\n  \"business_flows\": [\n    {\n      \"id\": \"view_welcome_page\",\n      \"name\": \"查看欢迎页\",\n      \"description\": \"用户打开应用后进入首页查看 hello world 展示内容的流程\",\n      \"steps\": [\n        \"用户访问应用根路径进入欢迎页\",\n        \"页面加载并渲染写死的字符串 “hello world”\",\n        \"用户查看展示内容，流程结束\"\n      ]\n    }\n  ],\n  \"authentication_requirements\": {\n    \"enabled\": false,\n    \"sourceRefs\": []\n  },\n  \"authorization_requirements\": {\n    \"enabled\": false,\n    \"restrictedPages\": [],\n    \"restrictedOperations\": []\n  }\n}",
+  "agent_note": "{\n  \"version\": \"1.1\",\n  \"status\": \"draft\",\n  \"generated_at\": \"2026-09-22T03:40:00Z\",\n  \"app_info\": {\n    \"name\": \"agent欢迎页\",\n    \"summary\": \"面向 PC 端的纯展示型应用，在保留原有首页写死字符串 “hello world” 展示的基础上，新增一个纯展示页面，居中展示写死的字符串 “hello agent!”，两个页面均不包含任何后端 API 接口，不启用认证与权限控制。\"\n  },\n  \"user_roles\": [\n    {\n      \"id\": \"business_user\",\n      \"name\": \"业务用户\",\n      \"description\": \"访问 agent欢迎页 并查看 “hello world” 与 “hello agent!” 静态展示内容的访客用户\"\n    }\n  ],\n  \"feature_modules\": [\n    {\n      \"id\": \"welcome_display\",\n      \"name\": \"欢迎页展示\",\n      \"description\": \"承载首页 hello world 静态文案展示能力，仅前端渲染，不依赖后端接口\",\n      \"priority\": \"must\"\n    },\n    {\n      \"id\": \"agent_greeting_display\",\n      \"name\": \"agent 问候展示\",\n      \"description\": \"承载新增纯展示页面的 “hello agent!” 静态文案展示能力，仅前端渲染，不依赖后端接口\",\n      \"priority\": \"must\"\n    }\n  ],\n  \"pages\": [\n    {\n      \"pageId\": \"home\",\n      \"name\": \"欢迎页\",\n      \"path\": \"/page/home\",\n      \"module_id\": \"welcome_display\",\n      \"description\": \"应用首页，居中展示写死的字符串 “hello world”，无任何交互与数据请求\"\n    },\n    {\n      \"pageId\": \"hello_agent\",\n      \"name\": \"agent 问候页\",\n      \"path\": \"/page/hello-agent\",\n      \"module_id\": \"agent_greeting_display\",\n      \"description\": \"新增的纯展示页面，居中展示写死的字符串 “hello agent!”，无任何交互与数据请求\"\n    }\n  ],\n  \"business_flows\": [\n    {\n      \"id\": \"view_welcome_page\",\n      \"name\": \"查看欢迎页\",\n      \"description\": \"用户打开应用后进入首页查看 hello world 展示内容的流程\",\n      \"steps\": [\n        \"用户访问应用根路径进入欢迎页\",\n        \"页面加载并渲染写死的字符串 “hello world”\",\n        \"用户查看展示内容，流程结束\"\n      ]\n    },\n    {\n      \"id\": \"view_agent_greeting_page\",\n      \"name\": \"查看 agent 问候页\",\n      \"description\": \"用户进入新增的纯展示页面查看 hello agent! 展示内容的流程\",\n      \"steps\": [\n        \"用户进入应用并打开 agent 问候页\",\n        \"页面加载并渲染写死的字符串 “hello agent!”\",\n        \"用户查看展示内容，流程结束\"\n      ]\n    }\n  ],\n  \"authentication_requirements\": {\n    \"enabled\": false,\n    \"sourceRefs\": []\n  },\n  \"authorization_requirements\": {\n    \"enabled\": false,\n    \"restrictedPages\": [],\n    \"restrictedOperations\": []\n  }\n}",
   "approved": true,
   "agent_spec_used": true,
   "clarification_status": "clear",
