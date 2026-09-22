@@ -37,5 +37,5 @@
   "sourceConfigRevision": 10,
   "product_plan_sha256": "8c07a26332e6d13af09dc50cb8fd7881af4b08364eb4156ecb8dd7d2dbb8c344",
   "ui_designs_sha256": "3d4d6cd6c045eb99eb53ead565214f4ff4a71a75235b9f769bb1ff305350db34",
-  "confirmation_status": "pending_user_confirmation"
+  "confirmation_status": "confirmed"
 }

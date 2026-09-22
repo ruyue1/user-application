@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 10,
+  "configRevision": 11,
   "appName": "年龄录入",
   "appIcon": "AppstoreOutlined",
   "senario": "只有一个页面，页面上显示当前时间，没有任何后端api和实体",
@@ -1895,14 +1895,5 @@
       }
     }
   ],
-  "id": "1789979315637-bd34az",
-  "workspaceRoot": "/Users/sbw/Documents/xc50",
-  "name": "年龄录入",
-  "lastOpenedAt": 1789980452817,
-  "source": "existing-workspace",
-  "pages": [
-    "工作台"
-  ],
-  "defaultPage": "工作台",
   "currentVersionId": "1789979315637-bd34az-v1-7"
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ProCard } from '@ant-design/pro-components';
+import { Alert, Button } from 'antd';
 
 const WEEKDAY_LABELS = ['日', '一', '二', '三', '四', '五', '六'] as const;
 
@@ -23,17 +24,59 @@ function formatClock(date: Date): ClockDisplay {
 
 export default function Home() {
   const [current, setCurrent] = useState<Date>(() => new Date());
+  const [show123, setShow123] = useState<boolean>(false);
+  const [hasError, setHasError] = useState<boolean>(false);
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setCurrent(new Date());
-    }, 1000);
-    return () => {
-      window.clearInterval(timer);
-    };
+    try {
+      const timer = window.setInterval(() => {
+        setCurrent(new Date());
+      }, 1000);
+      return () => {
+        window.clearInterval(timer);
+      };
+    } catch (error) {
+      setHasError(true);
+      return undefined;
+    }
   }, []);
 
-  const { dateText, timeText, weekdayText } = formatClock(current);
+  let clock: ClockDisplay | null = null;
+  let clockError = false;
+  try {
+    clock = formatClock(current);
+  } catch (error) {
+    clockError = true;
+  }
+
+  // actionId: home_show_123（bindingType: local）——纯客户端逻辑，立即展示 123，不调用任何后端接口
+  const handleShow123 = () => {
+    try {
+      setShow123(true);
+    } catch (error) {
+      setHasError(true);
+    }
+  };
+
+  if (hasError || clockError) {
+    return (
+      <ProCard ghost bordered={false} className="w-full">
+        <div
+          className="flex w-full flex-col items-center justify-center"
+          style={{ minHeight: 420 }}
+        >
+          <Alert
+            type="error"
+            showIcon
+            message="页面出现异常"
+            description="页面暂时无法正常显示，请刷新页面后重试。"
+          />
+        </div>
+      </ProCard>
+    );
+  }
+
+  const { dateText, timeText, weekdayText } = clock as ClockDisplay;
 
   return (
     <ProCard ghost bordered={false} className="w-full">
@@ -51,6 +94,19 @@ export default function Home() {
         <div className="mt-4 text-xl text-gray-700">
           {dateText}
           <span className="ml-4">{weekdayText}</span>
+        </div>
+        <div className="mt-12 flex flex-col items-center">
+          <Button type="primary" size="large" onClick={handleShow123}>
+            展示123
+          </Button>
+          {show123 && (
+            <div
+              className="mt-8 rounded-lg bg-blue-50 px-12 py-6 text-3xl font-semibold text-blue-600"
+              aria-live="polite"
+            >
+              123
+            </div>
+          )}
         </div>
       </div>
     </ProCard>
