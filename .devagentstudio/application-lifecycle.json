@@ -1,0 +1,54 @@
+{
+  "application": {
+    "id": "1790147804288-lvwpb4",
+    "name": "年龄录入"
+  },
+  "updatedAt": "2026-09-23T07:17:21.720150Z",
+  "revision": 12,
+  "developmentArtifacts": {
+    "pages": {
+      "page_age_entry": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null
+      }
+    },
+    "entities": {
+      "AgeRecord": {
+        "initialDevelopmentStatus": "pending"
+      }
+    },
+    "endpoints": {
+      "age_entry_api": {
+        "age_entry_api.submit": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null
+        }
+      }
+    },
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "18557268-7edd-4c0a-8a9b-1681108a9b1d"
+  },
+  "activeRunId": "b2cbbd48-e787-42f6-8a91-bd265a92f47c",
+  "activeExecutions": {},
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}

@@ -1,0 +1,152 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "A React single-page PC client renders the single age-entry page at /page/page-age-entry with a side navigation layout, enabled header, disabled footer, and no authentication. It communicates with the backend through REST JSON APIs and performs client-side validation before submission.",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [
+    {
+      "id": "AgeRecord",
+      "name": "AgeRecord",
+      "description": "A single age value submitted by an age-entry user and persisted by the backend.",
+      "fields": [
+        {
+          "label": "记录ID",
+          "description": "Unique identifier of the age record.",
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "年龄数值",
+          "description": "The age value submitted by the user and saved by the backend.",
+          "name": "age_value",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "创建时间",
+          "description": "The time when the age record was created.",
+          "name": "created_at",
+          "type": "datetime",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "api_contracts": [
+    {
+      "id": "age_entry_api",
+      "name": "年龄录入管理",
+      "entity_ids": [
+        "AgeRecord"
+      ],
+      "base_path": "/api/age-entry",
+      "authentication": {
+        "required": false
+      },
+      "schemas": {
+        "AgeSubmitInput": {
+          "type": "object",
+          "properties": {
+            "age_value": {
+              "type": "integer",
+              "description": "The age value to be saved.",
+              "entity_field_ref": "AgeRecord.age_value"
+            }
+          },
+          "required": [
+            "age_value"
+          ]
+        },
+        "AgeSubmitOutput": {
+          "type": "object",
+          "properties": {
+            "recordId": {
+              "type": "integer",
+              "description": "The identifier of the newly created age record.",
+              "entity_field_ref": "AgeRecord.id"
+            },
+            "savedAgeValue": {
+              "type": "integer",
+              "description": "The age value that was saved.",
+              "entity_field_ref": "AgeRecord.age_value"
+            },
+            "message": {
+              "type": "string",
+              "description": "A user-facing result message indicating success."
+            }
+          },
+          "required": [
+            "recordId",
+            "savedAgeValue",
+            "message"
+          ]
+        }
+      },
+      "endpoints": [
+        {
+          "id": "age_entry_api.submit",
+          "name": "提交年龄",
+          "method": "POST",
+          "path": "/api/age-entry",
+          "summary": "Validate and persist a single age value submitted from the age-entry page, returning a success result without exposing any age listing.",
+          "parameters": [],
+          "request_schema_ref": "AgeSubmitInput",
+          "response_schema_ref": "AgeSubmitOutput",
+          "error_codes": [
+            "INVALID_AGE",
+            "INTERNAL_ERROR"
+          ],
+          "authentication": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "page_age_entry",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "age_entry_api.submit",
+            "usage": "submit_age",
+            "trigger": "User clicks the submit button after entering an age",
+            "required_for_initial_load": false
+          }
+        ],
+        "action_implementations": [
+          {
+            "actionId": "page_age_entry_submit_age",
+            "endpointId": "age_entry_api.submit"
+          }
+        ]
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 2,
+  "product_plan_sha256": "a7e56a991755f06bf43bb26ec6677d4c943352ecd7ea879c7f652b65ef72cffa",
+  "ui_designs_sha256": "6f8ed2b4a7d31aab9cae17cc7554eb5096a7d283f576bda01ff61b6fd5834c09",
+  "confirmation_status": "confirmed"
+}
