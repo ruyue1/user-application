@@ -1,11 +1,11 @@
 {
   "schema_version": "product-plan.v5",
   "version": "0.1.0",
-  "generated_at": "2026-09-23T01:38:41.302097+00:00",
-  "requirement_spec_sha256": "4387f25f7634115c0a010aa3dbd0ba0a6c610db548c80eb099d1c550ebe1872f",
+  "generated_at": "2026-09-23T01:42:23.471631+00:00",
+  "requirement_spec_sha256": "7c842325d39917edee8f8e960250213fe11d0f31534ccece3e349d8f865a7571",
   "app": {
     "name": "欢迎页",
-    "summary": "「欢迎页」是一个面向 PC 终端的纯展示型应用，只包含一个欢迎页，页面直接展示写死的字符串“hello world”，不依赖任何后端 API 接口。导航采用侧边布局，包含页头、不包含页脚。应用不启用认证，也不涉及权限控制，唯一的业务参与者是普通访问用户。"
+    "summary": "「欢迎页」是一个面向 PC 终端的纯展示型应用，包含欢迎页与新增的 Hello Agent 展示页两个静态页面，分别直接展示写死的字符串“hello world”与“hello agent!”，均不依赖任何后端 API 接口。导航采用侧边布局，包含页头、不包含页脚。应用不启用认证，也不涉及权限控制，唯一的业务参与者是普通访问用户。"
   },
   "business_flows": [
     {
@@ -16,46 +16,81 @@
         "欢迎页展示写死的字符串 hello world",
         "普通访问用户查看页面展示内容，流程结束"
       ],
-      "id": "flow_view_welcome_page",
+      "id": "view_welcome_page",
       "description": "普通访问用户在 PC 浏览器中打开应用并查看欢迎页展示的 hello world 文案的完整流程"
+    },
+    {
+      "name": "查看 Hello Agent 页",
+      "steps": [
+        "普通访问用户在 PC 浏览器中打开应用",
+        "普通访问用户通过侧边导航进入 Hello Agent 页",
+        "系统直接渲染 Hello Agent 页",
+        "Hello Agent 页展示写死的字符串 hello agent!",
+        "普通访问用户查看页面展示内容，流程结束"
+      ],
+      "id": "view_hello_agent_page",
+      "description": "普通访问用户通过侧边导航进入 Hello Agent 页并查看其展示的 hello agent! 文案的完整流程"
     }
   ],
   "pages": [
     {
       "pageId": "welcome_home",
       "name": "欢迎页",
-      "path": "/page/welcome-home",
-      "module_id": "module_welcome_display",
-      "description": "应用首页与唯一页面，在 PC 浏览器中直接展示写死的字符串 hello world，无表单、无列表、无交互请求",
+      "path": "/page/page/welcome-home",
+      "module_id": "welcome_display",
+      "description": "应用首页，在 PC 浏览器中直接展示写死的字符串 hello world，无表单、无列表、无交互请求",
       "goal": "让普通访问用户在 PC 浏览器中打开应用后，立即看到写死的字符串 hello world，确认应用可正常访问并完成欢迎信息的查看。",
       "information_items": [
         {
-          "itemId": "welcome_home_hello_world_text",
+          "itemId": "welcome_home-greeting-text",
           "label": "欢迎文案",
-          "description": "页面中央展示的写死字符串 hello world，是用户进入应用后需要看到的核心内容。"
-        },
-        {
-          "itemId": "welcome_home_page_identity",
-          "label": "页面标识",
-          "description": "帮助用户识别当前处于欢迎页的页面名称或标题信息。"
+          "description": "页面直接展示的写死字符串 hello world，是普通访问用户在本页需要看到的唯一业务信息。"
         }
       ],
       "actions": [],
       "navigation_targets": [],
       "state_requirements": {
-        "loading": "页面打开过程中可展示加载提示，加载完成后自动消失，不阻塞用户查看欢迎文案。",
-        "empty": "页面不依赖任何数据，不存在空数据状态；欢迎文案始终展示。",
-        "error": "页面为纯静态展示，不依赖后端接口，正常访问时不应出现错误状态；若浏览器无法渲染页面，由浏览器自身提示。",
-        "success": "页面成功渲染后，用户可清晰看到写死的字符串 hello world。",
-        "validation": "页面无表单、无输入项，不需要校验状态。"
+        "loading": "页面内容为写死文案，打开后直接呈现，不出现加载中提示。",
+        "empty": "页面始终展示写死的 hello world 文案，不存在空内容状态。",
+        "error": "页面不依赖任何后端接口，不出现错误提示或错误状态。",
+        "success": "页面正常打开时完整展示写死的字符串 hello world。",
+        "validation": "页面无表单与输入项，不涉及校验状态。"
       },
       "acceptance_criteria": [
         "普通访问用户在 PC 浏览器中打开应用入口后，直接进入欢迎页。",
-        "欢迎页在页面中清晰展示写死的字符串 hello world。",
-        "欢迎页不包含表单、列表、查询条件或任何需要用户提交的交互请求。",
-        "欢迎页不依赖任何后端 API 接口即可正常展示内容。",
-        "应用导航采用侧边布局，包含页头，不包含页脚。",
-        "应用不启用认证，普通访问用户无需登录即可查看欢迎页。"
+        "欢迎页完整展示写死的字符串 hello world。",
+        "欢迎页不出现表单、列表或需要用户填写的输入项。",
+        "欢迎页在打开过程中不出现加载中、错误或空内容提示。"
+      ]
+    },
+    {
+      "pageId": "hello_agent",
+      "name": "Hello Agent 页",
+      "path": "/page/page/hello-agent",
+      "module_id": "agent_greeting_display",
+      "description": "新增的纯展示页面，在 PC 浏览器中直接展示写死的字符串 hello agent!，无表单、无列表、无交互请求",
+      "goal": "让普通访问用户通过侧边导航进入 Hello Agent 页后，立即看到写死的字符串 hello agent!，完成新增展示内容的查看。",
+      "information_items": [
+        {
+          "itemId": "hello_agent-greeting-text",
+          "label": "Hello Agent 文案",
+          "description": "页面直接展示的写死字符串 hello agent!，是普通访问用户在本页需要看到的唯一业务信息。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面内容为写死文案，打开后直接呈现，不出现加载中提示。",
+        "empty": "页面始终展示写死的 hello agent! 文案，不存在空内容状态。",
+        "error": "页面不依赖任何后端接口，不出现错误提示或错误状态。",
+        "success": "页面正常打开时完整展示写死的字符串 hello agent!。",
+        "validation": "页面无表单与输入项，不涉及校验状态。"
+      },
+      "acceptance_criteria": [
+        "普通访问用户可通过侧边导航进入 Hello Agent 页。",
+        "Hello Agent 页完整展示写死的字符串 hello agent!。",
+        "Hello Agent 页不出现表单、列表或需要用户填写的输入项。",
+        "Hello Agent 页在打开过程中不出现加载中、错误或空内容提示。"
       ]
     }
   ],
@@ -64,13 +99,12 @@
     "operationRules": []
   },
   "product_acceptance_criteria": [
-    "应用只包含一个欢迎页，页面路径为 /page/welcome-home，模块归属为欢迎页展示。",
-    "普通访问用户在 PC 浏览器中打开应用后，能够直接看到写死的字符串 hello world。",
-    "欢迎页为纯展示页面，不包含任何用户主动触发的业务操作、导航操作或外部跳转操作。",
-    "应用不依赖任何后端 API 接口即可完成欢迎页展示。",
-    "应用导航采用侧边布局，包含页头，不包含页脚。",
-    "应用不启用认证，也不涉及权限控制，唯一业务参与者为普通访问用户。",
-    "欢迎页在加载、成功展示等状态下均能正常呈现欢迎文案，且不存在空数据或校验相关状态。"
+    "应用包含欢迎页与 Hello Agent 页两个页面，均可通过侧边导航访问。",
+    "欢迎页展示写死的字符串 hello world，Hello Agent 页展示写死的字符串 hello agent!。",
+    "两个页面均为纯展示页面，不出现表单、列表或需要用户填写的输入项。",
+    "两个页面均不依赖任何后端接口，打开时不出现加载中、错误或空内容提示。",
+    "应用面向 PC 终端，导航采用侧边布局，包含页头、不包含页脚。",
+    "应用不启用认证，也不涉及权限控制，普通访问用户可直接查看两个页面的展示内容。"
   ],
   "confirmation_status": "confirmed"
 }

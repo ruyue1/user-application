@@ -1,6 +1,77 @@
 {
   "schema_version": "ui-manifest.v3",
-  "confirmation_status": "skipped",
-  "product_plan_sha256": "8e215184ad4cce9442a4de5df50c1f26a916d5864bcd780866db1d716dfba146",
-  "pages": []
+  "confirmation_status": "pending_user_confirmation",
+  "product_plan_sha256": "ab31afd321c9cbc0a3f2e65c3b468a0f6f38e762cfcca99915d14d4a27348800",
+  "pages": [
+    {
+      "pageId": "welcome_home",
+      "page_key": "WelcomeHome",
+      "preview_path": "/page/welcome-home",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "welcome_home-greeting-text",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "pageId": "hello_agent",
+      "page_key": "HelloAgent",
+      "preview_path": "/page/hello-agent",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "hello_agent-greeting-text",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    }
+  ]
 }

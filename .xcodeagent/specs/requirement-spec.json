@@ -1,20 +1,20 @@
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "status": "draft",
-  "generated_at": "2026-09-23T01:38:36.866189+00:00",
-  "summary": "「欢迎页」是一个面向 PC 终端的纯展示型应用，只包含一个欢迎页，页面直接展示写死的字符串“hello world”，不依赖任何后端 API 接口。导航采用侧边布局，包含页头、不包含页脚。应用不启用认证，也不涉及权限控制，唯一的业务参与者是普通访问用户。",
-  "source_request": "请为新应用「欢迎页」完成需求、产品、UI（可跳过）和技术规划。；应用场景：我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。；补充确认：业务参与者为已选：仅普通访问用户",
+  "generated_at": "2026-09-23T01:42:19.016217+00:00",
+  "summary": "「欢迎页」是一个面向 PC 终端的纯展示型应用，包含欢迎页与新增的 Hello Agent 展示页两个静态页面，分别直接展示写死的字符串“hello world”与“hello agent!”，均不依赖任何后端 API 接口。导航采用侧边布局，包含页头、不包含页脚。应用不启用认证，也不涉及权限控制，唯一的业务参与者是普通访问用户。",
+  "source_request": "以下是上一迭代的应用现状总结（来自 AGENTS.md），请基于此理解当前应用状态：；# 迭代上下文；> 本文件记录每轮迭代的设计与计划产物摘要，供下一轮迭代的大模型作为起点。；## 分支 dev（2026-09-23 01:41:40 UTC）；**变更说明**：111；### 应用现状；应用名称：欢迎页；应用场景：我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口；目标终端：PC；导航布局：布局=side, 页头=启用, 页脚=禁用；主题色：#6b3cf0；数据源类型：database；认证：不启用；权限控制：不启用；### 需求规格；> 「欢迎页」是一个面向 PC 终端的纯展示型应用，只包含一个欢迎页，页面直接展示写死的字符串“hello world”，不依赖任何后端 API 接口。导航采用侧边布局，包含页头、不包含页脚。应用不启用认证，也不涉及权限控制，唯一的业务参与者是普通访问用户。；**用户角色**：；普通访问用户：打开应用并查看欢迎页上展示的 hello world 文案的访问者，不承担任何管理或其他业务职责；**功能模块**：；欢迎页展示（must）：提供 PC 端欢迎页的静态内容展示能力，页面渲染写死的字符串 hello world，不调用任何后端接口；### 产品计划；**页面**：；**欢迎页**（welcome_home，路径：/page/welcome-home）；描述：应用首页与唯一页面，在 PC 浏览器中直接展示写死的字符串 hello world，无表单、无列表、无交互请求；目标：让普通访问用户在 PC 浏览器中打开应用后，立即看到写死的字符串 hello world，确认应用可正常访问并完成欢迎信息的查看。；**业务流程**：；查看欢迎页；普通访问用户在 PC 浏览器中打开应用并查看欢迎页展示的 hello world 文案的完整流程；步骤：普通访问用户在 PC 浏览器中打开应用入口；步骤：系统直接渲染欢迎页；步骤：欢迎页展示写死的字符串 hello world；步骤：普通访问用户查看页面展示内容，流程结束；### 技术计划；前端架构：A PC-oriented single-page welcome client renders a static hello world message without any backend API dependency.；后端架构：后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。；数据层：数据库固定使用 MySQL8，缓存固定使用 Redis。；；本次迭代的新需求：；我要新增一个用于纯展示的页面，展示字符串“hello agent!”，不需要任何后端api接口",
   "app_info": {
     "name": "欢迎页",
-    "summary": "「欢迎页」是一个面向 PC 终端的纯展示型应用，只包含一个欢迎页，页面直接展示写死的字符串“hello world”，不依赖任何后端 API 接口。导航采用侧边布局，包含页头、不包含页脚。应用不启用认证，也不涉及权限控制，唯一的业务参与者是普通访问用户。",
+    "summary": "「欢迎页」是一个面向 PC 终端的纯展示型应用，包含欢迎页与新增的 Hello Agent 展示页两个静态页面，分别直接展示写死的字符串“hello world”与“hello agent!”，均不依赖任何后端 API 接口。导航采用侧边布局，包含页头、不包含页脚。应用不启用认证，也不涉及权限控制，唯一的业务参与者是普通访问用户。",
     "target": "",
-    "route_root_path": "/page",
-    "menu_enabled": true
+    "menu_enabled": true,
+    "route_root_path": "/page"
   },
   "user_roles": [
     {
       "name": "普通访问用户",
-      "description": "打开应用并查看欢迎页上展示的 hello world 文案的访问者，不承担任何管理或其他业务职责",
+      "description": "打开应用并查看页面上展示的写死文案（hello world / hello agent!）的访问者，不承担任何管理或其他业务职责",
       "id": "role_visitor"
     }
   ],
@@ -23,16 +23,29 @@
       "name": "欢迎页展示",
       "description": "提供 PC 端欢迎页的静态内容展示能力，页面渲染写死的字符串 hello world，不调用任何后端接口",
       "priority": "must",
-      "id": "module_welcome_display"
+      "id": "welcome_display"
+    },
+    {
+      "name": "Hello Agent 展示",
+      "description": "提供新增的纯展示页面的静态内容展示能力，页面渲染写死的字符串 hello agent!，不调用任何后端接口",
+      "priority": "must",
+      "id": "agent_greeting_display"
     }
   ],
   "pages": [
     {
       "name": "欢迎页",
-      "path": "/page/welcome-home",
-      "module_id": "module_welcome_display",
-      "description": "应用首页与唯一页面，在 PC 浏览器中直接展示写死的字符串 hello world，无表单、无列表、无交互请求",
+      "path": "/page/page/welcome-home",
+      "module_id": "welcome_display",
+      "description": "应用首页，在 PC 浏览器中直接展示写死的字符串 hello world，无表单、无列表、无交互请求",
       "pageId": "welcome_home"
+    },
+    {
+      "name": "Hello Agent 页",
+      "path": "/page/page/hello-agent",
+      "module_id": "agent_greeting_display",
+      "description": "新增的纯展示页面，在 PC 浏览器中直接展示写死的字符串 hello agent!，无表单、无列表、无交互请求",
+      "pageId": "hello_agent"
     }
   ],
   "entities": [],
@@ -45,8 +58,20 @@
         "欢迎页展示写死的字符串 hello world",
         "普通访问用户查看页面展示内容，流程结束"
       ],
-      "id": "flow_view_welcome_page",
+      "id": "view_welcome_page",
       "description": "普通访问用户在 PC 浏览器中打开应用并查看欢迎页展示的 hello world 文案的完整流程"
+    },
+    {
+      "name": "查看 Hello Agent 页",
+      "steps": [
+        "普通访问用户在 PC 浏览器中打开应用",
+        "普通访问用户通过侧边导航进入 Hello Agent 页",
+        "系统直接渲染 Hello Agent 页",
+        "Hello Agent 页展示写死的字符串 hello agent!",
+        "普通访问用户查看页面展示内容，流程结束"
+      ],
+      "id": "view_hello_agent_page",
+      "description": "普通访问用户通过侧边导航进入 Hello Agent 页并查看其展示的 hello agent! 文案的完整流程"
     }
   ],
   "authorization_requirements": {
@@ -59,7 +84,7 @@
   },
   "acceptance_criteria": [],
   "clarification_questions": [],
-  "agent_note": "{\"version\": \"0.1.0\", \"status\": \"draft\", \"generated_at\": \"2026-09-23T01:46:10.000000+00:00\", \"app_info\": {\"name\": \"欢迎页\", \"summary\": \"「欢迎页」是一个面向 PC 终端的纯展示型应用，只包含一个欢迎页，页面直接展示写死的字符串“hello world”，不依赖任何后端 API 接口。导航采用侧边布局，包含页头、不包含页脚。应用不启用认证，也不涉及权限控制，唯一的业务参与者是普通访问用户。\", \"route_root_path\": \"/\"}, \"user_roles\": [{\"id\": \"role_visitor\", \"name\": \"普通访问用户\", \"description\": \"打开应用并查看欢迎页上展示的 hello world 文案的访问者，不承担任何管理或其他业务职责\"}], \"feature_modules\": [{\"id\": \"module_welcome_display\", \"name\": \"欢迎页展示\", \"description\": \"提供 PC 端欢迎页的静态内容展示能力，页面渲染写死的字符串 hello world，不调用任何后端接口\"}], \"pages\": [{\"pageId\": \"welcome_home\", \"name\": \"欢迎页\", \"path\": \"/\", \"module_id\": \"module_welcome_display\", \"description\": \"应用首页与唯一页面，在 PC 浏览器中直接展示写死的字符串 hello world，无表单、无列表、无交互请求\"}], \"business_flows\": [{\"id\": \"flow_view_welcome_page\", \"name\": \"查看欢迎页\", \"description\": \"普通访问用户在 PC 浏览器中打开应用并查看欢迎页展示的 hello world 文案的完整流程\", \"steps\": [\"普通访问用户在 PC 浏览器中打开应用入口\", \"系统直接渲染欢迎页\", \"欢迎页展示写死的字符串 hello world\", \"普通访问用户查看页面展示内容，流程结束\"]}], \"authentication_requirements\": {\"enabled\": false, \"sourceRefs\": []}, \"authorization_requirements\": {\"sourceRefs\": [], \"restrictedPages\": [], \"restrictedOperations\": []}}",
+  "agent_note": "{\n  \"version\": \"1.0\",\n  \"status\": \"draft\",\n  \"generated_at\": \"2026-09-23T02:00:00Z\",\n  \"app_info\": {\n    \"name\": \"欢迎页\",\n    \"summary\": \"「欢迎页」是一个面向 PC 终端的纯展示型应用，包含欢迎页与新增的 Hello Agent 展示页两个静态页面，分别直接展示写死的字符串“hello world”与“hello agent!”，均不依赖任何后端 API 接口。导航采用侧边布局，包含页头、不包含页脚。应用不启用认证，也不涉及权限控制，唯一的业务参与者是普通访问用户。\"\n  },\n  \"user_roles\": [\n    {\n      \"id\": \"role_visitor\",\n      \"name\": \"普通访问用户\",\n      \"description\": \"打开应用并查看页面上展示的写死文案（hello world / hello agent!）的访问者，不承担任何管理或其他业务职责\"\n    }\n  ],\n  \"feature_modules\": [\n    {\n      \"id\": \"welcome_display\",\n      \"name\": \"欢迎页展示\",\n      \"description\": \"提供 PC 端欢迎页的静态内容展示能力，页面渲染写死的字符串 hello world，不调用任何后端接口\",\n      \"priority\": \"must\"\n    },\n    {\n      \"id\": \"agent_greeting_display\",\n      \"name\": \"Hello Agent 展示\",\n      \"description\": \"提供新增的纯展示页面的静态内容展示能力，页面渲染写死的字符串 hello agent!，不调用任何后端接口\",\n      \"priority\": \"must\"\n    }\n  ],\n  \"pages\": [\n    {\n      \"pageId\": \"welcome_home\",\n      \"name\": \"欢迎页\",\n      \"path\": \"/page/welcome-home\",\n      \"module_id\": \"welcome_display\",\n      \"description\": \"应用首页，在 PC 浏览器中直接展示写死的字符串 hello world，无表单、无列表、无交互请求\"\n    },\n    {\n      \"pageId\": \"hello_agent\",\n      \"name\": \"Hello Agent 页\",\n      \"path\": \"/page/hello-agent\",\n      \"module_id\": \"agent_greeting_display\",\n      \"description\": \"新增的纯展示页面，在 PC 浏览器中直接展示写死的字符串 hello agent!，无表单、无列表、无交互请求\"\n    }\n  ],\n  \"business_flows\": [\n    {\n      \"id\": \"view_welcome_page\",\n      \"name\": \"查看欢迎页\",\n      \"description\": \"普通访问用户在 PC 浏览器中打开应用并查看欢迎页展示的 hello world 文案的完整流程\",\n      \"steps\": [\n        \"普通访问用户在 PC 浏览器中打开应用入口\",\n        \"系统直接渲染欢迎页\",\n        \"欢迎页展示写死的字符串 hello world\",\n        \"普通访问用户查看页面展示内容，流程结束\"\n      ]\n    },\n    {\n      \"id\": \"view_hello_agent_page\",\n      \"name\": \"查看 Hello Agent 页\",\n      \"description\": \"普通访问用户通过侧边导航进入 Hello Agent 页并查看其展示的 hello agent! 文案的完整流程\",\n      \"steps\": [\n        \"普通访问用户在 PC 浏览器中打开应用\",\n        \"普通访问用户通过侧边导航进入 Hello Agent 页\",\n        \"系统直接渲染 Hello Agent 页\",\n        \"Hello Agent 页展示写死的字符串 hello agent!\",\n        \"普通访问用户查看页面展示内容，流程结束\"\n      ]\n    }\n  ],\n  \"authentication_requirements\": {\n    \"enabled\": false,\n    \"sourceRefs\": []\n  },\n  \"authorization_requirements\": {\n    \"enabled\": false,\n    \"restrictedPages\": [],\n    \"restrictedOperations\": []\n  }\n}",
   "approved": true,
   "agent_spec_used": true,
   "clarification_status": "clear",
