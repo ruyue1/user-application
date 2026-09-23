@@ -1,0 +1,64 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-09-23T08:13:19.312797+00:00",
+  "requirement_spec_sha256": "a5f3585edb55fcb49ea5f3029874945033ba1cf685a9f66332322e849be39b72",
+  "app": {
+    "name": "年龄录入",
+    "summary": "「年龄录入」是面向 PC 端的轻量应用，不启用认证与权限控制。应用只有一个页面，页面上显示当前时间，没有任何后端 API 和实体。导航采用侧边布局，页头启用、页脚禁用。业务参与者为普通使用者，打开应用即可查看当前时间。"
+  },
+  "business_flows": [
+    {
+      "name": "查看当前时间",
+      "steps": [
+        "打开「年龄录入」应用",
+        "进入应用首页",
+        "在首页查看页面展示的当前时间"
+      ],
+      "id": "flow_view_current_time",
+      "description": "普通使用者打开应用后，在唯一首页查看页面展示的当前时间，流程不涉及登录、权限校验或业务数据读写。"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "home_page",
+      "name": "首页",
+      "path": "/page/home",
+      "module_id": "module_age_entry",
+      "description": "应用唯一页面，页面显示当前时间；无后端 API、无实体数据的读写。",
+      "goal": "让普通使用者打开应用后，在唯一首页直接看到当前时间。",
+      "information_items": [
+        {
+          "itemId": "home_page_current_time",
+          "label": "当前时间",
+          "description": "页面展示的当前时间，供普通使用者直接查看。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面打开过程中展示加载提示，加载完成后展示当前时间。",
+        "empty": "页面不涉及业务数据，无空状态。",
+        "error": "若当前时间无法展示，页面给出可理解的错误提示。",
+        "success": "页面正常展示当前时间。",
+        "validation": "页面无输入项，无需校验。"
+      },
+      "acceptance_criteria": [
+        "普通使用者打开应用后进入首页，页面展示当前时间。",
+        "首页不要求登录，也不展示任何权限受限内容。",
+        "首页不涉及任何业务数据的录入、查询或修改。"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "普通使用者无需登录即可打开「年龄录入」应用并进入首页。",
+    "首页展示当前时间，且不依赖任何后端 API 或实体数据。",
+    "应用只有一个页面，导航采用侧边布局，页头启用、页脚禁用。",
+    "应用不启用认证与权限控制，普通使用者可访问全部页面内容。"
+  ],
+  "confirmation_status": "confirmed"
+}

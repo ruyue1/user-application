@@ -1,0 +1,74 @@
+{
+  "version": "0.1.0",
+  "status": "draft",
+  "generated_at": "2026-09-23T08:13:16.391938+00:00",
+  "summary": "「年龄录入」是面向 PC 端的轻量应用，不启用认证与权限控制。应用只有一个页面，页面上显示当前时间，没有任何后端 API 和实体。导航采用侧边布局，页头启用、页脚禁用。业务参与者为普通使用者，打开应用即可查看当前时间。",
+  "source_request": "请为新应用「年龄录入」完成需求、产品、UI（可跳过）和技术规划。；应用场景：只有一个页面，页面上显示当前时间，没有任何后端api和实体；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。；补充确认：业务角色为已选：普通使用者",
+  "app_info": {
+    "name": "年龄录入",
+    "summary": "「年龄录入」是面向 PC 端的轻量应用，不启用认证与权限控制。应用只有一个页面，页面上显示当前时间，没有任何后端 API 和实体。导航采用侧边布局，页头启用、页脚禁用。业务参与者为普通使用者，打开应用即可查看当前时间。",
+    "target": "PC",
+    "menu_enabled": true,
+    "route_root_path": "/page"
+  },
+  "user_roles": [
+    {
+      "name": "普通使用者",
+      "description": "使用该应用查看页面当前时间的一般使用者，无需登录即可访问。",
+      "id": "role_ordinary_user"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "年龄录入",
+      "description": "应用唯一的功能模块，提供包含当前时间展示的单一页面，不涉及后端 API 与实体。",
+      "priority": "must",
+      "id": "module_age_entry"
+    }
+  ],
+  "pages": [
+    {
+      "name": "首页",
+      "path": "/page/home",
+      "module_id": "module_age_entry",
+      "description": "应用唯一页面，页面显示当前时间；无后端 API、无实体数据的读写。",
+      "pageId": "home_page"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "查看当前时间",
+      "steps": [
+        "打开「年龄录入」应用",
+        "进入应用首页",
+        "在首页查看页面展示的当前时间"
+      ],
+      "id": "flow_view_current_time",
+      "description": "普通使用者打开应用后，在唯一首页查看页面展示的当前时间，流程不涉及登录、权限校验或业务数据读写。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\"version\": \"0.1.0\", \"status\": \"draft\", \"generated_at\": \"2026-09-23T08:20:00.000000+00:00\", \"app_info\": {\"name\": \"年龄录入\", \"summary\": \"「年龄录入」是面向 PC 端的轻量应用，不启用认证与权限控制。应用只有一个页面，页面上显示当前时间，没有任何后端 API 和实体。导航采用侧边布局，页头启用、页脚禁用。业务参与者为普通使用者，打开应用即可查看当前时间。\", \"target\": \"PC\", \"menu_enabled\": true, \"route_root_path\": \"/\"}, \"user_roles\": [{\"id\": \"role_ordinary_user\", \"name\": \"普通使用者\", \"description\": \"使用该应用查看页面当前时间的一般使用者，无需登录即可访问。\"}], \"feature_modules\": [{\"id\": \"module_age_entry\", \"name\": \"年龄录入\", \"description\": \"应用唯一的功能模块，提供包含当前时间展示的单一页面，不涉及后端 API 与实体。\"}], \"pages\": [{\"pageId\": \"home_page\", \"name\": \"首页\", \"path\": \"/\", \"module_id\": \"module_age_entry\", \"description\": \"应用唯一页面，页面显示当前时间；无后端 API、无实体数据的读写。\"}], \"business_flows\": [{\"id\": \"flow_view_current_time\", \"name\": \"查看当前时间\", \"description\": \"普通使用者打开应用后，在唯一首页查看页面展示的当前时间，流程不涉及登录、权限校验或业务数据读写。\", \"steps\": [\"打开「年龄录入」应用\", \"进入应用首页\", \"在首页查看页面展示的当前时间\"]}], \"authentication_requirements\": {\"enabled\": false, \"sourceRefs\": []}, \"authorization_requirements\": {\"sourceRefs\": [], \"restrictedPages\": [], \"restrictedOperations\": []}}",
+  "approved": true,
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "deepseek-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model",
+  "confirmation_status": "confirmed"
+}
