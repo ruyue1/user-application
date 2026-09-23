@@ -1,0 +1,41 @@
+{
+  "application": {
+    "id": "1790127493750-udio72",
+    "name": "欢迎页"
+  },
+  "updatedAt": "2026-09-23T01:39:23.808356Z",
+  "revision": 12,
+  "developmentArtifacts": {
+    "pages": {
+      "welcome_home": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null
+      }
+    },
+    "entities": {},
+    "endpoints": {},
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "897d7ac2-5d6b-4df9-b176-5380050f8345"
+  },
+  "activeRunId": "44e0378e-ca52-4069-b49e-f3570f269b2a",
+  "activeExecutions": {},
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-09-23T01:38:41.302097+00:00",
+  "requirement_spec_sha256": "4387f25f7634115c0a010aa3dbd0ba0a6c610db548c80eb099d1c550ebe1872f",
+  "app": {
+    "name": "欢迎页",
+    "summary": "「欢迎页」是一个面向 PC 终端的纯展示型应用，只包含一个欢迎页，页面直接展示写死的字符串“hello world”，不依赖任何后端 API 接口。导航采用侧边布局，包含页头、不包含页脚。应用不启用认证，也不涉及权限控制，唯一的业务参与者是普通访问用户。"
+  },
+  "business_flows": [
+    {
+      "name": "查看欢迎页",
+      "steps": [
+        "普通访问用户在 PC 浏览器中打开应用入口",
+        "系统直接渲染欢迎页",
+        "欢迎页展示写死的字符串 hello world",
+        "普通访问用户查看页面展示内容，流程结束"
+      ],
+      "id": "flow_view_welcome_page",
+      "description": "普通访问用户在 PC 浏览器中打开应用并查看欢迎页展示的 hello world 文案的完整流程"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "welcome_home",
+      "name": "欢迎页",
+      "path": "/page/welcome-home",
+      "module_id": "module_welcome_display",
+      "description": "应用首页与唯一页面，在 PC 浏览器中直接展示写死的字符串 hello world，无表单、无列表、无交互请求",
+      "goal": "让普通访问用户在 PC 浏览器中打开应用后，立即看到写死的字符串 hello world，确认应用可正常访问并完成欢迎信息的查看。",
+      "information_items": [
+        {
+          "itemId": "welcome_home_hello_world_text",
+          "label": "欢迎文案",
+          "description": "页面中央展示的写死字符串 hello world，是用户进入应用后需要看到的核心内容。"
+        },
+        {
+          "itemId": "welcome_home_page_identity",
+          "label": "页面标识",
+          "description": "帮助用户识别当前处于欢迎页的页面名称或标题信息。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面打开过程中可展示加载提示，加载完成后自动消失，不阻塞用户查看欢迎文案。",
+        "empty": "页面不依赖任何数据，不存在空数据状态；欢迎文案始终展示。",
+        "error": "页面为纯静态展示，不依赖后端接口，正常访问时不应出现错误状态；若浏览器无法渲染页面，由浏览器自身提示。",
+        "success": "页面成功渲染后，用户可清晰看到写死的字符串 hello world。",
+        "validation": "页面无表单、无输入项，不需要校验状态。"
+      },
+      "acceptance_criteria": [
+        "普通访问用户在 PC 浏览器中打开应用入口后，直接进入欢迎页。",
+        "欢迎页在页面中清晰展示写死的字符串 hello world。",
+        "欢迎页不包含表单、列表、查询条件或任何需要用户提交的交互请求。",
+        "欢迎页不依赖任何后端 API 接口即可正常展示内容。",
+        "应用导航采用侧边布局，包含页头，不包含页脚。",
+        "应用不启用认证，普通访问用户无需登录即可查看欢迎页。"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "应用只包含一个欢迎页，页面路径为 /page/welcome-home，模块归属为欢迎页展示。",
+    "普通访问用户在 PC 浏览器中打开应用后，能够直接看到写死的字符串 hello world。",
+    "欢迎页为纯展示页面，不包含任何用户主动触发的业务操作、导航操作或外部跳转操作。",
+    "应用不依赖任何后端 API 接口即可完成欢迎页展示。",
+    "应用导航采用侧边布局，包含页头，不包含页脚。",
+    "应用不启用认证，也不涉及权限控制，唯一业务参与者为普通访问用户。",
+    "欢迎页在加载、成功展示等状态下均能正常呈现欢迎文案，且不存在空数据或校验相关状态。"
+  ],
+  "confirmation_status": "confirmed"
+}
