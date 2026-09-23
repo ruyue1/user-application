@@ -1,13 +1,13 @@
 {
-  "version": "0.1.0",
+  "version": "1.0",
   "status": "draft",
-  "generated_at": "2026-09-23T07:17:06.759093+00:00",
-  "summary": "「年龄录入」是一个面向 PC 端的轻量应用，仅提供一个年龄录入页面：页面包含一个输入框用于填写年龄，提交后由后端仅保存年龄数值，不提供年龄数据的展示页面。导航采用侧边布局，页头启用、页脚禁用，认证不启用，不涉及权限控制，业务角色为年龄录入人员。",
-  "source_request": "请为新应用「年龄录入」完成需求、产品、UI（可跳过）和技术规划。；应用场景：一个页面，页面上有一个输入框，只输入年龄，后端只保存年龄，不需要展示页面；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。；补充确认：业务角色为已选：年龄录入人员",
+  "generated_at": "2026-09-23T07:43:31.937973+00:00",
+  "summary": "「年龄录入」是一个面向 PC 端的轻量应用，仅提供一个年龄录入页面：页面包含一个输入框用于填写年龄，提交后由后端仅保存年龄数值，不提供年龄数据的展示页面。本次迭代在后端新增一个获取年龄的接口，供后端按需读取已保存的年龄数值，前端不做任何改造。导航采用侧边布局，页头启用、页脚禁用，认证不启用，不涉及权限控制，业务角色为年龄录入人员。",
+  "source_request": "以下是上一迭代的应用现状总结（来自 AGENTS.md），请基于此理解当前应用状态：；# 迭代上下文；> 本文件记录每轮迭代的设计与计划产物摘要，供下一轮迭代的大模型作为起点。；## 分支 dev1（2026-09-23 07:42:41 UTC）；**变更说明**：33；### 应用现状；应用名称：年龄录入；应用场景：一个页面，页面上有一个输入框，只输入年龄，后端只保存年龄，不需要展示页面；目标终端：PC；导航布局：布局=side, 页头=启用, 页脚=禁用；主题色：#6b3cf0；数据源类型：database；认证：不启用；权限控制：不启用；### 需求规格；> 「年龄录入」是一个面向 PC 端的轻量应用，仅提供一个年龄录入页面：页面包含一个输入框用于填写年龄，提交后由后端仅保存年龄数值，不提供年龄数据的展示页面。导航采用侧边布局，页头启用、页脚禁用，认证不启用，不涉及权限控制，业务角色为年龄录入人员。；**用户角色**：；年龄录入人员：在年龄录入页面填写并提交年龄的业务人员；**功能模块**：；年龄录入（must）：提供年龄录入页面，接收用户填写的年龄并提交保存，后端仅保存年龄数值；### 产品计划；**页面**：；**年龄录入**（page_age_entry，路径：/page/page-age-entry）；描述：应用首页兼年龄录入页面，包含一个年龄输入框与提交操作，提交后仅保存年龄数值，不展示已录入数据；目标：让年龄录入人员在一个页面内填写年龄并提交，由后端保存年龄数值，页面不展示已录入的年龄数据；**业务流程**：；年龄录入流程；年龄录入人员通过唯一的录入页面填写年龄并提交，后端仅保存该年龄数值；步骤：打开年龄录入页面；步骤：在输入框中填写年龄；步骤：提交年龄；步骤：后端保存年龄数值并返回录入结果；### 技术计划；前端架构：A React single-page PC client renders the single age-entry page at /page/page-age-entry with a side navigation layout, enabled header, disabled footer, and no authentication. It communicates with the backend through REST JSON APIs and performs client-side validation before submission.；后端架构：后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。；数据层：数据库固定使用 MySQL8，缓存固定使用 Redis。；**实体**：；**AgeRecord**（AgeRecord）；描述：A single age value submitted by an age-entry user and persisted by the backend.；记录ID（id）：number，必填；年龄数值（age_value）：number，必填；创建时间（created_at）：datetime，必填；### 接口设计；**endpoint--age_entry_api--age_entry_api-submit**；### 数据源；**年龄录入数据库**（类型：database）；；本次迭代的新需求：；后端添加一个获取年龄的接口，前端不做任何改造",
   "app_info": {
     "name": "年龄录入",
-    "summary": "「年龄录入」是一个面向 PC 端的轻量应用，仅提供一个年龄录入页面：页面包含一个输入框用于填写年龄，提交后由后端仅保存年龄数值，不提供年龄数据的展示页面。导航采用侧边布局，页头启用、页脚禁用，认证不启用，不涉及权限控制，业务角色为年龄录入人员。",
-    "target": "PC",
+    "summary": "「年龄录入」是一个面向 PC 端的轻量应用，仅提供一个年龄录入页面：页面包含一个输入框用于填写年龄，提交后由后端仅保存年龄数值，不提供年龄数据的展示页面。本次迭代在后端新增一个获取年龄的接口，供后端按需读取已保存的年龄数值，前端不做任何改造。导航采用侧边布局，页头启用、页脚禁用，认证不启用，不涉及权限控制，业务角色为年龄录入人员。",
+    "target": "",
     "menu_enabled": true,
     "route_root_path": "/page"
   },
@@ -24,14 +24,20 @@
       "description": "提供年龄录入页面，接收用户填写的年龄并提交保存，后端仅保存年龄数值",
       "priority": "must",
       "id": "module_age_entry"
+    },
+    {
+      "name": "年龄获取",
+      "description": "在后端新增获取年龄的接口，按需读取已保存的年龄数值，前端不涉及页面改造",
+      "priority": "must",
+      "id": "module_age_query"
     }
   ],
   "pages": [
     {
       "name": "年龄录入",
-      "path": "/page/page-age-entry",
+      "path": "/page/page/page-age-entry",
       "module_id": "module_age_entry",
-      "description": "应用首页兼年龄录入页面，包含一个年龄输入框与提交操作，提交后仅保存年龄数值，不展示已录入数据",
+      "description": "应用首页兼年龄录入页面，包含一个年龄输入框与提交操作，提交后仅保存年龄数值，不展示已录入数据；本次迭代前端保持不变",
       "pageId": "page_age_entry"
     }
   ],
@@ -47,6 +53,16 @@
       ],
       "id": "flow_age_entry",
       "description": "年龄录入人员通过唯一的录入页面填写年龄并提交，后端仅保存该年龄数值"
+    },
+    {
+      "name": "年龄获取流程",
+      "steps": [
+        "调用方发起获取年龄的后端接口请求",
+        "后端读取已保存的年龄数值",
+        "后端返回年龄数值给调用方"
+      ],
+      "id": "flow_age_query",
+      "description": "后端提供获取年龄的接口，调用方通过该接口读取已保存的年龄数值，前端不参与该流程"
     }
   ],
   "authorization_requirements": {
@@ -59,7 +75,7 @@
   },
   "acceptance_criteria": [],
   "clarification_questions": [],
-  "agent_note": "{\"version\": \"0.1.0\", \"status\": \"draft\", \"generated_at\": \"2026-09-23T07:16:52.464506+00:00\", \"app_info\": {\"name\": \"年龄录入\", \"summary\": \"「年龄录入」是一个面向 PC 端的轻量应用，仅提供一个年龄录入页面：页面包含一个输入框用于填写年龄，提交后由后端仅保存年龄数值，不提供年龄数据的展示页面。导航采用侧边布局，页头启用、页脚禁用，认证不启用，不涉及权限控制，业务角色为年龄录入人员。\", \"target\": \"PC\", \"menu_enabled\": true, \"route_root_path\": \"/\"}, \"user_roles\": [{\"id\": \"role_age_entry_user\", \"name\": \"年龄录入人员\", \"description\": \"在年龄录入页面填写并提交年龄的业务人员\"}], \"feature_modules\": [{\"id\": \"module_age_entry\", \"name\": \"年龄录入\", \"description\": \"提供年龄录入页面，接收用户填写的年龄并提交保存，后端仅保存年龄数值\"}], \"pages\": [{\"pageId\": \"page_age_entry\", \"name\": \"年龄录入\", \"path\": \"/\", \"module_id\": \"module_age_entry\", \"description\": \"应用首页兼年龄录入页面，包含一个年龄输入框与提交操作，提交后仅保存年龄数值，不展示已录入数据\"}], \"business_flows\": [{\"id\": \"flow_age_entry\", \"name\": \"年龄录入流程\", \"description\": \"年龄录入人员通过唯一的录入页面填写年龄并提交，后端仅保存该年龄数值\", \"steps\": [\"打开年龄录入页面\", \"在输入框中填写年龄\", \"提交年龄\", \"后端保存年龄数值并返回录入结果\"]}], \"authentication_requirements\": {\"enabled\": false, \"sourceRefs\": []}, \"authorization_requirements\": {\"sourceRefs\": [], \"restrictedPages\": [], \"restrictedOperations\": []}}",
+  "agent_note": "{\n  \"version\": \"1.0\",\n  \"status\": \"draft\",\n  \"generated_at\": \"2026-09-23T08:15:00Z\",\n  \"app_info\": {\n    \"name\": \"年龄录入\",\n    \"summary\": \"「年龄录入」是一个面向 PC 端的轻量应用，仅提供一个年龄录入页面：页面包含一个输入框用于填写年龄，提交后由后端仅保存年龄数值，不提供年龄数据的展示页面。本次迭代在后端新增一个获取年龄的接口，供后端按需读取已保存的年龄数值，前端不做任何改造。导航采用侧边布局，页头启用、页脚禁用，认证不启用，不涉及权限控制，业务角色为年龄录入人员。\"\n  },\n  \"user_roles\": [\n    {\n      \"id\": \"role_age_entry_user\",\n      \"name\": \"年龄录入人员\",\n      \"description\": \"在年龄录入页面填写并提交年龄的业务人员\"\n    }\n  ],\n  \"feature_modules\": [\n    {\n      \"id\": \"module_age_entry\",\n      \"name\": \"年龄录入\",\n      \"description\": \"提供年龄录入页面，接收用户填写的年龄并提交保存，后端仅保存年龄数值\",\n      \"priority\": \"must\"\n    },\n    {\n      \"id\": \"module_age_query\",\n      \"name\": \"年龄获取\",\n      \"description\": \"在后端新增获取年龄的接口，按需读取已保存的年龄数值，前端不涉及页面改造\",\n      \"priority\": \"must\"\n    }\n  ],\n  \"pages\": [\n    {\n      \"pageId\": \"page_age_entry\",\n      \"name\": \"年龄录入\",\n      \"path\": \"/page/page-age-entry\",\n      \"module_id\": \"module_age_entry\",\n      \"description\": \"应用首页兼年龄录入页面，包含一个年龄输入框与提交操作，提交后仅保存年龄数值，不展示已录入数据；本次迭代前端保持不变\"\n    }\n  ],\n  \"business_flows\": [\n    {\n      \"id\": \"flow_age_entry\",\n      \"name\": \"年龄录入流程\",\n      \"description\": \"年龄录入人员通过唯一的录入页面填写年龄并提交，后端仅保存该年龄数值\",\n      \"steps\": [\n        \"打开年龄录入页面\",\n        \"在输入框中填写年龄\",\n        \"提交年龄\",\n        \"后端保存年龄数值并返回录入结果\"\n      ]\n    },\n    {\n      \"id\": \"flow_age_query\",\n      \"name\": \"年龄获取流程\",\n      \"description\": \"后端提供获取年龄的接口，调用方通过该接口读取已保存的年龄数值，前端不参与该流程\",\n      \"steps\": [\n        \"调用方发起获取年龄的后端接口请求\",\n        \"后端读取已保存的年龄数值\",\n        \"后端返回年龄数值给调用方\"\n      ]\n    }\n  ],\n  \"authentication_requirements\": {\n    \"enabled\": false,\n    \"sourceRefs\": []\n  },\n  \"authorization_requirements\": {\n    \"enabled\": false,\n    \"restrictedPages\": [],\n    \"restrictedOperations\": []\n  }\n}",
   "approved": true,
   "agent_spec_used": true,
   "clarification_status": "clear",

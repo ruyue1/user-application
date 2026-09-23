@@ -1,6 +1,51 @@
 {
   "schema_version": "ui-manifest.v3",
-  "confirmation_status": "skipped",
-  "product_plan_sha256": "a7e56a991755f06bf43bb26ec6677d4c943352ecd7ea879c7f652b65ef72cffa",
-  "pages": []
+  "confirmation_status": "pending_user_confirmation",
+  "product_plan_sha256": "d818551ff52983e55e6b0914fcfbaa2791dd9d87331625b0ba760f4f73cbb1bf",
+  "pages": [
+    {
+      "pageId": "page_age_entry",
+      "page_key": "PageAgeEntry",
+      "preview_path": "/page/page-age-entry",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [
+          {
+            "actionId": "page_age_entry_submit_age",
+            "controlIds": []
+          }
+        ],
+        "information_items": [
+          {
+            "informationItemId": "page_age_entry-age-input",
+            "controlIds": []
+          },
+          {
+            "informationItemId": "page_age_entry-submit-result",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    }
+  ]
 }

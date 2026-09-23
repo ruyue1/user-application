@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 2,
+  "configRevision": 4,
   "appName": "年龄录入",
   "appIcon": "AppstoreOutlined",
   "senario": "一个页面，页面上有一个输入框，只输入年龄，后端只保存年龄，不需要展示页面",
@@ -59,5 +59,100 @@
     "traceBaggage": "",
     "apiTrackHost": ""
   },
-  "branches": []
+  "id": "1790147804288-lvwpb4",
+  "name": "年龄录入",
+  "workspaceRoot": "/Users/sbw/Documents/xc50",
+  "projectParentPath": "",
+  "projectDirectoryName": "xc50",
+  "source": "new",
+  "legacyTheme": "custom",
+  "legacyLayout": "side-nav",
+  "enableTabs": false,
+  "pages": [
+    "默认页面"
+  ],
+  "defaultPage": "默认页面",
+  "hasDynamicRoutes": false,
+  "lastOpenedAt": 1790147845466,
+  "branches": [
+    {
+      "name": "dev1",
+      "createdAt": 1790147804336,
+      "lifecycle": {
+        "application": {
+          "id": "1790147804288-lvwpb4",
+          "name": "年龄录入"
+        },
+        "updatedAt": "2026-09-23T07:42:51.920036Z",
+        "revision": 1,
+        "developmentArtifacts": {
+          "pages": {
+            "page_age_entry": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-09-23T07:26:22.462921Z",
+              "completedRunId": "cbdc99bd-fc70-4ed9-b0f3-9d51edac6a7e",
+              "completedThreadId": "36d69f88-6665-4301-bd49-603c03e92fdf"
+            }
+          },
+          "entities": {
+            "AgeRecord": {
+              "initialDevelopmentStatus": "completed"
+            }
+          },
+          "endpoints": {
+            "age_entry_api": {
+              "age_entry_api.submit": {
+                "initialDevelopmentStatus": "completed",
+                "completedAt": "2026-09-23T07:23:02.176222Z",
+                "completedRunId": "b644f9a7-b1de-4ef7-b188-dfc4ee11cdd7",
+                "completedThreadId": "53deb2ae-379a-475c-9d56-e8bbebe64504"
+              }
+            }
+          },
+          "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/sbw/Documents/xc50/.devagentstudio/plans/product-plan.json'",
+          "outOfScope": []
+        },
+        "initialization": {
+          "stage": "collecting_requirement",
+          "status": "awaiting_user",
+          "threadId": "4a5fce92-5c47-4325-8f05-c7946ddeaf19"
+        },
+        "activeRunId": "91c69947-2021-47e9-8a82-6a3d3c6ce218",
+        "activeExecutions": {},
+        "resourceLocks": {
+          "application": null,
+          "pages": {},
+          "apiContracts": {},
+          "endpoints": {},
+          "dataSources": {}
+        },
+        "pendingRevisionImpact": null,
+        "activeFormalRevision": null,
+        "error": null,
+        "extensions": {},
+        "testEntryGate": {
+          "allowed": false,
+          "total": 3,
+          "completed": 3,
+          "pending": 0,
+          "inProgress": 0,
+          "blockers": [],
+          "reason": "应用尚未完成创建规划。"
+        }
+      },
+      "description": "33",
+      "artifactSummary": {
+        "pageIds": [
+          "默认页面"
+        ],
+        "deployableScript": "deploy-dev1.sh"
+      },
+      "snapshot": {
+        "pageIds": [
+          "默认页面"
+        ]
+      }
+    }
+  ],
+  "planningThreadId": "18557268-7edd-4c0a-8a9b-1681108a9b1d"
 }
