@@ -1,0 +1,75 @@
+{
+  "version": "0.1.0",
+  "status": "draft",
+  "generated_at": "2026-09-23T01:21:59.484092+00:00",
+  "summary": "「欢迎页」是一个面向 PC 端的纯展示型应用，仅提供单个欢迎页，页面直接展示写死的字符串“hello world”，不依赖任何后端 API 接口与业务数据。应用采用 side 侧边导航布局，启用页头、禁用页脚，首页路径为 /，导航中仅包含该欢迎页。面向的使用者为访客，无需登录即可浏览页面内容；应用不启用认证，也不做任何页面或操作级权限控制，任何访问者看到的展示内容完全一致。",
+  "source_request": "请为新应用「欢迎页」完成需求、产品、UI（可跳过）和技术规划。；应用场景：我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。；补充确认：业务参与者为已选：访客",
+  "app_info": {
+    "name": "欢迎页",
+    "summary": "「欢迎页」是一个面向 PC 端的纯展示型应用，仅提供单个欢迎页，页面直接展示写死的字符串“hello world”，不依赖任何后端 API 接口与业务数据。应用采用 side 侧边导航布局，启用页头、禁用页脚，首页路径为 /，导航中仅包含该欢迎页。面向的使用者为访客，无需登录即可浏览页面内容；应用不启用认证，也不做任何页面或操作级权限控制，任何访问者看到的展示内容完全一致。",
+    "target": "PC",
+    "menu_enabled": true,
+    "route_root_path": "/page"
+  },
+  "user_roles": [
+    {
+      "name": "访客",
+      "description": "无需登录、可直接打开欢迎页浏览 hello world 展示内容的访问者，是本应用唯一的使用角色。",
+      "id": "visitor"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "欢迎页展示",
+      "description": "应用的核心展示模块，负责在首页向访问者展示写死的欢迎字符串“hello world”，不含任何后端接口调用与数据交互。",
+      "priority": "must",
+      "id": "welcome_display"
+    }
+  ],
+  "pages": [
+    {
+      "name": "欢迎页",
+      "path": "/page/home",
+      "module_id": "welcome_display",
+      "description": "应用首页，页面中央展示写死的字符串“hello world”，纯静态展示内容，不含表单、按钮或任何数据请求。",
+      "pageId": "home"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "查看欢迎页",
+      "steps": [
+        "访客在浏览器中打开应用地址",
+        "系统直接渲染首页欢迎页",
+        "页面展示写死的字符串“hello world”",
+        "访客阅读展示内容后结束浏览"
+      ],
+      "id": "view_welcome_page",
+      "description": "访客打开应用后直接进入欢迎页并阅读 hello world 展示内容的最简浏览流程，全程无需登录或选择操作。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\"version\": \"0.1.0\", \"status\": \"draft\", \"generated_at\": \"2026-09-23T01:32:10.000000+00:00\", \"app_info\": {\"name\": \"欢迎页\", \"summary\": \"「欢迎页」是一个面向 PC 端的纯展示型应用，仅提供单个欢迎页，页面直接展示写死的字符串“hello world”，不依赖任何后端 API 接口与业务数据。应用采用 side 侧边导航布局，启用页头、禁用页脚，首页路径为 /，导航中仅包含该欢迎页。面向的使用者为访客，无需登录即可浏览页面内容；应用不启用认证，也不做任何页面或操作级权限控制，任何访问者看到的展示内容完全一致。\", \"target\": \"PC\", \"menu_enabled\": true, \"route_root_path\": \"/\"}, \"user_roles\": [{\"id\": \"visitor\", \"name\": \"访客\", \"description\": \"无需登录、可直接打开欢迎页浏览 hello world 展示内容的访问者，是本应用唯一的使用角色。\"}], \"feature_modules\": [{\"id\": \"welcome_display\", \"name\": \"欢迎页展示\", \"description\": \"应用的核心展示模块，负责在首页向访问者展示写死的欢迎字符串“hello world”，不含任何后端接口调用与数据交互。\"}], \"pages\": [{\"pageId\": \"home\", \"name\": \"欢迎页\", \"path\": \"/\", \"module_id\": \"welcome_display\", \"description\": \"应用首页，页面中央展示写死的字符串“hello world”，纯静态展示内容，不含表单、按钮或任何数据请求。\"}], \"business_flows\": [{\"id\": \"view_welcome_page\", \"name\": \"查看欢迎页\", \"description\": \"访客打开应用后直接进入欢迎页并阅读 hello world 展示内容的最简浏览流程，全程无需登录或选择操作。\", \"steps\": [\"访客在浏览器中打开应用地址\", \"系统直接渲染首页欢迎页\", \"页面展示写死的字符串“hello world”\", \"访客阅读展示内容后结束浏览\"]}], \"authentication_requirements\": {\"enabled\": false, \"sourceRefs\": []}, \"authorization_requirements\": {\"sourceRefs\": [], \"restrictedPages\": [], \"restrictedOperations\": []}}",
+  "approved": true,
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "deepseek-v4-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model",
+  "confirmation_status": "confirmed"
+}
