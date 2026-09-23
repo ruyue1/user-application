@@ -1,0 +1,61 @@
+{
+  "version": "0.1.0",
+  "generated_at": "2026-09-23T00:53:04.251061+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "id": "frontend_test_generation",
+      "name": "前端单元测试生成检查",
+      "layer": "frontend",
+      "language": "typescript",
+      "passed": true,
+      "skipped": true,
+      "required": false,
+      "command": null,
+      "evidence": "用户选择跳过单元测试，本轮不生成、不执行单元测试。",
+      "failure_category": null,
+      "execution": {
+        "tool": "none",
+        "argv": [],
+        "cwd": ".",
+        "returncode": null,
+        "timed_out": false,
+        "stdout_log": null,
+        "stderr_log": null
+      }
+    },
+    {
+      "id": "frontend_unit_tests",
+      "name": "前端单元测试",
+      "layer": "frontend",
+      "language": "typescript",
+      "passed": true,
+      "skipped": true,
+      "required": false,
+      "command": null,
+      "evidence": "用户选择跳过单元测试，本轮不生成、不执行单元测试。",
+      "failure_category": null,
+      "execution": {
+        "tool": "none",
+        "argv": [],
+        "cwd": ".",
+        "returncode": null,
+        "timed_out": false,
+        "stdout_log": null,
+        "stderr_log": null
+      }
+    }
+  ],
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  },
+  "needs_revision": false,
+  "revision_requests": [],
+  "quality_gate": {
+    "passed": true,
+    "required_checks": [],
+    "evaluated_by": "deterministic-quality-gate"
+  }
+}

@@ -1,0 +1,408 @@
+{
+  "schema_version": "build-dag.v4",
+  "application": {
+    "unit_id": "application:root",
+    "status": "prepared"
+  },
+  "build_units": {
+    "application:root": {
+      "id": "application:root",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:shell": {
+      "id": "frontend:shell",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "generation_strategy": "prerequisite_only",
+      "participation": "prerequisite_only",
+      "generation_status": "not_required",
+      "input_fingerprint": "99ba9989baf0b60e7a4fb779cf6ca6b4642ff5295c811a95273134cb6d661551"
+    },
+    "frontend:api-client": {
+      "id": "frontend:api-client",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:auth-guard": {
+      "id": "frontend:auth-guard",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:bootstrap": {
+      "id": "backend:bootstrap",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "app:integration": {
+      "id": "app:integration",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "page:home": {
+      "id": "page:home",
+      "kind": "page",
+      "page_id": "home",
+      "status": "prepared",
+      "task_ids": [
+        "page:home::page"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "page_implementation_contract",
+        "target": {
+          "type": "page",
+          "id": "home",
+          "page_key": "Home"
+        },
+        "page_implementation_contract": {
+          "id": "home",
+          "ui_design_path": "",
+          "ui_design_sha256": ""
+        },
+        "endpoint_ids": [],
+        "entity_ids": [],
+        "endpoint_designs": [],
+        "mapping_flows": []
+      },
+      "input_fingerprint": "24677720127873d58023e1888bbdc0843bb52d223d8070edf6db024a68764ba6"
+    }
+  },
+  "unit_graph": {
+    "schema_version": "build-unit-graph.v3",
+    "nodes": [
+      "application:root",
+      "frontend:shell",
+      "frontend:api-client",
+      "frontend:auth-guard",
+      "backend:bootstrap",
+      "app:integration",
+      "page:home"
+    ],
+    "edges": [
+      {
+        "from": "application:root",
+        "to": "frontend:shell",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:api-client",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:auth-guard",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:bootstrap",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "page:home",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:home",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:home",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:home",
+        "to": "app:integration",
+        "type": "depends_on"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "unit_skeleton": {
+    "input_fingerprint": "6ee0a2aeef7ccad6579c2723a4d5308bdfc1296ef44f8546ae93783ed80b0ea8",
+    "project_plan_version": null,
+    "workspace_revision": "067a90d93a4f4c8b6076d53d",
+    "reused": false
+  },
+  "task_registry": {
+    "page:home::page": {
+      "id": "page:home::page",
+      "unit_id": "page:home",
+      "owner": "frontend",
+      "task_type": "frontend.code",
+      "status": "pending",
+      "title": "实现首页 Home（欢迎页）组件",
+      "description": "在 frontend/src/pages/Home/index.tsx 新建并实现 home 页面的正式页面组件：导出一个默认的 React 函数组件 Home（与 PageKey `Home` 对应），页面内完整、静态地渲染写死的字符串 \"hello world\"，不发起任何网络请求、不接入任何数据列表或表单、不接收任何 requiredEndpointIds（当前为空）。页面复用 frontend:shell 提供的侧边导航布局（页头启用、页脚禁用）与 frontend:api-client 提供的既有能力，本任务不注册路由或菜单、不修改 shell 与全局脚手架，仅交付页面自有实现；如需页面私有样式或子组件，仅可在页面自身目录内新增。",
+      "allowed_paths": [
+        "frontend/src/pages/Home/index.tsx"
+      ],
+      "target_files": [
+        "frontend/src/pages/Home/index.tsx"
+      ],
+      "change_scope": [
+        {
+          "operation": "add",
+          "path": "frontend/src/pages/Home/index.tsx",
+          "description": "新增首页入口组件文件，默认导出 Home 组件并静态渲染写死文案 \"hello world\"，无任何接口调用与数据依赖。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "page:home::page::deliverable",
+          "kind": "frontend.page",
+          "target_id": "home",
+          "paths": [
+            "frontend/src/pages/Home/index.tsx"
+          ],
+          "provides": [
+            "frontend.page:home"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "can_run_in_parallel": true,
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "impact_scope": {
+        "affected_modules": [
+          "frontend/src/pages/Home"
+        ],
+        "public_contracts": [
+          "frontend.page:home"
+        ],
+        "risks": [
+          "页面入口路径与 PageKey 由平台固定，若自行改写路径将导致页面无法被路由挂载"
+        ],
+        "summary": "新增 home 页面入口组件，静态渲染写死文案 \"hello world\"，遵循侧边导航布局约定，不引入接口调用与数据依赖。"
+      },
+      "source_refs": {
+        "type": "page_implementation_contract",
+        "target": {
+          "type": "page",
+          "id": "home",
+          "page_key": "Home"
+        },
+        "page_implementation_contract": {
+          "id": "home",
+          "ui_design_path": "",
+          "ui_design_sha256": ""
+        },
+        "endpoint_ids": [],
+        "entity_ids": [],
+        "endpoint_designs": [],
+        "mapping_flows": []
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "page:home"
+      ],
+      "unit_dependencies": [
+        "frontend:shell",
+        "frontend:api-client"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [
+        "frontend:api-client"
+      ],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:page:home::page:file_operation:c85da129b6fa",
+          "kind": "file_operation",
+          "description": "工程文件 frontend/src/pages/Home/index.tsx 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/Home/index.tsx"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:home::page:scope_boundary:8462f46a2d13",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/Home/index.tsx"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "frontend/src/pages/Home/index.tsx"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:home::page:page_entry:cb2b81aebffd",
+          "kind": "page_entry",
+          "description": "页面交付物必须包含可读取的 index.tsx 页面入口。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/Home/index.tsx"
+          ],
+          "expected": {
+            "page_id": "home",
+            "entry_path": "frontend/src/pages/Home/index.tsx"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:home::page:page_default_export:ffa0ab98a34f",
+          "kind": "page_default_export",
+          "description": "页面入口必须提供 default export，确保路由可以加载页面组件。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/Home/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/Home/index.tsx",
+            "requires_default_export": true
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:home::page:page_placeholder:644e86e2f298",
+          "kind": "page_placeholder",
+          "description": "页面入口不得保留模板占位内容。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/Home/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/Home/index.tsx",
+            "forbidden_markers": [
+              "hello agent!",
+              "待 Agent 生成真实内容",
+              "待agent生成真实内容",
+              "临时占位",
+              "placeholder content"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:home::page:frontend_api_boundary:2bd52311fc7a",
+          "kind": "frontend_api_boundary",
+          "description": "页面和任务内组件不得直接调用 fetch、axios 或 service；业务接口必须经 src/apis/ 与 useRequest。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/Home/index.tsx"
+          ],
+          "expected": {},
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": []
+    }
+  },
+  "task_graph": {
+    "schema_version": "build-task-graph.v3",
+    "nodes": [
+      "page:home::page"
+    ],
+    "edges": [],
+    "roots": [
+      "page:home::page"
+    ],
+    "leaves": [
+      "page:home::page"
+    ],
+    "topological_order": [
+      "page:home::page"
+    ],
+    "execution_layers": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "page:home::page"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "summary": {
+    "total": 1,
+    "frontend": 1,
+    "backend": 0,
+    "database": 0,
+    "pending": 1,
+    "running": 0,
+    "completed": 0,
+    "already_satisfied": 0,
+    "failed": 0
+  },
+  "execution": {
+    "batches": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "page:home::page"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      }
+    ],
+    "blocked_batches": []
+  },
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "home"
+  },
+  "template_context": {
+    "state_path": ".xcodeagent/template-state.json",
+    "template_revision": "2026.09.13.1",
+    "effective_capabilities": {}
+  },
+  "status": "ready",
+  "confirmation_status": "confirmed",
+  "confirmed_at": "2026-09-23T00:52:37.223608+00:00",
+  "confirmed_from": {
+    "planning_run_id": "planning-a2347428522d447594fe8ff2b8de613f",
+    "draft_digest": "3c011dc327cb0e8f2e8dd72189a0b9fb084f29e68f8b8352f22a007ccf43565a"
+  }
+}
