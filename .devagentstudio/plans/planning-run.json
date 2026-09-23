@@ -1,0 +1,132 @@
+{
+  "planning_run_id": "planning-9c525dde49604dd98114ef437ec98754",
+  "workflow_run_id": "dd826094-4cee-48e2-bfb6-2460de02b15e",
+  "thread_id": "36d69f88-6665-4301-bd49-603c03e92fdf",
+  "revision": 11,
+  "status": "active",
+  "phase": "persisting_pending",
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "page_age_entry"
+  },
+  "input_fingerprint": "dc732ae4b948ad9b5bb4476a6a4dcb66a90fe18ff47425fc868b81a3e9260b12",
+  "base_confirmed_plan_digest": "ae94d11848e6a2f6db529eea171516ee5b30a26406bba1f53d94c5d5cfae2204",
+  "required_unit_ids": [
+    "backend:bootstrap",
+    "backend:endpoint:age_entry_api:age_entry_api.submit",
+    "frontend:api-client",
+    "frontend:shell",
+    "page:page_age_entry"
+  ],
+  "planning_unit_ids": [
+    "frontend:api-client",
+    "page:page_age_entry"
+  ],
+  "global_repair_round": 0,
+  "global_repair_limit": 2,
+  "global_issues": [],
+  "unit_states": {
+    "backend:bootstrap": {
+      "unit_id": "backend:bootstrap",
+      "kind": "backend",
+      "participation": "reuse_only",
+      "generation_strategy": "reuse_only",
+      "generation_status": "not_required",
+      "generation_round": 1,
+      "attempt_in_round": 0,
+      "total_attempts": 0,
+      "retained_task_ids": [
+        "backend:bootstrap::bootstrap"
+      ],
+      "reusable_capabilities": [
+        "backend.bootstrap:database"
+      ],
+      "latest_candidate_id": null,
+      "candidate_task_count": 0,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "backend:endpoint:age_entry_api:age_entry_api.submit": {
+      "unit_id": "backend:endpoint:age_entry_api:age_entry_api.submit",
+      "kind": "backend",
+      "participation": "reuse_only",
+      "generation_strategy": "reuse_only",
+      "generation_status": "not_required",
+      "generation_round": 1,
+      "attempt_in_round": 0,
+      "total_attempts": 0,
+      "retained_task_ids": [
+        "backend:endpoint:age_entry_api:age_entry_api.submit::controller",
+        "backend:endpoint:age_entry_api:age_entry_api.submit::objects",
+        "backend:endpoint:age_entry_api:age_entry_api.submit::repository",
+        "backend:endpoint:age_entry_api:age_entry_api.submit::service"
+      ],
+      "reusable_capabilities": [
+        "backend.application_service:age_entry_api:age_entry_api.submit",
+        "backend.endpoint.objects:age_entry_api:age_entry_api.submit",
+        "backend.endpoint_controller:age_entry_api:age_entry_api.submit",
+        "backend.repository:age_entry_api:age_entry_api.submit"
+      ],
+      "latest_candidate_id": null,
+      "candidate_task_count": 0,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "frontend:api-client": {
+      "unit_id": "frontend:api-client",
+      "kind": "frontend",
+      "participation": "generate_only",
+      "generation_strategy": "model",
+      "generation_status": "candidate_ready",
+      "generation_round": 1,
+      "attempt_in_round": 1,
+      "total_attempts": 1,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": "candidate-fd0f33f7e1c74b4893941aa0286a4862",
+      "candidate_task_count": 1,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "frontend:shell": {
+      "unit_id": "frontend:shell",
+      "kind": "frontend",
+      "participation": "prerequisite_only",
+      "generation_strategy": "prerequisite_only",
+      "generation_status": "not_required",
+      "generation_round": 1,
+      "attempt_in_round": 0,
+      "total_attempts": 0,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": null,
+      "candidate_task_count": 0,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "page:page_age_entry": {
+      "unit_id": "page:page_age_entry",
+      "kind": "page",
+      "participation": "generate_only",
+      "generation_strategy": "model",
+      "generation_status": "candidate_ready",
+      "generation_round": 1,
+      "attempt_in_round": 1,
+      "total_attempts": 1,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": "candidate-9456c77cf38041888bb194ac3059b3fc",
+      "candidate_task_count": 1,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    }
+  },
+  "started_at": "2026-09-23T07:23:06.959737Z",
+  "updated_at": "2026-09-23T07:23:15.850290Z",
+  "failure": null
+}

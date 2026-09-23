@@ -3,29 +3,29 @@
     "id": "1790147804288-lvwpb4",
     "name": "年龄录入"
   },
-  "updatedAt": "2026-09-23T07:17:21.720150Z",
-  "revision": 12,
+  "updatedAt": "2026-09-23T07:42:24.200792Z",
+  "revision": 72,
   "developmentArtifacts": {
     "pages": {
       "page_age_entry": {
-        "initialDevelopmentStatus": "pending",
-        "completedAt": null,
-        "completedRunId": null,
-        "completedThreadId": null
+        "initialDevelopmentStatus": "completed",
+        "completedAt": "2026-09-23T07:26:22.462921Z",
+        "completedRunId": "cbdc99bd-fc70-4ed9-b0f3-9d51edac6a7e",
+        "completedThreadId": "36d69f88-6665-4301-bd49-603c03e92fdf"
       }
     },
     "entities": {
       "AgeRecord": {
-        "initialDevelopmentStatus": "pending"
+        "initialDevelopmentStatus": "completed"
       }
     },
     "endpoints": {
       "age_entry_api": {
         "age_entry_api.submit": {
-          "initialDevelopmentStatus": "pending",
-          "completedAt": null,
-          "completedRunId": null,
-          "completedThreadId": null
+          "initialDevelopmentStatus": "completed",
+          "completedAt": "2026-09-23T07:23:02.176222Z",
+          "completedRunId": "b644f9a7-b1de-4ef7-b188-dfc4ee11cdd7",
+          "completedThreadId": "53deb2ae-379a-475c-9d56-e8bbebe64504"
         }
       }
     },
@@ -33,19 +33,339 @@
     "outOfScope": []
   },
   "initialization": {
-    "stage": "generating_application_template_files",
-    "status": "running",
+    "stage": "ready_for_workbench",
+    "status": "completed",
     "threadId": "18557268-7edd-4c0a-8a9b-1681108a9b1d"
   },
-  "activeRunId": "b2cbbd48-e787-42f6-8a91-bd265a92f47c",
-  "activeExecutions": {},
+  "activeRunId": "794fb0bd-7d03-43c3-aac7-85dce3589304",
+  "activeExecutions": {
+    "b644f9a7-b1de-4ef7-b188-dfc4ee11cdd7": {
+      "scope": "endpoint",
+      "targetId": "age_entry_api.submit",
+      "pageId": null,
+      "threadId": "53deb2ae-379a-475c-9d56-e8bbebe64504",
+      "ownerSessionId": "94b84ece-fc8b-4fd3-9411-6801a4ffe842",
+      "runId": "b644f9a7-b1de-4ef7-b188-dfc4ee11cdd7",
+      "phase": "test_phase_confirmation",
+      "status": "awaiting_user",
+      "resourceKeys": [
+        "endpoint:age_entry_api:age_entry_api.submit",
+        "api_contract:age_entry_api",
+        "data_source:database",
+        "page:page_age_entry"
+      ],
+      "developmentPurpose": "initial",
+      "developmentTarget": {
+        "type": "endpoint",
+        "entityId": null,
+        "pageId": null,
+        "apiContractId": "age_entry_api",
+        "endpointId": "age_entry_api.submit"
+      },
+      "pendingInteraction": {
+        "id": "interaction-f64d3438c31da2daffd86d9e",
+        "type": "test_phase_confirmation",
+        "basedOnRevision": 40,
+        "payload": {
+          "mode": "test_phase_confirmation",
+          "status": "requires_user_input",
+          "message": "当前产物初次开发已完成。完成全部开发产物后可进入测试，当前 2/3。",
+          "testEntryGate": {
+            "allowed": false,
+            "total": 3,
+            "completed": 2,
+            "pending": 1,
+            "inProgress": 0,
+            "blockers": [
+              {
+                "type": "page",
+                "entityId": null,
+                "pageId": "page_age_entry",
+                "apiContractId": null,
+                "endpointId": null
+              }
+            ],
+            "reason": "完成全部开发产物后可进入测试，当前 2/3。"
+          },
+          "testTarget": {
+            "type": "endpoint",
+            "id": "age_entry_api.submit",
+            "label": "提交年龄"
+          },
+          "questions": []
+        },
+        "artifactRefs": [],
+        "createdAt": "2026-09-23T07:23:02.295321Z",
+        "submittedAt": null
+      },
+      "error": null,
+      "startedAt": "2026-09-23T07:23:02.065787Z",
+      "updatedAt": "2026-09-23T07:23:02.295347Z"
+    },
+    "794fb0bd-7d03-43c3-aac7-85dce3589304": {
+      "scope": "page",
+      "targetId": "page_age_entry",
+      "pageId": "page_age_entry",
+      "threadId": "36d69f88-6665-4301-bd49-603c03e92fdf",
+      "ownerSessionId": "4c6f1c42-120b-4982-9872-ef95fd736169",
+      "runId": "794fb0bd-7d03-43c3-aac7-85dce3589304",
+      "phase": "acceptance",
+      "status": "awaiting_user",
+      "resourceKeys": [
+        "page:page_age_entry",
+        "api_contract:age_entry_api",
+        "data_source:database"
+      ],
+      "developmentPurpose": null,
+      "developmentTarget": null,
+      "pendingInteraction": {
+        "id": "interaction-589294cddae293b166d59995",
+        "type": "page_acceptance",
+        "basedOnRevision": 72,
+        "payload": {
+          "mode": "page_acceptance",
+          "message": "项目已通过集成测试并启动预览，请用户验收。",
+          "previewUrl": "http://localhost:3000",
+          "testSummary": {
+            "version": "0.1.0",
+            "generated_at": "2026-09-23T07:26:57.509698+00:00",
+            "passed": true,
+            "checks": [
+              {
+                "id": "frontend_install",
+                "name": "前端依赖安装检查",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": false,
+                "required": true,
+                "command": "/usr/local/bin/pnpm install",
+                "evidence": "命令执行通过：/usr/local/bin/pnpm install",
+                "failure_category": null,
+                "execution": {
+                  "tool": "subprocess",
+                  "argv": [
+                    "/usr/local/bin/pnpm",
+                    "install"
+                  ],
+                  "cwd": "frontend",
+                  "returncode": 0,
+                  "timed_out": false,
+                  "error": null,
+                  "started_at": "2026-09-23T07:26:26.172059+00:00",
+                  "finished_at": "2026-09-23T07:26:34.134474+00:00",
+                  "stdout_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/tests/frontend_install/stdout.log",
+                  "stderr_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/tests/frontend_install/stderr.log",
+                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stdout.log",
+                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stderr.log",
+                  "stdout_tail": " WARN  Unsupported engine: wanted: {\"node\":\">=20.19 <23\"} (current: {\"node\":\"v24.14.0\",\"pnpm\":\"8.12.0\"})\n WARN  Ignoring broken lockfile at /Users/sbw/Documents/xc50/frontend: Lockfile /Users/sbw/Documents/xc50/frontend/pnpm-lock.yaml not compatible with current pnpm\nProgress: resolved 1, reused 0, downloaded 0, added 0\nProgress: resolved 60, reused 60, downloaded 0, added 0\nProgress: resolved 253, reused 242, downloaded 0, added 0\nProgress: resolved 500, reused 437, downloaded 0, added 0\nProgress: resolved 706, reused 635, downloaded 0, added 0\n WARN  6 deprecated subdependencies found: abab@2.0.6, domexception@2.0.1, glob@7.2.3, inflight@1.0.6, rimraf@3.0.2, w3c-hr-time@1.0.2\nPackages: +688\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\nProgress: resolved 759, reused 688, downloaded 0, added 224\nProgress: resolved 759, reused 688, downloaded 0, added 541\nProgress: resolved 759, reused 688, downloaded 0, added 687\nProgress: resolved 759, reused 688, downloaded 0, added 688, done\n\ndependencies:\n+ @ant-design/cssinjs 1.24.0 (2.1.2 is available)\n+ @ant-design/icons 5.6.1 (6.3.4 is available)\n+ @ant-design/pro-components 2.8.10\n+ ahooks 3.10.0\n+ antd 5.29.3 (6.6.5 is available)\n+ axios 1.20.0\n+ clsx 2.1.1\n+ date-fns 4.4.0\n+ lodash 4.18.1\n+ mermaid 10.9.8 (12.0.0 is available)\n+ qs 6.16.0\n+ react 18.2.0 (19.2.8 is available)\n+ react-dom 18.2.0 (19.2.8 is available)\n+ react-markdown 8.0.7 (10.1.0 is available)\n+ react-router 6.30.6 (8.4.0 is available)\n+ react-router-dom 6.30.6 (7.18.4 is available)\n+ remark-gfm 3.0.1 (4.0.1 is available)\n+ uuid 13.0.2 (14.0.2 is available)\n\ndevDependencies:\n+ @babel/core 7.29.7 (8.0.6 is available)\n+ @tailwindcss/postcss 4.3.3\n+ @testing-library/jest-dom 6.6.3 (7.0.1 is available)\n+ @testing-library/react 16.2.0 (16.3.2 is available)\n+ @types/jest 27.5.2 (30.0.0 is available)\n+ @types/lodash 4.17.25\n+ @types/node 26.6.2\n+ @types/qs 6.15.1\n+ @types/react 18.3.31 (19.3.0 is available)\n+ @types/react-dom 18.3.7 (19.3.0 is available)\n+ @vitejs/plugin-react 4.7.0 (6.1.1 is available)\n+ autoprefixer 10.6.1\n+ babel-jest 27.5.1 (30.5.2 is available)\n+ jest 27.5.1 (30.5.2 is available)\n+ jest-config 27.5.1 (30.5.2 is available)\n+ jest-environment-jsdom 27.5.1 (30.5.2 is available)\n+ jest-sonar-reporter 2.0.0\n+ jest-watch-typeahead 2.2.2 (3.0.1 is available)\n+ postcss 8.5.28\n+ tailwindcss 4.3.3\n+ ts-jest 27.1.5 (29.4.12 is available)\n+ typescript 5.9.3 (7.0.2 is available)\n+ vite 6.4.3 (8.3.0 is available)\n\n WARN  Issues with peer dependencies found\n.\n└─┬ ts-jest 27.1.5\n  └── ✕ unmet peer typescript@\">=3.8 <5.0\": found 5.9.3\n\nDone in 7.8s\n",
+                  "stderr_tail": "(node:36577) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n"
+                }
+              },
+              {
+                "id": "frontend_build",
+                "name": "前端构建检查",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": false,
+                "required": true,
+                "command": "/usr/local/bin/pnpm run build",
+                "evidence": "命令执行通过：/usr/local/bin/pnpm run build",
+                "failure_category": null,
+                "execution": {
+                  "tool": "subprocess",
+                  "argv": [
+                    "/usr/local/bin/pnpm",
+                    "run",
+                    "build"
+                  ],
+                  "cwd": "frontend",
+                  "returncode": 0,
+                  "timed_out": false,
+                  "error": null,
+                  "started_at": "2026-09-23T07:26:34.135973+00:00",
+                  "finished_at": "2026-09-23T07:26:44.980211+00:00",
+                  "stdout_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+                  "stderr_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/tests/frontend_build/stderr.log",
+                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stderr.log",
+                  "stdout_tail": " WARN  Unsupported engine: wanted: {\"node\":\">=20.19 <23\"} (current: {\"node\":\"v24.14.0\",\"pnpm\":\"8.12.0\"})\n\n> @za38.03/devagentstudio-lowcode-template@1.0.0 build /Users/sbw/Documents/xc50/frontend\n> tsc -b && vite build\n\nvite v6.4.3 building for production...\ntransforming...\n✓ 4040 modules transformed.\nrendering chunks...\ncomputing gzip size...\nbuild/index.html                   0.71 kB │ gzip:   0.41 kB\nbuild/assets/index-CbfWq7eJ.css    5.50 kB │ gzip:   1.75 kB\nbuild/assets/index-CH4FTUHn.js     0.20 kB │ gzip:   0.21 kB\nbuild/assets/index-B-Ye-rBl.js   754.15 kB │ gzip: 248.02 kB\nbuild/assets/index-Bc9C4wTW.js   991.10 kB │ gzip: 311.44 kB\n✓ built in 4.83s\n",
+                  "stderr_tail": "\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n"
+                }
+              },
+              {
+                "id": "backend_build",
+                "name": "后端构建检查",
+                "layer": "backend",
+                "language": "java",
+                "passed": true,
+                "skipped": false,
+                "required": true,
+                "command": "/Users/sbw/dev/apache-maven-3.9.16/bin/mvn -B -Dmaven.test.skip=true clean install",
+                "evidence": "命令执行通过：/Users/sbw/dev/apache-maven-3.9.16/bin/mvn -B -Dmaven.test.skip=true clean install",
+                "failure_category": null,
+                "execution": {
+                  "tool": "subprocess",
+                  "argv": [
+                    "/Users/sbw/dev/apache-maven-3.9.16/bin/mvn",
+                    "-B",
+                    "-Dmaven.test.skip=true",
+                    "clean",
+                    "install"
+                  ],
+                  "cwd": "backend",
+                  "returncode": 0,
+                  "timed_out": false,
+                  "error": null,
+                  "started_at": "2026-09-23T07:26:44.983146+00:00",
+                  "finished_at": "2026-09-23T07:26:49.027487+00:00",
+                  "stdout_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/tests/backend_build/stdout.log",
+                  "stderr_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/tests/backend_build/stderr.log",
+                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/backend_build/stdout.log",
+                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/backend_build/stderr.log",
+                  "stdout_tail": "[INFO] Scanning for projects...\n[INFO] \n[INFO] ------------------------< com.cmbchina:backend >------------------------\n[INFO] Building backend 1.0-SNAPSHOT\n[INFO]   from pom.xml\n[INFO] --------------------------------[ jar ]---------------------------------\n[INFO] \n[INFO] --- clean:3.2.0:clean (default-clean) @ backend ---\n[INFO] \n[INFO] --- resources:3.2.0:resources (default-resources) @ backend ---\n[INFO] Using 'UTF-8' encoding to copy filtered resources.\n[INFO] Using 'UTF-8' encoding to copy filtered properties files.\n[INFO] Copying 1 resource\n[INFO] Copying 1 resource\n[INFO] \n[INFO] --- compiler:3.10.1:compile (default-compile) @ backend ---\n[INFO] Changes detected - recompiling the module!\n[INFO] Compiling 23 source files to /Users/sbw/Documents/xc50/backend/target/classes\n[INFO] \n[INFO] --- resources:3.2.0:testResources (default-testResources) @ backend ---\n[INFO] Not copying test resources\n[INFO] \n[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ backend ---\n[INFO] Not compiling test sources\n[INFO] \n[INFO] --- surefire:2.22.2:test (default-test) @ backend ---\n[INFO] Tests are skipped.\n[INFO] \n[INFO] --- jar:3.2.2:jar (default-jar) @ backend ---\n[INFO] Building jar: /Users/sbw/Documents/xc50/backend/target/backend-1.0-SNAPSHOT.jar\n[INFO] \n[INFO] --- spring-boot:2.7.2:repackage (repackage) @ backend ---\n[INFO] Replacing main artifact with repackaged archive\n[INFO] \n[INFO] --- install:2.5.2:install (default-install) @ backend ---\n[INFO] Installing /Users/sbw/Documents/xc50/backend/target/backend-1.0-SNAPSHOT.jar to /Users/sbw/.m2/repository/com/cmbchina/backend/1.0-SNAPSHOT/backend-1.0-SNAPSHOT.jar\n[INFO] Installing /Users/sbw/Documents/xc50/backend/pom.xml to /Users/sbw/.m2/repository/com/cmbchina/backend/1.0-SNAPSHOT/backend-1.0-SNAPSHOT.pom\n[INFO] ------------------------------------------------------------------------\n[INFO] BUILD SUCCESS\n[INFO] ------------------------------------------------------------------------\n[INFO] Total time:  2.911 s\n[INFO] Finished at: 2026-09-23T15:26:49+08:00\n[INFO] ------------------------------------------------------------------------\n",
+                  "stderr_tail": ""
+                }
+              },
+              {
+                "id": "backend_startup",
+                "name": "后端启动检查",
+                "layer": "backend",
+                "language": "java",
+                "passed": true,
+                "skipped": false,
+                "required": true,
+                "blocking": true,
+                "command": "/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/bin/java -jar backend/target/backend-1.0-SNAPSHOT.jar --server.address=127.0.0.1 --server.port=0",
+                "evidence": "后端初始化完成、HTTP 端口可连接且稳定存活，启动检查通过。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "subprocess",
+                  "argv": [
+                    "/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/bin/java",
+                    "-jar",
+                    "backend/target/backend-1.0-SNAPSHOT.jar",
+                    "--server.address=127.0.0.1",
+                    "--server.port=0"
+                  ],
+                  "cwd": "backend/target",
+                  "returncode": null,
+                  "timed_out": false,
+                  "error": null,
+                  "started_at": "2026-09-23T07:26:49.028840+00:00",
+                  "root_cause": "",
+                  "stdout_tail": "\n  .   ____          _            __ _ _\n /\\\\ / ___'_ __ _ _(_)_ __  __ _ \\ \\ \\ \\\n( ( )\\___ | '_ | '_| | '_ \\/ _` | \\ \\ \\ \\\n \\\\/  ___)| |_)| | | | | || (_| |  ) ) ) )\n  '  |____| .__|_| |_|_| |_\\__, | / / / /\n =========|_|==============|___/=/_/_/_/\n :: Spring Boot ::                (v2.7.2)\n\n2026-09-23 15:26:49.797  INFO 36664 --- [           main] com.cmbchina.backend.Application         : Starting Application v1.0-SNAPSHOT using Java 1.8.0_501 on 99-11-233-79.lightspeed.rcsntx.sbcglobal.net with PID 36664 (/Users/sbw/Documents/xc50/backend/target/backend-1.0-SNAPSHOT.jar started by sbw in /Users/sbw/Documents/xc50/backend/target)\n2026-09-23 15:26:49.798  INFO 36664 --- [           main] com.cmbchina.backend.Application         : No active profile set, falling back to 1 default profile: \"default\"\n2026-09-23 15:26:50.680  INFO 36664 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)\n2026-09-23 15:26:50.688  INFO 36664 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]\n2026-09-23 15:26:50.688  INFO 36664 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]\n2026-09-23 15:26:50.772  INFO 36664 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext\n2026-09-23 15:26:50.772  INFO 36664 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 940 ms\n _ _   |_  _ _|_. ___ _ |    _ \n| | |\\/|_)(_| | |_\\  |_)||_|_\\ \n     /               |         \n                        3.5.2 \n2026-09-23 15:26:51.455  INFO 36664 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 63665 (http) with context path ''\n2026-09-23 15:26:51.466  INFO 36664 --- [           main] com.cmbchina.backend.Application         : Started Application in 1.934 seconds (JVM running for 2.206)\n",
+                  "stderr_tail": "",
+                  "finished_at": "2026-09-23T07:26:54.617203+00:00",
+                  "cleanup_succeeded": true,
+                  "stdout_log": "/.devagentstudio/runtime/tests/backend_startup/b8637733841341d2a692f15f783eb700/stdout.log",
+                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/backend_startup/b8637733841341d2a692f15f783eb700/stdout.log",
+                  "stderr_log": "/.devagentstudio/runtime/tests/backend_startup/b8637733841341d2a692f15f783eb700/stderr.log",
+                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/backend_startup/b8637733841341d2a692f15f783eb700/stderr.log"
+                },
+                "source_fingerprint": "580d837978644b8b4b0cbe6c57da5104e0355f0311889d757000d657e1fe84fc",
+                "repair_hints": [
+                  "backend/pom.xml",
+                  "backend/src/main/resources/application.yml",
+                  "backend/src/main/java/com/cmbchina/backend/Application.java"
+                ]
+              },
+              {
+                "id": "frontend_performance",
+                "name": "前端性能测试",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": true,
+                "required": false,
+                "blocking": false,
+                "advisory": true,
+                "command": null,
+                "evidence": "本轮跳过前端性能测试，不启动前端、不执行 Lighthouse。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "none",
+                  "argv": [],
+                  "cwd": ".",
+                  "returncode": null,
+                  "timed_out": false,
+                  "stdout_log": null,
+                  "stderr_log": null
+                }
+              }
+            ],
+            "summary": {
+              "total": 5,
+              "passed": 5,
+              "failed": 0
+            },
+            "needs_revision": false,
+            "revision_requests": [],
+            "quality_gate": {
+              "passed": true,
+              "required_checks": [
+                "frontend_install",
+                "frontend_build",
+                "backend_build",
+                "backend_startup"
+              ],
+              "evaluated_by": "deterministic-quality-gate"
+            }
+          }
+        },
+        "artifactRefs": [],
+        "createdAt": "2026-09-23T07:42:24.200713Z",
+        "submittedAt": null
+      },
+      "error": null,
+      "startedAt": "2026-09-23T07:42:01.868918Z",
+      "updatedAt": "2026-09-23T07:42:24.200730Z"
+    }
+  },
   "developmentContinuations": {},
   "resourceLocks": {
     "application": null,
-    "pages": {},
-    "apiContracts": {},
-    "endpoints": {},
-    "dataSources": {}
+    "pages": {
+      "page_age_entry": {
+        "runId": "794fb0bd-7d03-43c3-aac7-85dce3589304",
+        "ownerPageId": "page_age_entry",
+        "mode": "exclusive",
+        "role": "primary",
+        "reason": "primary_target",
+        "acquiredAt": "2026-09-23T07:42:01.868918Z"
+      }
+    },
+    "apiContracts": {
+      "age_entry_api": {
+        "runId": "794fb0bd-7d03-43c3-aac7-85dce3589304",
+        "ownerPageId": "page_age_entry",
+        "mode": "exclusive",
+        "role": "dependency",
+        "reason": "plan_dependency",
+        "acquiredAt": "2026-09-23T07:42:01.868918Z"
+      }
+    },
+    "endpoints": {
+      "age_entry_api:age_entry_api.submit": {
+        "runId": "b644f9a7-b1de-4ef7-b188-dfc4ee11cdd7",
+        "ownerPageId": null,
+        "mode": "exclusive",
+        "role": "primary",
+        "reason": "primary_target",
+        "acquiredAt": "2026-09-23T07:23:02.065787Z"
+      }
+    },
+    "dataSources": {
+      "database": {
+        "runId": "794fb0bd-7d03-43c3-aac7-85dce3589304",
+        "ownerPageId": "page_age_entry",
+        "mode": "exclusive",
+        "role": "dependency",
+        "reason": "plan_dependency",
+        "acquiredAt": "2026-09-23T07:42:01.868918Z"
+      }
+    }
   },
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,

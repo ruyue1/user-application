@@ -1,0 +1,103 @@
+{
+  "id": "entity_detail:AgeRecord",
+  "entity_id": "AgeRecord",
+  "entity_name": "AgeRecord",
+  "description": "A single age value submitted by an age-entry user and persisted by the backend.",
+  "module_id": "",
+  "design_stage": "review_ready",
+  "data_source_id": "database",
+  "data_source_type": "database",
+  "fields": [
+    {
+      "name": "id",
+      "label": "记录ID",
+      "type": "number",
+      "required": true,
+      "description": "Unique identifier of the age record.",
+      "column_type": "BIGINT"
+    },
+    {
+      "name": "age_value",
+      "label": "年龄数值",
+      "type": "number",
+      "required": true,
+      "description": "The age value submitted by the user and saved by the backend.",
+      "column_type": "BIGINT"
+    },
+    {
+      "name": "created_at",
+      "label": "创建时间",
+      "type": "datetime",
+      "required": true,
+      "description": "The time when the age record was created.",
+      "column_type": "DATETIME"
+    }
+  ],
+  "table_design": {
+    "name": "age_record",
+    "comment": "A single age value submitted by an age-entry user and persisted by the backend.",
+    "columns": [
+      {
+        "name": "id",
+        "type": "BIGINT",
+        "nullable": false,
+        "default": null,
+        "comment": "主键",
+        "auto_increment": true
+      },
+      {
+        "name": "age_value",
+        "type": "BIGINT",
+        "nullable": false,
+        "default": null,
+        "comment": "年龄数值"
+      },
+      {
+        "name": "created_at",
+        "type": "DATETIME",
+        "nullable": false,
+        "default": null,
+        "comment": "创建时间"
+      }
+    ],
+    "primary_key": [
+      "id"
+    ],
+    "indexes": [],
+    "foreign_keys": [],
+    "source": "entity_definition"
+  },
+  "business_rules": [],
+  "relationships": [],
+  "acceptance_criteria": [],
+  "risks": [],
+  "status": "confirmed",
+  "approved": true,
+  "design_source": "deterministic_entity_design",
+  "database_design": {
+    "matched_table": "age_record",
+    "database_name": "xcodeagent",
+    "bindings": [
+      {
+        "entity_field": "id",
+        "table_column": "id",
+        "rule": "",
+        "note": "主键，bigint，auto_increment"
+      },
+      {
+        "entity_field": "age_value",
+        "table_column": "age",
+        "rule": "",
+        "note": "真实列名为 age（bigint，年龄），与字段 age_value 语义一致，视为已覆盖"
+      },
+      {
+        "entity_field": "created_at",
+        "table_column": "created_at",
+        "rule": "",
+        "note": "datetime，默认 CURRENT_TIMESTAMP"
+      }
+    ]
+  },
+  "external_api_design": {},
+  "static_design": {}
+}
