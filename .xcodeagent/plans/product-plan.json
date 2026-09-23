@@ -1,0 +1,66 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-09-23T00:52:11.041492+00:00",
+  "requirement_spec_sha256": "9d84623873021f4593c4ef463caa88add33c819100a6b7bff2d8d3b65cc0bb46",
+  "app": {
+    "name": "欢迎页",
+    "summary": "一个面向 PC 终端的纯展示应用，首页仅展示写死的字符串「hello world」，不包含任何后端 API 接口，认证不启用，也不涉及权限控制。"
+  },
+  "business_flows": [
+    {
+      "name": "查看欢迎页",
+      "steps": [
+        "访客在 PC 浏览器中打开应用入口",
+        "系统加载并定位到应用首页欢迎页",
+        "欢迎页静态渲染写死的字符串「hello world」",
+        "访客在页面上查看展示内容，浏览结束"
+      ],
+      "id": "view_welcome_page",
+      "description": "访客打开应用并查看欢迎页上写死的「hello world」展示内容，全程无数据提交与后端交互。"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "home",
+      "name": "欢迎页",
+      "path": "/page/home",
+      "module_id": "welcome_display",
+      "description": "应用首页，纯静态展示写死的字符串「hello world」，不请求任何后端接口；采用侧边导航布局，启用页头，禁用页脚。",
+      "goal": "让访客在 PC 终端打开应用后，能够立即看到写死的「hello world」欢迎内容，完成一次纯展示的浏览体验。",
+      "information_items": [
+        {
+          "itemId": "home-welcome-text",
+          "label": "欢迎文案",
+          "description": "页面中央展示的写死字符串「hello world」，用于向访客传达欢迎信息。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面加载时展示加载提示，加载完成后展示欢迎文案。",
+        "empty": "页面不涉及数据查询，不出现空状态。",
+        "error": "页面不涉及后端请求，不出现错误状态。",
+        "success": "页面加载完成后，欢迎文案「hello world」完整可见。",
+        "validation": "页面不涉及用户输入，不出现校验状态。"
+      },
+      "acceptance_criteria": [
+        "访客在 PC 浏览器中打开应用入口后，能够看到欢迎页。",
+        "欢迎页上完整展示写死的字符串「hello world」。",
+        "欢迎页不请求任何后端接口，也不展示任何数据列表或表单。",
+        "欢迎页采用侧边导航布局，页头启用，页脚禁用。"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "访客在 PC 浏览器中打开应用入口后，能够直接看到欢迎页。",
+    "欢迎页上完整展示写死的字符串「hello world」。",
+    "应用不包含任何后端 API 接口，也不涉及认证与权限控制。",
+    "欢迎页采用侧边导航布局，页头启用，页脚禁用。"
+  ],
+  "confirmation_status": "confirmed"
+}
