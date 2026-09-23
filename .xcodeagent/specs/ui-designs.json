@@ -1,6 +1,85 @@
 {
   "schema_version": "ui-manifest.v3",
-  "confirmation_status": "skipped",
-  "product_plan_sha256": "18b7105acaae7501b703b49a419a0e26b7575b2888c7ed1954765c1202ea9e9a",
-  "pages": []
+  "confirmation_status": "pending_user_confirmation",
+  "product_plan_sha256": "21089a666589536b7f8994eadf0034dea049ea9555fcbe173d4fe0fad64d22b8",
+  "pages": [
+    {
+      "pageId": "home",
+      "page_key": "Home",
+      "preview_path": "/page/home",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "home_welcome_text",
+            "controlIds": []
+          },
+          {
+            "informationItemId": "home_nav_entry",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "pageId": "hello_agent_page",
+      "page_key": "HelloAgentPage",
+      "preview_path": "/page/hello-agent-page",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "hello_agent_page_display_text",
+            "controlIds": []
+          },
+          {
+            "informationItemId": "hello_agent_page_nav_entry",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    }
+  ]
 }
