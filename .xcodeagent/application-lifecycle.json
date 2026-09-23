@@ -3,8 +3,8 @@
     "id": "1790128421362-0ij95t",
     "name": "欢迎页"
   },
-  "updatedAt": "2026-09-23T01:58:24.787509Z",
-  "revision": 6,
+  "updatedAt": "2026-09-23T01:58:31.116849Z",
+  "revision": 9,
   "developmentArtifacts": {
     "pages": {
       "welcome_page": {
@@ -16,15 +16,15 @@
     },
     "entities": {},
     "endpoints": {},
-    "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092306/.xcodeagent/plans/technical-plan.json'",
+    "catalogError": "开发产物目录不可用：technical-plan 尚未确认。",
     "outOfScope": []
   },
   "initialization": {
-    "stage": "awaiting_ui_design_confirmation",
+    "stage": "awaiting_technical_plan_confirmation",
     "status": "awaiting_user",
     "threadId": "08beed01-027f-4c4f-ac37-326528590f50"
   },
-  "activeRunId": "3260ecd9-1372-4769-ac2f-5ec8d44f6f54",
+  "activeRunId": "0ea16667-deec-4136-9ef2-31e044ba9a98",
   "activeExecutions": {},
   "developmentContinuations": {},
   "resourceLocks": {
