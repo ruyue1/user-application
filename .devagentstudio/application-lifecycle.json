@@ -3,8 +3,8 @@
     "id": "1790239567720-xtx389",
     "name": "欢迎页"
   },
-  "updatedAt": "2026-09-24T08:55:39.380145Z",
-  "revision": 24,
+  "updatedAt": "2026-09-24T08:56:32.755236Z",
+  "revision": 40,
   "developmentArtifacts": {
     "pages": {
       "home": {
@@ -34,59 +34,210 @@
     "status": "completed",
     "threadId": "a2002209-fa46-47aa-9501-783eff6bb294"
   },
-  "activeRunId": "eb3f2e07-8648-46a4-972d-d205e5aa9312",
+  "activeRunId": "5806f4a8-6a65-4aab-989c-ecaff0334d88",
   "activeExecutions": {
-    "eb3f2e07-8648-46a4-972d-d205e5aa9312": {
+    "5806f4a8-6a65-4aab-989c-ecaff0334d88": {
       "scope": "page",
       "targetId": "hello_agent",
       "pageId": "hello_agent",
       "threadId": "d06d82c0-e9fb-4105-986e-70eb0f6f3a32",
-      "ownerSessionId": "f95ab45e-c8df-4c9c-b763-5552a7231c86",
-      "runId": "eb3f2e07-8648-46a4-972d-d205e5aa9312",
-      "phase": "test_phase_confirmation",
+      "ownerSessionId": "af5a8c34-727d-4b8d-8d9e-bc406bba96df",
+      "runId": "5806f4a8-6a65-4aab-989c-ecaff0334d88",
+      "phase": "acceptance",
       "status": "awaiting_user",
       "resourceKeys": [
         "page:hello_agent"
       ],
-      "developmentPurpose": "initial",
-      "developmentTarget": {
-        "type": "page",
-        "entityId": null,
-        "pageId": "hello_agent",
-        "apiContractId": null,
-        "endpointId": null
-      },
+      "developmentPurpose": null,
+      "developmentTarget": null,
       "pendingInteraction": {
-        "id": "interaction-24c27c78d7dadaad9128a359",
-        "type": "test_phase_confirmation",
-        "basedOnRevision": 24,
+        "id": "interaction-ef06d7f3392272262aca5198",
+        "type": "page_acceptance",
+        "basedOnRevision": 40,
         "payload": {
-          "mode": "test_phase_confirmation",
-          "status": "requires_user_input",
-          "message": "代码生成、Build 与单元测试门禁已完成，确认后将进入测试阶段，执行测试与失败修复。",
-          "testEntryGate": {
-            "allowed": true,
-            "total": 2,
-            "completed": 2,
-            "pending": 0,
-            "inProgress": 0,
-            "blockers": [],
-            "reason": null
-          },
-          "testTarget": {
-            "type": "page",
-            "id": "hello_agent",
-            "label": "hello agent 页面"
-          },
-          "questions": []
+          "mode": "page_acceptance",
+          "message": "项目已通过集成测试并启动预览，请用户验收。",
+          "previewUrl": "http://localhost:3000",
+          "testSummary": {
+            "version": "0.1.0",
+            "generated_at": "2026-09-24T08:55:52.350869+00:00",
+            "passed": true,
+            "checks": [
+              {
+                "id": "frontend_install",
+                "name": "前端依赖安装检查",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": false,
+                "required": true,
+                "command": "/usr/local/bin/pnpm install",
+                "evidence": "命令执行通过：/usr/local/bin/pnpm install",
+                "failure_category": null,
+                "execution": {
+                  "tool": "subprocess",
+                  "argv": [
+                    "/usr/local/bin/pnpm",
+                    "install"
+                  ],
+                  "cwd": "frontend",
+                  "returncode": 0,
+                  "timed_out": false,
+                  "error": null,
+                  "started_at": "2026-09-24T08:55:42.850203+00:00",
+                  "finished_at": "2026-09-24T08:55:43.354984+00:00",
+                  "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092408/.devagentstudio/runtime/tests/frontend_install/stdout.log",
+                  "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092408/.devagentstudio/runtime/tests/frontend_install/stderr.log",
+                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stdout.log",
+                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stderr.log",
+                  "stdout_tail": "Already up to date\nDone in 255ms using pnpm v11.9.0\n",
+                  "stderr_tail": "[WARN] The \"pnpm\" field in package.json is no longer read by pnpm. The following keys were ignored: \"pnpm.overrides\". See https://pnpm.io/settings for the new home of each setting.\n"
+                }
+              },
+              {
+                "id": "frontend_build",
+                "name": "前端构建检查",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": false,
+                "required": true,
+                "command": "/usr/local/bin/pnpm run build",
+                "evidence": "命令执行通过：/usr/local/bin/pnpm run build",
+                "failure_category": null,
+                "execution": {
+                  "tool": "subprocess",
+                  "argv": [
+                    "/usr/local/bin/pnpm",
+                    "run",
+                    "build"
+                  ],
+                  "cwd": "frontend",
+                  "returncode": 0,
+                  "timed_out": false,
+                  "error": null,
+                  "started_at": "2026-09-24T08:55:43.356071+00:00",
+                  "finished_at": "2026-09-24T08:55:49.762292+00:00",
+                  "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092408/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+                  "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092408/.devagentstudio/runtime/tests/frontend_build/stderr.log",
+                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stderr.log",
+                  "stdout_tail": "vite v6.4.3 building for production...\ntransforming...\n✓ 3919 modules transformed.\nrendering chunks...\ncomputing gzip size...\nbuild/index.html                    0.71 kB │ gzip:   0.41 kB\nbuild/assets/index-CcNHbB5u.css     5.53 kB │ gzip:   1.76 kB\nbuild/assets/index-Cgh82C5Y.js      0.20 kB │ gzip:   0.21 kB\nbuild/assets/index-BkTTNtY_.js      6.39 kB │ gzip:   2.79 kB\nbuild/assets/index-DQObM3sp.js     20.52 kB │ gzip:   6.80 kB\nbuild/assets/ProCard-C6j-LXEK.js  121.22 kB │ gzip:  36.48 kB\nbuild/assets/index-CuA2lde-.js    767.34 kB │ gzip: 252.56 kB\n✓ built in 3.74s\n",
+                  "stderr_tail": "[WARN] The \"pnpm\" field in package.json is no longer read by pnpm. The following keys were ignored: \"pnpm.overrides\". See https://pnpm.io/settings for the new home of each setting.\n$ tsc -b && vite build\n\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n"
+                }
+              },
+              {
+                "id": "backend_build",
+                "name": "后端构建检查",
+                "layer": "backend",
+                "language": "java",
+                "passed": true,
+                "skipped": true,
+                "required": false,
+                "command": null,
+                "evidence": "应用无后端业务实体与 API 契约，跳过后端检查。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "none",
+                  "argv": [],
+                  "cwd": ".",
+                  "returncode": null,
+                  "timed_out": false,
+                  "stdout_log": null,
+                  "stderr_log": null
+                }
+              },
+              {
+                "id": "backend_startup",
+                "name": "后端启动检查",
+                "layer": "backend",
+                "language": "java",
+                "passed": true,
+                "skipped": true,
+                "required": false,
+                "command": null,
+                "evidence": "应用无后端业务实体与 API 契约，跳过后端启动检查。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "none",
+                  "argv": [],
+                  "cwd": ".",
+                  "returncode": null,
+                  "timed_out": false,
+                  "stdout_log": null,
+                  "stderr_log": null
+                },
+                "source_fingerprint": "1b3f25931171bd03070a6cc1bfb4c060134608bf1e7f2c13120d5abce7837dea"
+              },
+              {
+                "id": "backend_static_check",
+                "name": "后端静态检查通过",
+                "layer": "backend",
+                "language": "java",
+                "passed": true,
+                "skipped": true,
+                "required": false,
+                "command": null,
+                "evidence": "应用无后端业务实体与 API 契约，跳过后端检查。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "none",
+                  "argv": [],
+                  "cwd": ".",
+                  "returncode": null,
+                  "timed_out": false,
+                  "stdout_log": null,
+                  "stderr_log": null
+                }
+              },
+              {
+                "id": "frontend_performance",
+                "name": "前端性能测试",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": true,
+                "required": false,
+                "blocking": false,
+                "advisory": true,
+                "command": null,
+                "evidence": "本轮跳过前端性能测试，不启动前端、不执行 Lighthouse。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "none",
+                  "argv": [],
+                  "cwd": ".",
+                  "returncode": null,
+                  "timed_out": false,
+                  "stdout_log": null,
+                  "stderr_log": null
+                }
+              }
+            ],
+            "summary": {
+              "total": 6,
+              "passed": 6,
+              "failed": 0
+            },
+            "needs_revision": false,
+            "revision_requests": [],
+            "quality_gate": {
+              "passed": true,
+              "required_checks": [
+                "frontend_install",
+                "frontend_build"
+              ],
+              "evaluated_by": "deterministic-quality-gate"
+            }
+          }
         },
         "artifactRefs": [],
-        "createdAt": "2026-09-24T08:55:39.380107Z",
+        "createdAt": "2026-09-24T08:56:32.755208Z",
         "submittedAt": null
       },
       "error": null,
-      "startedAt": "2026-09-24T08:55:39.030303Z",
-      "updatedAt": "2026-09-24T08:55:39.380129Z"
+      "startedAt": "2026-09-24T08:56:31.016779Z",
+      "updatedAt": "2026-09-24T08:56:32.755221Z"
     }
   },
   "developmentContinuations": {},
@@ -94,12 +245,12 @@
     "application": null,
     "pages": {
       "hello_agent": {
-        "runId": "eb3f2e07-8648-46a4-972d-d205e5aa9312",
+        "runId": "5806f4a8-6a65-4aab-989c-ecaff0334d88",
         "ownerPageId": "hello_agent",
         "mode": "exclusive",
         "role": "primary",
         "reason": "primary_target",
-        "acquiredAt": "2026-09-24T08:55:39.030303Z"
+        "acquiredAt": "2026-09-24T08:56:31.016779Z"
       }
     },
     "apiContracts": {},

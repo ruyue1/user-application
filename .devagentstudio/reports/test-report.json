@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "generated_at": "2026-09-24T08:48:28.578453+00:00",
+  "generated_at": "2026-09-24T08:55:52.350869+00:00",
   "passed": true,
   "checks": [
     {
@@ -24,14 +24,14 @@
         "returncode": 0,
         "timed_out": false,
         "error": null,
-        "started_at": "2026-09-24T08:48:15.306936+00:00",
-        "finished_at": "2026-09-24T08:48:19.795589+00:00",
+        "started_at": "2026-09-24T08:55:42.850203+00:00",
+        "finished_at": "2026-09-24T08:55:43.354984+00:00",
         "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092408/.devagentstudio/runtime/tests/frontend_install/stdout.log",
         "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092408/.devagentstudio/runtime/tests/frontend_install/stderr.log",
         "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stdout.log",
         "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stderr.log",
-        "stdout_tail": "✓ Lockfile passes supply-chain policies (verified 18h ago)\nLockfile is up to date, resolution step is skipped\nProgress: resolved 1, reused 0, downloaded 0, added 0\nPackages: +872\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\nProgress: resolved 872, reused 872, downloaded 0, added 60\nProgress: resolved 872, reused 872, downloaded 0, added 384\nProgress: resolved 872, reused 872, downloaded 0, added 686\nProgress: resolved 872, reused 872, downloaded 0, added 872, done\n\ndependencies:\n+ @ant-design/cssinjs 1.21.1\n+ @ant-design/icons 5.6.1\n+ @ant-design/pro-components 2.8.10\n+ ahooks 3.10.0\n+ antd 5.29.3\n+ axios 1.20.0\n+ clsx 2.1.1\n+ date-fns 4.4.0\n+ lodash 4.18.1\n+ mermaid 10.9.8\n+ qs 6.16.0\n+ react 18.2.0\n+ react-dom 18.2.0\n+ react-markdown 8.0.7\n+ react-router 6.30.6\n+ react-router-dom 6.30.6\n+ remark-gfm 3.0.1\n+ uuid 13.0.2\n\ndevDependencies:\n+ @babel/core 7.29.7\n+ @tailwindcss/postcss 4.3.3\n+ @testing-library/jest-dom 6.6.3\n+ @testing-library/react 16.2.0\n+ @types/jest 27.5.2\n+ @types/lodash 4.17.25\n+ @types/node 26.5.1\n+ @types/qs 6.15.1\n+ @types/react 18.3.31\n+ @types/react-dom 18.0.9\n+ @vitejs/plugin-react 4.3.0\n+ autoprefixer 10.5.5\n+ babel-jest 27.0.0\n+ jest 27.0.0\n+ jest-config 27.0.0\n+ jest-environment-jsdom 27.0.0\n+ jest-sonar-reporter 2.0.0\n+ jest-watch-typeahead 2.2.2\n+ postcss 8.5.28\n+ tailwindcss 4.3.3\n+ ts-jest 27.0.0\n+ typescript 5.3.2\n+ vite 6.4.3\n\nDone in 4.2s using pnpm v11.9.0\n",
-        "stderr_tail": ""
+        "stdout_tail": "Already up to date\nDone in 255ms using pnpm v11.9.0\n",
+        "stderr_tail": "[WARN] The \"pnpm\" field in package.json is no longer read by pnpm. The following keys were ignored: \"pnpm.overrides\". See https://pnpm.io/settings for the new home of each setting.\n"
       }
     },
     {
@@ -56,14 +56,14 @@
         "returncode": 0,
         "timed_out": false,
         "error": null,
-        "started_at": "2026-09-24T08:48:19.796463+00:00",
-        "finished_at": "2026-09-24T08:48:26.215131+00:00",
+        "started_at": "2026-09-24T08:55:43.356071+00:00",
+        "finished_at": "2026-09-24T08:55:49.762292+00:00",
         "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092408/.devagentstudio/runtime/tests/frontend_build/stdout.log",
         "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092408/.devagentstudio/runtime/tests/frontend_build/stderr.log",
         "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stdout.log",
         "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stderr.log",
-        "stdout_tail": "vite v6.4.3 building for production...\ntransforming...\n✓ 3918 modules transformed.\nrendering chunks...\ncomputing gzip size...\nbuild/index.html                   0.71 kB │ gzip:   0.41 kB\nbuild/assets/index-CcNHbB5u.css    5.53 kB │ gzip:   1.76 kB\nbuild/assets/index-U-_FfKVC.js     0.20 kB │ gzip:   0.21 kB\nbuild/assets/index-7STro_8t.js   127.41 kB │ gzip:  38.37 kB\nbuild/assets/index-WT3Mm__X.js   766.10 kB │ gzip: 252.19 kB\n✓ built in 3.57s\n",
-        "stderr_tail": "$ tsc -b && vite build\n\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n"
+        "stdout_tail": "vite v6.4.3 building for production...\ntransforming...\n✓ 3919 modules transformed.\nrendering chunks...\ncomputing gzip size...\nbuild/index.html                    0.71 kB │ gzip:   0.41 kB\nbuild/assets/index-CcNHbB5u.css     5.53 kB │ gzip:   1.76 kB\nbuild/assets/index-Cgh82C5Y.js      0.20 kB │ gzip:   0.21 kB\nbuild/assets/index-BkTTNtY_.js      6.39 kB │ gzip:   2.79 kB\nbuild/assets/index-DQObM3sp.js     20.52 kB │ gzip:   6.80 kB\nbuild/assets/ProCard-C6j-LXEK.js  121.22 kB │ gzip:  36.48 kB\nbuild/assets/index-CuA2lde-.js    767.34 kB │ gzip: 252.56 kB\n✓ built in 3.74s\n",
+        "stderr_tail": "[WARN] The \"pnpm\" field in package.json is no longer read by pnpm. The following keys were ignored: \"pnpm.overrides\". See https://pnpm.io/settings for the new home of each setting.\n$ tsc -b && vite build\n\n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n"
       }
     },
     {
@@ -107,7 +107,7 @@
         "stdout_log": null,
         "stderr_log": null
       },
-      "source_fingerprint": "6137287d1b282b3e50825c4ca2bbfda3cf6802319c4c9c9a75c4fc03723f5135"
+      "source_fingerprint": "1b3f25931171bd03070a6cc1bfb4c060134608bf1e7f2c13120d5abce7837dea"
     },
     {
       "id": "backend_static_check",
