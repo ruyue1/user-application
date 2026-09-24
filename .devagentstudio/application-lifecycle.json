@@ -3,16 +3,16 @@
     "id": "1790239567720-xtx389",
     "name": "欢迎页"
   },
-  "updatedAt": "2026-09-24T08:47:24.907902Z",
-  "revision": 10,
+  "updatedAt": "2026-09-24T08:48:11.779906Z",
+  "revision": 24,
   "developmentArtifacts": {
     "pages": {
       "home": {
-        "initialDevelopmentStatus": "pending",
-        "completedAt": null,
-        "completedRunId": null,
-        "completedThreadId": null,
-        "completedBranchName": null
+        "initialDevelopmentStatus": "completed",
+        "completedAt": "2026-09-24T08:48:11.526853Z",
+        "completedRunId": "887555e4-39f1-4cb6-bef2-1bbcee34c452",
+        "completedThreadId": "5fb34556-3293-4d1b-8b47-2aa6db3e3da9",
+        "completedBranchName": "v1.0"
       }
     },
     "entities": {},
@@ -21,16 +21,78 @@
     "outOfScope": []
   },
   "initialization": {
-    "stage": "generating_application_template_files",
-    "status": "running",
+    "stage": "ready_for_workbench",
+    "status": "completed",
     "threadId": "3985f3ff-8abc-4be8-b299-cec5e1bfa858"
   },
-  "activeRunId": "185eefdd-65e5-4abe-907d-d842c8f8f12b",
-  "activeExecutions": {},
+  "activeRunId": "887555e4-39f1-4cb6-bef2-1bbcee34c452",
+  "activeExecutions": {
+    "887555e4-39f1-4cb6-bef2-1bbcee34c452": {
+      "scope": "page",
+      "targetId": "home",
+      "pageId": "home",
+      "threadId": "5fb34556-3293-4d1b-8b47-2aa6db3e3da9",
+      "ownerSessionId": "2bb9d72e-6a6a-45c3-81f2-7d18726610ef",
+      "runId": "887555e4-39f1-4cb6-bef2-1bbcee34c452",
+      "phase": "test_phase_confirmation",
+      "status": "awaiting_user",
+      "resourceKeys": [
+        "page:home"
+      ],
+      "developmentPurpose": "initial",
+      "developmentTarget": {
+        "type": "page",
+        "entityId": null,
+        "pageId": "home",
+        "apiContractId": null,
+        "endpointId": null
+      },
+      "pendingInteraction": {
+        "id": "interaction-24c27c78d7dadaad9128a359",
+        "type": "test_phase_confirmation",
+        "basedOnRevision": 24,
+        "payload": {
+          "mode": "test_phase_confirmation",
+          "status": "requires_user_input",
+          "message": "代码生成、Build 与单元测试门禁已完成，确认后将进入测试阶段，执行测试与失败修复。",
+          "testEntryGate": {
+            "allowed": true,
+            "total": 1,
+            "completed": 1,
+            "pending": 0,
+            "inProgress": 0,
+            "blockers": [],
+            "reason": null
+          },
+          "testTarget": {
+            "type": "page",
+            "id": "home",
+            "label": "欢迎页"
+          },
+          "questions": []
+        },
+        "artifactRefs": [],
+        "createdAt": "2026-09-24T08:48:11.779862Z",
+        "submittedAt": null
+      },
+      "error": null,
+      "startedAt": "2026-09-24T08:48:11.480901Z",
+      "updatedAt": "2026-09-24T08:48:11.779892Z"
+    }
+  },
   "developmentContinuations": {},
   "resourceLocks": {
     "application": null,
-    "pages": {},
+    "pages": {
+      "home": {
+        "runId": "887555e4-39f1-4cb6-bef2-1bbcee34c452",
+        "ownerPageId": "home",
+        "mode": "exclusive",
+        "role": "primary",
+        "reason": "primary_target",
+        "acquiredAt": "2026-09-24T08:48:11.480901Z"
+      }
+    },
     "apiContracts": {},
     "endpoints": {},
     "dataSources": {}
