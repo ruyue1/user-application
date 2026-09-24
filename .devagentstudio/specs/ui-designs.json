@@ -1,0 +1,51 @@
+{
+  "schema_version": "ui-manifest.v3",
+  "confirmation_status": "confirmed",
+  "product_plan_sha256": "0ba35c16f8196abe02897f499fd7470c2bbebd8e8ca4e26da465d47d696fb7d4",
+  "pages": [
+    {
+      "pageId": "home",
+      "page_key": "Home",
+      "preview_path": "/page/home",
+      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092408/.devagentstudio/ui-design/pages/Home/index.tsx",
+      "status": "confirmed",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "home_welcome_text",
+            "controlIds": [
+              "home_welcome_text-display"
+            ]
+          },
+          {
+            "informationItemId": "home_page_context",
+            "controlIds": [
+              "home_page_context-display"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "passed",
+        "code_sha256": "81d12bc067a8032bf8b0dccfacdc61a8aaefab1211350a4e25ef9d36c91413f4",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      },
+      "code_sha256": "81d12bc067a8032bf8b0dccfacdc61a8aaefab1211350a4e25ef9d36c91413f4"
+    }
+  ]
+}

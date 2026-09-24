@@ -1,0 +1,74 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-09-24T08:46:34.236501+00:00",
+  "requirement_spec_sha256": "a17c40870c8ac8a501c3ab7cfc32332ed6aafead09a1609567ff713e66721bb7",
+  "app": {
+    "name": "欢迎页",
+    "summary": "一个面向 PC 终端的纯展示型应用，无后端 API 接口，页面只展示写死的字符串“hello world”。应用采用侧边导航布局（导航布局=side），页头启用、页脚禁用；不启用登录认证，也不涉及权限控制。"
+  },
+  "business_flows": [
+    {
+      "name": "浏览欢迎页",
+      "steps": [
+        "访客在 PC 浏览器中打开应用根路径 /",
+        "应用加载欢迎页，渲染侧边导航布局与启用的页头，页脚不展示",
+        "页面主体内容区展示写死的静态字符串“hello world”",
+        "访客浏览完成，无需登录或任何权限即可反复查看该页面"
+      ],
+      "id": "browse_welcome_page",
+      "description": "访客打开应用即可看到欢迎页内容，全流程为纯前端静态展示，不涉及登录、数据提交或后端交互"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "home",
+      "name": "欢迎页",
+      "path": "/page/home",
+      "module_id": "welcome_display",
+      "description": "应用首页，采用侧边导航布局并展示页头（页脚禁用），页面主体居中展示写死的静态字符串“hello world”",
+      "goal": "让访客打开应用后立即看到欢迎页，并在页面主体区域清晰读到写死的静态字符串“hello world”。",
+      "information_items": [
+        {
+          "itemId": "home_welcome_text",
+          "label": "欢迎文案",
+          "description": "页面主体区域展示的写死静态字符串“hello world”，是访客进入应用后需要看到的核心内容。"
+        },
+        {
+          "itemId": "home_page_context",
+          "label": "页面上下文",
+          "description": "访客可感知当前处于欢迎页，页面采用侧边导航布局并展示页头，页脚不展示。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面加载过程中应展示加载状态，加载完成后进入成功状态。",
+        "empty": "本页内容为写死的静态字符串，不存在内容为空的状态。",
+        "error": "若页面加载失败，应展示错误状态并允许访客重新加载页面。",
+        "success": "页面加载成功后，主体区域展示写死的静态字符串“hello world”，并呈现侧边导航布局与启用的页头，页脚不展示。",
+        "validation": "本页无用户输入或提交行为，不涉及校验状态。"
+      },
+      "acceptance_criteria": [
+        "访客在 PC 浏览器中打开应用根路径 / 后，可进入欢迎页。",
+        "欢迎页采用侧边导航布局，页头启用并可见，页脚不展示。",
+        "欢迎页主体内容区展示写死的静态字符串“hello world”。",
+        "访客无需登录即可查看欢迎页内容，且可反复访问该页面。",
+        "欢迎页不依赖任何后端 API 接口即可展示核心内容。"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "应用名称为“欢迎页”，面向 PC 终端，访客无需登录即可访问。",
+    "应用采用侧边导航布局，页头启用，页脚禁用。",
+    "应用包含且仅包含一个欢迎页，路径为 /page/home，属于欢迎页展示模块。",
+    "访客打开应用后，可在欢迎页主体区域看到写死的静态字符串“hello world”。",
+    "欢迎页为纯展示页面，不涉及数据提交、业务操作或后端 API 接口。",
+    "应用不启用登录认证，也不涉及权限控制。"
+  ],
+  "confirmation_status": "confirmed"
+}
