@@ -1,0 +1,68 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-09-24T14:30:16.333050+00:00",
+  "requirement_spec_sha256": "c590dcb310303813d98037d593c89c791b983829d17aca1be84e63a26ef24bde",
+  "app": {
+    "name": "欢迎页",
+    "summary": "一个面向 PC 的纯展示型「欢迎页」应用，只有一个首页在浏览器中直接渲染写死的字符串“hello world”，不需要任何后端 API 接口，也不涉及数据录入与业务操作。应用采用 side 导航布局，启用页头、禁用页脚，唯一的业务参与者是访客/浏览者，任何人无需登录即可浏览，因此不启用认证，也不涉及权限控制。"
+  },
+  "business_flows": [
+    {
+      "name": "浏览欢迎页",
+      "steps": [
+        "访客在 PC 浏览器中打开「欢迎页」应用",
+        "系统进入首页并直接渲染页面内容",
+        "页面展示写死的字符串“hello world”，无需登录或任何输入操作"
+      ],
+      "id": "flow_view_welcome",
+      "description": "访客在 PC 终端打开应用首页，查看写死的 hello world 展示内容。"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "page_welcome",
+      "name": "欢迎页",
+      "path": "/page/page-welcome",
+      "module_id": "mod_welcome",
+      "description": "应用首页，页面直接渲染写死的字符串“hello world”，供访客无需登录直接浏览，不包含表单、列表或任何交互操作。",
+      "goal": "让访客无需登录即可在 PC 浏览器中直接看到写死的字符串“hello world”，完成纯展示型欢迎信息的传达。",
+      "information_items": [
+        {
+          "itemId": "page_welcome_hello_text",
+          "label": "欢迎文案",
+          "description": "页面中央展示的写死字符串“hello world”，是访客进入应用后唯一需要理解的展示内容。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面内容为写死字符串，无需加载过程；打开页面后应立即呈现“hello world”，不出现加载占位或等待提示。",
+        "empty": "页面不依赖任何数据，不存在空数据场景；任何情况下都应展示“hello world”，不得出现空白页或空状态提示。",
+        "error": "页面不调用接口、不依赖外部数据，不存在业务错误场景；若浏览器无法渲染页面，应保持应用默认的错误提示方式，不额外展示业务错误信息。",
+        "success": "页面成功打开后，访客可清晰看到写死的字符串“hello world”，无需登录、无需任何输入或确认操作。",
+        "validation": "页面不包含表单、输入项或提交操作，不存在校验场景，不展示任何校验提示。"
+      },
+      "acceptance_criteria": [
+        "访客在 PC 浏览器中打开应用后，直接进入欢迎页并看到写死的字符串“hello world”。",
+        "欢迎页不要求访客登录、注册或进行任何输入操作即可浏览。",
+        "欢迎页不展示表单、列表、按钮或其他需要访客主动触发的交互操作。",
+        "欢迎页在正常打开时始终展示“hello world”，不出现空白页、加载等待或业务错误提示。",
+        "欢迎页采用 side 导航布局，页头启用、页脚禁用，访客可感知应用的整体导航框架。"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "应用只有一个欢迎页，访客在 PC 浏览器中打开后可直接看到写死的字符串“hello world”。",
+    "应用不启用认证，任何访客无需登录即可浏览欢迎页内容。",
+    "应用不涉及权限控制，所有访客看到的欢迎页内容一致。",
+    "应用采用 side 导航布局，页头启用、页脚禁用。",
+    "应用不包含任何数据录入、列表查询、表单提交或业务操作，仅完成纯展示。",
+    "欢迎页在正常打开时始终展示“hello world”，不出现空白页、加载等待或业务错误提示。"
+  ],
+  "confirmation_status": "confirmed"
+}
