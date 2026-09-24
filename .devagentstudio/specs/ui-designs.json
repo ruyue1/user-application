@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
-  "confirmation_status": "confirmed",
-  "product_plan_sha256": "be71ce2e469d46bdc3731567d588b342d32dee77c12300761c9d953ae177f2ba",
+  "confirmation_status": "pending_user_confirmation",
+  "product_plan_sha256": "04bcf18e261c43e261ea0be274c68e6b7038d8638651e6c01805affab16d2498",
   "pages": [
     {
       "pageId": "home",
@@ -51,7 +51,7 @@
       "pageId": "hello_agent",
       "page_key": "HelloAgent",
       "preview_path": "/page/hello-agent",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092408/.devagentstudio/ui-design/pages/HelloAgent/index.tsx",
+      "code_path": "",
       "status": "confirmed",
       "bindings": {
         "actions": [],
@@ -96,6 +96,44 @@
         "errors": []
       },
       "code_sha256": "77f71664d953d9af4946f8e7b61a7aaceac4da62c360b8531dbfb8896b06761e"
+    },
+    {
+      "pageId": "morning_greeting",
+      "page_key": "MorningGreeting",
+      "preview_path": "/page/morning-greeting",
+      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092408/.devagentstudio/ui-design/pages/MorningGreeting/index.tsx",
+      "status": "confirmed",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "morning_greeting_text",
+            "controlIds": [
+              "morning_greeting_text-display"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "passed",
+        "code_sha256": "392f7b231d914d78bf5f187426470a8d242137e584ef9337212ffe959b16d986",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      },
+      "code_sha256": "392f7b231d914d78bf5f187426470a8d242137e584ef9337212ffe959b16d986"
     }
   ]
 }

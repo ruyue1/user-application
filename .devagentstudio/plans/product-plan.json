@@ -1,11 +1,11 @@
 {
   "schema_version": "product-plan.v5",
   "version": "0.1.0",
-  "generated_at": "2026-09-24T08:51:10.495944+00:00",
-  "requirement_spec_sha256": "752008509f5c21dfe0c239f26d3f70c9844df43d5c9568564893800285ce00cf",
+  "generated_at": "2026-09-24T08:57:36.949278+00:00",
+  "requirement_spec_sha256": "554222a0659d1c5144c76579926ac5e21b8adcaf4782fe7341d84dd7eeb98dbc",
   "app": {
     "name": "欢迎页",
-    "summary": "一个面向 PC 终端的纯展示型应用，无后端 API 接口，页面只展示写死的静态字符串。应用采用侧边导航布局（导航布局=side），页头启用、页脚禁用；共包含两个静态展示页面：欢迎页展示写死的“hello world”，新增的 hello agent 页面展示写死的“hello agent!”。不启用登录认证，也不涉及权限控制。"
+    "summary": "一个面向 PC 终端的展示型应用，采用侧边导航布局（导航布局=side），页头启用、页脚禁用。应用共包含三个展示页面：欢迎页展示写死的“hello world”，hello agent 页面展示写死的“hello agent!”，本轮新增的早上好页面通过一个后端 API 接口获取并展示字符串“早上好!”。不启用登录认证，也不涉及权限控制。"
   },
   "business_flows": [
     {
@@ -16,7 +16,7 @@
         "页面主体内容区展示写死的静态字符串“hello world”",
         "访客浏览完成，无需登录或任何权限即可反复查看该页面"
       ],
-      "id": "flow_browse_welcome",
+      "id": "browse_home",
       "description": "访客打开应用即可看到欢迎页内容，全流程为纯前端静态展示，不涉及登录、数据提交或后端交互"
     },
     {
@@ -27,8 +27,20 @@
         "页面主体内容区展示写死的静态字符串“hello agent!”",
         "访客浏览完成，无需登录或任何权限即可反复查看该页面"
       ],
-      "id": "flow_browse_hello_agent",
-      "description": "访客通过侧边导航进入新增的纯展示页面即可看到“hello agent!”内容，全流程为纯前端静态展示，不涉及登录、数据提交或后端交互"
+      "id": "browse_hello_agent",
+      "description": "访客通过侧边导航进入 hello agent 纯展示页面即可看到“hello agent!”内容，全流程为纯前端静态展示，不涉及登录、数据提交或后端交互"
+    },
+    {
+      "name": "浏览早上好页面",
+      "steps": [
+        "访客在 PC 浏览器中打开应用，在侧边导航中点击早上好页面入口",
+        "应用加载早上好页面，沿用侧边导航布局与启用的页头，页脚不展示",
+        "页面调用后端 API 接口，请求返回字符串“早上好”",
+        "页面主体内容区根据接口返回值展示字符串“早上好!”",
+        "访客浏览完成，无需登录或任何权限即可反复查看该页面"
+      ],
+      "id": "browse_morning_greeting",
+      "description": "访客通过侧边导航进入新增的早上好展示页面，页面调用后端 API 接口取回字符串“早上好”并展示为“早上好!”，无需登录与权限校验"
     }
   ],
   "pages": [
@@ -36,7 +48,7 @@
       "pageId": "home",
       "name": "欢迎页",
       "path": "/page/home",
-      "module_id": "module_welcome_display",
+      "module_id": "welcome_display",
       "description": "应用首页，采用侧边导航布局并展示页头（页脚禁用），页面主体居中展示写死的静态字符串“hello world”",
       "goal": "让访客打开应用后立即看到欢迎页，并在页面主体区域清晰读到写死的静态字符串“hello world”。",
       "information_items": [
@@ -68,8 +80,8 @@
       "pageId": "hello_agent",
       "name": "hello agent 页面",
       "path": "/page/hello-agent",
-      "module_id": "module_hello_agent_display",
-      "description": "新增的纯展示页面，可通过侧边导航进入，沿用侧边导航布局并展示页头（页脚禁用），页面主体展示写死的静态字符串“hello agent!”",
+      "module_id": "hello_agent_display",
+      "description": "纯展示页面，可通过侧边导航进入，沿用侧边导航布局并展示页头（页脚禁用），页面主体展示写死的静态字符串“hello agent!”",
       "goal": "让访客通过侧边导航进入 hello agent 页面后，在页面主体区域清晰读到写死的静态字符串“hello agent!”。",
       "information_items": [
         {
@@ -93,18 +105,46 @@
         "home"
       ],
       "state_requirements": {
-        "loading": "页面为纯静态展示，打开后直接呈现展示文案，无需展示加载中状态。",
         "empty": "页面内容为写死文案，不存在空数据场景，始终展示“hello agent!”。",
         "error": "页面不依赖后端接口，不存在请求失败场景，始终正常展示展示文案。",
+        "loading": "页面为纯静态展示，打开后直接呈现展示文案，无需展示加载中状态。",
         "success": "页面成功呈现侧边导航布局、启用的页头，并在主体区域展示“hello agent!”。",
         "validation": "页面无表单或输入项，不涉及校验状态。"
       },
       "acceptance_criteria": [
-        "访客可通过侧边导航中的 hello agent 页面入口进入该页面。",
-        "hello agent 页面沿用侧边导航布局，页头启用并可见，页脚不展示。",
-        "hello agent 页面主体内容区展示写死的静态字符串“hello agent!”。",
-        "访客无需登录或任何权限即可反复查看 hello agent 页面内容。",
-        "hello agent 页面不发起任何后端接口请求，内容不依赖任何数据源。"
+        "页面目标和核心操作可以由目标角色完成。"
+      ]
+    },
+    {
+      "pageId": "morning_greeting",
+      "name": "早上好页面",
+      "path": "/page/morning-greeting",
+      "module_id": "morning_greeting_display",
+      "description": "本轮新增的纯展示页面，可通过侧边导航进入，沿用侧边导航布局并展示页头（页脚禁用），页面加载时调用一个后端 API 接口获取字符串“早上好”，并在页面主体展示“早上好!”",
+      "goal": "让访客通过侧边导航进入早上好页面后，页面通过后端 API 接口获取字符串“早上好”，并在页面主体区域展示“早上好!”。",
+      "information_items": [
+        {
+          "itemId": "morning_greeting_text",
+          "label": "早上好文案",
+          "description": "页面主体展示的字符串“早上好!”，其内容由后端 API 接口返回的字符串“早上好”驱动。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面加载并请求后端 API 接口期间，展示加载状态，提示内容正在获取。",
+        "empty": "接口返回空字符串时，页面主体不展示有效文案，并给出无内容提示。",
+        "error": "接口请求失败时，页面展示错误提示，并允许访客重新加载页面以再次获取内容。",
+        "success": "接口成功返回字符串“早上好”时，页面主体展示“早上好!”。",
+        "validation": "页面无用户输入，无需校验状态。"
+      },
+      "acceptance_criteria": [
+        "访客可通过侧边导航进入早上好页面。",
+        "早上好页面沿用侧边导航布局，页头展示，页脚不展示。",
+        "页面加载时调用后端 API 接口获取字符串“早上好”。",
+        "接口成功返回后，页面主体展示字符串“早上好!”。",
+        "接口请求失败时，页面展示错误提示，不展示“早上好!”。",
+        "访客无需登录即可反复查看早上好页面内容。"
       ]
     }
   ],
@@ -114,11 +154,11 @@
   },
   "product_acceptance_criteria": [
     "应用面向 PC 终端，采用侧边导航布局，页头启用、页脚禁用。",
-    "应用共包含两个静态展示页面：欢迎页与 hello agent 页面，均可通过侧边导航访问。",
-    "欢迎页主体展示写死的静态字符串“hello world”，hello agent 页面主体展示写死的静态字符串“hello agent!”。",
-    "应用不启用登录认证，也不涉及权限控制，访客无需登录即可浏览全部页面。",
-    "两个页面均不依赖任何后端 API 接口，页面内容为写死的静态字符串。",
-    "访客可在欢迎页与 hello agent 页面之间通过侧边导航自由切换。"
+    "应用包含欢迎页、hello agent 页面、早上好页面三个展示页面，均可通过侧边导航进入。",
+    "欢迎页主体展示写死的静态字符串“hello world”。",
+    "hello agent 页面主体展示写死的静态字符串“hello agent!”。",
+    "早上好页面通过后端 API 接口获取字符串“早上好”，并在页面主体展示“早上好!”。",
+    "应用不启用登录认证，也不涉及权限控制，访客无需登录即可访问全部页面。"
   ],
   "confirmation_status": "confirmed"
 }

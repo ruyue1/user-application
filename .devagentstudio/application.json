@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 6,
+  "configRevision": 8,
   "appName": "欢迎页",
   "appIcon": "AppstoreOutlined",
   "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
@@ -50,6 +50,21 @@
     "traceBaggage": "",
     "apiTrackHost": ""
   },
+  "id": "1790239567720-xtx389",
+  "name": "欢迎页",
+  "workspaceRoot": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092408",
+  "projectParentPath": "",
+  "projectDirectoryName": "2026092408",
+  "source": "new",
+  "legacyTheme": "custom",
+  "legacyLayout": "side-nav",
+  "enableTabs": false,
+  "pages": [
+    "默认页面"
+  ],
+  "defaultPage": "默认页面",
+  "hasDynamicRoutes": false,
+  "lastOpenedAt": 1790240060953,
   "branches": [
     {
       "name": "v1.0",
@@ -352,7 +367,7 @@
           "id": "1790239567720-xtx389",
           "name": "欢迎页"
         },
-        "updatedAt": "2026-09-24T08:50:44.299378Z",
+        "updatedAt": "2026-09-24T08:56:50.700713Z",
         "revision": 1,
         "developmentArtifacts": {
           "pages": {
@@ -362,6 +377,13 @@
               "completedRunId": "887555e4-39f1-4cb6-bef2-1bbcee34c452",
               "completedThreadId": "5fb34556-3293-4d1b-8b47-2aa6db3e3da9",
               "completedBranchName": "v1.0"
+            },
+            "hello_agent": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-09-24T08:55:39.091675Z",
+              "completedRunId": "eb3f2e07-8648-46a4-972d-d205e5aa9312",
+              "completedThreadId": "d06d82c0-e9fb-4105-986e-70eb0f6f3a32",
+              "completedBranchName": "v1.1"
             }
           },
           "entities": {},
@@ -372,9 +394,9 @@
         "initialization": {
           "stage": "collecting_requirement",
           "status": "awaiting_user",
-          "threadId": "a2002209-fa46-47aa-9501-783eff6bb294"
+          "threadId": "3d06ffa4-2fb2-4738-b6c4-b1e2211472d6"
         },
-        "activeRunId": "22e343e8-acf1-4949-9d24-25a93ac96e91",
+        "activeRunId": "902f40a6-2db7-4ac1-8fb9-37346abac21c",
         "activeExecutions": {},
         "resourceLocks": {
           "application": null,
@@ -389,16 +411,29 @@
         "extensions": {},
         "testEntryGate": {
           "allowed": false,
-          "total": 1,
-          "completed": 1,
+          "total": 2,
+          "completed": 2,
           "pending": 0,
           "inProgress": 0,
           "blockers": [],
           "reason": "应用尚未完成创建规划。"
         }
+      },
+      "description": "v1.2",
+      "artifactSummary": {
+        "pageIds": [
+          "默认页面"
+        ],
+        "deployableScript": "deploy-v1.1.sh"
+      },
+      "snapshot": {
+        "pageIds": [
+          "默认页面"
+        ]
       }
     }
   ],
+  "planningThreadId": "a2002209-fa46-47aa-9501-783eff6bb294",
   "repositoryBranch": {
     "branchName": "v1.1",
     "status": "pushed",

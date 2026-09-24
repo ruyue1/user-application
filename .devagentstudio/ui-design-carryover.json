@@ -1,5 +1,10 @@
 {
   "pages": {
+    "hello_agent": {
+      "pageKey": "HelloAgent",
+      "templateId": "",
+      "templateSourcePath": ""
+    },
     "home": {
       "pageKey": "Home",
       "templateId": "",
@@ -7,5 +12,5 @@
     }
   },
   "schemaVersion": 1,
-  "sourceBranch": "v1.0"
+  "sourceBranch": "v1.1"
 }

@@ -19,6 +19,18 @@
         "home",
         "hello_agent"
       ]
+    },
+    {
+      "branch": "v1.1",
+      "designedPageIds": [
+        "home",
+        "hello_agent"
+      ],
+      "plannedPageIds": [
+        "home",
+        "hello_agent",
+        "morning_greeting"
+      ]
     }
   ],
   "schemaVersion": 2

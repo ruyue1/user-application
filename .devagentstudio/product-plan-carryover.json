@@ -1,5 +1,45 @@
 {
   "pages": {
+    "hello_agent": {
+      "definition": {
+        "actions": [],
+        "goal": "让访客通过侧边导航进入 hello agent 页面后，在页面主体区域清晰读到写死的静态字符串“hello agent!”。",
+        "information_items": [
+          {
+            "description": "页面主体展示的写死静态字符串“hello agent!”，用于向访客传达该页面的展示内容。",
+            "itemId": "hello_agent_display_text",
+            "label": "展示文案"
+          },
+          {
+            "description": "应用级侧边导航，包含欢迎页与 hello agent 页面入口，供访客在页面间切换。",
+            "itemId": "hello_agent_side_navigation",
+            "label": "侧边导航"
+          },
+          {
+            "description": "应用启用的页头区域，用于承载应用级标题或品牌信息。",
+            "itemId": "hello_agent_header",
+            "label": "页头"
+          }
+        ],
+        "navigation_targets": [
+          "home"
+        ],
+        "state_requirements": {
+          "empty": "页面内容为写死文案，不存在空数据场景，始终展示“hello agent!”。",
+          "error": "页面不依赖后端接口，不存在请求失败场景，始终正常展示展示文案。",
+          "loading": "页面为纯静态展示，打开后直接呈现展示文案，无需展示加载中状态。",
+          "success": "页面成功呈现侧边导航布局、启用的页头，并在主体区域展示“hello agent!”。",
+          "validation": "页面无表单或输入项，不涉及校验状态。"
+        }
+      },
+      "requirement": {
+        "description": "新增的纯展示页面，可通过侧边导航进入，沿用侧边导航布局并展示页头（页脚禁用），页面主体展示写死的静态字符串“hello agent!”",
+        "module_id": "module_hello_agent_display",
+        "name": "hello agent 页面",
+        "pageId": "hello_agent",
+        "path": "/page/hello-agent"
+      }
+    },
     "home": {
       "definition": {
         "actions": [],
@@ -27,7 +67,7 @@
       },
       "requirement": {
         "description": "应用首页，采用侧边导航布局并展示页头（页脚禁用），页面主体居中展示写死的静态字符串“hello world”",
-        "module_id": "welcome_display",
+        "module_id": "module_welcome_display",
         "name": "欢迎页",
         "pageId": "home",
         "path": "/page/home"
@@ -35,5 +75,5 @@
     }
   },
   "schemaVersion": 2,
-  "sourceBranch": "v1.0"
+  "sourceBranch": "v1.1"
 }
