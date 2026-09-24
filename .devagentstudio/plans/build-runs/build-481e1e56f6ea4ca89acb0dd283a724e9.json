@@ -1,0 +1,2981 @@
+{
+  "schema_version": "build-dag.v4",
+  "application": {
+    "unit_id": "application:root",
+    "status": "prepared"
+  },
+  "build_units": {
+    "application:root": {
+      "id": "application:root",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:shell": {
+      "id": "frontend:shell",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {},
+      "generation_strategy": "prerequisite_only",
+      "participation": "prerequisite_only",
+      "generation_status": "not_required"
+    },
+    "frontend:api-client": {
+      "id": "frontend:api-client",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:auth-guard": {
+      "id": "frontend:auth-guard",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:bootstrap": {
+      "id": "backend:bootstrap",
+      "kind": "backend",
+      "status": "prepared",
+      "task_ids": [
+        "backend:bootstrap::bootstrap"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "backend_bootstrap",
+        "target": {
+          "type": "endpoint",
+          "id": "age_entry_api.create",
+          "api_contract_id": "age_entry_api"
+        },
+        "endpoint_ids": [
+          "age_entry_api.create"
+        ],
+        "entity_ids": [
+          "AgeEntry"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v3",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "dcf54b5ca70f4b3e8be9536c46e6ae45",
+            "apiContractId": "age_entry_api",
+            "endpointId": "age_entry_api.create",
+            "endpointContract": {
+              "id": "age_entry_api.create",
+              "name": "提交年龄录入",
+              "method": "POST",
+              "path": "/api/age-entry",
+              "summary": "Validate and persist a submitted age value, returning a success message or validation error.",
+              "parameters": [],
+              "request_schema_ref": "AgeEntryCreateInput",
+              "response_schema_ref": "AgeEntryCreateOutput",
+              "error_codes": [
+                "VALIDATION_ERROR",
+                "INTERNAL_ERROR"
+              ],
+              "authentication": {
+                "required": false
+              }
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "request",
+                  "location": "request_body",
+                  "path": "age",
+                  "type": "integer",
+                  "required": true,
+                  "description": "The age value to be saved."
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "database",
+                    "sourceId": "application-database",
+                    "schema": "xcodeagent",
+                    "table": "age_record",
+                    "column": "age",
+                    "type": "bigint",
+                    "usage": "write",
+                    "description": "年龄"
+                  }
+                ],
+                "processingType": "direct"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "id",
+                  "type": "integer",
+                  "required": true,
+                  "description": "Unique identifier of the created age entry record."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "age",
+                  "type": "integer",
+                  "required": true,
+                  "description": "The saved age value."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "createdAt",
+                  "type": "string",
+                  "required": true,
+                  "description": "Timestamp when the age entry was saved."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "User-facing result message."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              }
+            ],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "application-database",
+                "name": "年龄录入数据库",
+                "details": {
+                  "sourceId": "application-database",
+                  "schema": "xcodeagent",
+                  "tables": [
+                    {
+                      "name": "age_record",
+                      "description": "存储用户提交的年龄信息。"
+                    }
+                  ],
+                  "table": "age_record",
+                  "columns": [
+                    {
+                      "name": "age",
+                      "type": "bigint",
+                      "required": true,
+                      "description": "年龄"
+                    }
+                  ]
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "55bf6b8dd2d9c5f6c8d0087cd26370aa0bbf01514354d930c30120173f21c644"
+              }
+            ],
+            "confirmedAt": "2026-09-24T08:44:43.028106Z"
+          }
+        ],
+        "mapping_flows": [
+          "request.request_body.age → application-database.age_record.age",
+          "response.response_body.id ⇒ 业务说明：1",
+          "response.response_body.age ⇒ 业务说明：1",
+          "response.response_body.createdAt ⇒ 业务说明：1",
+          "response.response_body.message ⇒ 业务说明：1"
+        ],
+        "source_types": [
+          "database"
+        ],
+        "business_descriptions": [
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "id",
+            "side": "response",
+            "location": "response_body",
+            "type": "integer",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "age",
+            "side": "response",
+            "location": "response_body",
+            "type": "integer",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "createdAt",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ]
+      },
+      "input_fingerprint": "d37fcf676c8a150ac339af812cc6a6b8ff655573fc976294d2ac3b72902d3ede"
+    },
+    "app:integration": {
+      "id": "app:integration",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:endpoint:age_entry_api:age_entry_api.create": {
+      "id": "backend:endpoint:age_entry_api:age_entry_api.create",
+      "kind": "backend",
+      "api_contract_id": "age_entry_api",
+      "endpoint_id": "age_entry_api.create",
+      "status": "prepared",
+      "task_ids": [
+        "backend:endpoint:age_entry_api:age_entry_api.create::objects",
+        "backend:endpoint:age_entry_api:age_entry_api.create::repository",
+        "backend:endpoint:age_entry_api:age_entry_api.create::service",
+        "backend:endpoint:age_entry_api:age_entry_api.create::controller"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "technical_plan_endpoint",
+        "target": {
+          "type": "endpoint",
+          "id": "age_entry_api.create",
+          "api_contract_id": "age_entry_api"
+        },
+        "technical_plan_endpoint": {
+          "id": "age_entry_api.create",
+          "api_contract_id": "age_entry_api"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "age_entry_api.create",
+            "api_contract_id": "age_entry_api"
+          }
+        ],
+        "endpoint_ids": [
+          "age_entry_api.create"
+        ],
+        "entity_ids": [
+          "AgeEntry"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v3",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "dcf54b5ca70f4b3e8be9536c46e6ae45",
+            "apiContractId": "age_entry_api",
+            "endpointId": "age_entry_api.create",
+            "endpointContract": {
+              "id": "age_entry_api.create",
+              "name": "提交年龄录入",
+              "method": "POST",
+              "path": "/api/age-entry",
+              "summary": "Validate and persist a submitted age value, returning a success message or validation error.",
+              "parameters": [],
+              "request_schema_ref": "AgeEntryCreateInput",
+              "response_schema_ref": "AgeEntryCreateOutput",
+              "error_codes": [
+                "VALIDATION_ERROR",
+                "INTERNAL_ERROR"
+              ],
+              "authentication": {
+                "required": false
+              }
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "request",
+                  "location": "request_body",
+                  "path": "age",
+                  "type": "integer",
+                  "required": true,
+                  "description": "The age value to be saved."
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "database",
+                    "sourceId": "application-database",
+                    "schema": "xcodeagent",
+                    "table": "age_record",
+                    "column": "age",
+                    "type": "bigint",
+                    "usage": "write",
+                    "description": "年龄"
+                  }
+                ],
+                "processingType": "direct"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "id",
+                  "type": "integer",
+                  "required": true,
+                  "description": "Unique identifier of the created age entry record."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "age",
+                  "type": "integer",
+                  "required": true,
+                  "description": "The saved age value."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "createdAt",
+                  "type": "string",
+                  "required": true,
+                  "description": "Timestamp when the age entry was saved."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "User-facing result message."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              }
+            ],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "application-database",
+                "name": "年龄录入数据库",
+                "details": {
+                  "sourceId": "application-database",
+                  "schema": "xcodeagent",
+                  "tables": [
+                    {
+                      "name": "age_record",
+                      "description": "存储用户提交的年龄信息。"
+                    }
+                  ],
+                  "table": "age_record",
+                  "columns": [
+                    {
+                      "name": "age",
+                      "type": "bigint",
+                      "required": true,
+                      "description": "年龄"
+                    }
+                  ]
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "55bf6b8dd2d9c5f6c8d0087cd26370aa0bbf01514354d930c30120173f21c644"
+              }
+            ],
+            "confirmedAt": "2026-09-24T08:44:43.028106Z"
+          }
+        ],
+        "mapping_flows": [
+          "request.request_body.age → application-database.age_record.age",
+          "response.response_body.id ⇒ 业务说明：1",
+          "response.response_body.age ⇒ 业务说明：1",
+          "response.response_body.createdAt ⇒ 业务说明：1",
+          "response.response_body.message ⇒ 业务说明：1"
+        ],
+        "source_types": [
+          "database"
+        ],
+        "business_descriptions": [
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "id",
+            "side": "response",
+            "location": "response_body",
+            "type": "integer",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "age",
+            "side": "response",
+            "location": "response_body",
+            "type": "integer",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "createdAt",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ]
+      },
+      "input_fingerprint": "54ea7febfa40479a11577ac63636f1433b6ed353c160c24b68ba6b315c66efaa"
+    },
+    "page:age_entry_home": {
+      "id": "page:age_entry_home",
+      "kind": "page",
+      "page_id": "age_entry_home",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    }
+  },
+  "unit_graph": {
+    "schema_version": "build-unit-graph.v3",
+    "nodes": [
+      "application:root",
+      "frontend:shell",
+      "frontend:api-client",
+      "frontend:auth-guard",
+      "backend:bootstrap",
+      "app:integration",
+      "backend:endpoint:age_entry_api:age_entry_api.create",
+      "page:age_entry_home"
+    ],
+    "edges": [
+      {
+        "from": "application:root",
+        "to": "frontend:shell",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:api-client",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:auth-guard",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:bootstrap",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:endpoint:age_entry_api:age_entry_api.create",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:endpoint:age_entry_api:age_entry_api.create",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:endpoint:age_entry_api:age_entry_api.create",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:age_entry_home",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:age_entry_home",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:age_entry_home",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:endpoint:age_entry_api:age_entry_api.create",
+        "to": "page:age_entry_home",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:age_entry_home",
+        "to": "app:integration",
+        "type": "depends_on"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "unit_skeleton": {
+    "input_fingerprint": "6004cea96eaa41a5f95fce4027bc3aadac1c96a4886a2a68c03eacadc00ee93d",
+    "project_plan_version": null,
+    "workspace_revision": "c5a88a9d3aa71d4d7d1c70df",
+    "reused": false
+  },
+  "task_registry": {
+    "backend:bootstrap::bootstrap": {
+      "allowed_paths": [
+        "backend/pom.xml",
+        "backend/src/main/resources/application.yml"
+      ],
+      "can_run_in_parallel": true,
+      "change_scope": [
+        {
+          "description": "在现有 Maven 依赖中最小化补充 MySQL8 驱动（mysql-connector-j）与 MyBatis-Plus/Spring JDBC 相关依赖，仅满足 MySQL 数据源与 MyBatis-Plus 启动所需，不改动其他依赖与插件。",
+          "operation": "modify",
+          "path": "backend/pom.xml"
+        },
+        {
+          "description": "在 application.yml 中补充 MySQL8 数据源连接配置（spring.datasource.url/username/password/driver-class-name）与 MyBatis-Plus 最小启动配置，供 age_record 等持久化能力复用。",
+          "operation": "modify",
+          "path": "backend/src/main/resources/application.yml"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:bootstrap::bootstrap::deliverable",
+          "kind": "backend.bootstrap",
+          "target_id": "database",
+          "paths": [
+            "backend/pom.xml",
+            "backend/src/main/resources/application.yml"
+          ],
+          "provides": [
+            "backend.bootstrap:database"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "description": "为 backend 单元补齐 MySQL8 数据库数据源的公共基础能力：在 backend/pom.xml 中按需增加 mysql-connector-j 及 MyBatis-Plus/Spring JDBC 相关依赖，在 backend/src/main/resources/application.yml 中补充 spring.datasource 连接配置与 MyBatis-Plus 最小启动配置，使 xcodeagent 库中 age_record 等表可被后续持久化任务直接使用。本任务只做数据源与 MyBatis-Plus 基础设施引导，不新增实体、Repository、Service、Controller、Feign 客户端、DDL、迁移、种子数据或测试。",
+      "id": "backend:bootstrap::bootstrap",
+      "impact_scope": {
+        "affected_modules": [
+          "backend/bootstrap",
+          "backend/common/config"
+        ],
+        "public_contracts": [],
+        "risks": [
+          "数据源连接参数需与部署环境一致，否则应用启动时连接校验可能失败"
+        ],
+        "summary": "仅为 backend 增加 MySQL8 数据源与 MyBatis-Plus 启动级配置，作为数据库类能力的公共基础，不产生任何末端业务实现。"
+      },
+      "owner": "backend",
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "status": "pending",
+      "target_files": [
+        "backend/pom.xml",
+        "backend/src/main/resources/application.yml"
+      ],
+      "task_type": "backend.code",
+      "title": "引导 MySQL8 数据源与 MyBatis-Plus 公共基础能力",
+      "unit_id": "backend:bootstrap",
+      "source_refs": {
+        "type": "backend_bootstrap",
+        "target": {
+          "type": "endpoint",
+          "id": "age_entry_api.create",
+          "api_contract_id": "age_entry_api"
+        },
+        "endpoint_ids": [
+          "age_entry_api.create"
+        ],
+        "entity_ids": [
+          "AgeEntry"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v3",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "dcf54b5ca70f4b3e8be9536c46e6ae45",
+            "apiContractId": "age_entry_api",
+            "endpointId": "age_entry_api.create",
+            "endpointContract": {
+              "id": "age_entry_api.create",
+              "name": "提交年龄录入",
+              "method": "POST",
+              "path": "/api/age-entry",
+              "summary": "Validate and persist a submitted age value, returning a success message or validation error.",
+              "parameters": [],
+              "request_schema_ref": "AgeEntryCreateInput",
+              "response_schema_ref": "AgeEntryCreateOutput",
+              "error_codes": [
+                "VALIDATION_ERROR",
+                "INTERNAL_ERROR"
+              ],
+              "authentication": {
+                "required": false
+              }
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "request",
+                  "location": "request_body",
+                  "path": "age",
+                  "type": "integer",
+                  "required": true,
+                  "description": "The age value to be saved."
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "database",
+                    "sourceId": "application-database",
+                    "schema": "xcodeagent",
+                    "table": "age_record",
+                    "column": "age",
+                    "type": "bigint",
+                    "usage": "write",
+                    "description": "年龄"
+                  }
+                ],
+                "processingType": "direct"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "id",
+                  "type": "integer",
+                  "required": true,
+                  "description": "Unique identifier of the created age entry record."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "age",
+                  "type": "integer",
+                  "required": true,
+                  "description": "The saved age value."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "createdAt",
+                  "type": "string",
+                  "required": true,
+                  "description": "Timestamp when the age entry was saved."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "User-facing result message."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              }
+            ],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "application-database",
+                "name": "年龄录入数据库",
+                "details": {
+                  "sourceId": "application-database",
+                  "schema": "xcodeagent",
+                  "tables": [
+                    {
+                      "name": "age_record",
+                      "description": "存储用户提交的年龄信息。"
+                    }
+                  ],
+                  "table": "age_record",
+                  "columns": [
+                    {
+                      "name": "age",
+                      "type": "bigint",
+                      "required": true,
+                      "description": "年龄"
+                    }
+                  ]
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "55bf6b8dd2d9c5f6c8d0087cd26370aa0bbf01514354d930c30120173f21c644"
+              }
+            ],
+            "confirmedAt": "2026-09-24T08:44:43.028106Z"
+          }
+        ],
+        "mapping_flows": [
+          "request.request_body.age → application-database.age_record.age",
+          "response.response_body.id ⇒ 业务说明：1",
+          "response.response_body.age ⇒ 业务说明：1",
+          "response.response_body.createdAt ⇒ 业务说明：1",
+          "response.response_body.message ⇒ 业务说明：1"
+        ],
+        "source_types": [
+          "database"
+        ],
+        "business_descriptions": [
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "id",
+            "side": "response",
+            "location": "response_body",
+            "type": "integer",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "age",
+            "side": "response",
+            "location": "response_body",
+            "type": "integer",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "createdAt",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ]
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:bootstrap"
+      ],
+      "unit_dependencies": [],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:bootstrap::bootstrap:file_operation:97ef5bd006df",
+          "kind": "file_operation",
+          "description": "工程文件 backend/pom.xml 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/pom.xml"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:bootstrap::bootstrap:file_operation:a068f252119e",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/resources/application.yml 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/resources/application.yml"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:bootstrap::bootstrap:scope_boundary:14603b0724db",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/pom.xml",
+            "backend/src/main/resources/application.yml"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/pom.xml",
+              "backend/src/main/resources/application.yml"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": []
+    },
+    "backend:endpoint:age_entry_api:age_entry_api.create::objects": {
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateInput.java",
+        "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateOutput.java"
+      ],
+      "can_run_in_parallel": true,
+      "change_scope": [
+        {
+          "description": "新增年龄录入请求 DTO，含必填整型字段 age（对应请求体 age，integer）",
+          "operation": "add",
+          "path": "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateInput.java"
+        },
+        {
+          "description": "新增年龄录入响应 DTO，含 id、age、createdAt、message 四个响应字段",
+          "operation": "add",
+          "path": "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateOutput.java"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:endpoint:age_entry_api:age_entry_api.create::objects::deliverable",
+          "kind": "backend.objects",
+          "target_id": "age_entry_api.create",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateInput.java",
+            "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateOutput.java"
+          ],
+          "provides": [
+            "backend.endpoint.objects:age_entry_api:age_entry_api.create"
+          ]
+        }
+      ],
+      "dependencies": [
+        "backend:bootstrap::bootstrap"
+      ],
+      "description": "1. 在 backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateInput.java 中新建请求 DTO，依据 endpointContract 的 request_schema_ref「AgeEntryCreateInput」与 fieldMappings，声明请求体字段 age（Integer 包装类型，必填，对应请求体 path=age、type=integer），并提供标准 getter/setter。\n2. 在 backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateOutput.java 中新建响应 DTO，依据 response_schema_ref「AgeEntryCreateOutput」声明响应字段 id（Long，integer）、age（Integer，integer）、createdAt（String，时间戳的业务字符串表示）、message（String，面向用户的结果消息），并提供标准 getter/setter。\n3. 该 Task 只负责 Endpoint 请求/响应 DTO 与内部值对象的类型边界定义，作为各来源分支共用的转换边界；不得进行数据库访问、上游调用、多来源组合、业务规则处理或 Controller 路由。",
+      "id": "backend:endpoint:age_entry_api:age_entry_api.create::objects",
+      "impact_scope": {
+        "affected_modules": [
+          "ageentry"
+        ],
+        "public_contracts": [
+          "AgeEntryCreateInput",
+          "AgeEntryCreateOutput"
+        ],
+        "risks": [
+          "字段类型与 fieldMappings 的 integer/string 描述不一致会导致序列化偏差"
+        ],
+        "summary": "定义 age_entry_api.create 的请求与响应 DTO 类型边界，后续 repository/service/controller Task 依赖该类型。"
+      },
+      "owner": "backend",
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "status": "pending",
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateInput.java",
+        "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateOutput.java"
+      ],
+      "task_type": "backend.code",
+      "title": "新增年龄录入 Endpoint 请求/响应 DTO",
+      "unit_id": "backend:endpoint:age_entry_api:age_entry_api.create",
+      "source_refs": {
+        "type": "technical_plan_endpoint",
+        "target": {
+          "type": "endpoint",
+          "id": "age_entry_api.create",
+          "api_contract_id": "age_entry_api"
+        },
+        "technical_plan_endpoint": {
+          "id": "age_entry_api.create",
+          "api_contract_id": "age_entry_api"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "age_entry_api.create",
+            "api_contract_id": "age_entry_api"
+          }
+        ],
+        "endpoint_ids": [
+          "age_entry_api.create"
+        ],
+        "entity_ids": [
+          "AgeEntry"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v3",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "dcf54b5ca70f4b3e8be9536c46e6ae45",
+            "apiContractId": "age_entry_api",
+            "endpointId": "age_entry_api.create",
+            "endpointContract": {
+              "id": "age_entry_api.create",
+              "name": "提交年龄录入",
+              "method": "POST",
+              "path": "/api/age-entry",
+              "summary": "Validate and persist a submitted age value, returning a success message or validation error.",
+              "parameters": [],
+              "request_schema_ref": "AgeEntryCreateInput",
+              "response_schema_ref": "AgeEntryCreateOutput",
+              "error_codes": [
+                "VALIDATION_ERROR",
+                "INTERNAL_ERROR"
+              ],
+              "authentication": {
+                "required": false
+              }
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "request",
+                  "location": "request_body",
+                  "path": "age",
+                  "type": "integer",
+                  "required": true,
+                  "description": "The age value to be saved."
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "database",
+                    "sourceId": "application-database",
+                    "schema": "xcodeagent",
+                    "table": "age_record",
+                    "column": "age",
+                    "type": "bigint",
+                    "usage": "write",
+                    "description": "年龄"
+                  }
+                ],
+                "processingType": "direct"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "id",
+                  "type": "integer",
+                  "required": true,
+                  "description": "Unique identifier of the created age entry record."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "age",
+                  "type": "integer",
+                  "required": true,
+                  "description": "The saved age value."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "createdAt",
+                  "type": "string",
+                  "required": true,
+                  "description": "Timestamp when the age entry was saved."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "User-facing result message."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              }
+            ],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "application-database",
+                "name": "年龄录入数据库",
+                "details": {
+                  "sourceId": "application-database",
+                  "schema": "xcodeagent",
+                  "tables": [
+                    {
+                      "name": "age_record",
+                      "description": "存储用户提交的年龄信息。"
+                    }
+                  ],
+                  "table": "age_record",
+                  "columns": [
+                    {
+                      "name": "age",
+                      "type": "bigint",
+                      "required": true,
+                      "description": "年龄"
+                    }
+                  ]
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "55bf6b8dd2d9c5f6c8d0087cd26370aa0bbf01514354d930c30120173f21c644"
+              }
+            ],
+            "confirmedAt": "2026-09-24T08:44:43.028106Z"
+          }
+        ],
+        "mapping_flows": [
+          "request.request_body.age → application-database.age_record.age",
+          "response.response_body.id ⇒ 业务说明：1",
+          "response.response_body.age ⇒ 业务说明：1",
+          "response.response_body.createdAt ⇒ 业务说明：1",
+          "response.response_body.message ⇒ 业务说明：1"
+        ],
+        "source_types": [
+          "database"
+        ],
+        "business_descriptions": [
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "id",
+            "side": "response",
+            "location": "response_body",
+            "type": "integer",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "age",
+            "side": "response",
+            "location": "response_body",
+            "type": "integer",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "createdAt",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ]
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:endpoint:age_entry_api:age_entry_api.create"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:endpoint:age_entry_api:age_entry_api.create::objects:file_operation:94e40c58374b",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateInput.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateInput.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:endpoint:age_entry_api:age_entry_api.create::objects:file_operation:06fc3ea5bd71",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateOutput.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateOutput.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:endpoint:age_entry_api:age_entry_api.create::objects:scope_boundary:46888bb853c3",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateInput.java",
+            "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateOutput.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateInput.java",
+              "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateOutput.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:backend:endpoint:age_entry_api:age_entry_api.create::objects:backend.objects_contract:686534b193f42719",
+          "deliverable_id": "backend:endpoint:age_entry_api:age_entry_api.create::objects::deliverable",
+          "kind": "backend.objects_contract",
+          "description": "后端 PO、Entity、DTO 与 Converter 必须落实字段、表列绑定和类型化转换链。",
+          "sources": [
+            {
+              "artifact": "api_contract",
+              "target_id": "age_entry_api.create",
+              "pointer": "/api_contracts/age_entry_api/endpoints/age_entry_api.create",
+              "sha256": "b6e92cb02df87eb753bce80184d7934cc1aba17c1af3f46b91852baa34d4131b"
+            },
+            {
+              "artifact": "api_contract",
+              "target_id": "age_entry_api.create",
+              "pointer": "/api_contracts/age_entry_api/endpoints/age_entry_api.create",
+              "sha256": "b6e92cb02df87eb753bce80184d7934cc1aba17c1af3f46b91852baa34d4131b"
+            }
+          ],
+          "expected": {
+            "entities": [
+              {
+                "entity_id": "AgeEntry",
+                "entity_name": "AgeEntry",
+                "data_source_type": "",
+                "database_table": "",
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "number",
+                    "required": true,
+                    "enum_values": [],
+                    "source_types": []
+                  },
+                  {
+                    "name": "age",
+                    "type": "number",
+                    "required": true,
+                    "enum_values": [],
+                    "source_types": []
+                  },
+                  {
+                    "name": "created_at",
+                    "type": "datetime",
+                    "required": true,
+                    "enum_values": [],
+                    "source_types": []
+                  }
+                ],
+                "database_bindings": []
+              }
+            ],
+            "endpoints": [
+              {
+                "api_contract_id": "age_entry_api",
+                "endpoint_id": "age_entry_api.create",
+                "method": "POST",
+                "path": "/api/age-entry",
+                "request_schema_ref": "AgeEntryCreateInput",
+                "response_schema_ref": "AgeEntryCreateOutput",
+                "parameters": [],
+                "request_schema": {
+                  "type": "object",
+                  "required": [
+                    "age"
+                  ],
+                  "properties": {
+                    "age": {
+                      "type": "integer",
+                      "required": true
+                    }
+                  }
+                },
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "age",
+                    "createdAt",
+                    "message"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "required": true
+                    },
+                    "age": {
+                      "type": "integer",
+                      "required": true
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "required": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateInput.java",
+            "backend/src/main/java/com/cmbchina/backend/ageentry/objects/AgeEntryCreateOutput.java"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "backend_objects_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": []
+    },
+    "backend:endpoint:age_entry_api:age_entry_api.create::repository": {
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/ageentry/repository/po/AgeRecordPO.java",
+        "backend/src/main/java/com/cmbchina/backend/ageentry/repository/mapper/AgeRecordMapper.java",
+        "backend/src/main/resources/mapper/ageentry/AgeRecordMapper.xml"
+      ],
+      "can_run_in_parallel": true,
+      "change_scope": [
+        {
+          "description": "新增 age_record 表持久化对象，映射 bigint 列 age",
+          "operation": "add",
+          "path": "backend/src/main/java/com/cmbchina/backend/ageentry/repository/po/AgeRecordPO.java"
+        },
+        {
+          "description": "新增继承 BaseMapper<AgeRecordPO> 的 Mapper 接口",
+          "operation": "add",
+          "path": "backend/src/main/java/com/cmbchina/backend/ageentry/repository/mapper/AgeRecordMapper.java"
+        },
+        {
+          "description": "新增 namespace-only 的空 Mapper XML 占位文件，保持内容为占位不写自定义语句",
+          "operation": "add",
+          "path": "backend/src/main/resources/mapper/ageentry/AgeRecordMapper.xml"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:endpoint:age_entry_api:age_entry_api.create::repository::deliverable",
+          "kind": "backend.repository",
+          "target_id": "age_entry_api.create",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/repository/po/AgeRecordPO.java",
+            "backend/src/main/java/com/cmbchina/backend/ageentry/repository/mapper/AgeRecordMapper.java",
+            "backend/src/main/resources/mapper/ageentry/AgeRecordMapper.xml"
+          ],
+          "provides": [
+            "backend.repository:age_entry_api:age_entry_api.create"
+          ]
+        }
+      ],
+      "dependencies": [
+        "backend:endpoint:age_entry_api:age_entry_api.create::objects",
+        "backend:bootstrap::bootstrap"
+      ],
+      "description": "1. 在 backend/src/main/java/com/cmbchina/backend/ageentry/repository/po/AgeRecordPO.java 中新建持久化对象，按 sourceSnapshots 的 application-database（schema=xcodeagent，table=age_record）映射写入列 age（bigint → Long），并声明主键 id 自增映射所需的注解。\n2. 在 backend/src/main/java/com/cmbchina/backend/ageentry/repository/mapper/AgeRecordMapper.java 中新建接口，继承 BaseMapper<AgeRecordPO> 并标注 @Mapper，插入与主键回填均直接复用 BaseMapper.insert，不新增自定义方法。\n3. 在 backend/src/main/resources/mapper/ageentry/AgeRecordMapper.xml 中新建 namespace-only 占位文件（namespace 指向上述 Mapper 全限定名），保持占位内容不变；因本 Endpoint 仅需单表插入与主键回填，无 join、聚合、UNION、子查询、窗口函数或数据库特定 SQL，故不编写任何自定义 XML 语句。\n4. 该 Task 仅实现数据库访问分支，不进行 Endpoint 响应组装、字段映射业务说明或业务规则处理。",
+      "id": "backend:endpoint:age_entry_api:age_entry_api.create::repository",
+      "impact_scope": {
+        "affected_modules": [
+          "ageentry.repository"
+        ],
+        "public_contracts": [
+          "AgeRecordMapper",
+          "AgeRecordPO"
+        ],
+        "risks": [
+          "列名或类型与 sourceSnapshots 不一致会导致插入失败"
+        ],
+        "summary": "实现 age_record 单表写入的 BaseMapper 数据访问分支，供 service Task 组合使用。"
+      },
+      "owner": "backend",
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "status": "pending",
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/ageentry/repository/po/AgeRecordPO.java",
+        "backend/src/main/java/com/cmbchina/backend/ageentry/repository/mapper/AgeRecordMapper.java",
+        "backend/src/main/resources/mapper/ageentry/AgeRecordMapper.xml"
+      ],
+      "task_type": "backend.code",
+      "title": "新增年龄录入数据库访问 Mapper 与 XML 占位",
+      "unit_id": "backend:endpoint:age_entry_api:age_entry_api.create",
+      "source_refs": {
+        "type": "technical_plan_endpoint",
+        "target": {
+          "type": "endpoint",
+          "id": "age_entry_api.create",
+          "api_contract_id": "age_entry_api"
+        },
+        "technical_plan_endpoint": {
+          "id": "age_entry_api.create",
+          "api_contract_id": "age_entry_api"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "age_entry_api.create",
+            "api_contract_id": "age_entry_api"
+          }
+        ],
+        "endpoint_ids": [
+          "age_entry_api.create"
+        ],
+        "entity_ids": [
+          "AgeEntry"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v3",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "dcf54b5ca70f4b3e8be9536c46e6ae45",
+            "apiContractId": "age_entry_api",
+            "endpointId": "age_entry_api.create",
+            "endpointContract": {
+              "id": "age_entry_api.create",
+              "name": "提交年龄录入",
+              "method": "POST",
+              "path": "/api/age-entry",
+              "summary": "Validate and persist a submitted age value, returning a success message or validation error.",
+              "parameters": [],
+              "request_schema_ref": "AgeEntryCreateInput",
+              "response_schema_ref": "AgeEntryCreateOutput",
+              "error_codes": [
+                "VALIDATION_ERROR",
+                "INTERNAL_ERROR"
+              ],
+              "authentication": {
+                "required": false
+              }
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "request",
+                  "location": "request_body",
+                  "path": "age",
+                  "type": "integer",
+                  "required": true,
+                  "description": "The age value to be saved."
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "database",
+                    "sourceId": "application-database",
+                    "schema": "xcodeagent",
+                    "table": "age_record",
+                    "column": "age",
+                    "type": "bigint",
+                    "usage": "write",
+                    "description": "年龄"
+                  }
+                ],
+                "processingType": "direct"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "id",
+                  "type": "integer",
+                  "required": true,
+                  "description": "Unique identifier of the created age entry record."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "age",
+                  "type": "integer",
+                  "required": true,
+                  "description": "The saved age value."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "createdAt",
+                  "type": "string",
+                  "required": true,
+                  "description": "Timestamp when the age entry was saved."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "User-facing result message."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              }
+            ],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "application-database",
+                "name": "年龄录入数据库",
+                "details": {
+                  "sourceId": "application-database",
+                  "schema": "xcodeagent",
+                  "tables": [
+                    {
+                      "name": "age_record",
+                      "description": "存储用户提交的年龄信息。"
+                    }
+                  ],
+                  "table": "age_record",
+                  "columns": [
+                    {
+                      "name": "age",
+                      "type": "bigint",
+                      "required": true,
+                      "description": "年龄"
+                    }
+                  ]
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "55bf6b8dd2d9c5f6c8d0087cd26370aa0bbf01514354d930c30120173f21c644"
+              }
+            ],
+            "confirmedAt": "2026-09-24T08:44:43.028106Z"
+          }
+        ],
+        "mapping_flows": [
+          "request.request_body.age → application-database.age_record.age",
+          "response.response_body.id ⇒ 业务说明：1",
+          "response.response_body.age ⇒ 业务说明：1",
+          "response.response_body.createdAt ⇒ 业务说明：1",
+          "response.response_body.message ⇒ 业务说明：1"
+        ],
+        "source_types": [
+          "database"
+        ],
+        "business_descriptions": [
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "id",
+            "side": "response",
+            "location": "response_body",
+            "type": "integer",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "age",
+            "side": "response",
+            "location": "response_body",
+            "type": "integer",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "createdAt",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ]
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:endpoint:age_entry_api:age_entry_api.create"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:endpoint:age_entry_api:age_entry_api.create::repository:file_operation:f18374f35f9e",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/ageentry/repository/po/AgeRecordPO.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/repository/po/AgeRecordPO.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:endpoint:age_entry_api:age_entry_api.create::repository:file_operation:18442fa141d7",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/ageentry/repository/mapper/AgeRecordMapper.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/repository/mapper/AgeRecordMapper.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:endpoint:age_entry_api:age_entry_api.create::repository:file_operation:4b3264197484",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/resources/mapper/ageentry/AgeRecordMapper.xml 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/resources/mapper/ageentry/AgeRecordMapper.xml"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:endpoint:age_entry_api:age_entry_api.create::repository:scope_boundary:ac41b355aad6",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/repository/po/AgeRecordPO.java",
+            "backend/src/main/java/com/cmbchina/backend/ageentry/repository/mapper/AgeRecordMapper.java",
+            "backend/src/main/resources/mapper/ageentry/AgeRecordMapper.xml"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/src/main/java/com/cmbchina/backend/ageentry/repository/po/AgeRecordPO.java",
+              "backend/src/main/java/com/cmbchina/backend/ageentry/repository/mapper/AgeRecordMapper.java",
+              "backend/src/main/resources/mapper/ageentry/AgeRecordMapper.xml"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:backend:endpoint:age_entry_api:age_entry_api.create::repository:backend.repository_contract:a16be91dd9ef1c63",
+          "deliverable_id": "backend:endpoint:age_entry_api:age_entry_api.create::repository::deliverable",
+          "kind": "backend.repository_contract",
+          "description": "Repository/Mapper 必须按 Endpoint API 设计中的数据库字段和处理逻辑实现访问语义。",
+          "sources": [
+            {
+              "artifact": "api_contract",
+              "target_id": "age_entry_api.create",
+              "pointer": "/api_contracts/age_entry_api/endpoints/age_entry_api.create",
+              "sha256": "b6e92cb02df87eb753bce80184d7934cc1aba17c1af3f46b91852baa34d4131b"
+            },
+            {
+              "artifact": "api_design",
+              "target_id": "age_entry_api.create",
+              "pointer": "/endpoint_designs/age_entry_api.create",
+              "sha256": "3bb424a5cb1bdc038fac96b842b4806775f84801d32792f6f0e6edf791f9a597"
+            }
+          ],
+          "expected": {
+            "entities": [
+              {
+                "entity_id": "AgeEntry",
+                "entity_name": "AgeEntry",
+                "data_source_type": "",
+                "database_table": "",
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": "number",
+                    "required": true,
+                    "enum_values": [],
+                    "source_types": []
+                  },
+                  {
+                    "name": "age",
+                    "type": "number",
+                    "required": true,
+                    "enum_values": [],
+                    "source_types": []
+                  },
+                  {
+                    "name": "created_at",
+                    "type": "datetime",
+                    "required": true,
+                    "enum_values": [],
+                    "source_types": []
+                  }
+                ],
+                "database_bindings": []
+              }
+            ],
+            "operations": [
+              {
+                "api_contract_id": "age_entry_api",
+                "endpoint_id": "age_entry_api.create",
+                "operation_kind": "create",
+                "target_cardinality": "object",
+                "selector": {
+                  "source": "endpoint_api_design",
+                  "fields": []
+                },
+                "transaction_required": true,
+                "zero_match_behavior": "confirmed_processing_logic",
+                "multiple_match_behavior": "confirmed_processing_logic",
+                "success_status_code": null,
+                "side_effect": "write",
+                "processing_logic": [
+                  "1"
+                ],
+                "requires_repository": true
+              }
+            ]
+          },
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/repository/po/AgeRecordPO.java",
+            "backend/src/main/java/com/cmbchina/backend/ageentry/repository/mapper/AgeRecordMapper.java",
+            "backend/src/main/resources/mapper/ageentry/AgeRecordMapper.xml"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "backend_repository_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": []
+    },
+    "backend:endpoint:age_entry_api:age_entry_api.create::service": {
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/ageentry/service/AgeEntryService.java",
+        "backend/src/main/java/com/cmbchina/backend/ageentry/domain/exception/AgeEntryErrorCode.java"
+      ],
+      "can_run_in_parallel": true,
+      "change_scope": [
+        {
+          "description": "新增应用服务，完成请求绑定、字段映射、单表写入与响应转换",
+          "operation": "add",
+          "path": "backend/src/main/java/com/cmbchina/backend/ageentry/service/AgeEntryService.java"
+        },
+        {
+          "description": "新增模块级错误码枚举，实现 IBizErrorCode 并覆盖 VALIDATION_ERROR、INTERNAL_ERROR",
+          "operation": "add",
+          "path": "backend/src/main/java/com/cmbchina/backend/ageentry/domain/exception/AgeEntryErrorCode.java"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:endpoint:age_entry_api:age_entry_api.create::service::deliverable",
+          "kind": "backend.application_service",
+          "target_id": "age_entry_api.create",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/service/AgeEntryService.java",
+            "backend/src/main/java/com/cmbchina/backend/ageentry/domain/exception/AgeEntryErrorCode.java"
+          ],
+          "provides": [
+            "backend.application_service:age_entry_api:age_entry_api.create"
+          ]
+        }
+      ],
+      "dependencies": [
+        "backend:endpoint:age_entry_api:age_entry_api.create::repository",
+        "backend:bootstrap::bootstrap"
+      ],
+      "description": "1. 在 backend/src/main/java/com/cmbchina/backend/ageentry/domain/exception/AgeEntryErrorCode.java 中新建模块级错误码枚举，实现 com.cmbchina.backend.common.exception.IBizErrorCode，按 endpointContract.error_codes 定义 VALIDATION_ERROR 与 INTERNAL_ERROR 两项（含错误码与提示信息），避免引用不存在的错误码类型。\n2. 在 backend/src/main/java/com/cmbchina/backend/ageentry/service/AgeEntryService.java 中新建应用服务（@Service），注入 AgeRecordMapper，作为该 Endpoint 字段映射、业务处理与最终响应转换的唯一责任方。\n3. 按 fieldMappings 执行请求绑定与写入：将 AgeEntryCreateInput.age（integer）直接映射到 age_record.age（bigint，usage=write），构造 AgeRecordPO 并调用 BaseMapper.insert 完成持久化，依据业务说明保持类型一致转换。\n4. 当请求 age 为空或不符合录入业务规则时，抛出 throw new BizException(AgeEntryErrorCode.VALIDATION_ERROR)，对应契约 VALIDATION_ERROR 失败分支；不得引入契约之外的错误码。\n5. 按 fieldMappings 的 business_description 项完成响应转换：id 取插入回填主键，age 回填已保存的年龄值，createdAt 取保存时间并格式化为字符串，message 生成面向用户的结果消息；统一组装为 AgeEntryCreateOutput 返回。\n6. 本 Task 不暴露 Mapper/持久化传输类型到内部 API，不实现 Controller 路由，不新增独立映射 Task 或自定义 SQL。",
+      "id": "backend:endpoint:age_entry_api:age_entry_api.create::service",
+      "impact_scope": {
+        "affected_modules": [
+          "ageentry.service",
+          "ageentry.domain.exception"
+        ],
+        "public_contracts": [
+          "AgeEntryService",
+          "AgeEntryErrorCode"
+        ],
+        "risks": [
+          "响应字段业务说明与契约不一致会导致返回语义偏差",
+          "缺少模块级错误码会导致 BizException 引用缺失类型"
+        ],
+        "summary": "实现年龄录入的字段映射、写入编排、失败分支与最终响应转换。"
+      },
+      "owner": "backend",
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "status": "pending",
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/ageentry/service/AgeEntryService.java",
+        "backend/src/main/java/com/cmbchina/backend/ageentry/domain/exception/AgeEntryErrorCode.java"
+      ],
+      "task_type": "backend.code",
+      "title": "实现年龄录入应用服务与响应转换",
+      "unit_id": "backend:endpoint:age_entry_api:age_entry_api.create",
+      "source_refs": {
+        "type": "technical_plan_endpoint",
+        "target": {
+          "type": "endpoint",
+          "id": "age_entry_api.create",
+          "api_contract_id": "age_entry_api"
+        },
+        "technical_plan_endpoint": {
+          "id": "age_entry_api.create",
+          "api_contract_id": "age_entry_api"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "age_entry_api.create",
+            "api_contract_id": "age_entry_api"
+          }
+        ],
+        "endpoint_ids": [
+          "age_entry_api.create"
+        ],
+        "entity_ids": [
+          "AgeEntry"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v3",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "dcf54b5ca70f4b3e8be9536c46e6ae45",
+            "apiContractId": "age_entry_api",
+            "endpointId": "age_entry_api.create",
+            "endpointContract": {
+              "id": "age_entry_api.create",
+              "name": "提交年龄录入",
+              "method": "POST",
+              "path": "/api/age-entry",
+              "summary": "Validate and persist a submitted age value, returning a success message or validation error.",
+              "parameters": [],
+              "request_schema_ref": "AgeEntryCreateInput",
+              "response_schema_ref": "AgeEntryCreateOutput",
+              "error_codes": [
+                "VALIDATION_ERROR",
+                "INTERNAL_ERROR"
+              ],
+              "authentication": {
+                "required": false
+              }
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "request",
+                  "location": "request_body",
+                  "path": "age",
+                  "type": "integer",
+                  "required": true,
+                  "description": "The age value to be saved."
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "database",
+                    "sourceId": "application-database",
+                    "schema": "xcodeagent",
+                    "table": "age_record",
+                    "column": "age",
+                    "type": "bigint",
+                    "usage": "write",
+                    "description": "年龄"
+                  }
+                ],
+                "processingType": "direct"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "id",
+                  "type": "integer",
+                  "required": true,
+                  "description": "Unique identifier of the created age entry record."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "age",
+                  "type": "integer",
+                  "required": true,
+                  "description": "The saved age value."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "createdAt",
+                  "type": "string",
+                  "required": true,
+                  "description": "Timestamp when the age entry was saved."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "User-facing result message."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              }
+            ],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "application-database",
+                "name": "年龄录入数据库",
+                "details": {
+                  "sourceId": "application-database",
+                  "schema": "xcodeagent",
+                  "tables": [
+                    {
+                      "name": "age_record",
+                      "description": "存储用户提交的年龄信息。"
+                    }
+                  ],
+                  "table": "age_record",
+                  "columns": [
+                    {
+                      "name": "age",
+                      "type": "bigint",
+                      "required": true,
+                      "description": "年龄"
+                    }
+                  ]
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "55bf6b8dd2d9c5f6c8d0087cd26370aa0bbf01514354d930c30120173f21c644"
+              }
+            ],
+            "confirmedAt": "2026-09-24T08:44:43.028106Z"
+          }
+        ],
+        "mapping_flows": [
+          "request.request_body.age → application-database.age_record.age",
+          "response.response_body.id ⇒ 业务说明：1",
+          "response.response_body.age ⇒ 业务说明：1",
+          "response.response_body.createdAt ⇒ 业务说明：1",
+          "response.response_body.message ⇒ 业务说明：1"
+        ],
+        "source_types": [
+          "database"
+        ],
+        "business_descriptions": [
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "id",
+            "side": "response",
+            "location": "response_body",
+            "type": "integer",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "age",
+            "side": "response",
+            "location": "response_body",
+            "type": "integer",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "createdAt",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ]
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:endpoint:age_entry_api:age_entry_api.create"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:endpoint:age_entry_api:age_entry_api.create::service:file_operation:992564a59c89",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/ageentry/service/AgeEntryService.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/service/AgeEntryService.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:endpoint:age_entry_api:age_entry_api.create::service:file_operation:8b03fd281689",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/ageentry/domain/exception/AgeEntryErrorCode.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/domain/exception/AgeEntryErrorCode.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:endpoint:age_entry_api:age_entry_api.create::service:scope_boundary:3ed67d2abe34",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/service/AgeEntryService.java",
+            "backend/src/main/java/com/cmbchina/backend/ageentry/domain/exception/AgeEntryErrorCode.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/src/main/java/com/cmbchina/backend/ageentry/service/AgeEntryService.java",
+              "backend/src/main/java/com/cmbchina/backend/ageentry/domain/exception/AgeEntryErrorCode.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:backend:endpoint:age_entry_api:age_entry_api.create::service:backend.application_service_contract:f0219e8e587fbf7e",
+          "deliverable_id": "backend:endpoint:age_entry_api:age_entry_api.create::service::deliverable",
+          "kind": "backend.application_service_contract",
+          "description": "ApplicationService 必须执行已确认 operation 语义和 Request 业务处理，并在需要时委托 Repository。",
+          "sources": [
+            {
+              "artifact": "api_design",
+              "target_id": "age_entry_api.create",
+              "pointer": "/endpoint_designs/age_entry_api.create",
+              "sha256": "3bb424a5cb1bdc038fac96b842b4806775f84801d32792f6f0e6edf791f9a597"
+            },
+            {
+              "artifact": "api_contract",
+              "target_id": "age_entry_api.create",
+              "pointer": "/api_contracts/age_entry_api/endpoints/age_entry_api.create",
+              "sha256": "b6e92cb02df87eb753bce80184d7934cc1aba17c1af3f46b91852baa34d4131b"
+            }
+          ],
+          "expected": {
+            "operations": [
+              {
+                "api_contract_id": "age_entry_api",
+                "endpoint_id": "age_entry_api.create",
+                "operation_kind": "create",
+                "target_cardinality": "object",
+                "selector": {
+                  "source": "endpoint_api_design",
+                  "fields": []
+                },
+                "transaction_required": true,
+                "zero_match_behavior": "confirmed_processing_logic",
+                "multiple_match_behavior": "confirmed_processing_logic",
+                "success_status_code": null,
+                "side_effect": "write",
+                "processing_logic": [
+                  "1"
+                ],
+                "requires_repository": true
+              }
+            ],
+            "endpoints": [
+              {
+                "api_contract_id": "age_entry_api",
+                "endpoint_id": "age_entry_api.create",
+                "method": "POST",
+                "path": "/api/age-entry",
+                "request_schema_ref": "AgeEntryCreateInput",
+                "response_schema_ref": "AgeEntryCreateOutput",
+                "parameters": [],
+                "request_schema": {
+                  "type": "object",
+                  "required": [
+                    "age"
+                  ],
+                  "properties": {
+                    "age": {
+                      "type": "integer",
+                      "required": true
+                    }
+                  }
+                },
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "age",
+                    "createdAt",
+                    "message"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "required": true
+                    },
+                    "age": {
+                      "type": "integer",
+                      "required": true
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "required": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ],
+            "business_descriptions": [
+              {
+                "api_contract_id": "age_entry_api",
+                "endpoint_id": "age_entry_api.create",
+                "path": "id",
+                "location": "response_body",
+                "side": "response",
+                "description": "1",
+                "processing_type": null,
+                "source_fields": []
+              },
+              {
+                "api_contract_id": "age_entry_api",
+                "endpoint_id": "age_entry_api.create",
+                "path": "age",
+                "location": "response_body",
+                "side": "response",
+                "description": "1",
+                "processing_type": null,
+                "source_fields": []
+              },
+              {
+                "api_contract_id": "age_entry_api",
+                "endpoint_id": "age_entry_api.create",
+                "path": "createdAt",
+                "location": "response_body",
+                "side": "response",
+                "description": "1",
+                "processing_type": null,
+                "source_fields": []
+              },
+              {
+                "api_contract_id": "age_entry_api",
+                "endpoint_id": "age_entry_api.create",
+                "path": "message",
+                "location": "response_body",
+                "side": "response",
+                "description": "1",
+                "processing_type": null,
+                "source_fields": []
+              }
+            ]
+          },
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/service/AgeEntryService.java",
+            "backend/src/main/java/com/cmbchina/backend/ageentry/domain/exception/AgeEntryErrorCode.java"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "backend_application_service_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": []
+    },
+    "backend:endpoint:age_entry_api:age_entry_api.create::controller": {
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/ageentry/controller/AgeEntryController.java"
+      ],
+      "can_run_in_parallel": false,
+      "change_scope": [
+        {
+          "description": "新增内部接口适配控制器，绑定 POST /api/age-entry 并委派 service",
+          "operation": "add",
+          "path": "backend/src/main/java/com/cmbchina/backend/ageentry/controller/AgeEntryController.java"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:endpoint:age_entry_api:age_entry_api.create::controller::deliverable",
+          "kind": "backend.endpoint_controller",
+          "target_id": "age_entry_api.create",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/controller/AgeEntryController.java"
+          ],
+          "provides": [
+            "backend.endpoint_controller:age_entry_api:age_entry_api.create"
+          ]
+        }
+      ],
+      "dependencies": [
+        "backend:endpoint:age_entry_api:age_entry_api.create::service",
+        "backend:bootstrap::bootstrap"
+      ],
+      "description": "1. 在 backend/src/main/java/com/cmbchina/backend/ageentry/controller/AgeEntryController.java 中新建控制器，标注 @RestController 与 @RequestMapping，使用 @PostMapping(\"/api/age-entry\") 实现内部 endpointContract 的 POST 方法/路径。\n2. 使用 @RequestBody 绑定 AgeEntryCreateInput，并按需添加请求校验注解，保持契约要求的请求类型绑定。\n3. 调用 AgeEntryService 完成业务处理，并以项目统一响应封装 com.cmbchina.backend.common.response.ResponseEntity<AgeEntryCreateOutput> 返回 200 与响应信封契约，保持响应字段与契约一致。\n4. 该契约切片不含 operationResourceKeys 且 authentication.required=false，因此不添加 @RequireAnyResource 授权注解，也不创建或修改 AuthConstants 与授权服务。\n5. 本 Task 不暴露上游路径，不进行仓储或客户端访问，不重复 fieldMappings，不硬编码示例值。",
+      "id": "backend:endpoint:age_entry_api:age_entry_api.create::controller",
+      "impact_scope": {
+        "affected_modules": [
+          "ageentry.controller"
+        ],
+        "public_contracts": [
+          "POST /api/age-entry"
+        ],
+        "risks": [
+          "路径、方法或响应封装与 endpointContract 不一致会导致接口不可用"
+        ],
+        "summary": "实现年龄录入 Endpoint 的内部路由、请求绑定与 service 委派。"
+      },
+      "owner": "backend",
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "status": "pending",
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/ageentry/controller/AgeEntryController.java"
+      ],
+      "task_type": "backend.code",
+      "title": "新增年龄录入接口控制器",
+      "unit_id": "backend:endpoint:age_entry_api:age_entry_api.create",
+      "source_refs": {
+        "type": "technical_plan_endpoint",
+        "target": {
+          "type": "endpoint",
+          "id": "age_entry_api.create",
+          "api_contract_id": "age_entry_api"
+        },
+        "technical_plan_endpoint": {
+          "id": "age_entry_api.create",
+          "api_contract_id": "age_entry_api"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "age_entry_api.create",
+            "api_contract_id": "age_entry_api"
+          }
+        ],
+        "endpoint_ids": [
+          "age_entry_api.create"
+        ],
+        "entity_ids": [
+          "AgeEntry"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v3",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "dcf54b5ca70f4b3e8be9536c46e6ae45",
+            "apiContractId": "age_entry_api",
+            "endpointId": "age_entry_api.create",
+            "endpointContract": {
+              "id": "age_entry_api.create",
+              "name": "提交年龄录入",
+              "method": "POST",
+              "path": "/api/age-entry",
+              "summary": "Validate and persist a submitted age value, returning a success message or validation error.",
+              "parameters": [],
+              "request_schema_ref": "AgeEntryCreateInput",
+              "response_schema_ref": "AgeEntryCreateOutput",
+              "error_codes": [
+                "VALIDATION_ERROR",
+                "INTERNAL_ERROR"
+              ],
+              "authentication": {
+                "required": false
+              }
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "request",
+                  "location": "request_body",
+                  "path": "age",
+                  "type": "integer",
+                  "required": true,
+                  "description": "The age value to be saved."
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "database",
+                    "sourceId": "application-database",
+                    "schema": "xcodeagent",
+                    "table": "age_record",
+                    "column": "age",
+                    "type": "bigint",
+                    "usage": "write",
+                    "description": "年龄"
+                  }
+                ],
+                "processingType": "direct"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "id",
+                  "type": "integer",
+                  "required": true,
+                  "description": "Unique identifier of the created age entry record."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "age",
+                  "type": "integer",
+                  "required": true,
+                  "description": "The saved age value."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "createdAt",
+                  "type": "string",
+                  "required": true,
+                  "description": "Timestamp when the age entry was saved."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "User-facing result message."
+                },
+                "mappingType": "business_description",
+                "businessDescription": "1"
+              }
+            ],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "application-database",
+                "name": "年龄录入数据库",
+                "details": {
+                  "sourceId": "application-database",
+                  "schema": "xcodeagent",
+                  "tables": [
+                    {
+                      "name": "age_record",
+                      "description": "存储用户提交的年龄信息。"
+                    }
+                  ],
+                  "table": "age_record",
+                  "columns": [
+                    {
+                      "name": "age",
+                      "type": "bigint",
+                      "required": true,
+                      "description": "年龄"
+                    }
+                  ]
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "55bf6b8dd2d9c5f6c8d0087cd26370aa0bbf01514354d930c30120173f21c644"
+              }
+            ],
+            "confirmedAt": "2026-09-24T08:44:43.028106Z"
+          }
+        ],
+        "mapping_flows": [
+          "request.request_body.age → application-database.age_record.age",
+          "response.response_body.id ⇒ 业务说明：1",
+          "response.response_body.age ⇒ 业务说明：1",
+          "response.response_body.createdAt ⇒ 业务说明：1",
+          "response.response_body.message ⇒ 业务说明：1"
+        ],
+        "source_types": [
+          "database"
+        ],
+        "business_descriptions": [
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "id",
+            "side": "response",
+            "location": "response_body",
+            "type": "integer",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "age",
+            "side": "response",
+            "location": "response_body",
+            "type": "integer",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "createdAt",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          },
+          {
+            "api_contract_id": "age_entry_api",
+            "endpoint_id": "age_entry_api.create",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "1",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ]
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:endpoint:age_entry_api:age_entry_api.create"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:endpoint:age_entry_api:age_entry_api.create::controller:file_operation:53925e5bf292",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/ageentry/controller/AgeEntryController.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/controller/AgeEntryController.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:endpoint:age_entry_api:age_entry_api.create::controller:scope_boundary:0e4a33f2da9d",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/controller/AgeEntryController.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/src/main/java/com/cmbchina/backend/ageentry/controller/AgeEntryController.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:backend:endpoint:age_entry_api:age_entry_api.create::controller:backend.endpoint_contract:11facc2b9a7006fc",
+          "deliverable_id": "backend:endpoint:age_entry_api:age_entry_api.create::controller::deliverable",
+          "kind": "backend.endpoint_contract",
+          "description": "Controller 必须按 API Contract 暴露 method/path、绑定 DTO、返回约定状态码并委托 ApplicationService。",
+          "sources": [
+            {
+              "artifact": "api_contract",
+              "target_id": "age_entry_api.create",
+              "pointer": "/api_contracts/age_entry_api/endpoints/age_entry_api.create",
+              "sha256": "b6e92cb02df87eb753bce80184d7934cc1aba17c1af3f46b91852baa34d4131b"
+            },
+            {
+              "artifact": "api_design",
+              "target_id": "age_entry_api.create",
+              "pointer": "/endpoint_designs/age_entry_api.create",
+              "sha256": "3bb424a5cb1bdc038fac96b842b4806775f84801d32792f6f0e6edf791f9a597"
+            }
+          ],
+          "expected": {
+            "endpoints": [
+              {
+                "api_contract_id": "age_entry_api",
+                "endpoint_id": "age_entry_api.create",
+                "method": "POST",
+                "path": "/api/age-entry",
+                "request_schema_ref": "AgeEntryCreateInput",
+                "response_schema_ref": "AgeEntryCreateOutput",
+                "parameters": [],
+                "request_schema": {
+                  "type": "object",
+                  "required": [
+                    "age"
+                  ],
+                  "properties": {
+                    "age": {
+                      "type": "integer",
+                      "required": true
+                    }
+                  }
+                },
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "age",
+                    "createdAt",
+                    "message"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "required": true
+                    },
+                    "age": {
+                      "type": "integer",
+                      "required": true
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "required": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ],
+            "operations": [
+              {
+                "api_contract_id": "age_entry_api",
+                "endpoint_id": "age_entry_api.create",
+                "operation_kind": "create",
+                "target_cardinality": "object",
+                "selector": {
+                  "source": "endpoint_api_design",
+                  "fields": []
+                },
+                "transaction_required": true,
+                "zero_match_behavior": "confirmed_processing_logic",
+                "multiple_match_behavior": "confirmed_processing_logic",
+                "success_status_code": null,
+                "side_effect": "write",
+                "processing_logic": [
+                  "1"
+                ],
+                "requires_repository": true
+              }
+            ],
+            "business_descriptions": [
+              {
+                "api_contract_id": "age_entry_api",
+                "endpoint_id": "age_entry_api.create",
+                "path": "id",
+                "location": "response_body",
+                "side": "response",
+                "description": "1",
+                "processing_type": null,
+                "source_fields": []
+              },
+              {
+                "api_contract_id": "age_entry_api",
+                "endpoint_id": "age_entry_api.create",
+                "path": "age",
+                "location": "response_body",
+                "side": "response",
+                "description": "1",
+                "processing_type": null,
+                "source_fields": []
+              },
+              {
+                "api_contract_id": "age_entry_api",
+                "endpoint_id": "age_entry_api.create",
+                "path": "createdAt",
+                "location": "response_body",
+                "side": "response",
+                "description": "1",
+                "processing_type": null,
+                "source_fields": []
+              },
+              {
+                "api_contract_id": "age_entry_api",
+                "endpoint_id": "age_entry_api.create",
+                "path": "message",
+                "location": "response_body",
+                "side": "response",
+                "description": "1",
+                "processing_type": null,
+                "source_fields": []
+              }
+            ]
+          },
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/ageentry/controller/AgeEntryController.java"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "backend_endpoint_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": []
+    }
+  },
+  "task_graph": {
+    "schema_version": "build-task-graph.v3",
+    "nodes": [
+      "backend:bootstrap::bootstrap",
+      "backend:endpoint:age_entry_api:age_entry_api.create::objects",
+      "backend:endpoint:age_entry_api:age_entry_api.create::repository",
+      "backend:endpoint:age_entry_api:age_entry_api.create::service",
+      "backend:endpoint:age_entry_api:age_entry_api.create::controller"
+    ],
+    "edges": [
+      {
+        "from": "backend:bootstrap::bootstrap",
+        "to": "backend:endpoint:age_entry_api:age_entry_api.create::objects",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:endpoint:age_entry_api:age_entry_api.create::objects",
+        "to": "backend:endpoint:age_entry_api:age_entry_api.create::repository",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:bootstrap::bootstrap",
+        "to": "backend:endpoint:age_entry_api:age_entry_api.create::repository",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:endpoint:age_entry_api:age_entry_api.create::repository",
+        "to": "backend:endpoint:age_entry_api:age_entry_api.create::service",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:bootstrap::bootstrap",
+        "to": "backend:endpoint:age_entry_api:age_entry_api.create::service",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:endpoint:age_entry_api:age_entry_api.create::service",
+        "to": "backend:endpoint:age_entry_api:age_entry_api.create::controller",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:bootstrap::bootstrap",
+        "to": "backend:endpoint:age_entry_api:age_entry_api.create::controller",
+        "type": "depends_on"
+      }
+    ],
+    "roots": [
+      "backend:bootstrap::bootstrap"
+    ],
+    "leaves": [
+      "backend:endpoint:age_entry_api:age_entry_api.create::controller"
+    ],
+    "topological_order": [
+      "backend:bootstrap::bootstrap",
+      "backend:endpoint:age_entry_api:age_entry_api.create::objects",
+      "backend:endpoint:age_entry_api:age_entry_api.create::repository",
+      "backend:endpoint:age_entry_api:age_entry_api.create::service",
+      "backend:endpoint:age_entry_api:age_entry_api.create::controller"
+    ],
+    "execution_layers": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "backend:bootstrap::bootstrap"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "backend:endpoint:age_entry_api:age_entry_api.create::objects"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 3,
+        "mode": "serial",
+        "tasks": [
+          "backend:endpoint:age_entry_api:age_entry_api.create::repository"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 4,
+        "mode": "serial",
+        "tasks": [
+          "backend:endpoint:age_entry_api:age_entry_api.create::service"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 5,
+        "mode": "serial",
+        "tasks": [
+          "backend:endpoint:age_entry_api:age_entry_api.create::controller"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "summary": {
+    "total": 5,
+    "frontend": 0,
+    "backend": 5,
+    "database": 0,
+    "pending": 5,
+    "running": 0,
+    "completed": 0,
+    "already_satisfied": 0,
+    "failed": 0
+  },
+  "execution": {
+    "batches": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "backend:bootstrap::bootstrap"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "backend:endpoint:age_entry_api:age_entry_api.create::objects"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 3,
+        "mode": "serial",
+        "tasks": [
+          "backend:endpoint:age_entry_api:age_entry_api.create::repository"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 4,
+        "mode": "serial",
+        "tasks": [
+          "backend:endpoint:age_entry_api:age_entry_api.create::service"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 5,
+        "mode": "serial",
+        "tasks": [
+          "backend:endpoint:age_entry_api:age_entry_api.create::controller"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "blocked_batches": []
+  },
+  "build_execution_scope": {
+    "type": "endpoint",
+    "targetId": "age_entry_api.create",
+    "apiContractId": "age_entry_api"
+  },
+  "template_context": {
+    "state_path": ".devagentstudio/template-state.json",
+    "template_revision": "2026.09.13.1",
+    "effective_capabilities": {}
+  },
+  "status": "ready",
+  "confirmation_status": "confirmed",
+  "confirmed_at": "2026-09-24T08:45:09.535754+00:00",
+  "confirmed_from": {
+    "planning_run_id": "planning-b05728d049c7412fbc1a355800d7f64d",
+    "draft_digest": "9dfa54ebfb37247d88660b803e70a7085eaca940ee3d2fc3adcbab032d2861ff"
+  }
+}

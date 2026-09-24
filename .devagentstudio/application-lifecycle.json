@@ -3,32 +3,32 @@
     "id": "1790239391741-acf9e8",
     "name": "年龄录入"
   },
-  "updatedAt": "2026-09-24T08:43:58.588509Z",
-  "revision": 14,
+  "updatedAt": "2026-09-24T08:53:29.086752Z",
+  "revision": 66,
   "developmentArtifacts": {
     "pages": {
       "age_entry_home": {
-        "initialDevelopmentStatus": "pending",
-        "completedAt": null,
-        "completedRunId": null,
-        "completedThreadId": null,
-        "completedBranchName": null
+        "initialDevelopmentStatus": "completed",
+        "completedAt": "2026-09-24T08:51:12.193035Z",
+        "completedRunId": "c07df8c0-0b74-4d08-99d0-6307c01253c1",
+        "completedThreadId": "be15905b-5121-411f-9051-cc5eb368fde9",
+        "completedBranchName": "sbw"
       }
     },
     "entities": {
       "AgeEntry": {
-        "initialDevelopmentStatus": "pending",
-        "completedBranchName": null
+        "initialDevelopmentStatus": "completed",
+        "completedBranchName": "sbw"
       }
     },
     "endpoints": {
       "age_entry_api": {
         "age_entry_api.create": {
-          "initialDevelopmentStatus": "pending",
-          "completedAt": null,
-          "completedRunId": null,
-          "completedThreadId": null,
-          "completedBranchName": null
+          "initialDevelopmentStatus": "completed",
+          "completedAt": "2026-09-24T08:47:52.009223Z",
+          "completedRunId": "c8d993f7-e9b0-43b7-91fc-4b3d032a042b",
+          "completedThreadId": "938bc4e8-ba58-488c-b538-2fcb44749e9d",
+          "completedBranchName": "sbw"
         }
       }
     },
@@ -36,19 +36,219 @@
     "outOfScope": []
   },
   "initialization": {
-    "stage": "generating_application_template_files",
-    "status": "running",
+    "stage": "ready_for_workbench",
+    "status": "completed",
     "threadId": "2def62a9-e59a-4b78-a18d-5b16a03f0d57"
   },
-  "activeRunId": "e517845b-6f8a-4568-b78d-1b9018216d2a",
-  "activeExecutions": {},
+  "activeRunId": "078d7b4b-9f98-4cc1-b445-44dcd4c60086",
+  "activeExecutions": {
+    "c8d993f7-e9b0-43b7-91fc-4b3d032a042b": {
+      "scope": "endpoint",
+      "targetId": "age_entry_api.create",
+      "pageId": null,
+      "threadId": "938bc4e8-ba58-488c-b538-2fcb44749e9d",
+      "ownerSessionId": "927ca6d4-6f0b-4ffa-8e41-4c71f2f38a5d",
+      "runId": "c8d993f7-e9b0-43b7-91fc-4b3d032a042b",
+      "phase": "test_phase_confirmation",
+      "status": "awaiting_user",
+      "resourceKeys": [
+        "endpoint:age_entry_api:age_entry_api.create",
+        "api_contract:age_entry_api",
+        "page:age_entry_home"
+      ],
+      "developmentPurpose": "initial",
+      "developmentTarget": {
+        "type": "endpoint",
+        "entityId": null,
+        "pageId": null,
+        "apiContractId": "age_entry_api",
+        "endpointId": "age_entry_api.create"
+      },
+      "pendingInteraction": {
+        "id": "interaction-796c7b2e62151005445e95ed",
+        "type": "test_phase_confirmation",
+        "basedOnRevision": 34,
+        "payload": {
+          "mode": "test_phase_confirmation",
+          "status": "requires_user_input",
+          "message": "当前产物初次开发已完成。完成全部开发产物后可进入测试，当前 1/3。",
+          "testEntryGate": {
+            "allowed": false,
+            "total": 3,
+            "completed": 1,
+            "pending": 2,
+            "inProgress": 0,
+            "blockers": [
+              {
+                "type": "page",
+                "entityId": null,
+                "pageId": "age_entry_home",
+                "apiContractId": null,
+                "endpointId": null
+              },
+              {
+                "type": "entity",
+                "entityId": "AgeEntry",
+                "pageId": null,
+                "apiContractId": null,
+                "endpointId": null
+              }
+            ],
+            "reason": "完成全部开发产物后可进入测试，当前 1/3。"
+          },
+          "testTarget": {
+            "type": "endpoint",
+            "id": "age_entry_api.create",
+            "label": "提交年龄录入"
+          },
+          "questions": []
+        },
+        "artifactRefs": [],
+        "createdAt": "2026-09-24T08:47:52.246088Z",
+        "submittedAt": null
+      },
+      "error": null,
+      "startedAt": "2026-09-24T08:47:51.928312Z",
+      "updatedAt": "2026-09-24T08:47:52.246117Z"
+    },
+    "c07df8c0-0b74-4d08-99d0-6307c01253c1": {
+      "scope": "page",
+      "targetId": "age_entry_home",
+      "pageId": "age_entry_home",
+      "threadId": "be15905b-5121-411f-9051-cc5eb368fde9",
+      "ownerSessionId": "cf0b0784-5921-4a9c-a058-ed1e50a991e4",
+      "runId": "c07df8c0-0b74-4d08-99d0-6307c01253c1",
+      "phase": "test_phase_confirmation",
+      "status": "awaiting_user",
+      "resourceKeys": [
+        "page:age_entry_home",
+        "api_contract:age_entry_api"
+      ],
+      "developmentPurpose": "initial",
+      "developmentTarget": {
+        "type": "page",
+        "entityId": null,
+        "pageId": "age_entry_home",
+        "apiContractId": null,
+        "endpointId": null
+      },
+      "pendingInteraction": {
+        "id": "interaction-3f12be2f7a09b1c1cc0215ab",
+        "type": "test_phase_confirmation",
+        "basedOnRevision": 50,
+        "payload": {
+          "mode": "test_phase_confirmation",
+          "status": "requires_user_input",
+          "message": "当前产物初次开发已完成。完成全部开发产物后可进入测试，当前 2/3。",
+          "testEntryGate": {
+            "allowed": false,
+            "total": 3,
+            "completed": 2,
+            "pending": 1,
+            "inProgress": 0,
+            "blockers": [
+              {
+                "type": "entity",
+                "entityId": "AgeEntry",
+                "pageId": null,
+                "apiContractId": null,
+                "endpointId": null
+              }
+            ],
+            "reason": "完成全部开发产物后可进入测试，当前 2/3。"
+          },
+          "testTarget": {
+            "type": "page",
+            "id": "age_entry_home",
+            "label": "年龄录入"
+          },
+          "questions": []
+        },
+        "artifactRefs": [],
+        "createdAt": "2026-09-24T08:51:12.302318Z",
+        "submittedAt": null
+      },
+      "error": null,
+      "startedAt": "2026-09-24T08:51:12.087713Z",
+      "updatedAt": "2026-09-24T08:51:12.302337Z"
+    },
+    "078d7b4b-9f98-4cc1-b445-44dcd4c60086": {
+      "scope": "data_source",
+      "targetId": "AgeEntry",
+      "pageId": null,
+      "threadId": "4e8d5ebf-8bcf-42b8-9003-6aa6d3ec652c",
+      "ownerSessionId": "26656228-c0fd-4490-92c6-27b9cf7ed196",
+      "runId": "078d7b4b-9f98-4cc1-b445-44dcd4c60086",
+      "phase": "review_phase_confirmation",
+      "status": "awaiting_user",
+      "resourceKeys": [
+        "data_source:AgeEntry"
+      ],
+      "developmentPurpose": null,
+      "developmentTarget": null,
+      "pendingInteraction": {
+        "id": "interaction-d50f1980e41cb694e641c63a",
+        "type": "review_phase_confirmation",
+        "basedOnRevision": 66,
+        "payload": {
+          "mode": "review_phase_confirmation",
+          "status": "requires_user_input",
+          "message": "测试已通过，是否进入审查阶段？",
+          "diffReviewFileCount": 12,
+          "questions": []
+        },
+        "artifactRefs": [],
+        "createdAt": "2026-09-24T08:53:29.086715Z",
+        "submittedAt": null
+      },
+      "error": null,
+      "startedAt": "2026-09-24T08:53:28.690116Z",
+      "updatedAt": "2026-09-24T08:53:29.086735Z"
+    }
+  },
   "developmentContinuations": {},
   "resourceLocks": {
     "application": null,
-    "pages": {},
-    "apiContracts": {},
-    "endpoints": {},
-    "dataSources": {}
+    "pages": {
+      "age_entry_home": {
+        "runId": "c07df8c0-0b74-4d08-99d0-6307c01253c1",
+        "ownerPageId": "age_entry_home",
+        "mode": "exclusive",
+        "role": "primary",
+        "reason": "primary_target",
+        "acquiredAt": "2026-09-24T08:51:12.087713Z"
+      }
+    },
+    "apiContracts": {
+      "age_entry_api": {
+        "runId": "c07df8c0-0b74-4d08-99d0-6307c01253c1",
+        "ownerPageId": "age_entry_home",
+        "mode": "exclusive",
+        "role": "dependency",
+        "reason": "plan_dependency",
+        "acquiredAt": "2026-09-24T08:51:12.087713Z"
+      }
+    },
+    "endpoints": {
+      "age_entry_api:age_entry_api.create": {
+        "runId": "c8d993f7-e9b0-43b7-91fc-4b3d032a042b",
+        "ownerPageId": null,
+        "mode": "exclusive",
+        "role": "primary",
+        "reason": "primary_target",
+        "acquiredAt": "2026-09-24T08:47:51.928312Z"
+      }
+    },
+    "dataSources": {
+      "AgeEntry": {
+        "runId": "078d7b4b-9f98-4cc1-b445-44dcd4c60086",
+        "ownerPageId": null,
+        "mode": "exclusive",
+        "role": "primary",
+        "reason": "primary_target",
+        "acquiredAt": "2026-09-24T08:53:28.690116Z"
+      }
+    }
   },
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,

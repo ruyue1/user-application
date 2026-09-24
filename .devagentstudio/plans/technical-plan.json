@@ -32,7 +32,16 @@
           "type": "datetime",
           "required": true
         }
-      ]
+      ],
+      "detail_status": "confirmed",
+      "source_binding": {
+        "status": "confirmed",
+        "json_path": ".devagentstudio/plans/entities/entity--AgeEntry.json",
+        "markdown_path": ".devagentstudio/plans/entities/entity--AgeEntry.md",
+        "sha256": "8fa0ac85c69b4532586afb3d2b2a51c23e36072ceb2298de52806ebac334a693",
+        "confirmed_at": null
+      },
+      "source_binding_status": "confirmed"
     }
   ],
   "api_contracts": [
@@ -116,6 +125,10 @@
   "pages": [
     {
       "pageId": "age_entry_home",
+      "name": "年龄录入",
+      "path": "/page/age-entry-home",
+      "module_id": "age_entry",
+      "description": "应用首页，页面仅包含一个年龄输入框和提交入口，用于录入年龄；不提供年龄数据的展示区域",
       "references": {
         "endpoint_dependencies": [
           {
@@ -155,5 +168,137 @@
   "sourceConfigRevision": 2,
   "product_plan_sha256": "97d26751449941719947e7150ac5955e82151f5b48cc10d170ee522bfc43097c",
   "ui_designs_sha256": "1fbd9746755875453fbf339350351e0beffdae23d2c8fff92ce53ebdc2ff779f",
-  "confirmation_status": "confirmed"
+  "confirmation_status": "confirmed",
+  "app": {
+    "name": "年龄录入",
+    "summary": "「年龄录入」是一个面向 PC 端的轻量录入应用，由数据录入人员在唯一页面上通过输入框填写年龄并提交，后端仅保存年龄数据，不提供年龄数据的展示页面。应用采用侧边导航布局，启用页头、禁用页脚，数据保存在数据库中，不启用认证，也不涉及权限控制。"
+  },
+  "requirements_overview": {
+    "summary": "「年龄录入」是一个面向 PC 端的轻量录入应用，由数据录入人员在唯一页面上通过输入框填写年龄并提交，后端仅保存年龄数据，不提供年龄数据的展示页面。应用采用侧边导航布局，启用页头、禁用页脚，数据保存在数据库中，不启用认证，也不涉及权限控制。",
+    "target": "PC",
+    "roles": [
+      {
+        "name": "数据录入人员",
+        "description": "负责在页面上录入并提交年龄数据的业务人员",
+        "id": "data_entry_staff"
+      }
+    ],
+    "modules": [
+      {
+        "name": "年龄录入",
+        "description": "提供年龄输入与提交能力，并将年龄数据保存到后端",
+        "priority": "must",
+        "id": "age_entry"
+      }
+    ],
+    "business_flows": [
+      {
+        "name": "年龄录入流程",
+        "steps": [
+          "数据录入人员打开年龄录入页面",
+          "数据录入人员在年龄输入框中填写年龄",
+          "数据录入人员提交年龄信息",
+          "系统校验年龄输入是否有效",
+          "系统在后端保存年龄数据",
+          "系统提示录入结果"
+        ],
+        "id": "age_entry_flow",
+        "description": "数据录入人员打开年龄录入页面，填写年龄并提交，系统保存年龄数据"
+      }
+    ],
+    "acceptance_focus": [
+      "数据录入人员可以在唯一页面上完成年龄的填写与提交。",
+      "系统仅保存年龄数据，不提供年龄数据的展示页面。",
+      "提交有效年龄后，用户能收到明确的录入成功反馈。",
+      "提交无效年龄时，用户能收到明确的校验提示且数据不会被保存。",
+      "应用采用侧边导航布局，启用页头，禁用页脚。",
+      "应用不启用认证，也不涉及权限控制。"
+    ]
+  },
+  "project_acceptance_criteria": [
+    "数据录入人员可以在唯一页面上完成年龄的填写与提交。",
+    "系统仅保存年龄数据，不提供年龄数据的展示页面。",
+    "提交有效年龄后，用户能收到明确的录入成功反馈。",
+    "提交无效年龄时，用户能收到明确的校验提示且数据不会被保存。",
+    "应用采用侧边导航布局，启用页头，禁用页脚。",
+    "应用不启用认证，也不涉及权限控制。"
+  ],
+  "data_sources": [],
+  "business_flows": [
+    {
+      "name": "年龄录入流程",
+      "steps": [
+        "数据录入人员打开年龄录入页面",
+        "数据录入人员在年龄输入框中填写年龄",
+        "数据录入人员提交年龄信息",
+        "系统校验年龄输入是否有效",
+        "系统在后端保存年龄数据",
+        "系统提示录入结果"
+      ],
+      "id": "age_entry_flow",
+      "description": "数据录入人员打开年龄录入页面，填写年龄并提交，系统保存年龄数据"
+    }
+  ],
+  "acceptance_criteria": [],
+  "page_implementation_contracts": [
+    {
+      "schema_version": "page-implementation-contract.v1",
+      "pageId": "age_entry_home",
+      "uiDesignRef": {
+        "path": "",
+        "sha256": ""
+      },
+      "requiredEndpointIds": [
+        "age_entry_api.create"
+      ],
+      "actionBindings": [
+        {
+          "actionId": "age_entry_home_submit_age",
+          "bindingType": "endpoint",
+          "endpointId": "age_entry_api.create",
+          "actionName": "提交年龄",
+          "uiControlRefs": []
+        }
+      ],
+      "responseBindings": [],
+      "permissionBindings": [],
+      "navigationBindings": [],
+      "productAcceptance": [
+        "页面加载完成后，数据录入人员可以看到年龄输入框和提交入口。",
+        "数据录入人员可以在年龄输入框中填写年龄。",
+        "数据录入人员提交有效年龄后，系统保存年龄数据并展示录入成功提示。",
+        "数据录入人员提交无效年龄时，系统展示校验提示且不保存数据。",
+        "页面不展示任何已保存年龄数据的列表或详情区域。"
+      ],
+      "engineeringAcceptance": [
+        "页面实现应依据 ProductPlan 与 TechnicalPlan 生成，不依赖 UI 设计稿。",
+        "页面只能调用 requiredEndpointIds 中声明的接口。",
+        "页面权限、跳转和状态处理必须与 ProductPlan 保持一致。"
+      ],
+      "technicalReferences": {
+        "permissions": [],
+        "endpointDependencies": [
+          {
+            "endpoint_id": "age_entry_api.create",
+            "usage": "action",
+            "trigger": "User submits the age entry form",
+            "required_for_initial_load": false
+          }
+        ],
+        "navigationTargets": [],
+        "actionImplementations": [
+          {
+            "actionId": "age_entry_home_submit_age",
+            "endpointId": "age_entry_api.create"
+          }
+        ]
+      }
+    }
+  ],
+  "entity_source_binding": {
+    "status": "confirmed",
+    "entity_id": "AgeEntry",
+    "changed_target_count": 0,
+    "overall_note": "实体数据源绑定单卡片确认"
+  }
 }

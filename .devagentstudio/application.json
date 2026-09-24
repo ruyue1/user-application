@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 2,
+  "configRevision": 3,
   "appName": "年龄录入",
   "appIcon": "AppstoreOutlined",
   "senario": "一个页面，页面上有一个输入框，只输入年龄，后端只保存年龄，不需要展示页面",
@@ -60,5 +60,12 @@
     "traceBaggage": "",
     "apiTrackHost": ""
   },
-  "branches": []
+  "branches": [],
+  "repositoryBranch": {
+    "branchName": "sbw",
+    "status": "pushed",
+    "commitSha": "950d1aab45fd9b37d9b67e28af1174bd777a476c",
+    "message": "",
+    "updatedAt": 1790239442832
+  }
 }
