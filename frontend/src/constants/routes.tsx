@@ -8,5 +8,9 @@ export const PAGE_ROUTES: PageRouteDefinition[] = [
     name: "欢迎页",
     pageId: "home",
   },
+  {
+    name: "hello agent 页面",
+    pageId: "hello_agent",
+  },
   // DEVAGENTSTUDIO_BUSINESS_ROUTES_END
 ];

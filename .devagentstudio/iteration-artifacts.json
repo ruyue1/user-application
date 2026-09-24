@@ -12,7 +12,8 @@
     {
       "branch": "v1.1",
       "designedPageIds": [
-        "home"
+        "home",
+        "hello_agent"
       ],
       "plannedPageIds": [
         "home",

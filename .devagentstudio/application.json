@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 5,
+  "configRevision": 6,
   "appName": "欢迎页",
   "appIcon": "AppstoreOutlined",
   "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
@@ -50,21 +50,6 @@
     "traceBaggage": "",
     "apiTrackHost": ""
   },
-  "id": "1790239567720-xtx389",
-  "name": "欢迎页",
-  "workspaceRoot": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026092408",
-  "projectParentPath": "",
-  "projectDirectoryName": "2026092408",
-  "source": "new",
-  "legacyTheme": "custom",
-  "legacyLayout": "side-nav",
-  "enableTabs": false,
-  "pages": [
-    "默认页面"
-  ],
-  "defaultPage": "默认页面",
-  "hasDynamicRoutes": false,
-  "lastOpenedAt": 1790239648446,
   "branches": [
     {
       "name": "v1.0",
@@ -414,12 +399,11 @@
       }
     }
   ],
-  "planningThreadId": "3985f3ff-8abc-4be8-b299-cec5e1bfa858",
   "repositoryBranch": {
-    "branchName": "v1.0",
+    "branchName": "v1.1",
     "status": "pushed",
-    "commitSha": "4841d84937f6e05222d3c61017f0d1ec4eb02acd",
+    "commitSha": "f2287b59b0cfb6f6ce2355a01b77da61ec59a50a",
     "message": "",
-    "updatedAt": 1790239648443
+    "updatedAt": 1790240060949
   }
 }

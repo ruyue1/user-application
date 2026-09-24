@@ -1,6 +1,6 @@
 {
   "schema_version": "ui-manifest.v3",
-  "confirmation_status": "pending_user_confirmation",
+  "confirmation_status": "confirmed",
   "product_plan_sha256": "be71ce2e469d46bdc3731567d588b342d32dee77c12300761c9d953ae177f2ba",
   "pages": [
     {

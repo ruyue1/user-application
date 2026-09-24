@@ -1,0 +1,48 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "A PC-oriented static single-page client renders two display-only pages (欢迎页 and hello agent 页面) using a side navigation layout with an enabled header and disabled footer; all page content is hard-coded static strings and no client-server communication occurs.",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [],
+  "api_contracts": [],
+  "pages": [
+    {
+      "pageId": "home",
+      "references": {
+        "endpoint_dependencies": [],
+        "action_implementations": []
+      }
+    },
+    {
+      "pageId": "hello_agent",
+      "references": {
+        "endpoint_dependencies": [],
+        "action_implementations": []
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 5,
+  "product_plan_sha256": "be71ce2e469d46bdc3731567d588b342d32dee77c12300761c9d953ae177f2ba",
+  "ui_designs_sha256": "bcf2003a63fa475eab2c53c5149b7896ae9bd9472e788284c1d2f0c64eadf87e",
+  "confirmation_status": "confirmed"
+}
