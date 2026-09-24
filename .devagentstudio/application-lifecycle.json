@@ -3,8 +3,8 @@
     "id": "1790239391741-acf9e8",
     "name": "年龄录入"
   },
-  "updatedAt": "2026-09-24T08:53:29.086752Z",
-  "revision": 66,
+  "updatedAt": "2026-09-24T09:14:45.694367Z",
+  "revision": 77,
   "developmentArtifacts": {
     "pages": {
       "age_entry_home": {
@@ -40,7 +40,7 @@
     "status": "completed",
     "threadId": "2def62a9-e59a-4b78-a18d-5b16a03f0d57"
   },
-  "activeRunId": "078d7b4b-9f98-4cc1-b445-44dcd4c60086",
+  "activeRunId": "427833e4-9f6d-40c3-ab1b-eee2ba32cadd",
   "activeExecutions": {
     "c8d993f7-e9b0-43b7-91fc-4b3d032a042b": {
       "scope": "endpoint",
@@ -172,14 +172,14 @@
       "startedAt": "2026-09-24T08:51:12.087713Z",
       "updatedAt": "2026-09-24T08:51:12.302337Z"
     },
-    "078d7b4b-9f98-4cc1-b445-44dcd4c60086": {
+    "427833e4-9f6d-40c3-ab1b-eee2ba32cadd": {
       "scope": "data_source",
       "targetId": "AgeEntry",
       "pageId": null,
       "threadId": "4e8d5ebf-8bcf-42b8-9003-6aa6d3ec652c",
-      "ownerSessionId": "26656228-c0fd-4490-92c6-27b9cf7ed196",
-      "runId": "078d7b4b-9f98-4cc1-b445-44dcd4c60086",
-      "phase": "review_phase_confirmation",
+      "ownerSessionId": "3df7850c-1319-4191-ac4a-44ab9a9460d4",
+      "runId": "427833e4-9f6d-40c3-ab1b-eee2ba32cadd",
+      "phase": "acceptance_phase_confirmation",
       "status": "awaiting_user",
       "resourceKeys": [
         "data_source:AgeEntry"
@@ -187,23 +187,22 @@
       "developmentPurpose": null,
       "developmentTarget": null,
       "pendingInteraction": {
-        "id": "interaction-d50f1980e41cb694e641c63a",
-        "type": "review_phase_confirmation",
-        "basedOnRevision": 66,
+        "id": "interaction-2d2bb3b95f99abc4351fa1d7",
+        "type": "acceptance_phase_confirmation",
+        "basedOnRevision": 77,
         "payload": {
-          "mode": "review_phase_confirmation",
+          "mode": "acceptance_phase_confirmation",
           "status": "requires_user_input",
-          "message": "测试已通过，是否进入审查阶段？",
-          "diffReviewFileCount": 12,
+          "message": "代码审查已完成，是否进入验收阶段？",
           "questions": []
         },
         "artifactRefs": [],
-        "createdAt": "2026-09-24T08:53:29.086715Z",
+        "createdAt": "2026-09-24T09:14:45.694350Z",
         "submittedAt": null
       },
       "error": null,
-      "startedAt": "2026-09-24T08:53:28.690116Z",
-      "updatedAt": "2026-09-24T08:53:29.086735Z"
+      "startedAt": "2026-09-24T09:13:52.026713Z",
+      "updatedAt": "2026-09-24T09:14:45.694358Z"
     }
   },
   "developmentContinuations": {},
@@ -241,12 +240,12 @@
     },
     "dataSources": {
       "AgeEntry": {
-        "runId": "078d7b4b-9f98-4cc1-b445-44dcd4c60086",
+        "runId": "427833e4-9f6d-40c3-ab1b-eee2ba32cadd",
         "ownerPageId": null,
         "mode": "exclusive",
         "role": "primary",
         "reason": "primary_target",
-        "acquiredAt": "2026-09-24T08:53:28.690116Z"
+        "acquiredAt": "2026-09-24T09:13:52.026713Z"
       }
     }
   },
