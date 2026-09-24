@@ -8,6 +8,16 @@
       "plannedPageIds": [
         "home"
       ]
+    },
+    {
+      "branch": "v1.1",
+      "designedPageIds": [
+        "home"
+      ],
+      "plannedPageIds": [
+        "home",
+        "hello_agent"
+      ]
     }
   ],
   "schemaVersion": 2

@@ -1,0 +1,11 @@
+{
+  "pages": {
+    "home": {
+      "pageKey": "Home",
+      "templateId": "",
+      "templateSourcePath": ""
+    }
+  },
+  "schemaVersion": 1,
+  "sourceBranch": "v1.0"
+}

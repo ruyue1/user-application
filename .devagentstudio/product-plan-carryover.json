@@ -1,0 +1,39 @@
+{
+  "pages": {
+    "home": {
+      "definition": {
+        "actions": [],
+        "goal": "让访客打开应用后立即看到欢迎页，并在页面主体区域清晰读到写死的静态字符串“hello world”。",
+        "information_items": [
+          {
+            "description": "页面主体区域展示的写死静态字符串“hello world”，是访客进入应用后需要看到的核心内容。",
+            "itemId": "home_welcome_text",
+            "label": "欢迎文案"
+          },
+          {
+            "description": "访客可感知当前处于欢迎页，页面采用侧边导航布局并展示页头，页脚不展示。",
+            "itemId": "home_page_context",
+            "label": "页面上下文"
+          }
+        ],
+        "navigation_targets": [],
+        "state_requirements": {
+          "empty": "本页内容为写死的静态字符串，不存在内容为空的状态。",
+          "error": "若页面加载失败，应展示错误状态并允许访客重新加载页面。",
+          "loading": "页面加载过程中应展示加载状态，加载完成后进入成功状态。",
+          "success": "页面加载成功后，主体区域展示写死的静态字符串“hello world”，并呈现侧边导航布局与启用的页头，页脚不展示。",
+          "validation": "本页无用户输入或提交行为，不涉及校验状态。"
+        }
+      },
+      "requirement": {
+        "description": "应用首页，采用侧边导航布局并展示页头（页脚禁用），页面主体居中展示写死的静态字符串“hello world”",
+        "module_id": "welcome_display",
+        "name": "欢迎页",
+        "pageId": "home",
+        "path": "/page/home"
+      }
+    }
+  },
+  "schemaVersion": 2,
+  "sourceBranch": "v1.0"
+}
