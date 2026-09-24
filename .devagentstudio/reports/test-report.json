@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "generated_at": "2026-09-24T09:16:14.393139+00:00",
+  "generated_at": "2026-09-24T09:20:00.010545+00:00",
   "passed": true,
   "checks": [
     {
@@ -33,8 +33,8 @@
             "returncode": 0,
             "timed_out": false,
             "error": null,
-            "started_at": "2026-09-24T09:16:12.426471+00:00",
-            "finished_at": "2026-09-24T09:16:13.274766+00:00",
+            "started_at": "2026-09-24T09:19:57.119698+00:00",
+            "finished_at": "2026-09-24T09:19:57.964319+00:00",
             "stdout_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/install.stdout.log",
             "stderr_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/install.stderr.log"
           },
@@ -45,16 +45,16 @@
               "dev"
             ],
             "cwd": "/Users/sbw/Documents/xc50/frontend",
-            "pid": 11094,
+            "pid": 12161,
             "pid_file": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/frontend.pid",
             "stdout_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/frontend.stdout.log",
             "stdout_offset": 0,
             "stderr_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/frontend.stderr.log",
             "preview_url": "http://localhost:3000",
-            "started_at": "2026-09-24T09:16:13.280938+00:00",
+            "started_at": "2026-09-24T09:19:57.969017+00:00",
             "ready": true,
             "returncode": null,
-            "ready_checked_at": "2026-09-24T09:16:14.390972+00:00"
+            "ready_checked_at": "2026-09-24T09:20:00.008927+00:00"
           },
           "datasource_type": null,
           "backend": {
@@ -76,7 +76,7 @@
               "stale": false,
               "success": true,
               "error": null,
-              "finished_at": "2026-09-24T09:16:07.765715+00:00"
+              "finished_at": "2026-09-24T09:19:51.857934+00:00"
             },
             "build": {
               "argv": [
@@ -88,8 +88,8 @@
               "returncode": 0,
               "timed_out": false,
               "error": null,
-              "started_at": "2026-09-24T09:16:07.765726+00:00",
-              "finished_at": "2026-09-24T09:16:11.415056+00:00",
+              "started_at": "2026-09-24T09:19:51.857943+00:00",
+              "finished_at": "2026-09-24T09:19:56.108302+00:00",
               "stdout_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/backend-build.stdout.log",
               "stderr_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/backend-build.stderr.log"
             },
@@ -107,17 +107,17 @@
                 "/Users/sbw/Documents/xc50/backend/target/backend-1.0-SNAPSHOT.jar"
               ],
               "cwd": "/Users/sbw/Documents/xc50/backend/target",
-              "pid": 11088,
+              "pid": 12155,
               "pid_file": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/backend.pid",
               "stdout_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/backend.stdout.log",
               "stdout_offset": 0,
               "stderr_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/backend.stderr.log",
               "stderr_offset": 0,
-              "started_at": "2026-09-24T09:16:11.419439+00:00",
+              "started_at": "2026-09-24T09:19:56.112771+00:00",
               "port": null,
               "ready": true,
               "returncode": null,
-              "ready_checked_at": "2026-09-24T09:16:12.425033+00:00"
+              "ready_checked_at": "2026-09-24T09:19:57.118295+00:00"
             }
           },
           "frontend": {
@@ -139,8 +139,8 @@
               "returncode": 0,
               "timed_out": false,
               "error": null,
-              "started_at": "2026-09-24T09:16:12.426471+00:00",
-              "finished_at": "2026-09-24T09:16:13.274766+00:00",
+              "started_at": "2026-09-24T09:19:57.119698+00:00",
+              "finished_at": "2026-09-24T09:19:57.964319+00:00",
               "stdout_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/install.stdout.log",
               "stderr_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/install.stderr.log"
             },
@@ -151,16 +151,16 @@
                 "dev"
               ],
               "cwd": "/Users/sbw/Documents/xc50/frontend",
-              "pid": 11094,
+              "pid": 12161,
               "pid_file": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/frontend.pid",
               "stdout_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/frontend.stdout.log",
               "stdout_offset": 0,
               "stderr_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/launch/frontend.stderr.log",
               "preview_url": "http://localhost:3000",
-              "started_at": "2026-09-24T09:16:13.280938+00:00",
+              "started_at": "2026-09-24T09:19:57.969017+00:00",
               "ready": true,
               "returncode": null,
-              "ready_checked_at": "2026-09-24T09:16:14.390972+00:00"
+              "ready_checked_at": "2026-09-24T09:20:00.008927+00:00"
             }
           },
           "failed_stage": null
