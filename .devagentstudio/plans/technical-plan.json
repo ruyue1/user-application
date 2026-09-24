@@ -1,0 +1,159 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "A React single-page PC administration client with side navigation, header enabled and footer disabled, communicates with the service through REST JSON APIs.",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [
+    {
+      "id": "AgeEntry",
+      "name": "AgeEntry",
+      "description": "Age entry business entity representing a submitted age value.",
+      "fields": [
+        {
+          "label": "记录ID",
+          "description": "Unique identifier of the age entry record.",
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "年龄",
+          "description": "The age value submitted by the data entry operator.",
+          "name": "age",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "创建时间",
+          "description": "Timestamp when the age entry was saved.",
+          "name": "created_at",
+          "type": "datetime",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "api_contracts": [
+    {
+      "id": "age_entry_api",
+      "name": "年龄录入管理",
+      "entity_ids": [
+        "AgeEntry"
+      ],
+      "base_path": "/api/age-entry",
+      "authentication": {
+        "required": false
+      },
+      "schemas": {
+        "AgeEntryCreateInput": {
+          "type": "object",
+          "properties": {
+            "age": {
+              "type": "integer",
+              "description": "The age value to be saved.",
+              "entity_field_ref": "AgeEntry.age"
+            }
+          },
+          "required": [
+            "age"
+          ]
+        },
+        "AgeEntryCreateOutput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "Unique identifier of the created age entry record.",
+              "entity_field_ref": "AgeEntry.id"
+            },
+            "age": {
+              "type": "integer",
+              "description": "The saved age value.",
+              "entity_field_ref": "AgeEntry.age"
+            },
+            "createdAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Timestamp when the age entry was saved.",
+              "entity_field_ref": "AgeEntry.created_at"
+            },
+            "message": {
+              "type": "string",
+              "description": "User-facing result message."
+            }
+          },
+          "required": [
+            "id",
+            "age",
+            "createdAt",
+            "message"
+          ]
+        }
+      },
+      "endpoints": [
+        {
+          "id": "age_entry_api.create",
+          "name": "提交年龄录入",
+          "method": "POST",
+          "path": "/api/age-entry",
+          "summary": "Validate and persist a submitted age value, returning a success message or validation error.",
+          "parameters": [],
+          "request_schema_ref": "AgeEntryCreateInput",
+          "response_schema_ref": "AgeEntryCreateOutput",
+          "error_codes": [
+            "VALIDATION_ERROR",
+            "INTERNAL_ERROR"
+          ],
+          "authentication": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "age_entry_home",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "age_entry_api.create",
+            "usage": "action",
+            "trigger": "User submits the age entry form",
+            "required_for_initial_load": false
+          }
+        ],
+        "action_implementations": [
+          {
+            "actionId": "age_entry_home_submit_age",
+            "endpointId": "age_entry_api.create"
+          }
+        ]
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 2,
+  "product_plan_sha256": "97d26751449941719947e7150ac5955e82151f5b48cc10d170ee522bfc43097c",
+  "ui_designs_sha256": "1fbd9746755875453fbf339350351e0beffdae23d2c8fff92ce53ebdc2ff779f",
+  "confirmation_status": "confirmed"
+}

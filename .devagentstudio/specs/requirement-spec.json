@@ -1,0 +1,77 @@
+{
+  "version": "0.1.0",
+  "status": "draft",
+  "generated_at": "2026-09-24T08:43:33.765972+00:00",
+  "summary": "「年龄录入」是一个面向 PC 端的轻量录入应用，由数据录入人员在唯一页面上通过输入框填写年龄并提交，后端仅保存年龄数据，不提供年龄数据的展示页面。应用采用侧边导航布局，启用页头、禁用页脚，数据保存在数据库中，不启用认证，也不涉及权限控制。",
+  "source_request": "请为新应用「年龄录入」完成需求、产品、UI（可跳过）和技术规划。；应用场景：一个页面，页面上有一个输入框，只输入年龄，后端只保存年龄，不需要展示页面；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。；补充确认：业务角色为已选：数据录入人员",
+  "app_info": {
+    "name": "年龄录入",
+    "summary": "「年龄录入」是一个面向 PC 端的轻量录入应用，由数据录入人员在唯一页面上通过输入框填写年龄并提交，后端仅保存年龄数据，不提供年龄数据的展示页面。应用采用侧边导航布局，启用页头、禁用页脚，数据保存在数据库中，不启用认证，也不涉及权限控制。",
+    "target": "PC",
+    "menu_enabled": true,
+    "route_root_path": "/page"
+  },
+  "user_roles": [
+    {
+      "name": "数据录入人员",
+      "description": "负责在页面上录入并提交年龄数据的业务人员",
+      "id": "data_entry_staff"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "年龄录入",
+      "description": "提供年龄输入与提交能力，并将年龄数据保存到后端",
+      "priority": "must",
+      "id": "age_entry"
+    }
+  ],
+  "pages": [
+    {
+      "name": "年龄录入",
+      "path": "/page/age-entry-home",
+      "module_id": "age_entry",
+      "description": "应用首页，页面仅包含一个年龄输入框和提交入口，用于录入年龄；不提供年龄数据的展示区域",
+      "pageId": "age_entry_home"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "年龄录入流程",
+      "steps": [
+        "数据录入人员打开年龄录入页面",
+        "数据录入人员在年龄输入框中填写年龄",
+        "数据录入人员提交年龄信息",
+        "系统校验年龄输入是否有效",
+        "系统在后端保存年龄数据",
+        "系统提示录入结果"
+      ],
+      "id": "age_entry_flow",
+      "description": "数据录入人员打开年龄录入页面，填写年龄并提交，系统保存年龄数据"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\"version\": \"0.1.0\", \"status\": \"draft\", \"generated_at\": \"2026-09-24T08:47:10.000000+00:00\", \"app_info\": {\"name\": \"年龄录入\", \"summary\": \"「年龄录入」是一个面向 PC 端的轻量录入应用，由数据录入人员在唯一页面上通过输入框填写年龄并提交，后端仅保存年龄数据，不提供年龄数据的展示页面。应用采用侧边导航布局，启用页头、禁用页脚，数据保存在数据库中，不启用认证，也不涉及权限控制。\", \"target\": \"PC\", \"menu_enabled\": true, \"route_root_path\": \"/\"}, \"user_roles\": [{\"id\": \"data_entry_staff\", \"name\": \"数据录入人员\", \"description\": \"负责在页面上录入并提交年龄数据的业务人员\"}], \"feature_modules\": [{\"id\": \"age_entry\", \"name\": \"年龄录入\", \"description\": \"提供年龄输入与提交能力，并将年龄数据保存到后端\"}], \"pages\": [{\"pageId\": \"age_entry_home\", \"name\": \"年龄录入\", \"path\": \"/\", \"module_id\": \"age_entry\", \"description\": \"应用首页，页面仅包含一个年龄输入框和提交入口，用于录入年龄；不提供年龄数据的展示区域\"}], \"business_flows\": [{\"id\": \"age_entry_flow\", \"name\": \"年龄录入流程\", \"description\": \"数据录入人员打开年龄录入页面，填写年龄并提交，系统保存年龄数据\", \"steps\": [\"数据录入人员打开年龄录入页面\", \"数据录入人员在年龄输入框中填写年龄\", \"数据录入人员提交年龄信息\", \"系统校验年龄输入是否有效\", \"系统在后端保存年龄数据\", \"系统提示录入结果\"]}], \"authentication_requirements\": {\"enabled\": false, \"sourceRefs\": []}, \"authorization_requirements\": {\"sourceRefs\": [], \"restrictedPages\": [], \"restrictedOperations\": []}}",
+  "approved": true,
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "deepseek-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model",
+  "confirmation_status": "confirmed"
+}

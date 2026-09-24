@@ -1,0 +1,92 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-09-24T08:43:39.265128+00:00",
+  "requirement_spec_sha256": "e5b5091d09c22fa365a49d6f163b2737c388a9ca8284f8892c3e021482083e8b",
+  "app": {
+    "name": "年龄录入",
+    "summary": "「年龄录入」是一个面向 PC 端的轻量录入应用，由数据录入人员在唯一页面上通过输入框填写年龄并提交，后端仅保存年龄数据，不提供年龄数据的展示页面。应用采用侧边导航布局，启用页头、禁用页脚，数据保存在数据库中，不启用认证，也不涉及权限控制。"
+  },
+  "business_flows": [
+    {
+      "name": "年龄录入流程",
+      "steps": [
+        "数据录入人员打开年龄录入页面",
+        "数据录入人员在年龄输入框中填写年龄",
+        "数据录入人员提交年龄信息",
+        "系统校验年龄输入是否有效",
+        "系统在后端保存年龄数据",
+        "系统提示录入结果"
+      ],
+      "id": "age_entry_flow",
+      "description": "数据录入人员打开年龄录入页面，填写年龄并提交，系统保存年龄数据"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "age_entry_home",
+      "name": "年龄录入",
+      "path": "/page/age-entry-home",
+      "module_id": "age_entry",
+      "description": "应用首页，页面仅包含一个年龄输入框和提交入口，用于录入年龄；不提供年龄数据的展示区域",
+      "goal": "让数据录入人员在一个页面上完成年龄的填写与提交，并清楚获知本次录入是否成功。",
+      "information_items": [
+        {
+          "itemId": "age_entry_home-age-input",
+          "label": "年龄输入框",
+          "description": "用于填写待录入年龄的输入区域，用户在此输入年龄数值。"
+        },
+        {
+          "itemId": "age_entry_home-submit-entry",
+          "label": "提交入口",
+          "description": "用于将当前填写的年龄提交保存的操作入口。"
+        },
+        {
+          "itemId": "age_entry_home-result-feedback",
+          "label": "录入结果提示",
+          "description": "提交后向用户展示本次录入是否成功以及相应提示信息。"
+        }
+      ],
+      "actions": [
+        {
+          "actionId": "age_entry_home_submit_age",
+          "name": "提交年龄",
+          "description": "数据录入人员填写年龄后点击提交，将年龄信息保存到后端。",
+          "requiresConfirmation": false,
+          "behavior": {
+            "type": "business",
+            "expectedResult": "系统校验年龄输入有效后保存年龄数据，并向用户提示录入成功；若输入无效则提示相应校验信息且不保存。"
+          }
+        }
+      ],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面加载时展示加载状态，加载完成后展示年龄输入框与提交入口。",
+        "empty": "页面初始状态下年龄输入框为空，提交入口可见但未提交任何数据。",
+        "error": "提交失败时展示错误提示，说明本次年龄未保存成功，并保留用户已填写的内容以便重试。",
+        "success": "提交成功后展示成功提示，告知用户年龄已保存。",
+        "validation": "当年龄输入为空、非数字或超出合理年龄范围时，展示对应的校验提示，并阻止提交。"
+      },
+      "acceptance_criteria": [
+        "页面加载完成后，数据录入人员可以看到年龄输入框和提交入口。",
+        "数据录入人员可以在年龄输入框中填写年龄。",
+        "数据录入人员提交有效年龄后，系统保存年龄数据并展示录入成功提示。",
+        "数据录入人员提交无效年龄时，系统展示校验提示且不保存数据。",
+        "页面不展示任何已保存年龄数据的列表或详情区域。"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "数据录入人员可以在唯一页面上完成年龄的填写与提交。",
+    "系统仅保存年龄数据，不提供年龄数据的展示页面。",
+    "提交有效年龄后，用户能收到明确的录入成功反馈。",
+    "提交无效年龄时，用户能收到明确的校验提示且数据不会被保存。",
+    "应用采用侧边导航布局，启用页头，禁用页脚。",
+    "应用不启用认证，也不涉及权限控制。"
+  ],
+  "confirmation_status": "confirmed"
+}

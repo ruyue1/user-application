@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 6,
+  "configRevision": 2,
+  "appName": "年龄录入",
+  "appIcon": "AppstoreOutlined",
+  "senario": "一个页面，页面上有一个输入框，只输入年龄，后端只保存年龄，不需要展示页面",
+  "repoUrl": "https://github.com/ruyue1/user-application",
+  "branchName": "sbw",
+  "branchOverwriteConfirmed": true,
+  "terminal": "PC",
+  "layout": {
+    "type": "side",
+    "useHeader": true,
+    "useFooter": false
+  },
+  "theme": {
+    "primaryColor": "#6b3cf0"
+  },
+  "datasource": {
+    "type": "database",
+    "db": {
+      "useBuiltin": false,
+      "plantMode": {
+        "domain": "127.0.0.1",
+        "port": 3306,
+        "userName": "root",
+        "pwd": "devagentstudio-secret:v1:rsa-oaep-256:platform-key-v1:EHaa8A2XJ4tfc3ivyaj47q5i4hTcJWMQNP7ugbAcq0qve25f2Mxli-zbsBKVDGCOo8-njfdj9Sb22D4vDWZ8_LMrxb2_dRaVtvJSbQO6JXAom1a8moJoxOfnkDTKDSGveq6HyeO6L7EtUE6Rcj5P3jZB0itHdZD7FiH9vzsknHjxck5AR_SVn42Gi67ZlBQrvK3SbkQ7Tht0Cnhb-XNVodcVc5MC3wbVoaTdvWPH24nVL-xS_GITaK_Cqj0T6oOvrg5uXsp1_5fwZB2ec3QB83dr99poCt4QqosnuvrzEaBrMP5NNo0Miy1wZkV4KQG8kWhk4WZXNOqswLE_9nNKqP8cCbGg_pFOeDuwMCsVvqnHHx4GJo2UZiCVHj0aUaklD5H2ycjXgKB02nIv6-HUqoPv8tmjzQogszDvg5DcUX39TL4a3ujvrW03FlDFpppINz2dvaf5E5vVQP7KMar5D-dmz3Ve63d8j1WYFGBVaYqkkxz8m9or2r2UBsZllLc-",
+        "schema": "xcodeagent"
+      }
+    }
+  },
+  "env": [],
+  "menus": {
+    "enable": true,
+    "rootPath": "/page",
+    "homeMenuKey": "",
+    "items": []
+  },
+  "apis": [],
+  "auth": {
+    "enable": false,
+    "authnSource": "",
+    "yht": {
+      "clientId": ""
+    }
+  },
+  "authorization": {
+    "enabled": false,
+    "initialAdministratorSubjects": []
+  },
+  "track": {
+    "enable": false,
+    "uploadId": "",
+    "apiHost": "",
+    "method": "post"
+  },
+  "apiTrack": {
+    "enable": false,
+    "businessId": "",
+    "traceBaggage": "",
+    "apiTrackHost": ""
+  },
+  "branches": []
+}

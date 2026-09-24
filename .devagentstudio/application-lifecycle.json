@@ -1,0 +1,57 @@
+{
+  "application": {
+    "id": "1790239391741-acf9e8",
+    "name": "年龄录入"
+  },
+  "updatedAt": "2026-09-24T08:43:58.588509Z",
+  "revision": 14,
+  "developmentArtifacts": {
+    "pages": {
+      "age_entry_home": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null
+      }
+    },
+    "entities": {
+      "AgeEntry": {
+        "initialDevelopmentStatus": "pending",
+        "completedBranchName": null
+      }
+    },
+    "endpoints": {
+      "age_entry_api": {
+        "age_entry_api.create": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null
+        }
+      }
+    },
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "2def62a9-e59a-4b78-a18d-5b16a03f0d57"
+  },
+  "activeRunId": "e517845b-6f8a-4568-b78d-1b9018216d2a",
+  "activeExecutions": {},
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}
