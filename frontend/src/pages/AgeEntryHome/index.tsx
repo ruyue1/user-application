@@ -86,7 +86,7 @@ export default function AgeEntryHome() {
         headerBordered
       >
         <div style={{ maxWidth: 480 }}>
-          <Typography.Paragraph type="secondary" style={{ marginBottom: 16 }}>
+          <Typography.Paragraph style={{ marginBottom: 16, color: 'red' }}>
             年龄为必填项，请输入 {AGE_MIN}-{AGE_MAX} 之间的整数。
           </Typography.Paragraph>
           {feedback ? (
