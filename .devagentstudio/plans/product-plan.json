@@ -1,0 +1,64 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-10-10T03:41:02.467216+00:00",
+  "requirement_spec_sha256": "fbd805328e6d05ca876c09a164a9d6f7d2988d3a94fa1e2c46a3200f5e333789",
+  "app": {
+    "name": "欢迎页",
+    "summary": "纯展示的Hello World页面，展示写死的字符串\"hello world\"，不需要任何后端API接口"
+  },
+  "business_flows": [
+    {
+      "name": "查看Hello World",
+      "steps": [
+        "用户打开欢迎页",
+        "页面展示写死的hello world字符串"
+      ],
+      "id": "view_hello_world",
+      "description": "用户访问欢迎页查看hello world字符串"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "hello_world",
+      "name": "Hello World",
+      "path": "/page/hello-world",
+      "module_id": "core",
+      "description": "展示写死的hello world字符串的纯展示页面",
+      "goal": "让用户在欢迎页直接看到写死的hello world字符串内容，无需任何前置操作或后端支持",
+      "information_items": [
+        {
+          "itemId": "hello_world_text",
+          "label": "Hello World 文本",
+          "description": "页面展示的固定字符串\"hello world\"，用户打开页面即可看到，内容不可编辑、不随环境变化"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面为纯静态展示，无需加载等待状态；打开页面即直接显示hello world字符串",
+        "empty": "不适用；页面始终展示写死的hello world字符串，不存在空内容情况",
+        "error": "不适用；页面不依赖任何后端接口或外部数据源，不存在获取失败或展示错误的情况",
+        "success": "页面正确展示字符串\"hello world\"即为成功状态",
+        "validation": "不适用；页面无任何用户输入或提交，无需校验"
+      },
+      "acceptance_criteria": [
+        "用户打开欢迎页后，页面立即显示字符串\"hello world\"",
+        "页面展示的字符串内容固定为\"hello world\"，不随用户、时间或环境变化",
+        "页面无需用户登录、授权或任何前置操作即可查看hello world内容",
+        "页面不调用任何后端API接口即可完整展示hello world字符串",
+        "页面在PC端浏览器中能够正常显示hello world字符串"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "应用启动后，用户访问欢迎页能够看到写死的字符串\"hello world\"",
+    "整个应用为纯展示页面，不涉及后端API调用、数据持久化、用户输入或业务提交",
+    "hello world字符串内容在所有访问场景下保持一致，不存在动态变化"
+  ],
+  "confirmation_status": "confirmed"
+}

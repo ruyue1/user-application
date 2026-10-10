@@ -1,0 +1,41 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "A React single-page client renders a hardcoded \"hello world\" string on the welcome page. No REST API communication is required; the display content is static and embedded in the page bundle.",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [],
+  "api_contracts": [],
+  "pages": [
+    {
+      "pageId": "hello_world",
+      "references": {
+        "endpoint_dependencies": [],
+        "action_implementations": []
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 2,
+  "product_plan_sha256": "2fb53cf9dae93bb14848b83827a84795b01d05878234d7ec3e3e9e97f6cf9baa",
+  "ui_designs_sha256": "b5c6bafea329b0c48cb065a081d54027535ad25225a61e09c7af43455d3c5fe0",
+  "confirmation_status": "confirmed"
+}
