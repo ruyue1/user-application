@@ -1,0 +1,159 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "A React single-page administration client with a side navigation layout, header enabled and footer disabled, communicates with the service through REST JSON APIs.",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [
+    {
+      "id": "AgeRecord",
+      "name": "AgeRecord",
+      "description": "年龄录入记录实体，保存录入人员提交的年龄数据",
+      "fields": [
+        {
+          "label": "记录ID",
+          "description": "年龄录入记录的唯一标识",
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "年龄",
+          "description": "录入人员提交的年龄数值",
+          "name": "age",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "创建时间",
+          "description": "记录创建时间",
+          "name": "created_at",
+          "type": "datetime",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "api_contracts": [
+    {
+      "id": "age_api",
+      "name": "年龄录入",
+      "entity_ids": [
+        "AgeRecord"
+      ],
+      "base_path": "/api/age",
+      "authentication": {
+        "required": false
+      },
+      "schemas": {
+        "AgeSubmitInput": {
+          "type": "object",
+          "properties": {
+            "age": {
+              "type": "integer",
+              "description": "录入人员提交的年龄数值",
+              "entity_field_ref": "AgeRecord.age"
+            }
+          },
+          "required": [
+            "age"
+          ]
+        },
+        "AgeSubmitOutput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "保存后的记录ID",
+              "entity_field_ref": "AgeRecord.id"
+            },
+            "age": {
+              "type": "integer",
+              "description": "已保存的年龄数值",
+              "entity_field_ref": "AgeRecord.age"
+            },
+            "createdAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "记录创建时间",
+              "entity_field_ref": "AgeRecord.created_at"
+            },
+            "message": {
+              "type": "string",
+              "description": "保存结果提示信息"
+            }
+          },
+          "required": [
+            "id",
+            "age",
+            "createdAt",
+            "message"
+          ]
+        }
+      },
+      "endpoints": [
+        {
+          "id": "age_api.submit",
+          "name": "提交年龄",
+          "method": "POST",
+          "path": "/api/age",
+          "summary": "录入人员提交年龄数据，后端将年龄保存至数据库并返回保存结果",
+          "parameters": [],
+          "request_schema_ref": "AgeSubmitInput",
+          "response_schema_ref": "AgeSubmitOutput",
+          "error_codes": [
+            "VALIDATION_ERROR",
+            "INTERNAL_ERROR"
+          ],
+          "authentication": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "page_age_input",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "age_api.submit",
+            "usage": "action",
+            "trigger": "录入人员点击提交按钮",
+            "required_for_initial_load": false
+          }
+        ],
+        "action_implementations": [
+          {
+            "actionId": "page_age_input_submit_age",
+            "endpointId": "age_api.submit"
+          }
+        ]
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 2,
+  "product_plan_sha256": "210cb3bcc68e0793a1a27af0d5ef8c0f8833fb4b454e5317fe9a8b99f62b094b",
+  "ui_designs_sha256": "e17da20b3795d8c5647c8ac10af863097e0f51d73573329a45ca4ad8ed804a5d",
+  "confirmation_status": "confirmed"
+}
