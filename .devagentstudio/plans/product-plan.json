@@ -1,0 +1,64 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-10-10T03:59:12.801909+00:00",
+  "requirement_spec_sha256": "87e4f4c25e494accb4644b39a8ab134ec38c3eba09a57dada912e002f1b404aa",
+  "app": {
+    "name": "欢迎页",
+    "summary": "一个简单的纯展示Hello World页面应用，在PC端以侧边栏布局展示写死的字符串\"hello world\"，启用页头、禁用页脚，不需要后端API接口。"
+  },
+  "business_flows": [
+    {
+      "name": "查看Hello World",
+      "steps": [
+        "访客访问应用首页",
+        "页面展示写死的\"hello world\"字符串"
+      ],
+      "id": "view_hello_world",
+      "description": "访客打开欢迎页，查看展示的Hello World文本"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "home",
+      "name": "欢迎页",
+      "path": "/page/home",
+      "module_id": "welcome_display",
+      "description": "展示写死的\"hello world\"字符串的首页",
+      "goal": "让访客在欢迎页直接查看写死的\"hello world\"字符串展示内容",
+      "information_items": [
+        {
+          "itemId": "home_hello_world_text",
+          "label": "Hello World 文本",
+          "description": "页面主内容区域展示的写死的\"hello world\"字符串，供访客阅读查看"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "由于展示内容为写死的静态字符串，页面加载时无需异步等待，直接呈现\"hello world\"字符串",
+        "empty": "不适用，页面始终展示\"hello world\"字符串，不存在空状态场景",
+        "error": "不涉及后端接口或数据获取，无业务错误状态；若页面自身资源加载失败，提示页面加载异常",
+        "success": "页面成功在主内容区域展示写死的\"hello world\"字符串",
+        "validation": "不适用，纯展示页面无用户输入需要校验"
+      },
+      "acceptance_criteria": [
+        "访客访问应用首页时，页面在主内容区域展示写死的\"hello world\"字符串",
+        "页面采用侧边栏布局，启用页头，禁用页脚",
+        "页面内容为静态展示，不依赖任何后端接口",
+        "访客无需登录或认证即可查看页面展示的\"hello world\"字符串"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "应用在PC端以侧边栏布局展示，启用页头、禁用页脚",
+    "访客访问应用首页即可看到写死的\"hello world\"字符串",
+    "应用不依赖任何后端API接口，内容为纯静态展示",
+    "访客无需登录或授权即可访问欢迎页并查看展示内容"
+  ],
+  "confirmation_status": "confirmed"
+}

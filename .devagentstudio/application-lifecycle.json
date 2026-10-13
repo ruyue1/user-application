@@ -1,0 +1,42 @@
+{
+  "application": {
+    "id": "1791604629234-e3bzyr",
+    "name": "欢迎页"
+  },
+  "updatedAt": "2026-10-13T03:32:04.043088Z",
+  "revision": 16,
+  "developmentArtifacts": {
+    "pages": {
+      "home": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null
+      }
+    },
+    "entities": {},
+    "endpoints": {},
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "5660d95a-9c15-4c9b-b947-3e16cc85465f"
+  },
+  "activeRunId": "45563674-cf9c-4934-a672-21846241b5a5",
+  "activeExecutions": {},
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}

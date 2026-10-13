@@ -1,0 +1,41 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "A React single-page application renders a hardcoded \"hello world\" string on PC using a sidebar layout with header enabled and footer disabled. No backend communication is required; all content is static.",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [],
+  "api_contracts": [],
+  "pages": [
+    {
+      "pageId": "home",
+      "references": {
+        "endpoint_dependencies": [],
+        "action_implementations": []
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 2,
+  "product_plan_sha256": "7588017fa522cae51e52f24d5c43b6ecbe636c6c9de8152f519702dbc5aeb58f",
+  "ui_designs_sha256": "76d872996279761e91eeb7024e3db24aa29fd4572b1a95c504116195696a351c",
+  "confirmation_status": "confirmed"
+}
