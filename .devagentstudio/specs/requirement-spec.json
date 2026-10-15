@@ -1,0 +1,79 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "generated_at": "2026-10-15T02:08:55.138520+00:00",
+  "summary": "面向HR的PC端人员管理应用，HR可通过侧边导航进入人员明细列表页面查看人员明细数据。",
+  "source_request": "请为新应用「人员管理应用」完成需求、产品、UI（可跳过）和技术规划。；应用场景：人员管理应用，hr用于查看人员的明细列表；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+  "app_info": {
+    "name": "人员管理应用",
+    "summary": "面向HR的PC端人员管理应用，HR可通过侧边导航进入人员明细列表页面查看人员明细数据。",
+    "target": "",
+    "target_terminal": "PC",
+    "navigation_layout": "side",
+    "header_enabled": true,
+    "footer_enabled": false,
+    "route_root_path": "/page",
+    "data_source_type": "database",
+    "menu_enabled": true
+  },
+  "user_roles": [
+    {
+      "name": "HR",
+      "description": "使用人员管理应用查看人员明细列表的业务人员。",
+      "id": "role_hr"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "人员管理",
+      "description": "提供人员明细数据的查看能力，是应用的核心业务模块。",
+      "priority": "must",
+      "id": "module_personnel_management"
+    }
+  ],
+  "pages": [
+    {
+      "name": "人员明细列表",
+      "path": "/page/personnel-detail-list",
+      "module_id": "module_personnel_management",
+      "description": "HR查看人员明细信息的列表页面，展示人员详细字段数据。",
+      "pageId": "personnel_detail_list"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "查看人员明细列表",
+      "steps": [
+        "HR打开人员管理应用，进入人员明细列表页面",
+        "系统从数据库加载人员明细数据并以列表形式展示",
+        "HR在人员明细列表中查看人员明细信息"
+      ],
+      "id": "flow_view_personnel_detail_list",
+      "description": "HR打开人员管理应用并查看人员明细列表数据的过程。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\"version\":\"1.0\",\"status\":\"draft\",\"generated_at\":\"2026-07-09T09:00:00Z\",\"app_info\":{\"name\":\"人员管理应用\",\"summary\":\"面向HR的PC端人员管理应用，HR可通过侧边导航进入人员明细列表页面查看人员明细数据。\",\"target_terminal\":\"PC\",\"navigation_layout\":\"side\",\"header_enabled\":true,\"footer_enabled\":false,\"route_root_path\":\"/\",\"data_source_type\":\"database\"},\"user_roles\":[{\"id\":\"role_hr\",\"name\":\"HR\",\"description\":\"使用人员管理应用查看人员明细列表的业务人员。\"}],\"feature_modules\":[{\"id\":\"module_personnel_management\",\"name\":\"人员管理\",\"description\":\"提供人员明细数据的查看能力，是应用的核心业务模块。\"}],\"pages\":[{\"pageId\":\"personnel_detail_list\",\"name\":\"人员明细列表\",\"path\":\"/\",\"module_id\":\"module_personnel_management\",\"description\":\"HR查看人员明细信息的列表页面，展示人员详细字段数据。\"}],\"business_flows\":[{\"id\":\"flow_view_personnel_detail_list\",\"name\":\"查看人员明细列表\",\"description\":\"HR打开人员管理应用并查看人员明细列表数据的过程。\",\"steps\":[\"HR打开人员管理应用，进入人员明细列表页面\",\"系统从数据库加载人员明细数据并以列表形式展示\",\"HR在人员明细列表中查看人员明细信息\"]}],\"authentication_requirements\":{\"enabled\":false,\"sourceRefs\":[]},\"authorization_requirements\":{\"enabled\":false,\"sourceRefs\":[],\"restrictedPages\":[],\"restrictedOperations\":[]}}",
+  "approved": true,
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "mimo-v2.6-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model",
+  "confirmation_status": "confirmed"
+}

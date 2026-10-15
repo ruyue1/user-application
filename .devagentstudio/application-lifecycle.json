@@ -1,0 +1,59 @@
+{
+  "application": {
+    "id": "1792030106447-d17vvs",
+    "name": "人员管理应用"
+  },
+  "updatedAt": "2026-10-15T02:09:35.773301Z",
+  "revision": 10,
+  "developmentArtifacts": {
+    "pages": {
+      "personnel_detail_list": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null
+      }
+    },
+    "entities": {
+      "Personnel": {
+        "initialDevelopmentStatus": "pending",
+        "skippedAt": null,
+        "skipReason": null,
+        "completedBranchName": null
+      }
+    },
+    "endpoints": {
+      "personnel_api": {
+        "personnel_api.list": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null
+        }
+      }
+    },
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "675d33ce-de9b-403d-ad59-369e914fa69d"
+  },
+  "activeRunId": "6a47ec94-7022-4fa0-9a6d-7829b3a7715a",
+  "activeExecutions": {},
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}

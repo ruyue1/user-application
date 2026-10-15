@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 6,
+  "configRevision": 2,
+  "appName": "人员管理应用",
+  "appIcon": "AppstoreOutlined",
+  "senario": "人员管理应用，hr用于查看人员的明细列表",
+  "repoUrl": "https://github.com/ruyue1/user-application",
+  "branchName": "v1_0",
+  "branchOverwriteConfirmed": true,
+  "terminal": "PC",
+  "layout": {
+    "type": "side",
+    "useHeader": true,
+    "useFooter": false
+  },
+  "theme": {
+    "primaryColor": "#6b3cf0"
+  },
+  "datasource": {
+    "type": "database",
+    "db": {
+      "useBuiltin": false,
+      "plantMode": {
+        "domain": "127.0.0.1",
+        "port": 3306,
+        "userName": "root",
+        "pwd": "devagentstudio-secret:v1:rsa-oaep-256:platform-key-v1:w5cItCm82H9RgFO002rw1cfZq1wm-YjNM9UhQPpK3e1RVPE8262rl5sbgVIbvp50LGYKhvqChjRQc-GJqzr1MDX79AtLFRZUbaksPewi8d97EfaXVxSAT-5PcUPKvAPfU9HNTQVres-FBgHXfX7g-Hi-rL6QnInRUzON-V_xa1pQs6mEIvT-yNC-l6BO-u24plJaNbUrzhOCIiIA9jA9Pb2pOWimeN_sq0ml8XfEPk9yqQZF1p12pkJI-KJ_IBQUJfvXUNC49O_Tf08zjjMb8VXIZIkhDlw7mrqptihjqLZ0wZZdVVtcsN1x_5JRytAyy6_Ge-gcwmeoT7VvblsW970v1dTtSDtbA63HDBiHnJs0nC4-b28Rqc78NDnorDAPI7hXKiurtbgGQJPtnNtrZRcJtAFSBV6sTtlBl2N_wfvB6qw_ulNJdITKDoaMWNTFkJhsrgrFrvH9_VC9_RlfqJuuycJDyDLngDaqaZTwOr0yGqBAFoBE_dbLls4brE-C",
+        "schema": "xcodeagent"
+      }
+    }
+  },
+  "env": [],
+  "menus": {
+    "enable": true,
+    "rootPath": "/page",
+    "homeMenuKey": "",
+    "items": []
+  },
+  "apis": [],
+  "auth": {
+    "enable": false,
+    "authnSource": "",
+    "yht": {
+      "clientId": ""
+    }
+  },
+  "authorization": {
+    "enabled": false,
+    "initialAdministratorSubjects": []
+  },
+  "track": {
+    "enable": false,
+    "uploadId": "",
+    "apiHost": "",
+    "method": "post"
+  },
+  "apiTrack": {
+    "enable": false,
+    "businessId": "",
+    "traceBaggage": "",
+    "apiTrackHost": ""
+  },
+  "branches": []
+}

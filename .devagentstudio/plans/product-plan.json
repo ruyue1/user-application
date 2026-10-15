@@ -1,0 +1,64 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-10-15T02:09:03.716042+00:00",
+  "requirement_spec_sha256": "4cc8d188e59558a84e128def00bb4ee14348e450471836d6a244daa88c2f614f",
+  "app": {
+    "name": "人员管理应用",
+    "summary": "面向HR的PC端人员管理应用，HR可通过侧边导航进入人员明细列表页面查看人员明细数据。"
+  },
+  "business_flows": [
+    {
+      "name": "查看人员明细列表",
+      "steps": [
+        "HR打开人员管理应用，进入人员明细列表页面",
+        "系统从数据库加载人员明细数据并以列表形式展示",
+        "HR在人员明细列表中查看人员明细信息"
+      ],
+      "id": "flow_view_personnel_detail_list",
+      "description": "HR打开人员管理应用并查看人员明细列表数据的过程。"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "personnel_detail_list",
+      "name": "人员明细列表",
+      "path": "/page/personnel-detail-list",
+      "module_id": "module_personnel_management",
+      "description": "HR查看人员明细信息的列表页面，展示人员详细字段数据。",
+      "goal": "让HR能够快速查看人员明细数据，掌握人员详细信息。",
+      "information_items": [
+        {
+          "itemId": "personnel_detail_list-primary-information",
+          "label": "人员明细数据列表",
+          "description": "以列表形式展示的人员详细字段数据，供HR查看人员明细信息。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面加载人员明细数据时展示加载状态，提示数据加载中。",
+        "empty": "无人员明细数据时展示空状态，提示暂无人员数据。",
+        "error": "人员明细数据加载失败时展示错误状态，提示加载失败并可重试。",
+        "success": "人员明细数据加载成功后以列表形式完整展示人员详细字段数据。",
+        "validation": "本页面为展示页面，无表单提交，无需字段校验。"
+      },
+      "acceptance_criteria": [
+        "HR通过侧边导航进入人员明细列表页面后，页面以列表形式展示人员详细字段数据。",
+        "人员明细数据加载过程中展示加载状态。",
+        "无人员明细数据时展示空状态提示。",
+        "人员明细数据加载失败时展示错误状态提示。"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "HR打开人员管理应用后可通过侧边导航进入人员明细列表页面。",
+    "人员明细列表页面能够完整展示人员详细字段数据供HR查看。",
+    "页面在加载中、空数据、加载失败场景下均给出明确的状态提示。"
+  ],
+  "confirmation_status": "confirmed"
+}

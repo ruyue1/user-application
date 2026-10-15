@@ -1,0 +1,283 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "A React single-page administration client with side navigation communicates with the service through REST JSON APIs.",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [
+    {
+      "id": "Personnel",
+      "name": "Personnel",
+      "description": "人员明细业务实体，承载HR查看的人员详细字段数据。",
+      "fields": [
+        {
+          "label": "人员编号",
+          "description": "人员的唯一业务编号。",
+          "name": "personnel_id",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "姓名",
+          "description": "人员姓名。",
+          "name": "name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "性别",
+          "description": "人员性别。",
+          "name": "gender",
+          "type": "enum",
+          "required": true,
+          "enum_values": [
+            "男",
+            "女",
+            "未知"
+          ]
+        },
+        {
+          "label": "所属部门",
+          "description": "人员所属部门名称。",
+          "name": "department",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "岗位",
+          "description": "人员当前岗位。",
+          "name": "position",
+          "type": "text",
+          "required": false
+        },
+        {
+          "label": "联系电话",
+          "description": "人员联系电话。",
+          "name": "phone",
+          "type": "text",
+          "required": false
+        },
+        {
+          "label": "邮箱",
+          "description": "人员电子邮箱。",
+          "name": "email",
+          "type": "text",
+          "required": false
+        },
+        {
+          "label": "入职日期",
+          "description": "人员入职日期。",
+          "name": "hire_date",
+          "type": "date",
+          "required": false
+        },
+        {
+          "label": "在职状态",
+          "description": "人员在职状态。",
+          "name": "status",
+          "type": "enum",
+          "required": true,
+          "enum_values": [
+            "在职",
+            "离职",
+            "休假"
+          ]
+        },
+        {
+          "label": "创建时间",
+          "description": "记录创建时间。",
+          "name": "created_at",
+          "type": "datetime",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "api_contracts": [
+    {
+      "id": "personnel_api",
+      "name": "人员明细管理",
+      "entity_ids": [
+        "Personnel"
+      ],
+      "base_path": "/api/personnel",
+      "authentication": {
+        "required": false
+      },
+      "schemas": {
+        "PersonnelListItem": {
+          "type": "object",
+          "properties": {
+            "personnelId": {
+              "type": "string",
+              "description": "人员编号。",
+              "entity_field_ref": "Personnel.personnel_id"
+            },
+            "name": {
+              "type": "string",
+              "description": "人员姓名。",
+              "entity_field_ref": "Personnel.name"
+            },
+            "gender": {
+              "type": "string",
+              "description": "人员性别。",
+              "entity_field_ref": "Personnel.gender"
+            },
+            "department": {
+              "type": "string",
+              "description": "所属部门。",
+              "entity_field_ref": "Personnel.department"
+            },
+            "position": {
+              "type": "string",
+              "description": "岗位。",
+              "entity_field_ref": "Personnel.position"
+            },
+            "phone": {
+              "type": "string",
+              "description": "联系电话。",
+              "entity_field_ref": "Personnel.phone"
+            },
+            "email": {
+              "type": "string",
+              "description": "邮箱。",
+              "entity_field_ref": "Personnel.email"
+            },
+            "hireDate": {
+              "type": "string",
+              "description": "入职日期。",
+              "entity_field_ref": "Personnel.hire_date"
+            },
+            "status": {
+              "type": "string",
+              "description": "在职状态。",
+              "entity_field_ref": "Personnel.status"
+            },
+            "createdAt": {
+              "type": "string",
+              "description": "创建时间。",
+              "entity_field_ref": "Personnel.created_at"
+            }
+          },
+          "required": [
+            "personnelId",
+            "name",
+            "gender",
+            "department",
+            "status"
+          ]
+        },
+        "PersonnelListOutput": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer"
+            },
+            "pageSize": {
+              "type": "integer"
+            },
+            "current": {
+              "type": "integer"
+            },
+            "list": {
+              "type": "array",
+              "items": {
+                "$ref": "PersonnelListItem"
+              }
+            }
+          },
+          "required": [
+            "total",
+            "pageSize",
+            "current",
+            "list"
+          ]
+        }
+      },
+      "endpoints": [
+        {
+          "id": "personnel_api.list",
+          "name": "查询人员明细列表",
+          "method": "GET",
+          "path": "/api/personnel",
+          "summary": "分页查询人员明细数据，供HR在人员明细列表页面查看人员详细字段信息。",
+          "parameters": [
+            {
+              "name": "current",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "default": 1
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "default": 20
+              }
+            },
+            {
+              "name": "keyword",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "request_schema_ref": null,
+          "response_schema_ref": "PersonnelListOutput",
+          "error_codes": [
+            "LOAD_FAILED"
+          ],
+          "authentication": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "personnel_detail_list",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "personnel_api.list",
+            "usage": "page_load",
+            "trigger": "Page entry or filter submission",
+            "required_for_initial_load": true
+          }
+        ],
+        "action_implementations": []
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 2,
+  "product_plan_sha256": "a3b4b32557fe6a5f6385a6ceeb6b0f8580a5486a4baa9de87d274e5f0654dd66",
+  "ui_designs_sha256": "1bfea0c4d1c36a0c632d0152b4b130ed9df24b1c0c0a00aa67121372212d11a6",
+  "confirmation_status": "confirmed"
+}
