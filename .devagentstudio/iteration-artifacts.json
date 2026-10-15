@@ -6,6 +6,14 @@
       "plannedPageIds": [
         "personnel_detail_list"
       ]
+    },
+    {
+      "branch": "324",
+      "designedPageIds": [],
+      "plannedPageIds": [
+        "personnel_detail_list",
+        "blank_page"
+      ]
     }
   ],
   "schemaVersion": 2

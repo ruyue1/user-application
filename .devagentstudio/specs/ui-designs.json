@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "skipped",
-  "product_plan_sha256": "a3b4b32557fe6a5f6385a6ceeb6b0f8580a5486a4baa9de87d274e5f0654dd66",
+  "product_plan_sha256": "cc518fb58c436ee32d1153da61de56c7701ec5f03fb737a11b2c8ae78ec15004",
   "pages": [
     {
       "pageId": "personnel_detail_list",
@@ -14,6 +14,41 @@
         "information_items": [
           {
             "informationItemId": "personnel_detail_list-primary-information",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "pageId": "blank_page",
+      "page_key": "BlankPage",
+      "preview_path": "/page/blank-page",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "blank_page-content-area",
             "controlIds": []
           }
         ]

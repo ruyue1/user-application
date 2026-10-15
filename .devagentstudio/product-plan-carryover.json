@@ -1,0 +1,34 @@
+{
+  "pages": {
+    "personnel_detail_list": {
+      "definition": {
+        "actions": [],
+        "goal": "让HR能够快速查看人员明细数据，掌握人员详细信息。",
+        "information_items": [
+          {
+            "description": "以列表形式展示的人员详细字段数据，供HR查看人员明细信息。",
+            "itemId": "personnel_detail_list-primary-information",
+            "label": "人员明细数据列表"
+          }
+        ],
+        "navigation_targets": [],
+        "state_requirements": {
+          "empty": "无人员明细数据时展示空状态，提示暂无人员数据。",
+          "error": "人员明细数据加载失败时展示错误状态，提示加载失败并可重试。",
+          "loading": "页面加载人员明细数据时展示加载状态，提示数据加载中。",
+          "success": "人员明细数据加载成功后以列表形式完整展示人员详细字段数据。",
+          "validation": "本页面为展示页面，无表单提交，无需字段校验。"
+        }
+      },
+      "requirement": {
+        "description": "HR查看人员明细信息的列表页面，展示人员详细字段数据。",
+        "module_id": "module_personnel_management",
+        "name": "人员明细列表",
+        "pageId": "personnel_detail_list",
+        "path": "/page/personnel-detail-list"
+      }
+    }
+  },
+  "schemaVersion": 2,
+  "sourceBranch": "v1_0"
+}

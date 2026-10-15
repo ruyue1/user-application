@@ -1,0 +1,74 @@
+# 迭代上下文
+
+> 本文件记录每轮迭代的设计与计划产物摘要，供下一轮迭代的大模型作为起点。
+
+## 分支 v1_0（2026-10-15 08:54:18 UTC）
+
+**变更说明**：新增人员明细列表页面，支持HR查看人员详细字段数据，并可通过条件筛选定位目标人员。
+
+### 应用现状
+
+- 应用名称：人员管理应用
+- 应用场景：人员管理应用，hr用于查看人员的明细列表
+- 目标终端：PC
+- 导航布局：布局=side, 页头=启用, 页脚=禁用
+- 主题色：#6b3cf0
+- 数据源类型：database
+- 认证：不启用
+- 权限控制：不启用
+
+### 需求规格
+
+> 面向HR的PC端人员管理应用，HR可通过侧边导航进入人员明细列表页面查看人员明细数据。
+
+**用户角色**：
+- HR：使用人员管理应用查看人员明细列表的业务人员。
+
+**功能模块**：
+- 人员管理（must）：提供人员明细数据的查看能力，是应用的核心业务模块。
+
+### 产品计划
+
+**页面**：
+- **人员明细列表**（personnel_detail_list，路径：/page/personnel-detail-list）
+  - 描述：HR查看人员明细信息的列表页面，展示人员详细字段数据。
+  - 目标：让HR能够快速查看人员明细数据，掌握人员详细信息。
+
+**业务流程**：
+- 查看人员明细列表
+  - HR打开人员管理应用并查看人员明细列表数据的过程。
+  - 步骤：HR打开人员管理应用，进入人员明细列表页面
+  - 步骤：系统从数据库加载人员明细数据并以列表形式展示
+  - 步骤：HR在人员明细列表中查看人员明细信息
+
+### UI 设计稿
+
+- personnel_detail_list
+
+### 技术计划
+
+- 前端架构：A React single-page administration client with side navigation communicates with the service through REST JSON APIs.
+- 后端架构：后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。
+- 数据层：数据库固定使用 MySQL8，缓存固定使用 Redis。
+
+**实体**：
+- **Personnel**（Personnel）
+  - 描述：人员明细业务实体，承载HR查看的人员详细字段数据。
+  - 人员编号（personnel_id）：text，必填
+  - 姓名（name）：text，必填
+  - 性别（gender）：enum，必填
+  - 所属部门（department）：text，必填
+  - 岗位（position）：text，选填
+  - 联系电话（phone）：text，选填
+  - 邮箱（email）：text，选填
+  - 入职日期（hire_date）：date，选填
+  - 在职状态（status）：enum，必填
+  - 创建时间（created_at）：datetime，必填
+
+### 接口设计
+
+- **endpoint--personnel_api--personnel_api-list**
+
+### 数据源
+
+- **人员管理应用数据库**（类型：database）
