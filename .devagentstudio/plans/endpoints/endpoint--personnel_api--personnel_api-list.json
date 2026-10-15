@@ -1,0 +1,273 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "34d3576c60764fc8a6fd0794eed6399b",
+  "apiContractId": "personnel_api",
+  "endpointId": "personnel_api.list",
+  "endpointContract": {
+    "id": "personnel_api.list",
+    "name": "查询人员明细列表",
+    "method": "GET",
+    "path": "/api/personnel",
+    "summary": "分页查询人员明细数据，供HR在人员明细列表页面查看人员详细字段信息。",
+    "parameters": [
+      {
+        "name": "current",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "default": 1
+        }
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "default": 20
+        }
+      },
+      {
+        "name": "keyword",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "request_schema_ref": null,
+    "response_schema_ref": "PersonnelListOutput",
+    "error_codes": [
+      "LOAD_FAILED"
+    ],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "total": 1
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "total",
+        "type": "integer",
+        "required": true,
+        "description": ""
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "total",
+          "type": "integer",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "pageSize",
+        "type": "integer",
+        "required": true,
+        "description": ""
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "fixed",
+        "value": 1
+      }
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "current",
+        "type": "integer",
+        "required": true,
+        "description": ""
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "fixed",
+        "value": 1
+      }
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].personnelId",
+        "type": "string",
+        "required": true,
+        "description": "人员编号。"
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "fixed",
+        "value": "1"
+      }
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].name",
+        "type": "string",
+        "required": true,
+        "description": "人员姓名。"
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "fixed",
+        "value": "1"
+      }
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].gender",
+        "type": "string",
+        "required": true,
+        "description": "人员性别。"
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "fixed",
+        "value": "male"
+      }
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].department",
+        "type": "string",
+        "required": true,
+        "description": "所属部门。"
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "fixed",
+        "value": "1"
+      }
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].position",
+        "type": "string",
+        "required": false,
+        "description": "岗位。"
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "fixed",
+        "value": "aaa"
+      }
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].phone",
+        "type": "string",
+        "required": false,
+        "description": "联系电话。"
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "fixed",
+        "value": "123"
+      }
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].email",
+        "type": "string",
+        "required": false,
+        "description": "邮箱。"
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "fixed",
+        "value": "3333@"
+      }
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].hireDate",
+        "type": "string",
+        "required": false,
+        "description": "入职日期。"
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "fixed",
+        "value": "333"
+      }
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].status",
+        "type": "string",
+        "required": true,
+        "description": "在职状态。"
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "fixed",
+        "value": "1"
+      }
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].createdAt",
+        "type": "string",
+        "required": false,
+        "description": "创建时间。"
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "fixed",
+        "value": "33"
+      }
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "a0baa020236c6e9de35e65fae321cd48e4b00ae700398cac27dcc90a3734207c"
+    }
+  ],
+  "confirmedAt": "2026-10-15T02:10:56.423605Z"
+}

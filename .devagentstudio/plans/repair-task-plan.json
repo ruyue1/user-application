@@ -1,0 +1,191 @@
+{
+  "version": "0.1.0",
+  "status": "ready",
+  "decision": "repair",
+  "generated_at": "2026-10-15T02:41:47.224250+00:00",
+  "source": "integration_test",
+  "planId": "2514a715e37f8482",
+  "requestedPaths": [
+    "backend/src/main/java/com/cmbchina/backend/personnel/controller/PersonnelController.java",
+    "backend/src/main/java/com/cmbchina/backend/personnel/dto/PersonnelItem.java",
+    "backend/src/main/java/com/cmbchina/backend/personnel/dto/PersonnelListQueryRequest.java",
+    "backend/src/main/java/com/cmbchina/backend/personnel/dto/PersonnelListResponse.java",
+    "backend/src/main/java/com/cmbchina/backend/personnel/service/PersonnelListService.java",
+    "frontend",
+    "frontend/package.json",
+    "frontend/src/apis/personnelApi.ts",
+    "frontend/src/pages/PersonnelDetailList/index.tsx",
+    "frontend/tsconfig.app.json",
+    "frontend/tsconfig.json",
+    "frontend/tsconfig.node.json",
+    "frontend/vite.config.js",
+    "frontend/vite.config.ts"
+  ],
+  "repair_scope": {
+    "type": "page",
+    "targetId": "personnel_detail_list",
+    "unit_id": "page:personnel_detail_list"
+  },
+  "tasks": [
+    {
+      "id": "repair:2514a715e37f8482:1:frontend_build:frontend",
+      "kind": "repair",
+      "repair_attempt": 1,
+      "owner": "frontend",
+      "unit_id": "page:personnel_detail_list",
+      "description": "修复测试失败：前端构建检查",
+      "dependencies": [],
+      "status": "pending",
+      "source_ref": {
+        "type": "revision_request",
+        "id": "revision:frontend_build",
+        "failed_check_id": "frontend_build"
+      },
+      "allowed_paths": [
+        "frontend/src/apis/personnelApi.ts",
+        "frontend",
+        "frontend/package.json",
+        "frontend/tsconfig.json",
+        "frontend/tsconfig.app.json",
+        "frontend/tsconfig.node.json",
+        "frontend/vite.config.ts",
+        "frontend/vite.config.js",
+        "frontend/src/pages/PersonnelDetailList/index.tsx"
+      ],
+      "target_files": [
+        "frontend/src/apis/personnelApi.ts",
+        "frontend/package.json",
+        "frontend/tsconfig.json",
+        "frontend/tsconfig.app.json",
+        "frontend/tsconfig.node.json",
+        "frontend/vite.config.ts",
+        "frontend/vite.config.js",
+        "frontend/src/pages/PersonnelDetailList/index.tsx"
+      ],
+      "change_scope": [
+        {
+          "operation": "modify",
+          "path": "frontend/src/apis/personnelApi.ts",
+          "description": "修复 frontend_build 的测试失败。"
+        },
+        {
+          "operation": "modify",
+          "path": "frontend/package.json",
+          "description": "修复 frontend_build 的测试失败。"
+        },
+        {
+          "operation": "modify",
+          "path": "frontend/tsconfig.json",
+          "description": "修复 frontend_build 的测试失败。"
+        },
+        {
+          "operation": "modify",
+          "path": "frontend/tsconfig.app.json",
+          "description": "修复 frontend_build 的测试失败。"
+        },
+        {
+          "operation": "modify",
+          "path": "frontend/tsconfig.node.json",
+          "description": "修复 frontend_build 的测试失败。"
+        },
+        {
+          "operation": "modify",
+          "path": "frontend/vite.config.ts",
+          "description": "修复 frontend_build 的测试失败。"
+        },
+        {
+          "operation": "modify",
+          "path": "frontend/vite.config.js",
+          "description": "修复 frontend_build 的测试失败。"
+        },
+        {
+          "operation": "modify",
+          "path": "frontend/src/pages/PersonnelDetailList/index.tsx",
+          "description": "修复 frontend_build 的测试失败。"
+        }
+      ],
+      "repair_scope": {
+        "type": "page",
+        "targetId": "personnel_detail_list",
+        "unit_id": "page:personnel_detail_list",
+        "planId": "2514a715e37f8482",
+        "requestedPaths": [
+          "frontend/src/apis/personnelApi.ts",
+          "frontend",
+          "frontend/package.json",
+          "frontend/tsconfig.json",
+          "frontend/tsconfig.app.json",
+          "frontend/tsconfig.node.json",
+          "frontend/vite.config.ts",
+          "frontend/vite.config.js",
+          "frontend/src/pages/PersonnelDetailList/index.tsx"
+        ],
+        "reason": "前端构建检查"
+      },
+      "can_run_in_parallel": false,
+      "parallel_reason": "integration-test repair must run in a bounded follow-up cycle.",
+      "acceptance_criteria": [
+        "前端构建检查 重新执行后必须通过。",
+        "不得修改已确认需求、页面规格或 API 契约；如必须修改契约，需返回变更申请。"
+      ],
+      "failure_evidence": {
+        "evidence": "命令执行失败：/usr/local/bin/pnpm run build；退出码：1。；stdout 末尾:\ner\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, \"text\", { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode)' is not assignable to type 'ReactNode | ((schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode)'.\n                        Type '(schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, \"text\", { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode' is not assignable to type 'ReactNode | ((schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode)'.\n                          Type '(schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, \"text\", { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode' is not assignable to type '(schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode'.\n                            Types of parameters 'schema' and 'schema' are incompatible.\n                              Type 'ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>' is not assignable to type 'ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, \"text\", { ...; }>'.\n                                Type 'ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>' is not assignable to type 'ValueTypeWithFieldProps<PersonnelListItem, ProSchemaComponentTypes, Omit<ColumnType<PersonnelListItem>, \"children\" | ... 4 more ... | \"sorter\"> & { ...; } & { ...; }, \"text\">'.\n                                  Types of property 'valueType' are incompatible.\n                                    Type 'PersonnelListQuery | ProFieldValueType | { type: \"progress\"; status?: \"active\" | \"success\" | \"normal\" | \"exception\" | undefined; locale?: string | undefined; ... 5 more ...; width?: number | undefined; } | ... 4 more ... | undefined' is not assignable to type 'ProFieldValueType | { type: \"progress\"; status?: \"active\" | \"success\" | \"normal\" | \"exception\" | undefined; locale?: string | undefined; showSymbol?: boolean | ((value: any) => boolean) | undefined; ... 4 more ...; width?: number | undefined; } | ... 4 more ... | undefined'.\n                                      Type 'PersonnelListQuery' is not assignable to type 'ProFieldValueType | { type: \"progress\"; status?: \"active\" | \"success\" | \"normal\" | \"exception\" | undefined; locale?: string | undefined; showSymbol?: boolean | ((value: any) => boolean) | undefined; ... 4 more ...; width?: number | undefined; } | ... 4 more ... | undefined'.\nsrc/pages/PersonnelDetailList/index.tsx(172,19): error TS2353: Object literal may only specify known properties, and 'labelLayout' does not exist in type 'SearchConfig'.\n ELIFECYCLE  Command failed with exit code 1.\n",
+        "failed_attempt": {
+          "source": "integration_test",
+          "check_id": "frontend_build",
+          "check_name": "前端构建检查",
+          "status": "failed",
+          "failure_category": "compile_error",
+          "command": "/usr/local/bin/pnpm run build",
+          "execution": {
+            "tool": "subprocess",
+            "argv": [
+              "/usr/local/bin/pnpm",
+              "run",
+              "build"
+            ],
+            "cwd": "frontend",
+            "returncode": 1,
+            "timed_out": false,
+            "error": null,
+            "started_at": "2026-10-15T02:38:03.458598+00:00",
+            "finished_at": "2026-10-15T02:38:06.003831+00:00",
+            "stdout_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+            "stderr_log": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/tests/frontend_build/stderr.log",
+            "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+            "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stderr.log",
+            "stdout_tail": "er\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, \"text\", { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode)' is not assignable to type 'ReactNode | ((schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode)'.\n                        Type '(schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, \"text\", { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode' is not assignable to type 'ReactNode | ((schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode)'.\n                          Type '(schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, \"text\", { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode' is not assignable to type '(schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode'.\n                            Types of parameters 'schema' and 'schema' are incompatible.\n                              Type 'ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>' is not assignable to type 'ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, \"text\", { ...; }>'.\n                                Type 'ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>' is not assignable to type 'ValueTypeWithFieldProps<PersonnelListItem, ProSchemaComponentTypes, Omit<ColumnType<PersonnelListItem>, \"children\" | ... 4 more ... | \"sorter\"> & { ...; } & { ...; }, \"text\">'.\n                                  Types of property 'valueType' are incompatible.\n                                    Type 'PersonnelListQuery | ProFieldValueType | { type: \"progress\"; status?: \"active\" | \"success\" | \"normal\" | \"exception\" | undefined; locale?: string | undefined; ... 5 more ...; width?: number | undefined; } | ... 4 more ... | undefined' is not assignable to type 'ProFieldValueType | { type: \"progress\"; status?: \"active\" | \"success\" | \"normal\" | \"exception\" | undefined; locale?: string | undefined; showSymbol?: boolean | ((value: any) => boolean) | undefined; ... 4 more ...; width?: number | undefined; } | ... 4 more ... | undefined'.\n                                      Type 'PersonnelListQuery' is not assignable to type 'ProFieldValueType | { type: \"progress\"; status?: \"active\" | \"success\" | \"normal\" | \"exception\" | undefined; locale?: string | undefined; showSymbol?: boolean | ((value: any) => boolean) | undefined; ... 4 more ...; width?: number | undefined; } | ... 4 more ... | undefined'.\nsrc/pages/PersonnelDetailList/index.tsx(172,19): error TS2353: Object literal may only specify known properties, and 'labelLayout' does not exist in type 'SearchConfig'.\n ELIFECYCLE  Command failed with exit code 1.\n",
+            "stderr_tail": ""
+          },
+          "logs": {
+            "stdout": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+            "stderr": "/Users/sbw/Documents/xc50/.devagentstudio/runtime/tests/frontend_build/stderr.log"
+          },
+          "agent_note": "命令执行失败：/usr/local/bin/pnpm run build；退出码：1。；stdout 末尾:\ner\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, \"text\", { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode)' is not assignable to type 'ReactNode | ((schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode)'.\n                        Type '(schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, \"text\", { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode' is not assignable to type 'ReactNode | ((schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode)'.\n                          Type '(schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, \"text\", { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode' is not assignable to type '(schema: ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>, type: ProSchemaComponentTypes, dom: ReactNode) => ReactNode'.\n                            Types of parameters 'schema' and 'schema' are incompatible.\n                              Type 'ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>' is not assignable to type 'ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, \"text\", { ...; }>'.\n                                Type 'ProSchema<PersonnelListItem, Omit<ColumnType<PersonnelListItem>, \"children\" | \"title\" | \"render\" | \"filters\" | \"onFilter\" | \"sorter\"> & { ...; } & { ...; }, ProSchemaComponentTypes, PersonnelListQuery, { ...; }>' is not assignable to type 'ValueTypeWithFieldProps<PersonnelListItem, ProSchemaComponentTypes, Omit<ColumnType<PersonnelListItem>, \"children\" | ... 4 more ... | \"sorter\"> & { ...; } & { ...; }, \"text\">'.\n                                  Types of property 'valueType' are incompatible.\n                                    Type 'PersonnelListQuery | ProFieldValueType | { type: \"progress\"; status?: \"active\" | \"success\" | \"normal\" | \"exception\" | undefined; locale?: string | undefined; ... 5 more ...; width?: number | undefined; } | ... 4 more ... | undefined' is not assignable to type 'ProFieldValueType | { type: \"progress\"; status?: \"active\" | \"success\" | \"normal\" | \"exception\" | undefined; locale?: string | undefined; showSymbol?: boolean | ((value: any) => boolean) | undefined; ... 4 more ...; width?: number | undefined; } | ... 4 more ... | undefined'.\n                                      Type 'PersonnelListQuery' is not assignable to type 'ProFieldValueType | { type: \"progress\"; status?: \"active\" | \"success\" | \"normal\" | \"exception\" | undefined; locale?: string | undefined; showSymbol?: boolean | ((value: any) => boolean) | undefined; ... 4 more ...; width?: number | undefined; } | ... 4 more ... | undefined'.\nsrc/pages/PersonnelDetailList/index.tsx(172,19): error TS2353: Object literal may only specify known properties, and 'labelLayout' does not exist in type 'SearchConfig'.\n ELIFECYCLE  Command failed with exit code 1.\n"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total": 1,
+    "frontend": 1,
+    "backend": 0,
+    "database": 0
+  },
+  "agent_note": "分析完成。证据已核验：完整读取了 `/.devagentstudio/runtime/tests/frontend_build/stdout.log` 与 `/frontend/src/pages/PersonnelDetailList/index.tsx`，失败为两处确定的 TypeScript 编译错误，均位于已授权的前端工程目录内生成页面文件，可做有界修复。\n\n```json\n{\n  \"decision\": \"repair\",\n  \"escalationKind\": null,\n  \"strategy\": \"生产代码编译错误（compile_error），证据充分且修复范围有界，仅涉及 frontend/src/pages/PersonnelDetailList/index.tsx 两处：(1) 第 61 行 columns 声明为 `ProColumns<PersonnelListItem, PersonnelListQuery>[]`，把查询类型误用作 ProColumns 的 ValueType 泛型位，导致与 `ProTable<PersonnelListItem, PersonnelListQuery>` 期望的 `ProColumns<PersonnelListItem, \\\"text\\\">[]` 不兼容（TS2322，位于 (171,9)）；应改为 `ProColumns<PersonnelListItem>[]`（即默认 ProFieldValueType，可接受 'text'），不改动任何列定义、检索字段与渲染逻辑。(2) 第 172 行 `search={{ labelLayout: 'default', defaultCollapsed: false }}` 中 labelLayout 不属于已安装 @ant-design/pro-components 2.8.10 的 SearchConfig 属性（TS2353，位于 (172,19)）；删除 labelLayout 这一不受支持的属性，保留 defaultCollapsed: false，检索表单的默认展开行为与 PageImplementationContract 要求的 keyword 检索功能不变。修改后在 frontend 目录重新执行 /usr/local/bin/pnpm run build，确认 frontend_build 通过，再继续执行此前因阻塞被跳过的 backend_build 与 backend_startup 检查。\",\n  \"reason\": \"\",\n  \"failure_handling\": \"将 revision:frontend_build 派发给前端代码修复专家（owner: frontend），change_scope 严格限定为 frontend/src/pages/PersonnelDetailList/index.tsx（即 personnel_detail_list 页面任务的生成文件），只做上述类型标注修正与不支持属性删除；不得删除或弱化任何测试、不得添加 skip/disabled 标记、不得改动已确认需求、PageImplementationContract 与 personnel_api 契约、不得通过放宽 tsconfig 或跳过检查来绕过失败。修复完成后重跑 /usr/local/bin/pnpm run build 通过质量门禁，并补跑此前被跳过的 backend_build、backend_startup 及 advisory 的 frontend_performance 检查；若同一文件仍出现新的编译错误则再次进入修复规划。\"\n}\n```",
+  "prepared_by": {
+    "agent": "repair-planner-agent",
+    "mode": "live",
+    "source": "repair_planner_test_repair_planning",
+    "model": "mimo-v2.6-flash",
+    "requiredSkillsLoaded": []
+  },
+  "planner_decision": {
+    "decision": "repair",
+    "escalationKind": null,
+    "strategy": "生产代码编译错误（compile_error），证据充分且修复范围有界，仅涉及 frontend/src/pages/PersonnelDetailList/index.tsx 两处：(1) 第 61 行 columns 声明为 `ProColumns<PersonnelListItem, PersonnelListQuery>[]`，把查询类型误用作 ProColumns 的 ValueType 泛型位，导致与 `ProTable<PersonnelListItem, PersonnelListQuery>` 期望的 `ProColumns<PersonnelListItem, \"text\">[]` 不兼容（TS2322，位于 (171,9)）；应改为 `ProColumns<PersonnelListItem>[]`（即默认 ProFieldValueType，可接受 'text'），不改动任何列定义、检索字段与渲染逻辑。(2) 第 172 行 `search={{ labelLayout: 'default', defaultCollapsed: false }}` 中 labelLayout 不属于已安装 @ant-design/pro-components 2.8.10 的 SearchConfig 属性（TS2353，位于 (172,19)）；删除 labelLayout 这一不受支持的属性，保留 defaultCollapsed: false，检索表单的默认展开行为与 PageImplementationContract 要求的 keyword 检索功能不变。修改后在 frontend 目录重新执行 /usr/local/bin/pnpm run build，确认 frontend_build 通过，再继续执行此前因阻塞被跳过的 backend_build 与 backend_startup 检查。",
+    "reason": "",
+    "failure_handling": "将 revision:frontend_build 派发给前端代码修复专家（owner: frontend），change_scope 严格限定为 frontend/src/pages/PersonnelDetailList/index.tsx（即 personnel_detail_list 页面任务的生成文件），只做上述类型标注修正与不支持属性删除；不得删除或弱化任何测试、不得添加 skip/disabled 标记、不得改动已确认需求、PageImplementationContract 与 personnel_api 契约、不得通过放宽 tsconfig 或跳过检查来绕过失败。修复完成后重跑 /usr/local/bin/pnpm run build 通过质量门禁，并补跑此前被跳过的 backend_build、backend_startup 及 advisory 的 frontend_performance 检查；若同一文件仍出现新的编译错误则再次进入修复规划。"
+  },
+  "strategy": "生产代码编译错误（compile_error），证据充分且修复范围有界，仅涉及 frontend/src/pages/PersonnelDetailList/index.tsx 两处：(1) 第 61 行 columns 声明为 `ProColumns<PersonnelListItem, PersonnelListQuery>[]`，把查询类型误用作 ProColumns 的 ValueType 泛型位，导致与 `ProTable<PersonnelListItem, PersonnelListQuery>` 期望的 `ProColumns<PersonnelListItem, \"text\">[]` 不兼容（TS2322，位于 (171,9)）；应改为 `ProColumns<PersonnelListItem>[]`（即默认 ProFieldValueType，可接受 'text'），不改动任何列定义、检索字段与渲染逻辑。(2) 第 172 行 `search={{ labelLayout: 'default', defaultCollapsed: false }}` 中 labelLayout 不属于已安装 @ant-design/pro-components 2.8.10 的 SearchConfig 属性（TS2353，位于 (172,19)）；删除 labelLayout 这一不受支持的属性，保留 defaultCollapsed: false，检索表单的默认展开行为与 PageImplementationContract 要求的 keyword 检索功能不变。修改后在 frontend 目录重新执行 /usr/local/bin/pnpm run build，确认 frontend_build 通过，再继续执行此前因阻塞被跳过的 backend_build 与 backend_startup 检查。"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "database",
+  "mode": "direct",
+  "id": "application-database",
+  "name": "人员管理应用数据库",
+  "domain": "127.0.0.1",
+  "port": 3306,
+  "schema": "xcodeagent",
+  "userName": "root",
+  "passwordCiphertext": "devagentstudio-secret:v1:rsa-oaep-256:platform-key-v1:w5cItCm82H9RgFO002rw1cfZq1wm-YjNM9UhQPpK3e1RVPE8262rl5sbgVIbvp50LGYKhvqChjRQc-GJqzr1MDX79AtLFRZUbaksPewi8d97EfaXVxSAT-5PcUPKvAPfU9HNTQVres-FBgHXfX7g-Hi-rL6QnInRUzON-V_xa1pQs6mEIvT-yNC-l6BO-u24plJaNbUrzhOCIiIA9jA9Pb2pOWimeN_sq0ml8XfEPk9yqQZF1p12pkJI-KJ_IBQUJfvXUNC49O_Tf08zjjMb8VXIZIkhDlw7mrqptihjqLZ0wZZdVVtcsN1x_5JRytAyy6_Ge-gcwmeoT7VvblsW970v1dTtSDtbA63HDBiHnJs0nC4-b28Rqc78NDnorDAPI7hXKiurtbgGQJPtnNtrZRcJtAFSBV6sTtlBl2N_wfvB6qw_ulNJdITKDoaMWNTFkJhsrgrFrvH9_VC9_RlfqJuuycJDyDLngDaqaZTwOr0yGqBAFoBE_dbLls4brE-C",
+  "managedTables": []
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 2,
+  "configRevision": 3,
   "appName": "人员管理应用",
   "appIcon": "AppstoreOutlined",
   "senario": "人员管理应用，hr用于查看人员的明细列表",
@@ -60,5 +60,12 @@
     "traceBaggage": "",
     "apiTrackHost": ""
   },
-  "branches": []
+  "branches": [],
+  "repositoryBranch": {
+    "branchName": "v1_0",
+    "status": "pushed",
+    "commitSha": "59c21b22e447a8db072dbb544f11c2bf5609b148",
+    "message": "",
+    "updatedAt": 1792030179790
+  }
 }

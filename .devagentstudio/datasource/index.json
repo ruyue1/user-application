@@ -1,0 +1,12 @@
+{
+  "sources": [
+    {
+      "id": "application-database",
+      "type": "database",
+      "name": "人员管理应用数据库",
+      "mode": "direct",
+      "hasPassword": true,
+      "managedTables": []
+    }
+  ]
+}
