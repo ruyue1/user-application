@@ -1,0 +1,14 @@
+{
+  "execution_run_id": "2ffdb792-33c4-4c17-a54f-4fc05caf4830",
+  "thread_id": "7b34224c-b026-4e5b-99db-d2b4d50fe08d",
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "personnel_detail_list"
+  },
+  "build_run_id": "build-cf807b0456084a1ba286e9ca77f716e5",
+  "build_run_plan_path": "/Users/sbw/Documents/xc50/.devagentstudio/plans/build-runs/build-cf807b0456084a1ba286e9ca77f716e5.json",
+  "build_run_plan_sha256": "44e95130e1b3c87fec3bea2addc669538addc67c08bb6dfb588bb659566e75a7",
+  "progress": null,
+  "progress_source_run_id": null,
+  "execution_stage": "bound"
+}
