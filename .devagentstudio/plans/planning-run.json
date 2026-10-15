@@ -1,34 +1,26 @@
 {
-  "planning_run_id": "planning-b296719744a248508a1e940ec08bc2b8",
-  "workflow_run_id": "fb7874bd-f239-4287-97f4-3845940b879f",
-  "thread_id": "a8fe912a-e7e2-4dc7-827f-2a66e8646cd6",
-  "revision": 11,
+  "planning_run_id": "planning-a00799c67201444da82edcd1c7649075",
+  "workflow_run_id": "e4f7758b-7efb-42bd-9f57-3359129009cd",
+  "thread_id": "3abab62c-87c8-452a-94eb-f1d04f6b71e6",
+  "revision": 5,
   "status": "active",
   "phase": "persisting_pending",
   "build_execution_scope": {
-    "type": "page",
-    "targetId": "personnel_detail_list"
+    "type": "endpoint",
+    "targetId": "personnel_api.list",
+    "apiContractId": "personnel_api"
   },
-  "input_fingerprint": "e6073fb6bce04116354683b92cffbe51248213a379a6861fab36b30a1d95867a",
-  "base_confirmed_plan_digest": "fb3dce923a25c885215b78984497483fd46b8b9c94b7d76685d5b54b07af11a5",
+  "input_fingerprint": "de142b29f65d9bb952f973435cbde95683c59f6b6bd482ff4f23e1240d1626ae",
+  "base_confirmed_plan_digest": "b5579b29d42539981b07e3e02827fccf76be0bceb56f041e9346e7ec08e7d25c",
   "required_unit_ids": [
     "backend:bootstrap",
-    "backend:endpoint:personnel_api:personnel_api.list",
-    "frontend:api-client",
-    "frontend:shell",
-    "page:personnel_detail_list"
+    "backend:endpoint:personnel_api:personnel_api.list"
   ],
   "unit_display_names": {
     "backend:bootstrap": "后端基础环境配置",
-    "backend:endpoint:personnel_api:personnel_api.list": "查询人员明细列表接口",
-    "frontend:api-client": "前端接口调用封装",
-    "frontend:shell": "前端应用环境",
-    "page:personnel_detail_list": "人员明细列表页面"
+    "backend:endpoint:personnel_api:personnel_api.list": "查询人员明细列表接口"
   },
-  "planning_unit_ids": [
-    "frontend:api-client",
-    "page:personnel_detail_list"
-  ],
+  "planning_unit_ids": [],
   "global_repair_round": 0,
   "global_repair_limit": 2,
   "global_issues": [],
@@ -74,60 +66,9 @@
       "current_issues": [],
       "round_history": [],
       "expected_identity": null
-    },
-    "frontend:api-client": {
-      "unit_id": "frontend:api-client",
-      "kind": "frontend",
-      "participation": "generate_only",
-      "generation_strategy": "model",
-      "generation_status": "candidate_ready",
-      "generation_round": 1,
-      "attempt_in_round": 1,
-      "total_attempts": 1,
-      "retained_task_ids": [],
-      "reusable_capabilities": [],
-      "latest_candidate_id": "candidate-f9cfafd7aa1c4f488d6877261c76c1d9",
-      "candidate_task_count": 1,
-      "current_issues": [],
-      "round_history": [],
-      "expected_identity": null
-    },
-    "frontend:shell": {
-      "unit_id": "frontend:shell",
-      "kind": "frontend",
-      "participation": "prerequisite_only",
-      "generation_strategy": "prerequisite_only",
-      "generation_status": "not_required",
-      "generation_round": 1,
-      "attempt_in_round": 0,
-      "total_attempts": 0,
-      "retained_task_ids": [],
-      "reusable_capabilities": [],
-      "latest_candidate_id": null,
-      "candidate_task_count": 0,
-      "current_issues": [],
-      "round_history": [],
-      "expected_identity": null
-    },
-    "page:personnel_detail_list": {
-      "unit_id": "page:personnel_detail_list",
-      "kind": "page",
-      "participation": "generate_only",
-      "generation_strategy": "model",
-      "generation_status": "candidate_ready",
-      "generation_round": 1,
-      "attempt_in_round": 1,
-      "total_attempts": 1,
-      "retained_task_ids": [],
-      "reusable_capabilities": [],
-      "latest_candidate_id": "candidate-636138063bfd40a78e911c5db76d7ff1",
-      "candidate_task_count": 1,
-      "current_issues": [],
-      "round_history": [],
-      "expected_identity": null
     }
   },
-  "started_at": "2026-10-15T02:21:56.252227Z",
-  "updated_at": "2026-10-15T02:22:52.416028Z",
+  "started_at": "2026-10-15T06:45:46.681393Z",
+  "updated_at": "2026-10-15T06:45:46.842983Z",
   "failure": null
 }

@@ -3,8 +3,8 @@
     "id": "1792030106447-d17vvs",
     "name": "人员管理应用"
   },
-  "updatedAt": "2026-10-15T03:48:59.837686Z",
-  "revision": 64,
+  "updatedAt": "2026-10-15T06:47:57.930154Z",
+  "revision": 90,
   "developmentArtifacts": {
     "pages": {
       "personnel_detail_list": {
@@ -35,14 +35,16 @@
       }
     },
     "catalogError": null,
-    "outOfScope": []
+    "outOfScope": [
+      "page:personnel_detail_list"
+    ]
   },
   "initialization": {
     "stage": "ready_for_workbench",
     "status": "completed",
     "threadId": "675d33ce-de9b-403d-ad59-369e914fa69d"
   },
-  "activeRunId": "f7f4bcb3-f83c-47b3-8e23-e179beba5df1",
+  "activeRunId": "80de4456-7b9e-4cf8-8235-0bc13cf8534b",
   "activeExecutions": {
     "549c117f-2903-438c-aa63-a8b82096599c": {
       "scope": "endpoint",
@@ -324,6 +326,36 @@
       "error": null,
       "startedAt": "2026-10-15T03:48:48.454161Z",
       "updatedAt": "2026-10-15T03:48:59.837657Z"
+    },
+    "80de4456-7b9e-4cf8-8235-0bc13cf8534b": {
+      "scope": "endpoint",
+      "targetId": "personnel_api.list",
+      "pageId": null,
+      "threadId": "3abab62c-87c8-452a-94eb-f1d04f6b71e6",
+      "ownerSessionId": "ee0b2998-e0ea-4a9d-8876-094a4ddec00d",
+      "runId": "80de4456-7b9e-4cf8-8235-0bc13cf8534b",
+      "phase": "code_review",
+      "status": "failed",
+      "resourceKeys": [
+        "endpoint:personnel_api:personnel_api.list",
+        "api_contract:personnel_api",
+        "page:personnel_detail_list"
+      ],
+      "developmentPurpose": null,
+      "developmentTarget": null,
+      "pendingInteraction": null,
+      "error": {
+        "code": "workbench_execution_failed",
+        "message": "ValueError: CodeAnalyze Agent 审查失败：Streaming response failed: [429] Request rate limited",
+        "recoverable": true,
+        "occurredAt": "2026-10-15T06:47:57.929300Z",
+        "attempt": 1,
+        "details": {
+          "phase": "code_review"
+        }
+      },
+      "startedAt": "2026-10-15T06:47:17.441212Z",
+      "updatedAt": "2026-10-15T06:47:57.929971Z"
     }
   },
   "developmentContinuations": {},
@@ -331,32 +363,32 @@
     "application": null,
     "pages": {
       "personnel_detail_list": {
-        "runId": "f7f4bcb3-f83c-47b3-8e23-e179beba5df1",
-        "ownerPageId": "personnel_detail_list",
+        "runId": "80de4456-7b9e-4cf8-8235-0bc13cf8534b",
+        "ownerPageId": null,
         "mode": "exclusive",
-        "role": "primary",
-        "reason": "primary_target",
-        "acquiredAt": "2026-10-15T03:48:48.454161Z"
+        "role": "dependency",
+        "reason": "plan_dependency",
+        "acquiredAt": "2026-10-15T06:47:17.441212Z"
       }
     },
     "apiContracts": {
       "personnel_api": {
-        "runId": "f7f4bcb3-f83c-47b3-8e23-e179beba5df1",
-        "ownerPageId": "personnel_detail_list",
+        "runId": "80de4456-7b9e-4cf8-8235-0bc13cf8534b",
+        "ownerPageId": null,
         "mode": "exclusive",
         "role": "dependency",
         "reason": "plan_dependency",
-        "acquiredAt": "2026-10-15T03:48:48.454161Z"
+        "acquiredAt": "2026-10-15T06:47:17.441212Z"
       }
     },
     "endpoints": {
       "personnel_api:personnel_api.list": {
-        "runId": "549c117f-2903-438c-aa63-a8b82096599c",
+        "runId": "80de4456-7b9e-4cf8-8235-0bc13cf8534b",
         "ownerPageId": null,
         "mode": "exclusive",
         "role": "primary",
         "reason": "primary_target",
-        "acquiredAt": "2026-10-15T02:21:50.869151Z"
+        "acquiredAt": "2026-10-15T06:47:17.441212Z"
       }
     },
     "dataSources": {}

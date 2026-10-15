@@ -28,8 +28,7 @@
       },
       "generation_strategy": "prerequisite_only",
       "participation": "prerequisite_only",
-      "generation_status": "not_required",
-      "input_fingerprint": "99ba9989baf0b60e7a4fb779cf6ca6b4642ff5295c811a95273134cb6d661551"
+      "generation_status": "not_required"
     },
     "frontend:api-client": {
       "id": "frontend:api-client",
@@ -45,8 +44,7 @@
           "type": "application",
           "id": "application"
         }
-      },
-      "input_fingerprint": "6c0fbb3d86ebb4165d490997f5b86f46d84e150f6f03f5b7b4f4f7fc1c6c7453"
+      }
     },
     "frontend:auth-guard": {
       "id": "frontend:auth-guard",
@@ -65,9 +63,9 @@
       "source_refs": {
         "type": "backend_bootstrap",
         "target": {
-          "type": "page",
-          "id": "personnel_detail_list",
-          "page_key": "PersonnelDetailList"
+          "type": "endpoint",
+          "id": "personnel_api.list",
+          "api_contract_id": "personnel_api"
         },
         "endpoint_ids": [
           "personnel_api.list"
@@ -515,7 +513,7 @@
           "static"
         ]
       },
-      "input_fingerprint": "f5654dd03ba43452a5b259ba12448d9856b0eab7493da8133e71ae6eceda8dbe"
+      "input_fingerprint": "3fe9ee582184fbd4e3c4dabc184c341da435ce3c2dbc55a190c5eaf34643e179"
     },
     "app:integration": {
       "id": "app:integration",
@@ -1468,8 +1466,7 @@
             "source_fields": []
           }
         ]
-      },
-      "input_fingerprint": "164dab6dbb059f0ae544814632ef440fb0bb9d50a2967d4eab5131267b64c7d6"
+      }
     }
   },
   "unit_graph": {
@@ -1552,9 +1549,9 @@
     }
   },
   "unit_skeleton": {
-    "input_fingerprint": "abb50add715de5a7507752618a534b353adf57b90c9702ecd04d29492ec7afc5",
+    "input_fingerprint": "2d859d382ca9c47c5c4a0574c48b0ff24106180796527b93551744b494ffa893",
     "project_plan_version": null,
-    "workspace_revision": "e663a32dac6288bb6d3e5b7a",
+    "workspace_revision": "26e4f29ed58a5d1449658638",
     "reused": false
   },
   "task_registry": {
@@ -5159,7 +5156,14 @@
         "frontend:api-client",
         "backend:endpoint:personnel_api:personnel_api.list"
       ],
-      "dependency_rewrites": [],
+      "dependency_rewrites": [
+        {
+          "dependency": "frontend:api-client::personnel_api::api-module::744b2913abeae18d",
+          "reason": "unit_graph_authoritative",
+          "from_unit_id": "frontend:api-client",
+          "to_unit_id": "page:personnel_detail_list"
+        }
+      ],
       "missing_unit_dependencies": [],
       "invalid_dependencies": [],
       "acceptance_checks": [
@@ -5568,8 +5572,9 @@
     "blocked_batches": []
   },
   "build_execution_scope": {
-    "type": "page",
-    "targetId": "personnel_detail_list"
+    "type": "endpoint",
+    "targetId": "personnel_api.list",
+    "apiContractId": "personnel_api"
   },
   "template_context": {
     "state_path": ".devagentstudio/template-state.json",
@@ -5578,15 +5583,9 @@
   },
   "status": "ready",
   "confirmation_status": "confirmed",
-  "confirmed_at": "2026-10-15T02:22:55.567940+00:00",
+  "confirmed_at": "2026-10-15T06:45:50.581545+00:00",
   "confirmed_from": {
-    "planning_run_id": "planning-b296719744a248508a1e940ec08bc2b8",
-    "draft_digest": "fbca7d78b0414c8e9b0d79573d36dad92ce5c94b6b414bfc98b91345597089f9"
-  },
-  "last_update": {
-    "stage": "build_scheduler",
-    "updated_by": "build-scheduler",
-    "build_run_id": "build-54064308966941999282f5afa79e1c58",
-    "updated_at": "2026-10-15T02:37:24.404812+00:00"
+    "planning_run_id": "planning-a00799c67201444da82edcd1c7649075",
+    "draft_digest": "205c1444386d2b894fe93b99ffa4f47678b5b8114e87d6ec57bdb7dc37cbeba1"
   }
 }

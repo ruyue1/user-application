@@ -1,0 +1,15 @@
+{
+  "execution_run_id": "e177c40e-55a0-4053-8e64-82f9e6231155",
+  "thread_id": "3abab62c-87c8-452a-94eb-f1d04f6b71e6",
+  "build_execution_scope": {
+    "type": "endpoint",
+    "targetId": "personnel_api.list",
+    "apiContractId": "personnel_api"
+  },
+  "build_run_id": "build-97020ed25a7a47a38b4df8f9076be345",
+  "build_run_plan_path": "/Users/sbw/Documents/xc50/.devagentstudio/plans/build-runs/build-97020ed25a7a47a38b4df8f9076be345.json",
+  "build_run_plan_sha256": "274a5a9d0d105640f054215336c4259abff6916852ed28b5fc33ac3e6fb5cdd0",
+  "progress": null,
+  "progress_source_run_id": null,
+  "execution_stage": "bound"
+}
