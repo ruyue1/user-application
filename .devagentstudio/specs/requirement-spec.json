@@ -1,0 +1,74 @@
+{
+  "version": "0.2.0",
+  "status": "draft",
+  "generated_at": "2026-10-16T08:59:29.185956+00:00",
+  "summary": "「年龄录入」是一个面向 PC 端的单页面应用：使用者通过侧边导航打开唯一页面，页面显示当前时间；应用不涉及后端 API、实体数据和认证权限控制。",
+  "source_request": "请为新应用「年龄录入」完成需求、产品、UI（可跳过）和技术规划。；应用场景：只有一个页面，页面上显示当前时间，没有任何后端api和实体；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。；补充确认：业务角色为已选：使用者（单角色）",
+  "app_info": {
+    "name": "年龄录入",
+    "summary": "「年龄录入」是一个面向 PC 端的单页面应用：使用者通过侧边导航打开唯一页面，页面显示当前时间；应用不涉及后端 API、实体数据和认证权限控制。",
+    "target": "PC",
+    "menu_enabled": true,
+    "route_root_path": "/page"
+  },
+  "user_roles": [
+    {
+      "name": "使用者",
+      "description": "在 PC 上打开应用页面查看当前时间的唯一业务参与者",
+      "id": "role_user"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "当前时间展示",
+      "description": "在唯一页面上展示当前时间",
+      "priority": "must",
+      "id": "module_current_time"
+    }
+  ],
+  "pages": [
+    {
+      "name": "当前时间页",
+      "path": "/page/page-current-time",
+      "module_id": "module_current_time",
+      "description": "应用的唯一页面，通过侧边导航进入，显示当前时间",
+      "pageId": "page_current_time"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "查看当前时间流程",
+      "steps": [
+        "使用者在 PC 上打开「年龄录入」应用",
+        "应用通过侧边导航展示唯一的当前时间页",
+        "页面显示当前时间"
+      ],
+      "id": "flow_view_current_time",
+      "description": "使用者打开应用并查看当前时间"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\"version\":\"0.2.0\",\"status\":\"draft\",\"generated_at\":\"2026-10-16T09:05:00.000000+00:00\",\"app_info\":{\"name\":\"年龄录入\",\"summary\":\"「年龄录入」是一个面向 PC 端的单页面应用：使用者通过侧边导航打开唯一页面，页面显示当前时间；应用不涉及后端 API、实体数据和认证权限控制。\",\"target\":\"PC\",\"menu_enabled\":true,\"route_root_path\":\"/\"},\"user_roles\":[{\"id\":\"role_user\",\"name\":\"使用者\",\"description\":\"在 PC 上打开应用页面查看当前时间的唯一业务参与者\"}],\"feature_modules\":[{\"id\":\"module_current_time\",\"name\":\"当前时间展示\",\"description\":\"在唯一页面上展示当前时间\"}],\"pages\":[{\"pageId\":\"page_current_time\",\"name\":\"当前时间页\",\"path\":\"/\",\"module_id\":\"module_current_time\",\"description\":\"应用的唯一页面，通过侧边导航进入，显示当前时间\"}],\"business_flows\":[{\"id\":\"flow_view_current_time\",\"name\":\"查看当前时间流程\",\"description\":\"使用者打开应用并查看当前时间\",\"steps\":[\"使用者在 PC 上打开「年龄录入」应用\",\"应用通过侧边导航展示唯一的当前时间页\",\"页面显示当前时间\"]}],\"authentication_requirements\":{\"enabled\":false,\"sourceRefs\":[]},\"authorization_requirements\":{\"sourceRefs\":[],\"restrictedPages\":[],\"restrictedOperations\":[]}}",
+  "approved": true,
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "mimo-v2.6-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model",
+  "confirmation_status": "confirmed"
+}

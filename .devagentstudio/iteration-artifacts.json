@@ -1,0 +1,12 @@
+{
+  "rounds": [
+    {
+      "branch": "v1_0",
+      "designedPageIds": [],
+      "plannedPageIds": [
+        "page_current_time"
+      ]
+    }
+  ],
+  "schemaVersion": 2
+}

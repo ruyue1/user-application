@@ -1,0 +1,65 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-10-16T09:01:41.577660+00:00",
+  "requirement_spec_sha256": "1688d062d4d65b4148195963d55c29dfbfe9db8130a94c65854cf56f0844f850",
+  "app": {
+    "name": "年龄录入",
+    "summary": "「年龄录入」是一个面向 PC 端的单页面应用：使用者通过侧边导航打开唯一页面，页面显示当前时间；应用不涉及后端 API、实体数据和认证权限控制。"
+  },
+  "business_flows": [
+    {
+      "name": "查看当前时间流程",
+      "steps": [
+        "使用者在 PC 上打开「年龄录入」应用",
+        "应用通过侧边导航展示唯一的当前时间页",
+        "页面显示当前时间"
+      ],
+      "id": "flow_view_current_time",
+      "description": "使用者打开应用并查看当前时间"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "page_current_time",
+      "name": "当前时间页",
+      "path": "/page/page-current-time",
+      "module_id": "module_current_time",
+      "description": "应用的唯一页面，通过侧边导航进入，显示当前时间",
+      "goal": "让使用者在 PC 端打开应用后能立即看到当前时间",
+      "information_items": [
+        {
+          "itemId": "page_current_time-current_time",
+          "label": "当前时间",
+          "description": "页面上展示的当前日期与时间，供使用者查看"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面加载过程中显示加载状态，避免出现空白区域",
+        "empty": "当前时间始终可展示，不出现空状态",
+        "error": "时间获取或展示异常时显示友好错误提示并可重新加载",
+        "success": "页面成功展示当前时间",
+        "validation": "本页无表单输入，无需字段校验"
+      },
+      "acceptance_criteria": [
+        "使用者在 PC 上打开应用后，通过侧边导航可进入当前时间页",
+        "当前时间页展示当前日期与时间信息",
+        "页面加载过程中显示加载状态，不出现空白区域",
+        "时间展示异常时显示错误提示并可重新加载"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "使用者在 PC 端打开「年龄录入」应用后，可通过侧边导航进入唯一的当前时间页",
+    "当前时间页展示当前日期与时间信息",
+    "应用仅包含一个页面，页头启用、页脚禁用",
+    "应用不涉及后端 API、实体数据和认证权限控制"
+  ],
+  "confirmation_status": "confirmed"
+}

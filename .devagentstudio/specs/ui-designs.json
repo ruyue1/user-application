@@ -1,0 +1,42 @@
+{
+  "schema_version": "ui-manifest.v3",
+  "confirmation_status": "skipped",
+  "product_plan_sha256": "7bc55bb007eb69ef45ebfca748855d051124afa5f1a2f9ae97cb33ed43fddd90",
+  "pages": [
+    {
+      "pageId": "page_current_time",
+      "page_key": "PageCurrentTime",
+      "preview_path": "/page/page-current-time",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "page_current_time-current_time",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    }
+  ]
+}
