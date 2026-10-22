@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 6,
+  "configRevision": 2,
+  "appName": "欢迎页",
+  "appIcon": "AppstoreOutlined",
+  "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
+  "repoUrl": "https://github.com/ruyue1/user-application",
+  "branchName": "v1_0",
+  "branchOverwriteConfirmed": true,
+  "terminal": "PC",
+  "theme": {
+    "primaryColor": "#6b3cf0"
+  },
+  "datasource": {
+    "type": "database"
+  },
+  "env": [],
+  "menus": {
+    "rootPath": "/page",
+    "homeMenuKey": "",
+    "items": []
+  },
+  "apis": [],
+  "auth": {
+    "enable": false
+  },
+  "authorization": {
+    "enabled": false,
+    "initialAdministratorSubjects": []
+  },
+  "branches": []
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "ui-manifest.v3",
+  "confirmation_status": "skipped",
+  "product_plan_sha256": "6458c53039724f033760b415e40fda7f9c52ec2c91d812858ae9e44bd07dacef",
+  "pages": [
+    {
+      "pageId": "home",
+      "page_key": "Home",
+      "preview_path": "/page/home",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "home_hello_world_text",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    }
+  ]
+}
