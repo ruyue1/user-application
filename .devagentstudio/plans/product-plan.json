@@ -1,0 +1,66 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-11-02T08:32:48.683160+00:00",
+  "requirement_spec_sha256": "4bb4e4cd54c05dcdc354d8bf5b2208b3d439b6be68516bf3ada34f19796d1b08",
+  "app": {
+    "name": "欢迎页",
+    "summary": "一个纯展示的Hello World页面，展示写死的字符串'hello world'，不需要任何后端API接口。目标终端为PC，采用侧边导航布局，启用页头，禁用页脚。"
+  },
+  "business_flows": [
+    {
+      "name": "查看欢迎页",
+      "steps": [
+        "用户打开应用进入欢迎页",
+        "页面展示写死的字符串'hello world'"
+      ],
+      "id": "view_welcome",
+      "description": "用户打开应用，在欢迎页查看展示的Hello World内容"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "welcome_page",
+      "name": "欢迎页",
+      "path": "/page/welcome",
+      "module_id": "welcome",
+      "description": "展示写死的字符串'hello world'的纯展示页面",
+      "goal": "让访问应用的用户在进入页面后立即看到写死的字符串'hello world'，完成最简单的内容展示，无需任何交互或后端数据。",
+      "information_items": [
+        {
+          "itemId": "welcome_page-primary-information",
+          "label": "Hello World展示文本",
+          "description": "页面主体区域固定展示的字符串'hello world'，内容为写死的静态文本，不随任何条件变化"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面加载过程极短且内容为静态文本，加载完成后立即展示'hello world'；如出现短暂加载，页面不得闪现空白或错乱内容",
+        "empty": "本页面无空数据场景，展示文本为固定写死内容，任何情况下均应显示'hello world'",
+        "error": "本页面无依赖外部数据的错误场景；若应用整体异常导致页面无法渲染，应提示用户刷新重试",
+        "success": "页面成功渲染后，用户可在主体区域清晰看到字符串'hello world'",
+        "validation": "本页面不包含任何输入项，无表单校验场景"
+      },
+      "acceptance_criteria": [
+        "用户访问/page/welcome路径时，页面主体区域展示字符串'hello world'",
+        "展示的字符串内容与大小写完全为'hello world'，不出现其他文案、占位符或动态内容",
+        "页面为纯展示，不包含任何按钮、表单、链接或其他可交互元素",
+        "应用采用侧边导航布局，页头可见，页脚不显示",
+        "未登录的访客无需认证即可直接访问并查看该页面内容"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "用户打开应用后可通过侧边导航或直接访问/page/welcome进入欢迎页",
+    "欢迎页在PC端正常展示，页面主体区域始终显示固定字符串'hello world'",
+    "应用整体采用侧边导航布局并启用页头，任何页面状态下均不显示页脚",
+    "应用不启用认证与权限控制，任何访客均可直接查看欢迎页内容",
+    "欢迎页不依赖任何后端接口，在无网络数据返回的情况下页面内容依然完整展示"
+  ],
+  "confirmation_status": "confirmed"
+}
