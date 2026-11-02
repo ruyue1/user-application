@@ -6,6 +6,22 @@
       "plannedPageIds": [
         "welcome_page"
       ]
+    },
+    {
+      "branch": "v1_1",
+      "designedPageIds": [],
+      "plannedPageIds": [
+        "welcome_page",
+        "hello_agent_page"
+      ]
+    },
+    {
+      "branch": "v1_3",
+      "designedPageIds": [],
+      "plannedPageIds": [
+        "welcome_page",
+        "greeting_page"
+      ]
     }
   ],
   "schemaVersion": 2

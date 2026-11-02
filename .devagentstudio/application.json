@@ -1,11 +1,11 @@
 {
   "schemaVersion": 6,
-  "configRevision": 3,
+  "configRevision": 6,
   "appName": "欢迎页",
   "appIcon": "AppstoreOutlined",
   "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
   "repoUrl": "https://github.com/ruyue1/user-application",
-  "branchName": "v1_0",
+  "branchName": "v1_3",
   "branchOverwriteConfirmed": true,
   "terminal": "PC",
   "layout": {
@@ -71,7 +71,229 @@
     "username": "",
     "password": ""
   },
-  "branches": [],
+  "id": "1793608070211-rm8jih",
+  "name": "欢迎页",
+  "workspaceRoot": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026110203",
+  "projectParentPath": "",
+  "projectDirectoryName": "2026110203",
+  "source": "new",
+  "legacyTheme": "custom",
+  "legacyLayout": "side-nav",
+  "enableTabs": false,
+  "pages": [
+    "默认页面"
+  ],
+  "defaultPage": "默认页面",
+  "hasDynamicRoutes": false,
+  "lastOpenedAt": 1793608099822,
+  "branches": [
+    {
+      "name": "v1_0",
+      "createdAt": 1793608099837,
+      "lifecycle": {
+        "application": {
+          "id": "1793608070211-rm8jih",
+          "name": "欢迎页"
+        },
+        "updatedAt": "2026-11-02T08:39:06.697153Z",
+        "revision": 52,
+        "developmentArtifacts": {
+          "pages": {
+            "welcome_page": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-11-02T08:38:22.966372Z",
+              "completedRunId": "79d4b4f6-c26e-49c8-85b4-4c6814dd89d3",
+              "completedThreadId": "c6b43cd6-e878-4559-b3e2-9b8649d633ec",
+              "completedBranchName": "v1_0",
+              "changeStatus": "unchanged",
+              "changeReason": null,
+              "checkedChangeId": null
+            }
+          },
+          "entities": {},
+          "endpoints": {},
+          "catalogError": null,
+          "outOfScope": []
+        },
+        "initialization": {
+          "stage": "ready_for_workbench",
+          "status": "completed",
+          "threadId": "ab602be1-07af-45d3-b5fd-e939c6988130"
+        },
+        "activeRunId": null,
+        "activeExecutions": {},
+        "endedExecutions": {},
+        "resourceLocks": {
+          "application": null,
+          "pages": {},
+          "apiContracts": {},
+          "endpoints": {},
+          "dataSources": {}
+        },
+        "pendingRevisionImpact": null,
+        "activeFormalRevision": null,
+        "error": null,
+        "extensions": {
+          "testExecutionStatus": "passed",
+          "reviewStatus": "passed",
+          "acceptanceStatus": "passed",
+          "planningRefresh": {
+            "schemaVersion": "planning-refresh.v1",
+            "source": "none",
+            "status": "idle",
+            "message": "当前没有可恢复的 PendingPlan。"
+          },
+          "executionRecovery": {
+            "schemaVersion": "execution-recovery.v1",
+            "generatedAt": "2026-11-02T08:38:31.027202Z",
+            "candidates": [],
+            "error": null
+          }
+        },
+        "testEntryGate": {
+          "allowed": true,
+          "total": 1,
+          "completed": 1,
+          "pending": 0,
+          "inProgress": 0,
+          "blockers": [],
+          "reason": null
+        }
+      },
+      "description": "新增欢迎页面，访问时展示一行问候文字，并补充对应的页面访问入口。",
+      "artifactSummary": {
+        "pageIds": [
+          "默认页面"
+        ],
+        "deployableScript": "deploy-v1_0.sh"
+      },
+      "snapshot": {
+        "pageIds": [
+          "默认页面"
+        ]
+      },
+      "gitRef": {
+        "commitSha": "68b04f6763eb5403e64ccaae53061e454aea5dfc",
+        "committedAt": 1793608753574
+      }
+    },
+    {
+      "name": "v1_1",
+      "createdAt": 1793608770252,
+      "lifecycle": {
+        "application": {
+          "id": "1793608070211-rm8jih",
+          "name": "欢迎页"
+        },
+        "updatedAt": "2026-11-02T08:39:30.251078Z",
+        "revision": 1,
+        "developmentArtifacts": {
+          "pages": {
+            "welcome_page": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-11-02T08:38:22.966372Z",
+              "completedRunId": "79d4b4f6-c26e-49c8-85b4-4c6814dd89d3",
+              "completedThreadId": "c6b43cd6-e878-4559-b3e2-9b8649d633ec",
+              "completedBranchName": "v1_0",
+              "changeStatus": "unchanged",
+              "changeReason": null,
+              "checkedChangeId": null
+            }
+          },
+          "entities": {},
+          "endpoints": {},
+          "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/2026110203/.devagentstudio/plans/product-plan.json'",
+          "outOfScope": []
+        },
+        "initialization": {
+          "stage": "collecting_requirement",
+          "status": "awaiting_user",
+          "threadId": "3aa70b40-5d22-47e6-a052-dcc7be9e9b29"
+        },
+        "activeRunId": "e38c7410-7707-4c89-8f00-af4725a4142e",
+        "activeExecutions": {},
+        "endedExecutions": {},
+        "resourceLocks": {
+          "application": null,
+          "pages": {},
+          "apiContracts": {},
+          "endpoints": {},
+          "dataSources": {}
+        },
+        "pendingRevisionImpact": null,
+        "activeFormalRevision": null,
+        "error": null,
+        "extensions": {},
+        "testEntryGate": {
+          "allowed": false,
+          "total": 1,
+          "completed": 1,
+          "pending": 0,
+          "inProgress": 0,
+          "blockers": [],
+          "reason": "应用尚未完成创建规划。"
+        }
+      }
+    },
+    {
+      "name": "v1_3",
+      "createdAt": 1793609475120,
+      "lifecycle": {
+        "application": {
+          "id": "1793608070211-rm8jih",
+          "name": "欢迎页"
+        },
+        "updatedAt": "2026-11-02T08:51:15.117666Z",
+        "revision": 1,
+        "developmentArtifacts": {
+          "pages": {
+            "welcome_page": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-11-02T08:38:22.966372Z",
+              "completedRunId": "79d4b4f6-c26e-49c8-85b4-4c6814dd89d3",
+              "completedThreadId": "c6b43cd6-e878-4559-b3e2-9b8649d633ec",
+              "completedBranchName": "v1_0",
+              "changeStatus": "unchanged",
+              "changeReason": null,
+              "checkedChangeId": null
+            }
+          },
+          "entities": {},
+          "endpoints": {},
+          "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/2026110203/.devagentstudio/plans/product-plan.json'",
+          "outOfScope": []
+        },
+        "initialization": {
+          "stage": "collecting_requirement",
+          "status": "awaiting_user",
+          "threadId": "23898359-0285-46a7-9c2a-31d201f727c6"
+        },
+        "activeRunId": "160b2047-f9a1-4c60-9fcd-95b41af3eab2",
+        "activeExecutions": {},
+        "endedExecutions": {},
+        "resourceLocks": {
+          "application": null,
+          "pages": {},
+          "apiContracts": {},
+          "endpoints": {},
+          "dataSources": {}
+        },
+        "pendingRevisionImpact": null,
+        "activeFormalRevision": null,
+        "error": null,
+        "extensions": {},
+        "testEntryGate": {
+          "allowed": false,
+          "total": 1,
+          "completed": 1,
+          "pending": 0,
+          "inProgress": 0,
+          "blockers": [],
+          "reason": "应用尚未完成创建规划。"
+        }
+      }
+    }
+  ],
   "repositoryBranch": {
     "branchName": "v1_0",
     "status": "pushed",
