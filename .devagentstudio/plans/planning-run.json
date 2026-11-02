@@ -1,0 +1,67 @@
+{
+  "planning_run_id": "planning-74132f74137a4c7b9dcd0e60d5932556",
+  "workflow_run_id": "68de41e4-0221-45a0-a6db-94b1f5fd7e31",
+  "thread_id": "c6b43cd6-e878-4559-b3e2-9b8649d633ec",
+  "revision": 8,
+  "status": "active",
+  "phase": "persisting_pending",
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "welcome_page"
+  },
+  "input_fingerprint": "d17f87e53295b8c00b7ae43a84e9b4d3991228d8a54a6c645434936ca678b772",
+  "base_confirmed_plan_digest": null,
+  "required_unit_ids": [
+    "frontend:shell",
+    "page:welcome_page"
+  ],
+  "unit_display_names": {
+    "frontend:shell": "前端应用环境",
+    "page:welcome_page": "欢迎页页面"
+  },
+  "planning_unit_ids": [
+    "page:welcome_page"
+  ],
+  "global_repair_round": 0,
+  "global_repair_limit": 2,
+  "global_issues": [],
+  "unit_states": {
+    "frontend:shell": {
+      "unit_id": "frontend:shell",
+      "kind": "frontend",
+      "participation": "prerequisite_only",
+      "generation_strategy": "prerequisite_only",
+      "generation_status": "not_required",
+      "generation_round": 1,
+      "attempt_in_round": 0,
+      "total_attempts": 0,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": null,
+      "candidate_task_count": 0,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "page:welcome_page": {
+      "unit_id": "page:welcome_page",
+      "kind": "page",
+      "participation": "generate_only",
+      "generation_strategy": "model",
+      "generation_status": "candidate_ready",
+      "generation_round": 1,
+      "attempt_in_round": 1,
+      "total_attempts": 1,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": "candidate-b739919ae7cd463daf700e96eaaa9674",
+      "candidate_task_count": 1,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    }
+  },
+  "started_at": "2026-11-02T08:36:05.337039Z",
+  "updated_at": "2026-11-02T08:36:11.768463Z",
+  "failure": null
+}

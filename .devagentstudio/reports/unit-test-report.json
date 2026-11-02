@@ -1,0 +1,79 @@
+{
+  "version": "0.1.0",
+  "generated_at": "2026-11-02T08:38:22.803071+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "id": "frontend_test_generation",
+      "name": "前端单元测试生成检查",
+      "layer": "frontend",
+      "language": "typescript",
+      "passed": true,
+      "skipped": true,
+      "required": false,
+      "command": null,
+      "evidence": "用户选择跳过单元测试，本轮不生成、不执行单元测试。",
+      "failure_category": null,
+      "execution": {
+        "tool": "none",
+        "argv": [],
+        "cwd": ".",
+        "returncode": null,
+        "timed_out": false,
+        "stdout_log": null,
+        "stderr_log": null
+      }
+    },
+    {
+      "id": "frontend_unit_tests",
+      "name": "前端单元测试",
+      "layer": "frontend",
+      "language": "typescript",
+      "passed": true,
+      "skipped": true,
+      "required": false,
+      "command": null,
+      "evidence": "用户选择跳过单元测试，本轮不生成、不执行单元测试。",
+      "failure_category": null,
+      "execution": {
+        "tool": "none",
+        "argv": [],
+        "cwd": ".",
+        "returncode": null,
+        "timed_out": false,
+        "stdout_log": null,
+        "stderr_log": null
+      }
+    }
+  ],
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  },
+  "needs_revision": false,
+  "revision_requests": [],
+  "quality_gate": {
+    "passed": true,
+    "required_checks": [],
+    "evaluated_by": "deterministic-quality-gate"
+  },
+  "artifact_context": {
+    "build_execution_scope": {
+      "type": "page",
+      "targetId": "welcome_page"
+    },
+    "plan_sha256": "4d3abe2e2fcc4ec4c84241659ca7a523ea02c7d4ca0d4402cf6571b3c0882835",
+    "files": {
+      "frontend/jest.config.cjs": "ce1afcb596c0abefb634ecc399b348b89d998be73221ffc57bdbb84cb7f3f90c",
+      "frontend/package.json": "503380c311da7c1a07c9554554edccf2989cef0efec50dc5c05f22612ff9793a",
+      "frontend/pnpm-lock.yaml": "0c879de676dc9907ce227bd2d36fae68772ae3149628a7207fa01b6aabe7f6e6",
+      "frontend/src/constants/routes.tsx": "d07a09cda42e152994d7a0e5e8144488d1591dcc6a4349f807affaca2bcd3dc3",
+      "frontend/src/pages/WelcomePage/index.tsx": "e6fc96615a8657de68b11daf29ab01341b9572a1615f063e12424a244132d94e",
+      "frontend/tests/__mocks__/fileMock.cjs": "9511e7bc24a9e0589f73af6ec1dd8b8fb1f6fb388decfdcb80a827860181226b",
+      "frontend/tests/__mocks__/styleMock.cjs": "35ab14b4a7b597c4cb3c568cddf39ee07c557cdd7e19f2eb8b83467eafd70609",
+      "frontend/tests/setupTests.ts": "303f1bcd5f40eb34671db9a66665f46aad22f0e0bc8a4dedf59d08fdbacef2b8",
+      "frontend/tsconfig.test.json": "be8f9f0a65c3faebc87c48a8de537fefc6638eceaca3934881ef6824019eccae"
+    }
+  }
+}
