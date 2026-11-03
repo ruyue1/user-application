@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 6,
+  "configRevision": 2,
+  "appName": "欢迎页",
+  "appIcon": "AppstoreOutlined",
+  "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
+  "repoUrl": "https://github.com/ruyue1/user-application",
+  "branchName": "v1_0",
+  "branchOverwriteConfirmed": true,
+  "terminal": "PC",
+  "layout": {
+    "type": "side",
+    "useHeader": true,
+    "useFooter": false
+  },
+  "theme": {
+    "primaryColor": "#6b3cf0"
+  },
+  "datasource": {
+    "type": "database"
+  },
+  "env": [],
+  "menus": {
+    "enable": true,
+    "rootPath": "/page",
+    "homeMenuKey": "",
+    "items": []
+  },
+  "apis": [],
+  "auth": {
+    "enable": false,
+    "yht": {
+      "clientId": "",
+      "privateKey": "",
+      "publicKey": "",
+      "centerPublicKey": "",
+      "centerUri": "http://one-account-gateway.paasuat.cmbchina.cn/auth-server",
+      "authorizeUri": "https://one-account-gateway.paasuat.cmbchina.cn/auth-server/auth",
+      "redirectUri": "http://localhost",
+      "endUrl": "https://one-account-gateway.paasuat.cmbchina.cn/auth-server/endsession",
+      "logoutShareJs": "https://one-account-gateway.paasuat.cmbchina.cn/logout-share/js/logoutShare.js"
+    }
+  },
+  "authorization": {
+    "enabled": false,
+    "initialAdministratorSubjects": []
+  },
+  "track": {
+    "enable": false,
+    "uploadId": "",
+    "apiHost": "",
+    "method": "post"
+  },
+  "apiTrack": {
+    "enable": false,
+    "businessId": "",
+    "traceBaggage": "",
+    "apiTrackHost": ""
+  },
+  "environment": {
+    "dev": [],
+    "prod": []
+  },
+  "database": {
+    "connectionMode": "dbid",
+    "schema": "",
+    "devDbid": "",
+    "prodDbid": "",
+    "host": "",
+    "port": "",
+    "username": "",
+    "password": ""
+  },
+  "branches": []
+}
