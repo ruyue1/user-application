@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "skipped",
-  "product_plan_sha256": "dbfd6ff217d103a5b3601489fe231ea4906a4f6b8a9997fdbd59a150f158f2eb",
+  "product_plan_sha256": "3ebec24bff0bd86c1af32d2de31746802f9b9d9e7997d5e5340dea5332e921cd",
   "pages": [
     {
       "pageId": "hello_world",
@@ -14,6 +14,41 @@
         "information_items": [
           {
             "informationItemId": "hello_world_text",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "pageId": "hello_agent",
+      "page_key": "HelloAgent",
+      "preview_path": "/page/hello-agent",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "hello_agent_text",
             "controlIds": []
           }
         ]

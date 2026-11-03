@@ -1,11 +1,11 @@
 {
   "schema_version": "product-plan.v5",
   "version": "0.1.0",
-  "generated_at": "2026-11-03T01:30:59.969085+00:00",
-  "requirement_spec_sha256": "9f066508a2d88645b5a9f58622b458233f846af03f38e28467090a664b28f0d1",
+  "generated_at": "2026-11-03T01:38:08.937230+00:00",
+  "requirement_spec_sha256": "0a67d70cbb6343d68b0ad399890220f63219cc1c70d7067e479804946e99f9d9",
   "app": {
     "name": "欢迎页",
-    "summary": "一个简单的纯展示页面，展示写死的字符串'hello world'，不需要任何后端API接口"
+    "summary": "一个简单的纯展示应用，包含展示'hello world'和'hello agent!'字符串的页面，不需要任何后端API接口"
   },
   "business_flows": [
     {
@@ -16,6 +16,15 @@
       ],
       "id": "view_hello_world",
       "description": "用户访问应用，查看 hello world 展示页面"
+    },
+    {
+      "name": "查看 Hello Agent",
+      "steps": [
+        "用户打开应用",
+        "页面展示写死的 'hello agent!' 字符串"
+      ],
+      "id": "view_hello_agent",
+      "description": "用户访问应用，查看 hello agent 展示页面"
     }
   ],
   "pages": [
@@ -36,17 +45,43 @@
       "actions": [],
       "navigation_targets": [],
       "state_requirements": {
-        "loading": "页面无需加载远程数据，打开即直接展示 'hello world'，不出现加载态",
         "empty": "不存在空状态，页面始终展示 'hello world' 字符串",
         "error": "不存在错误状态，页面不调用任何后端接口，不会产生业务错误",
+        "loading": "页面无需加载远程数据，打开即直接展示 'hello world'，不出现加载态",
         "success": "页面成功展示 'hello world' 字符串即为成功状态",
         "validation": "页面无用户输入，无需任何校验"
       },
       "acceptance_criteria": [
-        "用户打开应用后，页面立即显示字符串 'hello world'",
-        "页面展示的字符串内容固定为 'hello world'，不随时间、用户或环境变化",
-        "页面不出现加载动画、错误提示或空状态提示",
-        "页面不提供任何可点击、可提交或可导航的操作元素"
+        "页面目标和核心操作可以由目标角色完成。"
+      ]
+    },
+    {
+      "pageId": "hello_agent",
+      "name": "Hello Agent 页",
+      "path": "/page/hello-agent",
+      "module_id": "hello_agent_display",
+      "description": "展示写死的字符串'hello agent!'",
+      "goal": "让用户在进入该页面时立即看到固定的展示字符串 'hello agent!'，作为应用的另一个纯展示入口",
+      "information_items": [
+        {
+          "itemId": "hello_agent_text",
+          "label": "Hello Agent 展示语",
+          "description": "页面中央展示的固定字符串 'hello agent!'，用户无需任何操作即可直接看到该内容"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "state_requirements": {
+        "loading": "页面内容为静态写死的字符串，无需数据加载过程，打开页面即直接展示内容，不出现加载等待状态",
+        "empty": "页面始终展示固定的 'hello agent!' 字符串，不存在空状态",
+        "error": "页面为纯静态展示，不涉及数据获取或交互，不存在错误状态",
+        "success": "页面正常打开并完整展示 'hello agent!' 字符串即为成功状态",
+        "validation": "页面无用户输入与表单提交，无需任何校验"
+      },
+      "acceptance_criteria": [
+        "用户进入 Hello Agent 页后，页面可见区域内展示字符串 'hello agent!'",
+        "页面展示的字符串内容固定为 'hello agent!'，不随刷新或重复进入而变化",
+        "页面无需用户任何操作即可直接看到 'hello agent!' 内容"
       ]
     }
   ],
@@ -55,9 +90,10 @@
     "operationRules": []
   },
   "product_acceptance_criteria": [
-    "应用启动后，用户在主页面可见的唯一业务内容为字符串 'hello world'",
-    "应用不要求登录、不进行权限校验、不调用任何后端接口即可完成展示",
-    "页面展示内容稳定，多次刷新或重新打开应用，展示内容始终为 'hello world'"
+    "应用包含 Hello World 页与 Hello Agent 页两个纯展示页面，分别展示固定的 'hello world' 与 'hello agent!' 字符串",
+    "两个页面均为纯展示页面，不要求用户提供任何输入或执行任何操作即可看到对应字符串内容",
+    "应用不依赖任何后端数据接口即可完成两个页面的字符串展示",
+    "用户能够在应用内通过侧边导航分别进入 Hello World 页与 Hello Agent 页，并看到各自固定的展示字符串"
   ],
   "confirmation_status": "confirmed"
 }
