@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 3,
+  "configRevision": 5,
   "appName": "欢迎页",
   "appIcon": "AppstoreOutlined",
   "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
@@ -71,7 +71,95 @@
     "username": "",
     "password": ""
   },
-  "branches": [],
+  "id": "1793782087529-2g7qu0",
+  "name": "欢迎页",
+  "workspaceRoot": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026110404",
+  "projectParentPath": "",
+  "projectDirectoryName": "2026110404",
+  "source": "new",
+  "legacyTheme": "custom",
+  "legacyLayout": "side-nav",
+  "enableTabs": false,
+  "pages": [
+    "默认页面"
+  ],
+  "defaultPage": "默认页面",
+  "hasDynamicRoutes": false,
+  "lastOpenedAt": 1793782134154,
+  "branches": [
+    {
+      "name": "v1_0",
+      "createdAt": 1793782134173,
+      "lifecycle": {
+        "application": {
+          "id": "1793782087529-2g7qu0",
+          "name": "欢迎页"
+        },
+        "updatedAt": "2026-11-04T08:59:41.922300Z",
+        "revision": 1,
+        "developmentArtifacts": {
+          "pages": {
+            "hello_world": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-11-04T08:53:15.228093Z",
+              "completedRunId": "7d099fc5-17a9-4d6c-a2ea-99dc5190f141",
+              "completedThreadId": "a8a0a503-3876-4b00-be90-1678a3261e20",
+              "completedBranchName": "v1_0",
+              "changeStatus": "unchanged",
+              "changeReason": null,
+              "checkedChangeId": null
+            }
+          },
+          "entities": {},
+          "endpoints": {},
+          "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/2026110404/.devagentstudio/plans/product-plan.json'",
+          "outOfScope": []
+        },
+        "initialization": {
+          "stage": "collecting_requirement",
+          "status": "awaiting_user",
+          "threadId": "a8276f9b-5ad8-4cfc-8875-a687dae8cb6e",
+          "iterationId": "a8276f9b-5ad8-4cfc-8875-a687dae8cb6e"
+        },
+        "activeRunId": "a0946663-b6d0-4ccf-93b5-6699bc8acd66",
+        "activeExecutions": {},
+        "endedExecutions": {},
+        "endedPlanningExecution": null,
+        "resourceLocks": {
+          "application": null,
+          "pages": {},
+          "apiContracts": {},
+          "endpoints": {},
+          "dataSources": {}
+        },
+        "pendingRevisionImpact": null,
+        "activeFormalRevision": null,
+        "error": null,
+        "extensions": {},
+        "testEntryGate": {
+          "allowed": false,
+          "total": 1,
+          "completed": 1,
+          "pending": 0,
+          "inProgress": 0,
+          "blockers": [],
+          "reason": "应用尚未完成创建规划。"
+        }
+      },
+      "description": "新增 Hello World 展示页，页面展示固定的\"hello world\"字符串内容。",
+      "artifactSummary": {
+        "pageIds": [
+          "默认页面"
+        ],
+        "deployableScript": "deploy-v1_0.sh"
+      },
+      "snapshot": {
+        "pageIds": [
+          "默认页面"
+        ]
+      }
+    }
+  ],
   "repositoryBranch": {
     "branchName": "v1_0",
     "status": "pushed",

@@ -1,13 +1,13 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "c8a55c16488e467d12dfda23a461ee08d1f7864f3a4ce004939d942d379e0bcc",
+  "product_plan_sha256": "a87241fd55aceb34f4f66761a15c640cd381838b3b039ce3d8df53454ab1a759",
   "pages": [
     {
       "pageId": "hello_world",
       "page_key": "HelloWorld",
       "preview_path": "/page/hello-world",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026110404/.devagentstudio/ui-design/pages/HelloWorld/index.tsx",
+      "code_path": "",
       "status": "confirmed",
       "bindings": {
         "actions": [],
@@ -40,6 +40,44 @@
         "errors": []
       },
       "code_sha256": "7724d6dea0b2d68fc8bd7c295c70390e457cc56873538110e9e48a634be0c176"
+    },
+    {
+      "pageId": "hello_agent",
+      "page_key": "HelloAgent",
+      "preview_path": "/page/hello-agent",
+      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026110404/.devagentstudio/ui-design/pages/HelloAgent/index.tsx",
+      "status": "confirmed",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "hello_agent_content",
+            "controlIds": [
+              "hello_agent_content-display"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "passed",
+        "code_sha256": "a14a8a99eca4d321e4ef636875451bde1a873b7dbb41e2cbc53a7b91b190621a",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      },
+      "code_sha256": "a14a8a99eca4d321e4ef636875451bde1a873b7dbb41e2cbc53a7b91b190621a"
     }
   ]
 }
