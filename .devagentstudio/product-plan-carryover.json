@@ -1,5 +1,33 @@
 {
   "pages": {
+    "hello_agent": {
+      "definition": {
+        "actions": [],
+        "goal": "向用户展示固定的Hello Agent欢迎信息",
+        "information_items": [
+          {
+            "description": "页面展示的固定字符串\"hello agent!\"，用户访问页面后可直接看到该内容",
+            "itemId": "hello_agent_content",
+            "label": "Hello Agent 欢迎信息"
+          }
+        ],
+        "navigation_targets": [],
+        "state_requirements": {
+          "empty": "页面始终展示固定字符串内容，不存在空状态",
+          "error": "页面内容为写死的字符串，不依赖外部数据，不存在错误状态",
+          "loading": "页面内容为写死的字符串，无需加载等待状态",
+          "success": "页面成功展示固定的\"hello agent!\"字符串内容",
+          "validation": "页面无用户输入，不存在校验状态"
+        }
+      },
+      "requirement": {
+        "description": "展示写死的\"hello agent!\"字符串的页面",
+        "module_id": "display_module",
+        "name": "Hello Agent 展示页",
+        "pageId": "hello_agent",
+        "path": "/page/hello-agent"
+      }
+    },
     "hello_world": {
       "definition": {
         "actions": [],
@@ -22,7 +50,7 @@
       },
       "requirement": {
         "description": "展示写死的\"hello world\"字符串的页面",
-        "module_id": "display",
+        "module_id": "display_module",
         "name": "Hello World 展示页",
         "pageId": "hello_world",
         "path": "/page/hello-world"

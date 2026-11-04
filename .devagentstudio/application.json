@@ -1,11 +1,11 @@
 {
   "schemaVersion": 6,
-  "configRevision": 6,
+  "configRevision": 8,
   "appName": "欢迎页",
   "appIcon": "AppstoreOutlined",
   "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
   "repoUrl": "https://github.com/ruyue1/user-application",
-  "branchName": "v1_0",
+  "branchName": "v1_1",
   "branchOverwriteConfirmed": true,
   "terminal": "PC",
   "layout": {
@@ -71,6 +71,21 @@
     "username": "",
     "password": ""
   },
+  "id": "1793782087529-2g7qu0",
+  "name": "欢迎页",
+  "workspaceRoot": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026110404",
+  "projectParentPath": "",
+  "projectDirectoryName": "2026110404",
+  "source": "new",
+  "legacyTheme": "custom",
+  "legacyLayout": "side-nav",
+  "enableTabs": false,
+  "pages": [
+    "默认页面"
+  ],
+  "defaultPage": "默认页面",
+  "hasDynamicRoutes": false,
+  "lastOpenedAt": 1793782134154,
   "branches": [
     {
       "name": "v1_0",
@@ -80,7 +95,111 @@
           "id": "1793782087529-2g7qu0",
           "name": "欢迎页"
         },
-        "updatedAt": "2026-11-04T08:59:41.922300Z",
+        "updatedAt": "2026-11-04T09:12:32.652976Z",
+        "revision": 48,
+        "developmentArtifacts": {
+          "pages": {
+            "hello_world": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-11-04T08:53:15.228093Z",
+              "completedRunId": "7d099fc5-17a9-4d6c-a2ea-99dc5190f141",
+              "completedThreadId": "a8a0a503-3876-4b00-be90-1678a3261e20",
+              "completedBranchName": "v1_0",
+              "changeStatus": "unchanged",
+              "changeReason": null,
+              "checkedChangeId": null
+            },
+            "hello_agent": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-11-04T09:10:58.829344Z",
+              "completedRunId": "e0b68ef1-e77c-4810-9d84-6d072170b49a",
+              "completedThreadId": "03a73511-0b02-48a6-ae7a-7ff949914c31",
+              "completedBranchName": "v1_0",
+              "changeStatus": "unchanged",
+              "changeReason": null,
+              "checkedChangeId": null
+            }
+          },
+          "entities": {},
+          "endpoints": {},
+          "catalogError": null,
+          "outOfScope": [
+            "page:hello_world"
+          ]
+        },
+        "initialization": {
+          "stage": "ready_for_workbench",
+          "status": "completed",
+          "threadId": "d9b3cd84-ed91-43bd-aa92-43ce09e86e0a",
+          "iterationId": "a8276f9b-5ad8-4cfc-8875-a687dae8cb6e"
+        },
+        "activeRunId": null,
+        "activeExecutions": {},
+        "endedExecutions": {},
+        "endedPlanningExecution": null,
+        "resourceLocks": {
+          "application": null,
+          "pages": {},
+          "apiContracts": {},
+          "endpoints": {},
+          "dataSources": {}
+        },
+        "pendingRevisionImpact": null,
+        "activeFormalRevision": null,
+        "error": null,
+        "extensions": {
+          "testExecutionStatus": "passed",
+          "reviewStatus": "passed",
+          "acceptanceStatus": "passed",
+          "planningRefresh": {
+            "schemaVersion": "planning-refresh.v1",
+            "source": "none",
+            "status": "idle",
+            "message": "当前没有可恢复的 PendingPlan。"
+          },
+          "executionRecovery": {
+            "schemaVersion": "execution-recovery.v1",
+            "generatedAt": "2026-11-04T09:11:27.295647Z",
+            "candidates": [],
+            "error": null
+          }
+        },
+        "testEntryGate": {
+          "allowed": true,
+          "total": 2,
+          "completed": 2,
+          "pending": 0,
+          "inProgress": 0,
+          "blockers": [],
+          "reason": null
+        }
+      },
+      "description": "新增了Hello World和Hello Agent两个展示页面，分别用于展示固定的\"hello world\"和\"hello agent!\"文本内容。",
+      "artifactSummary": {
+        "pageIds": [
+          "默认页面"
+        ],
+        "deployableScript": "deploy-v1_0.sh"
+      },
+      "snapshot": {
+        "pageIds": [
+          "默认页面"
+        ]
+      },
+      "gitRef": {
+        "commitSha": "a12f3cf863eaa5de876eb5559a156da2e8a7542a",
+        "committedAt": 1793783566383
+      }
+    },
+    {
+      "name": "v1_1",
+      "createdAt": 1793783592486,
+      "lifecycle": {
+        "application": {
+          "id": "1793782087529-2g7qu0",
+          "name": "欢迎页"
+        },
+        "updatedAt": "2026-11-04T09:13:12.484081Z",
         "revision": 1,
         "developmentArtifacts": {
           "pages": {
@@ -89,6 +208,16 @@
               "completedAt": "2026-11-04T08:53:15.228093Z",
               "completedRunId": "7d099fc5-17a9-4d6c-a2ea-99dc5190f141",
               "completedThreadId": "a8a0a503-3876-4b00-be90-1678a3261e20",
+              "completedBranchName": "v1_0",
+              "changeStatus": "unchanged",
+              "changeReason": null,
+              "checkedChangeId": null
+            },
+            "hello_agent": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-11-04T09:10:58.829344Z",
+              "completedRunId": "e0b68ef1-e77c-4810-9d84-6d072170b49a",
+              "completedThreadId": "03a73511-0b02-48a6-ae7a-7ff949914c31",
               "completedBranchName": "v1_0",
               "changeStatus": "unchanged",
               "changeReason": null,
@@ -103,10 +232,10 @@
         "initialization": {
           "stage": "collecting_requirement",
           "status": "awaiting_user",
-          "threadId": "a8276f9b-5ad8-4cfc-8875-a687dae8cb6e",
-          "iterationId": "a8276f9b-5ad8-4cfc-8875-a687dae8cb6e"
+          "threadId": "d51280ea-f017-481d-8ec8-64bae234b6ad",
+          "iterationId": "d51280ea-f017-481d-8ec8-64bae234b6ad"
         },
-        "activeRunId": "a0946663-b6d0-4ccf-93b5-6699bc8acd66",
+        "activeRunId": "26ba601f-2c18-4f63-a963-85ba530218fb",
         "activeExecutions": {},
         "endedExecutions": {},
         "endedPlanningExecution": null,
@@ -123,25 +252,13 @@
         "extensions": {},
         "testEntryGate": {
           "allowed": false,
-          "total": 1,
-          "completed": 1,
+          "total": 2,
+          "completed": 2,
           "pending": 0,
           "inProgress": 0,
           "blockers": [],
           "reason": "应用尚未完成创建规划。"
         }
-      },
-      "description": "新增 Hello World 展示页，页面展示固定的\"hello world\"字符串内容。",
-      "artifactSummary": {
-        "pageIds": [
-          "默认页面"
-        ],
-        "deployableScript": "deploy-v1_0.sh"
-      },
-      "snapshot": {
-        "pageIds": [
-          "默认页面"
-        ]
       }
     }
   ],

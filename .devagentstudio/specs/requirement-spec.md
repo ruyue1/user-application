@@ -4,7 +4,7 @@
 
 - 名称：欢迎页
 - 目标：
-- 确认需求摘要：一个简单的纯展示应用，包含Hello World和Hello Agent两个页面，分别展示写死的字符串内容，不需要任何后端API接口
+- 确认需求摘要：一个简单的纯展示应用，包含Hello World、Hello Agent和欢迎来到我的世界三个页面，分别展示写死的字符串内容，不需要任何后端API接口
 - 状态：已确认
 - 版本：1.0
 
@@ -28,6 +28,7 @@
 
 - `/page/hello-world` Hello World 展示页：展示写死的"hello world"字符串的页面
 - `/page/hello-agent` Hello Agent 展示页：展示写死的"hello agent!"字符串的页面
+- `/page/welcome-to-my-world` 欢迎来到我的世界展示页：展示写死的"欢迎来到我的世界!"字符串的页面
 
 ## 实体清单
 
@@ -37,6 +38,7 @@
 
 - 查看Hello World：用户访问页面，查看展示的Hello World字符串；用户打开Hello World展示页 → 页面展示写死的"hello world"字符串
 - 查看Hello Agent：用户访问页面，查看展示的Hello Agent字符串；用户打开Hello Agent展示页 → 页面展示写死的"hello agent!"字符串
+- 查看欢迎来到我的世界：用户访问页面，查看展示的"欢迎来到我的世界!"字符串；用户打开欢迎来到我的世界展示页 → 页面展示写死的"欢迎来到我的世界!"字符串
 
 ## 待确认问题
 

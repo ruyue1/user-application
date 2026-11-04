@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "a87241fd55aceb34f4f66761a15c640cd381838b3b039ce3d8df53454ab1a759",
+  "product_plan_sha256": "42bd87574573001f663571ea7d8835ac2dab3a1df542e9617aec7f463861df76",
   "pages": [
     {
       "pageId": "hello_world",
@@ -45,7 +45,7 @@
       "pageId": "hello_agent",
       "page_key": "HelloAgent",
       "preview_path": "/page/hello-agent",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026110404/.devagentstudio/ui-design/pages/HelloAgent/index.tsx",
+      "code_path": "",
       "status": "confirmed",
       "bindings": {
         "actions": [],
@@ -78,6 +78,41 @@
         "errors": []
       },
       "code_sha256": "a14a8a99eca4d321e4ef636875451bde1a873b7dbb41e2cbc53a7b91b190621a"
+    },
+    {
+      "pageId": "welcome_to_my_world",
+      "page_key": "WelcomeToMyWorld",
+      "preview_path": "/page/welcome-to-my-world",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "welcome_to_my_world_text",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
     }
   ]
 }

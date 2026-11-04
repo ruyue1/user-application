@@ -1,5 +1,10 @@
 {
   "pages": {
+    "hello_agent": {
+      "pageKey": "HelloAgent",
+      "templateId": "",
+      "templateSourcePath": ""
+    },
     "hello_world": {
       "pageKey": "HelloWorld",
       "templateId": "",
