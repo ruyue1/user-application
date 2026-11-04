@@ -1,11 +1,11 @@
 {
   "schemaVersion": 6,
-  "configRevision": 5,
+  "configRevision": 7,
   "appName": "欢迎页",
   "appIcon": "AppstoreOutlined",
   "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
   "repoUrl": "https://github.com/ruyue1/user-application",
-  "branchName": "v1_1",
+  "branchName": "v1_2",
   "branchOverwriteConfirmed": true,
   "terminal": "PC",
   "layout": {
@@ -234,13 +234,71 @@
           "reason": "应用尚未完成创建规划。"
         }
       }
+    },
+    {
+      "name": "v1_2",
+      "createdAt": 1793670077427,
+      "lifecycle": {
+        "application": {
+          "id": "1793668094869-n9485h",
+          "name": "欢迎页"
+        },
+        "updatedAt": "2026-11-03T01:41:17.425797Z",
+        "revision": 1,
+        "developmentArtifacts": {
+          "pages": {
+            "hello_world": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-11-03T01:33:50.335914Z",
+              "completedRunId": "f4642305-4bdc-45c5-b15f-d13561d1a492",
+              "completedThreadId": "054516f2-d163-4fa1-bba0-d7d10c88e931",
+              "completedBranchName": "v1_0",
+              "changeStatus": "unchanged",
+              "changeReason": null,
+              "checkedChangeId": null
+            }
+          },
+          "entities": {},
+          "endpoints": {},
+          "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/2026110300/.devagentstudio/plans/product-plan.json'",
+          "outOfScope": []
+        },
+        "initialization": {
+          "stage": "collecting_requirement",
+          "status": "awaiting_user",
+          "threadId": "719d6acd-496e-4625-b831-64455afbbb68"
+        },
+        "activeRunId": "23d09607-13d2-470c-b0a6-4ea321fdc39a",
+        "activeExecutions": {},
+        "endedExecutions": {},
+        "resourceLocks": {
+          "application": null,
+          "pages": {},
+          "apiContracts": {},
+          "endpoints": {},
+          "dataSources": {}
+        },
+        "pendingRevisionImpact": null,
+        "activeFormalRevision": null,
+        "error": null,
+        "extensions": {},
+        "testEntryGate": {
+          "allowed": false,
+          "total": 1,
+          "completed": 1,
+          "pending": 0,
+          "inProgress": 0,
+          "blockers": [],
+          "reason": "应用尚未完成创建规划。"
+        }
+      }
     }
   ],
   "repositoryBranch": {
-    "branchName": "v1_0",
+    "branchName": "v1_1",
     "status": "pushed",
-    "commitSha": "be48e14f74fe4e7fa2e1fce1bf20fce714a05951",
+    "commitSha": "281c218afe77e8796780a0ddf7a06283988b27e6",
     "message": "",
-    "updatedAt": 1793669510379
+    "updatedAt": 1793670052149
   }
 }

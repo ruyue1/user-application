@@ -14,6 +14,14 @@
         "hello_world",
         "hello_agent"
       ]
+    },
+    {
+      "branch": "v1_2",
+      "designedPageIds": [],
+      "plannedPageIds": [
+        "hello_world",
+        "greeting"
+      ]
     }
   ],
   "schemaVersion": 2

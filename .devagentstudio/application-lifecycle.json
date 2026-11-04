@@ -3,7 +3,7 @@
     "id": "1793668094869-n9485h",
     "name": "欢迎页"
   },
-  "updatedAt": "2026-11-03T01:38:48.568553Z",
+  "updatedAt": "2026-11-04T01:58:54.411070Z",
   "revision": 7,
   "developmentArtifacts": {
     "pages": {
@@ -26,9 +26,9 @@
   "initialization": {
     "stage": "awaiting_planning_stage_entry",
     "status": "awaiting_user",
-    "threadId": "a94bd716-9a00-4ad4-b685-1cba2732bb21"
+    "threadId": "719d6acd-496e-4625-b831-64455afbbb68"
   },
-  "activeRunId": "6a6e4c44-eaa0-4b2c-93a0-cb65ff3ebf43",
+  "activeRunId": "7d914f44-02ad-4761-a077-ff9fe62bc8ad",
   "activeExecutions": {},
   "endedExecutions": {},
   "developmentContinuations": {},
