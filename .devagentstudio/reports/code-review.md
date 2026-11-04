@@ -11,7 +11,7 @@
 
 ## Diff 审查文件
 
-- `frontend/src/pages/WelcomeToMyWorld/index.tsx`
+- `frontend/src/pages/GoodMorning/index.tsx`
 
 ## 扫描汇总
 
@@ -24,8 +24,8 @@
 
 ## 扫描提示
 
-- frontend-code-scan 仅覆盖 package.json 与 pnpm-lock.yaml 中的 axios / form-data 版本风险；本次清单仅含页面组件 index.tsx，无适用规则，已按约束完整读取该文件但不据此报告前端问题。
-- 本次变更清单未包含任何 backend/src/main/java 下的 Java 文件，也未包含后端 pom.xml、资源或配置文件，后端扫描无目标文件，已跳过。
+- 前端 Skill 的判定项仅覆盖 package.json 与 pnpm-lock.yaml 中的 axios / form-data 版本风险，本次清单未包含这两个文件；已完整读取清单中的前端文件，但无适用规则，未产生前端问题。
+- 本次变更清单未包含任何后端文件（含 pom.xml、资源与配置文件），后端扫描跳过。
 
 ## 问题详情
 

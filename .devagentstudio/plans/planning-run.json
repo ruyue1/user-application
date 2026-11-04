@@ -1,0 +1,67 @@
+{
+  "planning_run_id": "planning-f8334659d65846c3b6eac6e948fce2fe",
+  "workflow_run_id": "37984c3b-64d8-490a-9d59-3ead056c169a",
+  "thread_id": "727c3c57-e724-431f-8382-ec058e5a4b9d",
+  "revision": 8,
+  "status": "active",
+  "phase": "persisting_pending",
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "good_morning"
+  },
+  "input_fingerprint": "6c30d39fc61fc551e989d40e8b7bb2698700c2c8ad37bbcd85153e33e8a86b72",
+  "base_confirmed_plan_digest": null,
+  "required_unit_ids": [
+    "frontend:shell",
+    "page:good_morning"
+  ],
+  "unit_display_names": {
+    "frontend:shell": "前端应用环境",
+    "page:good_morning": "早上好展示页页面"
+  },
+  "planning_unit_ids": [
+    "page:good_morning"
+  ],
+  "global_repair_round": 0,
+  "global_repair_limit": 2,
+  "global_issues": [],
+  "unit_states": {
+    "frontend:shell": {
+      "unit_id": "frontend:shell",
+      "kind": "frontend",
+      "participation": "prerequisite_only",
+      "generation_strategy": "prerequisite_only",
+      "generation_status": "not_required",
+      "generation_round": 1,
+      "attempt_in_round": 0,
+      "total_attempts": 0,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": null,
+      "candidate_task_count": 0,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "page:good_morning": {
+      "unit_id": "page:good_morning",
+      "kind": "page",
+      "participation": "generate_only",
+      "generation_strategy": "model",
+      "generation_status": "candidate_ready",
+      "generation_round": 1,
+      "attempt_in_round": 1,
+      "total_attempts": 1,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": "candidate-9886c5e23c11430e9fdd9acd73ebec7a",
+      "candidate_task_count": 1,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    }
+  },
+  "started_at": "2026-11-04T09:29:38.895110Z",
+  "updated_at": "2026-11-04T09:29:44.559563Z",
+  "failure": null
+}
