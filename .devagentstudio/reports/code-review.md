@@ -11,7 +11,7 @@
 
 ## Diff 审查文件
 
-- `frontend/src/pages/HelloAgent/index.tsx`
+- `frontend/src/pages/WelcomeToMyWorld/index.tsx`
 
 ## 扫描汇总
 
@@ -24,8 +24,8 @@
 
 ## 扫描提示
 
-- frontend-code-scan 仅含 axios / form-data 依赖版本规则，本次清单未包含 package.json 或 pnpm-lock.yaml，故对 .tsx 源文件无适用规则；已按要求完整读取清单中的前端文件且未编造前端问题。
-- 本次审查清单未列出任何后端 Java、pom.xml、资源或配置文件，按只读边界跳过 backend 扫描根。
+- frontend-code-scan 仅覆盖 package.json 与 pnpm-lock.yaml 中的 axios / form-data 版本风险；本次清单仅含页面组件 index.tsx，无适用规则，已按约束完整读取该文件但不据此报告前端问题。
+- 本次变更清单未包含任何 backend/src/main/java 下的 Java 文件，也未包含后端 pom.xml、资源或配置文件，后端扫描无目标文件，已跳过。
 
 ## 问题详情
 

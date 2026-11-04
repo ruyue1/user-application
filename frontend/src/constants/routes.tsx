@@ -23,5 +23,9 @@ export const PAGE_ROUTES: PageRouteDefinition[] = [
     path: "hello_agent",
     label: "Hello Agent 展示页",
   },
+  {
+    path: "welcome_to_my_world",
+    label: "欢迎来到我的世界展示页",
+  },
   // DEVAGENTSTUDIO_BUSINESS_ROUTES_END
 ];
