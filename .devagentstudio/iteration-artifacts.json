@@ -31,6 +31,19 @@
         "hello_agent",
         "welcome_to_my_world"
       ]
+    },
+    {
+      "branch": "v1_1",
+      "designedPageIds": [
+        "hello_world",
+        "hello_agent"
+      ],
+      "plannedPageIds": [
+        "hello_world",
+        "hello_agent",
+        "welcome_to_my_world",
+        "good_morning"
+      ]
     }
   ],
   "schemaVersion": 2

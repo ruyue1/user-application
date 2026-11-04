@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "42bd87574573001f663571ea7d8835ac2dab3a1df542e9617aec7f463861df76",
+  "product_plan_sha256": "ebb93b4f5c45b46ae9f6d324efede7fd89622c4bb7b102d2aad2760955dc26ca",
   "pages": [
     {
       "pageId": "hello_world",
@@ -90,6 +90,41 @@
         "information_items": [
           {
             "informationItemId": "welcome_to_my_world_text",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "pageId": "good_morning",
+      "page_key": "GoodMorning",
+      "preview_path": "/page/good-morning",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "good_morning_greeting_text",
             "controlIds": []
           }
         ]

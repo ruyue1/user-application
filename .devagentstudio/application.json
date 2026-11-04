@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 9,
+  "configRevision": 11,
   "appName": "欢迎页",
   "appIcon": "AppstoreOutlined",
   "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
@@ -71,6 +71,21 @@
     "username": "",
     "password": ""
   },
+  "id": "1793782087529-2g7qu0",
+  "name": "欢迎页",
+  "workspaceRoot": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026110404",
+  "projectParentPath": "",
+  "projectDirectoryName": "2026110404",
+  "source": "new",
+  "legacyTheme": "custom",
+  "legacyLayout": "side-nav",
+  "enableTabs": false,
+  "pages": [
+    "默认页面"
+  ],
+  "defaultPage": "默认页面",
+  "hasDynamicRoutes": false,
+  "lastOpenedAt": 1793782134154,
   "branches": [
     {
       "name": "v1_0",
@@ -184,7 +199,7 @@
           "id": "1793782087529-2g7qu0",
           "name": "欢迎页"
         },
-        "updatedAt": "2026-11-04T09:13:12.484081Z",
+        "updatedAt": "2026-11-04T09:19:24.137574Z",
         "revision": 1,
         "developmentArtifacts": {
           "pages": {
@@ -207,6 +222,16 @@
               "changeStatus": "unchanged",
               "changeReason": null,
               "checkedChangeId": null
+            },
+            "welcome_to_my_world": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-11-04T09:17:54.273835Z",
+              "completedRunId": "028ab759-e91b-4824-8943-91a3e80edfd7",
+              "completedThreadId": "ec75b882-df98-4aff-95d6-b127758c770c",
+              "completedBranchName": "v1_1",
+              "changeStatus": "unchanged",
+              "changeReason": null,
+              "checkedChangeId": null
             }
           },
           "entities": {},
@@ -217,10 +242,10 @@
         "initialization": {
           "stage": "collecting_requirement",
           "status": "awaiting_user",
-          "threadId": "d51280ea-f017-481d-8ec8-64bae234b6ad",
-          "iterationId": "d51280ea-f017-481d-8ec8-64bae234b6ad"
+          "threadId": "19d0a839-5b94-4a7f-986a-8c2bf633d425",
+          "iterationId": "19d0a839-5b94-4a7f-986a-8c2bf633d425"
         },
-        "activeRunId": "26ba601f-2c18-4f63-a963-85ba530218fb",
+        "activeRunId": "53ad3846-acd2-4035-b120-2dc34b268bfc",
         "activeExecutions": {},
         "endedExecutions": {},
         "endedPlanningExecution": null,
@@ -237,13 +262,25 @@
         "extensions": {},
         "testEntryGate": {
           "allowed": false,
-          "total": 2,
-          "completed": 2,
+          "total": 3,
+          "completed": 3,
           "pending": 0,
           "inProgress": 0,
           "blockers": [],
           "reason": "应用尚未完成创建规划。"
         }
+      },
+      "description": "新增“欢迎来到我的世界”展示页，页面会展示固定的“欢迎来到我的世界!”文字内容。",
+      "artifactSummary": {
+        "pageIds": [
+          "默认页面"
+        ],
+        "deployableScript": "deploy-v1_1.sh"
+      },
+      "snapshot": {
+        "pageIds": [
+          "默认页面"
+        ]
       }
     }
   ],
