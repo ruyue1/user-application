@@ -1,0 +1,502 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "React 单页管理客户端采用 PC 端侧边栏导航布局，页头启用、页脚禁用，通过 REST 接口与后端交换 JSON 数据。",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [
+    {
+      "id": "Product",
+      "name": "商品",
+      "description": "记录商品的基础信息，包括名称、编码、分类、状态和说明等。",
+      "fields": [
+        {
+          "label": "商品ID",
+          "description": "商品的唯一标识。",
+          "name": "product_id",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "商品名称",
+          "description": "商品的名称，用于搜索和列表展示。",
+          "name": "product_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "商品编码",
+          "description": "商品的唯一编码，用于业务识别。",
+          "name": "product_code",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "所属分类",
+          "description": "商品所属的分类名称。",
+          "name": "category",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "商品状态",
+          "description": "商品的上下架状态。",
+          "name": "status",
+          "type": "enum",
+          "required": true
+        },
+        {
+          "label": "商品说明",
+          "description": "商品的详细说明文本。",
+          "name": "description",
+          "type": "long_text",
+          "required": false
+        },
+        {
+          "label": "创建时间",
+          "description": "商品记录的创建时间。",
+          "name": "created_at",
+          "type": "datetime",
+          "required": true
+        },
+        {
+          "label": "更新时间",
+          "description": "商品记录的最近更新时间。",
+          "name": "updated_at",
+          "type": "datetime",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "api_contracts": [
+    {
+      "id": "product_api",
+      "name": "商品管理",
+      "entity_ids": [
+        "Product"
+      ],
+      "base_path": "/api/products",
+      "authentication": {
+        "required": false
+      },
+      "schemas": {
+        "ProductListItem": {
+          "type": "object",
+          "properties": {
+            "productId": {
+              "type": "string",
+              "description": "商品的唯一标识。",
+              "entity_field_ref": "Product.product_id"
+            },
+            "productName": {
+              "type": "string",
+              "description": "商品的名称。",
+              "entity_field_ref": "Product.product_name"
+            },
+            "productCode": {
+              "type": "string",
+              "description": "商品的编码。",
+              "entity_field_ref": "Product.product_code"
+            },
+            "category": {
+              "type": "string",
+              "description": "商品所属的分类。",
+              "entity_field_ref": "Product.category"
+            },
+            "status": {
+              "type": "string",
+              "description": "商品的上下架状态。",
+              "entity_field_ref": "Product.status"
+            },
+            "createdAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "商品的创建时间。",
+              "entity_field_ref": "Product.created_at"
+            },
+            "updatedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "商品的更新时间。",
+              "entity_field_ref": "Product.updated_at"
+            }
+          },
+          "required": [
+            "productId",
+            "productName",
+            "productCode",
+            "category",
+            "status",
+            "createdAt",
+            "updatedAt"
+          ]
+        },
+        "ProductListOutput": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer",
+              "description": "符合查询条件的商品总数量。"
+            },
+            "pageSize": {
+              "type": "integer",
+              "description": "每页返回的商品数量。"
+            },
+            "current": {
+              "type": "integer",
+              "description": "当前页码。"
+            },
+            "list": {
+              "type": "array",
+              "items": {
+                "$ref": "ProductListItem"
+              },
+              "description": "当前页的商品列表项集合。"
+            }
+          },
+          "required": [
+            "total",
+            "pageSize",
+            "current",
+            "list"
+          ]
+        },
+        "ProductDetailOutput": {
+          "type": "object",
+          "properties": {
+            "productId": {
+              "type": "string",
+              "description": "商品的唯一标识。",
+              "entity_field_ref": "Product.product_id"
+            },
+            "productName": {
+              "type": "string",
+              "description": "商品的名称。",
+              "entity_field_ref": "Product.product_name"
+            },
+            "productCode": {
+              "type": "string",
+              "description": "商品的编码。",
+              "entity_field_ref": "Product.product_code"
+            },
+            "category": {
+              "type": "string",
+              "description": "商品所属的分类。",
+              "entity_field_ref": "Product.category"
+            },
+            "status": {
+              "type": "string",
+              "description": "商品的上下架状态。",
+              "entity_field_ref": "Product.status"
+            },
+            "description": {
+              "type": "string",
+              "description": "商品的详细说明文本。",
+              "entity_field_ref": "Product.description"
+            },
+            "createdAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "商品的创建时间。",
+              "entity_field_ref": "Product.created_at"
+            },
+            "updatedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "商品的更新时间。",
+              "entity_field_ref": "Product.updated_at"
+            }
+          },
+          "required": [
+            "productId",
+            "productName",
+            "productCode",
+            "category",
+            "status",
+            "description",
+            "createdAt",
+            "updatedAt"
+          ]
+        },
+        "ProductCreateInput": {
+          "type": "object",
+          "properties": {
+            "productName": {
+              "type": "string",
+              "description": "商品的名称。",
+              "entity_field_ref": "Product.product_name"
+            },
+            "productCode": {
+              "type": "string",
+              "description": "商品的编码。",
+              "entity_field_ref": "Product.product_code"
+            },
+            "category": {
+              "type": "string",
+              "description": "商品所属的分类。",
+              "entity_field_ref": "Product.category"
+            },
+            "status": {
+              "type": "string",
+              "description": "商品的上下架状态。",
+              "entity_field_ref": "Product.status"
+            },
+            "description": {
+              "type": "string",
+              "description": "商品的详细说明文本。",
+              "entity_field_ref": "Product.description"
+            }
+          },
+          "required": [
+            "productName",
+            "productCode",
+            "category",
+            "status"
+          ]
+        },
+        "ProductCreateOutput": {
+          "type": "object",
+          "properties": {
+            "productId": {
+              "type": "string",
+              "description": "新创建商品的唯一标识。",
+              "entity_field_ref": "Product.product_id"
+            },
+            "productName": {
+              "type": "string",
+              "description": "商品的名称。",
+              "entity_field_ref": "Product.product_name"
+            },
+            "productCode": {
+              "type": "string",
+              "description": "商品的编码。",
+              "entity_field_ref": "Product.product_code"
+            },
+            "category": {
+              "type": "string",
+              "description": "商品所属的分类。",
+              "entity_field_ref": "Product.category"
+            },
+            "status": {
+              "type": "string",
+              "description": "商品的上下架状态。",
+              "entity_field_ref": "Product.status"
+            },
+            "description": {
+              "type": "string",
+              "description": "商品的详细说明文本。",
+              "entity_field_ref": "Product.description"
+            },
+            "createdAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "商品的创建时间。",
+              "entity_field_ref": "Product.created_at"
+            },
+            "updatedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "商品的更新时间。",
+              "entity_field_ref": "Product.updated_at"
+            }
+          },
+          "required": [
+            "productId",
+            "productName",
+            "productCode",
+            "category",
+            "status",
+            "createdAt",
+            "updatedAt"
+          ]
+        }
+      },
+      "endpoints": [
+        {
+          "id": "product_api.list",
+          "name": "查询商品列表",
+          "method": "GET",
+          "path": "/api/products",
+          "summary": "按分页条件、商品名称关键词、分类和状态筛选查询商品列表。",
+          "parameters": [
+            {
+              "name": "current",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "default": 1
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "default": 20
+              }
+            },
+            {
+              "name": "keyword",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "category",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "status",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "on_shelf",
+                  "off_shelf"
+                ]
+              }
+            }
+          ],
+          "request_schema_ref": null,
+          "response_schema_ref": "ProductListOutput",
+          "error_codes": [
+            "INTERNAL_ERROR"
+          ],
+          "authentication": {
+            "required": false
+          }
+        },
+        {
+          "id": "product_api.detail",
+          "name": "查询商品详情",
+          "method": "GET",
+          "path": "/api/products/{productId}",
+          "summary": "根据商品ID查询商品的完整详细信息。",
+          "parameters": [
+            {
+              "name": "productId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "request_schema_ref": null,
+          "response_schema_ref": "ProductDetailOutput",
+          "error_codes": [
+            "NOT_FOUND",
+            "INTERNAL_ERROR"
+          ],
+          "authentication": {
+            "required": false
+          }
+        },
+        {
+          "id": "product_api.create",
+          "name": "新增商品",
+          "method": "POST",
+          "path": "/api/products",
+          "summary": "提交商品信息创建新商品，返回创建后的商品完整信息。",
+          "parameters": [],
+          "request_schema_ref": "ProductCreateInput",
+          "response_schema_ref": "ProductCreateOutput",
+          "error_codes": [
+            "VALIDATION_ERROR",
+            "INTERNAL_ERROR"
+          ],
+          "authentication": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "product_list",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "product_api.list",
+            "usage": "page_load",
+            "trigger": "进入商品列表页或提交搜索、分类筛选、状态筛选条件时",
+            "required_for_initial_load": true
+          },
+          {
+            "endpoint_id": "product_api.detail",
+            "usage": "action_trigger",
+            "trigger": "点击列表中的商品查看详情时",
+            "required_for_initial_load": false
+          }
+        ],
+        "action_implementations": [
+          {
+            "actionId": "search_product",
+            "endpointId": "product_api.list"
+          },
+          {
+            "actionId": "filter_by_category",
+            "endpointId": "product_api.list"
+          },
+          {
+            "actionId": "filter_by_status",
+            "endpointId": "product_api.list"
+          }
+        ]
+      }
+    },
+    {
+      "pageId": "product_create",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "product_api.create",
+            "usage": "action_trigger",
+            "trigger": "点击提交按钮提交商品新增表单时",
+            "required_for_initial_load": false
+          }
+        ],
+        "action_implementations": [
+          {
+            "actionId": "submit_product_form",
+            "endpointId": "product_api.create"
+          }
+        ]
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 2,
+  "product_plan_sha256": "6ee2e086479fbbc04bd2086141596de12a820e87fec54413e5bbd4cb54c44633",
+  "ui_designs_sha256": "791fbf66311830e0b1ce1b2575f1692056dcf1773286fd78f93993092a1d018f",
+  "confirmation_status": "confirmed"
+}

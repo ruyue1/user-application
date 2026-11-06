@@ -1,0 +1,119 @@
+{
+  "schema_version": "ui-manifest.v3",
+  "confirmation_status": "confirmed",
+  "product_plan_sha256": "6ee2e086479fbbc04bd2086141596de12a820e87fec54413e5bbd4cb54c44633",
+  "pages": [
+    {
+      "pageId": "product_list",
+      "page_key": "ProductList",
+      "preview_path": "/page/product-list",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [
+          {
+            "actionId": "search_product",
+            "controlIds": []
+          },
+          {
+            "actionId": "filter_by_category",
+            "controlIds": []
+          },
+          {
+            "actionId": "filter_by_status",
+            "controlIds": []
+          },
+          {
+            "actionId": "view_product_detail",
+            "controlIds": []
+          },
+          {
+            "actionId": "navigate_to_create",
+            "controlIds": []
+          }
+        ],
+        "information_items": [
+          {
+            "informationItemId": "product_list_items",
+            "controlIds": []
+          },
+          {
+            "informationItemId": "search_keyword",
+            "controlIds": []
+          },
+          {
+            "informationItemId": "category_filter",
+            "controlIds": []
+          },
+          {
+            "informationItemId": "status_filter",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "pageId": "product_create",
+      "page_key": "ProductCreate",
+      "preview_path": "/page/product-create",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [
+          {
+            "actionId": "submit_product_form",
+            "controlIds": []
+          },
+          {
+            "actionId": "cancel_product_create",
+            "controlIds": []
+          }
+        ],
+        "information_items": [
+          {
+            "informationItemId": "product_form_fields",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 6,
+  "configRevision": 2,
+  "appName": "商品管理应用",
+  "appIcon": "AppstoreOutlined",
+  "senario": "商品管理应用，用于展示商品的基础信息。\n\n## 商品信息：\n\n- 商品名称\n- 商品编码\n- 所属分类\n- 商品状态\n- 商品说明\n- 创建时间\n- 更新时间\n\n商品状态包括：\n\n- 上架\n- 下架\n\n## 页面信息\n\n系统仅包含以下两个页面，均只有展示功能：\n\n### 商品列表页\n\n用于查看商品列表。\n\n主要包含：\n\n- 商品列表展示\n- 商品搜索\n- 分类筛选\n- 商品状态筛选\n- 查看商品详情\n\n### 商品新增页\n\n用于通过表单新增商品。",
+  "repoUrl": "https://github.com/ruyue1/user-application",
+  "branchName": "v1_0",
+  "branchOverwriteConfirmed": true,
+  "terminal": "PC",
+  "layout": {
+    "type": "side",
+    "useHeader": true,
+    "useFooter": false
+  },
+  "theme": {
+    "primaryColor": "#6b3cf0"
+  },
+  "datasource": {
+    "type": "database"
+  },
+  "env": [],
+  "menus": {
+    "enable": true,
+    "rootPath": "/page",
+    "homeMenuKey": "",
+    "items": []
+  },
+  "apis": [],
+  "auth": {
+    "enable": false,
+    "yht": {
+      "clientId": "",
+      "privateKey": "",
+      "publicKey": "",
+      "centerPublicKey": "",
+      "centerUri": "http://one-account-gateway.paasuat.cmbchina.cn/auth-server",
+      "authorizeUri": "https://one-account-gateway.paasuat.cmbchina.cn/auth-server/auth",
+      "redirectUri": "http://localhost",
+      "endUrl": "https://one-account-gateway.paasuat.cmbchina.cn/auth-server/endsession",
+      "logoutShareJs": "https://one-account-gateway.paasuat.cmbchina.cn/logout-share/js/logoutShare.js"
+    }
+  },
+  "authorization": {
+    "enabled": false,
+    "initialAdministratorSubjects": []
+  },
+  "track": {
+    "enable": false,
+    "uploadId": "",
+    "apiHost": "",
+    "method": "post"
+  },
+  "apiTrack": {
+    "enable": false,
+    "businessId": "",
+    "traceBaggage": "",
+    "apiTrackHost": ""
+  },
+  "environment": {
+    "dev": [],
+    "prod": []
+  },
+  "database": {
+    "connectionMode": "dbid",
+    "schema": "",
+    "devDbid": "",
+    "prodDbid": "",
+    "host": "",
+    "port": "",
+    "username": "",
+    "password": ""
+  },
+  "branches": []
+}

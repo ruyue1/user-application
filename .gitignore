@@ -1,0 +1,12 @@
+.devagentstudio/runtime/
+.devagentstudio/cache/
+.devagentstudio/checkpoints/
+node_modules/
+dist/
+build/
+target/
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+Thumbs.db

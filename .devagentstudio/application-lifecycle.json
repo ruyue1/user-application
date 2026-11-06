@@ -1,0 +1,98 @@
+{
+  "application": {
+    "id": "1793949768172-jtenbl",
+    "name": "商品管理应用"
+  },
+  "updatedAt": "2026-11-06T08:06:32.999816Z",
+  "revision": 19,
+  "developmentArtifacts": {
+    "pages": {
+      "product_list": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "changeStatus": "unchanged",
+        "changeReason": null,
+        "checkedChangeId": null
+      },
+      "product_create": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "changeStatus": "unchanged",
+        "changeReason": null,
+        "checkedChangeId": null
+      }
+    },
+    "entities": {
+      "Product": {
+        "initialDevelopmentStatus": "pending",
+        "skippedAt": null,
+        "skipReason": null,
+        "completedBranchName": null
+      }
+    },
+    "endpoints": {
+      "product_api": {
+        "product_api.list": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "changeStatus": "unchanged",
+          "changeReason": null,
+          "checkedChangeId": null
+        },
+        "product_api.detail": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "changeStatus": "unchanged",
+          "changeReason": null,
+          "checkedChangeId": null
+        },
+        "product_api.create": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "changeStatus": "unchanged",
+          "changeReason": null,
+          "checkedChangeId": null
+        }
+      }
+    },
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "1cdacc98-55cf-4d78-a510-e1f4146ac187",
+    "iterationId": "9f8ceeb7-44d6-4003-85cc-37e35cf74a8a"
+  },
+  "activeRunId": "db5a8eba-11d1-4201-99f5-74bf318f523d",
+  "activeExecutions": {},
+  "endedExecutions": {},
+  "endedPlanningExecution": null,
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}

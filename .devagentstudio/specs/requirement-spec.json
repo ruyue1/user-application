@@ -1,0 +1,96 @@
+{
+  "version": "1.0.0",
+  "status": "draft",
+  "generated_at": "2026-11-06T08:03:54.982628+00:00",
+  "summary": "商品管理应用，用于展示商品的基础信息。支持商品列表查看、搜索、分类与状态筛选、商品详情查看以及通过表单新增商品。",
+  "source_request": "请为新应用「商品管理应用」完成需求、产品、UI（可跳过）和技术规划。；应用场景：商品管理应用，用于展示商品的基础信息。；## 商品信息：；商品名称；商品编码；所属分类；商品状态；商品说明；创建时间；更新时间；商品状态包括：；上架；下架；## 页面信息；系统仅包含以下两个页面，均只有展示功能：；### 商品列表页；用于查看商品列表。；主要包含：；商品列表展示；商品搜索；分类筛选；商品状态筛选；查看商品详情；### 商品新增页；用于通过表单新增商品。；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。；补充确认：业务角色为商品管理员",
+  "app_info": {
+    "name": "商品管理应用",
+    "summary": "商品管理应用，用于展示商品的基础信息。支持商品列表查看、搜索、分类与状态筛选、商品详情查看以及通过表单新增商品。",
+    "target": "PC",
+    "navigation_layout": "side",
+    "header_enabled": true,
+    "footer_enabled": false,
+    "route_root_path": "/page",
+    "menu_enabled": true
+  },
+  "user_roles": [
+    {
+      "name": "商品管理员",
+      "description": "负责商品信息管理的业务角色",
+      "id": "role_product_manager"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "商品管理",
+      "description": "商品信息的列表查看、搜索筛选与新增管理",
+      "priority": "must",
+      "id": "module_product_management"
+    }
+  ],
+  "pages": [
+    {
+      "name": "商品列表页",
+      "path": "/page/product-list",
+      "module_id": "module_product_management",
+      "description": "用于查看商品列表，支持商品搜索、分类筛选、商品状态筛选及查看商品详情",
+      "pageId": "product_list"
+    },
+    {
+      "name": "商品新增页",
+      "path": "/page/product/create",
+      "module_id": "module_product_management",
+      "description": "用于通过表单新增商品",
+      "pageId": "product_create"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "商品浏览流程",
+      "steps": [
+        "进入商品列表页查看商品列表",
+        "通过商品名称搜索商品",
+        "通过分类筛选商品",
+        "通过商品状态筛选商品",
+        "点击查看商品详情"
+      ],
+      "id": "flow_product_browse",
+      "description": "商品管理员在商品列表页浏览商品，通过搜索和筛选查找目标商品，查看商品详情"
+    },
+    {
+      "name": "商品新增流程",
+      "steps": [
+        "进入商品新增页",
+        "填写商品名称、商品编码、所属分类、商品状态、商品说明等商品信息",
+        "提交表单完成商品新增"
+      ],
+      "id": "flow_product_create",
+      "description": "商品管理员通过表单填写商品信息并提交新增商品"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "```json\n{\n  \"version\": \"1.0.0\",\n  \"status\": \"draft\",\n  \"generated_at\": \"2025-01-24T12:00:00Z\",\n  \"app_info\": {\n    \"name\": \"商品管理应用\",\n    \"summary\": \"商品管理应用，用于展示商品的基础信息。支持商品列表查看、搜索、分类与状态筛选、商品详情查看以及通过表单新增商品。\",\n    \"target\": \"PC\",\n    \"navigation_layout\": \"side\",\n    \"header_enabled\": true,\n    \"footer_enabled\": false,\n    \"route_root_path\": \"/\"\n  },\n  \"user_roles\": [\n    {\n      \"id\": \"role_product_manager\",\n      \"name\": \"商品管理员\",\n      \"description\": \"负责商品信息管理的业务角色\"\n    }\n  ],\n  \"feature_modules\": [\n    {\n      \"id\": \"module_product_management\",\n      \"name\": \"商品管理\",\n      \"description\": \"商品信息的列表查看、搜索筛选与新增管理\"\n    }\n  ],\n  \"pages\": [\n    {\n      \"pageId\": \"product_list\",\n      \"name\": \"商品列表页\",\n      \"path\": \"/\",\n      \"module_id\": \"module_product_management\",\n      \"description\": \"用于查看商品列表，支持商品搜索、分类筛选、商品状态筛选及查看商品详情\"\n    },\n    {\n      \"pageId\": \"product_create\",\n      \"name\": \"商品新增页\",\n      \"path\": \"/product/create\",\n      \"module_id\": \"module_product_management\",\n      \"description\": \"用于通过表单新增商品\"\n    }\n  ],\n  \"business_flows\": [\n    {\n      \"id\": \"flow_product_browse\",\n      \"name\": \"商品浏览流程\",\n      \"description\": \"商品管理员在商品列表页浏览商品，通过搜索和筛选查找目标商品，查看商品详情\",\n      \"steps\": [\n        \"进入商品列表页查看商品列表\",\n        \"通过商品名称搜索商品\",\n        \"通过分类筛选商品\",\n        \"通过商品状态筛选商品\",\n        \"点击查看商品详情\"\n      ]\n    },\n    {\n      \"id\": \"flow_product_create\",\n      \"name\": \"商品新增流程\",\n      \"description\": \"商品管理员通过表单填写商品信息并提交新增商品\",\n      \"steps\": [\n        \"进入商品新增页\",\n        \"填写商品名称、商品编码、所属分类、商品状态、商品说明等商品信息\",\n        \"提交表单完成商品新增\"\n      ]\n    }\n  ],\n  \"authentication_requirements\": {\n    \"enabled\": false,\n    \"sourceRefs\": []\n  },\n  \"authorization_requirements\": {\n    \"enabled\": false,\n    \"restrictedPages\": [],\n    \"restrictedOperations\": []\n  }\n}\n```",
+  "approved": true,
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "glm-5.2",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model",
+  "confirmation_status": "confirmed"
+}

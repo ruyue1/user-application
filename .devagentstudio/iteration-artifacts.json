@@ -1,0 +1,13 @@
+{
+  "rounds": [
+    {
+      "branch": "v1_0",
+      "designedPageIds": [],
+      "plannedPageIds": [
+        "product_list",
+        "product_create"
+      ]
+    }
+  ],
+  "schemaVersion": 2
+}
