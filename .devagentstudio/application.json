@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 3,
+  "configRevision": 6,
   "appName": "欢迎页",
   "appIcon": "AppstoreOutlined",
   "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
@@ -71,7 +71,200 @@
     "username": "",
     "password": ""
   },
-  "branches": [],
+  "branches": [
+    {
+      "name": "v1_0",
+      "createdAt": 1794281169287,
+      "lifecycle": {
+        "application": {
+          "id": "1794273154333-h8ogyo",
+          "name": "欢迎页"
+        },
+        "updatedAt": "2026-11-10T03:20:26.907972Z",
+        "revision": 32,
+        "developmentArtifacts": {
+          "pages": {
+            "hello_world": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-11-10T03:20:26.783613Z",
+              "completedRunId": "1e4bd3d8-c09b-416e-9b11-0ead50ef62e9",
+              "completedThreadId": "b0c7997a-392a-462c-a040-41f40adb4631",
+              "completedBranchName": "v1_0",
+              "changeStatus": "unchanged",
+              "changeReason": null,
+              "checkedChangeId": null
+            }
+          },
+          "entities": {},
+          "endpoints": {},
+          "catalogError": null,
+          "outOfScope": []
+        },
+        "initialization": {
+          "stage": "ready_for_workbench",
+          "status": "completed",
+          "threadId": "97ae6b2c-5887-415f-b6c7-02127f33113d",
+          "iterationId": "70ed43d1-f153-40ed-9b89-44048c646e4c"
+        },
+        "activeRunId": "1e4bd3d8-c09b-416e-9b11-0ead50ef62e9",
+        "activeExecutions": {
+          "1e4bd3d8-c09b-416e-9b11-0ead50ef62e9": {
+            "scope": "page",
+            "targetId": "hello_world",
+            "pageId": "hello_world",
+            "threadId": "b0c7997a-392a-462c-a040-41f40adb4631",
+            "ownerSessionId": "eb3a22e7-d0f3-48aa-9228-0f5d83c3ea1b",
+            "runId": "1e4bd3d8-c09b-416e-9b11-0ead50ef62e9",
+            "phase": "test_phase_confirmation",
+            "status": "awaiting_user",
+            "resourceKeys": [
+              "page:hello_world"
+            ],
+            "developmentPurpose": "initial",
+            "developmentTarget": {
+              "type": "page",
+              "entityId": null,
+              "pageId": "hello_world",
+              "apiContractId": null,
+              "endpointId": null
+            },
+            "pendingInteraction": {
+              "id": "interaction-b51654e6eae1e5a27a69d591",
+              "type": "test_phase_confirmation",
+              "basedOnRevision": 32,
+              "payload": {
+                "mode": "test_phase_confirmation",
+                "status": "requires_user_input",
+                "message": "代码生成与 Build 已完成，单元测试已跳过，确认后将进入测试阶段，执行测试与失败修复。",
+                "testEntryGate": {
+                  "allowed": true,
+                  "total": 1,
+                  "completed": 1,
+                  "pending": 0,
+                  "inProgress": 0,
+                  "blockers": [],
+                  "reason": null
+                },
+                "testTarget": {
+                  "type": "page",
+                  "id": "hello_world",
+                  "label": "Hello World展示页"
+                },
+                "questions": []
+              },
+              "artifactRefs": [],
+              "createdAt": "2026-11-10T03:20:26.907942Z",
+              "submittedAt": null
+            },
+            "error": null,
+            "startedAt": "2026-11-10T03:20:26.376128Z",
+            "updatedAt": "2026-11-10T03:20:26.907956Z"
+          }
+        },
+        "endedExecutions": {},
+        "endedPlanningExecution": null,
+        "resourceLocks": {
+          "application": null,
+          "pages": {
+            "hello_world": {
+              "runId": "1e4bd3d8-c09b-416e-9b11-0ead50ef62e9",
+              "ownerPageId": "hello_world",
+              "mode": "exclusive",
+              "role": "primary",
+              "reason": "primary_target",
+              "acquiredAt": "2026-11-10T03:20:26.376128Z"
+            }
+          },
+          "apiContracts": {},
+          "endpoints": {},
+          "dataSources": {}
+        },
+        "pendingRevisionImpact": null,
+        "activeFormalRevision": null,
+        "error": null,
+        "extensions": {
+          "testExecutionStatus": "pending",
+          "reviewStatus": "pending",
+          "acceptanceStatus": "pending",
+          "planningRefresh": {
+            "schemaVersion": "planning-refresh.v1",
+            "source": "none",
+            "status": "idle",
+            "message": "当前没有可恢复的 PendingPlan。"
+          },
+          "workbenchProgress": {
+            "1e4bd3d8-c09b-416e-9b11-0ead50ef62e9": {
+              "scope": "page",
+              "targetId": "hello_world",
+              "pageId": "hello_world",
+              "threadId": "b0c7997a-392a-462c-a040-41f40adb4631",
+              "ownerSessionId": "eb3a22e7-d0f3-48aa-9228-0f5d83c3ea1b",
+              "runId": "1e4bd3d8-c09b-416e-9b11-0ead50ef62e9",
+              "phase": "test_phase_confirmation",
+              "status": "awaiting_user",
+              "resourceKeys": [
+                "page:hello_world"
+              ],
+              "developmentPurpose": "initial",
+              "developmentTarget": {
+                "type": "page",
+                "entityId": null,
+                "pageId": "hello_world",
+                "apiContractId": null,
+                "endpointId": null
+              },
+              "pendingInteraction": {
+                "id": "interaction-b51654e6eae1e5a27a69d591",
+                "type": "test_phase_confirmation",
+                "basedOnRevision": 32,
+                "payload": {
+                  "mode": "test_phase_confirmation",
+                  "status": "requires_user_input",
+                  "message": "代码生成与 Build 已完成，单元测试已跳过，确认后将进入测试阶段，执行测试与失败修复。",
+                  "testEntryGate": {
+                    "allowed": true,
+                    "total": 1,
+                    "completed": 1,
+                    "pending": 0,
+                    "inProgress": 0,
+                    "blockers": [],
+                    "reason": null
+                  },
+                  "testTarget": {
+                    "type": "page",
+                    "id": "hello_world",
+                    "label": "Hello World展示页"
+                  },
+                  "questions": []
+                },
+                "artifactRefs": [],
+                "createdAt": "2026-11-10T03:20:26.907942Z",
+                "submittedAt": null
+              },
+              "error": null,
+              "startedAt": "2026-11-10T03:20:26.376128Z",
+              "updatedAt": "2026-11-10T03:20:26.907956Z"
+            }
+          },
+          "executionRecovery": {
+            "schemaVersion": "execution-recovery.v1",
+            "generatedAt": "2026-11-10T03:26:09.171998Z",
+            "candidates": [],
+            "error": null
+          }
+        },
+        "testEntryGate": {
+          "allowed": true,
+          "total": 1,
+          "completed": 1,
+          "pending": 0,
+          "inProgress": 0,
+          "blockers": [],
+          "reason": null
+        }
+      }
+    }
+  ],
   "repositoryBranch": {
     "branchName": "v1_0",
     "status": "pushed",
