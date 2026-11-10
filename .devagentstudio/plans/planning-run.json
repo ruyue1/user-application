@@ -1,0 +1,67 @@
+{
+  "planning_run_id": "planning-bf84237d697b41f38602b54c81277bf0",
+  "workflow_run_id": "dba9a6a2-3bc4-4e66-9e6a-e657c0e1b7bb",
+  "thread_id": "b0c7997a-392a-462c-a040-41f40adb4631",
+  "revision": 8,
+  "status": "active",
+  "phase": "persisting_pending",
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "hello_world"
+  },
+  "input_fingerprint": "4406d147cfe776f35a776d41833561745ad004d6a7b0470df14112aab787ab98",
+  "base_confirmed_plan_digest": null,
+  "required_unit_ids": [
+    "frontend:shell",
+    "page:hello_world"
+  ],
+  "unit_display_names": {
+    "frontend:shell": "前端应用环境",
+    "page:hello_world": "Hello World展示页页面"
+  },
+  "planning_unit_ids": [
+    "page:hello_world"
+  ],
+  "global_repair_round": 0,
+  "global_repair_limit": 2,
+  "global_issues": [],
+  "unit_states": {
+    "frontend:shell": {
+      "unit_id": "frontend:shell",
+      "kind": "frontend",
+      "participation": "prerequisite_only",
+      "generation_strategy": "prerequisite_only",
+      "generation_status": "not_required",
+      "generation_round": 1,
+      "attempt_in_round": 0,
+      "total_attempts": 0,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": null,
+      "candidate_task_count": 0,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "page:hello_world": {
+      "unit_id": "page:hello_world",
+      "kind": "page",
+      "participation": "generate_only",
+      "generation_strategy": "model",
+      "generation_status": "candidate_ready",
+      "generation_round": 1,
+      "attempt_in_round": 1,
+      "total_attempts": 1,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": "candidate-4e680061d74d47dab7f132dfec1f3511",
+      "candidate_task_count": 1,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    }
+  },
+  "started_at": "2026-11-10T03:19:58.598782Z",
+  "updated_at": "2026-11-10T03:20:05.230358Z",
+  "failure": null
+}

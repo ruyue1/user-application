@@ -1,0 +1,1 @@
+"--- a/frontend/src/constants/routes.tsx\n+++ b/frontend/src/constants/routes.tsx\n@@ -15,5 +15,9 @@\n     label: '首页',\n   },\n   // DEVAGENTSTUDIO_BUSINESS_ROUTES_START\n+  {\n+    path: \"hello_world\",\n+    label: \"Hello World展示页\",\n+  },\n   // DEVAGENTSTUDIO_BUSINESS_ROUTES_END\n ];\n"
