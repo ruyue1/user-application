@@ -1,0 +1,27 @@
+{
+  "pages": {
+    "hello_world": {
+      "definition": {
+        "actions": [],
+        "goal": "向用户展示固定的'欢迎来到我的世界'文本内容",
+        "information_items": [
+          {
+            "description": "页面展示的固定字符串'欢迎来到我的世界'",
+            "itemId": "hello_world_text",
+            "label": "欢迎文本"
+          }
+        ],
+        "navigation_targets": []
+      },
+      "requirement": {
+        "description": "展示写死的字符串'欢迎来到我的世界'的页面",
+        "module_id": "display_module",
+        "name": "欢迎展示页",
+        "pageId": "hello_world",
+        "path": "/page/hello-world"
+      }
+    }
+  },
+  "schemaVersion": 2,
+  "sourceBranch": "v1_1"
+}

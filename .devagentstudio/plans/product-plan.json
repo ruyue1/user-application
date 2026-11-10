@@ -1,21 +1,30 @@
 {
   "schema_version": "product-plan.v5",
   "version": "0.1.0",
-  "generated_at": "2026-11-10T01:15:18.530651+00:00",
-  "requirement_spec_sha256": "45ce76f0bdab4af8d4d0e06c45677e830a7ef694f6fff90ff4d5eb3ff7a33c65",
+  "generated_at": "2026-11-10T06:34:43.933958+00:00",
+  "requirement_spec_sha256": "e4cb7e0b55b993fd534890c1034ee6ccfb4e04c8d559e52ed085448bebd0ed46",
   "app": {
     "name": "欢迎页",
-    "summary": "一个简单的纯展示应用，在PC端展示写死的字符串'hello world'，采用侧边导航布局，启用页头，禁用页脚，无需后端API接口。"
+    "summary": "一个简单的纯展示应用，在PC端展示写死的字符串'hello world'和'欢迎!'，采用侧边导航布局，启用页头，禁用页脚，无需后端API接口。"
   },
   "business_flows": [
     {
       "name": "查看Hello World",
       "steps": [
-        "用户打开应用进入展示页",
+        "用户打开应用进入Hello World展示页",
         "页面展示写死的字符串'hello world'"
       ],
       "id": "view_hello_world",
       "description": "用户访问应用并查看hello world展示内容"
+    },
+    {
+      "name": "查看欢迎内容",
+      "steps": [
+        "用户打开应用进入欢迎展示页",
+        "页面展示写死的字符串'欢迎!'"
+      ],
+      "id": "view_greeting",
+      "description": "用户访问应用并查看欢迎展示内容"
     }
   ],
   "pages": [
@@ -23,7 +32,7 @@
       "pageId": "hello_world",
       "name": "Hello World展示页",
       "path": "/page/hello-world",
-      "module_id": "display",
+      "module_id": "display_module",
       "description": "展示写死的字符串'hello world'的页面",
       "goal": "向用户展示固定的'hello world'文本内容",
       "information_items": [
@@ -34,9 +43,37 @@
         }
       ],
       "actions": [],
-      "navigation_targets": [],
+      "navigation_targets": [
+        "greeting"
+      ],
       "acceptance_criteria": [
-        "页面加载完成后，用户能够看到固定的文本内容'hello world'"
+        "页面加载后立即展示固定的字符串'hello world'",
+        "页面内容为纯文本展示，不包含任何可交互的表单或按钮",
+        "用户可通过侧边导航栏切换到欢迎展示页"
+      ]
+    },
+    {
+      "pageId": "greeting",
+      "name": "欢迎展示页",
+      "path": "/page/greeting",
+      "module_id": "display_module",
+      "description": "展示写死的字符串'欢迎!'的页面",
+      "goal": "向用户展示固定的'欢迎!'文本内容",
+      "information_items": [
+        {
+          "itemId": "greeting_text",
+          "label": "欢迎文本",
+          "description": "页面展示的固定字符串'欢迎!'"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [
+        "hello_world"
+      ],
+      "acceptance_criteria": [
+        "页面加载后立即展示固定的字符串'欢迎!'",
+        "页面内容为纯文本展示，不包含任何可交互的表单或按钮",
+        "用户可通过侧边导航栏切换到Hello World展示页"
       ]
     }
   ],
@@ -45,7 +82,12 @@
     "operationRules": []
   },
   "product_acceptance_criteria": [
-    "应用启动后默认进入Hello World展示页，并正确显示'hello world'文本内容"
+    "应用采用侧边导航布局，页头启用，页脚禁用",
+    "应用包含两个纯展示页面：Hello World展示页和欢迎展示页",
+    "Hello World展示页展示固定的字符串'hello world'",
+    "欢迎展示页展示固定的字符串'欢迎!'",
+    "用户可通过侧边导航栏在Hello World展示页与欢迎展示页之间切换",
+    "两个展示页面均为纯展示页面，无需任何后端API接口即可完整呈现内容"
   ],
   "confirmation_status": "confirmed"
 }

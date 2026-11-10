@@ -8,6 +8,25 @@
       "plannedPageIds": [
         "hello_world"
       ]
+    },
+    {
+      "branch": "v1_1",
+      "designedPageIds": [
+        "hello_world"
+      ],
+      "plannedPageIds": [
+        "hello_world"
+      ]
+    },
+    {
+      "branch": "v1_2",
+      "designedPageIds": [
+        "hello_world"
+      ],
+      "plannedPageIds": [
+        "hello_world",
+        "greeting"
+      ]
     }
   ],
   "schemaVersion": 2
