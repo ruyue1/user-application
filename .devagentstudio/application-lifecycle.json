@@ -3,8 +3,8 @@
     "id": "1794273154333-h8ogyo",
     "name": "欢迎页"
   },
-  "updatedAt": "2026-11-10T07:08:16.817729Z",
-  "revision": 10,
+  "updatedAt": "2026-11-10T07:15:48.082071Z",
+  "revision": 9,
   "developmentArtifacts": {
     "pages": {
       "hello_world": {
@@ -36,10 +36,10 @@
   "initialization": {
     "stage": "awaiting_planning_stage_entry",
     "status": "awaiting_user",
-    "threadId": "0bf5cf8f-bb5a-474a-975c-59497365f7a1",
-    "iterationId": "0bf5cf8f-bb5a-474a-975c-59497365f7a1"
+    "threadId": "7dcb19d6-bf6b-41a8-9b8e-ebaea4a12510",
+    "iterationId": "7dcb19d6-bf6b-41a8-9b8e-ebaea4a12510"
   },
-  "activeRunId": "8641dda9-0bc8-42d1-a311-a724bcead510",
+  "activeRunId": "c4ef1e49-fb9b-412e-a06a-059710db55dc",
   "activeExecutions": {},
   "endedExecutions": {},
   "endedPlanningExecution": null,

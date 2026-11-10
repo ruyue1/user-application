@@ -1,11 +1,11 @@
 {
   "schema_version": "product-plan.v5",
   "version": "0.1.0",
-  "generated_at": "2026-11-10T07:07:32.471977+00:00",
-  "requirement_spec_sha256": "f454a0b886c68419c653b2987dfda41113db317b1563b574bf42a6e7c6523a67",
+  "generated_at": "2026-11-10T07:14:19.852363+00:00",
+  "requirement_spec_sha256": "46ab2c50ecfc616f1d3adeb89d3c6b06818e00eb348b7cab0432f6a296bac8fa",
   "app": {
     "name": "欢迎页",
-    "summary": "一个简单的纯展示应用，在PC端以侧边导航布局展示多条写死的文本内容（'hello world'、'欢迎!'、'早上好!'），启用页头、禁用页脚，所有页面均为纯前端展示，不依赖任何后端API接口。"
+    "summary": "一个简单的纯展示应用，在PC端展示写死的固定文本内容（'hello world'、'欢迎!'、'中午好!'），采用侧边导航布局，启用页头，禁用页脚，无需后端API接口。"
   },
   "business_flows": [
     {
@@ -27,14 +27,13 @@
       "description": "用户访问应用并查看欢迎展示内容"
     },
     {
-      "name": "查看早上好内容",
+      "name": "查看午间问候内容",
       "steps": [
-        "用户通过侧边导航进入早上好展示页",
-        "页面直接展示写死的字符串'早上好!'",
-        "页面不发起任何后端接口请求"
+        "用户在侧边导航中选择午间问候展示页",
+        "页面展示写死的字符串'中午好!'"
       ],
-      "id": "flow_view_morning_greeting",
-      "description": "用户访问应用并查看新增的早上好展示内容"
+      "id": "flow_view_noon_greeting",
+      "description": "用户访问应用并查看午间问候展示内容"
     }
   ],
   "pages": [
@@ -83,25 +82,25 @@
       ]
     },
     {
-      "pageId": "morning_greeting",
-      "name": "早上好展示页",
-      "path": "/page/morning-greeting",
+      "pageId": "noon_greeting",
+      "name": "午间问候展示页",
+      "path": "/page/noon-greeting",
       "module_id": "display_module",
-      "description": "展示写死的字符串'早上好!'的纯展示页面，无任何后端接口调用",
-      "goal": "向用户展示固定的'早上好!'文本内容",
+      "description": "展示写死的字符串'中午好!'的纯展示页面，不依赖任何后端API接口",
+      "goal": "向用户展示固定的'中午好!'文本内容",
       "information_items": [
         {
-          "itemId": "morning_greeting_text",
-          "label": "早上好文本",
-          "description": "页面中央展示的固定字符串'早上好!'"
+          "itemId": "noon_greeting_text",
+          "label": "午间问候文本",
+          "description": "页面中固定展示的字符串'中午好!'"
         }
       ],
       "actions": [],
       "navigation_targets": [],
       "acceptance_criteria": [
-        "页面加载后直接展示固定字符串'早上好!'",
-        "页面不发起任何后端接口请求",
-        "页面可通过侧边导航访问"
+        "页面加载后完整展示字符串'中午好!'",
+        "页面不依赖任何后端接口即可正常展示内容",
+        "用户可通过侧边导航进入本页面"
       ]
     }
   ],
@@ -110,10 +109,10 @@
     "operationRules": []
   },
   "product_acceptance_criteria": [
-    "应用在PC端以侧边导航布局展示，启用页头，禁用页脚",
-    "侧边导航包含Hello World展示页、欢迎展示页和早上好展示页三个入口",
-    "所有页面均为纯前端展示，不依赖任何后端API接口",
-    "每个页面正确展示对应的固定文本内容：'hello world'、'欢迎!'、'早上好!'"
+    "应用在PC端以侧边导航布局展示，页头启用、页脚禁用",
+    "侧边导航中可访问Hello World展示页、欢迎展示页和午间问候展示页",
+    "三个展示页分别完整展示固定字符串'hello world'、'欢迎!'和'中午好!'",
+    "所有展示页面均不依赖后端API接口即可正常展示内容"
   ],
   "confirmation_status": "confirmed"
 }

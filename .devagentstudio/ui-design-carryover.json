@@ -1,11 +1,21 @@
 {
   "pages": {
+    "greeting": {
+      "pageKey": "Greeting",
+      "templateId": "",
+      "templateSourcePath": ""
+    },
     "hello_world": {
       "pageKey": "HelloWorld",
+      "templateId": "",
+      "templateSourcePath": ""
+    },
+    "morning_greeting": {
+      "pageKey": "MorningGreeting",
       "templateId": "",
       "templateSourcePath": ""
     }
   },
   "schemaVersion": 1,
-  "sourceBranch": "v1_2"
+  "sourceBranch": "v1_3"
 }

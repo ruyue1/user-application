@@ -1,0 +1,1 @@
+{"baseline":{"action_bindings":[],"contracts":[],"entities":[]},"catalog":{"action_bindings":[],"contracts":[],"entities":[]},"issue":{"actionId":null,"kind":"initial_load","pageId":"hello_world","reason":"该页面为纯展示页面，展示写死的字符串“hello world”，无任何业务动作，也不需要后端接口；接口目录为空，页面初始加载无需调用任何接口，因此不存在接口能力缺口。","stepId":null}}
