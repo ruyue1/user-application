@@ -1,0 +1,45 @@
+{
+  "schema_version": "ui-manifest.v3",
+  "confirmation_status": "confirmed",
+  "product_plan_sha256": "bc19227ff15f989e8fdcb7379e5c0c6e2047eb969988ae3641807072b14fafe1",
+  "pages": [
+    {
+      "pageId": "hello_world",
+      "page_key": "HelloWorld",
+      "preview_path": "/page/hello-world",
+      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026111001/.devagentstudio/ui-design/pages/HelloWorld/index.tsx",
+      "status": "confirmed",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "hello_world_text",
+            "controlIds": [
+              "hello_world_text-display"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "passed",
+        "code_sha256": "6a6e55d47a7e38ee735c467c72ebe69b84845655dd022263e45fd550892b0c76",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      },
+      "code_sha256": "6a6e55d47a7e38ee735c467c72ebe69b84845655dd022263e45fd550892b0c76"
+    }
+  ]
+}
