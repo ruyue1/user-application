@@ -1,0 +1,1 @@
+"--- a/frontend/pnpm-workspace.yaml\n+++ b/frontend/pnpm-workspace.yaml\n@@ -1,5 +1,7 @@\n packages:\n   - '.'\n+overrides:\n+  form-data: 4.0.5\n allowBuilds:\n   core-js: false\n   esbuild: true\n"

@@ -1,5 +1,7 @@
 packages:
   - '.'
+overrides:
+  form-data: 4.0.5
 allowBuilds:
   core-js: false
   esbuild: true
