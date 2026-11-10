@@ -1,11 +1,11 @@
 {
   "schemaVersion": 6,
-  "configRevision": 10,
+  "configRevision": 12,
   "appName": "欢迎页",
   "appIcon": "AppstoreOutlined",
   "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
   "repoUrl": "https://github.com/ruyue1/user-application",
-  "branchName": "v1_2",
+  "branchName": "v1_3",
   "branchOverwriteConfirmed": true,
   "terminal": "PC",
   "layout": {
@@ -288,7 +288,111 @@
           "id": "1794273154333-h8ogyo",
           "name": "欢迎页"
         },
-        "updatedAt": "2026-11-10T06:32:56.789571Z",
+        "updatedAt": "2026-11-10T06:49:41.724847Z",
+        "revision": 48,
+        "developmentArtifacts": {
+          "pages": {
+            "hello_world": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-11-10T03:20:26.783613Z",
+              "completedRunId": "1e4bd3d8-c09b-416e-9b11-0ead50ef62e9",
+              "completedThreadId": "b0c7997a-392a-462c-a040-41f40adb4631",
+              "completedBranchName": "v1_0",
+              "changeStatus": "unchanged",
+              "changeReason": null,
+              "checkedChangeId": null
+            },
+            "greeting": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-11-10T06:43:57.467358Z",
+              "completedRunId": "7b468777-17ac-49ea-9b7f-0c872495da10",
+              "completedThreadId": "0cb320f1-23ad-4d76-8b2b-e11e3795443d",
+              "completedBranchName": "v1_2",
+              "changeStatus": "unchanged",
+              "changeReason": null,
+              "checkedChangeId": null
+            }
+          },
+          "entities": {},
+          "endpoints": {},
+          "catalogError": null,
+          "outOfScope": [
+            "page:hello_world"
+          ]
+        },
+        "initialization": {
+          "stage": "ready_for_workbench",
+          "status": "completed",
+          "threadId": "ea7b30ea-0f56-4b23-9118-a5b8beb7f303",
+          "iterationId": "73fbc63a-5fd2-4f68-a625-ab31848b5bc4"
+        },
+        "activeRunId": null,
+        "activeExecutions": {},
+        "endedExecutions": {},
+        "endedPlanningExecution": null,
+        "resourceLocks": {
+          "application": null,
+          "pages": {},
+          "apiContracts": {},
+          "endpoints": {},
+          "dataSources": {}
+        },
+        "pendingRevisionImpact": null,
+        "activeFormalRevision": null,
+        "error": null,
+        "extensions": {
+          "testExecutionStatus": "passed",
+          "reviewStatus": "passed",
+          "acceptanceStatus": "passed",
+          "planningRefresh": {
+            "schemaVersion": "planning-refresh.v1",
+            "source": "none",
+            "status": "idle",
+            "message": "当前没有可恢复的 PendingPlan。"
+          },
+          "executionRecovery": {
+            "schemaVersion": "execution-recovery.v1",
+            "generatedAt": "2026-11-10T06:45:19.570287Z",
+            "candidates": [],
+            "error": null
+          }
+        },
+        "testEntryGate": {
+          "allowed": true,
+          "total": 2,
+          "completed": 2,
+          "pending": 0,
+          "inProgress": 0,
+          "blockers": [],
+          "reason": null
+        }
+      },
+      "description": "Z000000-0000 #comment chore: 新增了一个展示欢迎语的页面并接入页面导航，同时优化了前后端数据交互的跨域支持与异常提示，提升页面访问和问题反馈体验。",
+      "artifactSummary": {
+        "pageIds": [
+          "工作台"
+        ],
+        "deployableScript": "deploy-v1_2.sh"
+      },
+      "snapshot": {
+        "pageIds": [
+          "工作台"
+        ]
+      },
+      "gitRef": {
+        "commitSha": "4b909c239d348424129db74edeb766a34d12aca4",
+        "committedAt": 1794293524894
+      }
+    },
+    {
+      "name": "v1_3",
+      "createdAt": 1794294386724,
+      "lifecycle": {
+        "application": {
+          "id": "1794273154333-h8ogyo",
+          "name": "欢迎页"
+        },
+        "updatedAt": "2026-11-10T07:06:26.721910Z",
         "revision": 1,
         "developmentArtifacts": {
           "pages": {
@@ -298,6 +402,16 @@
               "completedRunId": "1e4bd3d8-c09b-416e-9b11-0ead50ef62e9",
               "completedThreadId": "b0c7997a-392a-462c-a040-41f40adb4631",
               "completedBranchName": "v1_0",
+              "changeStatus": "unchanged",
+              "changeReason": null,
+              "checkedChangeId": null
+            },
+            "greeting": {
+              "initialDevelopmentStatus": "completed",
+              "completedAt": "2026-11-10T06:43:57.467358Z",
+              "completedRunId": "7b468777-17ac-49ea-9b7f-0c872495da10",
+              "completedThreadId": "0cb320f1-23ad-4d76-8b2b-e11e3795443d",
+              "completedBranchName": "v1_2",
               "changeStatus": "unchanged",
               "changeReason": null,
               "checkedChangeId": null
@@ -311,10 +425,10 @@
         "initialization": {
           "stage": "collecting_requirement",
           "status": "awaiting_user",
-          "threadId": "73fbc63a-5fd2-4f68-a625-ab31848b5bc4",
-          "iterationId": "73fbc63a-5fd2-4f68-a625-ab31848b5bc4"
+          "threadId": "0bf5cf8f-bb5a-474a-975c-59497365f7a1",
+          "iterationId": "0bf5cf8f-bb5a-474a-975c-59497365f7a1"
         },
-        "activeRunId": "3506474d-4359-4f69-946e-d3864f9c9674",
+        "activeRunId": "fc21e6f4-aa06-494e-a6ac-ba7f25cd986a",
         "activeExecutions": {},
         "endedExecutions": {},
         "endedPlanningExecution": null,
@@ -331,8 +445,8 @@
         "extensions": {},
         "testEntryGate": {
           "allowed": false,
-          "total": 1,
-          "completed": 1,
+          "total": 2,
+          "completed": 2,
           "pending": 0,
           "inProgress": 0,
           "blockers": [],
@@ -347,5 +461,14 @@
     "commitSha": "e7e1390b60392374f72d1102b5003bb319c7a614",
     "message": "",
     "updatedAt": 1794292890988
-  }
+  },
+  "id": "1794273154333-h8ogyo",
+  "workspaceRoot": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026111001",
+  "name": "欢迎页",
+  "lastOpenedAt": 1794290710904,
+  "source": "existing-workspace",
+  "pages": [
+    "工作台"
+  ],
+  "defaultPage": "工作台"
 }

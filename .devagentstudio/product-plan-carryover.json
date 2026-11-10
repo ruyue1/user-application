@@ -1,27 +1,52 @@
 {
   "pages": {
-    "hello_world": {
+    "greeting": {
       "definition": {
         "actions": [],
-        "goal": "向用户展示固定的'欢迎来到我的世界'文本内容",
+        "goal": "向用户展示固定的'欢迎!'文本内容",
         "information_items": [
           {
-            "description": "页面展示的固定字符串'欢迎来到我的世界'",
-            "itemId": "hello_world_text",
+            "description": "页面展示的固定字符串'欢迎!'",
+            "itemId": "greeting_text",
             "label": "欢迎文本"
           }
         ],
-        "navigation_targets": []
+        "navigation_targets": [
+          "hello_world"
+        ]
       },
       "requirement": {
-        "description": "展示写死的字符串'欢迎来到我的世界'的页面",
+        "description": "展示写死的字符串'欢迎!'的页面",
         "module_id": "display_module",
         "name": "欢迎展示页",
+        "pageId": "greeting",
+        "path": "/page/greeting"
+      }
+    },
+    "hello_world": {
+      "definition": {
+        "actions": [],
+        "goal": "向用户展示固定的'hello world'文本内容",
+        "information_items": [
+          {
+            "description": "页面展示的固定字符串'hello world'",
+            "itemId": "hello_world_text",
+            "label": "Hello World文本"
+          }
+        ],
+        "navigation_targets": [
+          "greeting"
+        ]
+      },
+      "requirement": {
+        "description": "展示写死的字符串'hello world'的页面",
+        "module_id": "display_module",
+        "name": "Hello World展示页",
         "pageId": "hello_world",
         "path": "/page/hello-world"
       }
     }
   },
   "schemaVersion": 2,
-  "sourceBranch": "v1_1"
+  "sourceBranch": "v1_2"
 }

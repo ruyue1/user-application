@@ -27,6 +27,19 @@
         "hello_world",
         "greeting"
       ]
+    },
+    {
+      "branch": "v1_3",
+      "designedPageIds": [
+        "hello_world",
+        "greeting",
+        "morning_greeting"
+      ],
+      "plannedPageIds": [
+        "hello_world",
+        "greeting",
+        "morning_greeting"
+      ]
     }
   ],
   "schemaVersion": 2

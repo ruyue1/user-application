@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "f0a4c6cb7ff1ab48d1d4d5032e6cfe8fc163c8f21e5a910d26d57ecf7c4dc9d7",
+  "product_plan_sha256": "2c411d0f7b8d2dbc6d92f9dd7ecfa69a075cec8f03236e4193456fc7f337dfd2",
   "pages": [
     {
       "pageId": "hello_world",
@@ -45,20 +45,22 @@
       "pageId": "greeting",
       "page_key": "Greeting",
       "preview_path": "/page/greeting",
-      "code_path": "",
-      "status": "pending",
+      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026111001/.devagentstudio/ui-design/pages/Greeting/index.tsx",
+      "status": "confirmed",
       "bindings": {
         "actions": [],
         "information_items": [
           {
             "informationItemId": "greeting_text",
-            "controlIds": []
+            "controlIds": [
+              "greeting_text-display"
+            ]
           }
         ]
       },
       "verification": {
-        "status": "pending",
-        "code_sha256": "",
+        "status": "passed",
+        "code_sha256": "9179f74c607de96f71173e80a3e7a0f6087554ac4863df3014b0705c9028bf44",
         "checks": [
           {
             "id": "product-action-bindings",
@@ -66,7 +68,7 @@
           },
           {
             "id": "product-information-bindings",
-            "status": "failed"
+            "status": "passed"
           },
           {
             "id": "no-unowned-business-ui",
@@ -74,7 +76,46 @@
           }
         ],
         "errors": []
-      }
+      },
+      "code_sha256": "9179f74c607de96f71173e80a3e7a0f6087554ac4863df3014b0705c9028bf44"
+    },
+    {
+      "pageId": "morning_greeting",
+      "page_key": "MorningGreeting",
+      "preview_path": "/page/morning-greeting",
+      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026111001/.devagentstudio/ui-design/pages/MorningGreeting/index.tsx",
+      "status": "confirmed",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "morning_greeting_text",
+            "controlIds": [
+              "morning_greeting_text-display"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "passed",
+        "code_sha256": "5ca06f1b340ad960da8d6d56c9be53438ed563c7a6f1359dbfafd1e5c6a56e2a",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      },
+      "code_sha256": "5ca06f1b340ad960da8d6d56c9be53438ed563c7a6f1359dbfafd1e5c6a56e2a"
     }
   ]
 }
