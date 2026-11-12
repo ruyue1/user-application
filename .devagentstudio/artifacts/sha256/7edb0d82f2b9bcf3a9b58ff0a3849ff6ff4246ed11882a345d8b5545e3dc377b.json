@@ -1,0 +1,1 @@
+{"fields":[{"description":"后端系统当前时间，通过 /api/hi 接口返回，用于在页面中展示","label":"当前时间","name":"current_time","required":true,"type":"datetime"}]}

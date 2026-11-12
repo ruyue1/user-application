@@ -1,0 +1,1 @@
+{"endpoints":[{"id":"system_time.get_time","method":"GET","name":"获取系统时间","path":"/api/hi","summary":"返回后端系统当前时间，用于在页面中展示于问候字符串下方"}]}

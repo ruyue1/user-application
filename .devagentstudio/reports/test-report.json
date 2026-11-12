@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "generated_at": "2026-11-12T11:18:13.884244+00:00",
+  "generated_at": "2026-11-12T12:24:27.995444+00:00",
   "passed": true,
   "checks": [
     {
@@ -24,13 +24,13 @@
         "returncode": 0,
         "timed_out": false,
         "error": null,
-        "started_at": "2026-11-12T11:18:01.108510+00:00",
-        "finished_at": "2026-11-12T11:18:06.890628+00:00",
+        "started_at": "2026-11-12T12:24:11.032148+00:00",
+        "finished_at": "2026-11-12T12:24:14.163482+00:00",
         "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026111213/.devagentstudio/runtime/tests/frontend_install/stdout.log",
         "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026111213/.devagentstudio/runtime/tests/frontend_install/stderr.log",
         "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stdout.log",
         "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stderr.log",
-        "stdout_tail": "Already up to date\nDone in 230ms using pnpm v11.9.0\n",
+        "stdout_tail": "Already up to date\nDone in 226ms using pnpm v11.9.0\n",
         "stderr_tail": "",
         "nodeRuntime": {
           "path": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/node",
@@ -61,13 +61,13 @@
         "returncode": 0,
         "timed_out": false,
         "error": null,
-        "started_at": "2026-11-12T11:18:06.891149+00:00",
-        "finished_at": "2026-11-12T11:18:11.076946+00:00",
+        "started_at": "2026-11-12T12:24:14.164030+00:00",
+        "finished_at": "2026-11-12T12:24:18.468393+00:00",
         "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026111213/.devagentstudio/runtime/tests/frontend_build/stdout.log",
         "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026111213/.devagentstudio/runtime/tests/frontend_build/stderr.log",
         "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stdout.log",
         "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stderr.log",
-        "stdout_tail": "  Rsbuild v1.0.14\n\nready   Built in 0.97 s (web)\nwarn    Compile Warning: \n⚠ Unknown at rule: @theme at static/css/index.8fc59cd2.css:2:7\n\n⚠ Unknown at rule: @theme at static/css/530.dad43946.css:2:9\n\n⚠ Unknown at rule: @theme at static/css/530.dad43946.css:6:9\n\n⚠ Unknown at rule: @tailwind at static/css/530.dad43946.css:325:12\n\n\n  File (web)                                Size         Gzip    \n  build/static/js/async/923.110ef26e.js     0.38 kB      0.30 kB\n  build/static/js/async/380.4aec0a7e.js     0.47 kB      0.30 kB\n  build/index.html                          0.92 kB      0.46 kB\n  build/static/css/index.8fc59cd2.css       2.2 kB       0.58 kB\n  build/static/svg/icon20.232d197f.svg      4.7 kB       2.1 kB\n  build/static/js/lib-router.8af4ada6.js    19.9 kB      7.3 kB\n  build/static/css/530.dad43946.css         23.1 kB      5.9 kB\n  build/static/js/index.27447206.js         57.9 kB      19.2 kB\n  build/static/js/async/953.7c1dce99.js     63.8 kB      19.1 kB\n  build/static/js/lib-react.01625cc3.js     140.3 kB     45.1 kB\n  build/static/js/530.661115a8.js           1414.8 kB    362.4 kB\n\n  Total: 1728.4 kB (gzip: 462.8 kB)\n\n",
+        "stdout_tail": "  Rsbuild v1.0.14\n\nready   Built in 1.02 s (web)\nwarn    Compile Warning: \n⚠ Unknown at rule: @theme at static/css/index.8fc59cd2.css:2:7\n\n⚠ Unknown at rule: @theme at static/css/530.dad43946.css:2:9\n\n⚠ Unknown at rule: @theme at static/css/530.dad43946.css:6:9\n\n⚠ Unknown at rule: @tailwind at static/css/530.dad43946.css:325:12\n\n\n  File (web)                                     Size         Gzip    \n  build/static/js/async/923.110ef26e.js          0.38 kB      0.30 kB\n  build/static/js/async/380.4aec0a7e.js          0.47 kB      0.30 kB\n  build/index.html                               0.92 kB      0.46 kB\n  build/static/css/index.8fc59cd2.css            2.2 kB       0.58 kB\n  build/static/js/async/970.61c633ae.js          2.5 kB       1.2 kB\n  build/static/svg/icon20.232d197f.svg           4.7 kB       2.1 kB\n  build/static/js/async/144.a2c148c7.js          13.7 kB      4.9 kB\n  build/static/js/lib-router.8af4ada6.js         19.9 kB      7.3 kB\n  build/static/css/530.dad43946.css              23.1 kB      5.9 kB\n  build/static/js/async/lib-axios.5076e218.js    50.5 kB      18.5 kB\n  build/static/js/index.a537aa9d.js              58.0 kB      19.3 kB\n  build/static/js/async/953.7c1dce99.js          63.8 kB      19.1 kB\n  build/static/js/lib-react.01625cc3.js          140.3 kB     45.1 kB\n  build/static/js/530.661115a8.js                1414.8 kB    362.4 kB\n\n  Total: 1795.2 kB (gzip: 487.6 kB)\n\n",
         "stderr_tail": "$ tsc -b && rsbuild build\n",
         "nodeRuntime": {
           "path": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/node",
@@ -85,7 +85,7 @@
       "skipped": true,
       "required": false,
       "command": null,
-      "evidence": "应用无后端业务实体与 API 契约，跳过后端检查。",
+      "evidence": "本地调试模式：跳过后端构建检查（无 Java 环境）。",
       "failure_category": null,
       "execution": {
         "tool": "none",
@@ -106,7 +106,7 @@
       "skipped": true,
       "required": false,
       "command": null,
-      "evidence": "应用无后端业务实体与 API 契约，跳过后端启动检查。",
+      "evidence": "本地调试模式：跳过后端启动检查（无 Java 环境）。",
       "failure_category": null,
       "execution": {
         "tool": "none",
@@ -117,7 +117,7 @@
         "stdout_log": null,
         "stderr_log": null
       },
-      "source_fingerprint": "a0940501bc929ea658ce3aa4354c694463afd2a2f4131919f891a3ca0699a370"
+      "source_fingerprint": "4491e6fbee99dfed0c8b35446902c0cba29d32ff28701a939685a6fe98739472"
     },
     {
       "id": "backend_static_check",
@@ -128,7 +128,7 @@
       "skipped": true,
       "required": false,
       "command": null,
-      "evidence": "应用无后端业务实体与 API 契约，跳过后端检查。",
+      "evidence": "本地调试模式：跳过后端构建检查（无 Java 环境）。",
       "failure_category": null,
       "execution": {
         "tool": "none",

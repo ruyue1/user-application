@@ -1,0 +1,1 @@
+{"pageId":"hi_time","references":{"action_implementations":[],"endpoint_dependencies":[{"endpoint_id":"system_time.get_time","required_for_initial_load":true,"trigger":"页面初始加载","usage":"获取后端系统当前时间，展示在问候字符串\"你好\"下方"}]}}

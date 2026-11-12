@@ -1,0 +1,1121 @@
+{
+  "schema_version": "build-dag.v4",
+  "application": {
+    "unit_id": "application:root",
+    "status": "prepared"
+  },
+  "build_units": {
+    "application:root": {
+      "id": "application:root",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:shell": {
+      "id": "frontend:shell",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {},
+      "generation_strategy": "prerequisite_only",
+      "participation": "prerequisite_only",
+      "generation_status": "not_required"
+    },
+    "frontend:api-client": {
+      "id": "frontend:api-client",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:auth-guard": {
+      "id": "frontend:auth-guard",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:bootstrap": {
+      "id": "backend:bootstrap",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "backend_bootstrap",
+        "target": {
+          "type": "endpoint",
+          "id": "system_time.get_time",
+          "api_contract_id": "system_time"
+        },
+        "endpoint_ids": [
+          "system_time.get_time"
+        ],
+        "entity_ids": [
+          "system_time"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "a6eb0981403946d3a131e69b11eff32b",
+            "apiContractId": "system_time",
+            "endpointId": "system_time.get_time",
+            "endpointContract": {
+              "id": "system_time.get_time",
+              "name": "获取系统时间",
+              "method": "GET",
+              "path": "/api/hi",
+              "summary": "返回后端系统当前时间，用于在页面中展示于问候字符串下方",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "SystemTimeResponse",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "current_time": "2024-06-03 14:27:35"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "current_time",
+                  "type": "string",
+                  "required": true,
+                  "description": "后端系统当前时间，用于在页面中展示于问候字符串下方"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "current_time",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "3212a79ac70b7b6b48accb253a2f6d80ba15662f961788bed87859235eb111c0"
+              }
+            ],
+            "confirmedAt": "2026-11-12T12:21:21.175513Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.current_time → response.response_body.current_time"
+        ],
+        "source_types": [
+          "static"
+        ]
+      },
+      "input_fingerprint": "122c15fd60320068ae8ad90bcca3f8c083ba6e7d7e8dba471bc5c3f83566f5fa"
+    },
+    "app:integration": {
+      "id": "app:integration",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:module:system_time": {
+      "id": "backend:module:system_time",
+      "kind": "backend",
+      "api_contract_id": "system_time",
+      "status": "prepared",
+      "task_ids": [
+        "backend:module:system_time::system_time.get_time::business",
+        "backend:module:system_time::69fd03b276c1d322::controller"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "technical_plan_module",
+        "target": {
+          "type": "module",
+          "id": "system_time",
+          "api_contract_id": "system_time"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "system_time.get_time",
+            "api_contract_id": "system_time"
+          }
+        ],
+        "endpoint_ids": [
+          "system_time.get_time"
+        ],
+        "entity_ids": [
+          "system_time"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "a6eb0981403946d3a131e69b11eff32b",
+            "apiContractId": "system_time",
+            "endpointId": "system_time.get_time",
+            "endpointContract": {
+              "id": "system_time.get_time",
+              "name": "获取系统时间",
+              "method": "GET",
+              "path": "/api/hi",
+              "summary": "返回后端系统当前时间，用于在页面中展示于问候字符串下方",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "SystemTimeResponse",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "current_time": "2024-06-03 14:27:35"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "current_time",
+                  "type": "string",
+                  "required": true,
+                  "description": "后端系统当前时间，用于在页面中展示于问候字符串下方"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "current_time",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "3212a79ac70b7b6b48accb253a2f6d80ba15662f961788bed87859235eb111c0"
+              }
+            ],
+            "confirmedAt": "2026-11-12T12:21:21.175513Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.current_time → response.response_body.current_time"
+        ],
+        "source_types": [
+          "static"
+        ],
+        "business_descriptions": []
+      },
+      "input_fingerprint": "331ef849a3cdf8c3dc699baef6eeaf6db85bb9c24420d504829507b0c17df869"
+    },
+    "page:hello_world": {
+      "id": "page:hello_world",
+      "kind": "page",
+      "page_id": "hello_world",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "page:hi_time": {
+      "id": "page:hi_time",
+      "kind": "page",
+      "page_id": "hi_time",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    }
+  },
+  "unit_graph": {
+    "schema_version": "build-unit-graph.v3",
+    "nodes": [
+      "application:root",
+      "frontend:shell",
+      "frontend:api-client",
+      "frontend:auth-guard",
+      "backend:bootstrap",
+      "app:integration",
+      "backend:module:system_time",
+      "page:hello_world",
+      "page:hi_time"
+    ],
+    "edges": [
+      {
+        "from": "application:root",
+        "to": "frontend:shell",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:api-client",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:auth-guard",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:bootstrap",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:system_time",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:system_time",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:system_time",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:hello_world",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:hello_world",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:hello_world",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:system_time",
+        "to": "page:hello_world",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:hello_world",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:hi_time",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:hi_time",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:hi_time",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:system_time",
+        "to": "page:hi_time",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:hi_time",
+        "to": "app:integration",
+        "type": "depends_on"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "unit_skeleton": {
+    "input_fingerprint": "a63cdc778190fe91293e5eb04ae015861696bb6aab6c17f2c6ba953136f3913a",
+    "project_plan_version": null,
+    "workspace_revision": "529fa6183c967101d73d3c7b",
+    "reused": false
+  },
+  "task_registry": {
+    "backend:module:system_time::system_time.get_time::business": {
+      "id": "backend:module:system_time::system_time.get_time::business",
+      "unit_id": "backend:module:system_time",
+      "owner": "backend",
+      "task_type": "backend.code",
+      "title": "接口业务实现 · 系统时间查询业务逻辑",
+      "description": "1. 系统时间查询响应 DTO（对应契约 response_schema_ref=SystemTimeResponse）。\n字段：currentTime（String，契约 path=current_time，required=true，非空），通过 @JsonProperty(\"current_time\") 保证响应体字段名为 current_time。\n仅作为响应数据容器，不承载取值逻辑。（backend/src/main/java/com/cmbchina/backend/system/application/dto/SystemTimeResponse.java）\n2. 系统时间模块共享应用服务，本任务只新增本端点方法。\n接口/方法：SystemTimeResponse getCurrentTime()。\n处理逻辑：按已确认字段映射，响应字段 current_time 来源于契约 staticData 中的固定字符串 \"2024-06-03 14:27:35\"（sourceBinding.sourceType=static，sourceFields[0].path=current_time，processingType=direct），直接赋值到 SystemTimeResponse.currentTime。\n边界约束：该端点无数据库读写、无外部 API 调用，不注入 Repository/Mapper/Feign Client；不得以运行期当前时间、默认值或猜测值替代契约固定值；静态源缺失时按 missingBehavior=error 处理，契约 error_codes 为空，故不新增模块错误码枚举，直接沿用现有异常与全局异常处理。（backend/src/main/java/com/cmbchina/backend/system/application/service/SystemTimeApplicationService.java）",
+      "dependencies": [],
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/system/application/dto/SystemTimeResponse.java",
+        "backend/src/main/java/com/cmbchina/backend/system/application/service/SystemTimeApplicationService.java"
+      ],
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/system/application/dto/SystemTimeResponse.java",
+        "backend/src/main/java/com/cmbchina/backend/system/application/service/SystemTimeApplicationService.java"
+      ],
+      "change_scope": [
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/system/application/dto/SystemTimeResponse.java",
+          "operation": "add",
+          "description": "系统时间查询响应 DTO（对应契约 response_schema_ref=SystemTimeResponse）。\n字段：currentTime（String，契约 path=current_time，required=true，非空），通过 @JsonProperty(\"current_time\") 保证响应体字段名为 current_time。\n仅作为响应数据容器，不承载取值逻辑。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/system/application/service/SystemTimeApplicationService.java",
+          "operation": "add",
+          "description": "系统时间模块共享应用服务，本任务只新增本端点方法。\n接口/方法：SystemTimeResponse getCurrentTime()。\n处理逻辑：按已确认字段映射，响应字段 current_time 来源于契约 staticData 中的固定字符串 \"2024-06-03 14:27:35\"（sourceBinding.sourceType=static，sourceFields[0].path=current_time，processingType=direct），直接赋值到 SystemTimeResponse.currentTime。\n边界约束：该端点无数据库读写、无外部 API 调用，不注入 Repository/Mapper/Feign Client；不得以运行期当前时间、默认值或猜测值替代契约固定值；静态源缺失时按 missingBehavior=error 处理，契约 error_codes 为空，故不新增模块错误码枚举，直接沿用现有异常与全局异常处理。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:module:system_time::system_time.get_time::business::deliverable:1",
+          "kind": "backend.application_service",
+          "target_id": "system_time.get_time",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/system/application/service/SystemTimeApplicationService.java"
+          ],
+          "provides": [
+            "backend.application_service:system_time:system_time.get_time"
+          ]
+        },
+        {
+          "id": "backend:module:system_time::system_time.get_time::business::deliverable:2",
+          "kind": "backend.objects",
+          "target_id": "system_time.get_time",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/system/application/dto/SystemTimeResponse.java"
+          ],
+          "provides": [
+            "backend.endpoint.objects:system_time:system_time.get_time"
+          ]
+        }
+      ],
+      "impact_scope": {
+        "summary": "接口业务实现 · 系统时间查询业务逻辑",
+        "affected_modules": [
+          "system_time"
+        ],
+        "public_contracts": [],
+        "risks": []
+      },
+      "can_run_in_parallel": true,
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "status": "pending",
+      "source_refs": {
+        "type": "technical_plan_module",
+        "target": {
+          "type": "module",
+          "id": "system_time",
+          "api_contract_id": "system_time"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "system_time.get_time",
+            "api_contract_id": "system_time"
+          }
+        ],
+        "endpoint_ids": [
+          "system_time.get_time"
+        ],
+        "entity_ids": [
+          "system_time"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "a6eb0981403946d3a131e69b11eff32b",
+            "apiContractId": "system_time",
+            "endpointId": "system_time.get_time",
+            "endpointContract": {
+              "id": "system_time.get_time",
+              "name": "获取系统时间",
+              "method": "GET",
+              "path": "/api/hi",
+              "summary": "返回后端系统当前时间，用于在页面中展示于问候字符串下方",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "SystemTimeResponse",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "current_time": "2024-06-03 14:27:35"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "current_time",
+                  "type": "string",
+                  "required": true,
+                  "description": "后端系统当前时间，用于在页面中展示于问候字符串下方"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "current_time",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "3212a79ac70b7b6b48accb253a2f6d80ba15662f961788bed87859235eb111c0"
+              }
+            ],
+            "confirmedAt": "2026-11-12T12:21:21.175513Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.current_time → response.response_body.current_time"
+        ],
+        "source_types": [],
+        "business_descriptions": [],
+        "backend_stage": "business",
+        "foundation_paths": []
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:module:system_time"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [
+        "backend:bootstrap"
+      ],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:module:system_time::system_time.get_time::business:file_operation:c53bc4ec457c",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/system/application/dto/SystemTimeResponse.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/system/application/dto/SystemTimeResponse.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:system_time::system_time.get_time::business:file_operation:486bef3fe3af",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/system/application/service/SystemTimeApplicationService.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/system/application/service/SystemTimeApplicationService.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:system_time::system_time.get_time::business:scope_boundary:bcb60136673e",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/system/application/dto/SystemTimeResponse.java",
+            "backend/src/main/java/com/cmbchina/backend/system/application/service/SystemTimeApplicationService.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/src/main/java/com/cmbchina/backend/system/application/dto/SystemTimeResponse.java",
+              "backend/src/main/java/com/cmbchina/backend/system/application/service/SystemTimeApplicationService.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:backend:module:system_time::system_time.get_time::business:backend.objects_contract:8e5c999bbd71fc86",
+          "deliverable_id": "backend:module:system_time::system_time.get_time::business::deliverable:2",
+          "kind": "backend.objects_contract",
+          "description": "后端 PO、Entity、DTO 与 Converter 必须落实字段、表列绑定和类型化转换链。",
+          "sources": [
+            {
+              "artifact": "api_contract",
+              "target_id": "system_time.get_time",
+              "pointer": "/api_contracts/system_time/endpoints/system_time.get_time",
+              "sha256": "24338e88c69d32ffbd9e77137b4f8ca9cb1fd08cfab8a721982adcc2cb504b23"
+            },
+            {
+              "artifact": "api_contract",
+              "target_id": "system_time.get_time",
+              "pointer": "/api_contracts/system_time/endpoints/system_time.get_time",
+              "sha256": "24338e88c69d32ffbd9e77137b4f8ca9cb1fd08cfab8a721982adcc2cb504b23"
+            }
+          ],
+          "expected": {
+            "entities": [
+              {
+                "entity_id": "system_time",
+                "entity_name": "系统时间",
+                "data_source_type": "",
+                "database_table": "",
+                "fields": [
+                  {
+                    "name": "current_time",
+                    "type": "datetime",
+                    "required": true,
+                    "enum_values": [],
+                    "source_types": []
+                  }
+                ],
+                "database_bindings": []
+              }
+            ],
+            "endpoints": [
+              {
+                "api_contract_id": "system_time",
+                "endpoint_id": "system_time.get_time",
+                "method": "GET",
+                "path": "/api/hi",
+                "request_schema_ref": "",
+                "response_schema_ref": "SystemTimeResponse",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "current_time"
+                  ],
+                  "properties": {
+                    "current_time": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/system/application/dto/SystemTimeResponse.java"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "backend_objects_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        },
+        {
+          "id": "business:backend:module:system_time::system_time.get_time::business:backend.application_service_contract:f8939ea1f9d50432",
+          "deliverable_id": "backend:module:system_time::system_time.get_time::business::deliverable:1",
+          "kind": "backend.application_service_contract",
+          "description": "ApplicationService 必须执行已确认 operation 语义和 Request 业务处理，并在需要时委托 Repository。",
+          "sources": [
+            {
+              "artifact": "api_design",
+              "target_id": "system_time.get_time",
+              "pointer": "/endpoint_designs/system_time.get_time",
+              "sha256": "dc95efe870440a99947c6fc4a33ce73e172f9d7cd93b582e41a827fddf241258"
+            },
+            {
+              "artifact": "api_contract",
+              "target_id": "system_time.get_time",
+              "pointer": "/api_contracts/system_time/endpoints/system_time.get_time",
+              "sha256": "24338e88c69d32ffbd9e77137b4f8ca9cb1fd08cfab8a721982adcc2cb504b23"
+            }
+          ],
+          "expected": {
+            "operations": [
+              {
+                "api_contract_id": "system_time",
+                "endpoint_id": "system_time.get_time",
+                "operation_kind": "read",
+                "target_cardinality": "object",
+                "selector": {
+                  "source": "endpoint_api_design",
+                  "query": null
+                },
+                "transaction_required": false,
+                "database_writes": [],
+                "external_api_bindings": [],
+                "zero_match_behavior": "confirmed_processing_logic",
+                "multiple_match_behavior": "confirmed_processing_logic",
+                "success_status_code": null,
+                "side_effect": "none",
+                "processing_logic": [],
+                "requires_repository": false
+              }
+            ],
+            "endpoints": [
+              {
+                "api_contract_id": "system_time",
+                "endpoint_id": "system_time.get_time",
+                "method": "GET",
+                "path": "/api/hi",
+                "request_schema_ref": "",
+                "response_schema_ref": "SystemTimeResponse",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "current_time"
+                  ],
+                  "properties": {
+                    "current_time": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ],
+            "business_descriptions": []
+          },
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/system/application/service/SystemTimeApplicationService.java"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "backend_application_service_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": []
+    },
+    "backend:module:system_time::69fd03b276c1d322::controller": {
+      "id": "backend:module:system_time::69fd03b276c1d322::controller",
+      "unit_id": "backend:module:system_time",
+      "owner": "backend",
+      "task_type": "backend.code",
+      "title": "模块 Controller · 系统时间接口控制器",
+      "description": "1. 系统时间端点 Web 适配器。\n接口/方法：GET /api/hi，无请求参数、无请求体，返回统一响应包装 ResponseEntity<SystemTimeResponse>。\n处理逻辑：注入 SystemTimeApplicationService，直接委派 getCurrentTime() 并以统一响应体成功包装返回，不做字段映射或业务计算。\n边界约束：authentication.required=false 且契约未声明 operationResourceKeys，因此不添加 @RequireAnyResource 等鉴权注解；不得暴露上游路径、不得访问数据层或外部客户端、不得硬编码样例值。（backend/src/main/java/com/cmbchina/backend/system/adapter/web/SystemTimeController.java）",
+      "dependencies": [
+        "backend:module:system_time::system_time.get_time::business"
+      ],
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/system/adapter/web/SystemTimeController.java"
+      ],
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/system/adapter/web/SystemTimeController.java"
+      ],
+      "change_scope": [
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/system/adapter/web/SystemTimeController.java",
+          "operation": "add",
+          "description": "系统时间端点 Web 适配器。\n接口/方法：GET /api/hi，无请求参数、无请求体，返回统一响应包装 ResponseEntity<SystemTimeResponse>。\n处理逻辑：注入 SystemTimeApplicationService，直接委派 getCurrentTime() 并以统一响应体成功包装返回，不做字段映射或业务计算。\n边界约束：authentication.required=false 且契约未声明 operationResourceKeys，因此不添加 @RequireAnyResource 等鉴权注解；不得暴露上游路径、不得访问数据层或外部客户端、不得硬编码样例值。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:module:system_time::69fd03b276c1d322::controller::deliverable:1",
+          "kind": "backend.endpoint_controller",
+          "target_id": "system_time.get_time",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/system/adapter/web/SystemTimeController.java"
+          ],
+          "provides": [
+            "backend.endpoint_controller:system_time:system_time.get_time"
+          ]
+        }
+      ],
+      "impact_scope": {
+        "summary": "模块 Controller · 系统时间接口控制器",
+        "affected_modules": [
+          "system_time"
+        ],
+        "public_contracts": [
+          "system_time.get_time"
+        ],
+        "risks": []
+      },
+      "can_run_in_parallel": false,
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "status": "pending",
+      "source_refs": {
+        "type": "technical_plan_module",
+        "target": {
+          "type": "module",
+          "id": "system_time",
+          "api_contract_id": "system_time"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "system_time.get_time",
+            "api_contract_id": "system_time"
+          }
+        ],
+        "endpoint_ids": [
+          "system_time.get_time"
+        ],
+        "entity_ids": [
+          "system_time"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "a6eb0981403946d3a131e69b11eff32b",
+            "apiContractId": "system_time",
+            "endpointId": "system_time.get_time",
+            "endpointContract": {
+              "id": "system_time.get_time",
+              "name": "获取系统时间",
+              "method": "GET",
+              "path": "/api/hi",
+              "summary": "返回后端系统当前时间，用于在页面中展示于问候字符串下方",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "SystemTimeResponse",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "current_time": "2024-06-03 14:27:35"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "current_time",
+                  "type": "string",
+                  "required": true,
+                  "description": "后端系统当前时间，用于在页面中展示于问候字符串下方"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "current_time",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "3212a79ac70b7b6b48accb253a2f6d80ba15662f961788bed87859235eb111c0"
+              }
+            ],
+            "confirmedAt": "2026-11-12T12:21:21.175513Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.current_time → response.response_body.current_time"
+        ],
+        "source_types": [],
+        "business_descriptions": [],
+        "backend_stage": "controller"
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:module:system_time"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [
+        "backend:bootstrap"
+      ],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:module:system_time::69fd03b276c1d322::controller:file_operation:fdb489c3f221",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/system/adapter/web/SystemTimeController.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/system/adapter/web/SystemTimeController.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:system_time::69fd03b276c1d322::controller:scope_boundary:3966e1e565cb",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/system/adapter/web/SystemTimeController.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/src/main/java/com/cmbchina/backend/system/adapter/web/SystemTimeController.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:backend:module:system_time::69fd03b276c1d322::controller:backend.endpoint_contract:fca20418b5020dd3",
+          "deliverable_id": "backend:module:system_time::69fd03b276c1d322::controller::deliverable:1",
+          "kind": "backend.endpoint_contract",
+          "description": "Controller 必须按 API Contract 暴露 method/path、绑定 DTO、返回约定状态码并委托 ApplicationService。",
+          "sources": [
+            {
+              "artifact": "api_contract",
+              "target_id": "system_time.get_time",
+              "pointer": "/api_contracts/system_time/endpoints/system_time.get_time",
+              "sha256": "24338e88c69d32ffbd9e77137b4f8ca9cb1fd08cfab8a721982adcc2cb504b23"
+            },
+            {
+              "artifact": "api_design",
+              "target_id": "system_time.get_time",
+              "pointer": "/endpoint_designs/system_time.get_time",
+              "sha256": "dc95efe870440a99947c6fc4a33ce73e172f9d7cd93b582e41a827fddf241258"
+            }
+          ],
+          "expected": {
+            "endpoints": [
+              {
+                "api_contract_id": "system_time",
+                "endpoint_id": "system_time.get_time",
+                "method": "GET",
+                "path": "/api/hi",
+                "request_schema_ref": "",
+                "response_schema_ref": "SystemTimeResponse",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "current_time"
+                  ],
+                  "properties": {
+                    "current_time": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ],
+            "operations": [
+              {
+                "api_contract_id": "system_time",
+                "endpoint_id": "system_time.get_time",
+                "operation_kind": "read",
+                "target_cardinality": "object",
+                "selector": {
+                  "source": "endpoint_api_design",
+                  "query": null
+                },
+                "transaction_required": false,
+                "database_writes": [],
+                "external_api_bindings": [],
+                "zero_match_behavior": "confirmed_processing_logic",
+                "multiple_match_behavior": "confirmed_processing_logic",
+                "success_status_code": null,
+                "side_effect": "none",
+                "processing_logic": [],
+                "requires_repository": false
+              }
+            ],
+            "business_descriptions": []
+          },
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/system/adapter/web/SystemTimeController.java"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "backend_endpoint_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": []
+    }
+  },
+  "task_graph": {
+    "schema_version": "build-task-graph.v3",
+    "nodes": [
+      "backend:module:system_time::system_time.get_time::business",
+      "backend:module:system_time::69fd03b276c1d322::controller"
+    ],
+    "edges": [
+      {
+        "from": "backend:module:system_time::system_time.get_time::business",
+        "to": "backend:module:system_time::69fd03b276c1d322::controller",
+        "type": "depends_on"
+      }
+    ],
+    "roots": [
+      "backend:module:system_time::system_time.get_time::business"
+    ],
+    "leaves": [
+      "backend:module:system_time::69fd03b276c1d322::controller"
+    ],
+    "topological_order": [
+      "backend:module:system_time::system_time.get_time::business",
+      "backend:module:system_time::69fd03b276c1d322::controller"
+    ],
+    "execution_layers": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:system_time::system_time.get_time::business"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:system_time::69fd03b276c1d322::controller"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "summary": {
+    "total": 2,
+    "frontend": 0,
+    "backend": 2,
+    "database": 0,
+    "pending": 2,
+    "running": 0,
+    "completed": 0,
+    "already_satisfied": 0,
+    "failed": 0
+  },
+  "execution": {
+    "batches": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:system_time::system_time.get_time::business"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:system_time::69fd03b276c1d322::controller"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "blocked_batches": []
+  },
+  "build_execution_scope": {
+    "type": "endpoint",
+    "targetId": "system_time.get_time",
+    "apiContractId": "system_time"
+  },
+  "template_context": {
+    "state_path": ".devagentstudio/template-state.json",
+    "template_revision": "2026.10.19.1",
+    "effective_capabilities": {}
+  },
+  "status": "ready",
+  "confirmation_status": "confirmed",
+  "confirmed_at": "2026-11-12T12:22:16.948417+00:00",
+  "confirmed_from": {
+    "planning_run_id": "planning-bee8b34fcdcb4d1da294869369389787",
+    "draft_digest": "ba7da23f4da3e8b1525ad6d5c9eef869981bd98097ac56435a66f29a13ba5965"
+  }
+}

@@ -1,0 +1,1 @@
+{"contracts":[{"base_path":"/api","entity_ids":["system_time"],"id":"system_time","name":"系统时间","page_ids":["hi_time"]}],"entities":[{"description":"后端系统当前时间，通过接口获取用于页面展示","id":"system_time","name":"系统时间"}]}
