@@ -10,7 +10,10 @@
     {
       "branch": "v1_2",
       "designedPageIds": [],
-      "plannedPageIds": []
+      "plannedPageIds": [
+        "hello_world",
+        "hi_time"
+      ]
     }
   ],
   "schemaVersion": 2

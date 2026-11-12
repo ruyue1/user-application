@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "c836a2975fbf7841b24cdb59a70b77d1d68394b1428063fd334d5a71d00c342e",
+  "product_plan_sha256": "aab58e42f21a8e35d408fcd0f8843f0df1259beb1b8a4d67989ae3eae33e51a2",
   "pages": [
     {
       "pageId": "hello_world",
@@ -14,6 +14,45 @@
         "information_items": [
           {
             "informationItemId": "hello_world-primary-text",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "pageId": "hi_time",
+      "page_key": "HiTime",
+      "preview_path": "/page/hi-time",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "greeting_text",
+            "controlIds": []
+          },
+          {
+            "informationItemId": "system_time",
             "controlIds": []
           }
         ]
