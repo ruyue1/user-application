@@ -1,6 +1,6 @@
 {
   "schemaVersion": 6,
-  "configRevision": 2,
+  "configRevision": 3,
   "appName": "欢迎页",
   "appIcon": "AppstoreOutlined",
   "senario": "我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口",
@@ -71,5 +71,12 @@
     "username": "",
     "password": ""
   },
-  "branches": []
+  "branches": [],
+  "repositoryBranch": {
+    "branchName": "v1_0",
+    "status": "pushed",
+    "commitSha": "f6e76a7be6749d044d6dcd4ca6e49444ee479a8e",
+    "message": "",
+    "updatedAt": 1794482219596
+  }
 }
