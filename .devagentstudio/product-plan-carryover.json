@@ -20,8 +20,36 @@
         "pageId": "hello_world",
         "path": "/page/hello-world"
       }
+    },
+    "hi_time": {
+      "definition": {
+        "actions": [],
+        "goal": "向访客展示写死的问候字符串\"你好\"，并在其下方展示通过后端接口 /api/hi 获取的系统时间",
+        "information_items": [
+          {
+            "description": "写死的字符串\"你好\"，作为问候信息展示在页面上方",
+            "itemId": "greeting_text",
+            "label": "问候文本"
+          },
+          {
+            "description": "通过后端接口 /api/hi 获取的系统时间，展示在\"你好\"字符串的下方",
+            "itemId": "system_time",
+            "label": "系统时间"
+          }
+        ],
+        "navigation_targets": [
+          "hello_world"
+        ]
+      },
+      "requirement": {
+        "description": "页面先展示写死的字符串\"你好\"，下方再展示通过后端接口 /api/hi 获取的系统时间",
+        "module_id": "time_display",
+        "name": "你好时间展示页",
+        "pageId": "hi_time",
+        "path": "/page/hi"
+      }
     }
   },
   "schemaVersion": 2,
-  "sourceBranch": "v1_0"
+  "sourceBranch": "v1_2"
 }

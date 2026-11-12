@@ -1,26 +1,28 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "aab58e42f21a8e35d408fcd0f8843f0df1259beb1b8a4d67989ae3eae33e51a2",
+  "product_plan_sha256": "cdd931ef87ada1fa9e8041b3dd86be58c270de3f5c50ddb080c10a731dbcde7c",
   "pages": [
     {
       "pageId": "hello_world",
       "page_key": "HelloWorld",
       "preview_path": "/page/hello-world",
-      "code_path": "",
-      "status": "pending",
+      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026111213/.devagentstudio/ui-design/pages/HelloWorld/index.tsx",
+      "status": "confirmed",
       "bindings": {
         "actions": [],
         "information_items": [
           {
             "informationItemId": "hello_world-primary-text",
-            "controlIds": []
+            "controlIds": [
+              "hello_world-primary-text-display"
+            ]
           }
         ]
       },
       "verification": {
-        "status": "pending",
-        "code_sha256": "",
+        "status": "passed",
+        "code_sha256": "78cdac589a5cf54b990b099800bf9cbb4ff59dd553df6d3bc18f4a1c291c6338",
         "checks": [
           {
             "id": "product-action-bindings",
@@ -28,7 +30,7 @@
           },
           {
             "id": "product-information-bindings",
-            "status": "failed"
+            "status": "passed"
           },
           {
             "id": "no-unowned-business-ui",
@@ -36,30 +38,36 @@
           }
         ],
         "errors": []
-      }
+      },
+      "code_sha256": "78cdac589a5cf54b990b099800bf9cbb4ff59dd553df6d3bc18f4a1c291c6338",
+      "generation_id": "ui-design-89435193fe3d4b72b95c353000b2719b"
     },
     {
       "pageId": "hi_time",
       "page_key": "HiTime",
       "preview_path": "/page/hi-time",
-      "code_path": "",
-      "status": "pending",
+      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026111213/.devagentstudio/ui-design/pages/HiTime/index.tsx",
+      "status": "confirmed",
       "bindings": {
         "actions": [],
         "information_items": [
           {
             "informationItemId": "greeting_text",
-            "controlIds": []
+            "controlIds": [
+              "greeting_text-display"
+            ]
           },
           {
             "informationItemId": "system_time",
-            "controlIds": []
+            "controlIds": [
+              "system_time-display"
+            ]
           }
         ]
       },
       "verification": {
-        "status": "pending",
-        "code_sha256": "",
+        "status": "passed",
+        "code_sha256": "f097a3be63ba61ab982c9087fb313d361ec2270f280b86c2325b2cae06ed7c4b",
         "checks": [
           {
             "id": "product-action-bindings",
@@ -67,7 +75,7 @@
           },
           {
             "id": "product-information-bindings",
-            "status": "failed"
+            "status": "passed"
           },
           {
             "id": "no-unowned-business-ui",
@@ -75,7 +83,48 @@
           }
         ],
         "errors": []
-      }
+      },
+      "code_sha256": "f097a3be63ba61ab982c9087fb313d361ec2270f280b86c2325b2cae06ed7c4b",
+      "generation_id": "ui-design-1a39e95d09924e27896f67ddb5fa80ac"
+    },
+    {
+      "pageId": "morning_greeting",
+      "page_key": "MorningGreeting",
+      "preview_path": "/page/morning-greeting",
+      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026111213/.devagentstudio/ui-design/pages/MorningGreeting/index.tsx",
+      "status": "confirmed",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "morning_greeting_text",
+            "controlIds": [
+              "morning_greeting_text-display"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "passed",
+        "code_sha256": "b356e902ad95aeb0646a66b52e57180d5e1522f04bb3609922fe7dafd27781e8",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      },
+      "code_sha256": "b356e902ad95aeb0646a66b52e57180d5e1522f04bb3609922fe7dafd27781e8",
+      "generation_id": "ui-design-12ceca7c877f42a2b92d5afe38e43b19"
     }
   ]
 }

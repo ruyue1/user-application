@@ -3,8 +3,8 @@
     "id": "1794481998029-fqb717",
     "name": "欢迎页"
   },
-  "updatedAt": "2026-11-12T12:25:32.109803Z",
-  "revision": 59,
+  "updatedAt": "2026-11-12T12:31:09.518380Z",
+  "revision": 7,
   "developmentArtifacts": {
     "pages": {
       "hello_world": {
@@ -28,14 +28,7 @@
         "checkedChangeId": null
       }
     },
-    "entities": {
-      "system_time": {
-        "initialDevelopmentStatus": "pending",
-        "skippedAt": null,
-        "skipReason": null,
-        "completedBranchName": null
-      }
-    },
+    "entities": {},
     "endpoints": {
       "system_time": {
         "system_time.get_time": {
@@ -50,18 +43,16 @@
         }
       }
     },
-    "catalogError": null,
-    "outOfScope": [
-      "page:hello_world"
-    ]
+    "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/2026111213/.devagentstudio/plans/technical-plan.json'",
+    "outOfScope": []
   },
   "initialization": {
-    "stage": "ready_for_workbench",
-    "status": "completed",
-    "threadId": "f084bc93-57ca-45f2-a9ff-2fb746380a35",
-    "iterationId": "5b057835-da27-4c17-8203-43c531e619f6"
+    "stage": "awaiting_planning_stage_entry",
+    "status": "awaiting_user",
+    "threadId": "ca110047-635b-4e8f-8d58-390545bcf6b8",
+    "iterationId": "ca110047-635b-4e8f-8d58-390545bcf6b8"
   },
-  "activeRunId": null,
+  "activeRunId": "0ee58969-1796-4734-aa06-698652c264e7",
   "activeExecutions": {},
   "endedExecutions": {},
   "endedPlanningExecution": null,
@@ -76,9 +67,5 @@
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {
-    "testExecutionStatus": "passed",
-    "reviewStatus": "passed",
-    "acceptanceStatus": "passed"
-  }
+  "extensions": {}
 }
