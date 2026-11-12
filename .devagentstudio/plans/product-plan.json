@@ -1,0 +1,59 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-11-12T11:16:23.039154+00:00",
+  "requirement_spec_sha256": "da5eaefb715bcdfef031adfe306894516c1aa93f6ae6bdd52742da660a97625a",
+  "app": {
+    "name": "欢迎页",
+    "summary": "一个简单的纯展示应用，首页展示写死的字符串 hello world，无需后端 API 接口。面向 PC 端，采用侧边导航布局，启用页头、禁用页脚。"
+  },
+  "business_flows": [
+    {
+      "name": "查看 Hello World",
+      "steps": [
+        "用户打开应用首页",
+        "页面展示写死的字符串 hello world"
+      ],
+      "id": "view_hello_world",
+      "description": "用户打开应用首页，页面展示写死的字符串 hello world"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "hello_world",
+      "name": "Hello World 展示页",
+      "path": "/page/hello-world",
+      "module_id": "display",
+      "description": "展示写死的字符串 hello world，纯前端展示，无后端接口调用",
+      "goal": "让用户在打开应用首页时立即看到写死的 hello world 字符串，完成纯展示目的，无需任何交互或数据请求。",
+      "information_items": [
+        {
+          "itemId": "hello_world-primary-text",
+          "label": "Hello World 文本",
+          "description": "页面主体展示的固定字符串 hello world，内容写死、不随用户操作或外部数据变化。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "acceptance_criteria": [
+        "用户进入应用首页后，页面主体区域可见写死的字符串 hello world。",
+        "页面展示的 hello world 文本内容固定不变，不随刷新或时间变化。",
+        "页面无需登录即可访问，访客可直接看到 hello world 文本。",
+        "页面不提供任何可点击的按钮、链接或表单，仅展示 hello world 文本。",
+        "应用启用页头展示应用名称，禁用页脚，采用侧边导航布局，hello world 文本在主内容区可见。"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "应用为纯展示型，首页唯一可见业务内容为写死的字符串 hello world。",
+    "应用面向 PC 端，采用侧边导航布局，启用页头、禁用页脚。",
+    "访客无需登录即可访问首页并看到 hello world 文本。",
+    "应用不包含任何后端接口调用、数据提交或用户交互动作。",
+    "应用不涉及权限控制，所有访问者看到的内容完全一致。"
+  ],
+  "confirmation_status": "confirmed"
+}

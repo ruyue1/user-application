@@ -1,0 +1,13 @@
+.devagentstudio/runtime/
+.devagentstudio/cache/
+.devagentstudio/checkpoints/
+.devagentstudio/recovery/
+node_modules/
+dist/
+build/
+target/
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+Thumbs.db
