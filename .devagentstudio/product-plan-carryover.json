@@ -1,0 +1,27 @@
+{
+  "pages": {
+    "hello_world": {
+      "definition": {
+        "actions": [],
+        "goal": "让用户在打开应用首页时立即看到写死的 hello world 字符串，完成纯展示目的，无需任何交互或数据请求。",
+        "information_items": [
+          {
+            "description": "页面主体展示的固定字符串 hello world，内容写死、不随用户操作或外部数据变化。",
+            "itemId": "hello_world-primary-text",
+            "label": "Hello World 文本"
+          }
+        ],
+        "navigation_targets": []
+      },
+      "requirement": {
+        "description": "展示写死的字符串 hello world，纯前端展示，无后端接口调用",
+        "module_id": "display",
+        "name": "Hello World 展示页",
+        "pageId": "hello_world",
+        "path": "/page/hello-world"
+      }
+    }
+  },
+  "schemaVersion": 2,
+  "sourceBranch": "v1_0"
+}

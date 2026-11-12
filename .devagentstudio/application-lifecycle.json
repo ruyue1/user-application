@@ -3,8 +3,8 @@
     "id": "1794481998029-fqb717",
     "name": "欢迎页"
   },
-  "updatedAt": "2026-11-12T11:18:59.740742Z",
-  "revision": 45,
+  "updatedAt": "2026-11-12T12:09:17.726402Z",
+  "revision": 1,
   "developmentArtifacts": {
     "pages": {
       "hello_world": {
@@ -20,16 +20,16 @@
     },
     "entities": {},
     "endpoints": {},
-    "catalogError": null,
+    "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/2026111213/.devagentstudio/plans/product-plan.json'",
     "outOfScope": []
   },
   "initialization": {
-    "stage": "ready_for_workbench",
-    "status": "completed",
-    "threadId": "84945af6-7ac4-45da-907d-7515c3f9c4a1",
-    "iterationId": "15915c29-df45-4fe1-9093-16a57b124c82"
+    "stage": "collecting_requirement",
+    "status": "pending",
+    "threadId": "5b057835-da27-4c17-8203-43c531e619f6",
+    "iterationId": "5b057835-da27-4c17-8203-43c531e619f6"
   },
-  "activeRunId": null,
+  "activeRunId": "7be3406e-f134-4899-a56e-6a0c87acc7d9",
   "activeExecutions": {},
   "endedExecutions": {},
   "endedPlanningExecution": null,
@@ -44,9 +44,5 @@
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {
-    "testExecutionStatus": "passed",
-    "reviewStatus": "passed",
-    "acceptanceStatus": "passed"
-  }
+  "extensions": {}
 }
