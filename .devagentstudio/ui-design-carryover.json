@@ -1,5 +1,10 @@
 {
   "pages": {
+    "greeting": {
+      "pageKey": "Greeting",
+      "templateId": "",
+      "templateSourcePath": ""
+    },
     "home": {
       "pageKey": "Home",
       "templateId": "",
@@ -7,5 +12,5 @@
     }
   },
   "schemaVersion": 1,
-  "sourceBranch": "v1_0"
+  "sourceBranch": "v1_1"
 }

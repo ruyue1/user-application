@@ -1,5 +1,40 @@
 {
   "pages": {
+    "greeting": {
+      "definition": {
+        "actions": [
+          {
+            "actionId": "greeting_navigate_to_home",
+            "behavior": {
+              "expectedResult": "用户从问候页切换到欢迎页",
+              "targetPageId": "home",
+              "type": "navigation"
+            },
+            "description": "用户通过侧边导航切换回欢迎页查看hello world内容",
+            "name": "前往欢迎页",
+            "requiresConfirmation": false
+          }
+        ],
+        "goal": "向用户展示通过后端接口/api/hi获取的问候语内容\"欢迎来到我的世界！\"",
+        "information_items": [
+          {
+            "description": "页面展示的问候语字符串\"欢迎来到我的世界！\"，该内容通过后端接口/api/hi获取",
+            "itemId": "greeting_message_text",
+            "label": "问候语内容"
+          }
+        ],
+        "navigation_targets": [
+          "home"
+        ]
+      },
+      "requirement": {
+        "description": "调用后端接口/api/hi获取并展示\"欢迎来到我的世界！\"字符串的页面",
+        "module_id": "greeting",
+        "name": "问候页",
+        "pageId": "greeting",
+        "path": "/page/greeting"
+      }
+    },
     "home": {
       "definition": {
         "actions": [],
@@ -23,5 +58,5 @@
     }
   },
   "schemaVersion": 2,
-  "sourceBranch": "v1_0"
+  "sourceBranch": "v1_1"
 }

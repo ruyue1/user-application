@@ -19,6 +19,11 @@
         "home",
         "greeting"
       ]
+    },
+    {
+      "branch": "v1_2",
+      "designedPageIds": [],
+      "plannedPageIds": []
     }
   ],
   "schemaVersion": 2
