@@ -1,11 +1,11 @@
 {
   "schema_version": "product-plan.v5",
   "version": "0.1.0",
-  "generated_at": "2026-11-13T02:09:23.176876+00:00",
-  "requirement_spec_sha256": "de94db8ff4bd609d311e3e8b6b5f47e338567c692028dfdad2b9d16f4235e9a1",
+  "generated_at": "2026-11-13T02:14:05.009272+00:00",
+  "requirement_spec_sha256": "029b03541acb7c8c42891b858011b344e5ee78a077d315839983a5883d2fd99d",
   "app": {
     "name": "欢迎页",
-    "summary": "一个简单的纯展示应用，在欢迎页上展示固定的\"hello world\"字符串，无需后端API接口。适用于PC端，采用侧边导航布局，启用页头、禁用页脚。"
+    "summary": "一个简单的展示应用，包含欢迎页展示固定的\"hello world\"字符串，以及问候页通过后端接口/api/hi获取并展示\"欢迎来到我的世界！\"字符串。适用于PC端，采用侧边导航布局，启用页头、禁用页脚。"
   },
   "business_flows": [
     {
@@ -16,6 +16,16 @@
       ],
       "id": "view_hello_world",
       "description": "用户打开应用，在欢迎页查看展示的hello world字符串"
+    },
+    {
+      "name": "查看问候语",
+      "steps": [
+        "用户打开应用进入问候页",
+        "页面调用后端接口/api/hi获取问候语",
+        "页面展示\"欢迎来到我的世界！\"字符串"
+      ],
+      "id": "view_greeting",
+      "description": "用户打开问候页，页面通过后端接口/api/hi获取并展示问候语内容"
     }
   ],
   "pages": [
@@ -36,7 +46,43 @@
       "actions": [],
       "navigation_targets": [],
       "acceptance_criteria": [
-        "用户进入欢迎页后，页面内容区域必须显示固定的'hello world'字符串。"
+        "页面目标和核心操作可以由目标角色完成。"
+      ]
+    },
+    {
+      "pageId": "greeting",
+      "name": "问候页",
+      "path": "/page/greeting",
+      "module_id": "greeting",
+      "description": "调用后端接口/api/hi获取并展示\"欢迎来到我的世界！\"字符串的页面",
+      "goal": "向用户展示通过后端接口/api/hi获取的问候语内容\"欢迎来到我的世界！\"",
+      "information_items": [
+        {
+          "itemId": "greeting_message_text",
+          "label": "问候语内容",
+          "description": "页面展示的问候语字符串\"欢迎来到我的世界！\"，该内容通过后端接口/api/hi获取"
+        }
+      ],
+      "actions": [
+        {
+          "actionId": "greeting_navigate_to_home",
+          "name": "前往欢迎页",
+          "description": "用户通过侧边导航切换回欢迎页查看hello world内容",
+          "requiresConfirmation": false,
+          "behavior": {
+            "type": "navigation",
+            "expectedResult": "用户从问候页切换到欢迎页",
+            "targetPageId": "home"
+          }
+        }
+      ],
+      "navigation_targets": [
+        "home"
+      ],
+      "acceptance_criteria": [
+        "用户进入问候页后，页面通过后端接口/api/hi获取问候语并展示\"欢迎来到我的世界！\"字符串",
+        "问候页展示的字符串内容为\"欢迎来到我的世界！\"",
+        "用户可通过侧边导航中的欢迎页入口切换回欢迎页"
       ]
     }
   ],
@@ -45,8 +91,11 @@
     "operationRules": []
   },
   "product_acceptance_criteria": [
-    "应用启动后默认进入欢迎页，页面正确展示'hello world'字符串。",
-    "应用采用侧边导航布局，页头处于启用状态，页脚处于禁用状态。"
+    "应用包含欢迎页和问候页两个页面，分别展示\"hello world\"和\"欢迎来到我的世界！\"字符串",
+    "欢迎页展示固定的\"hello world\"字符串，无需调用后端接口",
+    "问候页通过后端接口/api/hi获取并展示\"欢迎来到我的世界！\"字符串",
+    "应用适用于PC端，采用侧边导航布局，启用页头、禁用页脚",
+    "用户可通过侧边导航在欢迎页和问候页之间自由切换"
   ],
   "confirmation_status": "confirmed"
 }

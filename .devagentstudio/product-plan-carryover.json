@@ -1,0 +1,27 @@
+{
+  "pages": {
+    "home": {
+      "definition": {
+        "actions": [],
+        "goal": "向用户展示固定的'hello world'字符串内容",
+        "information_items": [
+          {
+            "description": "页面展示的固定字符串'hello world'",
+            "itemId": "home_hello_world_text",
+            "label": "Hello World文本"
+          }
+        ],
+        "navigation_targets": []
+      },
+      "requirement": {
+        "description": "展示固定字符串\"hello world\"的欢迎页面",
+        "module_id": "display",
+        "name": "欢迎页",
+        "pageId": "home",
+        "path": "/page/home"
+      }
+    }
+  },
+  "schemaVersion": 2,
+  "sourceBranch": "v1_0"
+}

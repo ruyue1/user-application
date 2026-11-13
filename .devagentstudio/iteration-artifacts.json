@@ -8,6 +8,17 @@
       "plannedPageIds": [
         "home"
       ]
+    },
+    {
+      "branch": "v1_1",
+      "designedPageIds": [
+        "home",
+        "greeting"
+      ],
+      "plannedPageIds": [
+        "home",
+        "greeting"
+      ]
     }
   ],
   "schemaVersion": 2
