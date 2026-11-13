@@ -15,5 +15,9 @@ export const PAGE_ROUTES: PageRouteDefinition[] = [
     label: '首页',
   },
   // DEVAGENTSTUDIO_BUSINESS_ROUTES_START
+  {
+    path: "home",
+    label: "欢迎页",
+  },
   // DEVAGENTSTUDIO_BUSINESS_ROUTES_END
 ];
