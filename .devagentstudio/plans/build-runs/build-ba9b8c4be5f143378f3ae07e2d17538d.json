@@ -1,0 +1,1000 @@
+{
+  "schema_version": "build-dag.v4",
+  "application": {
+    "unit_id": "application:root",
+    "status": "prepared"
+  },
+  "build_units": {
+    "application:root": {
+      "id": "application:root",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:shell": {
+      "id": "frontend:shell",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "generation_strategy": "prerequisite_only",
+      "participation": "prerequisite_only",
+      "generation_status": "not_required",
+      "input_fingerprint": "99ba9989baf0b60e7a4fb779cf6ca6b4642ff5295c811a95273134cb6d661551"
+    },
+    "frontend:api-client": {
+      "id": "frontend:api-client",
+      "kind": "frontend",
+      "status": "prepared",
+      "task_ids": [
+        "frontend:api-client::greeting::api-module::e301b2481a5067a1"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "input_fingerprint": "6c0fbb3d86ebb4165d490997f5b86f46d84e150f6f03f5b7b4f4f7fc1c6c7453"
+    },
+    "frontend:auth-guard": {
+      "id": "frontend:auth-guard",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:bootstrap": {
+      "id": "backend:bootstrap",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "backend_bootstrap",
+        "target": {
+          "type": "page",
+          "id": "greeting",
+          "page_key": "Greeting"
+        },
+        "endpoint_ids": [
+          "greeting.getGreeting"
+        ],
+        "entity_ids": [
+          "greeting"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "bfb5a5fdd5694650bd24331c8ef12a3b",
+            "apiContractId": "greeting",
+            "endpointId": "greeting.getGreeting",
+            "endpointContract": {
+              "id": "greeting.getGreeting",
+              "name": "获取问候语",
+              "method": "GET",
+              "path": "/api/hi",
+              "summary": "获取问候语内容，返回固定字符串\"欢迎来到我的世界！\"供前端展示",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingResponse",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "content": "欢迎来到我的世界！"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "content",
+                  "type": "string",
+                  "required": true,
+                  "description": "问候语内容，固定为\"欢迎来到我的世界！\""
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "content",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "8089bfc5819bf849af9a25abfffce4b0f415e33183bc05ab87c12c8e01c9b541"
+              }
+            ],
+            "confirmedAt": "2026-11-13T02:25:35.314844Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.content → response.response_body.content"
+        ],
+        "source_types": [
+          "static"
+        ]
+      },
+      "input_fingerprint": "1be63bbd0e06e0a0627cfcbfb09620284258af8445bc18492788e1627d07904e"
+    },
+    "app:integration": {
+      "id": "app:integration",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:module:greeting": {
+      "id": "backend:module:greeting",
+      "kind": "backend",
+      "api_contract_id": "greeting",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "technical_plan_module",
+        "target": {
+          "type": "module",
+          "id": "greeting",
+          "api_contract_id": "greeting"
+        },
+        "technical_plan_endpoints": [],
+        "endpoint_ids": [],
+        "entity_ids": [
+          "greeting"
+        ],
+        "endpoint_designs": [],
+        "mapping_flows": [
+          "静态数据.content → response.response_body.content"
+        ],
+        "business_descriptions": [],
+        "source_types": [
+          "static"
+        ]
+      },
+      "input_fingerprint": "9a99f5e5a536dcbe16988900c7eb9499e615175ac1f22b4f9d7f28590160b648"
+    },
+    "page:home": {
+      "id": "page:home",
+      "kind": "page",
+      "page_id": "home",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "page:greeting": {
+      "id": "page:greeting",
+      "kind": "page",
+      "page_id": "greeting",
+      "status": "prepared",
+      "task_ids": [
+        "page:greeting::page"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "page_implementation_contract",
+        "target": {
+          "type": "page",
+          "id": "greeting",
+          "page_key": "Greeting"
+        },
+        "page_implementation_contract": {
+          "id": "greeting"
+        },
+        "endpoint_ids": [
+          "greeting.getGreeting"
+        ],
+        "entity_ids": [
+          "greeting"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "bfb5a5fdd5694650bd24331c8ef12a3b",
+            "apiContractId": "greeting",
+            "endpointId": "greeting.getGreeting",
+            "endpointContract": {
+              "id": "greeting.getGreeting",
+              "name": "获取问候语",
+              "method": "GET",
+              "path": "/api/hi",
+              "summary": "获取问候语内容，返回固定字符串\"欢迎来到我的世界！\"供前端展示",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingResponse",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "content": "欢迎来到我的世界！"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "content",
+                  "type": "string",
+                  "required": true,
+                  "description": "问候语内容，固定为\"欢迎来到我的世界！\""
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "content",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "8089bfc5819bf849af9a25abfffce4b0f415e33183bc05ab87c12c8e01c9b541"
+              }
+            ],
+            "confirmedAt": "2026-11-13T02:25:35.314844Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.content → response.response_body.content"
+        ],
+        "source_types": [
+          "static"
+        ]
+      },
+      "input_fingerprint": "922a44dde690ec9395b285b1761958b40d006c31f67ff3f775e6d5825a4d0076"
+    }
+  },
+  "unit_graph": {
+    "schema_version": "build-unit-graph.v3",
+    "nodes": [
+      "application:root",
+      "frontend:shell",
+      "frontend:api-client",
+      "frontend:auth-guard",
+      "backend:bootstrap",
+      "app:integration",
+      "backend:module:greeting",
+      "page:home",
+      "page:greeting"
+    ],
+    "edges": [
+      {
+        "from": "application:root",
+        "to": "frontend:shell",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:api-client",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:auth-guard",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:bootstrap",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:greeting",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:greeting",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:home",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:home",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:home",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting",
+        "to": "page:home",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:home",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:greeting",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:greeting",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:greeting",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting",
+        "to": "page:greeting",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:greeting",
+        "to": "app:integration",
+        "type": "depends_on"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "unit_skeleton": {
+    "input_fingerprint": "fa0d926bb95040c2b763b48c6538365bdd81964ee5278c11551aa69ee741cc50",
+    "project_plan_version": null,
+    "workspace_revision": "4076689e9ae931ba85e2a479",
+    "reused": false
+  },
+  "task_registry": {
+    "frontend:api-client::greeting::api-module::e301b2481a5067a1": {
+      "allowed_paths": [
+        "frontend/src/apis/greetingApi.ts"
+      ],
+      "can_run_in_parallel": true,
+      "change_scope": [
+        {
+          "description": "新增 greeting 业务 API 模块，封装 GET /api/hi 的请求与 GreetingResponse 类型响应，复用平台 service.ts 发起 HTTP 调用并导出 getGreeting 异步函数",
+          "operation": "add",
+          "path": "frontend/src/apis/greetingApi.ts"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "frontend:api-client::greeting::api-module::e301b2481a5067a1::deliverable",
+          "kind": "frontend.api_module",
+          "target_id": "greeting.getGreeting",
+          "paths": [
+            "frontend/src/apis/greetingApi.ts"
+          ],
+          "provides": [
+            "frontend.api_module:greeting:greeting.getGreeting"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "description": "在 frontend/src/apis/greetingApi.ts 中创建 greeting 业务 API 模块：从平台提供的 frontend/src/apis/service.ts 引入统一 HTTP 客户端；定义 GreetingResponse 类型（包含 required string 字段 content）；实现并导出异步函数 getGreeting()，以 GET 方法访问精确路径 /api/hi，无请求参数，返回 Promise<GreetingResponse>，响应体直接映射为 content 字段。不得新增页面、路由注册、静态数据模块、测试或验证逻辑。",
+      "id": "frontend:api-client::greeting::api-module::e301b2481a5067a1",
+      "impact_scope": {
+        "affected_modules": [
+          "frontend/src/apis"
+        ],
+        "public_contracts": [
+          "GET /api/hi",
+          "GreetingResponse"
+        ],
+        "risks": [
+          "仅新增 API 模块文件，不涉及既有文件改动，回归风险低"
+        ],
+        "summary": "新增 greeting 接口的前端业务访问模块，为页面层提供获取问候语的类型化调用入口"
+      },
+      "owner": "frontend",
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "status": "pending",
+      "target_files": [
+        "frontend/src/apis/greetingApi.ts"
+      ],
+      "task_type": "frontend.code",
+      "title": "实现 greeting 接口前端业务 API 模块",
+      "unit_id": "frontend:api-client",
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "frontend:api-client"
+      ],
+      "unit_dependencies": [],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:frontend:api-client::greeting::api-module::e301b2481a5067a1:file_operation:a1788f752cf3",
+          "kind": "file_operation",
+          "description": "工程文件 frontend/src/apis/greetingApi.ts 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/apis/greetingApi.ts"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:frontend:api-client::greeting::api-module::e301b2481a5067a1:scope_boundary:b805e2e521de",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/apis/greetingApi.ts"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "frontend/src/apis/greetingApi.ts"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:frontend:api-client::greeting::api-module::e301b2481a5067a1:frontend.api_contract:9653cafdd2c2a40a",
+          "deliverable_id": "frontend:api-client::greeting::api-module::e301b2481a5067a1::deliverable",
+          "kind": "frontend.api_contract",
+          "description": "前端业务 API 模块必须实现已确认的 method、path、请求参数和响应结构。",
+          "sources": [
+            {
+              "artifact": "api_contract",
+              "target_id": "greeting.getGreeting",
+              "pointer": "/api_contracts/greeting/endpoints/greeting.getGreeting",
+              "sha256": "25385900759c79f257d09c4cea16030211608c91ca3de2a5629a453e9e051fcf"
+            }
+          ],
+          "expected": {
+            "endpoints": [
+              {
+                "api_contract_id": "greeting",
+                "endpoint_id": "greeting.getGreeting",
+                "method": "GET",
+                "path": "/api/hi",
+                "request_schema_ref": "",
+                "response_schema_ref": "GreetingResponse",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "content"
+                  ],
+                  "properties": {
+                    "content": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ],
+            "required_endpoints": [
+              {
+                "api_contract_id": "greeting",
+                "endpoint_id": "greeting.getGreeting",
+                "method": "GET",
+                "path": "/api/hi",
+                "request_schema_ref": "",
+                "response_schema_ref": "GreetingResponse",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "content"
+                  ],
+                  "properties": {
+                    "content": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ],
+            "allowed_existing_endpoints": []
+          },
+          "target_paths": [
+            "frontend/src/apis/greetingApi.ts"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "frontend_api_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": []
+    },
+    "page:greeting::page": {
+      "id": "page:greeting::page",
+      "unit_id": "page:greeting",
+      "owner": "frontend",
+      "task_type": "frontend.code",
+      "status": "pending",
+      "title": "实现问候页 Greeting 页面",
+      "description": "在 frontend/src/pages/Greeting/index.tsx 新增问候页页面实现，严格遵循冻结合同 page-implementation-contract.v1（pageId=greeting）：页面进入时通过已声明的 API 客户端调用仅允许的接口 greeting.getGreeting（GET /api/hi，无鉴权、无入参）完成初始加载，读取响应体字段 content 并展示字符串“欢迎来到我的世界！”；加载中与加载失败状态需做页面内联处理（加载失败提示并可重试，不静默吞错）。页面不注册路由与菜单、不新增 API 客户端或后端代码、不引入未声明的接口；仅提供页面自身的界面结构与交互实现，供上层路由以固定入口 frontend/src/pages/Greeting/index.tsx 挂载。",
+      "target_files": [
+        "frontend/src/pages/Greeting/index.tsx"
+      ],
+      "allowed_paths": [
+        "frontend/src/pages/Greeting/index.tsx"
+      ],
+      "change_scope": [
+        {
+          "path": "frontend/src/pages/Greeting/index.tsx",
+          "operation": "add",
+          "description": "新增问候页页面组件：初始加载调用 greeting.getGreeting 获取并展示 content 中的问候语字符串，包含加载中与加载失败状态处理，默认导出页面组件。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "page:greeting::page::deliverable",
+          "kind": "frontend.page",
+          "target_id": "greeting",
+          "paths": [
+            "frontend/src/pages/Greeting/index.tsx"
+          ],
+          "provides": [
+            "frontend.page:greeting"
+          ]
+        }
+      ],
+      "dependencies": [
+        "frontend:api-client::greeting::api-module::e301b2481a5067a1"
+      ],
+      "can_run_in_parallel": false,
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "impact_scope": {
+        "summary": "仅新增问候页页面入口文件，不影响既有 Home 页面、路由或共享脚手架。",
+        "affected_modules": [
+          "frontend/src/pages/Greeting"
+        ],
+        "public_contracts": [
+          "frontend.page:greeting"
+        ],
+        "risks": [
+          "页面依赖 greeting.getGreeting 响应体字段 content，字段缺失或接口不可用时需展示失败状态",
+          "不得在页面内自行注册路由或新增接口调用，以免越界"
+        ]
+      },
+      "source_refs": {
+        "type": "page_implementation_contract",
+        "target": {
+          "type": "page",
+          "id": "greeting",
+          "page_key": "Greeting"
+        },
+        "page_implementation_contract": {
+          "id": "greeting"
+        },
+        "endpoint_ids": [
+          "greeting.getGreeting"
+        ],
+        "entity_ids": [
+          "greeting"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "bfb5a5fdd5694650bd24331c8ef12a3b",
+            "apiContractId": "greeting",
+            "endpointId": "greeting.getGreeting",
+            "endpointContract": {
+              "id": "greeting.getGreeting",
+              "name": "获取问候语",
+              "method": "GET",
+              "path": "/api/hi",
+              "summary": "获取问候语内容，返回固定字符串\"欢迎来到我的世界！\"供前端展示",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingResponse",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "content": "欢迎来到我的世界！"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "content",
+                  "type": "string",
+                  "required": true,
+                  "description": "问候语内容，固定为\"欢迎来到我的世界！\""
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "content",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "8089bfc5819bf849af9a25abfffce4b0f415e33183bc05ab87c12c8e01c9b541"
+              }
+            ],
+            "confirmedAt": "2026-11-13T02:25:35.314844Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.content → response.response_body.content"
+        ],
+        "source_types": [
+          "static"
+        ],
+        "page_input_sha256": "91cb139fabedeeff29a3de1a8e2dc3f37b1ec9c8867e39ad7ac106504676eb0c"
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "page:greeting"
+      ],
+      "unit_dependencies": [
+        "frontend:shell",
+        "frontend:api-client",
+        "backend:module:greeting"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:page:greeting::page:file_operation:d832d522dbfd",
+          "kind": "file_operation",
+          "description": "工程文件 frontend/src/pages/Greeting/index.tsx 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/Greeting/index.tsx"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:greeting::page:scope_boundary:83a55fd3ffc1",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/Greeting/index.tsx"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "frontend/src/pages/Greeting/index.tsx"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:greeting::page:page_entry:be75337a9267",
+          "kind": "page_entry",
+          "description": "页面交付物必须包含可读取的 index.tsx 页面入口。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/Greeting/index.tsx"
+          ],
+          "expected": {
+            "page_id": "greeting",
+            "entry_path": "frontend/src/pages/Greeting/index.tsx"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:greeting::page:page_default_export:5567c6a42c16",
+          "kind": "page_default_export",
+          "description": "页面入口必须提供 default export，确保路由可以加载页面组件。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/Greeting/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/Greeting/index.tsx",
+            "requires_default_export": true
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:greeting::page:page_placeholder:8eb565121a8f",
+          "kind": "page_placeholder",
+          "description": "页面入口不得保留模板占位内容。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/Greeting/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/Greeting/index.tsx",
+            "forbidden_markers": [
+              "hello agent!",
+              "待 Agent 生成真实内容",
+              "待agent生成真实内容",
+              "临时占位",
+              "placeholder content"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:greeting::page:frontend_api_boundary:5c99c32c3a05",
+          "kind": "frontend_api_boundary",
+          "description": "页面和任务内组件不得直接调用 fetch、axios 或 service；业务接口必须经 src/apis/ 与 useRequest。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/Greeting/index.tsx"
+          ],
+          "expected": {},
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:page:greeting::page:frontend.page_endpoint_usage:e92e3bce3fb10bd5",
+          "deliverable_id": "page:greeting::page::deliverable",
+          "kind": "frontend.page_endpoint_usage",
+          "description": "页面或其任务内可达组件必须实际调用 PageImplementationContract 声明的业务接口。",
+          "sources": [
+            {
+              "artifact": "page_implementation_contract",
+              "target_id": "greeting",
+              "pointer": "/page_implementation_contracts/greeting",
+              "sha256": "780f4cc5262d9220d45bf6c195b883c31c5f7f25be613f4dfb323a51feb468c3"
+            },
+            {
+              "artifact": "api_contract",
+              "target_id": "greeting.getGreeting",
+              "pointer": "/api_contracts/greeting/endpoints/greeting.getGreeting",
+              "sha256": "25385900759c79f257d09c4cea16030211608c91ca3de2a5629a453e9e051fcf"
+            }
+          ],
+          "expected": {
+            "page_id": "greeting",
+            "required_endpoint_ids": [
+              "greeting.getGreeting"
+            ],
+            "endpoints": [
+              {
+                "api_contract_id": "greeting",
+                "endpoint_id": "greeting.getGreeting",
+                "method": "GET",
+                "path": "/api/hi",
+                "request_schema_ref": "",
+                "response_schema_ref": "GreetingResponse",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "content"
+                  ],
+                  "properties": {
+                    "content": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "target_paths": [
+            "frontend/src/pages/Greeting/index.tsx"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "frontend_page_endpoint_usage"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": []
+    }
+  },
+  "task_graph": {
+    "schema_version": "build-task-graph.v3",
+    "nodes": [
+      "frontend:api-client::greeting::api-module::e301b2481a5067a1",
+      "page:greeting::page"
+    ],
+    "edges": [
+      {
+        "from": "frontend:api-client::greeting::api-module::e301b2481a5067a1",
+        "to": "page:greeting::page",
+        "type": "depends_on"
+      }
+    ],
+    "roots": [
+      "frontend:api-client::greeting::api-module::e301b2481a5067a1"
+    ],
+    "leaves": [
+      "page:greeting::page"
+    ],
+    "topological_order": [
+      "frontend:api-client::greeting::api-module::e301b2481a5067a1",
+      "page:greeting::page"
+    ],
+    "execution_layers": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "frontend:api-client::greeting::api-module::e301b2481a5067a1"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "page:greeting::page"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "summary": {
+    "total": 2,
+    "frontend": 2,
+    "backend": 0,
+    "database": 0,
+    "pending": 2,
+    "running": 0,
+    "completed": 0,
+    "already_satisfied": 0,
+    "failed": 0,
+    "results": 3
+  },
+  "execution": {
+    "batches": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "frontend:api-client::greeting::api-module::e301b2481a5067a1"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "page:greeting::page"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "blocked_batches": []
+  },
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "greeting"
+  },
+  "template_context": {
+    "state_path": ".devagentstudio/template-state.json",
+    "template_revision": "2026.10.19.1",
+    "effective_capabilities": {}
+  },
+  "status": "ready",
+  "confirmation_status": "confirmed",
+  "confirmed_at": "2026-11-13T02:31:42.437306+00:00",
+  "confirmed_from": {
+    "planning_run_id": "planning-0922c71e1985495b998da6943665e88f",
+    "draft_digest": "702f2a21ab8e5ce7e790b1b142b13d7938ebfd23ef66c5ecbae470df7cf7b826"
+  }
+}

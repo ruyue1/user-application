@@ -1,0 +1,1 @@
+{"endpoints":[{"id":"greeting.getGreeting","method":"GET","name":"获取问候语","path":"/api/hi","summary":"获取问候语内容，返回固定字符串\"欢迎来到我的世界！\"供前端展示"}]}

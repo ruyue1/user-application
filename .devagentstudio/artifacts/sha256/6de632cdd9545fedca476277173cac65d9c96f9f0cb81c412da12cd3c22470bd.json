@@ -1,0 +1,1 @@
+{"contracts":[{"base_path":"/api/hi","entity_ids":["greeting"],"id":"greeting","name":"问候语","page_ids":["greeting"]}],"entities":[{"description":"通过后端接口获取并展示的问候语内容","id":"greeting","name":"问候语"}]}

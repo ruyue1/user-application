@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "generated_at": "2026-11-13T02:11:06.557384+00:00",
+  "generated_at": "2026-11-13T02:32:49.660344+00:00",
   "passed": true,
   "checks": [
     {
@@ -61,15 +61,16 @@
   "artifact_context": {
     "build_execution_scope": {
       "type": "page",
-      "targetId": "home"
+      "targetId": "greeting"
     },
-    "plan_sha256": "7b0dfa106e19c17b1a5711e9eca1695594743285f9a73ef4464a13fc59a51370",
+    "plan_sha256": "49eb082b4b51d9d03efac7063fae090ddf8c939cd5d46d8ae9b1dead8938cfd6",
     "files": {
       "frontend/jest.config.cjs": "ce1afcb596c0abefb634ecc399b348b89d998be73221ffc57bdbb84cb7f3f90c",
       "frontend/package.json": "7ac83000e1d969ac63a3ca602899f695ed63607d1c947990a7ca205e320cce46",
       "frontend/pnpm-lock.yaml": "2dd9e48d28b43e28ab6c64dc1a6bd26efcd0fbf0a7183da4d416160bf6fa08f3",
-      "frontend/src/constants/routes.tsx": "37dd45c16194f27401f972363301260f8e413d23de49f99cc9032040df3b8d1b",
-      "frontend/src/pages/Home/index.tsx": "c69505af8232eb6a16b1f40c218cf346b070baaf094b8506601c7341727ca5c9",
+      "frontend/src/apis/greetingApi.ts": "1a2e140e4a38f9b6f8cc8e948ef16fe5089fe8472f49c2f54bc6f65e5d933932",
+      "frontend/src/constants/routes.tsx": "f7dc030840fc2482e252eea851c7ff71f561ebd867cf70f703fdfe4732f1966c",
+      "frontend/src/pages/Greeting/index.tsx": "ee6d0dcec00c88c33c42998fe050eb64780f16057d52dc228ac6d6edec1d4645",
       "frontend/tests/__mocks__/fileMock.cjs": "9511e7bc24a9e0589f73af6ec1dd8b8fb1f6fb388decfdcb80a827860181226b",
       "frontend/tests/__mocks__/styleMock.cjs": "35ab14b4a7b597c4cb3c568cddf39ee07c557cdd7e19f2eb8b83467eafd70609",
       "frontend/tests/setupTests.ts": "303f1bcd5f40eb34671db9a66665f46aad22f0e0bc8a4dedf59d08fdbacef2b8",
