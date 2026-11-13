@@ -1,1 +1,0 @@
-{"fields":[{"description":"通过后端接口/api/hi获取并展示的问候语字符串，固定内容为\"欢迎来到我的世界！\"","label":"问候语内容","name":"content","required":true,"type":"text"}]}

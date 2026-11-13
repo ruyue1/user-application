@@ -1,1 +1,0 @@
-{"pageId":"greeting","references":{"action_implementations":[],"endpoint_dependencies":[{"endpoint_id":"greeting.getGreeting","required_for_initial_load":true,"trigger":"用户进入问候页时初始加载问候语内容","usage":"获取问候语内容\"欢迎来到我的世界！\"用于页面展示"}]}}
