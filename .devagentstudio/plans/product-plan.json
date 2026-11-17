@@ -1,0 +1,77 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-11-17T08:37:39.032887+00:00",
+  "requirement_spec_sha256": "b5505f372c9b2f29e8b1e65466730df5cf898fa616bbd9d278566be5d90a05bf",
+  "app": {
+    "name": "简单测试时间",
+    "summary": "「简单测试时间」是一个面向 PC 端的极简演示应用，采用侧边导航布局、启用页头、禁用页脚，数据源类型为数据库。应用仅包含一个首页，页面通过调用唯一的一个后端接口获取并展示后端系统当前时间，用于验证前后端接口连通性与时间获取能力。应用不启用登录认证，也不涉及权限控制。"
+  },
+  "business_flows": [
+    {
+      "name": "查看后端系统时间",
+      "steps": [
+        "用户打开应用，进入系统时间展示页",
+        "页面自动调用后端时间接口发起时间查询请求",
+        "后端接口返回后端系统当前时间",
+        "页面将返回的时间以文本形式展示给用户",
+        "用户点击刷新按钮，页面重新调用接口并更新展示的时间",
+        "若接口调用失败，页面提示时间获取失败并允许用户重试"
+      ],
+      "id": "flow_view_system_time",
+      "description": "用户打开应用首页，前端调用后端时间接口获取后端系统当前时间并展示，用户可手动刷新重新获取。"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "system_time_view",
+      "name": "系统时间展示页",
+      "path": "/page/system-time-view",
+      "module_id": "module_system_time_display",
+      "description": "应用首页。页面加载后调用后端时间接口，将返回的后端系统时间以清晰的文本形式展示给用户，并提供手动刷新按钮以重新获取最新时间；接口异常时提示获取失败。",
+      "goal": "让用户打开应用后即可看到后端系统当前时间，并可通过刷新操作重新获取最新时间，用于验证前后端接口连通性。",
+      "information_items": [
+        {
+          "itemId": "system_time_view-current-time",
+          "label": "后端系统当前时间",
+          "description": "页面展示的由后端接口返回的系统当前时间文本，用户可据此确认后端时间获取是否成功。"
+        },
+        {
+          "itemId": "system_time_view-fetch-status",
+          "label": "时间获取状态提示",
+          "description": "当时间获取失败时向用户展示的失败提示信息，告知用户当前无法获取后端系统时间并允许重试。"
+        }
+      ],
+      "actions": [
+        {
+          "actionId": "refresh_time",
+          "name": "刷新时间",
+          "description": "用户点击刷新按钮，重新向后端发起时间查询并更新页面展示的时间。",
+          "requiresConfirmation": false,
+          "behavior": {
+            "type": "business",
+            "expectedResult": "页面重新获取后端系统当前时间并更新展示；若获取失败，页面提示时间获取失败并允许用户再次重试。"
+          }
+        }
+      ],
+      "navigation_targets": [],
+      "acceptance_criteria": [
+        "用户打开系统时间展示页后，页面自动获取并展示后端系统当前时间。",
+        "页面展示的时间以清晰可读的文本形式呈现，用户可直接识别。",
+        "用户点击刷新按钮后，页面重新获取并更新展示的后端系统当前时间。",
+        "当时间获取失败时，页面向用户展示时间获取失败提示，并允许用户通过刷新按钮重试。"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "应用仅包含一个系统时间展示页，用户无需登录即可访问并使用。",
+    "用户打开应用首页后，能够看到由后端接口返回的后端系统当前时间。",
+    "用户可通过刷新操作重新获取并更新页面展示的后端系统当前时间。",
+    "当后端时间获取失败时，页面向用户展示失败提示并允许重试。"
+  ],
+  "confirmation_status": "confirmed"
+}

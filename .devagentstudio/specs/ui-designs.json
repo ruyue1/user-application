@@ -1,0 +1,51 @@
+{
+  "schema_version": "ui-manifest.v3",
+  "confirmation_status": "confirmed",
+  "product_plan_sha256": "bfa942dd65201d9b617ea416b9ff870893246ea116c94af0d0519f8afc495978",
+  "pages": [
+    {
+      "pageId": "system_time_view",
+      "page_key": "SystemTimeView",
+      "preview_path": "/page/system-time-view",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [
+          {
+            "actionId": "refresh_time",
+            "controlIds": []
+          }
+        ],
+        "information_items": [
+          {
+            "informationItemId": "system_time_view-current-time",
+            "controlIds": []
+          },
+          {
+            "informationItemId": "system_time_view-fetch-status",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    }
+  ]
+}

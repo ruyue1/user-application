@@ -1,0 +1,77 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "generated_at": "2026-11-17T08:37:34.747807+00:00",
+  "summary": "「简单测试时间」是一个面向 PC 端的极简演示应用，采用侧边导航布局、启用页头、禁用页脚，数据源类型为数据库。应用仅包含一个首页，页面通过调用唯一的一个后端接口获取并展示后端系统当前时间，用于验证前后端接口连通性与时间获取能力。应用不启用登录认证，也不涉及权限控制。",
+  "source_request": "请为新应用「简单测试时间」完成需求、产品、UI（可跳过）和技术规划。；应用场景：只有一个页面，一个后端接口，页面上显示接口返回的后端系统时间。；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+  "app_info": {
+    "name": "简单测试时间",
+    "summary": "「简单测试时间」是一个面向 PC 端的极简演示应用，采用侧边导航布局、启用页头、禁用页脚，数据源类型为数据库。应用仅包含一个首页，页面通过调用唯一的一个后端接口获取并展示后端系统当前时间，用于验证前后端接口连通性与时间获取能力。应用不启用登录认证，也不涉及权限控制。",
+    "target": "",
+    "route_root_path": "/page",
+    "menu_enabled": true
+  },
+  "user_roles": [
+    {
+      "name": "普通用户",
+      "description": "访问应用首页并查看后端系统时间的终端使用者，无需登录即可使用。",
+      "id": "business_user"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "系统时间展示",
+      "description": "通过后端接口获取后端系统当前时间并在首页展示，包含页面加载时获取时间与手动刷新时间的能力。",
+      "priority": "must",
+      "id": "module_system_time_display"
+    }
+  ],
+  "pages": [
+    {
+      "name": "系统时间展示页",
+      "path": "/page/system-time-view",
+      "module_id": "module_system_time_display",
+      "description": "应用首页。页面加载后调用后端时间接口，将返回的后端系统时间以清晰的文本形式展示给用户，并提供手动刷新按钮以重新获取最新时间；接口异常时提示获取失败。",
+      "pageId": "system_time_view"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "查看后端系统时间",
+      "steps": [
+        "用户打开应用，进入系统时间展示页",
+        "页面自动调用后端时间接口发起时间查询请求",
+        "后端接口返回后端系统当前时间",
+        "页面将返回的时间以文本形式展示给用户",
+        "用户点击刷新按钮，页面重新调用接口并更新展示的时间",
+        "若接口调用失败，页面提示时间获取失败并允许用户重试"
+      ],
+      "id": "flow_view_system_time",
+      "description": "用户打开应用首页，前端调用后端时间接口获取后端系统当前时间并展示，用户可手动刷新重新获取。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\"version\": \"1.0\", \"status\": \"pending_user_confirmation\", \"generated_at\": \"2025-06-01T00:00:00Z\", \"app_info\": {\"name\": \"简单测试时间\", \"summary\": \"「简单测试时间」是一个面向 PC 端的极简演示应用，采用侧边导航布局、启用页头、禁用页脚，数据源类型为数据库。应用仅包含一个首页，页面通过调用唯一的一个后端接口获取并展示后端系统当前时间，用于验证前后端接口连通性与时间获取能力。应用不启用登录认证，也不涉及权限控制。\", \"route_root_path\": \"/\"}, \"user_roles\": [{\"id\": \"business_user\", \"name\": \"普通用户\", \"description\": \"访问应用首页并查看后端系统时间的终端使用者，无需登录即可使用。\"}], \"feature_modules\": [{\"id\": \"module_system_time_display\", \"name\": \"系统时间展示\", \"description\": \"通过后端接口获取后端系统当前时间并在首页展示，包含页面加载时获取时间与手动刷新时间的能力。\"}], \"pages\": [{\"pageId\": \"system_time_view\", \"name\": \"系统时间展示页\", \"path\": \"/\", \"module_id\": \"module_system_time_display\", \"description\": \"应用首页。页面加载后调用后端时间接口，将返回的后端系统时间以清晰的文本形式展示给用户，并提供手动刷新按钮以重新获取最新时间；接口异常时提示获取失败。\"}], \"business_flows\": [{\"id\": \"flow_view_system_time\", \"name\": \"查看后端系统时间\", \"description\": \"用户打开应用首页，前端调用后端时间接口获取后端系统当前时间并展示，用户可手动刷新重新获取。\", \"steps\": [\"用户打开应用，进入系统时间展示页\", \"页面自动调用后端时间接口发起时间查询请求\", \"后端接口返回后端系统当前时间\", \"页面将返回的时间以文本形式展示给用户\", \"用户点击刷新按钮，页面重新调用接口并更新展示的时间\", \"若接口调用失败，页面提示时间获取失败并允许用户重试\"]}], \"authentication_requirements\": {\"enabled\": false, \"sourceRefs\": []}, \"authorization_requirements\": {\"enabled\": false, \"restrictedPages\": [], \"restrictedOperations\": [], \"sourceRefs\": []}}",
+  "approved": true,
+  "confirmation_status": "confirmed",
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "deepseek-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model"
+}
