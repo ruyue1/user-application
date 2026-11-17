@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "bfa942dd65201d9b617ea416b9ff870893246ea116c94af0d0519f8afc495978",
+  "product_plan_sha256": "23fd4ab667c334dffa000921585700a0a6ecc13f495239dcbf352b86774ce6b7",
   "pages": [
     {
       "pageId": "system_time_view",
