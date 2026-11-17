@@ -6,29 +6,26 @@
 - 结论：审查通过，未发现需要处理的问题。
 - 问题总数：0
 - 审查模式：Diff 审查
-- 实际审查文件数：5
+- 实际审查文件数：1
 - 跳过文件数：0
 
 ## Diff 审查文件
 
-- `backend/src/main/java/com/cmbchina/backend/systemtime/adapter/web/SystemTimeController.java`
-- `backend/src/main/java/com/cmbchina/backend/systemtime/application/dto/SystemTimeResponse.java`
-- `backend/src/main/java/com/cmbchina/backend/systemtime/application/service/SystemTimeApplicationService.java`
-- `frontend/src/apis/systemTimeContractApi.ts`
 - `frontend/src/pages/SystemTimeView/index.tsx`
 
 ## 扫描汇总
 
 | 范围 | 扫描根目录 | 状态 | 文件总数 |
 | --- | --- | --- | ---: |
-| 前端 | `frontend` | 已完成 | 2 |
-| 后端 | `backend` | 已完成 | 3 |
+| 前端 | `frontend` | 已完成 | 1 |
+| 后端 | `backend` | 已跳过 | 0 |
 
-**前后端扫描文件总数：5**
+**前后端扫描文件总数：1**
 
 ## 扫描提示
 
-- frontend-code-scan 仅含 axios 与 form-data 版本风险检测规则，依赖依据文件 package.json 与 pnpm-lock.yaml 未列入本次目标清单，因此清单中的前端文件无适用规则可判定，未报告前端问题。
+- 前端 Skill 仅提供 package.json / pnpm-lock.yaml 的依赖版本检测规则，本次清单未包含依赖清单文件；已按要求读取目标页面文件但不适用任何前端规则。
+- 本次变更清单未包含任何 backend/src/main/java 下的 Java 源码、pom.xml、资源或配置文件，后端扫描根按规则跳过。
 
 ## 问题详情
 
