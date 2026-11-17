@@ -15,5 +15,9 @@ export const PAGE_ROUTES: PageRouteDefinition[] = [
     label: '首页',
   },
   // DEVAGENTSTUDIO_BUSINESS_ROUTES_START
+  {
+    path: "system_time_view",
+    label: "系统时间展示页",
+  },
   // DEVAGENTSTUDIO_BUSINESS_ROUTES_END
 ];

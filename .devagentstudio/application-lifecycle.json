@@ -3,16 +3,16 @@
     "id": "1794904386161-48m6ya",
     "name": "简单测试时间"
   },
-  "updatedAt": "2026-11-17T08:38:10.201992Z",
-  "revision": 12,
+  "updatedAt": "2026-11-17T08:43:28.693432Z",
+  "revision": 44,
   "developmentArtifacts": {
     "pages": {
       "system_time_view": {
-        "initialDevelopmentStatus": "pending",
-        "completedAt": null,
-        "completedRunId": null,
-        "completedThreadId": null,
-        "completedBranchName": null,
+        "initialDevelopmentStatus": "completed",
+        "completedAt": "2026-11-17T08:41:36.819962Z",
+        "completedRunId": "1e5c5bcd-20ea-450c-92b1-4af43600a662",
+        "completedThreadId": "c5576143-08da-4f33-8f5b-d316fb375181",
+        "completedBranchName": "sbw_1",
         "changeStatus": "unchanged",
         "changeReason": null,
         "checkedChangeId": null
@@ -29,11 +29,11 @@
     "endpoints": {
       "system_time_contract": {
         "system_time_contract.get_current_time": {
-          "initialDevelopmentStatus": "pending",
-          "completedAt": null,
-          "completedRunId": null,
-          "completedThreadId": null,
-          "completedBranchName": null,
+          "initialDevelopmentStatus": "completed",
+          "completedAt": "2026-11-17T08:41:36.819962Z",
+          "completedRunId": "1e5c5bcd-20ea-450c-92b1-4af43600a662",
+          "completedThreadId": "c5576143-08da-4f33-8f5b-d316fb375181",
+          "completedBranchName": "sbw_1",
           "changeStatus": "unchanged",
           "changeReason": null,
           "checkedChangeId": null
@@ -44,25 +44,285 @@
     "outOfScope": []
   },
   "initialization": {
-    "stage": "generating_application_template_files",
-    "status": "running",
+    "stage": "ready_for_workbench",
+    "status": "completed",
     "threadId": "cadec3d0-8c08-434c-aa37-0ddace1cdd3b",
     "iterationId": "8e95e69b-0ca3-477d-a59f-39a99c40a74c"
   },
-  "activeRunId": "ebe8f5fd-8237-442c-ba14-7721632e16e5",
-  "activeExecutions": {},
+  "activeRunId": "0967c728-557e-4366-9d2e-a27e47574d2b",
+  "activeExecutions": {
+    "0967c728-557e-4366-9d2e-a27e47574d2b": {
+      "scope": "page",
+      "targetId": "system_time_view",
+      "pageId": "system_time_view",
+      "threadId": "c5576143-08da-4f33-8f5b-d316fb375181",
+      "ownerSessionId": "5ebe4cb3-a299-4b36-8049-7f370b9aa613",
+      "runId": "0967c728-557e-4366-9d2e-a27e47574d2b",
+      "phase": "acceptance",
+      "status": "awaiting_user",
+      "resourceKeys": [
+        "page:system_time_view",
+        "api_contract:system_time_contract"
+      ],
+      "developmentPurpose": null,
+      "developmentTarget": null,
+      "pendingInteraction": {
+        "id": "interaction-10642e7ef5643f2697291058",
+        "type": "page_acceptance",
+        "basedOnRevision": 44,
+        "payload": {
+          "mode": "page_acceptance",
+          "message": "项目已通过集成测试并启动预览，请用户验收。",
+          "previewUrl": "http://127.0.0.1:3000",
+          "testSummary": {
+            "version": "0.1.0",
+            "generated_at": "2026-11-17T08:43:01.582718+00:00",
+            "passed": true,
+            "checks": [
+              {
+                "id": "frontend_install",
+                "name": "前端依赖安装检查",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": false,
+                "required": true,
+                "command": "/usr/local/bin/pnpm install",
+                "evidence": "Node v24.14.0 (NVM_BIN) /Users/sbw/.nvm/versions/node/v24.14.0/bin/node\n命令执行通过：/usr/local/bin/pnpm install",
+                "failure_category": null,
+                "execution": {
+                  "tool": "subprocess",
+                  "argv": [
+                    "/usr/local/bin/pnpm",
+                    "install"
+                  ],
+                  "cwd": "frontend",
+                  "returncode": 0,
+                  "timed_out": false,
+                  "error": null,
+                  "started_at": "2026-11-17T08:41:39.970442+00:00",
+                  "finished_at": "2026-11-17T08:42:44.050743+00:00",
+                  "stdout_log": "/Users/sbw/Documents/xc3/.devagentstudio/runtime/tests/frontend_install/stdout.log",
+                  "stderr_log": "/Users/sbw/Documents/xc3/.devagentstudio/runtime/tests/frontend_install/stderr.log",
+                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stdout.log",
+                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stderr.log",
+                  "stdout_tail": "\nProgress: resolved 64, reused 64, downloaded 0, added 0\nProgress: resolved 79, reused 79, downloaded 0, added 0\nProgress: resolved 85, reused 85, downloaded 0, added 0\nProgress: resolved 90, reused 90, downloaded 0, added 0\nProgress: resolved 93, reused 93, downloaded 0, added 0\nProgress: resolved 94, reused 94, downloaded 0, added 0\nProgress: resolved 95, reused 94, downloaded 0, added 0\nProgress: resolved 99, reused 99, downloaded 0, added 0\nProgress: resolved 105, reused 105, downloaded 0, added 0\nProgress: resolved 114, reused 114, downloaded 0, added 0\nProgress: resolved 137, reused 136, downloaded 0, added 0\nProgress: resolved 146, reused 146, downloaded 0, added 0\nProgress: resolved 159, reused 159, downloaded 0, added 0\nProgress: resolved 172, reused 172, downloaded 0, added 0\nProgress: resolved 184, reused 184, downloaded 0, added 0\nProgress: resolved 191, reused 191, downloaded 0, added 0\nProgress: resolved 196, reused 196, downloaded 0, added 0\nProgress: resolved 204, reused 204, downloaded 0, added 0\nProgress: resolved 221, reused 220, downloaded 0, added 0\nProgress: resolved 258, reused 248, downloaded 0, added 0\nProgress: resolved 277, reused 267, downloaded 0, added 0\nProgress: resolved 309, reused 298, downloaded 0, added 0\nProgress: resolved 329, reused 319, downloaded 0, added 0\nProgress: resolved 363, reused 353, downloaded 0, added 0\nProgress: resolved 400, reused 389, downloaded 0, added 0\nProgress: resolved 431, reused 420, downloaded 0, added 0\nProgress: resolved 485, reused 456, downloaded 0, added 0\nProgress: resolved 526, reused 498, downloaded 0, added 0\nProgress: resolved 570, reused 542, downloaded 0, added 0\nProgress: resolved 623, reused 595, downloaded 0, added 0\nProgress: resolved 676, reused 648, downloaded 0, added 0\nProgress: resolved 712, reused 684, downloaded 0, added 0\nProgress: resolved 713, reused 685, downloaded 0, added 0\nProgress: resolved 718, reused 690, downloaded 0, added 0\n WARN  6 deprecated subdependencies found: abab@2.0.6, domexception@2.0.1, glob@7.2.3, inflight@1.0.6, rimraf@3.0.2, w3c-hr-time@1.0.2\nPackages: +692\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\nProgress: resolved 720, reused 692, downloaded 0, added 394\nProgress: resolved 720, reused 692, downloaded 0, added 566\nProgress: resolved 720, reused 692, downloaded 0, added 692, done\n\ndependencies:\n+ @ant-design/cssinjs 1.24.0 (2.2.0 is available)\n+ @ant-design/icons 5.6.1 (6.3.4 is available)\n+ @ant-design/pro-components 2.8.10\n+ ahooks 3.11.0\n+ antd 5.29.3 (6.7.1 is available)\n+ axios 1.21.1\n+ clsx 2.1.1\n+ date-fns 4.4.0\n+ lodash 4.18.1\n+ mermaid 10.9.8 (12.3.0 is available)\n+ qs 6.17.1\n+ react 18.2.0 (19.2.8 is available)\n+ react-dom 18.2.0 (19.2.8 is available)\n+ react-markdown 8.0.7 (10.1.0 is available)\n+ react-router 6.30.6 (8.5.1 is available)\n+ react-router-dom 6.30.6 (7.18.5 is available)\n+ remark-gfm 3.0.1 (4.0.1 is available)\n+ uuid 13.0.2 (14.0.3 is available)\n\ndevDependencies:\n+ @babel/core 7.29.13 (8.1.2 is available)\n+ @rsbuild/core 1.0.14 (2.2.14 is available)\n+ @rsbuild/plugin-react 1.0.4 (2.1.1 is available)\n+ @tailwindcss/postcss 4.3.5\n+ @testing-library/jest-dom 6.6.3 (7.0.1 is available)\n+ @testing-library/react 16.2.0 (16.3.2 is available)\n+ @types/jest 27.5.2 (30.0.0 is available)\n+ @types/lodash 4.17.27\n+ @types/node 26.6.6\n+ @types/qs 6.15.1\n+ @types/react 18.3.31 (19.3.0 is available)\n+ @types/react-dom 18.3.7 (19.3.0 is available)\n+ autoprefixer 10.6.2\n+ babel-jest 27.5.1 (30.5.2 is available)\n+ jest 27.5.1 (30.5.2 is available)\n+ jest-config 27.5.1 (30.5.2 is available)\n+ jest-environment-jsdom 27.5.1 (30.5.2 is available)\n+ jest-sonar-reporter 2.0.0\n+ jest-watch-typeahead 2.2.2 (3.0.1 is available)\n+ postcss 8.5.33\n+ tailwindcss 4.3.5\n+ ts-jest 27.1.5 (29.4.15 is available)\n+ typescript 5.9.3 (7.0.2 is available)\n\n WARN  Issues with peer dependencies found\n.\n└─┬ ts-jest 27.1.5\n  └── ✕ unmet peer typescript@\">=3.8 <5.0\": found 5.9.3\n\nDone in 1m 3.4s\n",
+                  "stderr_tail": "(node:54633) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n",
+                  "nodeRuntime": {
+                    "path": "/Users/sbw/.nvm/versions/node/v24.14.0/bin/node",
+                    "version": "v24.14.0",
+                    "source": "NVM_BIN"
+                  }
+                }
+              },
+              {
+                "id": "frontend_build",
+                "name": "前端构建检查",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": false,
+                "required": true,
+                "command": "/usr/local/bin/pnpm run build",
+                "evidence": "Node v24.14.0 (NVM_BIN) /Users/sbw/.nvm/versions/node/v24.14.0/bin/node\n命令执行通过：/usr/local/bin/pnpm run build",
+                "failure_category": null,
+                "execution": {
+                  "tool": "subprocess",
+                  "argv": [
+                    "/usr/local/bin/pnpm",
+                    "run",
+                    "build"
+                  ],
+                  "cwd": "frontend",
+                  "returncode": 0,
+                  "timed_out": false,
+                  "error": null,
+                  "started_at": "2026-11-17T08:42:44.051235+00:00",
+                  "finished_at": "2026-11-17T08:42:50.947984+00:00",
+                  "stdout_log": "/Users/sbw/Documents/xc3/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+                  "stderr_log": "/Users/sbw/Documents/xc3/.devagentstudio/runtime/tests/frontend_build/stderr.log",
+                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stderr.log",
+                  "stdout_tail": " WARN  Unsupported engine: wanted: {\"node\":\">=20.19 <23\"} (current: {\"node\":\"v24.14.0\",\"pnpm\":\"8.12.0\"})\n\n> @za38.03/devagentstudio-lowcode-template@1.0.0 build /Users/sbw/Documents/xc3/frontend\n> tsc -b && rsbuild build\n\n  Rsbuild v1.0.14\n\nready   Built in 1.02 s (web)\nwarn    Compile Warning: \n⚠ Unknown at rule: @theme at static/css/index.c1b57262.css:19:7\n\n⚠ Unknown at rule: @theme at static/css/496.804417ee.css:2:9\n\n⚠ Unknown at rule: @theme at static/css/496.804417ee.css:6:9\n\n⚠ Unknown at rule: @tailwind at static/css/496.804417ee.css:325:12\n\n\n  File (web)                                     Size         Gzip    \n  build/static/js/async/923.3f6af97b.js          0.38 kB      0.30 kB\n  build/index.html                               0.92 kB      0.46 kB\n  build/static/css/index.c1b57262.css            1.4 kB       0.54 kB\n  build/static/js/async/607.0bf88bc2.js          3.2 kB       1.7 kB\n  build/static/svg/icon20.232d197f.svg           4.7 kB       2.1 kB\n  build/static/js/lib-router.8990d7ac.js         19.9 kB      7.3 kB\n  build/static/css/496.804417ee.css              23.1 kB      5.9 kB\n  build/static/js/async/lib-axios.87028d5f.js    57.7 kB      21.0 kB\n  build/static/js/index.e3170704.js              58.4 kB      19.5 kB\n  build/static/js/lib-react.eec25883.js          140.3 kB     45.0 kB\n  build/static/js/async/624.44fde44f.js          148.7 kB     45.1 kB\n  build/static/js/496.d3424c36.js                1470.6 kB    388.0 kB\n\n  Total: 1929.4 kB (gzip: 537.0 kB)\n\n",
+                  "stderr_tail": "",
+                  "nodeRuntime": {
+                    "path": "/Users/sbw/.nvm/versions/node/v24.14.0/bin/node",
+                    "version": "v24.14.0",
+                    "source": "NVM_BIN"
+                  }
+                }
+              },
+              {
+                "id": "backend_build",
+                "name": "后端构建检查",
+                "layer": "backend",
+                "language": "java",
+                "passed": true,
+                "skipped": false,
+                "required": true,
+                "command": "/Users/sbw/dev/apache-maven-3.9.16/bin/mvn -B -Dmaven.test.skip=true clean install",
+                "evidence": "命令执行通过：/Users/sbw/dev/apache-maven-3.9.16/bin/mvn -B -Dmaven.test.skip=true clean install",
+                "failure_category": null,
+                "execution": {
+                  "tool": "subprocess",
+                  "argv": [
+                    "/Users/sbw/dev/apache-maven-3.9.16/bin/mvn",
+                    "-B",
+                    "-Dmaven.test.skip=true",
+                    "clean",
+                    "install"
+                  ],
+                  "cwd": "backend",
+                  "returncode": 0,
+                  "timed_out": false,
+                  "error": null,
+                  "started_at": "2026-11-17T08:42:50.949026+00:00",
+                  "finished_at": "2026-11-17T08:42:54.419639+00:00",
+                  "stdout_log": "/Users/sbw/Documents/xc3/.devagentstudio/runtime/tests/backend_build/stdout.log",
+                  "stderr_log": "/Users/sbw/Documents/xc3/.devagentstudio/runtime/tests/backend_build/stderr.log",
+                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/backend_build/stdout.log",
+                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/backend_build/stderr.log",
+                  "stdout_tail": "[INFO] Scanning for projects...\n[INFO] \n[INFO] --------------------< LT54.06:xcode-agent-backend >---------------------\n[INFO] Building xcode-agent-backend 1.0.0-SNAPSHOT\n[INFO]   from pom.xml\n[INFO] --------------------------------[ jar ]---------------------------------\n[INFO] \n[INFO] --- clean:3.2.0:clean (default-clean) @ xcode-agent-backend ---\n[INFO] \n[INFO] --- resources:3.2.0:resources (default-resources) @ xcode-agent-backend ---\n[INFO] Using 'UTF-8' encoding to copy filtered resources.\n[INFO] Using 'UTF-8' encoding to copy filtered properties files.\n[INFO] Copying 3 resources\n[INFO] Copying 0 resource\n[INFO] \n[INFO] --- compiler:3.10.1:compile (default-compile) @ xcode-agent-backend ---\n[INFO] Changes detected - recompiling the module!\n[INFO] Compiling 14 source files to /Users/sbw/Documents/xc3/backend/target/classes\n[INFO] \n[INFO] --- resources:3.2.0:testResources (default-testResources) @ xcode-agent-backend ---\n[INFO] Not copying test resources\n[INFO] \n[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ xcode-agent-backend ---\n[INFO] Not compiling test sources\n[INFO] \n[INFO] --- surefire:2.22.2:test (default-test) @ xcode-agent-backend ---\n[INFO] Tests are skipped.\n[INFO] \n[INFO] --- jar:3.2.2:jar (default-jar) @ xcode-agent-backend ---\n[INFO] Building jar: /Users/sbw/Documents/xc3/backend/target/xcode-agent-backend-1.0.0-SNAPSHOT.jar\n[INFO] \n[INFO] --- spring-boot:2.7.2:repackage (repackage) @ xcode-agent-backend ---\n[INFO] Replacing main artifact with repackaged archive\n[INFO] \n[INFO] --- install:2.5.2:install (default-install) @ xcode-agent-backend ---\n[INFO] Installing /Users/sbw/Documents/xc3/backend/target/xcode-agent-backend-1.0.0-SNAPSHOT.jar to /Users/sbw/.m2/repository/LT54/06/xcode-agent-backend/1.0.0-SNAPSHOT/xcode-agent-backend-1.0.0-SNAPSHOT.jar\n[INFO] Installing /Users/sbw/Documents/xc3/backend/pom.xml to /Users/sbw/.m2/repository/LT54/06/xcode-agent-backend/1.0.0-SNAPSHOT/xcode-agent-backend-1.0.0-SNAPSHOT.pom\n[INFO] ------------------------------------------------------------------------\n[INFO] BUILD SUCCESS\n[INFO] ------------------------------------------------------------------------\n[INFO] Total time:  2.319 s\n[INFO] Finished at: 2026-11-17T16:42:54+08:00\n[INFO] ------------------------------------------------------------------------\n",
+                  "stderr_tail": ""
+                }
+              },
+              {
+                "id": "backend_startup",
+                "name": "后端启动检查",
+                "layer": "backend",
+                "language": "java",
+                "passed": true,
+                "skipped": false,
+                "required": true,
+                "blocking": true,
+                "command": "/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/bin/java -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8 -Dlogging.charset.console=UTF-8 -jar .devagentstudio/runtime/tests/backend_startup/5c80e309b8a040169e9d5a04793a973a/backend-jar/xcode-agent-backend-1.0.0-SNAPSHOT.jar --server.address=127.0.0.1 --server.port=0",
+                "evidence": "后端初始化完成、HTTP 端口可连接且稳定存活，启动检查通过。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "subprocess",
+                  "argv": [
+                    "/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/bin/java",
+                    "-Dfile.encoding=UTF-8",
+                    "-Dsun.stdout.encoding=UTF-8",
+                    "-Dsun.stderr.encoding=UTF-8",
+                    "-Dstdout.encoding=UTF-8",
+                    "-Dstderr.encoding=UTF-8",
+                    "-Dlogging.charset.console=UTF-8",
+                    "-jar",
+                    ".devagentstudio/runtime/tests/backend_startup/5c80e309b8a040169e9d5a04793a973a/backend-jar/xcode-agent-backend-1.0.0-SNAPSHOT.jar",
+                    "--server.address=127.0.0.1",
+                    "--server.port=0"
+                  ],
+                  "cwd": ".devagentstudio/runtime/tests/backend_startup/5c80e309b8a040169e9d5a04793a973a/backend-jar",
+                  "returncode": null,
+                  "timed_out": false,
+                  "error": null,
+                  "started_at": "2026-11-17T08:42:54.421426+00:00",
+                  "root_cause": "",
+                  "stdout_tail": "\n  .   ____          _            __ _ _\n /\\\\ / ___'_ __ _ _(_)_ __  __ _ \\ \\ \\ \\\n( ( )\\___ | '_ | '_| | '_ \\/ _` | \\ \\ \\ \\\n \\\\/  ___)| |_)| | | | | || (_| |  ) ) ) )\n  '  |____| .__|_| |_|_| |_\\__, | / / / /\n =========|_|==============|___/=/_/_/_/\n :: Spring Boot ::                (v2.7.2)\n\n2026-11-17 16:42:54.906  INFO 54730 --- [           main] com.cmbchina.backend.Application         : Starting Application v1.0.0-SNAPSHOT using Java 1.8.0_501 on 99-11-233-79.lightspeed.rcsntx.sbcglobal.net with PID 54730 (/Users/sbw/Documents/xc3/.devagentstudio/runtime/tests/backend_startup/5c80e309b8a040169e9d5a04793a973a/backend-jar/xcode-agent-backend-1.0.0-SNAPSHOT.jar started by sbw in /Users/sbw/Documents/xc3/.devagentstudio/runtime/tests/backend_startup/5c80e309b8a040169e9d5a04793a973a/backend-jar)\n2026-11-17 16:42:54.908  INFO 54730 --- [           main] com.cmbchina.backend.Application         : The following 1 profile is active: \"dev\"\n2026-11-17 16:42:55.352  WARN 54730 --- [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.cmbchina.backend]' package. Please check your configuration.\n2026-11-17 16:42:55.624  INFO 54730 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)\n2026-11-17 16:42:55.630  INFO 54730 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]\n2026-11-17 16:42:55.630  INFO 54730 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]\n2026-11-17 16:42:55.702  INFO 54730 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext\n2026-11-17 16:42:55.702  INFO 54730 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 768 ms\n _ _   |_  _ _|_. ___ _ |    _ \n| | |\\/|_)(_| | |_\\  |_)||_|_\\ \n     /               |         \n                        3.5.2 \n2026-11-17 16:42:56.057  INFO 54730 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 50084 (http) with context path ''\n2026-11-17 16:42:56.064  INFO 54730 --- [           main] com.cmbchina.backend.Application         : Started Application in 1.386 seconds (JVM running for 1.621)\n",
+                  "stderr_tail": "",
+                  "finished_at": "2026-11-17T08:42:59.214298+00:00",
+                  "cleanup_succeeded": true,
+                  "stdout_log": "/.devagentstudio/runtime/tests/backend_startup/5c80e309b8a040169e9d5a04793a973a/stdout.log",
+                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/backend_startup/5c80e309b8a040169e9d5a04793a973a/stdout.log",
+                  "stderr_log": "/.devagentstudio/runtime/tests/backend_startup/5c80e309b8a040169e9d5a04793a973a/stderr.log",
+                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/backend_startup/5c80e309b8a040169e9d5a04793a973a/stderr.log"
+                },
+                "source_fingerprint": "4cbac4b4aacadd730c12674f415c7ad9d46206bf4173088895dbabdae4e02955",
+                "repair_hints": [
+                  "backend/pom.xml",
+                  "backend/src/main/resources/application-dev.yml",
+                  "backend/src/main/resources/application.yml",
+                  "backend/src/main/resources/application-local.yml",
+                  "backend/src/main/java/com/cmbchina/backend/Application.java"
+                ]
+              },
+              {
+                "id": "frontend_performance",
+                "name": "前端性能测试",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": true,
+                "required": false,
+                "blocking": false,
+                "advisory": true,
+                "command": null,
+                "evidence": "本轮跳过前端性能测试，不启动前端、不执行 Lighthouse。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "none",
+                  "argv": [],
+                  "cwd": ".",
+                  "returncode": null,
+                  "timed_out": false,
+                  "stdout_log": null,
+                  "stderr_log": null
+                }
+              }
+            ],
+            "summary": {
+              "total": 5,
+              "passed": 5,
+              "failed": 0
+            },
+            "needs_revision": false,
+            "revision_requests": [],
+            "quality_gate": {
+              "passed": true,
+              "required_checks": [
+                "frontend_install",
+                "frontend_build",
+                "backend_build",
+                "backend_startup"
+              ],
+              "evaluated_by": "deterministic-quality-gate"
+            }
+          }
+        },
+        "artifactRefs": [],
+        "createdAt": "2026-11-17T08:43:28.693382Z",
+        "submittedAt": null
+      },
+      "error": null,
+      "startedAt": "2026-11-17T08:43:17.200378Z",
+      "updatedAt": "2026-11-17T08:43:28.693393Z"
+    }
+  },
   "endedExecutions": {},
   "endedPlanningExecution": null,
   "developmentContinuations": {},
   "resourceLocks": {
     "application": null,
-    "pages": {},
-    "apiContracts": {},
+    "pages": {
+      "system_time_view": {
+        "runId": "0967c728-557e-4366-9d2e-a27e47574d2b",
+        "ownerPageId": "system_time_view",
+        "mode": "exclusive",
+        "role": "primary",
+        "reason": "primary_target",
+        "acquiredAt": "2026-11-17T08:43:17.200378Z"
+      }
+    },
+    "apiContracts": {
+      "system_time_contract": {
+        "runId": "0967c728-557e-4366-9d2e-a27e47574d2b",
+        "ownerPageId": "system_time_view",
+        "mode": "exclusive",
+        "role": "dependency",
+        "reason": "plan_dependency",
+        "acquiredAt": "2026-11-17T08:43:17.200378Z"
+      }
+    },
     "endpoints": {},
     "dataSources": {}
   },
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {}
+  "extensions": {
+    "testExecutionStatus": "pending",
+    "reviewStatus": "pending",
+    "acceptanceStatus": "pending"
+  }
 }

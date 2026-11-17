@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "a99359a5c26e4c1299b7b94646920e47",
+  "apiContractId": "system_time_contract",
+  "endpointId": "system_time_contract.get_current_time",
+  "endpointContract": {
+    "id": "system_time_contract.get_current_time",
+    "name": "获取后端系统当前时间",
+    "method": "GET",
+    "path": "/api/system-time/current",
+    "summary": "读取后端系统当前时间，返回精确到秒的当前时间，用于页面展示与刷新重试。",
+    "parameters": [],
+    "request_schema_ref": null,
+    "response_schema_ref": "SystemTimeResponse",
+    "error_codes": [
+      "INTERNAL_ERROR"
+    ],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "currentTime": ""
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "currentTime",
+        "type": "string",
+        "required": true,
+        "description": "后端系统在响应请求时返回的当前时间，精确到秒"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "currentTime",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "0e55c3b18d8c02124778a2dc47c0947225d6a0a1fb2842a5024930c7d780ff3e"
+    }
+  ],
+  "confirmedAt": "2026-11-17T08:39:45.356874Z"
+}
