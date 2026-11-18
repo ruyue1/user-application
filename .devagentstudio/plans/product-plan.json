@@ -1,0 +1,57 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-11-18T07:34:30.490189+00:00",
+  "requirement_spec_sha256": "56a86200cfbe72bca0340791ef6a59ebfee607889fd0ec649e4fb60c6e1f36c9",
+  "app": {
+    "name": "简单测试",
+    "summary": "「简单测试」是一个面向 PC 终端的单页面应用，页面加载后向后端服务器请求并展示当前服务器时间，用于验证前后端连通性。应用采用侧边导航（side）布局，启用页头、禁用页脚，不启用认证，也不涉及权限控制。"
+  },
+  "business_flows": [
+    {
+      "name": "查看后端服务器时间",
+      "steps": [
+        "用户打开应用首页。",
+        "页面向后端服务器发起当前时间查询请求。",
+        "后端服务器返回当前服务器时间。",
+        "页面展示后端返回的服务器时间。"
+      ],
+      "id": "flow_view_server_time",
+      "description": "用户打开应用首页后，页面请求后端服务器时间并展示当前时间结果。"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "home",
+      "name": "服务器时间展示页",
+      "path": "/page/home",
+      "module_id": "module_server_time",
+      "description": "应用唯一页面，进入后自动请求后端服务器时间，并在页面中直接展示返回的服务器时间。",
+      "goal": "让用户打开应用后即可看到后端服务器返回的当前时间，以确认前后端连通性。",
+      "information_items": [
+        {
+          "itemId": "server_time",
+          "label": "服务器时间",
+          "description": "后端服务器返回的当前时间，是页面展示的核心业务信息。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "acceptance_criteria": [
+        "用户打开服务器时间展示页后，页面自动展示后端服务器返回的当前时间。",
+        "页面展示的服务器时间清晰可读，用户无需额外操作即可看到该时间。",
+        "当后端服务器返回时间后，页面展示内容与后端返回的时间一致。"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "用户打开应用后可直接进入服务器时间展示页，页面自动展示后端服务器返回的当前时间。",
+    "应用采用侧边导航布局，页头启用、页脚禁用，不启用认证且不涉及权限控制。",
+    "服务器时间展示页是应用唯一页面，用户无需登录即可查看服务器时间。"
+  ],
+  "confirmation_status": "confirmed"
+}

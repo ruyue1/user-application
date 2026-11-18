@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "generated_at": "2026-11-18T07:34:26.138582+00:00",
+  "summary": "「简单测试」是一个面向 PC 终端的单页面应用，页面加载后向后端服务器请求并展示当前服务器时间，用于验证前后端连通性。应用采用侧边导航（side）布局，启用页头、禁用页脚，不启用认证，也不涉及权限控制。",
+  "source_request": "请为新应用「简单测试」完成需求、产品、UI（可跳过）和技术规划。；应用场景：只有一个页面，页面返回后端服务器时间并显示；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+  "app_info": {
+    "name": "简单测试",
+    "summary": "「简单测试」是一个面向 PC 终端的单页面应用，页面加载后向后端服务器请求并展示当前服务器时间，用于验证前后端连通性。应用采用侧边导航（side）布局，启用页头、禁用页脚，不启用认证，也不涉及权限控制。",
+    "target": "",
+    "menu_enabled": true,
+    "route_root_path": "/page"
+  },
+  "user_roles": [
+    {
+      "name": "普通用户",
+      "description": "打开应用页面查看后端服务器时间的终端使用者。",
+      "id": "role_end_user"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "服务器时间展示",
+      "description": "页面加载时从后端服务器获取当前服务器时间，并在页面上展示该时间结果。",
+      "priority": "must",
+      "id": "module_server_time"
+    }
+  ],
+  "pages": [
+    {
+      "name": "服务器时间展示页",
+      "path": "/page/home",
+      "module_id": "module_server_time",
+      "description": "应用唯一页面，进入后自动请求后端服务器时间，并在页面中直接展示返回的服务器时间。",
+      "pageId": "home"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "查看后端服务器时间",
+      "steps": [
+        "用户打开应用首页。",
+        "页面向后端服务器发起当前时间查询请求。",
+        "后端服务器返回当前服务器时间。",
+        "页面展示后端返回的服务器时间。"
+      ],
+      "id": "flow_view_server_time",
+      "description": "用户打开应用首页后，页面请求后端服务器时间并展示当前时间结果。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\"version\": \"1.0\", \"status\": \"draft\", \"generated_at\": \"2025-06-01T00:00:00Z\", \"app_info\": {\"name\": \"简单测试\", \"summary\": \"「简单测试」是一个面向 PC 终端的单页面应用，页面加载后向后端服务器请求并展示当前服务器时间，用于验证前后端连通性。应用采用侧边导航（side）布局，启用页头、禁用页脚，不启用认证，也不涉及权限控制。\"}, \"user_roles\": [{\"id\": \"role_end_user\", \"name\": \"普通用户\", \"description\": \"打开应用页面查看后端服务器时间的终端使用者。\"}], \"feature_modules\": [{\"id\": \"module_server_time\", \"name\": \"服务器时间展示\", \"description\": \"页面加载时从后端服务器获取当前服务器时间，并在页面上展示该时间结果。\"}], \"pages\": [{\"pageId\": \"home\", \"name\": \"服务器时间展示页\", \"path\": \"/\", \"module_id\": \"module_server_time\", \"description\": \"应用唯一页面，进入后自动请求后端服务器时间，并在页面中直接展示返回的服务器时间。\"}], \"business_flows\": [{\"id\": \"flow_view_server_time\", \"name\": \"查看后端服务器时间\", \"description\": \"用户打开应用首页后，页面请求后端服务器时间并展示当前时间结果。\", \"steps\": [\"用户打开应用首页。\", \"页面向后端服务器发起当前时间查询请求。\", \"后端服务器返回当前服务器时间。\", \"页面展示后端返回的服务器时间。\"]}], \"authentication_requirements\": {\"enabled\": false, \"sourceRefs\": []}, \"authorization_requirements\": {\"enabled\": false, \"restrictedPages\": [], \"restrictedOperations\": []}}",
+  "approved": true,
+  "confirmation_status": "confirmed",
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "deepseek-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model"
+}

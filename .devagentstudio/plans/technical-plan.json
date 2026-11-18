@@ -1,0 +1,110 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "基于单页应用生成页面、路由和 API 客户端。",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [
+    {
+      "id": "server_time",
+      "name": "服务器时间",
+      "description": "后端服务器返回的当前时间，用于页面展示并确认前后端连通性。",
+      "fields": [
+        {
+          "label": "当前时间",
+          "description": "后端服务器返回的当前时间，用于页面展示并确认前后端连通性。",
+          "name": "current_time",
+          "type": "datetime",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "api_contracts": [
+    {
+      "id": "server_time_contract",
+      "name": "服务器时间",
+      "entity_ids": [
+        "server_time"
+      ],
+      "base_path": "/api/server-time",
+      "authentication": {
+        "required": false
+      },
+      "schemas": {
+        "ServerTimeResponse": {
+          "type": "object",
+          "description": "服务器当前时间响应",
+          "properties": {
+            "currentTime": {
+              "type": "string",
+              "format": "date-time",
+              "description": "后端服务器返回的当前时间，用于页面展示并确认前后端连通性。",
+              "entity_field_ref": "server_time.current_time"
+            }
+          },
+          "required": [
+            "currentTime"
+          ]
+        }
+      },
+      "endpoints": [
+        {
+          "id": "server_time_contract.read_server_time",
+          "name": "读取服务器时间",
+          "method": "GET",
+          "path": "/api/server-time",
+          "summary": "返回后端服务器当前时间，供页面展示并确认前后端连通性。",
+          "parameters": [],
+          "request_schema_ref": null,
+          "response_schema_ref": "ServerTimeResponse",
+          "error_codes": [
+            "INTERNAL_ERROR"
+          ],
+          "authentication": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "home",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "server_time_contract.read_server_time",
+            "usage": "页面初始加载时读取后端服务器当前时间并展示",
+            "trigger": "初始加载",
+            "required_for_initial_load": true
+          }
+        ],
+        "action_implementations": []
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 2,
+  "product_plan_sha256": "93a27671025cc063ed19fd4c704441663ed5db89deb2ad9588eb42229b2d2a4e",
+  "ui_designs_sha256": "8f76b684094beb3e2d2c23c64698100f61723fbf80111590d0173d9fcf4fdb5d",
+  "confirmation_status": "confirmed"
+}
