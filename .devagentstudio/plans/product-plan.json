@@ -1,0 +1,77 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-11-18T07:19:33.781117+00:00",
+  "requirement_spec_sha256": "99d17197a4136b038ac663a6fc953ca610aad320f895540e5927acb8a2b0184d",
+  "app": {
+    "name": "测试",
+    "summary": "「测试」是一个 PC 端轻量 Web 应用，仅包含一个页面：页面加载后调用后端时间接口，将后端返回的服务器时间展示给用户。应用采用侧边（side）导航布局，启用页头、禁用页脚，业务数据通过数据库型数据源支撑，不启用登录认证，也不涉及权限控制。"
+  },
+  "business_flows": [
+    {
+      "name": "查看后端时间流程",
+      "steps": [
+        "用户打开「测试」应用，进入后端时间展示页。",
+        "页面加载完成后向前端请求后端时间接口。",
+        "后端读取并返回当前服务器时间。",
+        "页面将后端返回的时间展示给用户。",
+        "用户可刷新页面，重新获取并查看最新的后端时间。"
+      ],
+      "id": "flow_view_backend_time",
+      "description": "用户打开应用，页面请求后端时间接口并展示后端返回的当前时间。"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "home",
+      "name": "后端时间展示页",
+      "path": "/page/home",
+      "module_id": "module_time_display",
+      "description": "应用唯一的首页页面，进入后自动请求后端时间接口，并将返回的后端服务器时间展示在页面显著位置。",
+      "goal": "让用户进入应用后无需任何操作即可看到后端返回的当前服务器时间，并可通过刷新页面获取最新时间。",
+      "information_items": [
+        {
+          "itemId": "server_time",
+          "label": "后端服务器时间",
+          "description": "页面加载后自动获取并展示的后端当前服务器时间，是用户在该页面查看的核心信息。"
+        },
+        {
+          "itemId": "time_source_note",
+          "label": "时间来源说明",
+          "description": "说明所展示的时间来自后端服务器，而非用户本地设备时间。"
+        }
+      ],
+      "actions": [
+        {
+          "actionId": "refresh_time",
+          "name": "刷新时间",
+          "description": "用户主动重新获取并查看后端返回的最新服务器时间。",
+          "requiresConfirmation": false,
+          "behavior": {
+            "type": "business",
+            "expectedResult": "页面重新请求后端时间并更新展示为最新的服务器时间。"
+          }
+        }
+      ],
+      "navigation_targets": [],
+      "acceptance_criteria": [
+        "用户进入后端时间展示页后，页面自动展示后端返回的当前服务器时间。",
+        "页面明确标注所展示的时间为后端服务器时间。",
+        "用户点击刷新时间后，页面展示的时间更新为重新获取到的最新后端服务器时间。",
+        "页面无需登录即可访问并查看时间。"
+      ]
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "用户打开「测试」应用后，可在唯一页面中看到后端返回的当前服务器时间。",
+    "页面展示的时间来源为后端服务器，而非用户本地设备时间。",
+    "用户可通过刷新操作重新获取并查看最新的后端服务器时间。",
+    "应用无需登录认证即可访问，且不涉及权限控制。",
+    "应用采用侧边导航布局，启用页头、禁用页脚。"
+  ],
+  "confirmation_status": "confirmed"
+}

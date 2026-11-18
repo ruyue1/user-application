@@ -1,0 +1,116 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "基于单页应用生成页面、路由和 API 客户端。",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [
+    {
+      "id": "server_time",
+      "name": "后端时间",
+      "description": "由后端服务器读取并返回的当前时间信息，用于在页面中展示服务器时间。",
+      "fields": [
+        {
+          "label": "后端服务器时间",
+          "description": "由后端服务器读取并返回的当前时间，用于在页面中展示服务器时间。",
+          "name": "server_time",
+          "type": "datetime",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "api_contracts": [
+    {
+      "id": "server_time_contract",
+      "name": "后端时间",
+      "entity_ids": [
+        "server_time"
+      ],
+      "base_path": "/api/server-time",
+      "authentication": {
+        "required": false
+      },
+      "schemas": {
+        "ServerTimeResponse": {
+          "type": "object",
+          "description": "后端服务器当前时间响应",
+          "properties": {
+            "serverTime": {
+              "type": "string",
+              "format": "date-time",
+              "description": "后端服务器当前时间",
+              "entity_field_ref": "server_time.server_time"
+            }
+          },
+          "required": [
+            "serverTime"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "endpoints": [
+        {
+          "id": "server_time_contract.get_server_time",
+          "name": "获取后端服务器时间",
+          "method": "GET",
+          "path": "/api/server-time",
+          "summary": "读取后端服务器当前时间，用于页面加载和刷新时展示最新服务器时间。",
+          "parameters": [],
+          "request_schema_ref": null,
+          "response_schema_ref": "ServerTimeResponse",
+          "error_codes": [
+            "INTERNAL_ERROR"
+          ],
+          "authentication": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "home",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "server_time_contract.get_server_time",
+            "usage": "页面初始加载时自动请求后端服务器时间并展示；用户点击刷新时间时再次请求以获取最新时间",
+            "trigger": "初始加载自动请求；点击刷新时间按钮重新请求",
+            "required_for_initial_load": true
+          }
+        ],
+        "action_implementations": [
+          {
+            "actionId": "refresh_time",
+            "endpointId": "server_time_contract.get_server_time"
+          }
+        ]
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 2,
+  "product_plan_sha256": "cbac72956897947f6d1eb2ef53c3c0a6f86a8342d292001767baa0a1630c20e1",
+  "ui_designs_sha256": "07b17f1461c1ef7b6f8e4e4c52f5ab50ee8850b4db14fe85039b41ae58ef1c20",
+  "confirmation_status": "confirmed"
+}

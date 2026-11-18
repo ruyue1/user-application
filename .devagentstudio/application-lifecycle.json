@@ -1,0 +1,68 @@
+{
+  "application": {
+    "id": "1794986039403-evq12g",
+    "name": "测试"
+  },
+  "updatedAt": "2026-11-18T07:19:58.237843Z",
+  "revision": 12,
+  "developmentArtifacts": {
+    "pages": {
+      "home": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "changeStatus": "unchanged",
+        "changeReason": null,
+        "checkedChangeId": null
+      }
+    },
+    "entities": {
+      "server_time": {
+        "initialDevelopmentStatus": "pending",
+        "skippedAt": null,
+        "skipReason": null,
+        "completedBranchName": null
+      }
+    },
+    "endpoints": {
+      "server_time_contract": {
+        "server_time_contract.get_server_time": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "changeStatus": "unchanged",
+          "changeReason": null,
+          "checkedChangeId": null
+        }
+      }
+    },
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "99f2a369-6c96-49bf-a607-662805a32a42",
+    "iterationId": "09732da6-b7af-4c6f-8310-6f2fd388df86"
+  },
+  "activeRunId": "2f0077bc-326a-4eb1-b811-f914854fb5d4",
+  "activeExecutions": {},
+  "endedExecutions": {},
+  "endedPlanningExecution": null,
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}

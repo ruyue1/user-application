@@ -1,0 +1,80 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "generated_at": "2026-11-18T07:19:28.698026+00:00",
+  "summary": "「测试」是一个 PC 端轻量 Web 应用，仅包含一个页面：页面加载后调用后端时间接口，将后端返回的服务器时间展示给用户。应用采用侧边（side）导航布局，启用页头、禁用页脚，业务数据通过数据库型数据源支撑，不启用登录认证，也不涉及权限控制。",
+  "source_request": "请为新应用「测试」完成需求、产品、UI（可跳过）和技术规划。；应用场景：只有一个页面，页面上返回后端时间并展示；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+  "app_info": {
+    "name": "测试",
+    "summary": "「测试」是一个 PC 端轻量 Web 应用，仅包含一个页面：页面加载后调用后端时间接口，将后端返回的服务器时间展示给用户。应用采用侧边（side）导航布局，启用页头、禁用页脚，业务数据通过数据库型数据源支撑，不启用登录认证，也不涉及权限控制。",
+    "target": "",
+    "target_terminal": "PC",
+    "navigation_layout": "side",
+    "header_enabled": true,
+    "footer_enabled": false,
+    "route_root_path": "/page",
+    "menu_enabled": true
+  },
+  "user_roles": [
+    {
+      "name": "应用用户",
+      "description": "打开并浏览「测试」应用页面、查看后端返回时间的普通使用者，无需登录即可访问。",
+      "id": "role_app_user"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "后端时间展示",
+      "description": "调用后端时间接口获取服务器当前时间，并在页面上渲染展示。",
+      "priority": "must",
+      "id": "module_time_display"
+    }
+  ],
+  "pages": [
+    {
+      "name": "后端时间展示页",
+      "path": "/page/home",
+      "module_id": "module_time_display",
+      "description": "应用唯一的首页页面，进入后自动请求后端时间接口，并将返回的后端服务器时间展示在页面显著位置。",
+      "pageId": "home"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "查看后端时间流程",
+      "steps": [
+        "用户打开「测试」应用，进入后端时间展示页。",
+        "页面加载完成后向前端请求后端时间接口。",
+        "后端读取并返回当前服务器时间。",
+        "页面将后端返回的时间展示给用户。",
+        "用户可刷新页面，重新获取并查看最新的后端时间。"
+      ],
+      "id": "flow_view_backend_time",
+      "description": "用户打开应用，页面请求后端时间接口并展示后端返回的当前时间。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\"version\": \"1.0\", \"status\": \"draft\", \"generated_at\": \"2025-06-11T00:00:00Z\", \"app_info\": {\"name\": \"测试\", \"summary\": \"「测试」是一个 PC 端轻量 Web 应用，仅包含一个页面：页面加载后调用后端时间接口，将后端返回的服务器时间展示给用户。应用采用侧边（side）导航布局，启用页头、禁用页脚，业务数据通过数据库型数据源支撑，不启用登录认证，也不涉及权限控制。\", \"target_terminal\": \"PC\", \"navigation_layout\": \"side\", \"header_enabled\": true, \"footer_enabled\": false, \"route_root_path\": \"/\"}, \"user_roles\": [{\"id\": \"role_app_user\", \"name\": \"应用用户\", \"description\": \"打开并浏览「测试」应用页面、查看后端返回时间的普通使用者，无需登录即可访问。\"}], \"feature_modules\": [{\"id\": \"module_time_display\", \"name\": \"后端时间展示\", \"description\": \"调用后端时间接口获取服务器当前时间，并在页面上渲染展示。\"}], \"pages\": [{\"pageId\": \"home\", \"name\": \"后端时间展示页\", \"path\": \"/\", \"module_id\": \"module_time_display\", \"description\": \"应用唯一的首页页面，进入后自动请求后端时间接口，并将返回的后端服务器时间展示在页面显著位置。\"}], \"business_flows\": [{\"id\": \"flow_view_backend_time\", \"name\": \"查看后端时间流程\", \"description\": \"用户打开应用，页面请求后端时间接口并展示后端返回的当前时间。\", \"steps\": [\"用户打开「测试」应用，进入后端时间展示页。\", \"页面加载完成后向前端请求后端时间接口。\", \"后端读取并返回当前服务器时间。\", \"页面将后端返回的时间展示给用户。\", \"用户可刷新页面，重新获取并查看最新的后端时间。\"]}], \"authentication_requirements\": {\"enabled\": false, \"sourceRefs\": []}, \"authorization_requirements\": {\"enabled\": false, \"restrictedPages\": [], \"restrictedOperations\": []}}",
+  "approved": true,
+  "confirmation_status": "confirmed",
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "deepseek-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model"
+}
