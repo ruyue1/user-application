@@ -3,8 +3,8 @@
     "id": "1794904386161-48m6ya",
     "name": "简单测试时间"
   },
-  "updatedAt": "2026-11-19T02:32:19.421932Z",
-  "revision": 109,
+  "updatedAt": "2026-11-19T09:04:05.099362Z",
+  "revision": 8,
   "developmentArtifacts": {
     "pages": {
       "system_time_view": {
@@ -18,14 +18,7 @@
         "checkedChangeId": null
       }
     },
-    "entities": {
-      "system_time": {
-        "initialDevelopmentStatus": "pending",
-        "skippedAt": null,
-        "skipReason": null,
-        "completedBranchName": null
-      }
-    },
+    "entities": {},
     "endpoints": {
       "system_time_contract": {
         "system_time_contract.get_current_time": {
@@ -40,16 +33,16 @@
         }
       }
     },
-    "catalogError": null,
+    "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/sbw/Documents/xc3/.devagentstudio/plans/technical-plan.json'",
     "outOfScope": []
   },
   "initialization": {
-    "stage": "ready_for_workbench",
-    "status": "completed",
-    "threadId": "8e5d5eaa-f980-4ab8-8653-4a128c07acd0",
-    "iterationId": "edf35f5f-3eca-4763-9422-610db02474d2"
+    "stage": "awaiting_planning_stage_entry",
+    "status": "awaiting_user",
+    "threadId": "c7690e23-3598-4ff5-8c68-fe65f2231193",
+    "iterationId": "c7690e23-3598-4ff5-8c68-fe65f2231193"
   },
-  "activeRunId": null,
+  "activeRunId": "97e39ee4-e858-4fb9-b8df-e1fb4e65894b",
   "activeExecutions": {},
   "endedExecutions": {},
   "endedPlanningExecution": null,
@@ -64,9 +57,5 @@
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {
-    "testExecutionStatus": "passed",
-    "reviewStatus": "passed",
-    "acceptanceStatus": "passed"
-  }
+  "extensions": {}
 }

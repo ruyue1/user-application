@@ -13,6 +13,15 @@
       "plannedPageIds": [
         "system_time_view"
       ]
+    },
+    {
+      "branch": "sbw_3",
+      "designedPageIds": [
+        "system_time_view"
+      ],
+      "plannedPageIds": [
+        "system_time_view"
+      ]
     }
   ],
   "schemaVersion": 2

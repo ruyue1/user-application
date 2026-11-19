@@ -1,43 +1,50 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "23fd4ab667c334dffa000921585700a0a6ecc13f495239dcbf352b86774ce6b7",
+  "product_plan_sha256": "cadc8b5d7b372b015155080f8d3ec630641ffdd873d02fbe54444505f80c7b5a",
   "pages": [
     {
       "pageId": "system_time_view",
       "page_key": "SystemTimeView",
       "preview_path": "/page/system-time-view",
-      "code_path": "",
-      "status": "pending",
+      "code_path": "/Users/sbw/Documents/xc3/.devagentstudio/ui-design/pages/SystemTimeView/index.tsx",
+      "status": "confirmed",
       "bindings": {
         "actions": [
           {
             "actionId": "refresh_time",
-            "controlIds": []
+            "controlIds": [
+              "refresh_time-control"
+            ],
+            "uiEffect": "重新获取并更新展示后端系统当前时间"
           }
         ],
         "information_items": [
           {
-            "informationItemId": "system_time_view-current-time",
-            "controlIds": []
+            "informationItemId": "current_time_display",
+            "controlIds": [
+              "current_time_display-display"
+            ]
           },
           {
-            "informationItemId": "system_time_view-fetch-status",
-            "controlIds": []
+            "informationItemId": "time_fetch_status",
+            "controlIds": [
+              "time_fetch_status-display"
+            ]
           }
         ]
       },
       "verification": {
-        "status": "pending",
-        "code_sha256": "",
+        "status": "passed",
+        "code_sha256": "4e870d840f6e6ffabbebe8317d8d332976a62baac7e6165bedb359997779ca14",
         "checks": [
           {
             "id": "product-action-bindings",
-            "status": "failed"
+            "status": "passed"
           },
           {
             "id": "product-information-bindings",
-            "status": "failed"
+            "status": "passed"
           },
           {
             "id": "no-unowned-business-ui",
@@ -45,7 +52,9 @@
           }
         ],
         "errors": []
-      }
+      },
+      "code_sha256": "4e870d840f6e6ffabbebe8317d8d332976a62baac7e6165bedb359997779ca14",
+      "generation_id": "ui-design-46168845aac94f0fa29bea8d0de3a4b3"
     }
   ]
 }

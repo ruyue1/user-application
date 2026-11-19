@@ -6,10 +6,10 @@
           {
             "actionId": "refresh_time",
             "behavior": {
-              "expectedResult": "页面重新获取后端系统当前时间并更新展示；若获取失败，页面提示时间获取失败并允许用户再次重试。",
+              "expectedResult": "页面重新获取并展示后端系统当前时间；若获取失败，页面提示时间获取失败并允许用户再次重试。",
               "type": "business"
             },
-            "description": "用户点击刷新按钮，重新向后端发起时间查询并更新页面展示的时间。",
+            "description": "用户点击刷新按钮，重新调用后端时间接口获取最新时间并更新页面展示。",
             "name": "刷新时间",
             "requiresConfirmation": false
           }
@@ -17,20 +17,20 @@
         "goal": "让用户打开应用后即可看到后端系统当前时间，并可通过刷新操作重新获取最新时间，用于验证前后端接口连通性。",
         "information_items": [
           {
-            "description": "页面展示的由后端接口返回的系统当前时间文本，用户可据此确认后端时间获取是否成功。",
+            "description": "页面展示的后端系统当前时间，精确到秒，以清晰的文本形式呈现给用户。",
             "itemId": "system_time_view-current-time",
             "label": "后端系统当前时间"
           },
           {
-            "description": "当时间获取失败时向用户展示的失败提示信息，告知用户当前无法获取后端系统时间并允许重试。",
+            "description": "当后端时间接口调用失败时，页面展示时间获取失败的提示信息，并允许用户重试。",
             "itemId": "system_time_view-fetch-status",
-            "label": "时间获取状态提示"
+            "label": "时间获取失败提示"
           }
         ],
         "navigation_targets": []
       },
       "requirement": {
-        "description": "应用首页。页面加载后调用后端时间接口，将返回的后端系统时间以清晰的文本形式展示给用户，并提供手动刷新按钮以重新获取最新时间；接口异常时提示获取失败。",
+        "description": "应用首页，页面整体背景色为蓝色。页面加载后调用后端时间接口，将返回的后端系统时间以清晰的文本形式展示给用户，并提供手动刷新按钮以重新获取最新时间；接口异常时提示获取失败。",
         "module_id": "module_system_time_display",
         "name": "系统时间展示页",
         "pageId": "system_time_view",
@@ -39,5 +39,5 @@
     }
   },
   "schemaVersion": 2,
-  "sourceBranch": "sbw_1"
+  "sourceBranch": "sbw_2"
 }
