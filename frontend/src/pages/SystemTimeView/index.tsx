@@ -5,8 +5,8 @@ import { Alert, Button, Empty, Space, Spin, Typography } from 'antd';
 import { ReloadOutlined } from '@ant-design/icons';
 import { getCurrentTime } from '@/apis/systemTimeContractApi';
 
-/** 页面整体背景色：蓝色渐变（本轮需求要求页面整体背景为蓝色）。 */
-const PAGE_BACKGROUND = 'linear-gradient(135deg, #0b3fa8 0%, #1677ff 48%, #55a8ff 100%)';
+/** 页面整体背景色：红色渐变（本轮需求要求页面整体背景为红色）。 */
+const PAGE_BACKGROUND = 'linear-gradient(135deg, #7a0c12 0%, #cf1322 48%, #ff7875 100%)';
 
 /** 时间获取失败的面向用户提示（不暴露后端堆栈或内部错误细节）。 */
 const TIME_ERROR_TITLE = '时间获取失败';
@@ -131,19 +131,23 @@ export default function SystemTimeView() {
           title='后端系统当前时间'
           bordered
           extra={
-            <Button
-              type='primary'
-              icon={<ReloadOutlined />}
-              loading={loading}
-              disabled={loading}
-              onClick={handleRefresh}
-            >
-              刷新时间
-            </Button>
+            <Space size={8}>
+              <Button
+                type='primary'
+                icon={<ReloadOutlined />}
+                loading={loading}
+                disabled={loading}
+                onClick={handleRefresh}
+              >
+                刷新时间
+              </Button>
+              {/* 本轮需求：在时间展示页面新增一个文案为「123」的按钮。 */}
+              <Button>123</Button>
+            </Space>
           }
           style={{
             borderRadius: 12,
-            boxShadow: '0 12px 32px rgba(6, 34, 90, 0.24)',
+            boxShadow: '0 12px 32px rgba(90, 6, 12, 0.24)',
           }}
         >
           {fetchFailed ? (

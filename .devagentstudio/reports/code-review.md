@@ -24,8 +24,8 @@
 
 ## 扫描提示
 
-- 前端 Skill 仅提供 package.json / pnpm-lock.yaml 的依赖版本检测规则，本次清单未包含依赖清单文件；已按要求读取目标页面文件但不适用任何前端规则。
-- 本次变更清单未包含任何 backend/src/main/java 下的 Java 源码、pom.xml、资源或配置文件，后端扫描根按规则跳过。
+- frontend-code-scan 仅含 axios/form-data 依赖版本规则，适用对象为 package.json 与 pnpm-lock.yaml；本次清单未包含这两个依赖清单文件，故仅完成目标 .tsx 文件的内容阅读，无可执行的版本风险检查，未报告前端问题。
+- 变更清单未包含任何 backend/src/main/java 下 Java 文件，也未包含后端 pom.xml、资源或配置文件；后端扫描根缺失，已跳过。
 
 ## 问题详情
 
