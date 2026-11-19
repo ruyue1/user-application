@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "3cd978e441bf4b95ba4a5da5ed6e761c",
+  "apiContractId": "server_time_contract",
+  "endpointId": "server_time_contract.read_server_time",
+  "endpointContract": {
+    "id": "server_time_contract.read_server_time",
+    "name": "读取服务器时间",
+    "method": "GET",
+    "path": "/api/server-time",
+    "summary": "返回后端服务器当前时间，供页面展示并确认前后端连通性。",
+    "parameters": [],
+    "request_schema_ref": null,
+    "response_schema_ref": "ServerTimeResponse",
+    "error_codes": [
+      "INTERNAL_ERROR"
+    ],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "currentTime": ""
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "currentTime",
+        "type": "string",
+        "required": true,
+        "description": "后端服务器返回的当前时间，用于页面展示并确认前后端连通性。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "currentTime",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "c5ab1206029a1ccc92fd99780fd9255e2ae8245928714b1d4801968cddafffb7"
+    }
+  ],
+  "confirmedAt": "2026-11-18T07:35:13.549948Z"
+}
