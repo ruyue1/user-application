@@ -13,3 +13,6 @@ __pycache__/
 .venv/
 .DS_Store
 Thumbs.db
+# 平台落盘的会话上下文调试文件：不属于业务代码，且正文含 Markdown 硬换行空格，
+# 一旦被提交会让提交前行尾空白检查失败。留在工作区根目录供排查，但不进版本库。
+conversation_history/

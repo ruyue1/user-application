@@ -6,30 +6,26 @@
 - 结论：审查通过，未发现需要处理的问题。
 - 问题总数：0
 - 审查模式：Diff 审查
-- 实际审查文件数：6
+- 实际审查文件数：1
 - 跳过文件数：0
 
 ## Diff 审查文件
 
-- `backend/src/main/java/com/cmbchina/backend/modules/greeting/adapter/web/GreetingController.java`
-- `backend/src/main/java/com/cmbchina/backend/modules/greeting/application/dto/GreetingResponse.java`
-- `backend/src/main/java/com/cmbchina/backend/modules/greeting/application/service/GreetingApplicationService.java`
-- `backend/src/main/java/com/cmbchina/backend/modules/greeting/domain/entity/Greeting.java`
-- `frontend/src/apis/greetingContractApi.ts`
-- `frontend/src/pages/Home/index.tsx`
+- `frontend/src/pages/CancelCompleted/index.tsx`
 
 ## 扫描汇总
 
 | 范围 | 扫描根目录 | 状态 | 文件总数 |
 | --- | --- | --- | ---: |
-| 前端 | `frontend` | 已完成 | 2 |
-| 后端 | `backend` | 已完成 | 4 |
+| 前端 | `frontend` | 已完成 | 1 |
+| 后端 | `backend` | 已跳过 | 0 |
 
-**前后端扫描文件总数：6**
+**前后端扫描文件总数：1**
 
 ## 扫描提示
 
-- frontend-code-scan 仅定义 axios 与 form-data 的依赖版本检查规则，检测对象为 package.json 与 pnpm-lock.yaml；本次清单仅含两个源码文件，未包含依赖清单，因此无可应用的检查项，未对前端文件报告任何问题。
+- frontend-code-scan Skill only defines rules for npm package versions (axios >=1.15.0, form-data safe ranges) evaluated on package.json and pnpm-lock.yaml; neither file is part of this change, so no frontend rule was applicable to frontend/src/pages/CancelCompleted/index.tsx and no frontend issue is reported.
+- No backend files (Java sources, pom.xml, resource or configuration files) were listed in the change set; backend-code-scan rules CKR1104/CKR2002/CKR6000/CKR6002/CKR6004/CKR4003/CKR5000/CKR7019 had no eligible targets and were not applied.
 
 ## 问题详情
 

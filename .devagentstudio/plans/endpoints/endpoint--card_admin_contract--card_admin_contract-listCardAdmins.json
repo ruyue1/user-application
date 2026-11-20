@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "6ee369fbfe2c4635a4b5269c68d9ad20",
+  "apiContractId": "card_admin_contract",
+  "endpointId": "card_admin_contract.listCardAdmins",
+  "endpointContract": {
+    "id": "card_admin_contract.listCardAdmins",
+    "name": "获取门禁卡管理员列表",
+    "method": "GET",
+    "path": "/api/card-admins",
+    "summary": "读取门禁卡管理员信息列表，包含所属区域、管理员姓名和管理员工号，用于已完成界面展示园区李媛/WS04462与OCG徐敏/IT006877的交卡联系人信息。",
+    "parameters": [],
+    "request_schema_ref": null,
+    "response_schema_ref": "CardAdminListResponse",
+    "error_codes": [],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "list": [
+      {
+        "id": "adc-7f3a-1001",
+        "region": "园区",
+        "adminName": "李媛",
+        "adminNo": "WS04462"
+      },
+      {
+        "id": "adc-7f3a-1002",
+        "region": "OCG",
+        "adminName": "徐敏",
+        "adminNo": "IT006877"
+      },
+      {
+        "id": "adc-7f3a-1003",
+        "region": "园区",
+        "adminName": "陈立",
+        "adminNo": "WS05138"
+      }
+    ]
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].id",
+        "type": "string",
+        "required": true,
+        "description": "门禁卡管理员记录唯一标识"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].id",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].region",
+        "type": "string",
+        "required": true,
+        "description": "所属区域，取值为园区或OCG"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].region",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].adminName",
+        "type": "string",
+        "required": true,
+        "description": "管理员姓名，如李媛、徐敏"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].adminName",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].adminNo",
+        "type": "string",
+        "required": true,
+        "description": "管理员工号，如WS04462、IT006877"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].adminNo",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "10713342b7d1514d0d6d52c7c8740ea695140f84349172589543da7c18faafcc"
+    }
+  ],
+  "confirmedAt": "2026-11-20T06:04:07.216389Z"
+}

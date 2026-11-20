@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "6bcf333bcfb84cd3945cac5c9ca020f1",
+  "apiContractId": "access_card_contract",
+  "endpointId": "access_card_contract.applyCancellation",
+  "endpointContract": {
+    "id": "access_card_contract.applyCancellation",
+    "name": "发起离职注销申请",
+    "method": "PATCH",
+    "path": "/api/access-cards/cancellation",
+    "summary": "为本人名下权限状态为「使用中」的门禁卡发起离职注销申请，将对应卡片的申请注销字段更新为「离职」，并把注销申请数据同步至飞码端以触发其现有注销流程，返回更新后的门禁卡信息。",
+    "parameters": [],
+    "request_schema_ref": "CancelAccessCardRequest",
+    "response_schema_ref": "AccessCard",
+    "error_codes": [
+      "NOT_FOUND",
+      "INVALID_STATE"
+    ],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "id": "AC-20240613-001",
+    "name": "林晓彤",
+    "employeeNo": "EMP10023",
+    "cardNo": "CARD-88231047",
+    "permissionStatus": "正常",
+    "cancellationApplication": "离职"
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "id",
+        "type": "string",
+        "required": true,
+        "description": "门禁卡记录唯一标识，来源于门禁卡实体隐式主键。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "id",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "name",
+        "type": "string",
+        "required": true,
+        "description": "持卡员工的姓名。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "name",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "employeeNo",
+        "type": "string",
+        "required": true,
+        "description": "持卡员工的员工编号。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "employeeNo",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "cardNo",
+        "type": "string",
+        "required": true,
+        "description": "门禁卡的卡号。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "cardNo",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "permissionStatus",
+        "type": "string",
+        "required": true,
+        "description": "门禁卡当前的权限状态。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "permissionStatus",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "cancellationApplication",
+        "type": "string",
+        "required": false,
+        "description": "门禁卡的注销申请状态，发起离职注销后为「离职」。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "cancellationApplication",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "10713342b7d1514d0d6d52c7c8740ea695140f84349172589543da7c18faafcc"
+    }
+  ],
+  "confirmedAt": "2026-11-20T06:31:53.356687Z"
+}

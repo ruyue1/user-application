@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "generated_at": "2026-11-20T03:27:07.211711+00:00",
+  "generated_at": "2026-11-20T06:52:35.244137+00:00",
   "passed": true,
   "checks": [
     {
@@ -8,27 +8,6 @@
       "name": "前端单元测试生成检查",
       "layer": "frontend",
       "language": "typescript",
-      "passed": true,
-      "skipped": true,
-      "required": false,
-      "command": null,
-      "evidence": "用户选择跳过单元测试，本轮不生成、不执行单元测试。",
-      "failure_category": null,
-      "execution": {
-        "tool": "none",
-        "argv": [],
-        "cwd": ".",
-        "returncode": null,
-        "timed_out": false,
-        "stdout_log": null,
-        "stderr_log": null
-      }
-    },
-    {
-      "id": "backend_test_generation",
-      "name": "后端单元测试生成检查",
-      "layer": "backend",
-      "language": "java",
       "passed": true,
       "skipped": true,
       "required": false,
@@ -65,32 +44,11 @@
         "stdout_log": null,
         "stderr_log": null
       }
-    },
-    {
-      "id": "backend_unit_tests",
-      "name": "后端单元测试",
-      "layer": "backend",
-      "language": "java",
-      "passed": true,
-      "skipped": true,
-      "required": false,
-      "command": null,
-      "evidence": "用户选择跳过单元测试，本轮不生成、不执行单元测试。",
-      "failure_category": null,
-      "execution": {
-        "tool": "none",
-        "argv": [],
-        "cwd": ".",
-        "returncode": null,
-        "timed_out": false,
-        "stdout_log": null,
-        "stderr_log": null
-      }
     }
   ],
   "summary": {
-    "total": 4,
-    "passed": 4,
+    "total": 2,
+    "passed": 2,
     "failed": 0
   },
   "needs_revision": false,
@@ -103,19 +61,15 @@
   "artifact_context": {
     "build_execution_scope": {
       "type": "page",
-      "targetId": "home"
+      "targetId": "cancel_completed"
     },
-    "plan_sha256": "829d4ae9d81e58dcecd072c5dd6a7274427eca106843770dc6e2a2b90fe8b530",
+    "plan_sha256": "035585b20991a3c6bd6edd1a28ddc8f656dbefd9124a38ba05416518a09b53d3",
     "files": {
-      "backend/src/main/java/com/cmbchina/backend/modules/greeting/adapter/web/GreetingController.java": "17330dd866a27bf0724e067a0259706f29662969b98f051af4fe23bef5b02476",
-      "backend/src/main/java/com/cmbchina/backend/modules/greeting/application/service/GreetingApplicationService.java": "05b9a82e433a10dee0bb8eb9cc23a6998976b5868941dfc8d95015270b476b20",
-      "backend/src/main/java/com/cmbchina/backend/modules/greeting/domain/entity/Greeting.java": "6b76054435627f100f482bd80d72be1582da8b2db64d44dc5f709480528e1f39",
       "frontend/jest.config.cjs": "ce1afcb596c0abefb634ecc399b348b89d998be73221ffc57bdbb84cb7f3f90c",
       "frontend/package.json": "7ac83000e1d969ac63a3ca602899f695ed63607d1c947990a7ca205e320cce46",
       "frontend/pnpm-lock.yaml": "2dd9e48d28b43e28ab6c64dc1a6bd26efcd0fbf0a7183da4d416160bf6fa08f3",
-      "frontend/src/apis/greetingContractApi.ts": "70f07dee31452614f7b893e2b86c9972c08aa10d8a11c6a0277316f70e17a394",
-      "frontend/src/constants/routes.tsx": "37dd45c16194f27401f972363301260f8e413d23de49f99cc9032040df3b8d1b",
-      "frontend/src/pages/Home/index.tsx": "b65bd47222969fe1f5b0f44e3ef56ce3a6dd683b088bfbbf4f5f4d42fef28534",
+      "frontend/src/constants/routes.tsx": "305e91a1c857c500d102c68c2570274bb7da25f1ef264d445b835ecc57401bb9",
+      "frontend/src/pages/CancelCompleted/index.tsx": "b44d96ce9495fbd7eeaa5b4779d82af2e3c3e0a7f559cdd47d7b5b524ae8fbaa",
       "frontend/tests/__mocks__/fileMock.cjs": "9511e7bc24a9e0589f73af6ec1dd8b8fb1f6fb388decfdcb80a827860181226b",
       "frontend/tests/__mocks__/styleMock.cjs": "35ab14b4a7b597c4cb3c568cddf39ee07c557cdd7e19f2eb8b83467eafd70609",
       "frontend/tests/setupTests.ts": "303f1bcd5f40eb34671db9a66665f46aad22f0e0bc8a4dedf59d08fdbacef2b8",

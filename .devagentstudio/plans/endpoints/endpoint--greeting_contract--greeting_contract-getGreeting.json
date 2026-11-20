@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "1bfc855cc20d41a9be7b84116d65df8e",
+  "apiContractId": "greeting_contract",
+  "endpointId": "greeting_contract.getGreeting",
+  "endpointContract": {
+    "id": "greeting_contract.getGreeting",
+    "name": "获取问候语",
+    "method": "GET",
+    "path": "/api/greetings",
+    "summary": "返回应用展示的问候字符串，当前内容为「早上好！」，供欢迎页主体区域展示，无需任何请求参数即可读取。",
+    "parameters": [],
+    "request_schema_ref": null,
+    "response_schema_ref": "GreetingResponse",
+    "error_codes": [],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "content": ""
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "content",
+        "type": "string",
+        "required": true,
+        "description": "接口返回并展示给前端的问候字符串，默认内容为「早上好！」"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "content",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "10713342b7d1514d0d6d52c7c8740ea695140f84349172589543da7c18faafcc"
+    }
+  ],
+  "confirmedAt": "2026-11-20T06:02:46.036747Z"
+}

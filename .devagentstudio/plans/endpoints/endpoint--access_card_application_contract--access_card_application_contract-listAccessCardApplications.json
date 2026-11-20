@@ -1,0 +1,283 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "318ee4ef28a14ab48e7bd1cb346224fb",
+  "apiContractId": "access_card_application_contract",
+  "endpointId": "access_card_application_contract.listAccessCardApplications",
+  "endpointContract": {
+    "id": "access_card_application_contract.listAccessCardApplications",
+    "name": "获取本人待领签申请明细",
+    "method": "GET",
+    "path": "/api/access-card-applications",
+    "summary": "按扫码人ID查询本人名下领签状态为「待领签」的门禁卡申请明细列表，支持分页，供门禁卡领用页面表格展示姓名、员工编号、卡号、领签状态。",
+    "parameters": [
+      {
+        "name": "claimerId",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "description": "招乎扫码识别出的扫码人ID，用于匹配领签人字段筛选本人名下明细。",
+          "entity_field_ref": "access_card_application.claimer_id"
+        }
+      },
+      {
+        "name": "current",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "当前页码，从 1 开始。"
+        }
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "每页记录数。"
+        }
+      }
+    ],
+    "request_schema_ref": null,
+    "response_schema_ref": "AccessCardApplicationPage",
+    "error_codes": [
+      "INVALID_PARAMETER"
+    ],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "total": 3,
+    "pageSize": 10,
+    "current": 1,
+    "list": [
+      {
+        "id": "app-2024001",
+        "name": "张三",
+        "employeeNo": "12345678",
+        "cardNo": "8888888",
+        "claimStatus": "待领签"
+      },
+      {
+        "id": "app-2024002",
+        "name": "李四",
+        "employeeNo": "12345679",
+        "cardNo": "8888889",
+        "claimStatus": "已领签"
+      },
+      {
+        "id": "app-2024003",
+        "name": "王五",
+        "employeeNo": "12345680",
+        "cardNo": "8888890",
+        "claimStatus": "待领签"
+      }
+    ]
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "total",
+        "type": "integer",
+        "required": true,
+        "description": "匹配的申请明细总数。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "total",
+          "type": "integer",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "pageSize",
+        "type": "integer",
+        "required": true,
+        "description": "每页记录数。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "pageSize",
+          "type": "integer",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "current",
+        "type": "integer",
+        "required": true,
+        "description": "当前页码，从 1 开始。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "current",
+          "type": "integer",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].id",
+        "type": "string",
+        "required": true,
+        "description": "申请明细的唯一标识。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].id",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].name",
+        "type": "string",
+        "required": true,
+        "description": "员工姓名，例如「张三」。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].name",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].employeeNo",
+        "type": "string",
+        "required": true,
+        "description": "员工工号，例如「12345678」。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].employeeNo",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].cardNo",
+        "type": "string",
+        "required": true,
+        "description": "门禁卡卡号，例如「8888888」。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].cardNo",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].claimStatus",
+        "type": "string",
+        "required": true,
+        "description": "领签状态，仅「待领签」与「已领签」两种取值。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].claimStatus",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "10713342b7d1514d0d6d52c7c8740ea695140f84349172589543da7c18faafcc"
+    }
+  ],
+  "confirmedAt": "2026-11-20T04:41:02.705115Z"
+}

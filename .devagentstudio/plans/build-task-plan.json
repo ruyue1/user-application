@@ -1,0 +1,1740 @@
+{
+  "schema_version": "build-dag.v4",
+  "application": {
+    "unit_id": "application:root",
+    "status": "prepared"
+  },
+  "build_units": {
+    "application:root": {
+      "id": "application:root",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:auth-resources": {
+      "id": "backend:auth-resources",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:shell": {
+      "id": "frontend:shell",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "generation_strategy": "prerequisite_only",
+      "participation": "prerequisite_only",
+      "generation_status": "not_required",
+      "input_fingerprint": "99ba9989baf0b60e7a4fb779cf6ca6b4642ff5295c811a95273134cb6d661551"
+    },
+    "frontend:api-client": {
+      "id": "frontend:api-client",
+      "kind": "frontend",
+      "status": "prepared",
+      "task_ids": [
+        "frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "input_fingerprint": "6c0fbb3d86ebb4165d490997f5b86f46d84e150f6f03f5b7b4f4f7fc1c6c7453"
+    },
+    "frontend:auth-guard": {
+      "id": "frontend:auth-guard",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:bootstrap": {
+      "id": "backend:bootstrap",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "6ee369fbfe2c4635a4b5269c68d9ad20",
+            "apiContractId": "card_admin_contract",
+            "endpointId": "card_admin_contract.listCardAdmins",
+            "endpointContract": {
+              "id": "card_admin_contract.listCardAdmins",
+              "name": "获取门禁卡管理员列表",
+              "method": "GET",
+              "path": "/api/card-admins",
+              "summary": "读取门禁卡管理员信息列表，包含所属区域、管理员姓名和管理员工号，用于已完成界面展示园区李媛/WS04462与OCG徐敏/IT006877的交卡联系人信息。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "CardAdminListResponse",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "list": [
+                {
+                  "id": "adc-7f3a-1001",
+                  "region": "园区",
+                  "adminName": "李媛",
+                  "adminNo": "WS04462"
+                },
+                {
+                  "id": "adc-7f3a-1002",
+                  "region": "OCG",
+                  "adminName": "徐敏",
+                  "adminNo": "IT006877"
+                },
+                {
+                  "id": "adc-7f3a-1003",
+                  "region": "园区",
+                  "adminName": "陈立",
+                  "adminNo": "WS05138"
+                }
+              ]
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "list[].id",
+                  "type": "string",
+                  "required": true,
+                  "description": "门禁卡管理员记录唯一标识"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "list[].id",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "list[].region",
+                  "type": "string",
+                  "required": true,
+                  "description": "所属区域，取值为园区或OCG"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "list[].region",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "list[].adminName",
+                  "type": "string",
+                  "required": true,
+                  "description": "管理员姓名，如李媛、徐敏"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "list[].adminName",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "list[].adminNo",
+                  "type": "string",
+                  "required": true,
+                  "description": "管理员工号，如WS04462、IT006877"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "list[].adminNo",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "10713342b7d1514d0d6d52c7c8740ea695140f84349172589543da7c18faafcc"
+              }
+            ],
+            "confirmedAt": "2026-11-20T06:04:07.216389Z"
+          }
+        ],
+        "endpoint_ids": [
+          "card_admin_contract.listCardAdmins"
+        ],
+        "entity_ids": [
+          "card_admin"
+        ],
+        "mapping_flows": [
+          "静态数据.list[].id → response.response_body.list[].id",
+          "静态数据.list[].region → response.response_body.list[].region",
+          "静态数据.list[].adminName → response.response_body.list[].adminName",
+          "静态数据.list[].adminNo → response.response_body.list[].adminNo"
+        ],
+        "target": {
+          "type": "page",
+          "id": "cancel_completed",
+          "page_key": "CancelCompleted"
+        },
+        "type": "backend_bootstrap",
+        "source_types": [
+          "static"
+        ]
+      },
+      "input_fingerprint": "9a72f2daaa4f8d87e8085827c0cc7dccac57e78ad6ad84322ab67463477ceb99"
+    },
+    "app:integration": {
+      "id": "app:integration",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:module:greeting_contract": {
+      "id": "backend:module:greeting_contract",
+      "kind": "backend",
+      "api_contract_id": "greeting_contract",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "technical_plan_module",
+        "target": {
+          "type": "module",
+          "id": "greeting_contract",
+          "api_contract_id": "greeting_contract"
+        },
+        "technical_plan_endpoints": [],
+        "endpoint_ids": [],
+        "entity_ids": [
+          "greeting",
+          "access_card_application",
+          "access_card",
+          "card_admin"
+        ],
+        "endpoint_designs": [],
+        "mapping_flows": [
+          "静态数据.content → response.response_body.content",
+          "静态数据.total → response.response_body.total",
+          "静态数据.pageSize → response.response_body.pageSize",
+          "静态数据.current → response.response_body.current",
+          "静态数据.list[].id → response.response_body.list[].id",
+          "静态数据.list[].name → response.response_body.list[].name",
+          "静态数据.list[].employeeNo → response.response_body.list[].employeeNo",
+          "静态数据.list[].cardNo → response.response_body.list[].cardNo",
+          "静态数据.list[].claimStatus → response.response_body.list[].claimStatus",
+          "静态数据.list[].permissionStatus → response.response_body.list[].permissionStatus",
+          "静态数据.list[].cancellationApplication → response.response_body.list[].cancellationApplication",
+          "静态数据.list[].region → response.response_body.list[].region",
+          "静态数据.list[].adminName → response.response_body.list[].adminName",
+          "静态数据.list[].adminNo → response.response_body.list[].adminNo"
+        ],
+        "source_types": [
+          "static"
+        ],
+        "business_descriptions": []
+      }
+    },
+    "backend:module:access_card_application_contract": {
+      "id": "backend:module:access_card_application_contract",
+      "kind": "backend",
+      "api_contract_id": "access_card_application_contract",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "31c660b4a7c72275440770deaf15ae0a8afafbf1012044f2db75324d416aeb6a",
+          "byteLength": 5040,
+          "mediaType": "application/json"
+        }
+      }
+    },
+    "backend:module:access_card_contract": {
+      "id": "backend:module:access_card_contract",
+      "kind": "backend",
+      "api_contract_id": "access_card_contract",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "1bbc3b6f1404ab3944fa95beb05af9f646a146c83375a97d8545d51dd5609d15",
+          "byteLength": 5154,
+          "mediaType": "application/json"
+        }
+      }
+    },
+    "backend:module:card_admin_contract": {
+      "id": "backend:module:card_admin_contract",
+      "kind": "backend",
+      "api_contract_id": "card_admin_contract",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "business_descriptions": [],
+        "endpoint_designs": [],
+        "endpoint_ids": [],
+        "entity_ids": [
+          "card_admin"
+        ],
+        "mapping_flows": [
+          "静态数据.list[].id → response.response_body.list[].id",
+          "静态数据.list[].region → response.response_body.list[].region",
+          "静态数据.list[].adminName → response.response_body.list[].adminName",
+          "静态数据.list[].adminNo → response.response_body.list[].adminNo"
+        ],
+        "target": {
+          "type": "module",
+          "id": "card_admin_contract",
+          "api_contract_id": "card_admin_contract"
+        },
+        "technical_plan_endpoints": [],
+        "type": "technical_plan_module",
+        "source_types": [
+          "static"
+        ]
+      },
+      "input_fingerprint": "97e2cebc564fc76a168fbccc3e1f3ce244d1a12558751d9fc5153b2e29aa04d5"
+    },
+    "page:home": {
+      "id": "page:home",
+      "kind": "page",
+      "page_id": "home",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "page:access_card_main": {
+      "id": "page:access_card_main",
+      "kind": "page",
+      "page_id": "access_card_main",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "8bf7c8c1f3b1b8d6e798900a4e0cf1509a99607bcceec3f924cca96190c7ee55",
+          "byteLength": 1646,
+          "mediaType": "application/json"
+        }
+      }
+    },
+    "page:card_claim": {
+      "id": "page:card_claim",
+      "kind": "page",
+      "page_id": "card_claim",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "058f42e6a2aaae147c432a3cb004fe30b4cfc338a83e128aa5fcd46b72a0a316",
+          "byteLength": 1129,
+          "mediaType": "application/json"
+        }
+      }
+    },
+    "page:card_return": {
+      "id": "page:card_return",
+      "kind": "page",
+      "page_id": "card_return",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "64e3f0b7bee2a006f7b632336da77b622168a602a0dfad274214241f9359787c",
+          "byteLength": 1521,
+          "mediaType": "application/json"
+        }
+      }
+    },
+    "page:cancel_completed": {
+      "id": "page:cancel_completed",
+      "kind": "page",
+      "page_id": "cancel_completed",
+      "status": "prepared",
+      "task_ids": [
+        "page:cancel_completed::page"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "page_implementation_contract",
+        "target": {
+          "type": "page",
+          "id": "cancel_completed",
+          "page_key": "CancelCompleted"
+        },
+        "page_implementation_contract": {
+          "id": "cancel_completed"
+        },
+        "endpoint_ids": [
+          "card_admin_contract.listCardAdmins"
+        ],
+        "entity_ids": [
+          "card_admin"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "6ee369fbfe2c4635a4b5269c68d9ad20",
+            "apiContractId": "card_admin_contract",
+            "endpointId": "card_admin_contract.listCardAdmins",
+            "endpointContract": {
+              "id": "card_admin_contract.listCardAdmins",
+              "name": "获取门禁卡管理员列表",
+              "method": "GET",
+              "path": "/api/card-admins",
+              "summary": "读取门禁卡管理员信息列表，包含所属区域、管理员姓名和管理员工号，用于已完成界面展示园区李媛/WS04462与OCG徐敏/IT006877的交卡联系人信息。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "CardAdminListResponse",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "list": [
+                {
+                  "id": "adc-7f3a-1001",
+                  "region": "园区",
+                  "adminName": "李媛",
+                  "adminNo": "WS04462"
+                },
+                {
+                  "id": "adc-7f3a-1002",
+                  "region": "OCG",
+                  "adminName": "徐敏",
+                  "adminNo": "IT006877"
+                },
+                {
+                  "id": "adc-7f3a-1003",
+                  "region": "园区",
+                  "adminName": "陈立",
+                  "adminNo": "WS05138"
+                }
+              ]
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "list[].id",
+                  "type": "string",
+                  "required": true,
+                  "description": "门禁卡管理员记录唯一标识"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "list[].id",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "list[].region",
+                  "type": "string",
+                  "required": true,
+                  "description": "所属区域，取值为园区或OCG"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "list[].region",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "list[].adminName",
+                  "type": "string",
+                  "required": true,
+                  "description": "管理员姓名，如李媛、徐敏"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "list[].adminName",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "list[].adminNo",
+                  "type": "string",
+                  "required": true,
+                  "description": "管理员工号，如WS04462、IT006877"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "list[].adminNo",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "10713342b7d1514d0d6d52c7c8740ea695140f84349172589543da7c18faafcc"
+              }
+            ],
+            "confirmedAt": "2026-11-20T06:04:07.216389Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.list[].id → response.response_body.list[].id",
+          "静态数据.list[].region → response.response_body.list[].region",
+          "静态数据.list[].adminName → response.response_body.list[].adminName",
+          "静态数据.list[].adminNo → response.response_body.list[].adminNo"
+        ],
+        "source_types": [
+          "static"
+        ]
+      },
+      "input_fingerprint": "f391b9f367e681ea990644e8701c570a91205272400f1eb3d9d69ed5e802c995"
+    }
+  },
+  "unit_graph": {
+    "schema_version": "build-unit-graph.v3",
+    "nodes": [
+      "application:root",
+      "backend:auth-resources",
+      "frontend:shell",
+      "frontend:api-client",
+      "frontend:auth-guard",
+      "backend:bootstrap",
+      "app:integration",
+      "backend:module:greeting_contract",
+      "backend:module:access_card_application_contract",
+      "backend:module:access_card_contract",
+      "backend:module:card_admin_contract",
+      "page:home",
+      "page:access_card_main",
+      "page:card_claim",
+      "page:card_return",
+      "page:cancel_completed"
+    ],
+    "edges": [
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:bootstrap",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:auth-resources",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:shell",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:api-client",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:auth-guard",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:bootstrap",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:greeting_contract",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:greeting_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:greeting_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_contract",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:access_card_application_contract",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:access_card_application_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:access_card_application_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:access_card_application_contract",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:access_card_contract",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:access_card_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:access_card_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:access_card_contract",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:card_admin_contract",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:card_admin_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:card_admin_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:card_admin_contract",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:home",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:home",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:home",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_contract",
+        "to": "page:home",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:home",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:access_card_main",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:access_card_main",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:access_card_main",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_contract",
+        "to": "page:access_card_main",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:access_card_application_contract",
+        "to": "page:access_card_main",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:access_card_contract",
+        "to": "page:access_card_main",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:card_admin_contract",
+        "to": "page:access_card_main",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:access_card_main",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:card_claim",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:card_claim",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:card_claim",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:access_card_application_contract",
+        "to": "page:card_claim",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:card_claim",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:card_return",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:card_return",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:card_return",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:access_card_contract",
+        "to": "page:card_return",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:card_return",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:cancel_completed",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:cancel_completed",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:cancel_completed",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:card_admin_contract",
+        "to": "page:cancel_completed",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:cancel_completed",
+        "to": "app:integration",
+        "type": "depends_on"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "unit_skeleton": {
+    "input_fingerprint": "f5f16fbd176c2981012d8dd854adee933e4b18a4c4815331b3061ce5e3a9ee0f",
+    "project_plan_version": null,
+    "workspace_revision": "2613da7e693bfb6fb5a63f20",
+    "reused": false
+  },
+  "task_registry": {
+    "frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0": {
+      "allowed_paths": [
+        "frontend/src/apis/cardAdminContractApi.ts"
+      ],
+      "can_run_in_parallel": false,
+      "change_scope": [
+        {
+          "description": "新增门禁卡管理员业务接口模块：定义 CardAdmin 与 CardAdminListResponse 类型，并导出 listCardAdmins 异步函数，通过 frontend/src/apis/service.ts 发起 GET /api/card-admins 请求并返回类型化响应。",
+          "operation": "add",
+          "path": "frontend/src/apis/cardAdminContractApi.ts"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0::card_admin_contract.listCardAdmins::deliverable",
+          "kind": "frontend.api_module",
+          "target_id": "card_admin_contract.listCardAdmins",
+          "paths": [
+            "frontend/src/apis/cardAdminContractApi.ts"
+          ],
+          "provides": [
+            "frontend.api_module:card_admin_contract:card_admin_contract.listCardAdmins"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "description": "在 frontend/src/apis/cardAdminContractApi.ts 中实现门禁卡管理员接口模块。定义并导出 CardAdmin 类型（id、region、adminName、adminNo 均为 string）与 CardAdminListResponse 类型（list: CardAdmin[]）；导出异步函数 listCardAdmins(): Promise<CardAdminListResponse>，复用平台提供的 frontend/src/apis/service.ts 发起 GET /api/card-admins 请求（无请求参数、无需认证），并以 CardAdminListResponse 做返回类型。不新增页面、路由或静态数据模块。",
+      "id": "frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0",
+      "impact_scope": {
+        "affected_modules": [
+          "frontend/src/apis/cardAdminContractApi.ts"
+        ],
+        "public_contracts": [
+          "card_admin_contract.listCardAdmins"
+        ],
+        "risks": [
+          "响应字段必须与接口契约保持一致，缺失必填字段需抛出错误"
+        ],
+        "summary": "新增门禁卡管理员列表接口的前端业务访问模块，供页面层获取园区与 OCG 管理员联系人信息"
+      },
+      "owner": "frontend",
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "status": "already_satisfied",
+      "target_files": [
+        "frontend/src/apis/cardAdminContractApi.ts"
+      ],
+      "task_type": "frontend.code",
+      "title": "新增门禁卡管理员列表业务接口模块",
+      "unit_id": "frontend:api-client",
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "frontend:api-client"
+      ],
+      "unit_dependencies": [],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0:file_operation:fafbc218bce3",
+          "kind": "file_operation",
+          "description": "工程文件 frontend/src/apis/cardAdminContractApi.ts 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/apis/cardAdminContractApi.ts"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0:scope_boundary:c90eb6845a2f",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/apis/cardAdminContractApi.ts"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "frontend/src/apis/cardAdminContractApi.ts"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0:frontend.api_contract:add9b72808a8ed8b",
+          "deliverable_id": "frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0::card_admin_contract.listCardAdmins::deliverable",
+          "kind": "frontend.api_contract",
+          "description": "前端业务 API 模块必须实现已确认的 method、path、请求参数和响应结构。",
+          "sources": [
+            {
+              "artifact": "api_contract",
+              "target_id": "card_admin_contract.listCardAdmins",
+              "pointer": "/api_contracts/card_admin_contract/endpoints/card_admin_contract.listCardAdmins",
+              "sha256": "dc915ea4e5cdb92fa4fde0d90769f632b6c63be08715b5b8686b01fdaea55df4"
+            }
+          ],
+          "expected": {
+            "endpoints": [
+              {
+                "api_contract_id": "card_admin_contract",
+                "endpoint_id": "card_admin_contract.listCardAdmins",
+                "method": "GET",
+                "path": "/api/card-admins",
+                "request_schema_ref": "",
+                "response_schema_ref": "CardAdminListResponse",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "list"
+                  ],
+                  "properties": {
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "CardAdmin",
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "region",
+                          "adminName",
+                          "adminNo"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "region": {
+                            "type": "string",
+                            "enum": [
+                              "园区",
+                              "OCG"
+                            ],
+                            "required": true
+                          },
+                          "adminName": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "adminNo": {
+                            "type": "string",
+                            "required": true
+                          }
+                        }
+                      },
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ],
+            "required_endpoints": [
+              {
+                "api_contract_id": "card_admin_contract",
+                "endpoint_id": "card_admin_contract.listCardAdmins",
+                "method": "GET",
+                "path": "/api/card-admins",
+                "request_schema_ref": "",
+                "response_schema_ref": "CardAdminListResponse",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "list"
+                  ],
+                  "properties": {
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "CardAdmin",
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "region",
+                          "adminName",
+                          "adminNo"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "region": {
+                            "type": "string",
+                            "enum": [
+                              "园区",
+                              "OCG"
+                            ],
+                            "required": true
+                          },
+                          "adminName": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "adminNo": {
+                            "type": "string",
+                            "required": true
+                          }
+                        }
+                      },
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ],
+            "allowed_existing_endpoints": []
+          },
+          "target_paths": [
+            "frontend/src/apis/cardAdminContractApi.ts"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "frontend_api_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": [],
+      "updated_at": "2026-11-20T06:48:13.813578+00:00",
+      "scheduler": {
+        "started_at": "2026-11-20T06:47:12.341221+00:00"
+      },
+      "failure_category": null,
+      "business_acceptance_evidence": [
+        {
+          "check_id": "business:frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0:frontend.api_contract:add9b72808a8ed8b",
+          "kind": "frontend.api_contract",
+          "status": "skipped",
+          "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+        }
+      ],
+      "updated_by": "build-scheduler",
+      "failure_detail": null,
+      "failure_reason": null,
+      "acceptance_status": {
+        "engineering": "skipped",
+        "business": "skipped"
+      },
+      "last_result_status": "already_satisfied",
+      "acceptance_evidence": [],
+      "business_acceptance_summary": {
+        "total": 1,
+        "passed": 0,
+        "failed": 0,
+        "blocked": 0,
+        "skipped": 1,
+        "duration_ms_total": 0,
+        "duration_ms_avg": 0,
+        "by_kind": {}
+      }
+    },
+    "page:cancel_completed::page": {
+      "id": "page:cancel_completed::page",
+      "unit_id": "page:cancel_completed",
+      "owner": "frontend",
+      "task_type": "frontend.code",
+      "status": "completed",
+      "title": "实现注销完成页 CancelCompleted",
+      "description": "在 frontend/src/pages/CancelCompleted/index.tsx 实现页面 cancel_completed 的正式 PageImplementationContract：页面初始加载（含刷新）时通过 card_admin_contract.listCardAdmins 请求读取门禁卡管理员列表（GET /api/card-admins，响应 list[].id/region/adminName/adminNo），以「园区李媛/WS04462、OCG徐敏/IT006877」的形式列出交卡联系人；居中展示标题「您已完成注销申请！」与说明文案「请把实体卡交给门禁卡管理员」；提供蓝色背景的【返回首页】按钮与底部功能图标区，整体为简洁扁平化蓝色调；点击【返回首页】按 navigation 绑定跳转到 access_card_main，按钮文案与图标均按契约渲染。管理员列表加载中或失败时给出可用的降级展示，不改变已确定的交互与跳转行为。仅实现本页 UI 与数据读取，不修改路由注册、API 客户端与后端代码。",
+      "dependencies": [
+        "frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0"
+      ],
+      "target_files": [
+        "frontend/src/pages/CancelCompleted/index.tsx"
+      ],
+      "change_scope": [
+        {
+          "operation": "add",
+          "path": "frontend/src/pages/CancelCompleted/index.tsx",
+          "description": "新增 CancelCompleted 页面组件：加载门禁卡管理员列表并展示交卡联系人信息、标题与说明文案、蓝色【返回首页】按钮（跳转 access_card_main），以及底部功能图标区与蓝色扁平化样式。"
+        }
+      ],
+      "allowed_paths": [
+        "frontend/src/pages/CancelCompleted/index.tsx"
+      ],
+      "deliverables": [
+        {
+          "id": "page:cancel_completed::page::page",
+          "kind": "frontend.page",
+          "target_id": "cancel_completed",
+          "paths": [
+            "frontend/src/pages/CancelCompleted/index.tsx"
+          ],
+          "provides": [
+            "frontend.page:cancel_completed"
+          ]
+        }
+      ],
+      "impact_scope": {
+        "summary": "新增注销完成页 CancelCompleted，展示注销完成结果与门禁卡管理员交卡信息，并支持返回门禁卡管理主页。",
+        "affected_modules": [
+          "frontend/src/pages"
+        ],
+        "public_contracts": [
+          "card_admin_contract.listCardAdmins"
+        ],
+        "risks": [
+          "管理员列表接口不可用时需保持页面可读与返回首页可用"
+        ]
+      },
+      "can_run_in_parallel": false,
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "source_refs": {
+        "type": "page_implementation_contract",
+        "target": {
+          "type": "page",
+          "id": "cancel_completed",
+          "page_key": "CancelCompleted"
+        },
+        "page_implementation_contract": {
+          "id": "cancel_completed"
+        },
+        "endpoint_ids": [
+          "card_admin_contract.listCardAdmins"
+        ],
+        "entity_ids": [
+          "card_admin"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "6ee369fbfe2c4635a4b5269c68d9ad20",
+            "apiContractId": "card_admin_contract",
+            "endpointId": "card_admin_contract.listCardAdmins",
+            "endpointContract": {
+              "id": "card_admin_contract.listCardAdmins",
+              "name": "获取门禁卡管理员列表",
+              "method": "GET",
+              "path": "/api/card-admins",
+              "summary": "读取门禁卡管理员信息列表，包含所属区域、管理员姓名和管理员工号，用于已完成界面展示园区李媛/WS04462与OCG徐敏/IT006877的交卡联系人信息。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "CardAdminListResponse",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "list": [
+                {
+                  "id": "adc-7f3a-1001",
+                  "region": "园区",
+                  "adminName": "李媛",
+                  "adminNo": "WS04462"
+                },
+                {
+                  "id": "adc-7f3a-1002",
+                  "region": "OCG",
+                  "adminName": "徐敏",
+                  "adminNo": "IT006877"
+                },
+                {
+                  "id": "adc-7f3a-1003",
+                  "region": "园区",
+                  "adminName": "陈立",
+                  "adminNo": "WS05138"
+                }
+              ]
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "list[].id",
+                  "type": "string",
+                  "required": true,
+                  "description": "门禁卡管理员记录唯一标识"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "list[].id",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "list[].region",
+                  "type": "string",
+                  "required": true,
+                  "description": "所属区域，取值为园区或OCG"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "list[].region",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "list[].adminName",
+                  "type": "string",
+                  "required": true,
+                  "description": "管理员姓名，如李媛、徐敏"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "list[].adminName",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "list[].adminNo",
+                  "type": "string",
+                  "required": true,
+                  "description": "管理员工号，如WS04462、IT006877"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "list[].adminNo",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "10713342b7d1514d0d6d52c7c8740ea695140f84349172589543da7c18faafcc"
+              }
+            ],
+            "confirmedAt": "2026-11-20T06:04:07.216389Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.list[].id → response.response_body.list[].id",
+          "静态数据.list[].region → response.response_body.list[].region",
+          "静态数据.list[].adminName → response.response_body.list[].adminName",
+          "静态数据.list[].adminNo → response.response_body.list[].adminNo"
+        ],
+        "source_types": [
+          "static"
+        ],
+        "page_input_sha256": "997edf1f46d8b48be6667c1d1e5ecaa08a7e7b73d53f8f3eeb9ff687768a6235"
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "page:cancel_completed"
+      ],
+      "unit_dependencies": [
+        "frontend:shell",
+        "frontend:api-client",
+        "backend:module:card_admin_contract"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:page:cancel_completed::page:file_operation:cf8b58118782",
+          "kind": "file_operation",
+          "description": "工程文件 frontend/src/pages/CancelCompleted/index.tsx 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/CancelCompleted/index.tsx"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:cancel_completed::page:scope_boundary:eed9622af749",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/CancelCompleted/index.tsx"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "frontend/src/pages/CancelCompleted/index.tsx"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:cancel_completed::page:page_entry:4331a23fa7fe",
+          "kind": "page_entry",
+          "description": "页面交付物必须包含可读取的 index.tsx 页面入口。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/CancelCompleted/index.tsx"
+          ],
+          "expected": {
+            "page_id": "cancel_completed",
+            "entry_path": "frontend/src/pages/CancelCompleted/index.tsx"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:cancel_completed::page:page_default_export:477225be8261",
+          "kind": "page_default_export",
+          "description": "页面入口必须提供 default export，确保路由可以加载页面组件。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/CancelCompleted/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/CancelCompleted/index.tsx",
+            "requires_default_export": true
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:cancel_completed::page:page_placeholder:1de450dfe36f",
+          "kind": "page_placeholder",
+          "description": "页面入口不得保留模板占位内容。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/CancelCompleted/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/CancelCompleted/index.tsx",
+            "forbidden_markers": [
+              "hello agent!",
+              "待 Agent 生成真实内容",
+              "待agent生成真实内容",
+              "临时占位",
+              "placeholder content"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:cancel_completed::page:frontend_api_boundary:9e7a1ad76bbe",
+          "kind": "frontend_api_boundary",
+          "description": "页面和任务内组件不得直接调用 fetch、axios 或 service；业务接口必须经 src/apis/ 与 useRequest。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/CancelCompleted/index.tsx"
+          ],
+          "expected": {},
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:page:cancel_completed::page:frontend.page_endpoint_usage:2726b728039e170a",
+          "deliverable_id": "page:cancel_completed::page::page",
+          "kind": "frontend.page_endpoint_usage",
+          "description": "页面或其任务内可达组件必须实际调用 PageImplementationContract 声明的业务接口。",
+          "sources": [
+            {
+              "artifact": "page_implementation_contract",
+              "target_id": "cancel_completed",
+              "pointer": "/page_implementation_contracts/cancel_completed",
+              "sha256": "154ac3c4a0217ebdea989858148917dbd8a059552128eb4eb3b31f9faa23dca5"
+            },
+            {
+              "artifact": "api_contract",
+              "target_id": "card_admin_contract.listCardAdmins",
+              "pointer": "/api_contracts/card_admin_contract/endpoints/card_admin_contract.listCardAdmins",
+              "sha256": "dc915ea4e5cdb92fa4fde0d90769f632b6c63be08715b5b8686b01fdaea55df4"
+            }
+          ],
+          "expected": {
+            "page_id": "cancel_completed",
+            "required_endpoint_ids": [
+              "card_admin_contract.listCardAdmins"
+            ],
+            "endpoints": [
+              {
+                "api_contract_id": "card_admin_contract",
+                "endpoint_id": "card_admin_contract.listCardAdmins",
+                "method": "GET",
+                "path": "/api/card-admins",
+                "request_schema_ref": "",
+                "response_schema_ref": "CardAdminListResponse",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "list"
+                  ],
+                  "properties": {
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "CardAdmin",
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "region",
+                          "adminName",
+                          "adminNo"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "region": {
+                            "type": "string",
+                            "enum": [
+                              "园区",
+                              "OCG"
+                            ],
+                            "required": true
+                          },
+                          "adminName": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "adminNo": {
+                            "type": "string",
+                            "required": true
+                          }
+                        }
+                      },
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "target_paths": [
+            "frontend/src/pages/CancelCompleted/index.tsx"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "frontend_page_endpoint_usage"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": [],
+      "updated_at": "2026-11-20T06:52:02.208242+00:00",
+      "scheduler": {
+        "started_at": "2026-11-20T06:48:13.848128+00:00"
+      },
+      "failure_category": null,
+      "business_acceptance_evidence": [
+        {
+          "check_id": "business:page:cancel_completed::page:frontend.page_endpoint_usage:2726b728039e170a",
+          "kind": "frontend.page_endpoint_usage",
+          "status": "skipped",
+          "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+        }
+      ],
+      "updated_by": "build-scheduler",
+      "failure_detail": null,
+      "failure_reason": null,
+      "acceptance_status": {
+        "engineering": "skipped",
+        "business": "skipped"
+      },
+      "last_result_status": "completed",
+      "acceptance_evidence": [],
+      "business_acceptance_summary": {
+        "total": 1,
+        "passed": 0,
+        "failed": 0,
+        "blocked": 0,
+        "skipped": 1,
+        "duration_ms_total": 0,
+        "duration_ms_avg": 0,
+        "by_kind": {}
+      }
+    }
+  },
+  "task_graph": {
+    "schema_version": "build-task-graph.v3",
+    "nodes": [
+      "frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0",
+      "page:cancel_completed::page"
+    ],
+    "edges": [
+      {
+        "from": "frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0",
+        "to": "page:cancel_completed::page",
+        "type": "depends_on"
+      }
+    ],
+    "roots": [
+      "frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0"
+    ],
+    "leaves": [
+      "page:cancel_completed::page"
+    ],
+    "topological_order": [
+      "frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0",
+      "page:cancel_completed::page"
+    ],
+    "execution_layers": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "page:cancel_completed::page"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "summary": {
+    "total": 2,
+    "frontend": 2,
+    "backend": 0,
+    "database": 0,
+    "pending": 0,
+    "running": 0,
+    "completed": 2,
+    "already_satisfied": 1,
+    "failed": 0,
+    "results": 2
+  },
+  "execution": {
+    "batches": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "frontend:api-client::card_admin_contract::api-module::dda90f53eca4f2e0"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "page:cancel_completed::page"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "blocked_batches": []
+  },
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "cancel_completed"
+  },
+  "template_context": {
+    "state_path": ".devagentstudio/template-state.json",
+    "template_revision": "2026.10.19.1",
+    "effective_capabilities": {}
+  },
+  "status": "ready",
+  "confirmation_status": "confirmed",
+  "confirmed_at": "2026-11-20T06:47:12.047584+00:00",
+  "confirmed_from": {
+    "planning_run_id": "planning-32f17b31630644bfa60f0326c3492ff9",
+    "draft_digest": "0896e0b3eb294e8701803486f48e0e59a75bf9b9d662f2f8fa5f8f045dd9eaf1"
+  },
+  "last_update": {
+    "stage": "build_scheduler",
+    "updated_by": "build-scheduler",
+    "build_run_id": "build-2803ed3c58364a08b985f0f53b7ae307",
+    "updated_at": "2026-11-20T06:52:02.220427+00:00"
+  }
+}
