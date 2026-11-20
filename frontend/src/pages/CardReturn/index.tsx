@@ -23,8 +23,6 @@ import {
  * 转换后得到的访问路径保持一致，仅用于页面内跳转，不注册路由。
  */
 const ACCESS_CARD_MAIN_PATH = '/page/access-card-main';
-/** 已完成注销界面路由，对应产品页面 cancel_completed */
-const CANCEL_COMPLETED_PATH = '/page/access-card-cancel-completed';
 /** 使用中门禁卡列表默认每页条数 */
 const DEFAULT_PAGE_SIZE = 10;
 /** 权限状态枚举取值 */
@@ -49,6 +47,18 @@ function extractErrorCode(error: unknown): string {
   return data?.code || data?.errorCode || '';
 }
 
+/** 将列表加载异常映射为可读提示，未命中特定错误码时回落到后端 message */
+function resolveListErrorMessage(error: unknown): string {
+  const code = extractErrorCode(error);
+  const serverMessage = (error as RequestErrorLike)?.response?.data?.message;
+  const status = (error as RequestErrorLike)?.response?.status;
+
+  if (code === 'UNAUTHORIZED' || status === 401) {
+    return '未识别到您的身份，无法加载本人门禁卡，请从招乎APP重新扫码进入。';
+  }
+  return serverMessage || '门禁卡信息加载失败，请稍后重试。';
+}
+
 /** 将发起离职注销的异常映射为可读提示，未命中特定错误码时回落到后端 message */
 function resolveCancelErrorMessage(error: unknown): string {
   const code = extractErrorCode(error);
@@ -69,7 +79,8 @@ function resolveCancelErrorMessage(error: unknown): string {
  * 自上而下依次渲染标题「门禁卡退还」、说明文案、门禁卡信息列表、操作区与底部功能图标区。
  * 仅调用 PageImplementationContract 声明的接口：
  * - 初始加载与翻页时调用 listAccessCards 拉取本人名下「使用中」的门禁卡分页列表；
- * - 点击【离职注销】并在确认弹窗确认后调用 applyCancellation 发起离职注销。
+ * - 点击【离职注销】并在确认弹窗确认后调用 applyCancellation 发起离职注销，
+ *   提交成功后直接跳转门禁卡管理主页面，不展示注销完成提示界面。
  * 【返回首页】仅做前端跳转，不产生注销请求。
  */
 export default function CardReturn() {
@@ -84,7 +95,7 @@ export default function CardReturn() {
 
   /**
    * 拉取门禁卡分页列表。
-   * 通过 params 参数读取最新的页码与每页条数，避免闭包捕获过期的 pageQuery。
+   * 通过参数读取最新的页码与每页条数，避免闭包捕获过期的 pageQuery。
    */
   const loadAccessCardPage = async (
     query: { current: number; pageSize: number },
@@ -112,6 +123,7 @@ export default function CardReturn() {
   const activeSelectedCard =
     selectedCard && dataSource.some((item) => item.id === selectedCard.id) ? selectedCard : null;
 
+  /** 先更新页码再重新拉取列表，保证翻页后展示对应页数据 */
   const handleTableChange = (nextPage: number, nextPageSize: number) => {
     setPageQuery({ current: nextPage, pageSize: nextPageSize });
     refresh();
@@ -121,17 +133,19 @@ export default function CardReturn() {
     refresh();
   };
 
-  /** 提交离职注销申请，成功后跳转已完成界面 */
+  /**
+   * 提交离职注销申请。
+   * 成功即直接跳转门禁卡管理主页面，不展示注销完成提示界面、无需二次确认。
+   */
   const submitCancellation = async (record: AccessCard) => {
     setSubmitting(true);
     try {
       await applyCancellation({ accessCardId: record.id });
-      messageApi.success('离职注销申请已同步至飞码。');
-      navigate(CANCEL_COMPLETED_PATH, {
-        state: { accessCardId: record.id, cardNo: record.cardNo },
-      });
+      messageApi.success('离职注销申请已同步至飞码，请将实体卡交还门禁卡管理员。');
+      navigate(ACCESS_CARD_MAIN_PATH);
     } catch (cancelError) {
       messageApi.error(resolveCancelErrorMessage(cancelError));
+      refresh();
     } finally {
       setSubmitting(false);
     }
@@ -151,7 +165,7 @@ export default function CardReturn() {
         <Space direction='vertical' size={4}>
           <span>{`将注销 ${targetCard.name}（${targetCard.employeeNo}）名下的门禁卡 ${targetCard.cardNo}。`}</span>
           <span>确认后申请注销字段将更新为「离职」并同步至飞码，触发飞码端注销流程。</span>
-          <span>提交成功后请线下将实体卡交还门禁卡管理员。</span>
+          <span>提交后请线下将实体卡交还门禁卡管理员。</span>
         </Space>
       ),
       okText: '确认注销',
@@ -244,7 +258,7 @@ export default function CardReturn() {
               type='error'
               showIcon
               message='门禁卡信息加载失败'
-              description='请检查网络连接后重试。'
+              description={resolveListErrorMessage(error)}
               action={
                 <Button size='small' type='primary' onClick={handleRetry}>
                   重试
@@ -265,10 +279,13 @@ export default function CardReturn() {
             revalidateOnFocus={false}
             cardProps={{ bodyStyle: { padding: 0 } }}
             locale={{
-              emptyText: error ? (
-                <Empty description='暂无数据，加载失败' image={Empty.PRESENTED_IMAGE_SIMPLE} />
-              ) : (
-                <Empty description='暂无使用中的门禁卡' image={Empty.PRESENTED_IMAGE_SIMPLE} />
+              emptyText: (
+                <Empty
+                  description={
+                    error ? '暂无数据，加载失败' : '暂无使用中的门禁卡'
+                  }
+                  image={Empty.PRESENTED_IMAGE_SIMPLE}
+                />
               ),
             }}
             pagination={{
@@ -302,9 +319,7 @@ export default function CardReturn() {
                     icon={<LogoutOutlined />}
                     loading={submitting}
                     disabled={
-                      loading ||
-                      !dataSource.length ||
-                      (dataSource.length > 1 && !activeSelectedCard)
+                      loading || !dataSource.length || (dataSource.length > 1 && !activeSelectedCard)
                     }
                     onClick={handleApplyCancellation}
                     style={{ height: 48, minWidth: 160, borderRadius: 8, fontSize: 16 }}

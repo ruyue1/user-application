@@ -1,0 +1,735 @@
+{
+  "execution_run_id": "54252556-be76-4a4b-9c92-e94d4a0e51cd",
+  "thread_id": "4e5b69e7-c88b-4d6a-a2b3-dc4730869474",
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "card_return"
+  },
+  "build_run_id": "build-c8a70445da58419bbb3131fe5d2cf0bf",
+  "build_run_plan_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112005/.devagentstudio/plans/build-runs/build-c8a70445da58419bbb3131fe5d2cf0bf.json",
+  "build_run_plan_sha256": "263112e035e3fcde2d646205ed8df4102316899b021fdf53e94d8ff74a65ec82",
+  "progress": {
+    "build_run_id": "build-c8a70445da58419bbb3131fe5d2cf0bf",
+    "build_run_plan_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112005/.devagentstudio/plans/build-runs/build-c8a70445da58419bbb3131fe5d2cf0bf.json",
+    "build_run_plan_sha256": "263112e035e3fcde2d646205ed8df4102316899b021fdf53e94d8ff74a65ec82",
+    "active_run_id": "54252556-be76-4a4b-9c92-e94d4a0e51cd",
+    "build_execution_scope": {
+      "type": "page",
+      "targetId": "card_return"
+    },
+    "tasks": [
+      {
+        "allowed_paths": [
+          "frontend/src/apis/accessCardContractApi.ts"
+        ],
+        "can_run_in_parallel": false,
+        "change_scope": [
+          {
+            "description": "在共享业务 API 模块中实现 listAccessCards 与 applyCancellation 两个导出异步函数，复用平台 service.ts 发起 HTTP 请求，并补充查询参数、请求体与响应的 TypeScript 类型。",
+            "operation": "modify",
+            "path": "frontend/src/apis/accessCardContractApi.ts"
+          }
+        ],
+        "deliverables": [
+          {
+            "id": "frontend:api-client::access_card_contract::api-module::70253be159a1dd60::deliverable::access_card_contract.applyCancellation",
+            "kind": "frontend.api_module",
+            "target_id": "access_card_contract.applyCancellation",
+            "paths": [
+              "frontend/src/apis/accessCardContractApi.ts"
+            ],
+            "provides": [
+              "frontend.api_module:access_card_contract:access_card_contract.applyCancellation"
+            ]
+          },
+          {
+            "id": "frontend:api-client::access_card_contract::api-module::70253be159a1dd60::deliverable::access_card_contract.listAccessCards",
+            "kind": "frontend.api_module",
+            "target_id": "access_card_contract.listAccessCards",
+            "paths": [
+              "frontend/src/apis/accessCardContractApi.ts"
+            ],
+            "provides": [
+              "frontend.api_module:access_card_contract:access_card_contract.listAccessCards"
+            ]
+          }
+        ],
+        "dependencies": [],
+        "description": "在 `frontend/src/apis/accessCardContractApi.ts` 中补齐门禁卡契约的前端业务访问层，统一复用平台提供的 `frontend/src/apis/service.ts` 发起 HTTP 请求，不新增页面或路由逻辑。\n\n1. 定义并导出请求/响应类型：`AccessCardPageResponse`（分页列表，含 `current`、`pageSize`、`total`、`records` 等列表数据，records 元素包含姓名、员工编号、卡号、权限状态字段）、`AccessCard`（单张门禁卡信息，含卡号、权限状态、申请注销字段等）、`CancelAccessCardRequest`（离职注销申请请求体）。字段命名与后端 DTO 保持一致的 camelCase 风格。\n2. 导出 `listAccessCards(params: { current: number; pageSize: number })`：以 `GET /api/access-cards` 发起请求，`current`（默认 1，最小 1）与 `pageSize`（默认 10，最小 1）作为 query 参数传递，返回 `AccessCardPageResponse`。同时保留/导出默认分页常量供页面复用。\n3. 导出 `applyCancellation(payload: CancelAccessCardRequest)`：以 `PATCH /api/access-cards/cancellation` 发起请求，请求体为 `CancelAccessCardRequest` 序列化后的 JSON，返回更新后的 `AccessCard`。\n4. 保持文件中已有导出与调用方兼容，函数签名明确标注返回类型，错误交由平台 service 层的统一处理机制抛出，不在本文件内做页面级提示或状态管理。",
+        "id": "frontend:api-client::access_card_contract::api-module::70253be159a1dd60",
+        "impact_scope": {
+          "affected_modules": [
+            "frontend/src/apis"
+          ],
+          "public_contracts": [
+            "GET /api/access-cards",
+            "PATCH /api/access-cards/cancellation"
+          ],
+          "risks": [
+            "请求/响应字段命名与后端 DTO 不一致会导致页面数据为空或类型错误",
+            "修改共享模块时若破坏已有导出会影响现有门禁卡页面引用"
+          ],
+          "summary": "在共享业务 API 模块中新增门禁卡列表查询与离职注销申请两个前端访问函数及其类型定义，供门禁卡归还等页面调用。"
+        },
+        "owner": "frontend",
+        "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+        "status": "completed",
+        "target_files": [
+          "frontend/src/apis/accessCardContractApi.ts"
+        ],
+        "task_type": "frontend.code",
+        "title": "实现门禁卡契约前端 API 模块（列表查询与离职注销申请）",
+        "unit_id": "frontend:api-client",
+        "source_refs": {
+          "type": "application_unit",
+          "target": {
+            "type": "application",
+            "id": "application"
+          }
+        },
+        "requires_capabilities": [],
+        "provides_capabilities": [
+          "frontend:api-client"
+        ],
+        "unit_dependencies": [],
+        "dependency_rewrites": [],
+        "missing_unit_dependencies": [],
+        "invalid_dependencies": [],
+        "acceptance_checks": [
+          {
+            "id": "acceptance:frontend:api-client::access_card_contract::api-module::70253be159a1dd60:file_operation:cfca55457e8d",
+            "kind": "file_operation",
+            "description": "工程文件 frontend/src/apis/accessCardContractApi.ts 必须完成 modify 操作，工作区差异类型必须为 modified。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/apis/accessCardContractApi.ts"
+            ],
+            "expected": {
+              "operation": "modify",
+              "change_type": "modified"
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:frontend:api-client::access_card_contract::api-module::70253be159a1dd60:scope_boundary:96df1130fb35",
+            "kind": "scope_boundary",
+            "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/apis/accessCardContractApi.ts"
+            ],
+            "expected": {
+              "allowed_paths": [
+                "frontend/src/apis/accessCardContractApi.ts"
+              ]
+            },
+            "verification_stage": "build"
+          }
+        ],
+        "business_acceptance_checks": {
+          "$artifact": {
+            "artifactId": "5b76a2846d3866edf02bf8f4dba918c8976243975821dda47758bd654f56f7b4",
+            "byteLength": 5362,
+            "mediaType": "application/json"
+          }
+        },
+        "execution_strategy": "agent",
+        "platform_executor": null,
+        "executionMode": "subagent-direct-write",
+        "assignedAgent": "fullstack-builder",
+        "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+        "parallel_with": [],
+        "scheduler": {
+          "started_at": "2026-11-20T16:06:19.130050+00:00"
+        },
+        "last_result_status": "completed",
+        "failure_category": null,
+        "failure_reason": null,
+        "failure_detail": null,
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "acceptance_evidence": [],
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:frontend:api-client::access_card_contract::api-module::70253be159a1dd60:frontend.api_contract:6b7c7405b58a84fd",
+            "kind": "frontend.api_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 1,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        },
+        "updated_by": "build-scheduler",
+        "updated_at": "2026-11-20T16:08:04.696358+00:00"
+      },
+      {
+        "allowed_paths": [
+          "frontend/src/pages/CardReturn/index.tsx"
+        ],
+        "can_run_in_parallel": false,
+        "change_scope": [
+          {
+            "description": "在既有 CardReturn 页面中按 PageImplementationContract 实现门禁卡退还页：顶部标题「门禁卡退还」与说明文案「所有字段信息直接从扫码获取，并实时同步到飞码」；调用 access_card_contract.listAccessCards（GET /api/access-cards，query current/pageSize）在初始加载与翻页时加载本人名下权限状态为「使用中」的门禁卡并展示姓名、员工编号、卡号、权限状态；操作区【离职注销】经确认后调用 access_card_contract.applyCancellation（PATCH /api/access-cards/cancellation）提交注销申请，成功后不再展示完成提示界面，直接导航至 access_card_main；【返回首页】导航至 access_card_main；实现 loading/空态/错误态处理与底部功能图标区，不新增路由注册、API 客户端或占位页职责。",
+            "operation": "modify",
+            "path": "frontend/src/pages/CardReturn/index.tsx"
+          }
+        ],
+        "deliverables": [
+          {
+            "id": "page:card_return::page::deliverable",
+            "kind": "frontend.page",
+            "target_id": "card_return",
+            "paths": [
+              "frontend/src/pages/CardReturn/index.tsx"
+            ],
+            "provides": [
+              "frontend.page:card_return"
+            ]
+          }
+        ],
+        "dependencies": [
+          "frontend:api-client::access_card_contract::api-module::70253be159a1dd60"
+        ],
+        "description": "实现页面 card_return 的正式 PageImplementationContract（page-implementation-contract.v1）。页面顺序：标题「门禁卡退还」、说明文案「所有字段信息直接从扫码获取，并实时同步到飞码」、门禁卡列表、操作区、底部功能图标区。列表仅展示本人名下权限状态为【使用中】的门禁卡，列包含姓名、员工编号、卡号、权限状态，支持传入 current 与 pageSize 翻页并展示对应页数据；仅调用 requiredEndpointIds（access_card_contract.listAccessCards 用于初始加载与翻页，access_card_contract.applyCancellation 用于离职注销提交）。【离职注销】点击并经确认弹窗确认后提交注销申请，成功即直接跳转门禁卡管理主页面 access_card_main，不展示注销完成提示界面、无需二次确认；【返回首页】同样跳转 access_card_main。处理列表加载中、空数据、接口失败（UNAUTHORIZED/NOT_FOUND/INVALID_STATE）等状态并给出可读提示，禁止新增路由注册、菜单、API 客户端或测试职责。",
+        "id": "page:card_return::page",
+        "impact_scope": {
+          "affected_modules": [
+            "frontend/src/pages/CardReturn"
+          ],
+          "public_contracts": [
+            "frontend.page:card_return"
+          ],
+          "risks": [
+            "注销提交成功后必须立即跳转主页面，避免残留完成提示页",
+            "分页参数需与 listAccessCards 的 current/pageSize 契约保持一致",
+            "仅展示权限状态为「使用中」的卡片，避免误展示全部数据"
+          ],
+          "summary": "在既有页面入口 frontend/src/pages/CardReturn/index.tsx 内实现门禁卡退还页的列表加载、翻页、离职注销确认提交流程与返回首页跳转"
+        },
+        "owner": "frontend",
+        "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+        "status": "completed",
+        "target_files": [
+          "frontend/src/pages/CardReturn/index.tsx"
+        ],
+        "task_type": "frontend.code",
+        "title": "实现门禁卡退还页面（card_return）",
+        "unit_id": "page:card_return",
+        "source_refs": {
+          "$artifact": {
+            "artifactId": "da1c5e571fd83111bea67fbf30d91307c9ccbbc837c4cd4c17f06a124804fb9a",
+            "byteLength": 1608,
+            "mediaType": "application/json"
+          }
+        },
+        "requires_capabilities": [],
+        "provides_capabilities": [
+          "page:card_return"
+        ],
+        "unit_dependencies": [
+          "frontend:shell",
+          "frontend:api-client",
+          "backend:module:access_card_contract"
+        ],
+        "dependency_rewrites": [],
+        "missing_unit_dependencies": [],
+        "invalid_dependencies": [],
+        "acceptance_checks": [
+          {
+            "id": "acceptance:page:card_return::page:file_operation:954159b127a9",
+            "kind": "file_operation",
+            "description": "工程文件 frontend/src/pages/CardReturn/index.tsx 必须完成 modify 操作，工作区差异类型必须为 modified。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/pages/CardReturn/index.tsx"
+            ],
+            "expected": {
+              "operation": "modify",
+              "change_type": "modified"
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:page:card_return::page:scope_boundary:d6cf5d360725",
+            "kind": "scope_boundary",
+            "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/pages/CardReturn/index.tsx"
+            ],
+            "expected": {
+              "allowed_paths": [
+                "frontend/src/pages/CardReturn/index.tsx"
+              ]
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:page:card_return::page:page_entry:bce8c6ceb43d",
+            "kind": "page_entry",
+            "description": "页面交付物必须包含可读取的 index.tsx 页面入口。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/pages/CardReturn/index.tsx"
+            ],
+            "expected": {
+              "page_id": "card_return",
+              "entry_path": "frontend/src/pages/CardReturn/index.tsx"
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:page:card_return::page:page_default_export:4557b32d61ab",
+            "kind": "page_default_export",
+            "description": "页面入口必须提供 default export，确保路由可以加载页面组件。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/pages/CardReturn/index.tsx"
+            ],
+            "expected": {
+              "entry_path": "frontend/src/pages/CardReturn/index.tsx",
+              "requires_default_export": true
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:page:card_return::page:page_placeholder:2dc3b6afe942",
+            "kind": "page_placeholder",
+            "description": "页面入口不得保留模板占位内容。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/pages/CardReturn/index.tsx"
+            ],
+            "expected": {
+              "entry_path": "frontend/src/pages/CardReturn/index.tsx",
+              "forbidden_markers": [
+                "hello agent!",
+                "待 Agent 生成真实内容",
+                "待agent生成真实内容",
+                "临时占位",
+                "placeholder content"
+              ]
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:page:card_return::page:frontend_api_boundary:aed4d7f0c39c",
+            "kind": "frontend_api_boundary",
+            "description": "页面和任务内组件不得直接调用 fetch、axios 或 service；业务接口必须经 src/apis/ 与 useRequest。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/pages/CardReturn/index.tsx"
+            ],
+            "expected": {},
+            "verification_stage": "build"
+          }
+        ],
+        "business_acceptance_checks": [
+          {
+            "id": "business:page:card_return::page:frontend.page_endpoint_usage:f8b972369c47cbf9",
+            "deliverable_id": "page:card_return::page::deliverable",
+            "kind": "frontend.page_endpoint_usage",
+            "description": "页面或其任务内可达组件必须实际调用 PageImplementationContract 声明的业务接口。",
+            "sources": [
+              {
+                "artifact": "page_implementation_contract",
+                "target_id": "card_return",
+                "pointer": "/page_implementation_contracts/card_return",
+                "sha256": "ea885782a197797a174ac24ba0073b426ace89e2f088e7bfcc3075b0f108bc6b"
+              },
+              {
+                "artifact": "api_contract",
+                "target_id": "access_card_contract.listAccessCards",
+                "pointer": "/api_contracts/access_card_contract/endpoints/access_card_contract.listAccessCards",
+                "sha256": "5d1fb6f99bff64b24f545959b99043ca3ef4de0626ec2a3102a64b8314cbd105"
+              },
+              {
+                "artifact": "api_contract",
+                "target_id": "access_card_contract.applyCancellation",
+                "pointer": "/api_contracts/access_card_contract/endpoints/access_card_contract.applyCancellation",
+                "sha256": "615ac481fcfa8aea9cf7fd8a463fee07ffb242a242080736fbbc389300e1928b"
+              }
+            ],
+            "expected": {
+              "page_id": "card_return",
+              "required_endpoint_ids": [
+                "access_card_contract.listAccessCards",
+                "access_card_contract.applyCancellation"
+              ],
+              "endpoints": [
+                {
+                  "api_contract_id": "access_card_contract",
+                  "endpoint_id": "access_card_contract.listAccessCards",
+                  "method": "GET",
+                  "path": "/api/access-cards",
+                  "request_schema_ref": "",
+                  "response_schema_ref": "AccessCardPageResponse",
+                  "parameters": [
+                    {
+                      "name": "current",
+                      "in": "query",
+                      "required": true,
+                      "schema": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "default": 1,
+                        "description": "当前页码。"
+                      }
+                    },
+                    {
+                      "name": "pageSize",
+                      "in": "query",
+                      "required": true,
+                      "schema": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "default": 10,
+                        "description": "每页记录数。"
+                      }
+                    }
+                  ],
+                  "request_schema": null,
+                  "response_schema": {
+                    "type": "object",
+                    "required": [
+                      "total",
+                      "pageSize",
+                      "current",
+                      "list"
+                    ],
+                    "properties": {
+                      "total": {
+                        "type": "integer",
+                        "required": true
+                      },
+                      "pageSize": {
+                        "type": "integer",
+                        "required": true
+                      },
+                      "current": {
+                        "type": "integer",
+                        "required": true
+                      },
+                      "list": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "AccessCard",
+                          "type": "object",
+                          "required": [
+                            "id",
+                            "name",
+                            "employeeNo",
+                            "cardNo",
+                            "permissionStatus"
+                          ],
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "required": true
+                            },
+                            "name": {
+                              "type": "string",
+                              "required": true
+                            },
+                            "employeeNo": {
+                              "type": "string",
+                              "required": true
+                            },
+                            "cardNo": {
+                              "type": "string",
+                              "required": true
+                            },
+                            "permissionStatus": {
+                              "type": "string",
+                              "enum": [
+                                "使用中",
+                                "已注销"
+                              ],
+                              "required": true
+                            },
+                            "cancellationApplication": {
+                              "type": "string",
+                              "enum": [
+                                "离职"
+                              ],
+                              "required": false
+                            }
+                          }
+                        },
+                        "required": true
+                      }
+                    }
+                  }
+                },
+                {
+                  "api_contract_id": "access_card_contract",
+                  "endpoint_id": "access_card_contract.applyCancellation",
+                  "method": "PATCH",
+                  "path": "/api/access-cards/cancellation",
+                  "request_schema_ref": "CancelAccessCardRequest",
+                  "response_schema_ref": "AccessCard",
+                  "parameters": [],
+                  "request_schema": {
+                    "type": "object",
+                    "required": [
+                      "accessCardId"
+                    ],
+                    "properties": {
+                      "accessCardId": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  },
+                  "response_schema": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "name",
+                      "employeeNo",
+                      "cardNo",
+                      "permissionStatus"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "name": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "employeeNo": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "cardNo": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "permissionStatus": {
+                        "type": "string",
+                        "enum": [
+                          "使用中",
+                          "已注销"
+                        ],
+                        "required": true
+                      },
+                      "cancellationApplication": {
+                        "type": "string",
+                        "enum": [
+                          "离职"
+                        ],
+                        "required": false
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "target_paths": [
+              "frontend/src/pages/CardReturn/index.tsx"
+            ],
+            "verification": {
+              "mode": "deterministic",
+              "verifier": "frontend_page_endpoint_usage"
+            },
+            "required": true,
+            "verification_stage": "build"
+          }
+        ],
+        "execution_strategy": "agent",
+        "platform_executor": null,
+        "executionMode": "subagent-direct-write",
+        "assignedAgent": "fullstack-builder",
+        "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+        "parallel_with": [],
+        "scheduler": {
+          "started_at": "2026-11-20T16:08:04.722593+00:00"
+        },
+        "last_result_status": "completed",
+        "failure_category": null,
+        "failure_reason": null,
+        "failure_detail": null,
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "acceptance_evidence": [],
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:page:card_return::page:frontend.page_endpoint_usage:f8b972369c47cbf9",
+            "kind": "frontend.page_endpoint_usage",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 1,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        },
+        "updated_by": "build-scheduler",
+        "updated_at": "2026-11-20T16:13:25.060090+00:00"
+      }
+    ],
+    "build_results": [
+      {
+        "task_id": "frontend:api-client::access_card_contract::api-module::70253be159a1dd60",
+        "owner": "frontend",
+        "status": "completed",
+        "changed_files": [
+          "frontend/src/apis/accessCardContractApi.ts"
+        ],
+        "commands": [],
+        "agent_note": "已修改 frontend/src/apis/accessCardContractApi.ts，完成门禁卡契约前端业务访问层：1) 保留并沿用既有导出类型 AccessCard、AccessCardPageResponse、ListAccessCardsParams、CancelAccessCardRequest、DEFAULT_ACCESS_CARD_PAGE_PARAMS，字段与 ProjectPlan.api_contracts 的 AccessCard / AccessCardPageResponse / CancelAccessCardRequest schema 完全一致（id、name、employeeNo、cardNo、permissionStatus、cancellationApplication，分页 total/pageSize/current/list）；2) listAccessCards(params: Partial<ListAccessCardsParams>) 通过平台 service.get<AccessCardPageResponse>('/api/access-cards') 发起 GET 请求，current 与 pageSize 作为 query 参数传递，缺省回退到默认分页常量 current=1、pageSize=10，返回 Promise<AccessCardPageResponse>；3) applyCancellation(payload: CancelAccessCardRequest) 通过平台 service 发起 PATCH /api/access-cards/cancellation，请求体为 { accessCardId }，返回 Promise<AccessCard>。此前该函数绕过平台封装、直接用 axios.patch 并手工解包 response.data，导致鉴权头注入与统一响应拦截失效；本次移除了直接 import axios（含 AxiosResponse 类型）的写法，改为统一经平台 service 实例发起请求，错误仍交由 service 层统一处理机制抛出，文件内不做页面级提示或状态管理。既有导出 listAccessCards、applyCancellation 及默认聚合导出 accessCardContractApi 全部保留，页面调用方（src/pages/AccessCardMain、src/pages/CardReturn）导入方式不受影响。仅变更 allowed_paths 内声明的单一文件，未改动 service.ts、契约或其他文件。按要求未执行任何安装、构建、lint 或类型检查命令，交由外层 integration-test 阶段验证。",
+        "satisfaction_evidence": null,
+        "failure_category": null,
+        "failure_reason": null,
+        "executed_by": {
+          "agent": "frontend-generation-agent",
+          "mode": "live",
+          "model": "deepseek-v4.1-flash-1017",
+          "source": "frontend_deep_agent",
+          "requiredSkillsLoaded": []
+        },
+        "change_request": null,
+        "structured_response_recovered": false,
+        "scheduler_decision": {
+          "action": "complete",
+          "reason": "runner_completed"
+        },
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:frontend:api-client::access_card_contract::api-module::70253be159a1dd60:frontend.api_contract:6b7c7405b58a84fd",
+            "kind": "frontend.api_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 1,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        }
+      },
+      {
+        "task_id": "page:card_return::page",
+        "owner": "frontend",
+        "status": "completed",
+        "changed_files": [
+          "frontend/src/pages/CardReturn/index.tsx"
+        ],
+        "commands": [],
+        "agent_note": "在 frontend/src/pages/CardReturn/index.tsx 内按 PageImplementationContract 完成门禁卡退还页：页面自上而下为标题「门禁卡退还」、说明文案「所有字段信息直接从扫码获取，并实时同步到飞码」、ProTable 门禁卡列表（姓名、员工编号、卡号、权限状态，仅展示「使用中」卡片，支持 current/pageSize 翻页，展示 loading/空态/错误态并支持重试）、操作区（【离职注销】经 antd modal.confirm 确认后调用 applyCancellation，成功提示后直接导航至门禁卡管理主页面；【返回首页】导航至同一主页面）以及底部功能图标区。已删除原实现中指向注销完成页 /page/access-card-cancel-completed 的跳转及其常量，成功路径不再展示任何注销完成界面；接口仅通过 src/apis/accessCardContractApi 的 listAccessCards 与 applyCancellation 调用，使用 useRequest，未直接调用 fetch/axios/service；新增 UNAUTHORIZED 友好提示并保留 NOT_FOUND/INVALID_STATE 可读错误映射。仅修改该页面文件，未新增路由注册、菜单、API 客户端或测试职责，未运行项目级构建/安装命令（由外层集成测试阶段统一校验）。",
+        "satisfaction_evidence": null,
+        "failure_category": null,
+        "failure_reason": null,
+        "executed_by": {
+          "agent": "frontend-generation-agent",
+          "mode": "live",
+          "model": "deepseek-v4.1-flash-1017",
+          "source": "frontend_deep_agent",
+          "requiredSkillsLoaded": []
+        },
+        "change_request": null,
+        "structured_response_recovered": false,
+        "scheduler_decision": {
+          "action": "complete",
+          "reason": "runner_completed"
+        },
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:page:card_return::page:frontend.page_endpoint_usage:f8b972369c47cbf9",
+            "kind": "frontend.page_endpoint_usage",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 1,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        }
+      }
+    ],
+    "build_summary": {
+      "total": 2,
+      "completed": 2,
+      "failed": 0,
+      "pending": 0,
+      "running": 0,
+      "already_satisfied": 0,
+      "results": 2,
+      "retryable_failures": 0,
+      "retryable_task_ids": [],
+      "repairable_failures": 0,
+      "requires_confirmation": 0,
+      "recovery_available": false,
+      "recovery_task_ids": [],
+      "retry_available": false,
+      "status": "completed",
+      "routeProjection": {
+        "status": "applied",
+        "requestedPageIds": [
+          "home",
+          "access_card_main",
+          "card_claim",
+          "card_return",
+          "cancel_completed"
+        ],
+        "appliedPageIds": [
+          "home",
+          "access_card_main",
+          "card_claim",
+          "card_return"
+        ],
+        "skippedPageIds": [
+          "cancel_completed"
+        ],
+        "changedFiles": []
+      }
+    },
+    "repair_task_plan": {},
+    "repair_task_plan_path": null,
+    "repair_tasks": [],
+    "database_change_plan": {},
+    "database_approval_requests": [],
+    "build_task_repair_id": ""
+  },
+  "progress_source_run_id": "54252556-be76-4a4b-9c92-e94d4a0e51cd",
+  "execution_stage": "finalized"
+}

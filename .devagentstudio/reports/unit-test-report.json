@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "generated_at": "2026-11-20T06:52:35.244137+00:00",
+  "generated_at": "2026-11-20T16:13:29.078335+00:00",
   "passed": true,
   "checks": [
     {
@@ -61,15 +61,15 @@
   "artifact_context": {
     "build_execution_scope": {
       "type": "page",
-      "targetId": "cancel_completed"
+      "targetId": "card_return"
     },
-    "plan_sha256": "035585b20991a3c6bd6edd1a28ddc8f656dbefd9124a38ba05416518a09b53d3",
+    "plan_sha256": "263112e035e3fcde2d646205ed8df4102316899b021fdf53e94d8ff74a65ec82",
     "files": {
       "frontend/jest.config.cjs": "ce1afcb596c0abefb634ecc399b348b89d998be73221ffc57bdbb84cb7f3f90c",
-      "frontend/package.json": "7ac83000e1d969ac63a3ca602899f695ed63607d1c947990a7ca205e320cce46",
-      "frontend/pnpm-lock.yaml": "2dd9e48d28b43e28ab6c64dc1a6bd26efcd0fbf0a7183da4d416160bf6fa08f3",
-      "frontend/src/constants/routes.tsx": "305e91a1c857c500d102c68c2570274bb7da25f1ef264d445b835ecc57401bb9",
-      "frontend/src/pages/CancelCompleted/index.tsx": "b44d96ce9495fbd7eeaa5b4779d82af2e3c3e0a7f559cdd47d7b5b524ae8fbaa",
+      "frontend/package.json": "df0b257eaa0f1a71dd0670615b9d9315a52baa8ed89de88b0bfadfaf337c7334",
+      "frontend/pnpm-lock.yaml": "dd222b393c562b4a6166a16ad493ce7e55d614e44106e22e69a04dc9f23ffc04",
+      "frontend/src/apis/accessCardContractApi.ts": "184a07d286d6d99915d9db5bdf3121bbc4a2ae68cfc57a2d966efe5376e4dfad",
+      "frontend/src/pages/CardReturn/index.tsx": "9b9b7cbc2d885825694f2b63b466bc30c4c8f00c6d9d80fb6cf3e5628e43e953",
       "frontend/tests/__mocks__/fileMock.cjs": "9511e7bc24a9e0589f73af6ec1dd8b8fb1f6fb388decfdcb80a827860181226b",
       "frontend/tests/__mocks__/styleMock.cjs": "35ab14b4a7b597c4cb3c568cddf39ee07c557cdd7e19f2eb8b83467eafd70609",
       "frontend/tests/setupTests.ts": "303f1bcd5f40eb34671db9a66665f46aad22f0e0bc8a4dedf59d08fdbacef2b8",

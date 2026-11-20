@@ -2,8 +2,6 @@
  * 门禁卡契约业务接口
  */
 
-import axios, { type AxiosResponse } from 'axios';
-
 import service from './service';
 
 /** 权限状态取值 */
@@ -89,14 +87,11 @@ export interface CancelAccessCardRequest {
  * NOT_FOUND、INVALID_STATE 错误码由调用方通过异常捕获处理。
  */
 export function applyCancellation(payload: CancelAccessCardRequest): Promise<AccessCard> {
-  // 平台提供的 service 只封装了 get/post/put/delete，未暴露 patch，
-  // 且 service.ts 属于禁止修改的框架文件；此处使用工程内已安装的 axios 发起
-  // PATCH 请求，请求地址、方法与契约保持一致，非 2xx 响应由调用方通过异常捕获处理。
-  return axios
-    .patch<AccessCard>('/api/access-cards/cancellation', {
-      accessCardId: payload.accessCardId,
-    } satisfies CancelAccessCardRequest)
-    .then((response: AxiosResponse<AccessCard>) => response.data);
+  // 平台提供的 service 已封装 get/post/put/delete 并挂载统一的鉴权头注入与响应拦截器
+  // （成功时直接返回业务 body），PATCH 方法与契约保持一致，异常由 service 层统一抛出。
+  return service.patch<AccessCard>('/api/access-cards/cancellation', {
+    accessCardId: payload.accessCardId,
+  } satisfies CancelAccessCardRequest);
 }
 
 /** 门禁卡契约接口聚合对象，便于页面按需引用 */
