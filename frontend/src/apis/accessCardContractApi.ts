@@ -2,8 +2,6 @@
  * 门禁卡契约业务接口
  */
 
-import axios, { type AxiosResponse } from 'axios';
-
 import service from './service';
 
 /** 权限状态取值 */
@@ -86,17 +84,20 @@ export interface CancelAccessCardRequest {
  *
  * PATCH /api/access-cards/cancellation
  * 将对应卡片的申请注销字段更新为「离职」，返回更新后的门禁卡信息。
- * NOT_FOUND、INVALID_STATE 错误码由调用方通过异常捕获处理。
+ * 统一复用平台 service 客户端，后端统一响应封装中的 NOT_FOUND、INVALID_STATE
+ * 错误原样透传给调用方，由页面负责提示，不在此处吞错降级。
  */
-export function applyCancellation(payload: CancelAccessCardRequest): Promise<AccessCard> {
-  // 平台提供的 service 只封装了 get/post/put/delete，未暴露 patch，
-  // 且 service.ts 属于禁止修改的框架文件；此处使用工程内已安装的 axios 发起
-  // PATCH 请求，请求地址、方法与契约保持一致，非 2xx 响应由调用方通过异常捕获处理。
-  return axios
-    .patch<AccessCard>('/api/access-cards/cancellation', {
-      accessCardId: payload.accessCardId,
-    } satisfies CancelAccessCardRequest)
-    .then((response: AxiosResponse<AccessCard>) => response.data);
+export async function applyCancellation(
+  payload: CancelAccessCardRequest,
+): Promise<AccessCard> {
+  // 平台 service 仅封装 get/post/put/delete，未提供 patch 方法，
+  // 此处通过其 post 方法传入 method: 'PATCH' 覆盖请求方法，
+  // 从而复用同一 axios 实例的拦截器、超时与统一响应处理。
+  return service.post<AccessCard>(
+    '/api/access-cards/cancellation',
+    { accessCardId: payload.accessCardId },
+    { method: 'PATCH' },
+  );
 }
 
 /** 门禁卡契约接口聚合对象，便于页面按需引用 */

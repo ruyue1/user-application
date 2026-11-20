@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRequest } from 'ahooks';
 import type { ProColumns } from '@ant-design/pro-components';
 import { PageContainer, ProCard, ProTable } from '@ant-design/pro-components';
-import { Alert, App, Button, Empty, Flex, Radio, Space, Tag, Tooltip, Typography } from 'antd';
+import { Alert, App, Button, Empty, Flex, Popconfirm, Space, Tag, Typography } from 'antd';
 import {
   CreditCardOutlined,
   HomeOutlined,
@@ -23,12 +23,12 @@ import {
  * 转换后得到的访问路径保持一致，仅用于页面内跳转，不注册路由。
  */
 const ACCESS_CARD_MAIN_PATH = '/page/access-card-main';
-/** 已完成注销界面路由，对应产品页面 cancel_completed */
-const CANCEL_COMPLETED_PATH = '/page/access-card-cancel-completed';
 /** 使用中门禁卡列表默认每页条数 */
 const DEFAULT_PAGE_SIZE = 10;
 /** 权限状态枚举取值 */
 const PERMISSION_STATUS_IN_USE = '使用中';
+/** 申请注销字段在列表中的兜底展示文案 */
+const CANCELLATION_APPLICATION_EMPTY = '无';
 /** 底部功能图标区配置 */
 const FOOTER_FEATURES = [
   { key: 'return', label: '门禁卡退还', icon: <CreditCardOutlined /> },
