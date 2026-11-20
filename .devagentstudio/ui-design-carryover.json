@@ -1,5 +1,25 @@
 {
   "pages": {
+    "access_card_main": {
+      "pageKey": "AccessCardMain",
+      "templateId": "",
+      "templateSourcePath": ""
+    },
+    "cancel_completed": {
+      "pageKey": "CancelCompleted",
+      "templateId": "",
+      "templateSourcePath": ""
+    },
+    "card_claim": {
+      "pageKey": "CardClaim",
+      "templateId": "",
+      "templateSourcePath": ""
+    },
+    "card_return": {
+      "pageKey": "CardReturn",
+      "templateId": "",
+      "templateSourcePath": ""
+    },
     "home": {
       "pageKey": "Home",
       "templateId": "",
@@ -7,5 +27,5 @@
     }
   },
   "schemaVersion": 1,
-  "sourceBranch": "v1_1"
+  "sourceBranch": "v1_21"
 }
