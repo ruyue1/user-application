@@ -3,8 +3,8 @@
     "id": "1795144906305-7yfl8i",
     "name": "欢迎页"
   },
-  "updatedAt": "2026-11-20T07:40:30.208161Z",
-  "revision": 125,
+  "updatedAt": "2026-11-20T13:59:09.773206Z",
+  "revision": 8,
   "developmentArtifacts": {
     "pages": {
       "home": {
@@ -58,32 +58,7 @@
         "checkedChangeId": null
       }
     },
-    "entities": {
-      "greeting": {
-        "initialDevelopmentStatus": "pending",
-        "skippedAt": null,
-        "skipReason": null,
-        "completedBranchName": null
-      },
-      "access_card_application": {
-        "initialDevelopmentStatus": "pending",
-        "skippedAt": null,
-        "skipReason": null,
-        "completedBranchName": null
-      },
-      "access_card": {
-        "initialDevelopmentStatus": "pending",
-        "skippedAt": null,
-        "skipReason": null,
-        "completedBranchName": null
-      },
-      "card_admin": {
-        "initialDevelopmentStatus": "pending",
-        "skippedAt": null,
-        "skipReason": null,
-        "completedBranchName": null
-      }
-    },
+    "entities": {},
     "endpoints": {
       "greeting_contract": {
         "greeting_contract.getGreeting": {
@@ -154,26 +129,16 @@
         }
       }
     },
-    "catalogError": null,
-    "outOfScope": [
-      "page:home",
-      "page:access_card_main",
-      "page:card_claim",
-      "page:card_return",
-      "endpoint:greeting_contract:greeting_contract.getGreeting",
-      "endpoint:access_card_application_contract:access_card_application_contract.listAccessCardApplications",
-      "endpoint:access_card_application_contract:access_card_application_contract.completeClaim",
-      "endpoint:access_card_contract:access_card_contract.listAccessCards",
-      "endpoint:access_card_contract:access_card_contract.applyCancellation"
-    ]
+    "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112005/.devagentstudio/plans/technical-plan.json'",
+    "outOfScope": []
   },
   "initialization": {
-    "stage": "ready_for_workbench",
-    "status": "completed",
-    "threadId": "30d07373-f440-401a-b7e3-c6d6f670c63f",
-    "iterationId": "d99efb6a-c564-4277-90a4-7802912020ed"
+    "stage": "awaiting_planning_stage_entry",
+    "status": "awaiting_user",
+    "threadId": "ceba2351-5bd0-43ea-a548-d84b8a090050",
+    "iterationId": "ceba2351-5bd0-43ea-a548-d84b8a090050"
   },
-  "activeRunId": null,
+  "activeRunId": "02965e01-141d-4311-9dbc-2aa80c731b41",
   "activeExecutions": {},
   "endedExecutions": {},
   "endedPlanningExecution": null,
@@ -188,9 +153,5 @@
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {
-    "testExecutionStatus": "passed",
-    "reviewStatus": "passed",
-    "acceptanceStatus": "passed"
-  }
+  "extensions": {}
 }
