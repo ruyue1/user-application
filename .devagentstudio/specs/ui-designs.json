@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "7cc6f1a19cb1ecec5f87111028102ae49b3fd777a13ba0bed854dfe7ea20e067",
+  "product_plan_sha256": "e8f08b2fb4fd661b5eb04697e616baff30459ac6ae608535ea79813a01a65df3",
   "pages": [
     {
       "pageId": "home",
@@ -51,7 +51,7 @@
       "pageId": "access_card_main",
       "page_key": "AccessCardMain",
       "preview_path": "/page/access-card-main",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112005/.devagentstudio/ui-design/pages/AccessCardMain/index.tsx",
+      "code_path": "",
       "status": "confirmed",
       "bindings": {
         "actions": [
@@ -128,14 +128,13 @@
         ],
         "errors": []
       },
-      "code_sha256": "560c11b522ff18d02714fff329bdf1e321a2a608d6bd0c35f302d3ad93bf2338",
-      "generation_id": "ui-design-7f203c81ebaa4c6f90052374c34e8488"
+      "code_sha256": "560c11b522ff18d02714fff329bdf1e321a2a608d6bd0c35f302d3ad93bf2338"
     },
     {
       "pageId": "card_claim",
       "page_key": "CardClaim",
       "preview_path": "/page/card-claim",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112005/.devagentstudio/ui-design/pages/CardClaim/index.tsx",
+      "code_path": "",
       "status": "confirmed",
       "bindings": {
         "actions": [
@@ -218,68 +217,59 @@
         ],
         "errors": []
       },
-      "code_sha256": "f7f6186cbd78f2a87534cd732f9fe9346b8cc4a89ef2628c5fdefc1f4a253e4e",
-      "generation_id": "ui-design-a0a68566d8aa49cdac7d75e39f75f460"
+      "code_sha256": "f7f6186cbd78f2a87534cd732f9fe9346b8cc4a89ef2628c5fdefc1f4a253e4e"
     },
     {
       "pageId": "card_return",
       "page_key": "CardReturn",
       "preview_path": "/page/card-return",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112005/.devagentstudio/ui-design/pages/CardReturn/index.tsx",
-      "status": "confirmed",
+      "code_path": "",
+      "status": "pending",
       "bindings": {
         "actions": [
           {
             "actionId": "apply_cancellation",
-            "controlIds": [
-              "apply_cancellation-control"
-            ]
+            "controlIds": []
           },
           {
             "actionId": "back_home",
-            "controlIds": [
-              "back_home-control"
-            ]
+            "controlIds": []
           }
         ],
         "information_items": [
           {
             "informationItemId": "page_title",
-            "controlIds": [
-              "page_title-display"
-            ]
+            "controlIds": []
           },
           {
-            "informationItemId": "sync_note",
-            "controlIds": [
-              "sync_note-display"
-            ]
+            "informationItemId": "sync_notice",
+            "controlIds": []
           },
           {
             "informationItemId": "card_list",
-            "controlIds": [
-              "card_list-display"
-            ]
+            "controlIds": []
           },
           {
-            "informationItemId": "bottom_icons",
-            "controlIds": [
-              "bottom_icons-display"
-            ]
+            "informationItemId": "pagination",
+            "controlIds": []
+          },
+          {
+            "informationItemId": "cancellation_field",
+            "controlIds": []
           }
         ]
       },
       "verification": {
-        "status": "passed",
-        "code_sha256": "6c5441ca42cc5d30f2eaee8c689e008caf8e5b245f2f06c8a251d26657c5f38d",
+        "status": "pending",
+        "code_sha256": "",
         "checks": [
           {
             "id": "product-action-bindings",
-            "status": "passed"
+            "status": "failed"
           },
           {
             "id": "product-information-bindings",
-            "status": "passed"
+            "status": "failed"
           },
           {
             "id": "no-unowned-business-ui",
@@ -288,62 +278,51 @@
         ],
         "errors": []
       },
-      "code_sha256": "6c5441ca42cc5d30f2eaee8c689e008caf8e5b245f2f06c8a251d26657c5f38d",
-      "generation_id": "ui-design-7d228ff0b91942178c983b13158de49a"
+      "inheritance_rejected": true
     },
     {
       "pageId": "cancel_completed",
       "page_key": "CancelCompleted",
       "preview_path": "/page/cancel-completed",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112005/.devagentstudio/ui-design/pages/CancelCompleted/index.tsx",
-      "status": "confirmed",
+      "code_path": "",
+      "status": "deleted",
       "bindings": {
         "actions": [
           {
             "actionId": "back_home",
-            "controlIds": [
-              "back_home-control"
-            ]
+            "controlIds": []
           }
         ],
         "information_items": [
           {
             "informationItemId": "result_title",
-            "controlIds": [
-              "result_title-display"
-            ]
+            "controlIds": []
           },
           {
             "informationItemId": "result_note",
-            "controlIds": [
-              "result_note-display"
-            ]
+            "controlIds": []
           },
           {
             "informationItemId": "admin_info",
-            "controlIds": [
-              "admin_info-display"
-            ]
+            "controlIds": []
           },
           {
             "informationItemId": "bottom_icons",
-            "controlIds": [
-              "bottom_icons-display"
-            ]
+            "controlIds": []
           }
         ]
       },
       "verification": {
-        "status": "passed",
-        "code_sha256": "712df6d1545ed8d8ed3f16b80340ad7c1dbaa6db56afd326ded487783613ec9a",
+        "status": "pending",
+        "code_sha256": "",
         "checks": [
           {
             "id": "product-action-bindings",
-            "status": "passed"
+            "status": "failed"
           },
           {
             "id": "product-information-bindings",
-            "status": "passed"
+            "status": "failed"
           },
           {
             "id": "no-unowned-business-ui",
@@ -351,9 +330,7 @@
           }
         ],
         "errors": []
-      },
-      "code_sha256": "712df6d1545ed8d8ed3f16b80340ad7c1dbaa6db56afd326ded487783613ec9a",
-      "generation_id": "ui-design-0cb4d56773134998b1bd21a3a4ebf168"
+      }
     }
   ]
 }
