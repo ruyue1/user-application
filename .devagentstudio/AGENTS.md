@@ -199,3 +199,66 @@
   - GET /api/greetings
   - 契约 `greeting_contract`，端点 `greeting_contract.getGreeting`
   - 描述：返回应用展示的问候字符串，当前内容为「早上好！」，供欢迎页主体区域展示，无需任何请求参数即可读取。
+
+## 分支 v1_18（2026-11-20 14:14:06 UTC）
+
+**变更说明**：Z000000-0000 #comment chore: 2
+
+### 应用现状
+
+- 应用名称：欢迎页
+- 应用场景：开发一个前端页面，页面上一个接口返回字符串“早上好！”，前端展示这个字符串
+- 目标终端：PC
+- 导航布局：布局=side, 页头=启用, 页脚=禁用
+- 主题色：#6b3cf0
+- 数据源类型：database
+- 认证：不启用
+- 权限控制：不启用
+- 已有页面：工作台
+
+### 需求规格
+
+> 面向成都中心门禁卡管理的移动端（招乎APP扫码进入MP小程序）应用，同时在PC端保留问候展示能力。员工通过扫码识别本人身份，在移动端查看本人名下待领签的门禁卡申请明细并完成领用签收，查看本人名下使用中的门禁卡并发起离职注销申请，提交后进入已完成确认界面并被告知需线下交还实体卡；出差卡借用/归还仅作占位按钮。签收状态、注销申请等数据实时同步至飞码端门禁卡管理系统，审批与流程发起由飞码端完成，小程序不涉及管理权限。应用整体采用简洁扁平化的蓝色调风格。
+
+**用户角色**：
+- 全体员工：全体成都中心员工，通过招乎APP扫描二维码进入MP小程序，办理本人名下门禁卡的领用签收与离职注销申请，并查看本人名下的门禁卡数据。
+- 综合事务室管理员：成都中心综合事务室负责场地运营方向的管理员，负责门禁卡管理的线下工作，包括回收员工线下交还的实体门禁卡。
+
+**功能模块**：
+- 问候展示（must）：调用后端接口获取问候字符串并展示在页面上。
+- 门禁卡管理（must）：提供门禁卡领用签收、离职注销申请、已完成注销确认以及出差卡借用/归还（占位）等移动端操作入口与功能。
+
+### UI 设计稿
+
+- home
+- access_card_main
+- card_claim
+- card_return
+- cancel_completed
+
+### 接口设计
+
+- **完成领签**
+  - PATCH /api/access-card-applications/claim
+  - 契约 `access_card_application_contract`，端点 `access_card_application_contract.completeClaim`
+  - 描述：将已勾选的门禁卡申请明细的领签状态由「待领签」更新为「已领签」，并把签收结果同步回飞码端门禁卡管理系统，返回更新后的明细。
+- **获取本人待领签申请明细**
+  - GET /api/access-card-applications
+  - 契约 `access_card_application_contract`，端点 `access_card_application_contract.listAccessCardApplications`
+  - 描述：按扫码人ID查询本人名下领签状态为「待领签」的门禁卡申请明细列表，支持分页，供门禁卡领用页面表格展示姓名、员工编号、卡号、领签状态。
+- **发起离职注销申请**
+  - PATCH /api/access-cards/cancellation
+  - 契约 `access_card_contract`，端点 `access_card_contract.applyCancellation`
+  - 描述：为本人名下权限状态为「使用中」的门禁卡发起离职注销申请，将对应卡片的申请注销字段更新为「离职」，并把注销申请数据同步至飞码端以触发其现有注销流程，返回更新后的门禁卡信息。
+- **获取本人使用中门禁卡列表**
+  - GET /api/access-cards
+  - 契约 `access_card_contract`，端点 `access_card_contract.listAccessCards`
+  - 描述：按扫码人ID查询本人名下权限状态为「使用中」的门禁卡列表，支持分页，供门禁卡归还页面表格展示姓名、员工编号、卡号、权限状态。
+- **获取门禁卡管理员列表**
+  - GET /api/card-admins
+  - 契约 `card_admin_contract`，端点 `card_admin_contract.listCardAdmins`
+  - 描述：读取门禁卡管理员信息列表，包含所属区域、管理员姓名和管理员工号，用于已完成界面展示园区李媛/WS04462与OCG徐敏/IT006877的交卡联系人信息。
+- **获取问候语**
+  - GET /api/greetings
+  - 契约 `greeting_contract`，端点 `greeting_contract.getGreeting`
+  - 描述：返回应用展示的问候字符串，当前内容为「早上好！」，供欢迎页主体区域展示，无需任何请求参数即可读取。

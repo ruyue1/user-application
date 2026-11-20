@@ -25,6 +25,11 @@
         "card_return",
         "cancel_completed"
       ]
+    },
+    {
+      "branch": "v1_18",
+      "designedPageIds": [],
+      "plannedPageIds": []
     }
   ],
   "schemaVersion": 2
