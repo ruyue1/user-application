@@ -1,0 +1,32 @@
+{
+  "pages": {
+    "home": {
+      "definition": {
+        "actions": [],
+        "goal": "让使用人员打开应用后，在页面主体区域直接看到接口返回的问候语「早上好！」，无需任何额外操作即可确认应用运行正常。",
+        "information_items": [
+          {
+            "description": "后端接口返回并展示在页面主体区域的字符串内容，即「早上好！」。",
+            "itemId": "greeting_text",
+            "label": "问候语"
+          },
+          {
+            "description": "帮助使用人员理解该问候语的来源与含义的简要说明，例如表明这是应用的欢迎问候。",
+            "itemId": "greeting_context",
+            "label": "页面主题说明"
+          }
+        ],
+        "navigation_targets": []
+      },
+      "requirement": {
+        "description": "首页展示后端接口返回的字符串「早上好！」，接口加载完成后在页面主体区域呈现该问候语。",
+        "module_id": "greeting_display",
+        "name": "欢迎页",
+        "pageId": "home",
+        "path": "/page/home"
+      }
+    }
+  },
+  "schemaVersion": 2,
+  "sourceBranch": "v1_1"
+}

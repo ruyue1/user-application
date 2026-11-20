@@ -8,6 +8,23 @@
       "plannedPageIds": [
         "home"
       ]
+    },
+    {
+      "branch": "v1_2",
+      "designedPageIds": [
+        "home",
+        "access_card_main",
+        "card_claim",
+        "card_return",
+        "cancel_completed"
+      ],
+      "plannedPageIds": [
+        "home",
+        "access_card_main",
+        "card_claim",
+        "card_return",
+        "cancel_completed"
+      ]
     }
   ],
   "schemaVersion": 2
