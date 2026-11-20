@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "generated_at": "2026-11-20T03:22:16.405620+00:00",
+  "summary": "一个面向 PC 终端的前端展示应用，通过接口获取后端返回的字符串「早上好！」，并在页面上展示该字符串。应用采用侧边导航布局，启用页头、禁用页脚，数据来源于数据库，不启用登录认证，也不涉及权限控制。",
+  "source_request": "请为新应用「欢迎页」完成需求、产品、UI（可跳过）和技术规划。；应用场景：开发一个前端页面，页面上一个接口返回字符串“早上好！”，前端展示这个字符串；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+  "app_info": {
+    "name": "欢迎页",
+    "summary": "一个面向 PC 终端的前端展示应用，通过接口获取后端返回的字符串「早上好！」，并在页面上展示该字符串。应用采用侧边导航布局，启用页头、禁用页脚，数据来源于数据库，不启用登录认证，也不涉及权限控制。",
+    "target": "",
+    "menu_enabled": true,
+    "route_root_path": "/page"
+  },
+  "user_roles": [
+    {
+      "name": "使用人员",
+      "description": "访问应用并查看接口返回问候语的普通使用人员。",
+      "id": "business_user"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "问候展示",
+      "description": "调用后端接口获取问候字符串并展示在页面上。",
+      "priority": "must",
+      "id": "greeting_display"
+    }
+  ],
+  "pages": [
+    {
+      "name": "欢迎页",
+      "path": "/page/home",
+      "module_id": "greeting_display",
+      "description": "首页展示后端接口返回的字符串「早上好！」，接口加载完成后在页面主体区域呈现该问候语。",
+      "pageId": "home"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "查看欢迎问候",
+      "steps": [
+        "使用人员打开应用首页",
+        "前端请求后端问候接口",
+        "接口返回字符串「早上好！」",
+        "前端在页面主体区域展示该字符串"
+      ],
+      "id": "view_greeting",
+      "description": "使用人员打开应用首页，前端调用接口获取问候字符串并展示。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\"version\":\"1.0\",\"status\":\"draft\",\"generated_at\":\"2025-01-01T00:00:00Z\",\"app_info\":{\"name\":\"欢迎页\",\"summary\":\"一个面向 PC 终端的前端展示应用，通过接口获取后端返回的字符串「早上好！」，并在页面上展示该字符串。应用采用侧边导航布局，启用页头、禁用页脚，数据来源于数据库，不启用登录认证，也不涉及权限控制。\"},\"user_roles\":[{\"id\":\"business_user\",\"name\":\"使用人员\",\"description\":\"访问应用并查看接口返回问候语的普通使用人员。\"}],\"feature_modules\":[{\"id\":\"greeting_display\",\"name\":\"问候展示\",\"description\":\"调用后端接口获取问候字符串并展示在页面上。\"}],\"pages\":[{\"pageId\":\"home\",\"name\":\"欢迎页\",\"path\":\"/\",\"module_id\":\"greeting_display\",\"description\":\"首页展示后端接口返回的字符串「早上好！」，接口加载完成后在页面主体区域呈现该问候语。\"}],\"business_flows\":[{\"id\":\"view_greeting\",\"name\":\"查看欢迎问候\",\"description\":\"使用人员打开应用首页，前端调用接口获取问候字符串并展示。\",\"steps\":[\"使用人员打开应用首页\",\"前端请求后端问候接口\",\"接口返回字符串「早上好！」\",\"前端在页面主体区域展示该字符串\"]}],\"authentication_requirements\":{\"enabled\":false,\"sourceRefs\":[]},\"authorization_requirements\":{\"enabled\":false,\"restrictedPages\":[],\"restrictedOperations\":[]}}",
+  "approved": true,
+  "confirmation_status": "confirmed",
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "deepseek-v4.1-flash-1017",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model"
+}

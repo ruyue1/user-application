@@ -1,0 +1,68 @@
+{
+  "application": {
+    "id": "1795144906305-7yfl8i",
+    "name": "欢迎页"
+  },
+  "updatedAt": "2026-11-20T03:23:41.676294Z",
+  "revision": 12,
+  "developmentArtifacts": {
+    "pages": {
+      "home": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "changeStatus": "unchanged",
+        "changeReason": null,
+        "checkedChangeId": null
+      }
+    },
+    "entities": {
+      "greeting": {
+        "initialDevelopmentStatus": "pending",
+        "skippedAt": null,
+        "skipReason": null,
+        "completedBranchName": null
+      }
+    },
+    "endpoints": {
+      "greeting_contract": {
+        "greeting_contract.getGreeting": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "changeStatus": "unchanged",
+          "changeReason": null,
+          "checkedChangeId": null
+        }
+      }
+    },
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "f2655860-0de7-4f27-bfe4-71fa16400843",
+    "iterationId": "1835fdbb-21d6-4db1-9f43-c90aa70abf22"
+  },
+  "activeRunId": "073a67ed-e1a3-4cc2-9299-49883644bb5b",
+  "activeExecutions": {},
+  "endedExecutions": {},
+  "endedPlanningExecution": null,
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}

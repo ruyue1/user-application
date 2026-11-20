@@ -1,0 +1,107 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "基于单页应用生成页面、路由和 API 客户端。",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [
+    {
+      "id": "greeting",
+      "name": "问候语",
+      "description": "应用向前端返回并展示的问候字符串，核心内容为「早上好！」，由后端接口统一提供。",
+      "fields": [
+        {
+          "label": "问候语内容",
+          "description": "接口返回并展示给前端的问候字符串，默认内容为「早上好！」，为不可为空的一段文本。",
+          "name": "content",
+          "type": "text",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "api_contracts": [
+    {
+      "id": "greeting_contract",
+      "name": "问候语",
+      "entity_ids": [
+        "greeting"
+      ],
+      "base_path": "/api/greetings",
+      "authentication": {
+        "required": false
+      },
+      "schemas": {
+        "GreetingResponse": {
+          "type": "object",
+          "description": "问候语展示响应",
+          "properties": {
+            "content": {
+              "type": "string",
+              "description": "接口返回并展示给前端的问候字符串，默认内容为「早上好！」",
+              "entity_field_ref": "greeting.content"
+            }
+          },
+          "required": [
+            "content"
+          ]
+        }
+      },
+      "endpoints": [
+        {
+          "id": "greeting_contract.getGreeting",
+          "name": "获取问候语",
+          "method": "GET",
+          "path": "/api/greetings",
+          "summary": "返回应用展示的问候字符串，当前内容为「早上好！」，供欢迎页主体区域展示，无需任何请求参数即可读取。",
+          "parameters": [],
+          "request_schema_ref": null,
+          "response_schema_ref": "GreetingResponse",
+          "error_codes": [],
+          "authentication": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "home",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "greeting_contract.getGreeting",
+            "usage": "获取后端返回的问候字符串「早上好！」，用于欢迎页主体区域展示",
+            "trigger": "页面初始加载时自动调用；页面刷新时重新调用",
+            "required_for_initial_load": true
+          }
+        ],
+        "action_implementations": []
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 2,
+  "product_plan_sha256": "21fbcdaba106948ac7a03572970e207d3260cf82dfe600999869246f0f111171",
+  "ui_designs_sha256": "ff49bca6228bc8dc997db9f12028b04420c5a96460ae71297fd6caf4cef314e0",
+  "confirmation_status": "confirmed"
+}
