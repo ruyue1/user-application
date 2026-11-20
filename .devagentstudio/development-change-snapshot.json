@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "sourceBranch": "v1_19",
+  "writtenAt": "2026-11-20T14:17:11.093299+00:00",
+  "pages": {
+    "home": "unchanged",
+    "access_card_main": "unchanged",
+    "card_claim": "unchanged",
+    "card_return": "modified",
+    "cancel_completed": "deleted"
+  },
+  "entities": {
+    "greeting": "unchanged",
+    "access_card_application": "unchanged",
+    "access_card": "unchanged",
+    "card_admin": "unchanged"
+  },
+  "endpoints": {
+    "greeting_contract": {
+      "greeting_contract.getGreeting": "unchanged"
+    },
+    "access_card_application_contract": {
+      "access_card_application_contract.listAccessCardApplications": "unchanged",
+      "access_card_application_contract.completeClaim": "unchanged"
+    },
+    "access_card_contract": {
+      "access_card_contract.listAccessCards": "unchanged",
+      "access_card_contract.applyCancellation": "unchanged"
+    },
+    "card_admin_contract": {
+      "card_admin_contract.listCardAdmins": "unchanged"
+    }
+  }
+}
