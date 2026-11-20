@@ -1,0 +1,47 @@
+{
+  "schema_version": "ui-manifest.v3",
+  "confirmation_status": "confirmed",
+  "product_plan_sha256": "9dbba63291f97ca4af8a538d028cc7736eb451b9a2fcb188d000a00f366c227d",
+  "pages": [
+    {
+      "pageId": "system_time",
+      "page_key": "SystemTime",
+      "preview_path": "/page/system-time",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [
+          {
+            "actionId": "refresh",
+            "controlIds": []
+          }
+        ],
+        "information_items": [
+          {
+            "informationItemId": "system_time-primary-information",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    }
+  ]
+}

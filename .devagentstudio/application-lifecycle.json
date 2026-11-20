@@ -1,0 +1,68 @@
+{
+  "application": {
+    "id": "1795144801435-6fr1qj",
+    "name": "单元测试1"
+  },
+  "updatedAt": "2026-11-20T03:48:15.826941Z",
+  "revision": 12,
+  "developmentArtifacts": {
+    "pages": {
+      "system_time": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "changeStatus": "unchanged",
+        "changeReason": null,
+        "checkedChangeId": null
+      }
+    },
+    "entities": {
+      "system_time": {
+        "initialDevelopmentStatus": "pending",
+        "skippedAt": null,
+        "skipReason": null,
+        "completedBranchName": null
+      }
+    },
+    "endpoints": {
+      "system_time": {
+        "system_time.getSystemTime": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "changeStatus": "unchanged",
+          "changeReason": null,
+          "checkedChangeId": null
+        }
+      }
+    },
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "576c7be0-9695-4221-8b0e-ed0ace878e25",
+    "iterationId": "a3cf845b-1296-4e82-9090-6f210597aac3"
+  },
+  "activeRunId": "e2ee9ac8-d893-4ddb-ab4d-723a172a4284",
+  "activeExecutions": {},
+  "endedExecutions": {},
+  "endedPlanningExecution": null,
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}
