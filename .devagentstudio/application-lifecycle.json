@@ -3,8 +3,8 @@
     "id": "1795144906305-7yfl8i",
     "name": "欢迎页"
   },
-  "updatedAt": "2026-11-20T16:38:53.635168Z",
-  "revision": 45,
+  "updatedAt": "2026-11-20T16:38:58.724645Z",
+  "revision": 48,
   "developmentArtifacts": {
     "pages": {
       "home": {
@@ -163,257 +163,15 @@
     "threadId": "b3002068-cfe1-499c-9b13-93b6ef71d883",
     "iterationId": "5ba260bd-a558-42ce-9257-5c325d107ff3"
   },
-  "activeRunId": "6a3ad1bf-1937-423c-8ca2-219a0d248aba",
-  "activeExecutions": {
-    "6a3ad1bf-1937-423c-8ca2-219a0d248aba": {
-      "scope": "page",
-      "targetId": "card_return",
-      "pageId": "card_return",
-      "threadId": "73c32be4-5216-4318-8608-bf8a7f24d649",
-      "ownerSessionId": "c71a26a8-e1b8-4392-b04c-9c8af65d8c9d",
-      "runId": "6a3ad1bf-1937-423c-8ca2-219a0d248aba",
-      "phase": "acceptance",
-      "status": "awaiting_user",
-      "resourceKeys": [
-        "page:card_return",
-        "api_contract:access_card_contract",
-        "page:access_card_main"
-      ],
-      "developmentPurpose": null,
-      "developmentTarget": null,
-      "pendingInteraction": {
-        "id": "interaction-22b5150669e2eb6782dad668",
-        "type": "page_acceptance",
-        "basedOnRevision": 45,
-        "payload": {
-          "mode": "page_acceptance",
-          "message": "项目已通过集成测试并启动预览，请用户验收。",
-          "previewUrl": "http://127.0.0.1:3000",
-          "testSummary": {
-            "version": "0.1.0",
-            "generated_at": "2026-11-20T16:38:19.093217+00:00",
-            "passed": true,
-            "checks": [
-              {
-                "id": "frontend_install",
-                "name": "前端依赖安装检查",
-                "layer": "frontend",
-                "language": "typescript",
-                "passed": true,
-                "skipped": false,
-                "required": true,
-                "command": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm install",
-                "evidence": "Node v22.23.1 (NVM_BIN) /Users/maomao/.nvm/versions/node/v22.23.1/bin/node\n命令执行通过：/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm install",
-                "failure_category": null,
-                "execution": {
-                  "tool": "subprocess",
-                  "argv": [
-                    "/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm",
-                    "install"
-                  ],
-                  "cwd": "frontend",
-                  "returncode": 0,
-                  "timed_out": false,
-                  "error": null,
-                  "started_at": "2026-11-20T16:38:10.381070+00:00",
-                  "finished_at": "2026-11-20T16:38:11.502729+00:00",
-                  "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112005/.devagentstudio/runtime/tests/frontend_install/stdout.log",
-                  "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112005/.devagentstudio/runtime/tests/frontend_install/stderr.log",
-                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stdout.log",
-                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stderr.log",
-                  "stdout_tail": "Already up to date\nDone in 228ms using pnpm v11.9.0\n",
-                  "stderr_tail": "",
-                  "nodeRuntime": {
-                    "path": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/node",
-                    "version": "v22.23.1",
-                    "source": "NVM_BIN"
-                  }
-                }
-              },
-              {
-                "id": "frontend_build",
-                "name": "前端构建检查",
-                "layer": "frontend",
-                "language": "typescript",
-                "passed": true,
-                "skipped": false,
-                "required": true,
-                "command": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm run build",
-                "evidence": "Node v22.23.1 (NVM_BIN) /Users/maomao/.nvm/versions/node/v22.23.1/bin/node\n命令执行通过：/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm run build",
-                "failure_category": null,
-                "execution": {
-                  "tool": "subprocess",
-                  "argv": [
-                    "/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm",
-                    "run",
-                    "build"
-                  ],
-                  "cwd": "frontend",
-                  "returncode": 0,
-                  "timed_out": false,
-                  "error": null,
-                  "started_at": "2026-11-20T16:38:11.503472+00:00",
-                  "finished_at": "2026-11-20T16:38:16.740811+00:00",
-                  "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112005/.devagentstudio/runtime/tests/frontend_build/stdout.log",
-                  "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112005/.devagentstudio/runtime/tests/frontend_build/stderr.log",
-                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stdout.log",
-                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stderr.log",
-                  "stdout_tail": "  Rsbuild v1.0.14\n\nready   Built in 1.67 s (web)\nwarn    Compile Warning: \n⚠ Unknown at rule: @theme at static/css/index.d96ed24a.css:2:7\n\n⚠ Unknown at rule: @theme at static/css/962.a718ab14.css:2:9\n\n⚠ Unknown at rule: @theme at static/css/962.a718ab14.css:6:9\n\n⚠ Unknown at rule: @tailwind at static/css/962.a718ab14.css:325:12\n\n\n  File (web)                                     Size         Gzip    \n  build/index.html                               0.92 kB      0.46 kB\n  build/static/css/index.d96ed24a.css            2.2 kB       0.58 kB\n  build/static/svg/icon20.232d197f.svg           4.7 kB       2.1 kB\n  build/static/js/async/474.ea76855a.js          8.5 kB       3.7 kB\n  build/static/js/async/923.3b40adc2.js          9.1 kB       4.0 kB\n  build/static/js/async/2.810d9354.js            9.7 kB       4.2 kB\n  build/static/js/async/146.be684e87.js          12.7 kB      4.5 kB\n  build/static/js/async/85.4496a262.js           12.8 kB      5.0 kB\n  build/static/js/lib-router.c56c842e.js         19.9 kB      7.3 kB\n  build/static/css/962.a718ab14.css              23.1 kB      5.9 kB\n  build/static/js/async/lib-axios.e1d4d1a3.js    50.5 kB      18.5 kB\n  build/static/js/index.d54a3d6c.js              58.6 kB      19.6 kB\n  build/static/js/lib-react.d95d3fc4.js          140.4 kB     45.1 kB\n  build/static/js/async/921.a47f9900.js          198.9 kB     58.6 kB\n  build/static/js/async/590.8b411bdb.js          1074.0 kB    318.8 kB\n  build/static/js/962.17306526.js                1467.9 kB    386.0 kB\n\n  Total: 3093.8 kB (gzip: 884.4 kB)\n\n",
-                  "stderr_tail": "$ tsc -b && rsbuild build\n",
-                  "nodeRuntime": {
-                    "path": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/node",
-                    "version": "v22.23.1",
-                    "source": "NVM_BIN"
-                  }
-                }
-              },
-              {
-                "id": "backend_build",
-                "name": "后端构建检查",
-                "layer": "backend",
-                "language": "java",
-                "passed": true,
-                "skipped": true,
-                "required": false,
-                "command": null,
-                "evidence": "本地调试模式：跳过后端构建检查（无 Java 环境）。",
-                "failure_category": null,
-                "execution": {
-                  "tool": "none",
-                  "argv": [],
-                  "cwd": ".",
-                  "returncode": null,
-                  "timed_out": false,
-                  "stdout_log": null,
-                  "stderr_log": null
-                }
-              },
-              {
-                "id": "backend_startup",
-                "name": "后端启动检查",
-                "layer": "backend",
-                "language": "java",
-                "passed": true,
-                "skipped": true,
-                "required": false,
-                "command": null,
-                "evidence": "本地调试模式：跳过后端启动检查（无 Java 环境）。",
-                "failure_category": null,
-                "execution": {
-                  "tool": "none",
-                  "argv": [],
-                  "cwd": ".",
-                  "returncode": null,
-                  "timed_out": false,
-                  "stdout_log": null,
-                  "stderr_log": null
-                },
-                "source_fingerprint": "e647853b9a4522b952572fdea2a445cd46f974151bb3dee2cefea49034964e97"
-              },
-              {
-                "id": "backend_static_check",
-                "name": "后端静态检查通过",
-                "layer": "backend",
-                "language": "java",
-                "passed": true,
-                "skipped": true,
-                "required": false,
-                "command": null,
-                "evidence": "本地调试模式：跳过后端构建检查（无 Java 环境）。",
-                "failure_category": null,
-                "execution": {
-                  "tool": "none",
-                  "argv": [],
-                  "cwd": ".",
-                  "returncode": null,
-                  "timed_out": false,
-                  "stdout_log": null,
-                  "stderr_log": null
-                }
-              },
-              {
-                "id": "frontend_performance",
-                "name": "前端性能测试",
-                "layer": "frontend",
-                "language": "typescript",
-                "passed": true,
-                "skipped": true,
-                "required": false,
-                "blocking": false,
-                "advisory": true,
-                "command": null,
-                "evidence": "本轮跳过前端性能测试，不启动前端、不执行 Lighthouse。",
-                "failure_category": null,
-                "execution": {
-                  "tool": "none",
-                  "argv": [],
-                  "cwd": ".",
-                  "returncode": null,
-                  "timed_out": false,
-                  "stdout_log": null,
-                  "stderr_log": null
-                }
-              }
-            ],
-            "summary": {
-              "total": 6,
-              "passed": 6,
-              "failed": 0
-            },
-            "needs_revision": false,
-            "revision_requests": [],
-            "quality_gate": {
-              "passed": true,
-              "required_checks": [
-                "frontend_install",
-                "frontend_build"
-              ],
-              "evaluated_by": "deterministic-quality-gate"
-            }
-          }
-        },
-        "artifactRefs": [],
-        "createdAt": "2026-11-20T16:38:53.635102Z",
-        "submittedAt": null
-      },
-      "error": null,
-      "startedAt": "2026-11-20T16:38:49.494374Z",
-      "updatedAt": "2026-11-20T16:38:53.635114Z"
-    }
-  },
+  "activeRunId": null,
+  "activeExecutions": {},
   "endedExecutions": {},
   "endedPlanningExecution": null,
   "developmentContinuations": {},
   "resourceLocks": {
     "application": null,
-    "pages": {
-      "card_return": {
-        "runId": "6a3ad1bf-1937-423c-8ca2-219a0d248aba",
-        "ownerPageId": "card_return",
-        "mode": "exclusive",
-        "role": "primary",
-        "reason": "primary_target",
-        "acquiredAt": "2026-11-20T16:38:49.494374Z"
-      },
-      "access_card_main": {
-        "runId": "6a3ad1bf-1937-423c-8ca2-219a0d248aba",
-        "ownerPageId": "card_return",
-        "mode": "exclusive",
-        "role": "dependency",
-        "reason": "plan_dependency",
-        "acquiredAt": "2026-11-20T16:38:49.494374Z"
-      }
-    },
-    "apiContracts": {
-      "access_card_contract": {
-        "runId": "6a3ad1bf-1937-423c-8ca2-219a0d248aba",
-        "ownerPageId": "card_return",
-        "mode": "exclusive",
-        "role": "dependency",
-        "reason": "plan_dependency",
-        "acquiredAt": "2026-11-20T16:38:49.494374Z"
-      }
-    },
+    "pages": {},
+    "apiContracts": {},
     "endpoints": {},
     "dataSources": {}
   },
@@ -421,9 +179,9 @@
   "activeFormalRevision": null,
   "error": null,
   "extensions": {
-    "testExecutionStatus": "pending",
-    "reviewStatus": "pending",
-    "acceptanceStatus": "pending",
+    "testExecutionStatus": "passed",
+    "reviewStatus": "passed",
+    "acceptanceStatus": "passed",
     "redevelopedChangedTargets": [
       "page:card_return"
     ]
