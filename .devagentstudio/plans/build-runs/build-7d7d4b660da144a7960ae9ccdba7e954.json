@@ -1,0 +1,1099 @@
+{
+  "schema_version": "build-dag.v4",
+  "application": {
+    "unit_id": "application:root",
+    "status": "prepared"
+  },
+  "build_units": {
+    "application:root": {
+      "id": "application:root",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:auth-resources": {
+      "id": "backend:auth-resources",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:shell": {
+      "id": "frontend:shell",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "generation_strategy": "prerequisite_only",
+      "participation": "prerequisite_only",
+      "generation_status": "not_required",
+      "input_fingerprint": "99ba9989baf0b60e7a4fb779cf6ca6b4642ff5295c811a95273134cb6d661551"
+    },
+    "frontend:api-client": {
+      "id": "frontend:api-client",
+      "kind": "frontend",
+      "status": "prepared",
+      "task_ids": [
+        "frontend:api-client::access_card_contract::api-module::70253be159a1dd60"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "input_fingerprint": "6c0fbb3d86ebb4165d490997f5b86f46d84e150f6f03f5b7b4f4f7fc1c6c7453"
+    },
+    "frontend:auth-guard": {
+      "id": "frontend:auth-guard",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:bootstrap": {
+      "id": "backend:bootstrap",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "1e30449d4f1a75116ba3885909574151863027f63a6e4256a9abf9bffff1a658",
+          "byteLength": 1458,
+          "mediaType": "application/json"
+        }
+      },
+      "input_fingerprint": "ed883b1bd62e5370eb0d5b15ee7908bdf28695fbdbb8d99865029709d5d39072"
+    },
+    "app:integration": {
+      "id": "app:integration",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:module:greeting_contract": {
+      "id": "backend:module:greeting_contract",
+      "kind": "backend",
+      "api_contract_id": "greeting_contract",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:module:access_card_application_contract": {
+      "id": "backend:module:access_card_application_contract",
+      "kind": "backend",
+      "api_contract_id": "access_card_application_contract",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:module:access_card_contract": {
+      "id": "backend:module:access_card_contract",
+      "kind": "backend",
+      "api_contract_id": "access_card_contract",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "technical_plan_module",
+        "target": {
+          "type": "module",
+          "id": "access_card_contract",
+          "api_contract_id": "access_card_contract"
+        },
+        "technical_plan_endpoints": [],
+        "endpoint_ids": [],
+        "entity_ids": [
+          "access_card"
+        ],
+        "endpoint_designs": [],
+        "mapping_flows": [
+          "静态数据.total → response.response_body.total",
+          "静态数据.pageSize → response.response_body.pageSize",
+          "静态数据.current → response.response_body.current",
+          "静态数据.list[].id → response.response_body.list[].id",
+          "静态数据.list[].name → response.response_body.list[].name",
+          "静态数据.list[].employeeNo → response.response_body.list[].employeeNo",
+          "静态数据.list[].cardNo → response.response_body.list[].cardNo",
+          "静态数据.list[].permissionStatus → response.response_body.list[].permissionStatus",
+          "静态数据.list[].cancellationApplication → response.response_body.list[].cancellationApplication",
+          "静态数据.id → response.response_body.id",
+          "静态数据.name → response.response_body.name",
+          "静态数据.employeeNo → response.response_body.employeeNo",
+          "静态数据.cardNo → response.response_body.cardNo",
+          "静态数据.permissionStatus → response.response_body.permissionStatus",
+          "静态数据.cancellationApplication → response.response_body.cancellationApplication"
+        ],
+        "source_types": [
+          "static"
+        ],
+        "business_descriptions": []
+      },
+      "input_fingerprint": "d6b0be8c0f2afa17c5fde4f189fff3b209fc7067b6b9f56128087a78ba6f8241"
+    },
+    "backend:module:card_admin_contract": {
+      "id": "backend:module:card_admin_contract",
+      "kind": "backend",
+      "api_contract_id": "card_admin_contract",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "page:home": {
+      "id": "page:home",
+      "kind": "page",
+      "page_id": "home",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "page:access_card_main": {
+      "id": "page:access_card_main",
+      "kind": "page",
+      "page_id": "access_card_main",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "page:card_claim": {
+      "id": "page:card_claim",
+      "kind": "page",
+      "page_id": "card_claim",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "page:card_return": {
+      "id": "page:card_return",
+      "kind": "page",
+      "page_id": "card_return",
+      "status": "prepared",
+      "task_ids": [
+        "page:card_return::page"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "64e3f0b7bee2a006f7b632336da77b622168a602a0dfad274214241f9359787c",
+          "byteLength": 1521,
+          "mediaType": "application/json"
+        }
+      },
+      "input_fingerprint": "1bbba5a3a0667e3c9934a3dbfecca2fbe5af54c42ecb93f590f1070da420b6e7"
+    },
+    "page:cancel_completed": {
+      "id": "page:cancel_completed",
+      "kind": "page",
+      "page_id": "cancel_completed",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    }
+  },
+  "unit_graph": {
+    "schema_version": "build-unit-graph.v3",
+    "nodes": [
+      "application:root",
+      "backend:auth-resources",
+      "frontend:shell",
+      "frontend:api-client",
+      "frontend:auth-guard",
+      "backend:bootstrap",
+      "app:integration",
+      "backend:module:greeting_contract",
+      "backend:module:access_card_application_contract",
+      "backend:module:access_card_contract",
+      "backend:module:card_admin_contract",
+      "page:home",
+      "page:access_card_main",
+      "page:card_claim",
+      "page:card_return",
+      "page:cancel_completed"
+    ],
+    "edges": [
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:bootstrap",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:auth-resources",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:shell",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:api-client",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:auth-guard",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:bootstrap",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:greeting_contract",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:greeting_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:greeting_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_contract",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:access_card_application_contract",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:access_card_application_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:access_card_application_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:access_card_application_contract",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:access_card_contract",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:access_card_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:access_card_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:access_card_contract",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:card_admin_contract",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:card_admin_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:card_admin_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:card_admin_contract",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:home",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:home",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:home",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_contract",
+        "to": "page:home",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:home",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:access_card_main",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:access_card_main",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:access_card_main",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_contract",
+        "to": "page:access_card_main",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:access_card_application_contract",
+        "to": "page:access_card_main",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:access_card_contract",
+        "to": "page:access_card_main",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:card_admin_contract",
+        "to": "page:access_card_main",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:access_card_main",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:card_claim",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:card_claim",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:card_claim",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:access_card_application_contract",
+        "to": "page:card_claim",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:card_claim",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:card_return",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:card_return",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:card_return",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:access_card_contract",
+        "to": "page:card_return",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:card_return",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:cancel_completed",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:cancel_completed",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:cancel_completed",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:card_admin_contract",
+        "to": "page:cancel_completed",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:cancel_completed",
+        "to": "app:integration",
+        "type": "depends_on"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "unit_skeleton": {
+    "input_fingerprint": "20c1e8709e4d662c2c316098644bbd6033798c4384ab282c1cd4a98b623b8c7b",
+    "project_plan_version": null,
+    "workspace_revision": "016b5bc9f611db846ce8bdb5",
+    "reused": false
+  },
+  "task_registry": {
+    "frontend:api-client::access_card_contract::api-module::70253be159a1dd60": {
+      "id": "frontend:api-client::access_card_contract::api-module::70253be159a1dd60",
+      "unit_id": "frontend:api-client",
+      "owner": "frontend",
+      "task_type": "frontend.code",
+      "status": "pending",
+      "title": "实现门禁卡合同前端业务访问模块",
+      "description": "在 `frontend/src/apis/accessCardContractApi.ts` 中实现 `access_card_contract` API 合同的前端业务访问模块，作为该合同下全部接口的唯一实现位置：\n1. `listAccessCards`：实现分页查询门禁卡列表的异步函数，按合同约定的方法/path 发送请求，入参为分页参数（页码、每页条数等，提供默认值常量），返回带类型的分页数据（列表与总数）。\n2. `applyCancellation`：实现门禁卡申请取消的异步函数，按合同约定的方法/path 发送请求，携带取消所需的路径/查询/请求体参数，返回带类型的处理结果。\n3. 为每个接口定义明确的 TypeScript 请求与响应类型并导出；统一复用平台提供的 `frontend/src/apis/service.ts` 发起 HTTP 请求，不在本文件中新增 axios 实例或手写 baseURL、超时、拦截器。\n4. 保持与页面调用现有命名习惯兼容（导出函数名与类型名语义清晰），不实现页面、路由、静态数据、测试或验收逻辑。",
+      "target_files": [
+        "frontend/src/apis/accessCardContractApi.ts"
+      ],
+      "allowed_paths": [
+        "frontend/src/apis/accessCardContractApi.ts"
+      ],
+      "change_scope": [
+        {
+          "description": "在已有的 `accessCardContractApi.ts` 中按 `access_card_contract` 合同补齐/完善 `listAccessCards` 与 `applyCancellation` 两个导出异步函数及其请求/响应类型，HTTP 调用统一走 `frontend/src/apis/service.ts`",
+          "operation": "modify",
+          "path": "frontend/src/apis/accessCardContractApi.ts"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "frontend:api-client::access_card_contract::api-module::70253be159a1dd60::access_card_contract.applyCancellation::deliverable",
+          "kind": "frontend.api_module",
+          "target_id": "access_card_contract.applyCancellation",
+          "paths": [
+            "frontend/src/apis/accessCardContractApi.ts"
+          ],
+          "provides": [
+            "frontend.api_module:access_card_contract:access_card_contract.applyCancellation"
+          ]
+        },
+        {
+          "id": "frontend:api-client::access_card_contract::api-module::70253be159a1dd60::access_card_contract.listAccessCards::deliverable",
+          "kind": "frontend.api_module",
+          "target_id": "access_card_contract.listAccessCards",
+          "paths": [
+            "frontend/src/apis/accessCardContractApi.ts"
+          ],
+          "provides": [
+            "frontend.api_module:access_card_contract:access_card_contract.listAccessCards"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "can_run_in_parallel": false,
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "impact_scope": {
+        "summary": "新增/完善 `access_card_contract` 合同的前端业务访问模块，为门禁卡列表查询与申请取消提供统一类型化调用入口，供卡片申请、归还等页面复用。",
+        "affected_modules": [
+          "frontend/src/apis"
+        ],
+        "public_contracts": [
+          "access_card_contract.listAccessCards",
+          "access_card_contract.applyCancellation"
+        ],
+        "risks": [
+          "若页面按旧签名调用，函数签名调整可能导致编译报错，需与现有页面调用保持一致",
+          "请求/响应类型与后端 DTO 字段不一致会导致数据解析异常"
+        ]
+      },
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "frontend:api-client"
+      ],
+      "unit_dependencies": [],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:frontend:api-client::access_card_contract::api-module::70253be159a1dd60:file_operation:cfca55457e8d",
+          "kind": "file_operation",
+          "description": "工程文件 frontend/src/apis/accessCardContractApi.ts 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/apis/accessCardContractApi.ts"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:frontend:api-client::access_card_contract::api-module::70253be159a1dd60:scope_boundary:96df1130fb35",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/apis/accessCardContractApi.ts"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "frontend/src/apis/accessCardContractApi.ts"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": {
+        "$artifact": {
+          "artifactId": "e8244bbda739d592492a97837d4dfa29decaf160be32ad5df6a566b4d85e0ae4",
+          "byteLength": 5362,
+          "mediaType": "application/json"
+        }
+      },
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": []
+    },
+    "page:card_return::page": {
+      "id": "page:card_return::page",
+      "unit_id": "page:card_return",
+      "owner": "frontend",
+      "task_type": "frontend.code",
+      "status": "pending",
+      "title": "实现门禁卡退还页面 CardReturn",
+      "description": "在既有页面入口 frontend/src/pages/CardReturn/index.tsx 上实现 card_return 页面的当前 PageImplementationContract：页面标题为「门禁卡退还」，展示说明文案「所有字段信息直接从扫码获取，并实时同步到飞码」；初始加载时调用 access_card_contract.listAccessCards，按扫码人ID分页查询本人名下权限状态为「使用中」的门禁卡并展示姓名、员工编号、卡号、权限状态四个字段，支持翻页查看（page_next）；点击「离职注销」并二次确认后调用 access_card_contract.applyCancellation 提交离职注销，成功后提示需线下将实体卡交还门禁卡管理员并返回门禁卡管理主页面（access_card_main）；提供「返回首页」按钮直接跳转 access_card_main。仅复用页面内的 UI 组件与样式，不新增路由/菜单注册，不修改 API 客户端实现。",
+      "target_files": [
+        "frontend/src/pages/CardReturn/index.tsx"
+      ],
+      "allowed_paths": [
+        "frontend/src/pages/CardReturn/index.tsx"
+      ],
+      "change_scope": [
+        {
+          "path": "frontend/src/pages/CardReturn/index.tsx",
+          "operation": "modify",
+          "description": "在既有 CardReturn 页面组件中实现标题与说明文案、使用中门禁卡分页列表、离职注销确认提交与成功提示、返回首页导航，数据通过 access_card_contract 的 listAccessCards 与 applyCancellation 接口获取与提交。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "page:card_return::page::deliverable",
+          "kind": "frontend.page",
+          "target_id": "card_return",
+          "paths": [
+            "frontend/src/pages/CardReturn/index.tsx"
+          ],
+          "provides": [
+            "frontend.page:card_return"
+          ]
+        }
+      ],
+      "dependencies": [
+        "frontend:api-client::access_card_contract::api-module::70253be159a1dd60"
+      ],
+      "can_run_in_parallel": false,
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "impact_scope": {
+        "summary": "仅影响门禁卡退还页面 CardReturn 的实现，不改变路由、API 客户端与后端契约。",
+        "affected_modules": [
+          "frontend/src/pages/CardReturn"
+        ],
+        "public_contracts": [
+          "frontend.page:card_return"
+        ],
+        "risks": [
+          "页面依赖 access_card_contract.listAccessCards 与 applyCancellation 的返回结构，字段映射需与契约保持一致",
+          "离职注销成功后需正确跳转 access_card_main 并提示线下归还实体卡"
+        ]
+      },
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "f8b5d755ff4bddece831e695d5a5f8cc4a97df998826438c439a1636dbee6942",
+          "byteLength": 1608,
+          "mediaType": "application/json"
+        }
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "page:card_return"
+      ],
+      "unit_dependencies": [
+        "frontend:shell",
+        "frontend:api-client",
+        "backend:module:access_card_contract"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:page:card_return::page:file_operation:954159b127a9",
+          "kind": "file_operation",
+          "description": "工程文件 frontend/src/pages/CardReturn/index.tsx 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/CardReturn/index.tsx"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:card_return::page:scope_boundary:d6cf5d360725",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/CardReturn/index.tsx"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "frontend/src/pages/CardReturn/index.tsx"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:card_return::page:page_entry:bce8c6ceb43d",
+          "kind": "page_entry",
+          "description": "页面交付物必须包含可读取的 index.tsx 页面入口。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/CardReturn/index.tsx"
+          ],
+          "expected": {
+            "page_id": "card_return",
+            "entry_path": "frontend/src/pages/CardReturn/index.tsx"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:card_return::page:page_default_export:4557b32d61ab",
+          "kind": "page_default_export",
+          "description": "页面入口必须提供 default export，确保路由可以加载页面组件。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/CardReturn/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/CardReturn/index.tsx",
+            "requires_default_export": true
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:card_return::page:page_placeholder:2dc3b6afe942",
+          "kind": "page_placeholder",
+          "description": "页面入口不得保留模板占位内容。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/CardReturn/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/CardReturn/index.tsx",
+            "forbidden_markers": [
+              "hello agent!",
+              "待 Agent 生成真实内容",
+              "待agent生成真实内容",
+              "临时占位",
+              "placeholder content"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:card_return::page:frontend_api_boundary:aed4d7f0c39c",
+          "kind": "frontend_api_boundary",
+          "description": "页面和任务内组件不得直接调用 fetch、axios 或 service；业务接口必须经 src/apis/ 与 useRequest。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/CardReturn/index.tsx"
+          ],
+          "expected": {},
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:page:card_return::page:frontend.page_endpoint_usage:b60d5f3427056e32",
+          "deliverable_id": "page:card_return::page::deliverable",
+          "kind": "frontend.page_endpoint_usage",
+          "description": "页面或其任务内可达组件必须实际调用 PageImplementationContract 声明的业务接口。",
+          "sources": [
+            {
+              "artifact": "page_implementation_contract",
+              "target_id": "card_return",
+              "pointer": "/page_implementation_contracts/card_return",
+              "sha256": "d2efaa4222067989e48ed737228c0b41fb3c94d5ae892ee7733f574e36b2561e"
+            },
+            {
+              "artifact": "api_contract",
+              "target_id": "access_card_contract.listAccessCards",
+              "pointer": "/api_contracts/access_card_contract/endpoints/access_card_contract.listAccessCards",
+              "sha256": "5d1fb6f99bff64b24f545959b99043ca3ef4de0626ec2a3102a64b8314cbd105"
+            },
+            {
+              "artifact": "api_contract",
+              "target_id": "access_card_contract.applyCancellation",
+              "pointer": "/api_contracts/access_card_contract/endpoints/access_card_contract.applyCancellation",
+              "sha256": "615ac481fcfa8aea9cf7fd8a463fee07ffb242a242080736fbbc389300e1928b"
+            }
+          ],
+          "expected": {
+            "page_id": "card_return",
+            "required_endpoint_ids": [
+              "access_card_contract.listAccessCards",
+              "access_card_contract.applyCancellation"
+            ],
+            "endpoints": [
+              {
+                "api_contract_id": "access_card_contract",
+                "endpoint_id": "access_card_contract.listAccessCards",
+                "method": "GET",
+                "path": "/api/access-cards",
+                "request_schema_ref": "",
+                "response_schema_ref": "AccessCardPageResponse",
+                "parameters": [
+                  {
+                    "name": "current",
+                    "in": "query",
+                    "required": true,
+                    "schema": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 1,
+                      "description": "当前页码。"
+                    }
+                  },
+                  {
+                    "name": "pageSize",
+                    "in": "query",
+                    "required": true,
+                    "schema": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 10,
+                      "description": "每页记录数。"
+                    }
+                  }
+                ],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "total",
+                    "pageSize",
+                    "current",
+                    "list"
+                  ],
+                  "properties": {
+                    "total": {
+                      "type": "integer",
+                      "required": true
+                    },
+                    "pageSize": {
+                      "type": "integer",
+                      "required": true
+                    },
+                    "current": {
+                      "type": "integer",
+                      "required": true
+                    },
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "AccessCard",
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "name",
+                          "employeeNo",
+                          "cardNo",
+                          "permissionStatus"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "name": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "employeeNo": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "cardNo": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "permissionStatus": {
+                            "type": "string",
+                            "enum": [
+                              "使用中",
+                              "已注销"
+                            ],
+                            "required": true
+                          },
+                          "cancellationApplication": {
+                            "type": "string",
+                            "enum": [
+                              "离职"
+                            ],
+                            "required": false
+                          }
+                        }
+                      },
+                      "required": true
+                    }
+                  }
+                }
+              },
+              {
+                "api_contract_id": "access_card_contract",
+                "endpoint_id": "access_card_contract.applyCancellation",
+                "method": "PATCH",
+                "path": "/api/access-cards/cancellation",
+                "request_schema_ref": "CancelAccessCardRequest",
+                "response_schema_ref": "AccessCard",
+                "parameters": [],
+                "request_schema": {
+                  "type": "object",
+                  "required": [
+                    "accessCardId"
+                  ],
+                  "properties": {
+                    "accessCardId": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                },
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "name",
+                    "employeeNo",
+                    "cardNo",
+                    "permissionStatus"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "required": true
+                    },
+                    "name": {
+                      "type": "string",
+                      "required": true
+                    },
+                    "employeeNo": {
+                      "type": "string",
+                      "required": true
+                    },
+                    "cardNo": {
+                      "type": "string",
+                      "required": true
+                    },
+                    "permissionStatus": {
+                      "type": "string",
+                      "enum": [
+                        "使用中",
+                        "已注销"
+                      ],
+                      "required": true
+                    },
+                    "cancellationApplication": {
+                      "type": "string",
+                      "enum": [
+                        "离职"
+                      ],
+                      "required": false
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "target_paths": [
+            "frontend/src/pages/CardReturn/index.tsx"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "frontend_page_endpoint_usage"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": []
+    }
+  },
+  "task_graph": {
+    "schema_version": "build-task-graph.v3",
+    "nodes": [
+      "frontend:api-client::access_card_contract::api-module::70253be159a1dd60",
+      "page:card_return::page"
+    ],
+    "edges": [
+      {
+        "from": "frontend:api-client::access_card_contract::api-module::70253be159a1dd60",
+        "to": "page:card_return::page",
+        "type": "depends_on"
+      }
+    ],
+    "roots": [
+      "frontend:api-client::access_card_contract::api-module::70253be159a1dd60"
+    ],
+    "leaves": [
+      "page:card_return::page"
+    ],
+    "topological_order": [
+      "frontend:api-client::access_card_contract::api-module::70253be159a1dd60",
+      "page:card_return::page"
+    ],
+    "execution_layers": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "frontend:api-client::access_card_contract::api-module::70253be159a1dd60"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "page:card_return::page"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "summary": {
+    "total": 2,
+    "frontend": 2,
+    "backend": 0,
+    "database": 0,
+    "pending": 2,
+    "running": 0,
+    "completed": 0,
+    "already_satisfied": 0,
+    "failed": 0
+  },
+  "execution": {
+    "batches": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "frontend:api-client::access_card_contract::api-module::70253be159a1dd60"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "page:card_return::page"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "blocked_batches": []
+  },
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "card_return"
+  },
+  "template_context": {
+    "state_path": ".devagentstudio/template-state.json",
+    "template_revision": "2026.10.19.1",
+    "effective_capabilities": {}
+  },
+  "status": "ready",
+  "confirmation_status": "confirmed",
+  "confirmed_at": "2026-11-20T16:33:52.941632+00:00",
+  "confirmed_from": {
+    "planning_run_id": "planning-aca8e1162faf4fb8968a638734f5afcc",
+    "draft_digest": "ba2859dd5fe9e894285e6219e17121e56836acc64a595178fe36e7baa6c0e19d"
+  }
+}

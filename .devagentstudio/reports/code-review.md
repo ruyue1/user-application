@@ -6,26 +6,27 @@
 - 结论：审查通过，未发现需要处理的问题。
 - 问题总数：0
 - 审查模式：Diff 审查
-- 实际审查文件数：1
+- 实际审查文件数：2
 - 跳过文件数：0
 
 ## Diff 审查文件
 
-- `frontend/src/pages/CancelCompleted/index.tsx`
+- `frontend/src/apis/accessCardContractApi.ts`
+- `frontend/src/pages/CardReturn/index.tsx`
 
 ## 扫描汇总
 
 | 范围 | 扫描根目录 | 状态 | 文件总数 |
 | --- | --- | --- | ---: |
-| 前端 | `frontend` | 已完成 | 1 |
+| 前端 | `frontend` | 已完成 | 2 |
 | 后端 | `backend` | 已跳过 | 0 |
 
-**前后端扫描文件总数：1**
+**前后端扫描文件总数：2**
 
 ## 扫描提示
 
-- frontend-code-scan Skill only defines rules for npm package versions (axios >=1.15.0, form-data safe ranges) evaluated on package.json and pnpm-lock.yaml; neither file is part of this change, so no frontend rule was applicable to frontend/src/pages/CancelCompleted/index.tsx and no frontend issue is reported.
-- No backend files (Java sources, pom.xml, resource or configuration files) were listed in the change set; backend-code-scan rules CKR1104/CKR2002/CKR6000/CKR6002/CKR6004/CKR4003/CKR5000/CKR7019 had no eligible targets and were not applied.
+- frontend-code-scan Skill 仅定义 axios 与 form-data 的依赖版本检查规则，需依据 package.json/pnpm-lock.yaml 判定；本次目标文件清单未包含这两个依赖清单文件，因此无适用规则，未发现版本类问题。
+- 本次目标文件清单未包含 backend/src/main/java 下的 Java 源码，也未包含后端 pom.xml、配置或资源文件，后端规则未执行。
 
 ## 问题详情
 

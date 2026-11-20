@@ -23,12 +23,12 @@ import {
  * 转换后得到的访问路径保持一致，仅用于页面内跳转，不注册路由。
  */
 const ACCESS_CARD_MAIN_PATH = '/page/access-card-main';
-/** 已完成注销界面路由，对应产品页面 cancel_completed */
-const CANCEL_COMPLETED_PATH = '/page/access-card-cancel-completed';
 /** 使用中门禁卡列表默认每页条数 */
 const DEFAULT_PAGE_SIZE = 10;
 /** 权限状态枚举取值 */
 const PERMISSION_STATUS_IN_USE = '使用中';
+/** 离职注销成功提示文案，明确需线下交还实体卡 */
+const CANCEL_SUCCESS_MESSAGE = '离职注销申请已同步至飞码。请线下将实体卡交还门禁卡管理员。';
 /** 底部功能图标区配置 */
 const FOOTER_FEATURES = [
   { key: 'return', label: '门禁卡退还', icon: <CreditCardOutlined /> },
@@ -69,7 +69,8 @@ function resolveCancelErrorMessage(error: unknown): string {
  * 自上而下依次渲染标题「门禁卡退还」、说明文案、门禁卡信息列表、操作区与底部功能图标区。
  * 仅调用 PageImplementationContract 声明的接口：
  * - 初始加载与翻页时调用 listAccessCards 拉取本人名下「使用中」的门禁卡分页列表；
- * - 点击【离职注销】并在确认弹窗确认后调用 applyCancellation 发起离职注销。
+ * - 点击【离职注销】并在确认弹窗确认后调用 applyCancellation 发起离职注销，
+ *   成功后提示线下交还实体卡并返回门禁卡管理主页面。
  * 【返回首页】仅做前端跳转，不产生注销请求。
  */
 export default function CardReturn() {
@@ -84,17 +85,20 @@ export default function CardReturn() {
 
   /**
    * 拉取门禁卡分页列表。
-   * 通过 params 参数读取最新的页码与每页条数，避免闭包捕获过期的 pageQuery。
+   * 通过参数读取最新的页码与每页条数：翻页时直接以目标页码发起请求，
+   * 避免 setState 异步导致请求仍携带旧页码。
    */
-  const loadAccessCardPage = async (
-    query: { current: number; pageSize: number },
-  ): Promise<AccessCardPageResponse> => {
+  const loadAccessCardPage = async (query: {
+    current: number;
+    pageSize: number;
+  }): Promise<AccessCardPageResponse> => {
     return listAccessCards({ current: query.current, pageSize: query.pageSize });
   };
 
-  const { data: accessCardPage, loading, error, refresh } = useRequest(loadAccessCardPage, {
-    defaultParams: [pageQuery],
-  });
+  const { data: accessCardPage, loading, error, refresh, run } = useRequest(
+    loadAccessCardPage,
+    { defaultParams: [pageQuery] },
+  );
 
   /** 当前页每页条数，优先取响应体回传值 */
   const activePageSize = accessCardPage?.pageSize ?? pageQuery.pageSize;
@@ -112,31 +116,37 @@ export default function CardReturn() {
   const activeSelectedCard =
     selectedCard && dataSource.some((item) => item.id === selectedCard.id) ? selectedCard : null;
 
+  /** 翻页查看（page_next）：按目标页码重新拉取列表数据 */
   const handleTableChange = (nextPage: number, nextPageSize: number) => {
     setPageQuery({ current: nextPage, pageSize: nextPageSize });
-    refresh();
+    setSelectedCard(null);
+    run({ current: nextPage, pageSize: nextPageSize });
   };
 
   const handleRetry = () => {
     refresh();
   };
 
-  /** 提交离职注销申请，成功后跳转已完成界面 */
+  /** 提交离职注销申请，成功后提示线下交还实体卡并返回门禁卡管理主页面 */
   const submitCancellation = async (record: AccessCard) => {
     setSubmitting(true);
     try {
       await applyCancellation({ accessCardId: record.id });
-      messageApi.success('离职注销申请已同步至飞码。');
-      navigate(CANCEL_COMPLETED_PATH, {
-        state: { accessCardId: record.id, cardNo: record.cardNo },
-      });
+      messageApi.success(CANCEL_SUCCESS_MESSAGE);
+      navigate(ACCESS_CARD_MAIN_PATH);
     } catch (cancelError) {
       messageApi.error(resolveCancelErrorMessage(cancelError));
+      // 卡片不存在或状态已变更时刷新列表，反映最新权限状态
+      const code = extractErrorCode(cancelError);
+      if (code === 'NOT_FOUND' || code === 'INVALID_STATE') {
+        refresh();
+      }
     } finally {
       setSubmitting(false);
     }
   };
 
+  /** 离职注销（apply_cancel）：确认后调用 applyCancellation */
   const handleApplyCancellation = () => {
     const targetCard = activeSelectedCard ?? (dataSource.length === 1 ? dataSource[0] : undefined);
 
@@ -151,7 +161,7 @@ export default function CardReturn() {
         <Space direction='vertical' size={4}>
           <span>{`将注销 ${targetCard.name}（${targetCard.employeeNo}）名下的门禁卡 ${targetCard.cardNo}。`}</span>
           <span>确认后申请注销字段将更新为「离职」并同步至飞码，触发飞码端注销流程。</span>
-          <span>提交成功后请线下将实体卡交还门禁卡管理员。</span>
+          <span>提交成功后请线下将实体卡交还门禁卡管理员，并返回门禁卡管理主页面。</span>
         </Space>
       ),
       okText: '确认注销',
@@ -161,6 +171,7 @@ export default function CardReturn() {
     });
   };
 
+  /** 返回首页（back_home）：跳转门禁卡管理主页面 */
   const handleBackHome = () => {
     navigate(ACCESS_CARD_MAIN_PATH);
   };
@@ -216,6 +227,7 @@ export default function CardReturn() {
   return (
     <PageContainer
       header={{ title: '门禁卡退还' }}
+      breadcrumbRender={false}
       content='所有字段信息直接从扫码获取，并实时同步到飞码'
     >
       <Flex vertical gap={16} style={{ width: '100%', maxWidth: 900, margin: '0 auto' }}>
