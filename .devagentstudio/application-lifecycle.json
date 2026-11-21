@@ -3,8 +3,8 @@
     "id": "1795220692891-tjtgp2",
     "name": "门禁卡管理系统"
   },
-  "updatedAt": "2026-11-21T09:22:50.836951Z",
-  "revision": 7,
+  "updatedAt": "2026-11-21T09:26:16.029418Z",
+  "revision": 10,
   "developmentArtifacts": {
     "pages": {
       "main": {
@@ -153,12 +153,12 @@
     "outOfScope": []
   },
   "initialization": {
-    "stage": "awaiting_planning_stage_entry",
+    "stage": "awaiting_technical_plan_confirmation",
     "status": "awaiting_user",
-    "threadId": "3292b265-d6f1-4cba-b3a7-878a20cb4544",
+    "threadId": "4e17066e-b5f6-4f7e-8be8-e0e35ffe5efb",
     "iterationId": "3292b265-d6f1-4cba-b3a7-878a20cb4544"
   },
-  "activeRunId": "b7ae783f-1521-4eec-be14-75da97459d10",
+  "activeRunId": "e9167338-ca17-4d00-be0b-33416f2b92e9",
   "activeExecutions": {},
   "endedExecutions": {},
   "endedPlanningExecution": null,

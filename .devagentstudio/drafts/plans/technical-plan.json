@@ -1,0 +1,1053 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "基于单页应用生成页面、路由和 API 客户端。",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [
+    {
+      "id": "access_card_claim_application",
+      "name": "门禁卡领用申请明细",
+      "description": "员工本人名下待签收的门禁卡领用申请数据，记录姓名、员工编号、卡号与领签状态，用于领用签收页展示并作为完成领签操作的对象。",
+      "fields": [
+        {
+          "label": "姓名",
+          "description": "门禁卡领用申请明细所属员工的姓名，取自扫码识别后的申请数据。",
+          "name": "employee_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "员工编号",
+          "description": "门禁卡领用申请明细所属员工的员工编号，用于标识员工身份。",
+          "name": "employee_no",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "卡号",
+          "description": "本次领用申请对应的门禁卡卡号。",
+          "name": "card_no",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "领签状态",
+          "description": "该条申请明细的领签状态；进入页面时展示本人名下待领签的明细，完成领签后由待领签更新为已领签。",
+          "name": "claim_status",
+          "type": "enum",
+          "required": true,
+          "enum_values": [
+            "待领签",
+            "已领签"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "access_card",
+      "name": "门禁卡",
+      "description": "员工持有的门禁卡记录，包含姓名、员工编号、卡号、权限状态与申请注销字段，用于归还页展示本人使用中的卡片并发起离职注销申请。",
+      "fields": [
+        {
+          "label": "姓名",
+          "description": "门禁卡持有员工的姓名，展示于归还页门禁卡信息表格。",
+          "name": "employee_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "员工编号",
+          "description": "门禁卡持有员工的员工编号，展示于归还页门禁卡信息表格。",
+          "name": "employee_no",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "卡号",
+          "description": "门禁卡的实体卡编号，展示于归还页门禁卡信息表格。",
+          "name": "card_no",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "权限状态",
+          "description": "门禁卡的权限状态，归还页仅展示本人名下为使用中的卡片。",
+          "name": "permission_status",
+          "type": "enum",
+          "required": true,
+          "enum_values": [
+            "使用中"
+          ]
+        },
+        {
+          "label": "申请注销",
+          "description": "门禁卡的申请注销字段，发起离职注销后更新为离职；未发起注销时为空。",
+          "name": "deactivation_application",
+          "type": "enum",
+          "required": false,
+          "enum_values": [
+            "离职"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deactivation_submission",
+      "name": "离职注销申请提交结果",
+      "description": "员工对本人的门禁卡发起离职注销后的提交结果，反映申请注销字段已更新为离职、数据已同步至飞码端并发起注销流程的状态，用于完成确认页展示。",
+      "fields": [
+        {
+          "label": "门禁卡ID",
+          "description": "本次发起离职注销申请所对应的门禁卡；关联门禁卡主键，在实体目录中使用 text，在 API JSON 中为 string。",
+          "name": "card_id",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "姓名",
+          "description": "发起离职注销申请的员工姓名，来源于扫码识别后匹配的本人名下门禁卡信息。",
+          "name": "employee_name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "员工编号",
+          "description": "发起离职注销申请的员工编号，来源于扫码识别后匹配的本人名下门禁卡信息。",
+          "name": "employee_no",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "卡号",
+          "description": "本次申请注销的门禁卡卡号。",
+          "name": "card_no",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "申请注销",
+          "description": "本次提交后将门禁卡申请注销字段更新为离职，表示员工已发起离职注销申请。",
+          "name": "deactivation_apply",
+          "type": "enum",
+          "required": true,
+          "enum_values": [
+            "离职"
+          ]
+        },
+        {
+          "label": "同步状态",
+          "description": "注销申请数据回传飞码端的同步结果状态。",
+          "name": "sync_status",
+          "type": "enum",
+          "required": true,
+          "enum_values": [
+            "已同步",
+            "同步失败"
+          ]
+        },
+        {
+          "label": "注销流程状态",
+          "description": "飞码端承接本次注销申请的流程处理状态，小程序不参与审批。",
+          "name": "process_status",
+          "type": "enum",
+          "required": true,
+          "enum_values": [
+            "已发起",
+            "处理中",
+            "已完成"
+          ]
+        },
+        {
+          "label": "提交时间",
+          "description": "员工提交离职注销申请的时间。",
+          "name": "submitted_at",
+          "type": "datetime",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "morning_greeting",
+      "name": "早安问候语",
+      "description": "早安问候页面展示的问候文本内容，提供字符串「早上好！」。",
+      "fields": [
+        {
+          "label": "早安问候语",
+          "description": "页面访问时获取并在页面主体清晰展示的问候文本字符串，固定内容为「早上好！」。",
+          "name": "greeting_text",
+          "type": "text",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "api_contracts": [
+    {
+      "id": "contract_access_card_claim_application",
+      "name": "门禁卡领用申请明细管理",
+      "entity_ids": [
+        "access_card_claim_application"
+      ],
+      "base_path": "/api/access-card-claim-applications",
+      "authentication": {
+        "required": false
+      },
+      "schemas": {
+        "AccessCardClaimApplicationItem": {
+          "type": "object",
+          "description": "门禁卡领用申请明细，用于领用页表格展示。",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "申请明细记录标识，取自实体主键。"
+            },
+            "employeeName": {
+              "type": "string",
+              "description": "员工姓名。",
+              "entity_field_ref": "access_card_claim_application.employee_name"
+            },
+            "employeeNo": {
+              "type": "string",
+              "description": "员工编号。",
+              "entity_field_ref": "access_card_claim_application.employee_no"
+            },
+            "cardNo": {
+              "type": "string",
+              "description": "门禁卡卡号。",
+              "entity_field_ref": "access_card_claim_application.card_no"
+            },
+            "claimStatus": {
+              "type": "string",
+              "description": "领签状态，取值：待领签、已领签。",
+              "enum": [
+                "待领签",
+                "已领签"
+              ],
+              "entity_field_ref": "access_card_claim_application.claim_status"
+            }
+          },
+          "required": [
+            "id",
+            "employeeName",
+            "employeeNo",
+            "cardNo",
+            "claimStatus"
+          ]
+        },
+        "CompleteClaimRequest": {
+          "type": "object",
+          "description": "完成领签请求，提交勾选或全选的申请明细。",
+          "properties": {
+            "applicationIds": {
+              "type": "array",
+              "minimumItems": 1,
+              "description": "需要完成领签的申请明细标识列表，来源于明细列表返回的 id。",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "applicationIds"
+          ]
+        },
+        "AccessCardClaimApplicationPage": {
+          "type": "object",
+          "description": "待领签申请明细分页结果。",
+          "properties": {
+            "total": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "总记录数。"
+            },
+            "pageSize": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "每页条数。"
+            },
+            "current": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "当前页码。"
+            },
+            "list": {
+              "type": "array",
+              "description": "当前页申请明细列表。",
+              "items": {
+                "$ref": "AccessCardClaimApplicationItem"
+              }
+            }
+          },
+          "required": [
+            "total",
+            "pageSize",
+            "current",
+            "list"
+          ]
+        },
+        "CompleteClaimResult": {
+          "type": "object",
+          "description": "完成领签结果。",
+          "properties": {
+            "updatedCount": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "本次更新为已领签的申请明细条数。"
+            },
+            "applicationIds": {
+              "type": "array",
+              "description": "本次完成领签的申请明细标识列表。",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "updatedCount",
+            "applicationIds"
+          ]
+        }
+      },
+      "endpoints": [
+        {
+          "id": "contract_access_card_claim_application.list",
+          "name": "查询本人待领签申请明细",
+          "method": "GET",
+          "path": "/api/access-card-claim-applications",
+          "summary": "按扫码识别的员工身份查询本人名下待领签的门禁卡领用申请明细列表，支持分页，用于领用页面表格展示。",
+          "parameters": [
+            {
+              "name": "current",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "当前页码。"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "每页条数。"
+              }
+            }
+          ],
+          "request_schema_ref": null,
+          "response_schema_ref": "AccessCardClaimApplicationPage",
+          "error_codes": [],
+          "authentication": {
+            "required": false
+          }
+        },
+        {
+          "id": "contract_access_card_claim_application.complete_claim",
+          "name": "完成领签",
+          "method": "POST",
+          "path": "/api/access-card-claim-applications/complete-claim",
+          "summary": "将勾选或全选的申请明细领签状态由待领签更新为已领签，并同步至飞码端。",
+          "parameters": [],
+          "request_schema_ref": "CompleteClaimRequest",
+          "response_schema_ref": "CompleteClaimResult",
+          "error_codes": [
+            "INVALID_STATE",
+            "NOT_FOUND"
+          ],
+          "authentication": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "contract_access_card",
+      "name": "门禁卡管理",
+      "entity_ids": [
+        "access_card"
+      ],
+      "base_path": "/api/access-cards",
+      "authentication": {
+        "required": false
+      },
+      "schemas": {
+        "AccessCardItem": {
+          "type": "object",
+          "description": "门禁卡列表项，展示本人名下使用中的门禁卡信息。",
+          "required": [
+            "id",
+            "employeeName",
+            "employeeNo",
+            "cardNo",
+            "permissionStatus"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "门禁卡记录唯一标识，用于发起离职注销申请时指定卡片。",
+              "entity_field_ref": "access_card.id"
+            },
+            "employeeName": {
+              "type": "string",
+              "description": "门禁卡持有员工姓名。",
+              "entity_field_ref": "access_card.employee_name"
+            },
+            "employeeNo": {
+              "type": "string",
+              "description": "门禁卡持有员工编号。",
+              "entity_field_ref": "access_card.employee_no"
+            },
+            "cardNo": {
+              "type": "string",
+              "description": "门禁卡实体卡编号。",
+              "entity_field_ref": "access_card.card_no"
+            },
+            "permissionStatus": {
+              "type": "string",
+              "description": "门禁卡权限状态，列表中均为使用中。",
+              "enum": [
+                "使用中"
+              ],
+              "entity_field_ref": "access_card.permission_status"
+            },
+            "deactivationApplication": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "门禁卡申请注销字段，发起离职注销后为离职，未发起时为空。",
+              "enum": [
+                "离职",
+                null
+              ],
+              "entity_field_ref": "access_card.deactivation_application"
+            }
+          }
+        },
+        "AccessCardPageResponse": {
+          "type": "object",
+          "description": "本人名下使用中门禁卡分页列表响应。",
+          "required": [
+            "total",
+            "pageSize",
+            "current",
+            "list"
+          ],
+          "properties": {
+            "total": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "符合条件的门禁卡总数。"
+            },
+            "pageSize": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "每页记录数。"
+            },
+            "current": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "当前页码。"
+            },
+            "list": {
+              "type": "array",
+              "description": "当前页门禁卡记录列表。",
+              "items": {
+                "$ref": "AccessCardItem"
+              }
+            }
+          }
+        },
+        "AccessCardDeactivationRequest": {
+          "type": "object",
+          "description": "离职注销申请请求体。",
+          "required": [
+            "deactivationApplication"
+          ],
+          "properties": {
+            "deactivationApplication": {
+              "type": "string",
+              "description": "申请注销取值，固定为离职。",
+              "enum": [
+                "离职"
+              ]
+            }
+          }
+        },
+        "AccessCardDeactivationResponse": {
+          "type": "object",
+          "description": "离职注销申请提交结果，返回更新后的门禁卡记录。",
+          "required": [
+            "id",
+            "employeeName",
+            "employeeNo",
+            "cardNo",
+            "permissionStatus",
+            "deactivationApplication"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "门禁卡记录唯一标识。",
+              "entity_field_ref": "access_card.id"
+            },
+            "employeeName": {
+              "type": "string",
+              "description": "门禁卡持有员工姓名。",
+              "entity_field_ref": "access_card.employee_name"
+            },
+            "employeeNo": {
+              "type": "string",
+              "description": "门禁卡持有员工编号。",
+              "entity_field_ref": "access_card.employee_no"
+            },
+            "cardNo": {
+              "type": "string",
+              "description": "门禁卡实体卡编号。",
+              "entity_field_ref": "access_card.card_no"
+            },
+            "permissionStatus": {
+              "type": "string",
+              "description": "门禁卡权限状态。",
+              "enum": [
+                "使用中"
+              ],
+              "entity_field_ref": "access_card.permission_status"
+            },
+            "deactivationApplication": {
+              "type": "string",
+              "description": "申请注销字段，提交成功后为离职。",
+              "enum": [
+                "离职"
+              ],
+              "entity_field_ref": "access_card.deactivation_application"
+            }
+          }
+        }
+      },
+      "endpoints": [
+        {
+          "id": "contract_access_card.list",
+          "name": "查询本人使用中门禁卡",
+          "method": "GET",
+          "path": "/api/access-cards",
+          "summary": "按扫码识别的员工身份查询本人名下权限状态为使用中的门禁卡列表，支持分页，用于门禁卡归还页面表格展示。",
+          "parameters": [
+            {
+              "name": "current",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "minimum": 1,
+                "default": 1,
+                "description": "当前页码。"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "minimum": 1,
+                "default": 10,
+                "description": "每页记录数。"
+              }
+            }
+          ],
+          "request_schema_ref": null,
+          "response_schema_ref": "AccessCardPageResponse",
+          "error_codes": [],
+          "authentication": {
+            "required": false
+          }
+        },
+        {
+          "id": "contract_access_card.apply_deactivation",
+          "name": "申请离职注销",
+          "method": "POST",
+          "path": "/api/access-cards/{id}/deactivation-application",
+          "summary": "对本人名下使用中的门禁卡发起离职注销申请，将申请注销字段更新为离职并同步至飞码端，由飞码触发后续注销流程。",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "门禁卡记录唯一标识，来源于列表返回的 id。"
+              }
+            }
+          ],
+          "request_schema_ref": "AccessCardDeactivationRequest",
+          "response_schema_ref": "AccessCardDeactivationResponse",
+          "error_codes": [
+            "NOT_FOUND",
+            "INVALID_STATE"
+          ],
+          "authentication": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "contract_deactivation_submission",
+      "name": "离职注销申请提交结果管理",
+      "entity_ids": [
+        "deactivation_submission",
+        "access_card"
+      ],
+      "base_path": "/api/deactivation-submissions",
+      "authentication": {
+        "required": false
+      },
+      "schemas": {
+        "AccessCardItem": {
+          "type": "object",
+          "description": "本人名下使用中的门禁卡记录（只读展示）",
+          "required": [
+            "id",
+            "employeeName",
+            "employeeNo",
+            "cardNo",
+            "permissionStatus"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "门禁卡主键",
+              "entity_field_ref": "access_card.id"
+            },
+            "employeeName": {
+              "type": "string",
+              "description": "姓名",
+              "entity_field_ref": "access_card.employee_name"
+            },
+            "employeeNo": {
+              "type": "string",
+              "description": "员工编号",
+              "entity_field_ref": "access_card.employee_no"
+            },
+            "cardNo": {
+              "type": "string",
+              "description": "卡号",
+              "entity_field_ref": "access_card.card_no"
+            },
+            "permissionStatus": {
+              "type": "string",
+              "enum": [
+                "使用中"
+              ],
+              "description": "权限状态",
+              "entity_field_ref": "access_card.permission_status"
+            }
+          }
+        },
+        "AccessCardPage": {
+          "type": "object",
+          "description": "本人使用中门禁卡分页结果",
+          "required": [
+            "total",
+            "pageSize",
+            "current",
+            "list"
+          ],
+          "properties": {
+            "total": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "记录总数"
+            },
+            "pageSize": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "每页条数"
+            },
+            "current": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "当前页码"
+            },
+            "list": {
+              "type": "array",
+              "description": "门禁卡列表",
+              "items": {
+                "$ref": "AccessCardItem"
+              }
+            }
+          }
+        },
+        "DeactivationSubmissionRequest": {
+          "type": "object",
+          "description": "提交离职注销申请的请求体，指明本人名下使用中的门禁卡",
+          "required": [
+            "cardId"
+          ],
+          "properties": {
+            "cardId": {
+              "type": "string",
+              "description": "发起离职注销申请所对应的门禁卡主键（查询本人使用中门禁卡列表返回的 id）",
+              "entity_field_ref": "deactivation_submission.card_id"
+            }
+          }
+        },
+        "DeactivationSubmissionResult": {
+          "type": "object",
+          "description": "离职注销申请提交结果详情",
+          "required": [
+            "id",
+            "cardId",
+            "employeeName",
+            "employeeNo",
+            "cardNo",
+            "deactivationApply",
+            "syncStatus",
+            "processStatus",
+            "submittedAt"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "提交结果主键",
+              "entity_field_ref": "deactivation_submission.id"
+            },
+            "cardId": {
+              "type": "string",
+              "description": "本次申请注销的门禁卡主键",
+              "entity_field_ref": "deactivation_submission.card_id"
+            },
+            "employeeName": {
+              "type": "string",
+              "description": "姓名",
+              "entity_field_ref": "deactivation_submission.employee_name"
+            },
+            "employeeNo": {
+              "type": "string",
+              "description": "员工编号",
+              "entity_field_ref": "deactivation_submission.employee_no"
+            },
+            "cardNo": {
+              "type": "string",
+              "description": "卡号",
+              "entity_field_ref": "deactivation_submission.card_no"
+            },
+            "deactivationApply": {
+              "type": "string",
+              "enum": [
+                "离职"
+              ],
+              "description": "申请注销状态",
+              "entity_field_ref": "deactivation_submission.deactivation_apply"
+            },
+            "syncStatus": {
+              "type": "string",
+              "enum": [
+                "已同步",
+                "同步失败"
+              ],
+              "description": "同步状态",
+              "entity_field_ref": "deactivation_submission.sync_status"
+            },
+            "processStatus": {
+              "type": "string",
+              "enum": [
+                "已发起",
+                "处理中",
+                "已完成"
+              ],
+              "description": "注销流程状态",
+              "entity_field_ref": "deactivation_submission.process_status"
+            },
+            "submittedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "提交时间",
+              "entity_field_ref": "deactivation_submission.submitted_at"
+            }
+          }
+        }
+      },
+      "endpoints": [
+        {
+          "id": "contract_deactivation_submission.list",
+          "name": "查询本人使用中门禁卡",
+          "method": "GET",
+          "path": "/api/deactivation-submissions",
+          "summary": "按扫码识别的员工身份查询本人名下权限状态为使用中的门禁卡列表，支持分页，用于门禁卡归还页面表格展示。",
+          "parameters": [
+            {
+              "name": "current",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "当前页码"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "每页条数"
+              }
+            }
+          ],
+          "request_schema_ref": null,
+          "response_schema_ref": "AccessCardPage",
+          "error_codes": [
+            "INVALID_PARAMETER"
+          ],
+          "authentication": {
+            "required": false
+          }
+        },
+        {
+          "id": "contract_deactivation_submission.submit_deactivation",
+          "name": "提交离职注销申请",
+          "method": "POST",
+          "path": "/api/deactivation-submissions",
+          "summary": "对本人名下使用中的门禁卡发起离职注销申请，将申请注销字段更新为离职并同步至飞码端，由飞码触发后续注销流程，返回提交结果用于已完成界面展示。",
+          "parameters": [],
+          "request_schema_ref": "DeactivationSubmissionRequest",
+          "response_schema_ref": "DeactivationSubmissionResult",
+          "error_codes": [
+            "INVALID_PARAMETER",
+            "NOT_FOUND",
+            "INVALID_STATE"
+          ],
+          "authentication": {
+            "required": false
+          }
+        },
+        {
+          "id": "contract_deactivation_submission.get_result",
+          "name": "查看注销申请提交结果",
+          "method": "GET",
+          "path": "/api/deactivation-submissions/{id}",
+          "summary": "按提交结果主键查询离职注销申请的提交结果详情，用于已完成界面展示申请注销状态、同步状态与注销流程状态。",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "description": "离职注销申请提交结果主键",
+                "entity_field_ref": "deactivation_submission.id"
+              }
+            }
+          ],
+          "request_schema_ref": null,
+          "response_schema_ref": "DeactivationSubmissionResult",
+          "error_codes": [
+            "NOT_FOUND"
+          ],
+          "authentication": {
+            "required": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "contract_morning_greeting",
+      "name": "早安问候管理",
+      "entity_ids": [
+        "morning_greeting"
+      ],
+      "base_path": "/api/morning-greetings",
+      "authentication": {
+        "required": false
+      },
+      "schemas": {
+        "MorningGreetingResponse": {
+          "type": "object",
+          "description": "早安问候语响应对象",
+          "properties": {
+            "greetingText": {
+              "type": "string",
+              "description": "页面访问时获取并在页面主体清晰展示的问候文本字符串，固定内容为「早上好！」。",
+              "entity_field_ref": "morning_greeting.greeting_text"
+            }
+          },
+          "required": [
+            "greetingText"
+          ]
+        }
+      },
+      "endpoints": [
+        {
+          "id": "contract_morning_greeting.get_greeting",
+          "name": "获取早安问候语",
+          "method": "GET",
+          "path": "/api/morning-greetings",
+          "summary": "早安问候页面访问时获取问候文本内容，返回字符串「早上好！」供前端页面清晰展示。",
+          "parameters": [],
+          "request_schema_ref": null,
+          "response_schema_ref": "MorningGreetingResponse",
+          "error_codes": [
+            "INTERNAL_SERVER_ERROR"
+          ],
+          "authentication": {
+            "required": false
+          }
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "main",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "contract_access_card_claim_application.list",
+            "usage": "page_load",
+            "trigger": "页面交互触发",
+            "required_for_initial_load": true
+          },
+          {
+            "endpoint_id": "contract_access_card.list",
+            "usage": "page_load",
+            "trigger": "页面交互触发",
+            "required_for_initial_load": true
+          },
+          {
+            "endpoint_id": "contract_deactivation_submission.list",
+            "usage": "page_load",
+            "trigger": "页面交互触发",
+            "required_for_initial_load": true
+          }
+        ],
+        "action_implementations": []
+      }
+    },
+    {
+      "pageId": "card_claim",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "contract_access_card_claim_application.list",
+            "usage": "查询本人名下待领签的门禁卡领用申请明细列表，用于明细表格展示，支持分页",
+            "trigger": "初始加载页面时读取；刷新列表、翻页浏览、完成领签成功后刷新页面数据时触发",
+            "required_for_initial_load": true
+          },
+          {
+            "endpoint_id": "contract_access_card_claim_application.complete_claim",
+            "usage": "将勾选或全选的申请明细领签状态由待领签更新为已领签并同步至飞码",
+            "trigger": "点击【完成领签】并确认提交时触发",
+            "required_for_initial_load": false
+          }
+        ],
+        "action_implementations": [
+          {
+            "actionId": "complete_claim",
+            "endpointId": "contract_access_card_claim_application.complete_claim"
+          }
+        ]
+      }
+    },
+    {
+      "pageId": "card_return",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "contract_deactivation_submission.list",
+            "usage": "查询本人名下权限状态为使用中的门禁卡列表，用于门禁卡信息表格展示与翻页",
+            "trigger": "初始加载及翻页刷新时读取本人使用中门禁卡列表",
+            "required_for_initial_load": true
+          },
+          {
+            "endpoint_id": "contract_deactivation_submission.submit_deactivation",
+            "usage": "提交离职注销申请，将申请注销字段更新为离职并同步至飞码，返回提交结果",
+            "trigger": "用户点击离职注销按钮并确认后提交注销申请",
+            "required_for_initial_load": false
+          }
+        ],
+        "action_implementations": [
+          {
+            "actionId": "apply_deactivation",
+            "stepBindings": [
+              {
+                "stepId": "submit_deactivation",
+                "endpointId": "contract_deactivation_submission.submit_deactivation"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "pageId": "deactivation_done",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "contract_access_card_claim_application.list",
+            "usage": "page_load",
+            "trigger": "页面交互触发",
+            "required_for_initial_load": true
+          },
+          {
+            "endpoint_id": "contract_access_card.list",
+            "usage": "page_load",
+            "trigger": "页面交互触发",
+            "required_for_initial_load": true
+          },
+          {
+            "endpoint_id": "contract_deactivation_submission.list",
+            "usage": "page_load",
+            "trigger": "页面交互触发",
+            "required_for_initial_load": true
+          }
+        ],
+        "action_implementations": []
+      }
+    },
+    {
+      "pageId": "morning_greeting",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "contract_morning_greeting.get_greeting",
+            "usage": "获取早安问候语字符串「早上好！」并在页面主体展示",
+            "trigger": "页面初始加载或访问时自动调用",
+            "required_for_initial_load": true
+          }
+        ],
+        "action_implementations": []
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 38,
+  "product_plan_sha256": "f581c59ed942dc46b1f4f6288d3f9721ffb137765c8ac0f60f50eb39ca309839",
+  "ui_designs_sha256": "d675e6f487ca3fbcf7ac663cb87bc3ac9564da993a2b6c9745ffa8f5af497601",
+  "confirmation_status": "pending_user_confirmation"
+}
