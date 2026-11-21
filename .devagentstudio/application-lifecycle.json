@@ -1,0 +1,96 @@
+{
+  "application": {
+    "id": "1795264022208-rqzrha",
+    "name": "测试"
+  },
+  "updatedAt": "2026-11-21T13:22:15.670846Z",
+  "revision": 11,
+  "developmentArtifacts": {
+    "pages": {
+      "good_evening": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "lastCompletedRunId": null,
+        "lastCompletedThreadId": null,
+        "changeStatus": "changed",
+        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "checkedChangeId": null
+      },
+      "welcome_world": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "lastCompletedRunId": null,
+        "lastCompletedThreadId": null,
+        "changeStatus": "changed",
+        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "checkedChangeId": null
+      }
+    },
+    "entities": {
+      "greeting_message": {
+        "initialDevelopmentStatus": "pending",
+        "skippedAt": null,
+        "skipReason": null,
+        "completedBranchName": null
+      }
+    },
+    "endpoints": {
+      "greeting_message_contract": {
+        "greeting_message_contract.get_good_evening": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "lastCompletedRunId": null,
+          "lastCompletedThreadId": null,
+          "changeStatus": "changed",
+          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "checkedChangeId": null
+        },
+        "greeting_message_contract.get_welcome_world": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "lastCompletedRunId": null,
+          "lastCompletedThreadId": null,
+          "changeStatus": "changed",
+          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "checkedChangeId": null
+        }
+      }
+    },
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "ae871f15-c63c-4688-acd5-2463eee8d64d",
+    "iterationId": "3801e6ee-3460-406f-92ca-f1bbf4c1a482"
+  },
+  "activeRunId": "874877aa-0494-4b8a-b9c0-c7dbef3ac84d",
+  "activeExecutions": {},
+  "endedExecutions": {},
+  "endedPlanningExecution": null,
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}

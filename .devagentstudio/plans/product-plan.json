@@ -1,0 +1,94 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-11-21T13:20:23.077046+00:00",
+  "requirement_spec_sha256": "b4dbb9c2173cfcf5430f103417129f492012b7a296fe162228f317eae9f82067",
+  "app": {
+    "name": "测试",
+    "summary": "一个面向PC端的基础展示应用，包含两个前端页面：第一个页面通过接口获取并展示字符串“晚上好！”，第二个页面通过接口获取并展示字符串“欢迎来到我的世界！”。"
+  },
+  "business_flows": [
+    {
+      "name": "查看晚间问候语流程",
+      "steps": [
+        "访问用户进入晚间问候页",
+        "前端页面请求对应接口获取返回字符串“晚上好！”",
+        "前端页面将字符串“晚上好！”展示给用户"
+      ],
+      "id": "flow_good_evening",
+      "description": "访问用户打开晚间问候页并查看接口返回的“晚上好！”文本。"
+    },
+    {
+      "name": "查看欢迎世界问候语流程",
+      "steps": [
+        "访问用户通过侧边导航切换进入欢迎世界页",
+        "前端页面请求对应接口获取返回字符串“欢迎来到我的世界！”",
+        "前端页面将字符串“欢迎来到我的世界！”展示给用户"
+      ],
+      "id": "flow_welcome_world",
+      "description": "访问用户打开欢迎世界页并查看接口返回的“欢迎来到我的世界！”文本。"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "good_evening",
+      "name": "晚间问候页",
+      "path": "/page/good-evening",
+      "module_id": "greeting_display",
+      "description": "调用接口获取字符串“晚上好！”并在前端页面进行展示。",
+      "goal": "向访问用户清晰、直接地呈现晚间问候语“晚上好！”。",
+      "information_items": [
+        {
+          "itemId": "good_evening_greeting_text",
+          "label": "晚间问候语",
+          "description": "在页面中向访问用户展示的核心问候文本“晚上好！”。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [
+        "welcome_world"
+      ],
+      "acceptance_criteria": [
+        "访问用户无需登录即可直接打开晚间问候页。",
+        "进入页面后，页面自动呈现文本“晚上好！”，内容完整且清晰可读。",
+        "访问用户可通过页面侧边导航切换至欢迎世界页。"
+      ],
+      "_change_status": "added"
+    },
+    {
+      "pageId": "welcome_world",
+      "name": "欢迎世界页",
+      "path": "/page/welcome-world",
+      "module_id": "greeting_display",
+      "description": "调用接口获取字符串“欢迎来到我的世界！”并在前端页面进行展示。",
+      "goal": "向访问用户清晰、直接地呈现欢迎语“欢迎来到我的世界！”。",
+      "information_items": [
+        {
+          "itemId": "welcome_world_greeting_text",
+          "label": "欢迎世界问候语",
+          "description": "在页面中向访问用户展示的核心欢迎文本“欢迎来到我的世界！”。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [
+        "good_evening"
+      ],
+      "acceptance_criteria": [
+        "访问用户无需登录即可直接打开欢迎世界页。",
+        "进入页面后，页面自动呈现文本“欢迎来到我的世界！”，内容完整且清晰可读。",
+        "访问用户可通过页面侧边导航切换至晚间问候页。"
+      ],
+      "_change_status": "added"
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "应用面向PC端提供带页头和侧边导航栏的整体体验，不展示页脚，所有访问用户无需认证即可访问全部页面。",
+    "访问用户可通过侧边导航在“晚间问候页”与“欢迎世界页”之间顺畅切换。",
+    "在“晚间问候页”中准确展示字符串“晚上好！”，在“欢迎世界页”中准确展示字符串“欢迎来到我的世界！”。"
+  ],
+  "confirmation_status": "confirmed"
+}

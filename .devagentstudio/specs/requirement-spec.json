@@ -1,0 +1,95 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "generated_at": "2026-11-21T13:20:10.587725+00:00",
+  "summary": "一个面向PC端的基础展示应用，包含两个前端页面：第一个页面通过接口获取并展示字符串“晚上好！”，第二个页面通过接口获取并展示字符串“欢迎来到我的世界！”。",
+  "source_request": "请为新应用「测试」完成需求、产品、UI（可跳过）和技术规划。；应用场景：1、实现一个前端页面，页面上一个接口返回字符串“晚上好！”，前端展示这个字符串；2、再实现一个前端页面，页面上一个接口返回字符串“欢迎来到我的世界！”，前端展示这个字符串；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+  "app_info": {
+    "name": "测试",
+    "summary": "一个面向PC端的基础展示应用，包含两个前端页面：第一个页面通过接口获取并展示字符串“晚上好！”，第二个页面通过接口获取并展示字符串“欢迎来到我的世界！”。",
+    "target": "",
+    "target_platform": "PC",
+    "navigation_layout": "side",
+    "header_enabled": true,
+    "footer_enabled": false,
+    "route_root_path": "/page",
+    "menu_enabled": true
+  },
+  "user_roles": [
+    {
+      "name": "访问用户",
+      "description": "通过浏览器访问前端页面并查看接口返回文本的用户。",
+      "id": "visitor"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "问候语展示模块",
+      "description": "负责请求接口并在前端页面展示固定问候文本内容。",
+      "priority": "must",
+      "id": "greeting_display"
+    }
+  ],
+  "pages": [
+    {
+      "name": "晚间问候页",
+      "path": "/page/good-evening",
+      "module_id": "greeting_display",
+      "description": "调用接口获取字符串“晚上好！”并在前端页面进行展示。",
+      "pageId": "good_evening"
+    },
+    {
+      "name": "欢迎世界页",
+      "path": "/page/welcome-world",
+      "module_id": "greeting_display",
+      "description": "调用接口获取字符串“欢迎来到我的世界！”并在前端页面进行展示。",
+      "pageId": "welcome_world"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "查看晚间问候语流程",
+      "steps": [
+        "访问用户进入晚间问候页",
+        "前端页面请求对应接口获取返回字符串“晚上好！”",
+        "前端页面将字符串“晚上好！”展示给用户"
+      ],
+      "id": "flow_good_evening",
+      "description": "访问用户打开晚间问候页并查看接口返回的“晚上好！”文本。"
+    },
+    {
+      "name": "查看欢迎世界问候语流程",
+      "steps": [
+        "访问用户通过侧边导航切换进入欢迎世界页",
+        "前端页面请求对应接口获取返回字符串“欢迎来到我的世界！”",
+        "前端页面将字符串“欢迎来到我的世界！”展示给用户"
+      ],
+      "id": "flow_welcome_world",
+      "description": "访问用户打开欢迎世界页并查看接口返回的“欢迎来到我的世界！”文本。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\"version\":\"1.0\",\"status\":\"ready_for_confirmation\",\"generated_at\":\"2026-04-20T00:00:00Z\",\"app_info\":{\"name\":\"测试\",\"summary\":\"一个面向PC端的基础展示应用，包含两个前端页面：第一个页面通过接口获取并展示字符串“晚上好！”，第二个页面通过接口获取并展示字符串“欢迎来到我的世界！”。\",\"target_platform\":\"PC\",\"navigation_layout\":\"side\",\"header_enabled\":true,\"footer_enabled\":false,\"route_root_path\":\"/\"},\"user_roles\":[{\"id\":\"visitor\",\"name\":\"访问用户\",\"description\":\"通过浏览器访问前端页面并查看接口返回文本的用户。\"}],\"feature_modules\":[{\"id\":\"greeting_display\",\"name\":\"问候语展示模块\",\"description\":\"负责请求接口并在前端页面展示固定问候文本内容。\"}],\"pages\":[{\"pageId\":\"good_evening\",\"name\":\"晚间问候页\",\"path\":\"/\",\"module_id\":\"greeting_display\",\"description\":\"调用接口获取字符串“晚上好！”并在前端页面进行展示。\"},{\"pageId\":\"welcome_world\",\"name\":\"欢迎世界页\",\"path\":\"/welcome-world\",\"module_id\":\"greeting_display\",\"description\":\"调用接口获取字符串“欢迎来到我的世界！”并在前端页面进行展示。\"}],\"business_flows\":[{\"id\":\"flow_good_evening\",\"name\":\"查看晚间问候语流程\",\"description\":\"访问用户打开晚间问候页并查看接口返回的“晚上好！”文本。\",\"steps\":[\"访问用户进入晚间问候页\",\"前端页面请求对应接口获取返回字符串“晚上好！”\",\"前端页面将字符串“晚上好！”展示给用户\"]},{\"id\":\"flow_welcome_world\",\"name\":\"查看欢迎世界问候语流程\",\"description\":\"访问用户打开欢迎世界页并查看接口返回的“欢迎来到我的世界！”文本。\",\"steps\":[\"访问用户通过侧边导航切换进入欢迎世界页\",\"前端页面请求对应接口获取返回字符串“欢迎来到我的世界！”\",\"前端页面将字符串“欢迎来到我的世界！”展示给用户\"]}],\"authentication_requirements\":{\"enabled\":false,\"sourceRefs\":[]},\"authorization_requirements\":{\"restrictedPages\":[],\"restrictedOperations\":[]}}",
+  "approved": true,
+  "confirmation_status": "confirmed",
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "gemini-4-carbon",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model"
+}
