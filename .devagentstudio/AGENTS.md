@@ -77,3 +77,46 @@
   - GET /api/greetings/welcome-world
   - 契约 `greeting_message_contract`，端点 `greeting_message_contract.get_welcome_world`
   - 描述：获取欢迎世界页所需的问候语内容“欢迎来到我的世界！”，供前端页面直接展示。
+
+## 分支 v1_3（2026-11-21 14:28:02 UTC）
+
+**变更说明**：Z000000-0000 #comment chore: 1
+
+### 应用现状
+
+- 应用名称：测试
+- 应用场景：1、实现一个前端页面，页面上一个接口返回字符串“晚上好！”，前端展示这个字符串
+2、再实现一个前端页面，页面上一个接口返回字符串“欢迎来到我的世界！”，前端展示这个字符串
+- 目标终端：PC
+- 导航布局：布局=side, 页头=启用, 页脚=禁用
+- 主题色：#6b3cf0
+- 数据源类型：database
+- 认证：不启用
+- 权限控制：不启用
+- 已有页面：工作台
+
+### 需求规格
+
+> 一个面向PC端的基础展示应用，包含两个前端页面：第一个页面通过接口获取并展示字符串“晚上好！”，第二个页面通过接口获取并展示字符串“欢迎来到我的世界！”。
+
+**用户角色**：
+- 访问用户：通过浏览器访问前端页面并查看接口返回文本的用户。
+
+**功能模块**：
+- 问候语展示模块（must）：负责请求接口并在前端页面展示固定问候文本内容。
+
+### UI 设计稿
+
+- good_evening
+- welcome_world
+
+### 接口设计
+
+- **获取晚间问候语**
+  - GET /api/greetings/good-evening
+  - 契约 `greeting_message_contract`，端点 `greeting_message_contract.get_good_evening`
+  - 描述：获取晚间问候页所需的问候语内容“晚上好！”，供前端页面直接展示。
+- **获取欢迎世界问候语**
+  - GET /api/greetings/welcome-world
+  - 契约 `greeting_message_contract`，端点 `greeting_message_contract.get_welcome_world`
+  - 描述：获取欢迎世界页所需的问候语内容“欢迎来到我的世界！”，供前端页面直接展示。

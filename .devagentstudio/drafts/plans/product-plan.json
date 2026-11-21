@@ -1,0 +1,80 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-11-21T14:21:03.175257+00:00",
+  "requirement_spec_sha256": "3bdaeff1d0aea0b79290ffbb92ca70df2f597c4d1d8f6df2c273b751ece9471e",
+  "app": {
+    "name": "测试",
+    "summary": "一个面向PC端的基础展示应用，包含一个前端页面（欢迎世界页），通过接口获取并展示字符串“欢迎来到我的世界！”。"
+  },
+  "business_flows": [
+    {
+      "name": "查看欢迎世界问候语流程",
+      "steps": [
+        "访问用户进入欢迎世界页",
+        "前端页面请求对应接口获取返回字符串“欢迎来到我的世界！”",
+        "前端页面将字符串“欢迎来到我的世界！”展示给用户"
+      ],
+      "id": "flow_welcome_world",
+      "description": "访问用户打开欢迎世界页并查看接口返回的“欢迎来到我的世界！”文本。"
+    },
+    {
+      "description": "访问用户打开晚间问候页并查看接口返回的“晚上好！”文本。",
+      "id": "flow_good_evening",
+      "name": "查看晚间问候语流程",
+      "steps": [
+        "访问用户进入晚间问候页",
+        "前端页面请求对应接口获取返回字符串“晚上好！”",
+        "前端页面将字符串“晚上好！”展示给用户"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "welcome_world",
+      "name": "欢迎世界页",
+      "path": "/page/welcome-world",
+      "module_id": "greeting_display",
+      "description": "调用接口获取字符串“欢迎来到我的世界！”并在前端页面进行展示。",
+      "goal": "向访问用户清晰、直接地呈现欢迎语“欢迎来到我的世界！”。",
+      "information_items": [
+        {
+          "itemId": "welcome_world_greeting_text",
+          "label": "欢迎世界问候语",
+          "description": "在页面中向访问用户展示的核心欢迎文本“欢迎来到我的世界！”。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [
+        "good_evening"
+      ],
+      "acceptance_criteria": [
+        "页面目标和核心操作可以由目标角色完成。"
+      ],
+      "_change_status": "unchanged"
+    },
+    {
+      "pageId": "good_evening",
+      "name": "晚间问候页",
+      "path": "/page/good-evening",
+      "module_id": "greeting_display",
+      "description": "调用接口获取字符串“晚上好！”并在前端页面进行展示。",
+      "goal": "",
+      "information_items": [],
+      "actions": [],
+      "navigation_targets": [],
+      "acceptance_criteria": [],
+      "_change_status": "deleted"
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "应用仅保留“欢迎世界页”，原“晚间问候页”在导航菜单及页面入口中不再出现。",
+    "访问用户进入应用后可正常访问“欢迎世界页”，并清晰看到文本“欢迎来到我的世界！”。",
+    "整个访问与查看问候语过程流畅自然，无需登录认证。"
+  ],
+  "confirmation_status": "pending_user_confirmation"
+}
