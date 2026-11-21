@@ -1,0 +1,55 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-11-21T10:09:52.112703+00:00",
+  "requirement_spec_sha256": "af774945cdd0a780529ebc051707f6eb294309db7704e73b3e083a526e70a2f4",
+  "app": {
+    "name": "欢迎页",
+    "summary": "一个面向 PC 端的欢迎页应用，前端页面调用后端接口获取字符串“早上好！”并进行展示。"
+  },
+  "business_flows": [
+    {
+      "name": "查看问候语流程",
+      "steps": [
+        "用户打开 PC 端欢迎页",
+        "前端页面调用问候语接口获取返回的字符串“早上好！”",
+        "前端页面在界面上展示字符串“早上好！”"
+      ],
+      "id": "view_morning_greeting",
+      "description": "用户访问欢迎页，前端请求接口并展示返回的字符串“早上好！”。"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "home",
+      "name": "欢迎页",
+      "path": "/page/home",
+      "module_id": "greeting_display",
+      "description": "应用主页面，进入页面时请求接口获取字符串“早上好！”并在前端页面展示。",
+      "goal": "向访问应用的用户清晰展示问候语“早上好！”。",
+      "information_items": [
+        {
+          "itemId": "morning_greeting_text",
+          "label": "问候语文本",
+          "description": "页面主区域展示的问候字符串“早上好！”。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "acceptance_criteria": [
+        "用户无需登录即可直接打开欢迎页。",
+        "进入欢迎页后，页面自动加载并清晰展示字符串“早上好！”，无需用户额外点击触发。"
+      ],
+      "_change_status": "added"
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "应用面向 PC 端提供服务，配备侧边导航与页头区域，不显示页脚区域。",
+    "所有访问用户均可直接进入欢迎页并查看问候字符串“早上好！”。"
+  ],
+  "confirmation_status": "confirmed"
+}
