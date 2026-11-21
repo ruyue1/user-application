@@ -3,8 +3,8 @@
     "id": "1795264022208-rqzrha",
     "name": "测试"
   },
-  "updatedAt": "2026-11-21T13:41:06.715649Z",
-  "revision": 101,
+  "updatedAt": "2026-11-21T14:17:14.288050Z",
+  "revision": 7,
   "developmentArtifacts": {
     "pages": {
       "good_evening": {
@@ -32,14 +32,7 @@
         "checkedChangeId": null
       }
     },
-    "entities": {
-      "greeting_message": {
-        "initialDevelopmentStatus": "pending",
-        "skippedAt": null,
-        "skipReason": null,
-        "completedBranchName": null
-      }
-    },
+    "entities": {},
     "endpoints": {
       "greeting_message_contract": {
         "greeting_message_contract.get_good_evening": {
@@ -68,20 +61,16 @@
         }
       }
     },
-    "catalogError": null,
-    "outOfScope": [
-      "page:good_evening",
-      "page:welcome_world",
-      "endpoint:greeting_message_contract:greeting_message_contract.get_good_evening"
-    ]
+    "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112104/.devagentstudio/plans/technical-plan.json'",
+    "outOfScope": []
   },
   "initialization": {
-    "stage": "ready_for_workbench",
-    "status": "completed",
-    "threadId": "ae871f15-c63c-4688-acd5-2463eee8d64d",
-    "iterationId": "3801e6ee-3460-406f-92ca-f1bbf4c1a482"
+    "stage": "awaiting_planning_stage_entry",
+    "status": "awaiting_user",
+    "threadId": "11b57f8b-075d-4a81-86fe-3dc2c8c17492",
+    "iterationId": "11b57f8b-075d-4a81-86fe-3dc2c8c17492"
   },
-  "activeRunId": null,
+  "activeRunId": "0239db17-027a-49a8-b3e5-f87d2ae63aa4",
   "activeExecutions": {},
   "endedExecutions": {},
   "endedPlanningExecution": null,
@@ -96,15 +85,5 @@
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {
-    "testExecutionStatus": "passed",
-    "reviewStatus": "passed",
-    "acceptanceStatus": "passed",
-    "redevelopedChangedTargets": [
-      "endpoint:greeting_message_contract:greeting_message_contract.get_good_evening",
-      "endpoint:greeting_message_contract:greeting_message_contract.get_welcome_world",
-      "page:good_evening",
-      "page:welcome_world"
-    ]
-  }
+  "extensions": {}
 }

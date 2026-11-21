@@ -1,0 +1,16 @@
+{
+  "pages": {
+    "good_evening": {
+      "pageKey": "GoodEvening",
+      "templateId": "",
+      "templateSourcePath": ""
+    },
+    "welcome_world": {
+      "pageKey": "WelcomeWorld",
+      "templateId": "",
+      "templateSourcePath": ""
+    }
+  },
+  "schemaVersion": 1,
+  "sourceBranch": "v1_1"
+}
