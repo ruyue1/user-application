@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "b14cc05b58064e1e85ee6c96e405cfba",
+  "apiContractId": "greeting_contract",
+  "endpointId": "greeting_contract.get_morning_greeting",
+  "endpointContract": {
+    "id": "greeting_contract.get_morning_greeting",
+    "name": "获取问候语",
+    "method": "GET",
+    "path": "/api/greetings/morning",
+    "summary": "获取欢迎页展示的问候字符串“早上好！”",
+    "parameters": [],
+    "request_schema_ref": null,
+    "response_schema_ref": "MorningGreetingResponse",
+    "error_codes": [
+      "INTERNAL_SERVER_ERROR"
+    ],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "morningGreetingText": "早上好！"
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "morningGreetingText",
+        "type": "string",
+        "required": true,
+        "description": "欢迎页主区域展示的问候字符串，固定内容为“早上好！”"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "morningGreetingText",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "ee5aa01b81f03aea2fc97cc75416f865110dafa8a6731c3efb8696811ba9af88"
+    }
+  ],
+  "confirmedAt": "2026-11-21T10:13:21.236294Z"
+}
