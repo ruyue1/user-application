@@ -1,64 +1,68 @@
 import React from 'react';
 import { ProCard } from '@ant-design/pro-components';
-import { Typography, Space, theme } from 'antd';
+import { Col, Row, Space, Typography, theme } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 
 const { Title, Text } = Typography;
+
+const greetingMockData = {
+  greetingText: '中午好！',
+};
 
 const NoonGreeting: React.FC = () => {
 const { token } = theme.useToken();
 
   return (
     <div style={{ padding: 24 }}>
-      <ProCard
-        bordered
-        style={{
-          maxWidth: 680,
-          margin: '48px auto',
-          borderRadius: token.borderRadiusLG,
-          boxShadow: token.boxShadowTertiary,
-        }}
-        bodyStyle={{
-          padding: '64px 32px',
-          textAlign: 'center',
-        }}
-      >
-        <Space direction="vertical" size="middle" align="center">
-          <div
+      <Row justify="center" align="middle" style={{ minHeight: 'calc(100vh - 160px)' }}>
+        <Col xs={24} sm={20} md={16} lg={12} xl={10}>
+          <ProCard
+            bordered
             style={{
-              width: 64,
-              height: 64,
-              borderRadius: '50%',
-              backgroundColor: token.colorWarningBg,
-              border: `1px solid ${token.colorWarningBorder}`,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              borderRadius: token.borderRadiusLG,
+              boxShadow: token.boxShadowTertiary,
+              textAlign: 'center',
+              padding: `${token.paddingXL}px ${token.paddingLG}px`,
             }}
           >
-            <SmileOutlined style={{ fontSize: 32, color: token.colorWarning }} />
-          </div>
+            <Space direction="vertical" size={token.marginMD} style={{ width: '100%' }}>
+              <div
+                style={{
+                  width: 64,
+                  height: 64,
+                  borderRadius: '50%',
+                  backgroundColor: token.colorPrimaryBg,
+                  color: token.colorPrimary,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 30,
+                  margin: '0 auto',
+                }}
+              >
+                <SmileOutlined />
+              </div>
 
-          <Text type="secondary" style={{ fontSize: token.fontSize }}>
-            午间问候语
-          </Text>
+              <Text type="secondary" style={{ fontSize: token.fontSize }}>
+                午间问候语
+              </Text>
 
-          <Title
-            level={1}
-            data-information-item-id="noon_greeting_text"
-            data-control-id="noon_greeting_text-display"
-            style={{
-              margin: 0,
-              fontSize: 44,
-              fontWeight: token.fontWeightStrong,
-              color: token.colorTextHeading,
-              letterSpacing: 2,
-            }}
-          >
-            中午好！
-          </Title>
-        </Space>
-      </ProCard>
+              <Title
+                level={1}
+                data-information-item-id="noon_greeting_text"
+                data-control-id="noon_greeting_text-display"
+                style={{
+                  margin: 0,
+                  color: token.colorTextHeading,
+                  letterSpacing: 2,
+                }}
+              >
+                {greetingMockData.greetingText}
+              </Title>
+            </Space>
+          </ProCard>
+        </Col>
+      </Row>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "59182946607a43dea663cac08513317cc8df056f0731cc71d3567d3fc0e5d18e",
+  "product_plan_sha256": "64a11ac34c964073dce9e0a4e6bca88cd4220eb539e153b382953f87959f3b3f",
   "pages": [
     {
       "pageId": "home",
@@ -60,7 +60,7 @@
       },
       "verification": {
         "status": "passed",
-        "code_sha256": "471fcc31558325de96aace15a3b07d2da52e6e9c89592976d8036cf94d7fe830",
+        "code_sha256": "405435321f26200774ab7bc949b2d6e11524358b78ef05d33827a59c44c12239",
         "checks": [
           {
             "id": "product-action-bindings",
@@ -77,8 +77,47 @@
         ],
         "errors": []
       },
-      "code_sha256": "471fcc31558325de96aace15a3b07d2da52e6e9c89592976d8036cf94d7fe830",
-      "generation_id": "ui-design-9707bc8e477a4154bfca916502806566"
+      "code_sha256": "405435321f26200774ab7bc949b2d6e11524358b78ef05d33827a59c44c12239",
+      "generation_id": "ui-design-e5cf9f79079e465fbc09a2250d13f4d2"
+    },
+    {
+      "pageId": "my_world_greeting",
+      "page_key": "MyWorldGreeting",
+      "preview_path": "/page/my-world-greeting",
+      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/opendesign-skill/2026112102/.devagentstudio/ui-design/pages/MyWorldGreeting/index.tsx",
+      "status": "confirmed",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "my_world_greeting_text",
+            "controlIds": [
+              "my_world_greeting_text-display"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "passed",
+        "code_sha256": "62e442fe1f506a4d23816048c3867991d0ea817225c2d8c81c1ace43efd873b0",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      },
+      "code_sha256": "62e442fe1f506a4d23816048c3867991d0ea817225c2d8c81c1ace43efd873b0",
+      "generation_id": "ui-design-3a70c3d7b19a4b98a966c4b76c5d9311"
     }
   ]
 }

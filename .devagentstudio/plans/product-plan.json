@@ -1,11 +1,11 @@
 {
   "schema_version": "product-plan.v5",
   "version": "0.1.0",
-  "generated_at": "2026-11-21T11:36:22.239502+00:00",
-  "requirement_spec_sha256": "afe00eea8dfd7016905bd143224f46555167caf984bd17c25d674b8c9dcb587c",
+  "generated_at": "2026-11-21T11:46:33.264380+00:00",
+  "requirement_spec_sha256": "2102c248fa1fed3f382ea2b1cb916d9257b5557f4683d3a3bff67b1c2e2c85ce",
   "app": {
     "name": "欢迎页",
-    "summary": "一个面向 PC 端的欢迎页应用，包含展示“早上好！”的欢迎页和展示“中午好！”的午间问候页，前端页面分别调用后端接口获取对应问候字符串并进行展示。"
+    "summary": "一个面向 PC 端的欢迎页应用，包含展示“早上好！”的欢迎页、展示“中午好！”的午间问候页以及展示“欢迎来到我的世界！”的世界欢迎页，前端页面分别调用后端接口获取对应问候字符串并进行展示。"
   },
   "business_flows": [
     {
@@ -27,6 +27,16 @@
       ],
       "id": "view_noon_greeting",
       "description": "用户访问午间问候页，前端请求接口并展示返回的字符串“中午好！”。"
+    },
+    {
+      "name": "查看世界欢迎语流程",
+      "steps": [
+        "用户打开 PC 端世界欢迎页",
+        "前端页面调用世界欢迎语接口获取返回的字符串“欢迎来到我的世界！”",
+        "前端页面在界面上展示字符串“欢迎来到我的世界！”"
+      ],
+      "id": "view_my_world_greeting",
+      "description": "用户访问世界欢迎页，前端请求接口并展示返回的字符串“欢迎来到我的世界！”。"
     }
   ],
   "pages": [
@@ -72,6 +82,28 @@
         "访客用户无需登录即可直接访问午间问候页并查看问候语。"
       ],
       "_change_status": "added"
+    },
+    {
+      "pageId": "my_world_greeting",
+      "name": "世界欢迎页",
+      "path": "/page/my-world-greeting",
+      "module_id": "greeting_display",
+      "description": "世界欢迎页面，进入页面时请求接口获取字符串“欢迎来到我的世界！”并在前端页面展示。",
+      "goal": "向访问世界欢迎页的用户清晰展示问候语“欢迎来到我的世界！”。",
+      "information_items": [
+        {
+          "itemId": "my_world_greeting_text",
+          "label": "世界欢迎语",
+          "description": "页面核心展示的世界欢迎文本内容“欢迎来到我的世界！”。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "acceptance_criteria": [
+        "用户进入世界欢迎页后，页面清晰展示字符串“欢迎来到我的世界！”。",
+        "访客用户无需登录即可直接访问世界欢迎页并查看问候语。"
+      ],
+      "_change_status": "added"
     }
   ],
   "authorizationTargets": {
@@ -79,9 +111,10 @@
     "operationRules": []
   },
   "product_acceptance_criteria": [
-    "用户可通过侧边导航菜单在“欢迎页”与“午间问候页”之间自由切换访问。",
+    "用户可通过侧边导航菜单在“欢迎页”、“午间问候页”与“世界欢迎页”之间自由切换访问。",
     "访问“欢迎页”（/page/home）时，界面准确展示问候语“早上好！”。",
     "访问“午间问候页”（/page/noon-greeting）时，界面准确展示问候语“中午好！”。",
+    "访问“世界欢迎页”（/page/my-world-greeting）时，界面准确展示问候语“欢迎来到我的世界！”。",
     "全站支持访客直接访问，不要求用户进行登录或身份认证。"
   ],
   "confirmation_status": "confirmed"

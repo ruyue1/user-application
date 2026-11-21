@@ -13,11 +13,13 @@
       "branch": "v1_6",
       "designedPageIds": [
         "home",
-        "noon_greeting"
+        "noon_greeting",
+        "my_world_greeting"
       ],
       "plannedPageIds": [
         "home",
-        "noon_greeting"
+        "noon_greeting",
+        "my_world_greeting"
       ]
     }
   ],

@@ -3,8 +3,8 @@
     "id": "1795243283440-9i3nkg",
     "name": "欢迎页"
   },
-  "updatedAt": "2026-11-21T11:45:56.152933Z",
-  "revision": 65,
+  "updatedAt": "2026-11-21T11:47:45.612560Z",
+  "revision": 75,
   "developmentArtifacts": {
     "pages": {
       "home": {
@@ -27,6 +27,18 @@
         "completedBranchName": "v1_6",
         "lastCompletedRunId": "f2b1d4fe-fc0a-44b0-8dcd-8ad248c29a19",
         "lastCompletedThreadId": "c713917f-10ee-4200-9710-cbc00da146ea",
+        "changeStatus": "unchanged",
+        "changeReason": null,
+        "checkedChangeId": null
+      },
+      "my_world_greeting": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "lastCompletedRunId": null,
+        "lastCompletedThreadId": null,
         "changeStatus": "unchanged",
         "changeReason": null,
         "checkedChangeId": null
@@ -72,16 +84,17 @@
     "outOfScope": [
       "page:home",
       "page:noon_greeting",
+      "page:my_world_greeting",
       "endpoint:greeting_contract:greeting_contract.get_morning_greeting"
     ]
   },
   "initialization": {
-    "stage": "ready_for_workbench",
-    "status": "completed",
-    "threadId": "bbbf01a0-2227-4b22-9035-a12f5db185a8",
+    "stage": "awaiting_planning_stage_entry",
+    "status": "awaiting_user",
+    "threadId": "59250d89-979c-486c-9d02-4e9728e4a46b",
     "iterationId": "89529b68-d141-400f-a6b4-c5250da5adb0"
   },
-  "activeRunId": "d155f439-d164-4bde-84d4-37b764765a0b",
+  "activeRunId": "068ec7e6-8f4c-4347-af15-fab27d55a37f",
   "activeExecutions": {
     "d155f439-d164-4bde-84d4-37b764765a0b": {
       "scope": "endpoint",
@@ -336,9 +349,10 @@
     },
     "dataSources": {}
   },
-  "pendingRevisionImpact": {
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": {
     "changeId": "chg_11d0df4ff020480883a6f975b7de8871",
-    "interactionId": "impact_ddfe0ecd35f7411a96ea7b171810c9ce",
+    "formalBranch": "design_stage_revision",
     "sourceThreadId": "221b3961-6dc8-4789-93fc-f7c19c7eac6b",
     "sourceRunId": "09f30445-c34d-4027-b90a-a1179bb811d8",
     "request": "实现一个前端页面，页面上一个接口返回字符串“欢迎来到我的世界！”，前端展示这个字符串",
@@ -348,29 +362,21 @@
       "apiContractId": null,
       "endpointId": null
     },
-    "impact": {
-      "formalBranch": "design_stage_revision",
-      "revisionType": "requirement_scope_change",
-      "earliestArtifact": "requirement-spec",
-      "affectedArtifacts": [
-        "requirement-spec",
-        "product-plan",
-        "ui-design",
-        "technical-plan"
-      ],
-      "affectedResources": [],
-      "reason": "用户请求新增一个前端页面并配套一个返回“欢迎来到我的世界！”字符串的接口以供页面展示，属于新增页面与业务功能范围的正式需求变更。",
-      "risks": [
-        "所有受影响正式产物必须重新确认后才能进入 Build。",
-        "确认后恢复原 planning thread，并重新经过原设计确认门。"
-      ],
-      "evidence": [],
-      "analysisStatus": "completed"
-    },
-    "basedOnLifecycleRevision": 65,
-    "status": "pending"
+    "regenerationTarget": null,
+    "impactInteractionId": "impact_ddfe0ecd35f7411a96ea7b171810c9ce",
+    "planningThreadId": "59250d89-979c-486c-9d02-4e9728e4a46b",
+    "planningRunId": "068ec7e6-8f4c-4347-af15-fab27d55a37f",
+    "status": "design_planning",
+    "currentArtifact": "ui-design",
+    "remainingArtifacts": [
+      "technical-plan"
+    ],
+    "technicalPlanSha256": null,
+    "continuationTokenSha256": null,
+    "continuationLifecycleRevision": null,
+    "continuationSourceRunId": null,
+    "continuationConsumedAt": null
   },
-  "activeFormalRevision": null,
   "error": null,
   "extensions": {
     "testExecutionStatus": "pending",
