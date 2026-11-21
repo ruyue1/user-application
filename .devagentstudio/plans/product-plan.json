@@ -1,22 +1,32 @@
 {
   "schema_version": "product-plan.v5",
   "version": "0.1.0",
-  "generated_at": "2026-11-21T10:09:52.112703+00:00",
-  "requirement_spec_sha256": "af774945cdd0a780529ebc051707f6eb294309db7704e73b3e083a526e70a2f4",
+  "generated_at": "2026-11-21T12:06:00.780406+00:00",
+  "requirement_spec_sha256": "511f9fc0b88b87d936162be103606912dfd18a52f32fda8d56dc03ea4400eda9",
   "app": {
     "name": "欢迎页",
-    "summary": "一个面向 PC 端的欢迎页应用，前端页面调用后端接口获取字符串“早上好！”并进行展示。"
+    "summary": "一个面向 PC 端的欢迎页应用，包含欢迎页（调用接口获取并展示字符串“早上好！”）与午间问候页（调用接口获取并展示字符串“中午好！”）。"
   },
   "business_flows": [
     {
+      "description": "用户访问欢迎页，前端请求接口并展示返回的字符串“早上好！”。",
+      "id": "view_morning_greeting",
       "name": "查看问候语流程",
       "steps": [
         "用户打开 PC 端欢迎页",
         "前端页面调用问候语接口获取返回的字符串“早上好！”",
         "前端页面在界面上展示字符串“早上好！”"
+      ]
+    },
+    {
+      "name": "查看午间问候语流程",
+      "steps": [
+        "用户打开 PC 端午间问候页",
+        "前端页面调用午间问候语接口获取返回的字符串“中午好！”",
+        "前端页面在界面上展示字符串“中午好！”"
       ],
-      "id": "view_morning_greeting",
-      "description": "用户访问欢迎页，前端请求接口并展示返回的字符串“早上好！”。"
+      "id": "view_noon_greeting",
+      "description": "用户访问午间问候页，前端请求接口并展示返回的字符串“中午好！”。"
     }
   ],
   "pages": [
@@ -37,8 +47,31 @@
       "actions": [],
       "navigation_targets": [],
       "acceptance_criteria": [
-        "用户无需登录即可直接打开欢迎页。",
-        "进入欢迎页后，页面自动加载并清晰展示字符串“早上好！”，无需用户额外点击触发。"
+        "页面目标和核心操作可以由目标角色完成。"
+      ],
+      "_change_status": "unchanged"
+    },
+    {
+      "pageId": "noon_greeting",
+      "name": "午间问候页",
+      "path": "/page/noon-greeting",
+      "module_id": "greeting_display",
+      "description": "进入页面时请求接口获取字符串“中午好！”并在前端页面展示。",
+      "goal": "向访问午间问候页的用户清晰展示午间问候语“中午好！”。",
+      "information_items": [
+        {
+          "itemId": "noon_greeting_text",
+          "label": "午间问候语",
+          "description": "进入午间问候页后自动获取并清晰展示的问候字符串“中午好！”。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [
+        "home"
+      ],
+      "acceptance_criteria": [
+        "用户访问午间问候页时，无需任何额外操作，界面自动展示完整的问候字符串“中午好！”。",
+        "用户可以通过应用导航顺利切换回欢迎页。"
       ],
       "_change_status": "added"
     }
@@ -48,8 +81,10 @@
     "operationRules": []
   },
   "product_acceptance_criteria": [
-    "应用面向 PC 端提供服务，配备侧边导航与页头区域，不显示页脚区域。",
-    "所有访问用户均可直接进入欢迎页并查看问候字符串“早上好！”。"
+    "访客用户无需登录即可直接访问欢迎页和午间问候页。",
+    "访问欢迎页（/page/home）时，页面准确展示问候字符串“早上好！”。",
+    "访问午间问候页（/page/noon-greeting）时，页面准确展示问候字符串“中午好！”。",
+    "用户可在侧边导航菜单中顺畅切换欢迎页与午间问候页，且各页面展示对应的问候内容。"
   ],
   "confirmation_status": "confirmed"
 }

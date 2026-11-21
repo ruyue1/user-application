@@ -1,0 +1,27 @@
+{
+  "pages": {
+    "home": {
+      "definition": {
+        "actions": [],
+        "goal": "向访问应用的用户清晰展示问候语“早上好！”。",
+        "information_items": [
+          {
+            "description": "页面主区域展示的问候字符串“早上好！”。",
+            "itemId": "morning_greeting_text",
+            "label": "问候语文本"
+          }
+        ],
+        "navigation_targets": []
+      },
+      "requirement": {
+        "description": "应用主页面，进入页面时请求接口获取字符串“早上好！”并在前端页面展示。",
+        "module_id": "greeting_display",
+        "name": "欢迎页",
+        "pageId": "home",
+        "path": "/page/home"
+      }
+    }
+  },
+  "schemaVersion": 2,
+  "sourceBranch": "v1_6"
+}

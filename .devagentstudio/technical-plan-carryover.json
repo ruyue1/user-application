@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "sourceBranch": "v1_6",
+  "plan": {
+    "artifact_type": "technical-plan",
+    "architecture": {
+      "frontend": "基于单页应用生成页面、路由和 API 客户端。",
+      "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+      "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+    },
+    "entities": [
+      {
+        "id": "greeting",
+        "name": "问候语",
+        "description": "用于承载欢迎页展示的问候字符串“早上好！”",
+        "fields": [
+          {
+            "label": "问候语文本",
+            "description": "欢迎页主区域展示的问候字符串，固定内容为“早上好！”",
+            "name": "morning_greeting_text",
+            "type": "text",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "api_contracts": [
+      {
+        "id": "greeting_contract",
+        "name": "问候语",
+        "entity_ids": [
+          "greeting"
+        ],
+        "base_path": "/api/greetings",
+        "authentication": {
+          "required": false
+        },
+        "schemas": {
+          "MorningGreetingResponse": {
+            "type": "object",
+            "description": "欢迎页展示的问候语响应",
+            "properties": {
+              "morningGreetingText": {
+                "type": "string",
+                "description": "欢迎页主区域展示的问候字符串，固定内容为“早上好！”",
+                "entity_field_ref": "greeting.morning_greeting_text"
+              }
+            },
+            "required": [
+              "morningGreetingText"
+            ]
+          }
+        },
+        "endpoints": [
+          {
+            "id": "greeting_contract.get_morning_greeting",
+            "name": "获取问候语",
+            "method": "GET",
+            "path": "/api/greetings/morning",
+            "summary": "获取欢迎页展示的问候字符串“早上好！”",
+            "parameters": [],
+            "request_schema_ref": null,
+            "response_schema_ref": "MorningGreetingResponse",
+            "error_codes": [
+              "INTERNAL_SERVER_ERROR"
+            ],
+            "authentication": {
+              "required": false
+            }
+          }
+        ]
+      }
+    ],
+    "pages": [
+      {
+        "pageId": "home",
+        "references": {
+          "endpoint_dependencies": [
+            {
+              "endpoint_id": "greeting_contract.get_morning_greeting",
+              "usage": "获取欢迎页主区域展示的问候字符串“早上好！”",
+              "trigger": "进入欢迎页时自动触发初始数据加载",
+              "required_for_initial_load": true
+            }
+          ],
+          "action_implementations": []
+        }
+      }
+    ],
+    "authorization_manifest": {
+      "schema_version": "authorization-manifest.v3",
+      "resources": [],
+      "bindings": {
+        "pages": [],
+        "actions": [],
+        "endpoints": []
+      },
+      "systemAuthorization": {
+        "adminRoleSeedKey": "",
+        "managementResourceKey": ""
+      },
+      "defaultRoleAuthorization": {
+        "roles": [],
+        "roleResourceGrants": []
+      },
+      "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+    },
+    "sourceConfigRevision": 2
+  }
+}

@@ -1,12 +1,12 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "draft",
-  "generated_at": "2026-11-21T10:09:44.592637+00:00",
-  "summary": "一个面向 PC 端的欢迎页应用，前端页面调用后端接口获取字符串“早上好！”并进行展示。",
-  "source_request": "请为新应用「欢迎页」完成需求、产品、UI（可跳过）和技术规划。；应用场景：开发一个前端页面，页面上一个接口返回字符串“早上好！”，前端展示这个字符串；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+  "generated_at": "2026-11-21T12:05:45.743345+00:00",
+  "summary": "一个面向 PC 端的欢迎页应用，包含欢迎页（调用接口获取并展示字符串“早上好！”）与午间问候页（调用接口获取并展示字符串“中午好！”）。",
+  "source_request": "以下是上一迭代的应用现状总结（来自 AGENTS.md），请基于此理解当前应用状态：；# 迭代上下文；> 本文件记录每轮迭代的设计与计划产物摘要，供下一轮迭代的大模型作为起点。；## 分支 v1_0（2026-11-21 10:23:10 UTC）；**变更说明**：Z000000-0000 #comment chore: 新增欢迎页问候语功能，完成前后端数据联调。用户进入应用主页面时，将自动从服务端获取并在页面上展示“早上好！”问候信息。；### 应用现状；应用名称：欢迎页；应用场景：开发一个前端页面，页面上一个接口返回字符串“早上好！”，前端展示这个字符串；目标终端：PC；导航布局：布局=side, 页头=启用, 页脚=禁用；主题色：#6b3cf0；数据源类型：database；认证：不启用；权限控制：不启用；### 需求规格；> 一个面向 PC 端的欢迎页应用，前端页面调用后端接口获取字符串“早上好！”并进行展示。；**用户角色**：；访客用户：访问欢迎页并查看页面展示的问候字符串“早上好！”的用户。；**功能模块**：；问候语展示（must）：调用接口获取问候字符串“早上好！”并在前端页面进行展示。；### 产品计划；**页面**：；**欢迎页**（home，路径：/page/home）；描述：应用主页面，进入页面时请求接口获取字符串“早上好！”并在前端页面展示。；目标：向访问应用的用户清晰展示问候语“早上好！”。；**业务流程**：；查看问候语流程；用户访问欢迎页，前端请求接口并展示返回的字符串“早上好！”。；步骤：用户打开 PC 端欢迎页；步骤：前端页面调用问候语接口获取返回的字符串“早上好！”；步骤：前端页面在界面上展示字符串“早上好！”；### UI 设计稿；home；### 技术计划；前端架构：基于单页应用生成页面、路由和 API 客户端。；后端架构：后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。；数据层：数据库固定使用 MySQL8，缓存固定使用 Redis。；**实体**：；**问候语**（greeting）；描述：用于承载欢迎页展示的问候字符串“早上好！”；问候语文本（morning_greeting_text）：text，必填；### 接口设计；**获取问候语**；GET /api/greetings/morning；契约 `greeting_contract`，端点 `greeting_contract.get_morning_greeting`；描述：获取欢迎页展示的问候字符串“早上好！”；；本次迭代的新需求：；实现一个前端页面，页面上一个接口返回字符串“中午好！”，前端展示这个字符串",
   "app_info": {
     "name": "欢迎页",
-    "summary": "一个面向 PC 端的欢迎页应用，前端页面调用后端接口获取字符串“早上好！”并进行展示。",
+    "summary": "一个面向 PC 端的欢迎页应用，包含欢迎页（调用接口获取并展示字符串“早上好！”）与午间问候页（调用接口获取并展示字符串“中午好！”）。",
     "target": "",
     "target_device": "pc",
     "navigation_layout": "side",
@@ -18,38 +18,55 @@
   "user_roles": [
     {
       "name": "访客用户",
-      "description": "访问欢迎页并查看页面展示的问候字符串“早上好！”的用户。",
+      "description": "访问应用各问候页面并查看页面展示的问候字符串（“早上好！”及“中午好！”）的用户。",
       "id": "visitor"
     }
   ],
   "feature_modules": [
     {
       "name": "问候语展示",
-      "description": "调用接口获取问候字符串“早上好！”并在前端页面进行展示。",
+      "description": "调用接口获取问候字符串（“早上好！”与“中午好！”）并在对应前端页面进行展示。",
       "priority": "must",
       "id": "greeting_display"
     }
   ],
   "pages": [
     {
-      "name": "欢迎页",
-      "path": "/page/home",
-      "module_id": "greeting_display",
       "description": "应用主页面，进入页面时请求接口获取字符串“早上好！”并在前端页面展示。",
-      "pageId": "home"
+      "module_id": "greeting_display",
+      "name": "欢迎页",
+      "pageId": "home",
+      "path": "/page/home"
+    },
+    {
+      "name": "午间问候页",
+      "path": "/page/noon-greeting",
+      "module_id": "greeting_display",
+      "description": "进入页面时请求接口获取字符串“中午好！”并在前端页面展示。",
+      "pageId": "noon_greeting"
     }
   ],
   "entities": [],
   "business_flows": [
     {
+      "description": "用户访问欢迎页，前端请求接口并展示返回的字符串“早上好！”。",
+      "id": "view_morning_greeting",
       "name": "查看问候语流程",
       "steps": [
         "用户打开 PC 端欢迎页",
         "前端页面调用问候语接口获取返回的字符串“早上好！”",
         "前端页面在界面上展示字符串“早上好！”"
+      ]
+    },
+    {
+      "name": "查看午间问候语流程",
+      "steps": [
+        "用户打开 PC 端午间问候页",
+        "前端页面调用午间问候语接口获取返回的字符串“中午好！”",
+        "前端页面在界面上展示字符串“中午好！”"
       ],
-      "id": "view_morning_greeting",
-      "description": "用户访问欢迎页，前端请求接口并展示返回的字符串“早上好！”。"
+      "id": "view_noon_greeting",
+      "description": "用户访问午间问候页，前端请求接口并展示返回的字符串“中午好！”。"
     }
   ],
   "authorization_requirements": {
@@ -62,7 +79,7 @@
   },
   "acceptance_criteria": [],
   "clarification_questions": [],
-  "agent_note": "{\n  \"version\": \"1.0.0\",\n  \"status\": \"ready\",\n  \"generated_at\": \"2026-04-20T00:00:00Z\",\n  \"app_info\": {\n    \"name\": \"欢迎页\",\n    \"summary\": \"一个面向 PC 端的欢迎页应用，前端页面调用后端接口获取字符串“早上好！”并进行展示。\",\n    \"target_device\": \"pc\",\n    \"navigation_layout\": \"side\",\n    \"header_enabled\": true,\n    \"footer_enabled\": false,\n    \"route_root_path\": \"/\"\n  },\n  \"user_roles\": [\n    {\n      \"id\": \"visitor\",\n      \"name\": \"访客用户\",\n      \"description\": \"访问欢迎页并查看页面展示的问候字符串“早上好！”的用户。\"\n    }\n  ],\n  \"feature_modules\": [\n    {\n      \"id\": \"greeting_display\",\n      \"name\": \"问候语展示\",\n      \"description\": \"调用接口获取问候字符串“早上好！”并在前端页面进行展示。\"\n    }\n  ],\n  \"pages\": [\n    {\n      \"pageId\": \"home\",\n      \"name\": \"欢迎页\",\n      \"path\": \"/\",\n      \"module_id\": \"greeting_display\",\n      \"description\": \"应用主页面，进入页面时请求接口获取字符串“早上好！”并在前端页面展示。\"\n    }\n  ],\n  \"business_flows\": [\n    {\n      \"id\": \"view_morning_greeting\",\n      \"name\": \"查看问候语流程\",\n      \"description\": \"用户访问欢迎页，前端请求接口并展示返回的字符串“早上好！”。\",\n      \"steps\": [\n        \"用户打开 PC 端欢迎页\",\n        \"前端页面调用问候语接口获取返回的字符串“早上好！”\",\n        \"前端页面在界面上展示字符串“早上好！”\"\n      ]\n    }\n  ],\n  \"authentication_requirements\": {\n    \"enabled\": false,\n    \"sourceRefs\": []\n  },\n  \"authorization_requirements\": {\n    \"restrictedPages\": [],\n    \"restrictedOperations\": []\n  }\n}",
+  "agent_note": "{\"version\":\"1.1.0\",\"status\":\"ready\",\"generated_at\":\"2026-11-21T10:30:00Z\",\"app_info\":{\"name\":\"欢迎页\",\"summary\":\"一个面向 PC 端的欢迎页应用，包含欢迎页（调用接口获取并展示字符串“早上好！”）与午间问候页（调用接口获取并展示字符串“中午好！”）。\",\"target_device\":\"pc\",\"navigation_layout\":\"side\",\"header_enabled\":true,\"footer_enabled\":false,\"route_root_path\":\"/page\",\"menu_enabled\":true},\"user_roles\":[{\"id\":\"visitor\",\"name\":\"访客用户\",\"description\":\"访问应用各问候页面并查看页面展示的问候字符串（“早上好！”及“中午好！”）的用户。\"}],\"feature_modules\":[{\"id\":\"greeting_display\",\"name\":\"问候语展示\",\"description\":\"调用接口获取问候字符串（“早上好！”与“中午好！”）并在对应前端页面进行展示。\",\"priority\":\"must\"}],\"pages\":[{\"pageId\":\"home\",\"name\":\"欢迎页\",\"path\":\"/page/home\",\"module_id\":\"greeting_display\",\"description\":\"应用主页面，进入页面时请求接口获取字符串“早上好！”并在前端页面展示。\"},{\"pageId\":\"noon_greeting\",\"name\":\"午间问候页\",\"path\":\"/page/noon-greeting\",\"module_id\":\"greeting_display\",\"description\":\"进入页面时请求接口获取字符串“中午好！”并在前端页面展示。\"}],\"business_flows\":[{\"id\":\"view_morning_greeting\",\"name\":\"查看问候语流程\",\"description\":\"用户访问欢迎页，前端请求接口并展示返回的字符串“早上好！”。\",\"steps\":[\"用户打开 PC 端欢迎页\",\"前端页面调用问候语接口获取返回的字符串“早上好！”\",\"前端页面在界面上展示字符串“早上好！”\"]},{\"id\":\"view_noon_greeting\",\"name\":\"查看午间问候语流程\",\"description\":\"用户访问午间问候页，前端请求接口并展示返回的字符串“中午好！”。\",\"steps\":[\"用户打开 PC 端午间问候页\",\"前端页面调用午间问候语接口获取返回的字符串“中午好！”\",\"前端页面在界面上展示字符串“中午好！”\"]}],\"authentication_requirements\":{\"enabled\":false,\"sourceRefs\":[]},\"authorization_requirements\":{\"sourceRefs\":[],\"restrictedPages\":[],\"restrictedOperations\":[]}}",
   "approved": true,
   "confirmation_status": "confirmed",
   "agent_spec_used": true,

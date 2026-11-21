@@ -1,13 +1,13 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "25d92ca857a0b618b55bfcebafa855b19fc70190055924dd863ac1aa4f367edd",
+  "product_plan_sha256": "550c974bd11496463f897d58131ef8b7ca83a126f5cfeabb28ce068778cd705b",
   "pages": [
     {
       "pageId": "home",
       "page_key": "Home",
       "preview_path": "/page/home",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/opendesign-skill/2026112102/.devagentstudio/ui-design/pages/Home/index.tsx",
+      "code_path": "",
       "status": "confirmed",
       "bindings": {
         "actions": [],
@@ -39,8 +39,46 @@
         ],
         "errors": []
       },
-      "code_sha256": "66a294949eb35eb9fc8f0378f784266e4a4e4f550effade756178b4086d32a38",
-      "generation_id": "ui-design-c4fc45514dbe46f3a8810baf11884db2"
+      "code_sha256": "66a294949eb35eb9fc8f0378f784266e4a4e4f550effade756178b4086d32a38"
+    },
+    {
+      "pageId": "noon_greeting",
+      "page_key": "NoonGreeting",
+      "preview_path": "/page/noon-greeting",
+      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/opendesign-skill/2026112102/.devagentstudio/ui-design/pages/NoonGreeting/index.tsx",
+      "status": "confirmed",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "noon_greeting_text",
+            "controlIds": [
+              "noon_greeting_text-display"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "passed",
+        "code_sha256": "0db4a86221b3da232f71c529bd4ff45d5cf41ffc083f2d2e6b7c134c015b97ec",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      },
+      "code_sha256": "0db4a86221b3da232f71c529bd4ff45d5cf41ffc083f2d2e6b7c134c015b97ec",
+      "generation_id": "ui-design-22c605e3f6034997ac3a82d546bb7cf7"
     }
   ]
 }
