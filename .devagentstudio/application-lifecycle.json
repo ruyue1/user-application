@@ -3,8 +3,8 @@
     "id": "1795144906305-7yfl8i",
     "name": "欢迎页"
   },
-  "updatedAt": "2026-11-21T01:55:03.005228Z",
-  "revision": 8,
+  "updatedAt": "2026-11-21T02:07:01.130279Z",
+  "revision": 13,
   "developmentArtifacts": {
     "pages": {
       "home": {
@@ -155,12 +155,12 @@
     "outOfScope": []
   },
   "initialization": {
-    "stage": "awaiting_planning_stage_entry",
-    "status": "awaiting_user",
-    "threadId": "2ced06f7-9d4a-49f2-a3a1-dcacf530d3fc",
+    "stage": "generating_technical_plan",
+    "status": "running",
+    "threadId": "ab42fd63-d220-4833-83e0-d60506d60781",
     "iterationId": "2ced06f7-9d4a-49f2-a3a1-dcacf530d3fc"
   },
-  "activeRunId": "2e257708-98d9-41fb-a1c2-0c144b9e367b",
+  "activeRunId": "9c56e096-f93d-4595-87dd-854b8ab579f2",
   "activeExecutions": {},
   "endedExecutions": {},
   "endedPlanningExecution": null,
