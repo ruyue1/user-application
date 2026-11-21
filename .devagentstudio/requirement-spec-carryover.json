@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "sourceBranch": "v1_5",
+  "spec": {
+    "acceptance_criteria": [],
+    "agent_spec_used": true,
+    "analysis_source": "direct_chat_model",
+    "analyzed_by": {
+      "agent": "chat-model",
+      "mode": "direct",
+      "model": "gemini-4-carbon",
+      "source": "direct_chat_model"
+    },
+    "app_info": {
+      "footer_enabled": false,
+      "header_enabled": true,
+      "menu_enabled": true,
+      "name": "欢迎页",
+      "navigation_layout": "side",
+      "route_root_path": "/page",
+      "summary": "一个面向 PC 端的欢迎页应用，前端页面调用后端接口获取字符串“早上好！”并进行展示。",
+      "target": "",
+      "target_device": "pc"
+    },
+    "approved": true,
+    "authentication_requirements": {
+      "sourceRefs": []
+    },
+    "authorization_requirements": {
+      "restrictedOperations": [],
+      "restrictedPages": [],
+      "sourceRefs": []
+    },
+    "business_flows": [
+      {
+        "description": "用户访问欢迎页，前端请求接口并展示返回的字符串“早上好！”。",
+        "id": "view_morning_greeting",
+        "name": "查看问候语流程",
+        "steps": [
+          "用户打开 PC 端欢迎页",
+          "前端页面调用问候语接口获取返回的字符串“早上好！”",
+          "前端页面在界面上展示字符串“早上好！”"
+        ]
+      }
+    ],
+    "clarification_questions": [],
+    "clarification_status": "clear",
+    "confirmation_status": "confirmed",
+    "entities": [],
+    "feature_modules": [
+      {
+        "description": "调用接口获取问候字符串“早上好！”并在前端页面进行展示。",
+        "id": "greeting_display",
+        "name": "问候语展示",
+        "priority": "must"
+      }
+    ],
+    "generated_at": "2026-11-21T10:09:44.592637+00:00",
+    "pages": [
+      {
+        "description": "应用主页面，进入页面时请求接口获取字符串“早上好！”并在前端页面展示。",
+        "module_id": "greeting_display",
+        "name": "欢迎页",
+        "pageId": "home",
+        "path": "/page/home"
+      }
+    ],
+    "source_request": "请为新应用「欢迎页」完成需求、产品、UI（可跳过）和技术规划。；应用场景：开发一个前端页面，页面上一个接口返回字符串“早上好！”，前端展示这个字符串；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+    "status": "draft",
+    "summary": "一个面向 PC 端的欢迎页应用，前端页面调用后端接口获取字符串“早上好！”并进行展示。",
+    "unresolved_requirement_dimensions": [],
+    "user_roles": [
+      {
+        "description": "访问欢迎页并查看页面展示的问候字符串“早上好！”的用户。",
+        "id": "visitor",
+        "name": "访客用户"
+      }
+    ],
+    "version": "1.0.0"
+  }
+}
