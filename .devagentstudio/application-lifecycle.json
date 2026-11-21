@@ -3,8 +3,8 @@
     "id": "1795144906305-7yfl8i",
     "name": "欢迎页"
   },
-  "updatedAt": "2026-11-20T03:27:51.565405Z",
-  "revision": 47,
+  "updatedAt": "2026-11-21T01:53:31.126721Z",
+  "revision": 4,
   "developmentArtifacts": {
     "pages": {
       "home": {
@@ -13,19 +13,14 @@
         "completedRunId": "9faa8349-a54b-4d01-9d9f-fe5540021cb3",
         "completedThreadId": "118c7219-caf1-4427-8a9d-aeec93855d5d",
         "completedBranchName": "v1_0",
+        "lastCompletedRunId": null,
+        "lastCompletedThreadId": null,
         "changeStatus": "unchanged",
         "changeReason": null,
         "checkedChangeId": null
       }
     },
-    "entities": {
-      "greeting": {
-        "initialDevelopmentStatus": "pending",
-        "skippedAt": null,
-        "skipReason": null,
-        "completedBranchName": null
-      }
-    },
+    "entities": {},
     "endpoints": {
       "greeting_contract": {
         "greeting_contract.getGreeting": {
@@ -34,22 +29,24 @@
           "completedRunId": "9faa8349-a54b-4d01-9d9f-fe5540021cb3",
           "completedThreadId": "118c7219-caf1-4427-8a9d-aeec93855d5d",
           "completedBranchName": "v1_0",
+          "lastCompletedRunId": null,
+          "lastCompletedThreadId": null,
           "changeStatus": "unchanged",
           "changeReason": null,
           "checkedChangeId": null
         }
       }
     },
-    "catalogError": null,
+    "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112005/.devagentstudio/plans/product-plan.json'",
     "outOfScope": []
   },
   "initialization": {
-    "stage": "ready_for_workbench",
-    "status": "completed",
-    "threadId": "f2655860-0de7-4f27-bfe4-71fa16400843",
-    "iterationId": "1835fdbb-21d6-4db1-9f43-c90aa70abf22"
+    "stage": "awaiting_requirement_document_confirmation",
+    "status": "awaiting_user",
+    "threadId": "6fb874ad-9574-4579-ae90-5de8c302a8b5",
+    "iterationId": "6fb874ad-9574-4579-ae90-5de8c302a8b5"
   },
-  "activeRunId": null,
+  "activeRunId": "a1283047-1560-48a4-bf95-b4e47dd894ce",
   "activeExecutions": {},
   "endedExecutions": {},
   "endedPlanningExecution": null,
@@ -64,9 +61,5 @@
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {
-    "testExecutionStatus": "passed",
-    "reviewStatus": "passed",
-    "acceptanceStatus": "passed"
-  }
+  "extensions": {}
 }

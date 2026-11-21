@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "sourceBranch": "v1_22",
+  "spec": {
+    "acceptance_criteria": [],
+    "agent_spec_used": true,
+    "analysis_source": "direct_chat_model",
+    "analyzed_by": {
+      "agent": "chat-model",
+      "mode": "direct",
+      "model": "deepseek-v4.1-flash-1017",
+      "source": "direct_chat_model"
+    },
+    "app_info": {
+      "menu_enabled": true,
+      "name": "欢迎页",
+      "route_root_path": "/page",
+      "summary": "一个面向 PC 终端的前端展示应用，通过接口获取后端返回的字符串「早上好！」，并在页面上展示该字符串。应用采用侧边导航布局，启用页头、禁用页脚，数据来源于数据库，不启用登录认证，也不涉及权限控制。",
+      "target": ""
+    },
+    "approved": true,
+    "authentication_requirements": {
+      "sourceRefs": []
+    },
+    "authorization_requirements": {
+      "restrictedOperations": [],
+      "restrictedPages": [],
+      "sourceRefs": []
+    },
+    "business_flows": [
+      {
+        "description": "使用人员打开应用首页，前端调用接口获取问候字符串并展示。",
+        "id": "view_greeting",
+        "name": "查看欢迎问候",
+        "steps": [
+          "使用人员打开应用首页",
+          "前端请求后端问候接口",
+          "接口返回字符串「早上好！」",
+          "前端在页面主体区域展示该字符串"
+        ]
+      }
+    ],
+    "clarification_questions": [],
+    "clarification_status": "clear",
+    "confirmation_status": "confirmed",
+    "entities": [],
+    "feature_modules": [
+      {
+        "description": "调用后端接口获取问候字符串并展示在页面上。",
+        "id": "greeting_display",
+        "name": "问候展示",
+        "priority": "must"
+      }
+    ],
+    "generated_at": "2026-11-20T03:22:16.405620+00:00",
+    "pages": [
+      {
+        "description": "首页展示后端接口返回的字符串「早上好！」，接口加载完成后在页面主体区域呈现该问候语。",
+        "module_id": "greeting_display",
+        "name": "欢迎页",
+        "pageId": "home",
+        "path": "/page/home"
+      }
+    ],
+    "source_request": "请为新应用「欢迎页」完成需求、产品、UI（可跳过）和技术规划。；应用场景：开发一个前端页面，页面上一个接口返回字符串“早上好！”，前端展示这个字符串；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+    "status": "draft",
+    "summary": "一个面向 PC 终端的前端展示应用，通过接口获取后端返回的字符串「早上好！」，并在页面上展示该字符串。应用采用侧边导航布局，启用页头、禁用页脚，数据来源于数据库，不启用登录认证，也不涉及权限控制。",
+    "unresolved_requirement_dimensions": [],
+    "user_roles": [
+      {
+        "description": "访问应用并查看接口返回问候语的普通使用人员。",
+        "id": "business_user",
+        "name": "使用人员"
+      }
+    ],
+    "version": "1.0"
+  }
+}
