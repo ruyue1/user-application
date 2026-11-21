@@ -3,8 +3,8 @@
     "id": "1795220692891-tjtgp2",
     "name": "门禁卡管理系统"
   },
-  "updatedAt": "2026-11-21T04:02:05.362987Z",
-  "revision": 263,
+  "updatedAt": "2026-11-21T09:03:28.222662Z",
+  "revision": 7,
   "developmentArtifacts": {
     "pages": {
       "main": {
@@ -56,26 +56,7 @@
         "checkedChangeId": null
       }
     },
-    "entities": {
-      "access_card_claim_application": {
-        "initialDevelopmentStatus": "pending",
-        "skippedAt": null,
-        "skipReason": null,
-        "completedBranchName": null
-      },
-      "access_card": {
-        "initialDevelopmentStatus": "pending",
-        "skippedAt": null,
-        "skipReason": null,
-        "completedBranchName": null
-      },
-      "deactivation_submission": {
-        "initialDevelopmentStatus": "pending",
-        "skippedAt": null,
-        "skipReason": null,
-        "completedBranchName": null
-      }
-    },
+    "entities": {},
     "endpoints": {
       "contract_access_card_claim_application": {
         "contract_access_card_claim_application.list": {
@@ -168,55 +149,17 @@
         }
       }
     },
-    "catalogError": null,
-    "outOfScope": [
-      "page:main",
-      "page:card_claim",
-      "page:card_return",
-      "page:deactivation_done",
-      "endpoint:contract_access_card_claim_application:contract_access_card_claim_application.list",
-      "endpoint:contract_access_card_claim_application:contract_access_card_claim_application.complete_claim",
-      "endpoint:contract_access_card:contract_access_card.list",
-      "endpoint:contract_access_card:contract_access_card.apply_deactivation",
-      "endpoint:contract_deactivation_submission:contract_deactivation_submission.list",
-      "endpoint:contract_deactivation_submission:contract_deactivation_submission.submit_deactivation"
-    ]
+    "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112101/.devagentstudio/plans/technical-plan.json'",
+    "outOfScope": []
   },
   "initialization": {
-    "stage": "ready_for_workbench",
-    "status": "completed",
-    "threadId": "03cb095d-dbf8-4b19-8242-7490e1f66435",
-    "iterationId": "8979859b-78da-4d18-a0c3-6e69d4c30667"
+    "stage": "awaiting_planning_stage_entry",
+    "status": "awaiting_user",
+    "threadId": "fbbb90d0-21fc-4567-a8e6-7601220e90be",
+    "iterationId": "fbbb90d0-21fc-4567-a8e6-7601220e90be"
   },
-  "activeRunId": "47c1911d-068f-456d-990d-b9c76c5848bc",
-  "activeExecutions": {
-    "47c1911d-068f-456d-990d-b9c76c5848bc": {
-      "scope": "endpoint",
-      "targetId": "contract_access_card.apply_deactivation",
-      "pageId": null,
-      "threadId": "d308395b-1ce0-4ca8-b586-b621f92862e0",
-      "ownerSessionId": "1abb9cb9-7675-4a31-a9fc-f67a05478d61",
-      "runId": "47c1911d-068f-456d-990d-b9c76c5848bc",
-      "phase": "build",
-      "status": "awaiting_user",
-      "resourceKeys": [
-        "endpoint:contract_access_card:contract_access_card.apply_deactivation",
-        "api_contract:contract_access_card"
-      ],
-      "developmentPurpose": "initial",
-      "developmentTarget": {
-        "type": "endpoint",
-        "entityId": null,
-        "pageId": null,
-        "apiContractId": "contract_access_card",
-        "endpointId": "contract_access_card.apply_deactivation"
-      },
-      "pendingInteraction": null,
-      "error": null,
-      "startedAt": "2026-11-21T03:35:40.513441Z",
-      "updatedAt": "2026-11-21T03:35:57.136178Z"
-    }
-  },
+  "activeRunId": "a68c072d-2051-4e5c-ab97-aac99f763a00",
+  "activeExecutions": {},
   "endedExecutions": {},
   "endedPlanningExecution": null,
   "developmentContinuations": {},
@@ -230,22 +173,5 @@
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {
-    "testExecutionStatus": "passed",
-    "reviewStatus": "passed",
-    "acceptanceStatus": "passed",
-    "redevelopedChangedTargets": [
-      "endpoint:contract_access_card:contract_access_card.apply_deactivation",
-      "endpoint:contract_access_card:contract_access_card.list",
-      "endpoint:contract_access_card_claim_application:contract_access_card_claim_application.complete_claim",
-      "endpoint:contract_access_card_claim_application:contract_access_card_claim_application.list",
-      "endpoint:contract_deactivation_submission:contract_deactivation_submission.get_result",
-      "endpoint:contract_deactivation_submission:contract_deactivation_submission.list",
-      "endpoint:contract_deactivation_submission:contract_deactivation_submission.submit_deactivation",
-      "page:card_claim",
-      "page:card_return",
-      "page:deactivation_done",
-      "page:main"
-    ]
-  }
+  "extensions": {}
 }
