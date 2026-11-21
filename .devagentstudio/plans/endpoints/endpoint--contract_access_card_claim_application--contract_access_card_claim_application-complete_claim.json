@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "9706f61882794bc1a7dab6a19c638c14",
+  "apiContractId": "contract_access_card_claim_application",
+  "endpointId": "contract_access_card_claim_application.complete_claim",
+  "endpointContract": {
+    "id": "contract_access_card_claim_application.complete_claim",
+    "name": "完成领签",
+    "method": "POST",
+    "path": "/api/access-card-claim-applications/complete-claim",
+    "summary": "将勾选或全选的申请明细领签状态由待领签更新为已领签，并同步至飞码端。",
+    "parameters": [],
+    "request_schema_ref": "CompleteClaimRequest",
+    "response_schema_ref": "CompleteClaimResult",
+    "error_codes": [
+      "INVALID_STATE",
+      "NOT_FOUND"
+    ],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "updatedCount": 3,
+    "applicationIds": [
+      "APP-20240517-001",
+      "APP-20240517-002",
+      "APP-20240517-003"
+    ]
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "updatedCount",
+        "type": "integer",
+        "required": true,
+        "description": "本次更新为已领签的申请明细条数。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "updatedCount",
+          "type": "integer",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "applicationIds[]",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "applicationIds[]",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "8466e0ad64b643a66a2deaa01b7c2d1dc4c925c6cd7908b301b0b9e01b7940f8"
+    }
+  ],
+  "confirmedAt": "2026-11-21T02:52:44.083603Z"
+}

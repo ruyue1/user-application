@@ -15,5 +15,21 @@ export const PAGE_ROUTES: PageRouteDefinition[] = [
     label: '首页',
   },
   // DEVAGENTSTUDIO_BUSINESS_ROUTES_START
+  {
+    path: "main",
+    label: "主页面",
+  },
+  {
+    path: "card_claim",
+    label: "门禁卡领用页面",
+  },
+  {
+    path: "card_return",
+    label: "门禁卡归还页面",
+  },
+  {
+    path: "deactivation_done",
+    label: "已完成界面",
+  },
   // DEVAGENTSTUDIO_BUSINESS_ROUTES_END
 ];

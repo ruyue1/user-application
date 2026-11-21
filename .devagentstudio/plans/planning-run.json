@@ -1,0 +1,68 @@
+{
+  "planning_run_id": "planning-4a8f97bb3e0d40c1854637971a0f443c",
+  "workflow_run_id": "e063c4e7-409d-4bc2-8c05-7f38a7d0ebed",
+  "thread_id": "fc3be4a8-7bee-459b-a575-0fa07b2c5730",
+  "revision": 8,
+  "status": "active",
+  "phase": "persisting_pending",
+  "build_execution_scope": {
+    "type": "endpoint",
+    "targetId": "contract_deactivation_submission.get_result",
+    "apiContractId": "contract_deactivation_submission"
+  },
+  "input_fingerprint": "7808001165491c76ec6886f7a3c79c74428f186fb5d7a15d6485dbfcc9261ec9",
+  "base_confirmed_plan_digest": "9045c16b3d44288b246f9e278ce6515d24fcb472d997e156d78f59ae0ea0b29b",
+  "required_unit_ids": [
+    "backend:bootstrap",
+    "backend:module:contract_deactivation_submission"
+  ],
+  "unit_display_names": {
+    "backend:bootstrap": "后端基础环境配置",
+    "backend:module:contract_deactivation_submission": "离职注销申请模块"
+  },
+  "planning_unit_ids": [
+    "backend:module:contract_deactivation_submission"
+  ],
+  "global_repair_round": 0,
+  "global_repair_limit": 2,
+  "global_issues": [],
+  "unit_states": {
+    "backend:bootstrap": {
+      "unit_id": "backend:bootstrap",
+      "kind": "backend",
+      "participation": "not_required",
+      "generation_strategy": "not_required",
+      "generation_status": "not_required",
+      "generation_round": 1,
+      "attempt_in_round": 0,
+      "total_attempts": 0,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": null,
+      "candidate_task_count": 0,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "backend:module:contract_deactivation_submission": {
+      "unit_id": "backend:module:contract_deactivation_submission",
+      "kind": "backend",
+      "participation": "generate_only",
+      "generation_strategy": "model",
+      "generation_status": "candidate_ready",
+      "generation_round": 1,
+      "attempt_in_round": 1,
+      "total_attempts": 1,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": "candidate-8a4a6ea2da6f4aee978c8a2529b93e73",
+      "candidate_task_count": 2,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    }
+  },
+  "started_at": "2026-11-21T03:48:08.567042Z",
+  "updated_at": "2026-11-21T03:48:16.692310Z",
+  "failure": null
+}

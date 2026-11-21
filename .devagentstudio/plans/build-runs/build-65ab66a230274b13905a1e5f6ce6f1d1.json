@@ -1,0 +1,1141 @@
+{
+  "schema_version": "build-dag.v4",
+  "application": {
+    "unit_id": "application:root",
+    "status": "prepared"
+  },
+  "build_units": {
+    "application:root": {
+      "id": "application:root",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:auth-resources": {
+      "id": "backend:auth-resources",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:shell": {
+      "id": "frontend:shell",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "generation_strategy": "prerequisite_only",
+      "participation": "prerequisite_only",
+      "generation_status": "not_required"
+    },
+    "frontend:api-client": {
+      "id": "frontend:api-client",
+      "kind": "frontend",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      }
+    },
+    "frontend:auth-guard": {
+      "id": "frontend:auth-guard",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:bootstrap": {
+      "id": "backend:bootstrap",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "21e9c15c144e721deeb4f087e7d24bde36c89fcca7651a8c728e0a0a40760696",
+          "byteLength": 1062,
+          "mediaType": "application/json"
+        }
+      },
+      "input_fingerprint": "d13dda34194207f99afbef3e933077f02ee6adaf9480cb8e7aee363f0f4cf2a3"
+    },
+    "app:integration": {
+      "id": "app:integration",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:module:contract_access_card_claim_application": {
+      "id": "backend:module:contract_access_card_claim_application",
+      "kind": "backend",
+      "api_contract_id": "contract_access_card_claim_application",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "business_descriptions": [],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "9706f61882794bc1a7dab6a19c638c14",
+            "apiContractId": "contract_access_card_claim_application",
+            "endpointId": "contract_access_card_claim_application.complete_claim",
+            "endpointContract": {
+              "id": "contract_access_card_claim_application.complete_claim",
+              "name": "完成领签",
+              "method": "POST",
+              "path": "/api/access-card-claim-applications/complete-claim",
+              "summary": "将勾选或全选的申请明细领签状态由待领签更新为已领签，并同步至飞码端。",
+              "parameters": [],
+              "request_schema_ref": "CompleteClaimRequest",
+              "response_schema_ref": "CompleteClaimResult",
+              "error_codes": [
+                "INVALID_STATE",
+                "NOT_FOUND"
+              ],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "updatedCount": 3,
+              "applicationIds": [
+                "APP-20240517-001",
+                "APP-20240517-002",
+                "APP-20240517-003"
+              ]
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "updatedCount",
+                  "type": "integer",
+                  "required": true,
+                  "description": "本次更新为已领签的申请明细条数。"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "updatedCount",
+                    "type": "integer",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              },
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "applicationIds[]",
+                  "type": "string",
+                  "required": true,
+                  "description": ""
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "applicationIds[]",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "8466e0ad64b643a66a2deaa01b7c2d1dc4c925c6cd7908b301b0b9e01b7940f8"
+              }
+            ],
+            "confirmedAt": "2026-11-21T02:52:44.083603Z"
+          }
+        ],
+        "endpoint_ids": [
+          "contract_access_card_claim_application.complete_claim"
+        ],
+        "entity_ids": [
+          "access_card_claim_application"
+        ],
+        "mapping_flows": [
+          "静态数据.updatedCount → response.response_body.updatedCount",
+          "静态数据.applicationIds[] → response.response_body.applicationIds[]"
+        ],
+        "target": {
+          "type": "module",
+          "id": "contract_access_card_claim_application",
+          "api_contract_id": "contract_access_card_claim_application"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "contract_access_card_claim_application.complete_claim",
+            "api_contract_id": "contract_access_card_claim_application"
+          }
+        ],
+        "type": "technical_plan_module",
+        "source_types": [
+          "static"
+        ]
+      },
+      "input_fingerprint": "dd120660925d1e9cb0a61884e1a4e67de8120925ae2621901b554b59f5bcceba"
+    },
+    "backend:module:contract_access_card": {
+      "id": "backend:module:contract_access_card",
+      "kind": "backend",
+      "api_contract_id": "contract_access_card",
+      "status": "prepared",
+      "task_ids": [
+        "backend:module:contract_access_card::contract_access_card.list::business",
+        "backend:module:contract_access_card::f37df2804df52c75::controller"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "4d302bffa9310ec0c69b261143b7d002b3869d50eab65216f27b8e324efa93e6",
+          "byteLength": 1191,
+          "mediaType": "application/json"
+        }
+      },
+      "input_fingerprint": "9177706b068cbd9c8c91c676eeaae6080743730d07e147f65a9aec30a74a6f14"
+    },
+    "backend:module:contract_deactivation_submission": {
+      "id": "backend:module:contract_deactivation_submission",
+      "kind": "backend",
+      "api_contract_id": "contract_deactivation_submission",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "4a4e29ccf487db6cb940939b29785044797e639dd08fcd98b0900c294a8b8a38",
+          "byteLength": 1389,
+          "mediaType": "application/json"
+        }
+      }
+    },
+    "page:main": {
+      "id": "page:main",
+      "kind": "page",
+      "page_id": "main",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "3c513f83b0be1300d28f9af4ea8e7fe069a23e2916a0c8ff51bebcd00c182cb1",
+          "byteLength": 1295,
+          "mediaType": "application/json"
+        }
+      }
+    },
+    "page:card_claim": {
+      "id": "page:card_claim",
+      "kind": "page",
+      "page_id": "card_claim",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "1b1584da36599bbe090295556bb758d4739dca0188b7b57ae8ca777fc3ada229",
+          "byteLength": 1218,
+          "mediaType": "application/json"
+        }
+      }
+    },
+    "page:card_return": {
+      "id": "page:card_return",
+      "kind": "page",
+      "page_id": "card_return",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "81be7acb893f00b74ffa839fcd96e01a16b316458bb00f7365f5e458caecaa36",
+          "byteLength": 1658,
+          "mediaType": "application/json"
+        }
+      }
+    },
+    "page:deactivation_done": {
+      "id": "page:deactivation_done",
+      "kind": "page",
+      "page_id": "deactivation_done",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "20d64bf700f2d2751892278a48e4967e2fc67776e13e73363209e134fd7caf4b",
+          "byteLength": 1333,
+          "mediaType": "application/json"
+        }
+      }
+    }
+  },
+  "unit_graph": {
+    "schema_version": "build-unit-graph.v3",
+    "nodes": [
+      "application:root",
+      "backend:auth-resources",
+      "frontend:shell",
+      "frontend:api-client",
+      "frontend:auth-guard",
+      "backend:bootstrap",
+      "app:integration",
+      "backend:module:contract_access_card_claim_application",
+      "backend:module:contract_access_card",
+      "backend:module:contract_deactivation_submission",
+      "page:main",
+      "page:card_claim",
+      "page:card_return",
+      "page:deactivation_done"
+    ],
+    "edges": [
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:bootstrap",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:auth-resources",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:shell",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:api-client",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:auth-guard",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:bootstrap",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:contract_access_card_claim_application",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:contract_access_card_claim_application",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:contract_access_card_claim_application",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:contract_access_card_claim_application",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:contract_access_card",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:contract_access_card",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:contract_access_card",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:contract_access_card",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:contract_deactivation_submission",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:contract_deactivation_submission",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:contract_deactivation_submission",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:contract_deactivation_submission",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:main",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:main",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:main",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:contract_access_card_claim_application",
+        "to": "page:main",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:contract_access_card",
+        "to": "page:main",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:contract_deactivation_submission",
+        "to": "page:main",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:main",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:card_claim",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:card_claim",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:card_claim",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:contract_access_card_claim_application",
+        "to": "page:card_claim",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:card_claim",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:card_return",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:card_return",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:card_return",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:contract_deactivation_submission",
+        "to": "page:card_return",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:card_return",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:deactivation_done",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:deactivation_done",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:deactivation_done",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:contract_access_card_claim_application",
+        "to": "page:deactivation_done",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:contract_access_card",
+        "to": "page:deactivation_done",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:contract_deactivation_submission",
+        "to": "page:deactivation_done",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:deactivation_done",
+        "to": "app:integration",
+        "type": "depends_on"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "unit_skeleton": {
+    "input_fingerprint": "76f2ceb015b54dda28b0cf1a4d6599a93962626d53f3602da49b0e9588aefa19",
+    "project_plan_version": null,
+    "workspace_revision": "6a61bc898ad964b237a6061e",
+    "reused": true
+  },
+  "task_registry": {
+    "backend:module:contract_access_card::contract_access_card.list::business": {
+      "id": "backend:module:contract_access_card::contract_access_card.list::business",
+      "unit_id": "backend:module:contract_access_card",
+      "owner": "backend",
+      "task_type": "backend.code",
+      "title": "接口业务实现 · 查询本人使用中门禁卡业务实现",
+      "description": "1. 门禁卡领域实体，对应门禁卡业务中的卡片记录。\n字段：id(String，卡片记录唯一标识)、employeeName(String，持有员工姓名)、employeeNo(String，持有员工编号)、cardNo(String，实体卡编号)、permissionStatus(String，权限状态，列表中均为使用中)、deactivationApplication(String，注销申请标识，未发起时为空，可为 null)。\n复用要求：作为本模块共用的领域实体，其他门禁卡相关 Endpoint 复用，不重复定义。（backend/src/main/java/com/cmbchina/backend/domain/entity/AccessCard.java）\n2. 门禁卡归还页面表格行响应 DTO，对应 AccessCardPageResponse.list[] 元素。\n字段：id(String，必填，卡片记录唯一标识)、employeeName(String，必填)、employeeNo(String，必填)、cardNo(String，必填)、permissionStatus(String，必填)、deactivationApplication(String，非必填，可为 null，发起离职注销后为注销申请标识，未发起时为空)。\n不包含任何处理逻辑，仅承载契约要求的响应字段。（backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardItemResponse.java）\n3. 门禁卡列表分页响应 DTO，契约 response_schema_ref 为 AccessCardPageResponse。\n字段：total(Integer，必填，符合条件的门禁卡总数)、pageSize(Integer，必填，每页记录数)、current(Integer，必填，当前页码)、list(List<AccessCardItemResponse>，卡片记录列表)。\n不包含任何处理逻辑。（backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardPageResponse.java）\n4. 门禁卡模块应用服务，本任务首次创建，仅包含本 Endpoint 的方法，后续 Endpoint 任务在同一文件追加方法并保留已有方法与依赖注入。\n接口/方法：listAccessCards(Integer current, Integer pageSize) 返回 AccessCardPageResponse。\n处理逻辑：基于确认的静态数据源（sourceBinding.sourceType=static）组装分页结果；按 current、pageSize 对静态卡片记录进行分页，total 取符合条件的记录总数（契约静态快照中 total=2），分页元信息 current、pageSize 回填至响应；列表项由 Assembler 完成字段映射。\n边界约束：空 current 使用契约默认值 1，空 pageSize 使用契约默认值 10；不做请求派生权限判断，也不访问数据库。\n复用要求：使用 domain/entity/AccessCard 作为业务模型、AccessCardAssembler 做 DTO 转换；error_codes 为空，不抛 BizException。（backend/src/main/java/com/cmbchina/backend/application/service/AccessCardApplicationService.java）\n5. 门禁卡模块 Assembler，本任务首次创建，仅包含本 Endpoint 的映射方法，后续 Endpoint 任务在同一文件追加方法并保留已有方法。\n方法：AccessCardItemResponse toItemResponse(AccessCard card) —— 直接映射 id→id、employeeName→employeeName、employeeNo→employeeNo、cardNo→cardNo、permissionStatus→permissionStatus、deactivationApplication→deactivationApplication（源字段 deactivationAp 语义对应，缺失时为 null）。\n方法：AccessCardPageResponse toPageResponse(List<AccessCard> cards, long total, Integer current, Integer pageSize) —— 按顺序映射 total、pageSize、current，并将卡片列表逐项转换为 list；总数超过 int 范围时按契约 integer 类型做收敛处理需在实现中保持一致性。\n复用要求：同一来源/目标模型对只保留一份转换方法，不复制映射逻辑。（backend/src/main/java/com/cmbchina/backend/application/assembler/AccessCardAssembler.java）",
+      "dependencies": [],
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/domain/entity/AccessCard.java",
+        "backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardItemResponse.java",
+        "backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardPageResponse.java",
+        "backend/src/main/java/com/cmbchina/backend/application/service/AccessCardApplicationService.java",
+        "backend/src/main/java/com/cmbchina/backend/application/assembler/AccessCardAssembler.java"
+      ],
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/domain/entity/AccessCard.java",
+        "backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardItemResponse.java",
+        "backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardPageResponse.java",
+        "backend/src/main/java/com/cmbchina/backend/application/service/AccessCardApplicationService.java",
+        "backend/src/main/java/com/cmbchina/backend/application/assembler/AccessCardAssembler.java"
+      ],
+      "change_scope": [
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/domain/entity/AccessCard.java",
+          "operation": "add",
+          "description": "门禁卡领域实体，对应门禁卡业务中的卡片记录。\n字段：id(String，卡片记录唯一标识)、employeeName(String，持有员工姓名)、employeeNo(String，持有员工编号)、cardNo(String，实体卡编号)、permissionStatus(String，权限状态，列表中均为使用中)、deactivationApplication(String，注销申请标识，未发起时为空，可为 null)。\n复用要求：作为本模块共用的领域实体，其他门禁卡相关 Endpoint 复用，不重复定义。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardItemResponse.java",
+          "operation": "add",
+          "description": "门禁卡归还页面表格行响应 DTO，对应 AccessCardPageResponse.list[] 元素。\n字段：id(String，必填，卡片记录唯一标识)、employeeName(String，必填)、employeeNo(String，必填)、cardNo(String，必填)、permissionStatus(String，必填)、deactivationApplication(String，非必填，可为 null，发起离职注销后为注销申请标识，未发起时为空)。\n不包含任何处理逻辑，仅承载契约要求的响应字段。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardPageResponse.java",
+          "operation": "add",
+          "description": "门禁卡列表分页响应 DTO，契约 response_schema_ref 为 AccessCardPageResponse。\n字段：total(Integer，必填，符合条件的门禁卡总数)、pageSize(Integer，必填，每页记录数)、current(Integer，必填，当前页码)、list(List<AccessCardItemResponse>，卡片记录列表)。\n不包含任何处理逻辑。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/application/service/AccessCardApplicationService.java",
+          "operation": "add",
+          "description": "门禁卡模块应用服务，本任务首次创建，仅包含本 Endpoint 的方法，后续 Endpoint 任务在同一文件追加方法并保留已有方法与依赖注入。\n接口/方法：listAccessCards(Integer current, Integer pageSize) 返回 AccessCardPageResponse。\n处理逻辑：基于确认的静态数据源（sourceBinding.sourceType=static）组装分页结果；按 current、pageSize 对静态卡片记录进行分页，total 取符合条件的记录总数（契约静态快照中 total=2），分页元信息 current、pageSize 回填至响应；列表项由 Assembler 完成字段映射。\n边界约束：空 current 使用契约默认值 1，空 pageSize 使用契约默认值 10；不做请求派生权限判断，也不访问数据库。\n复用要求：使用 domain/entity/AccessCard 作为业务模型、AccessCardAssembler 做 DTO 转换；error_codes 为空，不抛 BizException。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/application/assembler/AccessCardAssembler.java",
+          "operation": "add",
+          "description": "门禁卡模块 Assembler，本任务首次创建，仅包含本 Endpoint 的映射方法，后续 Endpoint 任务在同一文件追加方法并保留已有方法。\n方法：AccessCardItemResponse toItemResponse(AccessCard card) —— 直接映射 id→id、employeeName→employeeName、employeeNo→employeeNo、cardNo→cardNo、permissionStatus→permissionStatus、deactivationApplication→deactivationApplication（源字段 deactivationAp 语义对应，缺失时为 null）。\n方法：AccessCardPageResponse toPageResponse(List<AccessCard> cards, long total, Integer current, Integer pageSize) —— 按顺序映射 total、pageSize、current，并将卡片列表逐项转换为 list；总数超过 int 范围时按契约 integer 类型做收敛处理需在实现中保持一致性。\n复用要求：同一来源/目标模型对只保留一份转换方法，不复制映射逻辑。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:module:contract_access_card::contract_access_card.list::business::deliverable:1",
+          "kind": "backend.application_service",
+          "target_id": "contract_access_card.list",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/application/service/AccessCardApplicationService.java"
+          ],
+          "provides": [
+            "backend.application_service:contract_access_card:contract_access_card.list"
+          ]
+        },
+        {
+          "id": "backend:module:contract_access_card::contract_access_card.list::business::deliverable:2",
+          "kind": "backend.objects",
+          "target_id": "contract_access_card.list",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/domain/entity/AccessCard.java",
+            "backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardItemResponse.java",
+            "backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardPageResponse.java",
+            "backend/src/main/java/com/cmbchina/backend/application/assembler/AccessCardAssembler.java"
+          ],
+          "provides": [
+            "backend.endpoint.objects:contract_access_card:contract_access_card.list"
+          ]
+        }
+      ],
+      "impact_scope": {
+        "summary": "接口业务实现 · 查询本人使用中门禁卡业务实现",
+        "affected_modules": [
+          "contract_access_card"
+        ],
+        "public_contracts": [],
+        "risks": []
+      },
+      "can_run_in_parallel": true,
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "status": "pending",
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "7fd2ea04a4e8fbefe69beb6fcb8444b4a394a36f5d454148df97e24d4ff7a18a",
+          "byteLength": 1232,
+          "mediaType": "application/json"
+        }
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:module:contract_access_card"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap",
+        "backend:auth-resources"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [
+        "backend:bootstrap"
+      ],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:module:contract_access_card::contract_access_card.list::business:file_operation:d440f7848f7e",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/domain/entity/AccessCard.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/domain/entity/AccessCard.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:contract_access_card::contract_access_card.list::business:file_operation:b6c804c8b81a",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardItemResponse.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardItemResponse.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:contract_access_card::contract_access_card.list::business:file_operation:e52b883c3fe8",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardPageResponse.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardPageResponse.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:contract_access_card::contract_access_card.list::business:file_operation:a31755e34a60",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/application/service/AccessCardApplicationService.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/application/service/AccessCardApplicationService.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:contract_access_card::contract_access_card.list::business:file_operation:4f91834d913f",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/application/assembler/AccessCardAssembler.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/application/assembler/AccessCardAssembler.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:contract_access_card::contract_access_card.list::business:scope_boundary:a604869dd9d5",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/domain/entity/AccessCard.java",
+            "backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardItemResponse.java",
+            "backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardPageResponse.java",
+            "backend/src/main/java/com/cmbchina/backend/application/service/AccessCardApplicationService.java",
+            "backend/src/main/java/com/cmbchina/backend/application/assembler/AccessCardAssembler.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/src/main/java/com/cmbchina/backend/domain/entity/AccessCard.java",
+              "backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardItemResponse.java",
+              "backend/src/main/java/com/cmbchina/backend/application/dto/AccessCardPageResponse.java",
+              "backend/src/main/java/com/cmbchina/backend/application/service/AccessCardApplicationService.java",
+              "backend/src/main/java/com/cmbchina/backend/application/assembler/AccessCardAssembler.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": {
+        "$artifact": {
+          "artifactId": "78557d7119bbcd239ba17c601b3bfbd6ef8669ecc62ce4a18fe4438b4feb2686",
+          "byteLength": 6170,
+          "mediaType": "application/json"
+        }
+      },
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": []
+    },
+    "backend:module:contract_access_card::f37df2804df52c75::controller": {
+      "id": "backend:module:contract_access_card::f37df2804df52c75::controller",
+      "unit_id": "backend:module:contract_access_card",
+      "owner": "backend",
+      "task_type": "backend.code",
+      "title": "模块 Controller · 门禁卡查询接口控制器",
+      "description": "1. 在现有 AccessCardController 中新增查询本人使用中门禁卡的处理器，保留现有类级 RequestMapping 与其他处理器。\n路由：GET /api/access-cards（结合已有类级映射解析有效全路径）。\n请求绑定：query 参数 current（Integer，非必填，默认 1，最小值 1）、pageSize（Integer，非必填，默认 10，最小值 1），使用 @RequestParam(required = false, defaultValue = \"1\"/\"10\") 绑定；不修改已有成员。\n处理逻辑：委派 AccessCardApplicationService.listAccessCards(current, pageSize)，将结果包装为统一响应信封 ResponseEntity 返回，响应体为 AccessCardPageResponse。\n边界约束：契约 authentication.required=false 且无 operationResourceKeys，不添加鉴权或权限校验分支；不承载业务算法。（backend/src/main/java/com/cmbchina/backend/adapter/web/AccessCardController.java）",
+      "dependencies": [
+        "backend:module:contract_access_card::contract_access_card.list::business"
+      ],
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/adapter/web/AccessCardController.java"
+      ],
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/adapter/web/AccessCardController.java"
+      ],
+      "change_scope": [
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/adapter/web/AccessCardController.java",
+          "operation": "modify",
+          "description": "在现有 AccessCardController 中新增查询本人使用中门禁卡的处理器，保留现有类级 RequestMapping 与其他处理器。\n路由：GET /api/access-cards（结合已有类级映射解析有效全路径）。\n请求绑定：query 参数 current（Integer，非必填，默认 1，最小值 1）、pageSize（Integer，非必填，默认 10，最小值 1），使用 @RequestParam(required = false, defaultValue = \"1\"/\"10\") 绑定；不修改已有成员。\n处理逻辑：委派 AccessCardApplicationService.listAccessCards(current, pageSize)，将结果包装为统一响应信封 ResponseEntity 返回，响应体为 AccessCardPageResponse。\n边界约束：契约 authentication.required=false 且无 operationResourceKeys，不添加鉴权或权限校验分支；不承载业务算法。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:module:contract_access_card::f37df2804df52c75::controller::deliverable:1",
+          "kind": "backend.endpoint_controller",
+          "target_id": "contract_access_card.list",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/adapter/web/AccessCardController.java"
+          ],
+          "provides": [
+            "backend.endpoint_controller:contract_access_card:contract_access_card.list"
+          ]
+        }
+      ],
+      "impact_scope": {
+        "summary": "模块 Controller · 门禁卡查询接口控制器",
+        "affected_modules": [
+          "contract_access_card"
+        ],
+        "public_contracts": [
+          "contract_access_card.list"
+        ],
+        "risks": []
+      },
+      "can_run_in_parallel": false,
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "status": "pending",
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "8b4b79a6248d927dd34b0daca1295c43eb73dde3f59eca2194089cfb59df0d50",
+          "byteLength": 1212,
+          "mediaType": "application/json"
+        }
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:module:contract_access_card"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap",
+        "backend:auth-resources"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [
+        "backend:bootstrap"
+      ],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:module:contract_access_card::f37df2804df52c75::controller:file_operation:79fddae0f666",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/adapter/web/AccessCardController.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/adapter/web/AccessCardController.java"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:contract_access_card::f37df2804df52c75::controller:scope_boundary:bf4fe4f6c5f8",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/adapter/web/AccessCardController.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/src/main/java/com/cmbchina/backend/adapter/web/AccessCardController.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:backend:module:contract_access_card::f37df2804df52c75::controller:backend.endpoint_contract:1b7f99dbbb74554a",
+          "deliverable_id": "backend:module:contract_access_card::f37df2804df52c75::controller::deliverable:1",
+          "kind": "backend.endpoint_contract",
+          "description": "Controller 必须按 API Contract 暴露 method/path、绑定 DTO、返回约定状态码并委托 ApplicationService。",
+          "sources": [
+            {
+              "artifact": "api_contract",
+              "target_id": "contract_access_card.list",
+              "pointer": "/api_contracts/contract_access_card/endpoints/contract_access_card.list",
+              "sha256": "f88ea954ce6d43594aaefa330677f60d30c34a1b4fda9a16a7c0e4f5aba0aadc"
+            },
+            {
+              "artifact": "api_design",
+              "target_id": "contract_access_card.list",
+              "pointer": "/endpoint_designs/contract_access_card.list",
+              "sha256": "ccb59c676ba928ad30f8c528bcf911c46979759b3464a5f0d27db48c1145b273"
+            }
+          ],
+          "expected": {
+            "endpoints": [
+              {
+                "api_contract_id": "contract_access_card",
+                "endpoint_id": "contract_access_card.list",
+                "method": "GET",
+                "path": "/api/access-cards",
+                "request_schema_ref": "",
+                "response_schema_ref": "AccessCardPageResponse",
+                "parameters": [
+                  {
+                    "name": "current",
+                    "in": "query",
+                    "required": false,
+                    "schema": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 1,
+                      "description": "当前页码。"
+                    }
+                  },
+                  {
+                    "name": "pageSize",
+                    "in": "query",
+                    "required": false,
+                    "schema": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 10,
+                      "description": "每页记录数。"
+                    }
+                  }
+                ],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "total",
+                    "pageSize",
+                    "current",
+                    "list"
+                  ],
+                  "properties": {
+                    "total": {
+                      "type": "integer",
+                      "required": true
+                    },
+                    "pageSize": {
+                      "type": "integer",
+                      "required": true
+                    },
+                    "current": {
+                      "type": "integer",
+                      "required": true
+                    },
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "AccessCardItem",
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "employeeName",
+                          "employeeNo",
+                          "cardNo",
+                          "permissionStatus"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "employeeName": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "employeeNo": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "cardNo": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "permissionStatus": {
+                            "type": "string",
+                            "enum": [
+                              "使用中"
+                            ],
+                            "required": true
+                          },
+                          "deactivationApplication": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "enum": [
+                              "离职",
+                              null
+                            ],
+                            "required": false
+                          }
+                        }
+                      },
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ],
+            "operations": [
+              {
+                "api_contract_id": "contract_access_card",
+                "endpoint_id": "contract_access_card.list",
+                "operation_kind": "list",
+                "target_cardinality": "collection",
+                "selector": {
+                  "source": "endpoint_api_design",
+                  "query": null
+                },
+                "transaction_required": false,
+                "database_writes": [],
+                "external_api_bindings": [],
+                "zero_match_behavior": "confirmed_processing_logic",
+                "multiple_match_behavior": "confirmed_processing_logic",
+                "success_status_code": null,
+                "side_effect": "none",
+                "processing_logic": [],
+                "requires_repository": false
+              }
+            ],
+            "business_descriptions": []
+          },
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/adapter/web/AccessCardController.java"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "backend_endpoint_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": []
+    }
+  },
+  "task_graph": {
+    "schema_version": "build-task-graph.v3",
+    "nodes": [
+      "backend:module:contract_access_card::contract_access_card.list::business",
+      "backend:module:contract_access_card::f37df2804df52c75::controller"
+    ],
+    "edges": [
+      {
+        "from": "backend:module:contract_access_card::contract_access_card.list::business",
+        "to": "backend:module:contract_access_card::f37df2804df52c75::controller",
+        "type": "depends_on"
+      }
+    ],
+    "roots": [
+      "backend:module:contract_access_card::contract_access_card.list::business"
+    ],
+    "leaves": [
+      "backend:module:contract_access_card::f37df2804df52c75::controller"
+    ],
+    "topological_order": [
+      "backend:module:contract_access_card::contract_access_card.list::business",
+      "backend:module:contract_access_card::f37df2804df52c75::controller"
+    ],
+    "execution_layers": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:contract_access_card::contract_access_card.list::business"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:contract_access_card::f37df2804df52c75::controller"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "summary": {
+    "total": 2,
+    "frontend": 0,
+    "backend": 2,
+    "database": 0,
+    "pending": 2,
+    "running": 0,
+    "completed": 0,
+    "already_satisfied": 0,
+    "failed": 0,
+    "results": 3
+  },
+  "execution": {
+    "batches": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:contract_access_card::contract_access_card.list::business"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:contract_access_card::f37df2804df52c75::controller"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "blocked_batches": []
+  },
+  "build_execution_scope": {
+    "type": "endpoint",
+    "targetId": "contract_access_card.list",
+    "apiContractId": "contract_access_card"
+  },
+  "template_context": {
+    "state_path": ".devagentstudio/template-state.json",
+    "template_revision": "2026.10.19.1",
+    "effective_capabilities": {}
+  },
+  "status": "ready",
+  "confirmation_status": "confirmed",
+  "confirmed_at": "2026-11-21T03:27:20.233454+00:00",
+  "confirmed_from": {
+    "planning_run_id": "planning-5c10f9429200461b94134f0265c18e8a",
+    "draft_digest": "5893074abe8d9818ff7ff2688507eb6031efaebaa0ea1f5314515c4eecd1ae7b"
+  }
+}

@@ -1,0 +1,656 @@
+{
+  "execution_run_id": "6e3e524e-e9e3-4bbe-952a-4baf5d910d6a",
+  "thread_id": "ee230034-cf64-41c9-b0f0-db4688a83ede",
+  "build_execution_scope": {
+    "type": "endpoint",
+    "targetId": "contract_deactivation_submission.submit_deactivation",
+    "apiContractId": "contract_deactivation_submission"
+  },
+  "build_run_id": "build-2b663a5ae0fc4d20a98326b2f60a1381",
+  "build_run_plan_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112101/.devagentstudio/plans/build-runs/build-2b663a5ae0fc4d20a98326b2f60a1381.json",
+  "build_run_plan_sha256": "9045c16b3d44288b246f9e278ce6515d24fcb472d997e156d78f59ae0ea0b29b",
+  "progress": {
+    "build_run_id": "build-2b663a5ae0fc4d20a98326b2f60a1381",
+    "build_run_plan_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112101/.devagentstudio/plans/build-runs/build-2b663a5ae0fc4d20a98326b2f60a1381.json",
+    "build_run_plan_sha256": "9045c16b3d44288b246f9e278ce6515d24fcb472d997e156d78f59ae0ea0b29b",
+    "active_run_id": "6e3e524e-e9e3-4bbe-952a-4baf5d910d6a",
+    "build_execution_scope": {
+      "type": "endpoint",
+      "targetId": "contract_deactivation_submission.submit_deactivation",
+      "apiContractId": "contract_deactivation_submission"
+    },
+    "tasks": [
+      {
+        "id": "backend:module:contract_deactivation_submission::contract_deactivation_submission.submit_deactivation::business",
+        "unit_id": "backend:module:contract_deactivation_submission",
+        "owner": "backend",
+        "task_type": "backend.code",
+        "title": "接口业务实现 · 提交离职注销申请应用服务",
+        "description": "1. 接口/方法：保留现有类与成员，新增 submitDeactivation() 方法作为提交离职注销申请的业务入口，返回 DeactivationSubmissionResult。\n处理逻辑：sourceBinding 为 static，无数据库写入与外部 API 调用；按 EndpointFieldMapping 的静态数据一次性组装结果对象（id、cardId、employeeName、employeeNo、cardNo、deactivationApply、syncStatus、processStatus、submittedAt 共 9 个必填字符串字段），全部为 direct 映射，不做额外转换或格式化。\n边界约束：所有端点字段 required=true 且 missingBehavior=error，静态数据已全部提供，无需缺失兜底分支；不新增来源查询、同步调用或状态推进逻辑。\n复用要求：DTO 组装委托现有 ContractDeactivationSubmissionAssembler，Service 不直接构造响应对象。（backend/src/main/java/com/cmbchina/backend/application/service/ContractDeactivationSubmissionService.java）\n2. 字段：该端点为 POST /api/deactivation-submissions 的请求体类型，endpointContract 未声明 parameters 与请求字段，保持现有空结构即可；如存在既有成员则保留。\n边界约束：不新增未在合同中声明的校验注解或业务字段。（backend/src/main/java/com/cmbchina/backend/application/dto/DeactivationSubmissionRequest.java）\n3. 字段：全部为必填 String，对应 fieldMappings 的 response_body 路径——id（提交结果主键）、cardId（本次申请注销的门禁卡主键）、employeeName（姓名）、employeeNo（员工编号）、cardNo（卡号）、deactivationApply（申请注销状态）、syncStatus（同步状态）、processStatus（注销流程状态）、submittedAt（提交时间）。\n边界约束：字段类型固定为 String，不引入日期类型或格式转换；保留既有成员与访问方法。（backend/src/main/java/com/cmbchina/backend/application/dto/DeactivationSubmissionResult.java）\n4. 处理逻辑：保留现有映射方法，新增提交结果组装方法，按 fieldMappings 将静态数据逐字段直接映射到 DeactivationSubmissionResult 的 9 个 String 字段，字段名一一对应，无重命名、无类型转换。\n复用要求：与其他 Endpoint 的映射方法共存于同一模块 Assembler，不得为同一语义重复创建映射方法。（backend/src/main/java/com/cmbchina/backend/application/assembler/ContractDeactivationSubmissionAssembler.java）\n5. 字段：保留既有枚举常量；按 API Contract error_codes 覆盖 INVALID_PARAMETER、NOT_FOUND、INVALID_STATE 三类错误码，实现 IBizErrorCode。\n边界约束：仅补齐合同声明的错误码，不新增未确认的业务错误码。（backend/src/main/java/com/cmbchina/backend/domain/exception/ContractDeactivationSubmissionErrorCode.java）",
+        "dependencies": [],
+        "target_files": [
+          "backend/src/main/java/com/cmbchina/backend/application/service/ContractDeactivationSubmissionService.java",
+          "backend/src/main/java/com/cmbchina/backend/application/dto/DeactivationSubmissionRequest.java",
+          "backend/src/main/java/com/cmbchina/backend/application/dto/DeactivationSubmissionResult.java",
+          "backend/src/main/java/com/cmbchina/backend/application/assembler/ContractDeactivationSubmissionAssembler.java",
+          "backend/src/main/java/com/cmbchina/backend/domain/exception/ContractDeactivationSubmissionErrorCode.java"
+        ],
+        "allowed_paths": [
+          "backend/src/main/java/com/cmbchina/backend/application/service/ContractDeactivationSubmissionService.java",
+          "backend/src/main/java/com/cmbchina/backend/application/dto/DeactivationSubmissionRequest.java",
+          "backend/src/main/java/com/cmbchina/backend/application/dto/DeactivationSubmissionResult.java",
+          "backend/src/main/java/com/cmbchina/backend/application/assembler/ContractDeactivationSubmissionAssembler.java",
+          "backend/src/main/java/com/cmbchina/backend/domain/exception/ContractDeactivationSubmissionErrorCode.java"
+        ],
+        "change_scope": [
+          {
+            "path": "backend/src/main/java/com/cmbchina/backend/application/service/ContractDeactivationSubmissionService.java",
+            "operation": "modify",
+            "description": "接口/方法：保留现有类与成员，新增 submitDeactivation() 方法作为提交离职注销申请的业务入口，返回 DeactivationSubmissionResult。\n处理逻辑：sourceBinding 为 static，无数据库写入与外部 API 调用；按 EndpointFieldMapping 的静态数据一次性组装结果对象（id、cardId、employeeName、employeeNo、cardNo、deactivationApply、syncStatus、processStatus、submittedAt 共 9 个必填字符串字段），全部为 direct 映射，不做额外转换或格式化。\n边界约束：所有端点字段 required=true 且 missingBehavior=error，静态数据已全部提供，无需缺失兜底分支；不新增来源查询、同步调用或状态推进逻辑。\n复用要求：DTO 组装委托现有 ContractDeactivationSubmissionAssembler，Service 不直接构造响应对象。"
+          },
+          {
+            "path": "backend/src/main/java/com/cmbchina/backend/application/dto/DeactivationSubmissionRequest.java",
+            "operation": "modify",
+            "description": "字段：该端点为 POST /api/deactivation-submissions 的请求体类型，endpointContract 未声明 parameters 与请求字段，保持现有空结构即可；如存在既有成员则保留。\n边界约束：不新增未在合同中声明的校验注解或业务字段。"
+          },
+          {
+            "path": "backend/src/main/java/com/cmbchina/backend/application/dto/DeactivationSubmissionResult.java",
+            "operation": "modify",
+            "description": "字段：全部为必填 String，对应 fieldMappings 的 response_body 路径——id（提交结果主键）、cardId（本次申请注销的门禁卡主键）、employeeName（姓名）、employeeNo（员工编号）、cardNo（卡号）、deactivationApply（申请注销状态）、syncStatus（同步状态）、processStatus（注销流程状态）、submittedAt（提交时间）。\n边界约束：字段类型固定为 String，不引入日期类型或格式转换；保留既有成员与访问方法。"
+          },
+          {
+            "path": "backend/src/main/java/com/cmbchina/backend/application/assembler/ContractDeactivationSubmissionAssembler.java",
+            "operation": "modify",
+            "description": "处理逻辑：保留现有映射方法，新增提交结果组装方法，按 fieldMappings 将静态数据逐字段直接映射到 DeactivationSubmissionResult 的 9 个 String 字段，字段名一一对应，无重命名、无类型转换。\n复用要求：与其他 Endpoint 的映射方法共存于同一模块 Assembler，不得为同一语义重复创建映射方法。"
+          },
+          {
+            "path": "backend/src/main/java/com/cmbchina/backend/domain/exception/ContractDeactivationSubmissionErrorCode.java",
+            "operation": "modify",
+            "description": "字段：保留既有枚举常量；按 API Contract error_codes 覆盖 INVALID_PARAMETER、NOT_FOUND、INVALID_STATE 三类错误码，实现 IBizErrorCode。\n边界约束：仅补齐合同声明的错误码，不新增未确认的业务错误码。"
+          }
+        ],
+        "deliverables": [
+          {
+            "id": "backend:module:contract_deactivation_submission::contract_deactivation_submission.submit_deactivation::business::deliverable:1",
+            "kind": "backend.application_service",
+            "target_id": "contract_deactivation_submission.submit_deactivation",
+            "paths": [
+              "backend/src/main/java/com/cmbchina/backend/application/service/ContractDeactivationSubmissionService.java",
+              "backend/src/main/java/com/cmbchina/backend/application/dto/DeactivationSubmissionRequest.java",
+              "backend/src/main/java/com/cmbchina/backend/domain/exception/ContractDeactivationSubmissionErrorCode.java"
+            ],
+            "provides": [
+              "backend.application_service:contract_deactivation_submission:contract_deactivation_submission.submit_deactivation"
+            ]
+          },
+          {
+            "id": "backend:module:contract_deactivation_submission::contract_deactivation_submission.submit_deactivation::business::deliverable:2",
+            "kind": "backend.objects",
+            "target_id": "contract_deactivation_submission.submit_deactivation",
+            "paths": [
+              "backend/src/main/java/com/cmbchina/backend/application/dto/DeactivationSubmissionResult.java",
+              "backend/src/main/java/com/cmbchina/backend/application/assembler/ContractDeactivationSubmissionAssembler.java"
+            ],
+            "provides": [
+              "backend.endpoint.objects:contract_deactivation_submission:contract_deactivation_submission.submit_deactivation"
+            ]
+          }
+        ],
+        "impact_scope": {
+          "summary": "接口业务实现 · 提交离职注销申请应用服务",
+          "affected_modules": [
+            "contract_deactivation_submission"
+          ],
+          "public_contracts": [],
+          "risks": []
+        },
+        "can_run_in_parallel": false,
+        "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+        "status": "already_satisfied",
+        "source_refs": {
+          "$artifact": {
+            "artifactId": "fda859cd6529eee0445e7ed2fec4fe42f302fc4e827a815f8aa258633d492c3f",
+            "byteLength": 1269,
+            "mediaType": "application/json"
+          }
+        },
+        "requires_capabilities": [],
+        "provides_capabilities": [
+          "backend:module:contract_deactivation_submission"
+        ],
+        "unit_dependencies": [
+          "backend:bootstrap",
+          "backend:auth-resources"
+        ],
+        "dependency_rewrites": [],
+        "missing_unit_dependencies": [
+          "backend:bootstrap"
+        ],
+        "invalid_dependencies": [],
+        "acceptance_checks": {
+          "$artifact": {
+            "artifactId": "eabe30c3aa6ee12c1d0b5a4bc4630401d78a6dc400172a6c29aa2e5ad0132dd6",
+            "byteLength": 4479,
+            "mediaType": "application/json"
+          }
+        },
+        "business_acceptance_checks": {
+          "$artifact": {
+            "artifactId": "b3d0b4d5941802b856e535e8610992577093e5b5426a64ff5fafefa9ce3bd412",
+            "byteLength": 7555,
+            "mediaType": "application/json"
+          }
+        },
+        "execution_strategy": "agent",
+        "platform_executor": null,
+        "executionMode": "subagent-direct-write",
+        "assignedAgent": "fullstack-builder",
+        "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+        "parallel_with": [],
+        "scheduler": {
+          "started_at": "2026-11-21T03:46:35.102046+00:00"
+        },
+        "last_result_status": "already_satisfied",
+        "failure_category": null,
+        "failure_reason": null,
+        "failure_detail": null,
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "acceptance_evidence": [],
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:backend:module:contract_deactivation_submission::contract_deactivation_submission.submit_deactivation::business:backend.objects_contract:2ba61080160df42f",
+            "kind": "backend.objects_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          },
+          {
+            "check_id": "business:backend:module:contract_deactivation_submission::contract_deactivation_submission.submit_deactivation::business:backend.application_service_contract:398e0675b6d10f0d",
+            "kind": "backend.application_service_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 2,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 2,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        },
+        "implementation_document": {
+          "status": "unavailable",
+          "path": "backend/docs/implementation/module-contract_deactivation_submission-71aed2a6395f.md",
+          "summary": "实现说明未更新：任务未提供可核验的实现说明。后续任务将读取源码。"
+        },
+        "updated_by": "build-scheduler",
+        "updated_at": "2026-11-21T03:46:52.241703+00:00"
+      },
+      {
+        "id": "backend:module:contract_deactivation_submission::4f1c4f35a5d0a50d::controller",
+        "unit_id": "backend:module:contract_deactivation_submission",
+        "owner": "backend",
+        "task_type": "backend.code",
+        "title": "模块 Controller · 提交离职注销申请 Web 控制器",
+        "description": "1. 接口/方法：保留类上既有 @RestController 与类级 @RequestMapping 前缀及已存在的处理器；新增或补齐处理 POST /api/deactivation-submissions 的方法，@PostMapping 仅声明相对路径（无方法级额外前缀时为空），请求体使用 DeactivationSubmissionRequest 并以 @RequestBody 绑定。\n处理逻辑：仅做参数绑定、调用 ContractDeactivationSubmissionService.submitDeactivation() 并返回，业务规则不落在此层；响应使用统一信封 BeeResponseEntity 包裹 DeactivationSubmissionResult。\n边界约束：endpointContract 声明 authentication.required=false 且无 operationResourceKeys，不加鉴权注解或请求派生的权限校验；不新增其他路由。（backend/src/main/java/com/cmbchina/backend/adapter/web/ContractDeactivationSubmissionController.java）",
+        "dependencies": [
+          "backend:module:contract_deactivation_submission::contract_deactivation_submission.submit_deactivation::business"
+        ],
+        "target_files": [
+          "backend/src/main/java/com/cmbchina/backend/adapter/web/ContractDeactivationSubmissionController.java"
+        ],
+        "allowed_paths": [
+          "backend/src/main/java/com/cmbchina/backend/adapter/web/ContractDeactivationSubmissionController.java"
+        ],
+        "change_scope": [
+          {
+            "path": "backend/src/main/java/com/cmbchina/backend/adapter/web/ContractDeactivationSubmissionController.java",
+            "operation": "modify",
+            "description": "接口/方法：保留类上既有 @RestController 与类级 @RequestMapping 前缀及已存在的处理器；新增或补齐处理 POST /api/deactivation-submissions 的方法，@PostMapping 仅声明相对路径（无方法级额外前缀时为空），请求体使用 DeactivationSubmissionRequest 并以 @RequestBody 绑定。\n处理逻辑：仅做参数绑定、调用 ContractDeactivationSubmissionService.submitDeactivation() 并返回，业务规则不落在此层；响应使用统一信封 BeeResponseEntity 包裹 DeactivationSubmissionResult。\n边界约束：endpointContract 声明 authentication.required=false 且无 operationResourceKeys，不加鉴权注解或请求派生的权限校验；不新增其他路由。"
+          }
+        ],
+        "deliverables": [
+          {
+            "id": "backend:module:contract_deactivation_submission::4f1c4f35a5d0a50d::controller::deliverable:1",
+            "kind": "backend.endpoint_controller",
+            "target_id": "contract_deactivation_submission.submit_deactivation",
+            "paths": [
+              "backend/src/main/java/com/cmbchina/backend/adapter/web/ContractDeactivationSubmissionController.java"
+            ],
+            "provides": [
+              "backend.endpoint_controller:contract_deactivation_submission:contract_deactivation_submission.submit_deactivation"
+            ]
+          }
+        ],
+        "impact_scope": {
+          "summary": "模块 Controller · 提交离职注销申请 Web 控制器",
+          "affected_modules": [
+            "contract_deactivation_submission"
+          ],
+          "public_contracts": [
+            "contract_deactivation_submission.submit_deactivation"
+          ],
+          "risks": []
+        },
+        "can_run_in_parallel": false,
+        "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+        "status": "already_satisfied",
+        "source_refs": {
+          "$artifact": {
+            "artifactId": "35bfaf792d030ef3b9b037f29524f3881398cf0a5f14ce8a95325527523d735d",
+            "byteLength": 1249,
+            "mediaType": "application/json"
+          }
+        },
+        "requires_capabilities": [],
+        "provides_capabilities": [
+          "backend:module:contract_deactivation_submission"
+        ],
+        "unit_dependencies": [
+          "backend:bootstrap",
+          "backend:auth-resources"
+        ],
+        "dependency_rewrites": [],
+        "missing_unit_dependencies": [
+          "backend:bootstrap"
+        ],
+        "invalid_dependencies": [],
+        "acceptance_checks": [
+          {
+            "id": "acceptance:backend:module:contract_deactivation_submission::4f1c4f35a5d0a50d::controller:file_operation:30a7cad4f580",
+            "kind": "file_operation",
+            "description": "工程文件 backend/src/main/java/com/cmbchina/backend/adapter/web/ContractDeactivationSubmissionController.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+            "required": true,
+            "target_paths": [
+              "backend/src/main/java/com/cmbchina/backend/adapter/web/ContractDeactivationSubmissionController.java"
+            ],
+            "expected": {
+              "operation": "modify",
+              "change_type": "modified"
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:backend:module:contract_deactivation_submission::4f1c4f35a5d0a50d::controller:scope_boundary:85118bc3b0f0",
+            "kind": "scope_boundary",
+            "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+            "required": true,
+            "target_paths": [
+              "backend/src/main/java/com/cmbchina/backend/adapter/web/ContractDeactivationSubmissionController.java"
+            ],
+            "expected": {
+              "allowed_paths": [
+                "backend/src/main/java/com/cmbchina/backend/adapter/web/ContractDeactivationSubmissionController.java"
+              ]
+            },
+            "verification_stage": "build"
+          }
+        ],
+        "business_acceptance_checks": [
+          {
+            "id": "business:backend:module:contract_deactivation_submission::4f1c4f35a5d0a50d::controller:backend.endpoint_contract:5fd6ff1cfa924f59",
+            "deliverable_id": "backend:module:contract_deactivation_submission::4f1c4f35a5d0a50d::controller::deliverable:1",
+            "kind": "backend.endpoint_contract",
+            "description": "Controller 必须按 API Contract 暴露 method/path、绑定 DTO、返回约定状态码并委托 ApplicationService。",
+            "sources": [
+              {
+                "artifact": "api_contract",
+                "target_id": "contract_deactivation_submission.submit_deactivation",
+                "pointer": "/api_contracts/contract_deactivation_submission/endpoints/contract_deactivation_submission.submit_deactivation",
+                "sha256": "997afd20bb97fbe3d0306a2030dc761cedccec1e63d2ef2ba7b68a301964c6a2"
+              },
+              {
+                "artifact": "api_design",
+                "target_id": "contract_deactivation_submission.submit_deactivation",
+                "pointer": "/endpoint_designs/contract_deactivation_submission.submit_deactivation",
+                "sha256": "5ecca429abcd36ce11830f319c4a78114227967608477d5f7047ed003f0f9733"
+              }
+            ],
+            "expected": {
+              "endpoints": [
+                {
+                  "api_contract_id": "contract_deactivation_submission",
+                  "endpoint_id": "contract_deactivation_submission.submit_deactivation",
+                  "method": "POST",
+                  "path": "/api/deactivation-submissions",
+                  "request_schema_ref": "DeactivationSubmissionRequest",
+                  "response_schema_ref": "DeactivationSubmissionResult",
+                  "parameters": [],
+                  "request_schema": {
+                    "type": "object",
+                    "required": [
+                      "cardId"
+                    ],
+                    "properties": {
+                      "cardId": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  },
+                  "response_schema": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "cardId",
+                      "employeeName",
+                      "employeeNo",
+                      "cardNo",
+                      "deactivationApply",
+                      "syncStatus",
+                      "processStatus",
+                      "submittedAt"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "cardId": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "employeeName": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "employeeNo": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "cardNo": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "deactivationApply": {
+                        "type": "string",
+                        "enum": [
+                          "离职"
+                        ],
+                        "required": true
+                      },
+                      "syncStatus": {
+                        "type": "string",
+                        "enum": [
+                          "已同步",
+                          "同步失败"
+                        ],
+                        "required": true
+                      },
+                      "processStatus": {
+                        "type": "string",
+                        "enum": [
+                          "已发起",
+                          "处理中",
+                          "已完成"
+                        ],
+                        "required": true
+                      },
+                      "submittedAt": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "api_contract_id": "contract_deactivation_submission",
+                  "endpoint_id": "contract_deactivation_submission.submit_deactivation",
+                  "operation_kind": "read",
+                  "target_cardinality": "object",
+                  "selector": {
+                    "source": "endpoint_api_design",
+                    "query": null
+                  },
+                  "transaction_required": false,
+                  "database_writes": [],
+                  "external_api_bindings": [],
+                  "zero_match_behavior": "confirmed_processing_logic",
+                  "multiple_match_behavior": "confirmed_processing_logic",
+                  "success_status_code": null,
+                  "side_effect": "none",
+                  "processing_logic": [],
+                  "requires_repository": false
+                }
+              ],
+              "business_descriptions": []
+            },
+            "target_paths": [
+              "backend/src/main/java/com/cmbchina/backend/adapter/web/ContractDeactivationSubmissionController.java"
+            ],
+            "verification": {
+              "mode": "deterministic",
+              "verifier": "backend_endpoint_contract"
+            },
+            "required": true,
+            "verification_stage": "build"
+          }
+        ],
+        "execution_strategy": "agent",
+        "platform_executor": null,
+        "executionMode": "subagent-direct-write",
+        "assignedAgent": "fullstack-builder",
+        "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+        "parallel_with": [],
+        "scheduler": {
+          "started_at": "2026-11-21T03:46:52.285206+00:00"
+        },
+        "last_result_status": "already_satisfied",
+        "failure_category": null,
+        "failure_reason": null,
+        "failure_detail": null,
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "acceptance_evidence": [],
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:backend:module:contract_deactivation_submission::4f1c4f35a5d0a50d::controller:backend.endpoint_contract:5fd6ff1cfa924f59",
+            "kind": "backend.endpoint_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 1,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        },
+        "implementation_document": {
+          "status": "unavailable",
+          "path": "backend/docs/implementation/module-contract_deactivation_submission-71aed2a6395f.md",
+          "summary": "实现说明未更新：任务未提供可核验的实现说明。后续任务将读取源码。"
+        },
+        "updated_by": "build-scheduler",
+        "updated_at": "2026-11-21T03:47:07.954303+00:00"
+      }
+    ],
+    "build_results": [
+      {
+        "task_id": "backend:module:contract_deactivation_submission::contract_deactivation_submission.submit_deactivation::business",
+        "owner": "backend",
+        "status": "already_satisfied",
+        "changed_files": [],
+        "commands": [],
+        "agent_note": "提交离职注销申请的业务行为已完整实现：Service 提供 submitDeactivation()，按静态数据组装 9 个字符串字段并委托 Assembler 转换；DTO、Assembler 映射与三类错误码均已按合同存在，本次无需写入。\n实现说明未更新：任务未提供可核验的实现说明。后续任务将读取源码。",
+        "satisfaction_evidence": {
+          "inspected_target_files": [
+            "backend/src/main/java/com/cmbchina/backend/application/service/ContractDeactivationSubmissionService.java",
+            "backend/src/main/java/com/cmbchina/backend/application/dto/DeactivationSubmissionRequest.java",
+            "backend/src/main/java/com/cmbchina/backend/application/dto/DeactivationSubmissionResult.java",
+            "backend/src/main/java/com/cmbchina/backend/application/assembler/ContractDeactivationSubmissionAssembler.java",
+            "backend/src/main/java/com/cmbchina/backend/domain/exception/ContractDeactivationSubmissionErrorCode.java",
+            "backend/src/main/java/com/cmbchina/backend/adapter/web/ContractDeactivationSubmissionController.java"
+          ],
+          "findings": [
+            "Service：public DeactivationSubmissionResult submitDeactivation(DeactivationSubmissionRequest request) 已存在，作为业务入口保留；校验 cardId 空值抛 INVALID_PARAMETER、卡不存在抛 NOT_FOUND、权限状态非“使用中”抛 INVALID_STATE；随后以 LinkedHashMap 静态源填入 id/cardId/employeeName/employeeNo/cardNo（取自静态卡记录）与 deactivationApply=离职、syncStatus=已同步、processStatus=处理中、submittedAt 字符串常量，并委托 contractDeactivationSubmissionAssembler.toDeactivationSubmissionResult(source) 组装，Service 未直接构造响应对象；无数据库写入、外部 API 调用及额外状态推进逻辑。",
+            "DeactivationSubmissionRequest：单一 String cardId 字段，无未声明校验注解或多余业务字段，符合 contracts 请求体结构。",
+            "DeactivationSubmissionResult：9 个字段 id、cardId、employeeName、employeeNo、cardNo、deactivationApply、syncStatus、processStatus、submittedAt 全为 String，含无参/全参构造与 getter/setter，无日期类型或格式转换，与 schema 一致。",
+            "Assembler：在保留既有分页与列表映射方法的前提下，toDeactivationSubmissionResult(Map<String,Object>) 逐字段同名字段直接映射 9 个字符串字段（requireString 仅做取值），无重命名与类型转换；未重复创建语义相同的映射方法。",
+            "ErrorCode：ContractDeactivationSubmissionErrorCode 实现 IBizErrorCode，含 INVALID_PARAMETER、NOT_FOUND、INVALID_STATE 三项，与 API Contract error_codes 完全覆盖，无多余业务错误码。",
+            "Controller（端点 POST /api/deactivation-submissions）已委派 Service.submitDeactivation 并包装统一 ResponseEntity.success，调用链闭合；全仓库无其它同名映射方法或冲突调用点。"
+          ]
+        },
+        "failure_category": null,
+        "failure_reason": null,
+        "executed_by": {
+          "agent": "data-source-generation-agent",
+          "mode": "live",
+          "model": "deepseek-v4.1-flash-1017",
+          "source": "data_source_deep_agent",
+          "requiredSkillsLoaded": [
+            "/.devagentstudio/builtin-skills/springboot-backend-business/SKILL.md",
+            "/.devagentstudio/builtin-skills/springboot-backend-business/references/business-error-handling.md"
+          ]
+        },
+        "change_request": null,
+        "structured_response_recovered": false,
+        "scheduler_decision": {
+          "action": "complete",
+          "reason": "already_satisfied"
+        },
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:backend:module:contract_deactivation_submission::contract_deactivation_submission.submit_deactivation::business:backend.objects_contract:2ba61080160df42f",
+            "kind": "backend.objects_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          },
+          {
+            "check_id": "business:backend:module:contract_deactivation_submission::contract_deactivation_submission.submit_deactivation::business:backend.application_service_contract:398e0675b6d10f0d",
+            "kind": "backend.application_service_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 2,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 2,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        },
+        "implementation_document": {
+          "status": "unavailable",
+          "path": "backend/docs/implementation/module-contract_deactivation_submission-71aed2a6395f.md",
+          "summary": "实现说明未更新：任务未提供可核验的实现说明。后续任务将读取源码。"
+        }
+      },
+      {
+        "task_id": "backend:module:contract_deactivation_submission::4f1c4f35a5d0a50d::controller",
+        "owner": "backend",
+        "status": "already_satisfied",
+        "changed_files": [],
+        "commands": [],
+        "agent_note": "POST /api/deactivation-submissions 端点已在 ContractDeactivationSubmissionController 中实现：类级 @RequestMapping(\"/api/deactivation-submissions\") 与空路径 @PostMapping 组合命中契约全路径，请求体以 @Valid @RequestBody 绑定 DeactivationSubmissionRequest，仅委托 ContractDeactivationSubmissionService.submitDeactivation() 并用项目统一信封 ResponseEntity.success 包裹 DeactivationSubmissionResult；无 operationResourceKeys，未添加鉴权注解，亦未新增其他路由。\n实现说明未更新：任务未提供可核验的实现说明。后续任务将读取源码。",
+        "satisfaction_evidence": {
+          "inspected_target_files": [
+            "backend/src/main/java/com/cmbchina/backend/adapter/web/ContractDeactivationSubmissionController.java",
+            "backend/src/main/java/com/cmbchina/backend/application/service/ContractDeactivationSubmissionService.java",
+            "backend/src/main/java/com/cmbchina/backend/application/dto/DeactivationSubmissionRequest.java",
+            "backend/src/main/java/com/cmbchina/backend/application/dto/DeactivationSubmissionResult.java",
+            "backend/src/main/java/com/cmbchina/backend/common/response/ResponseEntity.java",
+            "backend/src/main/java/com/cmbchina/backend/common/exception/BaseExceptionHandler.java"
+          ],
+          "findings": [
+            "路由匹配：类级 @RestController + @RequestMapping(\"/api/deactivation-submissions\")，方法级 @PostMapping 未重复类前缀，合并即为契约要求的 POST /api/deactivation-submissions；既有 GET 处理器（listCards）保留未改动。",
+            "请求绑定：submitDeactivation(@Valid @RequestBody DeactivationSubmissionRequest request)，与 request_schema_ref 一致，遵循项目 JDK8/javax.validation 校验约定，未新增字段级值校验。",
+            "委派与响应：方法体仅调用 contractDeactivationSubmissionService.submitDeactivation(request) 并通过 ResponseEntity.success 包裹 DeactivationSubmissionResult 返回；Service 方法签名为 public DeactivationSubmissionResult submitDeactivation(DeactivationSubmissionRequest)，业务规则（INVALID_PARAMETER/NOT_FOUND/INVALID_STATE）均在 Service 层，异常由 BaseExceptionHandler 统一处理。",
+            "统一信封：项目自有 com.cmbchina.backend.common.response.ResponseEntity<T>（success()/success(body)/failed(...)）承担契约中的 BeeResponseEntity 包裹职责，工程内不存在 BeeResponseEntity 类型或其它响应包装兜底逻辑。",
+            "鉴权：契约 authentication.required=false 且 authorization_constraints 为空，控制器未使用 @RequireAnyResource 等鉴权注解，也未做请求派生权限校验。",
+            "路由范围：该控制器仅暴露 GET（列表）与 POST（提交）两个处理器，未新增额外路由。"
+          ]
+        },
+        "failure_category": null,
+        "failure_reason": null,
+        "executed_by": {
+          "agent": "data-source-generation-agent",
+          "mode": "live",
+          "model": "deepseek-v4.1-flash-1017",
+          "source": "data_source_deep_agent",
+          "requiredSkillsLoaded": [
+            "/.devagentstudio/builtin-skills/springboot-backend-controller/SKILL.md"
+          ]
+        },
+        "change_request": null,
+        "structured_response_recovered": false,
+        "scheduler_decision": {
+          "action": "complete",
+          "reason": "already_satisfied"
+        },
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:backend:module:contract_deactivation_submission::4f1c4f35a5d0a50d::controller:backend.endpoint_contract:5fd6ff1cfa924f59",
+            "kind": "backend.endpoint_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 1,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        },
+        "implementation_document": {
+          "status": "unavailable",
+          "path": "backend/docs/implementation/module-contract_deactivation_submission-71aed2a6395f.md",
+          "summary": "实现说明未更新：任务未提供可核验的实现说明。后续任务将读取源码。"
+        }
+      }
+    ],
+    "build_summary": {
+      "total": 2,
+      "completed": 2,
+      "failed": 0,
+      "pending": 0,
+      "running": 0,
+      "already_satisfied": 2,
+      "results": 2,
+      "retryable_failures": 0,
+      "retryable_task_ids": [],
+      "repairable_failures": 0,
+      "requires_confirmation": 0,
+      "recovery_available": false,
+      "recovery_task_ids": [],
+      "retry_available": false,
+      "status": "completed"
+    },
+    "repair_task_plan": {},
+    "repair_task_plan_path": null,
+    "repair_tasks": [],
+    "database_change_plan": {},
+    "database_approval_requests": [],
+    "build_task_repair_id": ""
+  },
+  "progress_source_run_id": "6e3e524e-e9e3-4bbe-952a-4baf5d910d6a",
+  "execution_stage": "finalized"
+}

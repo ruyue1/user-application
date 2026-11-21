@@ -1,0 +1,273 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "9104f6da12654c2d9236f3481f761b87",
+  "apiContractId": "contract_deactivation_submission",
+  "endpointId": "contract_deactivation_submission.list",
+  "endpointContract": {
+    "id": "contract_deactivation_submission.list",
+    "name": "查询本人使用中门禁卡",
+    "method": "GET",
+    "path": "/api/deactivation-submissions",
+    "summary": "按扫码识别的员工身份查询本人名下权限状态为使用中的门禁卡列表，支持分页，用于门禁卡归还页面表格展示。",
+    "parameters": [
+      {
+        "name": "current",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "当前页码"
+        }
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "每页条数"
+        }
+      }
+    ],
+    "request_schema_ref": null,
+    "response_schema_ref": "AccessCardPage",
+    "error_codes": [
+      "INVALID_PARAMETER"
+    ],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "total": 3,
+    "pageSize": 3,
+    "current": 1,
+    "list": [
+      {
+        "id": "card_1001",
+        "employeeName": "张三",
+        "employeeNo": "EMP20240101",
+        "cardNo": "80001234",
+        "permissionStatus": "使用中"
+      },
+      {
+        "id": "card_1002",
+        "employeeName": "李四",
+        "employeeNo": "EMP20240102",
+        "cardNo": "80001235",
+        "permissionStatus": "使用中"
+      },
+      {
+        "id": "card_1003",
+        "employeeName": "王五",
+        "employeeNo": "EMP20240103",
+        "cardNo": "80001236",
+        "permissionStatus": "使用中"
+      }
+    ]
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "total",
+        "type": "integer",
+        "required": true,
+        "description": "记录总数"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "total",
+          "type": "integer",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "pageSize",
+        "type": "integer",
+        "required": true,
+        "description": "每页条数"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "pageSize",
+          "type": "integer",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "current",
+        "type": "integer",
+        "required": true,
+        "description": "当前页码"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "current",
+          "type": "integer",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].id",
+        "type": "string",
+        "required": true,
+        "description": "门禁卡主键"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].id",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].employeeName",
+        "type": "string",
+        "required": true,
+        "description": "姓名"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].employeeName",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].employeeNo",
+        "type": "string",
+        "required": true,
+        "description": "员工编号"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].employeeNo",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].cardNo",
+        "type": "string",
+        "required": true,
+        "description": "卡号"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].cardNo",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].permissionStatus",
+        "type": "string",
+        "required": true,
+        "description": "权限状态"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].permissionStatus",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "8466e0ad64b643a66a2deaa01b7c2d1dc4c925c6cd7908b301b0b9e01b7940f8"
+    }
+  ],
+  "confirmedAt": "2026-11-21T02:40:21.400523Z"
+}

@@ -1,0 +1,269 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "f54c49e1bc6448c7bce013faac1dfb42",
+  "apiContractId": "contract_deactivation_submission",
+  "endpointId": "contract_deactivation_submission.get_result",
+  "endpointContract": {
+    "id": "contract_deactivation_submission.get_result",
+    "name": "查看注销申请提交结果",
+    "method": "GET",
+    "path": "/api/deactivation-submissions/{id}",
+    "summary": "按提交结果主键查询离职注销申请的提交结果详情，用于已完成界面展示申请注销状态、同步状态与注销流程状态。",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "description": "离职注销申请提交结果主键",
+          "entity_field_ref": "deactivation_submission.id"
+        }
+      }
+    ],
+    "request_schema_ref": null,
+    "response_schema_ref": "DeactivationSubmissionResult",
+    "error_codes": [
+      "NOT_FOUND"
+    ],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "id": "SUB-20240617-001",
+    "cardId": "CARD-000123",
+    "employeeName": "张明远",
+    "employeeNo": "EMP20180356",
+    "cardNo": "6221000000001234",
+    "deactivationApply": "已提交",
+    "syncStatus": "同步成功",
+    "processStatus": "审批中",
+    "submittedAt": "2024-06-17 09:32:15"
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "id",
+        "type": "string",
+        "required": true,
+        "description": "提交结果主键"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "id",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "cardId",
+        "type": "string",
+        "required": true,
+        "description": "本次申请注销的门禁卡主键"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "cardId",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "employeeName",
+        "type": "string",
+        "required": true,
+        "description": "姓名"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "employeeName",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "employeeNo",
+        "type": "string",
+        "required": true,
+        "description": "员工编号"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "employeeNo",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "cardNo",
+        "type": "string",
+        "required": true,
+        "description": "卡号"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "cardNo",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "deactivationApply",
+        "type": "string",
+        "required": true,
+        "description": "申请注销状态"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "deactivationApply",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "syncStatus",
+        "type": "string",
+        "required": true,
+        "description": "同步状态"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "syncStatus",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "processStatus",
+        "type": "string",
+        "required": true,
+        "description": "注销流程状态"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "processStatus",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "submittedAt",
+        "type": "string",
+        "required": true,
+        "description": "提交时间"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "submittedAt",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "8466e0ad64b643a66a2deaa01b7c2d1dc4c925c6cd7908b301b0b9e01b7940f8"
+    }
+  ],
+  "confirmedAt": "2026-11-21T03:48:03.229446Z"
+}

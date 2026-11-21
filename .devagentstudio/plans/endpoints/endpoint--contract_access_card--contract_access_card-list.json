@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "04148f292ee148d2b2b562bcd1943276",
+  "apiContractId": "contract_access_card",
+  "endpointId": "contract_access_card.list",
+  "endpointContract": {
+    "id": "contract_access_card.list",
+    "name": "查询本人使用中门禁卡",
+    "method": "GET",
+    "path": "/api/access-cards",
+    "summary": "按扫码识别的员工身份查询本人名下权限状态为使用中的门禁卡列表，支持分页，用于门禁卡归还页面表格展示。",
+    "parameters": [
+      {
+        "name": "current",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1,
+          "description": "当前页码。"
+        }
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 10,
+          "description": "每页记录数。"
+        }
+      }
+    ],
+    "request_schema_ref": null,
+    "response_schema_ref": "AccessCardPageResponse",
+    "error_codes": [],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "total": 2,
+    "pageSize": 10,
+    "current": 1,
+    "list": [
+      {
+        "id": "10001",
+        "employeeName": "张三",
+        "employeeNo": "E2026001",
+        "cardNo": "C008921",
+        "permissionStatus": "NORMAL",
+        "deactivationAp": ""
+      },
+      {
+        "id": "10002",
+        "employeeName": "李四",
+        "employeeNo": "E2026002",
+        "cardNo": "C008922",
+        "permissionStatus": "DEACTIVATED",
+        "deactivationAp": "AP005"
+      }
+    ]
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "total",
+        "type": "integer",
+        "required": true,
+        "description": "符合条件的门禁卡总数。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "total",
+          "type": "integer",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "pageSize",
+        "type": "integer",
+        "required": true,
+        "description": "每页记录数。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "pageSize",
+          "type": "integer",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "current",
+        "type": "integer",
+        "required": true,
+        "description": "当前页码。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "current",
+          "type": "integer",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].id",
+        "type": "string",
+        "required": true,
+        "description": "门禁卡记录唯一标识，用于发起离职注销申请时指定卡片。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].id",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].employeeName",
+        "type": "string",
+        "required": true,
+        "description": "门禁卡持有员工姓名。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].employeeName",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].employeeNo",
+        "type": "string",
+        "required": true,
+        "description": "门禁卡持有员工编号。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].employeeNo",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].cardNo",
+        "type": "string",
+        "required": true,
+        "description": "门禁卡实体卡编号。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].cardNo",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].permissionStatus",
+        "type": "string",
+        "required": true,
+        "description": "门禁卡权限状态，列表中均为使用中。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].permissionStatus",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].deactivationApplication",
+        "type": "string|null",
+        "required": false,
+        "description": "门禁卡申请注销字段，发起离职注销后为离职，未发起时为空。"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "list[].deactivationAp",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "8466e0ad64b643a66a2deaa01b7c2d1dc4c925c6cd7908b301b0b9e01b7940f8"
+    }
+  ],
+  "confirmedAt": "2026-11-21T02:39:36.648953Z"
+}

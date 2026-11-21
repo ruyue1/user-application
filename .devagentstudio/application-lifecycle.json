@@ -3,56 +3,56 @@
     "id": "1795220692891-tjtgp2",
     "name": "门禁卡管理系统"
   },
-  "updatedAt": "2026-11-21T02:30:12.050770Z",
-  "revision": 11,
+  "updatedAt": "2026-11-21T04:01:47.535834Z",
+  "revision": 260,
   "developmentArtifacts": {
     "pages": {
       "main": {
-        "initialDevelopmentStatus": "pending",
-        "completedAt": null,
-        "completedRunId": null,
-        "completedThreadId": null,
-        "completedBranchName": null,
-        "lastCompletedRunId": null,
-        "lastCompletedThreadId": null,
-        "changeStatus": "changed",
-        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "initialDevelopmentStatus": "completed",
+        "completedAt": "2026-11-21T02:51:54.389680Z",
+        "completedRunId": "3becedf4-6a55-4ce3-8062-4f61a9480e03",
+        "completedThreadId": "9f09a087-b855-4a82-8bc6-3859c35665f5",
+        "completedBranchName": "v1_0",
+        "lastCompletedRunId": "3becedf4-6a55-4ce3-8062-4f61a9480e03",
+        "lastCompletedThreadId": "9f09a087-b855-4a82-8bc6-3859c35665f5",
+        "changeStatus": "unchanged",
+        "changeReason": null,
         "checkedChangeId": null
       },
       "card_claim": {
-        "initialDevelopmentStatus": "pending",
-        "completedAt": null,
-        "completedRunId": null,
-        "completedThreadId": null,
-        "completedBranchName": null,
-        "lastCompletedRunId": null,
-        "lastCompletedThreadId": null,
-        "changeStatus": "changed",
-        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "initialDevelopmentStatus": "completed",
+        "completedAt": "2026-11-21T03:02:46.398787Z",
+        "completedRunId": "28b20cff-4e3f-4fc8-8d0b-367266980b24",
+        "completedThreadId": "416f2a7b-31c4-493b-bb1b-96070146f7fc",
+        "completedBranchName": "v1_0",
+        "lastCompletedRunId": "28b20cff-4e3f-4fc8-8d0b-367266980b24",
+        "lastCompletedThreadId": "416f2a7b-31c4-493b-bb1b-96070146f7fc",
+        "changeStatus": "unchanged",
+        "changeReason": null,
         "checkedChangeId": null
       },
       "card_return": {
-        "initialDevelopmentStatus": "pending",
-        "completedAt": null,
-        "completedRunId": null,
-        "completedThreadId": null,
-        "completedBranchName": null,
-        "lastCompletedRunId": null,
-        "lastCompletedThreadId": null,
-        "changeStatus": "changed",
-        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "initialDevelopmentStatus": "completed",
+        "completedAt": "2026-11-21T03:17:33.378511Z",
+        "completedRunId": "5e6f9f3e-1877-403f-9933-418a0c66b84d",
+        "completedThreadId": "27ad3a32-8a79-46eb-be52-51860a82e8c0",
+        "completedBranchName": "v1_0",
+        "lastCompletedRunId": "5e6f9f3e-1877-403f-9933-418a0c66b84d",
+        "lastCompletedThreadId": "27ad3a32-8a79-46eb-be52-51860a82e8c0",
+        "changeStatus": "unchanged",
+        "changeReason": null,
         "checkedChangeId": null
       },
       "deactivation_done": {
-        "initialDevelopmentStatus": "pending",
-        "completedAt": null,
-        "completedRunId": null,
-        "completedThreadId": null,
-        "completedBranchName": null,
-        "lastCompletedRunId": null,
-        "lastCompletedThreadId": null,
-        "changeStatus": "changed",
-        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "initialDevelopmentStatus": "completed",
+        "completedAt": "2026-11-21T03:24:50.291545Z",
+        "completedRunId": "541c86d8-5bcf-4e22-8ffe-a5875e67cc54",
+        "completedThreadId": "cd2199e9-28a1-4f6e-8f0f-491b1823fb93",
+        "completedBranchName": "v1_0",
+        "lastCompletedRunId": "541c86d8-5bcf-4e22-8ffe-a5875e67cc54",
+        "lastCompletedThreadId": "cd2199e9-28a1-4f6e-8f0f-491b1823fb93",
+        "changeStatus": "unchanged",
+        "changeReason": null,
         "checkedChangeId": null
       }
     },
@@ -79,118 +79,405 @@
     "endpoints": {
       "contract_access_card_claim_application": {
         "contract_access_card_claim_application.list": {
-          "initialDevelopmentStatus": "pending",
-          "completedAt": null,
-          "completedRunId": null,
-          "completedThreadId": null,
-          "completedBranchName": null,
-          "lastCompletedRunId": null,
-          "lastCompletedThreadId": null,
-          "changeStatus": "changed",
-          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "initialDevelopmentStatus": "completed",
+          "completedAt": "2026-11-21T02:33:48.473768Z",
+          "completedRunId": "aaa67b77-00e6-4ce5-9947-ea0f17e1b4d1",
+          "completedThreadId": "aa84102d-bd69-49e7-93c6-7669d3f28607",
+          "completedBranchName": "v1_0",
+          "lastCompletedRunId": "aaa67b77-00e6-4ce5-9947-ea0f17e1b4d1",
+          "lastCompletedThreadId": "aa84102d-bd69-49e7-93c6-7669d3f28607",
+          "changeStatus": "unchanged",
+          "changeReason": null,
           "checkedChangeId": null
         },
         "contract_access_card_claim_application.complete_claim": {
-          "initialDevelopmentStatus": "pending",
-          "completedAt": null,
-          "completedRunId": null,
-          "completedThreadId": null,
-          "completedBranchName": null,
-          "lastCompletedRunId": null,
-          "lastCompletedThreadId": null,
-          "changeStatus": "changed",
-          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "initialDevelopmentStatus": "completed",
+          "completedAt": "2026-11-21T03:02:46.398787Z",
+          "completedRunId": "28b20cff-4e3f-4fc8-8d0b-367266980b24",
+          "completedThreadId": "416f2a7b-31c4-493b-bb1b-96070146f7fc",
+          "completedBranchName": "v1_0",
+          "lastCompletedRunId": "15c3661c-01f1-430a-be89-35aa8bb849b5",
+          "lastCompletedThreadId": "b4fe0839-e191-45a7-a796-7377d68c30b7",
+          "changeStatus": "unchanged",
+          "changeReason": null,
           "checkedChangeId": null
         }
       },
       "contract_access_card": {
         "contract_access_card.list": {
-          "initialDevelopmentStatus": "pending",
-          "completedAt": null,
-          "completedRunId": null,
-          "completedThreadId": null,
-          "completedBranchName": null,
-          "lastCompletedRunId": null,
-          "lastCompletedThreadId": null,
-          "changeStatus": "changed",
-          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "initialDevelopmentStatus": "completed",
+          "completedAt": "2026-11-21T02:51:54.389680Z",
+          "completedRunId": "3becedf4-6a55-4ce3-8062-4f61a9480e03",
+          "completedThreadId": "9f09a087-b855-4a82-8bc6-3859c35665f5",
+          "completedBranchName": "v1_0",
+          "lastCompletedRunId": "f9eacec7-0796-4621-8bbe-9608ebc980da",
+          "lastCompletedThreadId": "ebce3dd0-e8a1-419e-9c71-c47518a619b9",
+          "changeStatus": "unchanged",
+          "changeReason": null,
           "checkedChangeId": null
         },
         "contract_access_card.apply_deactivation": {
-          "initialDevelopmentStatus": "pending",
-          "completedAt": null,
-          "completedRunId": null,
-          "completedThreadId": null,
-          "completedBranchName": null,
-          "lastCompletedRunId": null,
-          "lastCompletedThreadId": null,
-          "changeStatus": "changed",
-          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "initialDevelopmentStatus": "completed",
+          "completedAt": "2026-11-21T03:44:19.929289Z",
+          "completedRunId": "ab54d92f-722f-4d7b-baa8-e69bd4fcb194",
+          "completedThreadId": "c9c5ef4b-4c9b-48cf-8ba8-c4778da0a77e",
+          "completedBranchName": "v1_0",
+          "lastCompletedRunId": "ab54d92f-722f-4d7b-baa8-e69bd4fcb194",
+          "lastCompletedThreadId": "c9c5ef4b-4c9b-48cf-8ba8-c4778da0a77e",
+          "changeStatus": "unchanged",
+          "changeReason": null,
           "checkedChangeId": null
         }
       },
       "contract_deactivation_submission": {
         "contract_deactivation_submission.list": {
-          "initialDevelopmentStatus": "pending",
-          "completedAt": null,
-          "completedRunId": null,
-          "completedThreadId": null,
-          "completedBranchName": null,
-          "lastCompletedRunId": null,
-          "lastCompletedThreadId": null,
-          "changeStatus": "changed",
-          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "initialDevelopmentStatus": "completed",
+          "completedAt": "2026-11-21T02:51:54.389680Z",
+          "completedRunId": "3becedf4-6a55-4ce3-8062-4f61a9480e03",
+          "completedThreadId": "9f09a087-b855-4a82-8bc6-3859c35665f5",
+          "completedBranchName": "v1_0",
+          "lastCompletedRunId": "46312411-6024-4216-9962-f058b15fa368",
+          "lastCompletedThreadId": "c5b800f4-f59d-44d4-ae81-6d4dfbcad026",
+          "changeStatus": "unchanged",
+          "changeReason": null,
           "checkedChangeId": null
         },
         "contract_deactivation_submission.submit_deactivation": {
-          "initialDevelopmentStatus": "pending",
-          "completedAt": null,
-          "completedRunId": null,
-          "completedThreadId": null,
-          "completedBranchName": null,
-          "lastCompletedRunId": null,
-          "lastCompletedThreadId": null,
-          "changeStatus": "changed",
-          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "initialDevelopmentStatus": "completed",
+          "completedAt": "2026-11-21T03:17:33.378511Z",
+          "completedRunId": "5e6f9f3e-1877-403f-9933-418a0c66b84d",
+          "completedThreadId": "27ad3a32-8a79-46eb-be52-51860a82e8c0",
+          "completedBranchName": "v1_0",
+          "lastCompletedRunId": "9f82449b-4d94-456f-b713-d342d67d8f72",
+          "lastCompletedThreadId": "ee230034-cf64-41c9-b0f0-db4688a83ede",
+          "changeStatus": "unchanged",
+          "changeReason": null,
           "checkedChangeId": null
         },
         "contract_deactivation_submission.get_result": {
-          "initialDevelopmentStatus": "pending",
-          "completedAt": null,
-          "completedRunId": null,
-          "completedThreadId": null,
-          "completedBranchName": null,
-          "lastCompletedRunId": null,
-          "lastCompletedThreadId": null,
-          "changeStatus": "changed",
-          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "initialDevelopmentStatus": "completed",
+          "completedAt": "2026-11-21T03:49:08.293816Z",
+          "completedRunId": "48dc0380-07ed-4f03-a0a4-03824e4abb6c",
+          "completedThreadId": "fc3be4a8-7bee-459b-a575-0fa07b2c5730",
+          "completedBranchName": "v1_0",
+          "lastCompletedRunId": "21d04586-2f8f-46f7-be07-57c21351b31e",
+          "lastCompletedThreadId": "fc3be4a8-7bee-459b-a575-0fa07b2c5730",
+          "changeStatus": "unchanged",
+          "changeReason": null,
           "checkedChangeId": null
         }
       }
     },
     "catalogError": null,
-    "outOfScope": []
+    "outOfScope": [
+      "page:main",
+      "page:card_claim",
+      "page:card_return",
+      "page:deactivation_done",
+      "endpoint:contract_access_card_claim_application:contract_access_card_claim_application.list",
+      "endpoint:contract_access_card_claim_application:contract_access_card_claim_application.complete_claim",
+      "endpoint:contract_access_card:contract_access_card.list",
+      "endpoint:contract_access_card:contract_access_card.apply_deactivation",
+      "endpoint:contract_deactivation_submission:contract_deactivation_submission.list",
+      "endpoint:contract_deactivation_submission:contract_deactivation_submission.submit_deactivation"
+    ]
   },
   "initialization": {
-    "stage": "generating_application_template_files",
-    "status": "running",
+    "stage": "ready_for_workbench",
+    "status": "completed",
     "threadId": "03cb095d-dbf8-4b19-8242-7490e1f66435",
     "iterationId": "8979859b-78da-4d18-a0c3-6e69d4c30667"
   },
-  "activeRunId": "d3973e19-6578-4f2e-a011-54a5b53979ec",
-  "activeExecutions": {},
+  "activeRunId": "e4ea45fb-4981-4ff0-a927-2d8472d66b25",
+  "activeExecutions": {
+    "47c1911d-068f-456d-990d-b9c76c5848bc": {
+      "scope": "endpoint",
+      "targetId": "contract_access_card.apply_deactivation",
+      "pageId": null,
+      "threadId": "d308395b-1ce0-4ca8-b586-b621f92862e0",
+      "ownerSessionId": "1abb9cb9-7675-4a31-a9fc-f67a05478d61",
+      "runId": "47c1911d-068f-456d-990d-b9c76c5848bc",
+      "phase": "build",
+      "status": "awaiting_user",
+      "resourceKeys": [
+        "endpoint:contract_access_card:contract_access_card.apply_deactivation",
+        "api_contract:contract_access_card"
+      ],
+      "developmentPurpose": "initial",
+      "developmentTarget": {
+        "type": "endpoint",
+        "entityId": null,
+        "pageId": null,
+        "apiContractId": "contract_access_card",
+        "endpointId": "contract_access_card.apply_deactivation"
+      },
+      "pendingInteraction": null,
+      "error": null,
+      "startedAt": "2026-11-21T03:35:40.513441Z",
+      "updatedAt": "2026-11-21T03:35:57.136178Z"
+    },
+    "e4ea45fb-4981-4ff0-a927-2d8472d66b25": {
+      "scope": "endpoint",
+      "targetId": "contract_deactivation_submission.get_result",
+      "pageId": null,
+      "threadId": "fc3be4a8-7bee-459b-a575-0fa07b2c5730",
+      "ownerSessionId": "307162ac-4f8d-4e7f-988b-1d89491de616",
+      "runId": "e4ea45fb-4981-4ff0-a927-2d8472d66b25",
+      "phase": "acceptance",
+      "status": "awaiting_user",
+      "resourceKeys": [
+        "endpoint:contract_deactivation_submission:contract_deactivation_submission.get_result",
+        "api_contract:contract_deactivation_submission"
+      ],
+      "developmentPurpose": null,
+      "developmentTarget": null,
+      "pendingInteraction": {
+        "id": "interaction-abc3d407e174ac0c729ae4ea",
+        "type": "page_acceptance",
+        "basedOnRevision": 260,
+        "payload": {
+          "mode": "page_acceptance",
+          "message": "项目已通过集成测试并启动预览，请用户验收。",
+          "previewUrl": "http://127.0.0.1:3000",
+          "testSummary": {
+            "version": "0.1.0",
+            "generated_at": "2026-11-21T04:01:26.243412+00:00",
+            "passed": true,
+            "checks": [
+              {
+                "id": "frontend_install",
+                "name": "前端依赖安装检查",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": false,
+                "required": true,
+                "command": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm install",
+                "evidence": "Node v22.23.1 (NVM_BIN) /Users/maomao/.nvm/versions/node/v22.23.1/bin/node\n命令执行通过：/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm install",
+                "failure_category": null,
+                "execution": {
+                  "tool": "subprocess",
+                  "argv": [
+                    "/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm",
+                    "install"
+                  ],
+                  "cwd": "frontend",
+                  "returncode": 0,
+                  "timed_out": false,
+                  "error": null,
+                  "started_at": "2026-11-21T04:01:16.242883+00:00",
+                  "finished_at": "2026-11-21T04:01:17.195305+00:00",
+                  "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112101/.devagentstudio/runtime/tests/frontend_install/stdout.log",
+                  "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112101/.devagentstudio/runtime/tests/frontend_install/stderr.log",
+                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stdout.log",
+                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stderr.log",
+                  "stdout_tail": "Already up to date\nDone in 235ms using pnpm v11.9.0\n",
+                  "stderr_tail": "",
+                  "nodeRuntime": {
+                    "path": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/node",
+                    "version": "v22.23.1",
+                    "source": "NVM_BIN"
+                  }
+                }
+              },
+              {
+                "id": "frontend_build",
+                "name": "前端构建检查",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": false,
+                "required": true,
+                "command": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm run build",
+                "evidence": "Node v22.23.1 (NVM_BIN) /Users/maomao/.nvm/versions/node/v22.23.1/bin/node\n命令执行通过：/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm run build",
+                "failure_category": null,
+                "execution": {
+                  "tool": "subprocess",
+                  "argv": [
+                    "/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm",
+                    "run",
+                    "build"
+                  ],
+                  "cwd": "frontend",
+                  "returncode": 0,
+                  "timed_out": false,
+                  "error": null,
+                  "started_at": "2026-11-21T04:01:17.195833+00:00",
+                  "finished_at": "2026-11-21T04:01:22.152141+00:00",
+                  "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112101/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+                  "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112101/.devagentstudio/runtime/tests/frontend_build/stderr.log",
+                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stderr.log",
+                  "stdout_tail": "  Rsbuild v1.0.14\n\nready   Built in 1.49 s (web)\nwarn    Compile Warning: \n⚠ Unknown at rule: @theme at static/css/index.d96ed24a.css:2:7\n\n⚠ Unknown at rule: @theme at static/css/656.a718ab14.css:2:9\n\n⚠ Unknown at rule: @theme at static/css/656.a718ab14.css:6:9\n\n⚠ Unknown at rule: @tailwind at static/css/656.a718ab14.css:325:12\n\n\n  File (web)                                     Size         Gzip    \n  build/static/js/async/923.0a05731f.js          0.38 kB      0.31 kB\n  build/index.html                               0.92 kB      0.46 kB\n  build/static/css/index.d96ed24a.css            2.2 kB       0.58 kB\n  build/static/svg/icon20.232d197f.svg           4.7 kB       2.1 kB\n  build/static/js/async/130.760369b0.js          6.5 kB       2.7 kB\n  build/static/js/async/2.71051687.js            8.6 kB       3.9 kB\n  build/static/js/async/474.2f0a0c6e.js          10.2 kB      4.2 kB\n  build/static/js/async/326.350ffcd9.js          10.2 kB      3.2 kB\n  build/static/js/async/816.cf11bc0e.js          10.6 kB      4.0 kB\n  build/static/js/lib-router.c56c842e.js         19.9 kB      7.3 kB\n  build/static/css/656.a718ab14.css              23.1 kB      5.9 kB\n  build/static/js/async/lib-axios.e1d4d1a3.js    50.5 kB      18.5 kB\n  build/static/js/index.e40a07e7.js              58.4 kB      19.5 kB\n  build/static/js/async/839.661a18cd.js          78.6 kB      24.3 kB\n  build/static/js/lib-react.d95d3fc4.js          140.4 kB     45.1 kB\n  build/static/js/async/83.0d55311f.js           1138.6 kB    336.2 kB\n  build/static/js/656.17b32d91.js                1466.5 kB    385.2 kB\n\n  Total: 3030.2 kB (gzip: 863.5 kB)\n\n",
+                  "stderr_tail": "$ tsc -b && rsbuild build\n",
+                  "nodeRuntime": {
+                    "path": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/node",
+                    "version": "v22.23.1",
+                    "source": "NVM_BIN"
+                  }
+                }
+              },
+              {
+                "id": "backend_build",
+                "name": "后端构建检查",
+                "layer": "backend",
+                "language": "java",
+                "passed": true,
+                "skipped": true,
+                "required": false,
+                "command": null,
+                "evidence": "本地调试模式：跳过后端构建检查（无 Java 环境）。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "none",
+                  "argv": [],
+                  "cwd": ".",
+                  "returncode": null,
+                  "timed_out": false,
+                  "stdout_log": null,
+                  "stderr_log": null
+                }
+              },
+              {
+                "id": "backend_startup",
+                "name": "后端启动检查",
+                "layer": "backend",
+                "language": "java",
+                "passed": true,
+                "skipped": true,
+                "required": false,
+                "command": null,
+                "evidence": "本地调试模式：跳过后端启动检查（无 Java 环境）。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "none",
+                  "argv": [],
+                  "cwd": ".",
+                  "returncode": null,
+                  "timed_out": false,
+                  "stdout_log": null,
+                  "stderr_log": null
+                },
+                "source_fingerprint": "8205d6534267f032b900b480213822b0e200048dceb17ad23ab5e978e7f582f6"
+              },
+              {
+                "id": "backend_static_check",
+                "name": "后端静态检查通过",
+                "layer": "backend",
+                "language": "java",
+                "passed": true,
+                "skipped": true,
+                "required": false,
+                "command": null,
+                "evidence": "本地调试模式：跳过后端构建检查（无 Java 环境）。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "none",
+                  "argv": [],
+                  "cwd": ".",
+                  "returncode": null,
+                  "timed_out": false,
+                  "stdout_log": null,
+                  "stderr_log": null
+                }
+              },
+              {
+                "id": "frontend_performance",
+                "name": "前端性能测试",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": true,
+                "required": false,
+                "blocking": false,
+                "advisory": true,
+                "command": null,
+                "evidence": "本轮跳过前端性能测试，不启动前端、不执行 Lighthouse。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "none",
+                  "argv": [],
+                  "cwd": ".",
+                  "returncode": null,
+                  "timed_out": false,
+                  "stdout_log": null,
+                  "stderr_log": null
+                }
+              }
+            ],
+            "summary": {
+              "total": 6,
+              "passed": 6,
+              "failed": 0
+            },
+            "needs_revision": false,
+            "revision_requests": [],
+            "quality_gate": {
+              "passed": true,
+              "required_checks": [
+                "frontend_install",
+                "frontend_build"
+              ],
+              "evaluated_by": "deterministic-quality-gate"
+            }
+          }
+        },
+        "artifactRefs": [],
+        "createdAt": "2026-11-21T04:01:47.535748Z",
+        "submittedAt": null
+      },
+      "error": null,
+      "startedAt": "2026-11-21T04:01:42.951018Z",
+      "updatedAt": "2026-11-21T04:01:47.535768Z"
+    }
+  },
   "endedExecutions": {},
   "endedPlanningExecution": null,
   "developmentContinuations": {},
   "resourceLocks": {
     "application": null,
     "pages": {},
-    "apiContracts": {},
-    "endpoints": {},
+    "apiContracts": {
+      "contract_deactivation_submission": {
+        "runId": "e4ea45fb-4981-4ff0-a927-2d8472d66b25",
+        "ownerPageId": null,
+        "mode": "exclusive",
+        "role": "dependency",
+        "reason": "plan_dependency",
+        "acquiredAt": "2026-11-21T04:01:42.951018Z"
+      }
+    },
+    "endpoints": {
+      "contract_deactivation_submission:contract_deactivation_submission.get_result": {
+        "runId": "e4ea45fb-4981-4ff0-a927-2d8472d66b25",
+        "ownerPageId": null,
+        "mode": "exclusive",
+        "role": "primary",
+        "reason": "primary_target",
+        "acquiredAt": "2026-11-21T04:01:42.951018Z"
+      }
+    },
     "dataSources": {}
   },
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {}
+  "extensions": {
+    "testExecutionStatus": "pending",
+    "reviewStatus": "pending",
+    "acceptanceStatus": "pending",
+    "redevelopedChangedTargets": [
+      "endpoint:contract_access_card:contract_access_card.apply_deactivation",
+      "endpoint:contract_access_card:contract_access_card.list",
+      "endpoint:contract_access_card_claim_application:contract_access_card_claim_application.complete_claim",
+      "endpoint:contract_access_card_claim_application:contract_access_card_claim_application.list",
+      "endpoint:contract_deactivation_submission:contract_deactivation_submission.get_result",
+      "endpoint:contract_deactivation_submission:contract_deactivation_submission.list",
+      "endpoint:contract_deactivation_submission:contract_deactivation_submission.submit_deactivation",
+      "page:card_claim",
+      "page:card_return",
+      "page:deactivation_done",
+      "page:main"
+    ]
+  }
 }
