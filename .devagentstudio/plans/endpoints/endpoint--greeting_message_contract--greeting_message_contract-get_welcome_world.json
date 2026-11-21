@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "c2d55657f3cf493daa6e37ea2944f767",
+  "apiContractId": "greeting_message_contract",
+  "endpointId": "greeting_message_contract.get_welcome_world",
+  "endpointContract": {
+    "id": "greeting_message_contract.get_welcome_world",
+    "name": "获取欢迎世界问候语",
+    "method": "GET",
+    "path": "/api/greetings/welcome-world",
+    "summary": "获取欢迎世界页所需的问候语内容“欢迎来到我的世界！”，供前端页面直接展示。",
+    "parameters": [],
+    "request_schema_ref": null,
+    "response_schema_ref": "GreetingMessageResponse",
+    "error_codes": [
+      "NOT_FOUND",
+      "INTERNAL_ERROR"
+    ],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "greetingText": "你好，欢迎来到示例测试世界！"
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "greetingText",
+        "type": "string",
+        "required": true,
+        "description": "接口返回并供前端页面展示的问候字符串内容"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "greetingText",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "9f1a8ceef67104640473b82e37396fccaca3934b66506b49f6bcbe7a67937dce"
+    }
+  ],
+  "confirmedAt": "2026-11-21T13:26:21.293843Z"
+}

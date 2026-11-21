@@ -1,0 +1,68 @@
+{
+  "planning_run_id": "planning-8f848abef35046069720033eadf60ad9",
+  "workflow_run_id": "ec609757-145e-4f9c-bb24-13c618ffd13d",
+  "thread_id": "99193600-c8ef-4945-b629-7eac9ae7d61d",
+  "revision": 8,
+  "status": "active",
+  "phase": "persisting_pending",
+  "build_execution_scope": {
+    "type": "endpoint",
+    "targetId": "greeting_message_contract.get_welcome_world",
+    "apiContractId": "greeting_message_contract"
+  },
+  "input_fingerprint": "9c06c9c4e356489c60418de28ec6bfdeeeb22de6461704ce2d05f70016bab99d",
+  "base_confirmed_plan_digest": "a6f4f531a5dbc1f2a592eaa9ea7a7bd530b1585a3f013e8a894521df736baf74",
+  "required_unit_ids": [
+    "backend:bootstrap",
+    "backend:module:greeting_message_contract"
+  ],
+  "unit_display_names": {
+    "backend:bootstrap": "后端基础环境配置",
+    "backend:module:greeting_message_contract": "问候语模块"
+  },
+  "planning_unit_ids": [
+    "backend:module:greeting_message_contract"
+  ],
+  "global_repair_round": 0,
+  "global_repair_limit": 2,
+  "global_issues": [],
+  "unit_states": {
+    "backend:bootstrap": {
+      "unit_id": "backend:bootstrap",
+      "kind": "backend",
+      "participation": "not_required",
+      "generation_strategy": "not_required",
+      "generation_status": "not_required",
+      "generation_round": 1,
+      "attempt_in_round": 0,
+      "total_attempts": 0,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": null,
+      "candidate_task_count": 0,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "backend:module:greeting_message_contract": {
+      "unit_id": "backend:module:greeting_message_contract",
+      "kind": "backend",
+      "participation": "generate_only",
+      "generation_strategy": "model",
+      "generation_status": "candidate_ready",
+      "generation_round": 1,
+      "attempt_in_round": 1,
+      "total_attempts": 1,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": "candidate-a1d638ba1cae4e8cad6ad9d1fd4a7998",
+      "candidate_task_count": 2,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    }
+  },
+  "started_at": "2026-11-21T13:32:01.413658Z",
+  "updated_at": "2026-11-21T13:32:20.545267Z",
+  "failure": null
+}

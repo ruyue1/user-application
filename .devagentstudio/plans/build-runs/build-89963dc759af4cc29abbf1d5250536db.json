@@ -1,0 +1,1233 @@
+{
+  "schema_version": "build-dag.v4",
+  "application": {
+    "unit_id": "application:root",
+    "status": "prepared"
+  },
+  "build_units": {
+    "application:root": {
+      "id": "application:root",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:auth-resources": {
+      "id": "backend:auth-resources",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:shell": {
+      "id": "frontend:shell",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "generation_strategy": "prerequisite_only",
+      "participation": "prerequisite_only",
+      "generation_status": "not_required"
+    },
+    "frontend:api-client": {
+      "id": "frontend:api-client",
+      "kind": "frontend",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      }
+    },
+    "frontend:auth-guard": {
+      "id": "frontend:auth-guard",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:bootstrap": {
+      "id": "backend:bootstrap",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "backend_bootstrap",
+        "target": {
+          "type": "endpoint",
+          "id": "greeting_message_contract.get_good_evening",
+          "api_contract_id": "greeting_message_contract"
+        },
+        "endpoint_ids": [
+          "greeting_message_contract.get_good_evening"
+        ],
+        "entity_ids": [
+          "greeting_message"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "0dd1dcca0a8e40219580fb6b7a673e19",
+            "apiContractId": "greeting_message_contract",
+            "endpointId": "greeting_message_contract.get_good_evening",
+            "endpointContract": {
+              "id": "greeting_message_contract.get_good_evening",
+              "name": "获取晚间问候语",
+              "method": "GET",
+              "path": "/api/greetings/good-evening",
+              "summary": "获取晚间问候页所需的问候语内容“晚上好！”，供前端页面直接展示。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingMessageResponse",
+              "error_codes": [
+                "NOT_FOUND",
+                "INTERNAL_ERROR"
+              ],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "greetingText": "示例晚间问候：祝您度过一个宁静愉快的夜晚"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "greetingText",
+                  "type": "string",
+                  "required": true,
+                  "description": "接口返回并供前端页面展示的问候字符串内容"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "greetingText",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "9f1a8ceef67104640473b82e37396fccaca3934b66506b49f6bcbe7a67937dce"
+              }
+            ],
+            "confirmedAt": "2026-11-21T13:22:41.070860Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.greetingText → response.response_body.greetingText"
+        ],
+        "source_types": [
+          "static"
+        ]
+      },
+      "input_fingerprint": "aacfa71dfaf9789d60840352c25652b3364b160315d7025a6aaf01a24df0610c"
+    },
+    "app:integration": {
+      "id": "app:integration",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:module:greeting_message_contract": {
+      "id": "backend:module:greeting_message_contract",
+      "kind": "backend",
+      "api_contract_id": "greeting_message_contract",
+      "status": "prepared",
+      "task_ids": [
+        "backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business",
+        "backend:module:greeting_message_contract::a860e71e98127638::controller"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "technical_plan_module",
+        "target": {
+          "type": "module",
+          "id": "greeting_message_contract",
+          "api_contract_id": "greeting_message_contract"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "greeting_message_contract.get_good_evening",
+            "api_contract_id": "greeting_message_contract"
+          }
+        ],
+        "endpoint_ids": [
+          "greeting_message_contract.get_good_evening"
+        ],
+        "entity_ids": [
+          "greeting_message"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "0dd1dcca0a8e40219580fb6b7a673e19",
+            "apiContractId": "greeting_message_contract",
+            "endpointId": "greeting_message_contract.get_good_evening",
+            "endpointContract": {
+              "id": "greeting_message_contract.get_good_evening",
+              "name": "获取晚间问候语",
+              "method": "GET",
+              "path": "/api/greetings/good-evening",
+              "summary": "获取晚间问候页所需的问候语内容“晚上好！”，供前端页面直接展示。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingMessageResponse",
+              "error_codes": [
+                "NOT_FOUND",
+                "INTERNAL_ERROR"
+              ],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "greetingText": "示例晚间问候：祝您度过一个宁静愉快的夜晚"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "greetingText",
+                  "type": "string",
+                  "required": true,
+                  "description": "接口返回并供前端页面展示的问候字符串内容"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "greetingText",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "9f1a8ceef67104640473b82e37396fccaca3934b66506b49f6bcbe7a67937dce"
+              }
+            ],
+            "confirmedAt": "2026-11-21T13:22:41.070860Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.greetingText → response.response_body.greetingText"
+        ],
+        "business_descriptions": [],
+        "source_types": [
+          "static"
+        ]
+      },
+      "input_fingerprint": "2c085d22658204cae92c9a8a7c956c4d75f1ba1b1ba804f8f6157240676f5cba"
+    },
+    "page:good_evening": {
+      "id": "page:good_evening",
+      "kind": "page",
+      "page_id": "good_evening",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "page_implementation_contract",
+        "target": {
+          "type": "page",
+          "id": "good_evening",
+          "page_key": "GoodEvening"
+        },
+        "page_implementation_contract": {
+          "id": "good_evening"
+        },
+        "endpoint_ids": [
+          "greeting_message_contract.get_good_evening"
+        ],
+        "entity_ids": [
+          "greeting_message"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "0dd1dcca0a8e40219580fb6b7a673e19",
+            "apiContractId": "greeting_message_contract",
+            "endpointId": "greeting_message_contract.get_good_evening",
+            "endpointContract": {
+              "id": "greeting_message_contract.get_good_evening",
+              "name": "获取晚间问候语",
+              "method": "GET",
+              "path": "/api/greetings/good-evening",
+              "summary": "获取晚间问候页所需的问候语内容“晚上好！”，供前端页面直接展示。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingMessageResponse",
+              "error_codes": [
+                "NOT_FOUND",
+                "INTERNAL_ERROR"
+              ],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "greetingText": "示例晚间问候：祝您度过一个宁静愉快的夜晚"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "greetingText",
+                  "type": "string",
+                  "required": true,
+                  "description": "接口返回并供前端页面展示的问候字符串内容"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "greetingText",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "9f1a8ceef67104640473b82e37396fccaca3934b66506b49f6bcbe7a67937dce"
+              }
+            ],
+            "confirmedAt": "2026-11-21T13:22:41.070860Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.greetingText → response.response_body.greetingText"
+        ],
+        "source_types": [
+          "static"
+        ]
+      }
+    },
+    "page:welcome_world": {
+      "id": "page:welcome_world",
+      "kind": "page",
+      "page_id": "welcome_world",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "page_implementation_contract",
+        "target": {
+          "type": "page",
+          "id": "welcome_world",
+          "page_key": "WelcomeWorld"
+        },
+        "page_implementation_contract": {
+          "id": "welcome_world"
+        },
+        "endpoint_ids": [
+          "greeting_message_contract.get_welcome_world"
+        ],
+        "entity_ids": [
+          "greeting_message"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "c2d55657f3cf493daa6e37ea2944f767",
+            "apiContractId": "greeting_message_contract",
+            "endpointId": "greeting_message_contract.get_welcome_world",
+            "endpointContract": {
+              "id": "greeting_message_contract.get_welcome_world",
+              "name": "获取欢迎世界问候语",
+              "method": "GET",
+              "path": "/api/greetings/welcome-world",
+              "summary": "获取欢迎世界页所需的问候语内容“欢迎来到我的世界！”，供前端页面直接展示。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingMessageResponse",
+              "error_codes": [
+                "NOT_FOUND",
+                "INTERNAL_ERROR"
+              ],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "greetingText": "你好，欢迎来到示例测试世界！"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "greetingText",
+                  "type": "string",
+                  "required": true,
+                  "description": "接口返回并供前端页面展示的问候字符串内容"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "greetingText",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "9f1a8ceef67104640473b82e37396fccaca3934b66506b49f6bcbe7a67937dce"
+              }
+            ],
+            "confirmedAt": "2026-11-21T13:26:21.293843Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.greetingText → response.response_body.greetingText"
+        ],
+        "source_types": [
+          "static"
+        ]
+      }
+    }
+  },
+  "unit_graph": {
+    "schema_version": "build-unit-graph.v3",
+    "nodes": [
+      "application:root",
+      "backend:auth-resources",
+      "frontend:shell",
+      "frontend:api-client",
+      "frontend:auth-guard",
+      "backend:bootstrap",
+      "app:integration",
+      "backend:module:greeting_message_contract",
+      "page:good_evening",
+      "page:welcome_world"
+    ],
+    "edges": [
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:bootstrap",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:auth-resources",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:shell",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:api-client",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:auth-guard",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:bootstrap",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:greeting_message_contract",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:greeting_message_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:greeting_message_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_message_contract",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:good_evening",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:good_evening",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:good_evening",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_message_contract",
+        "to": "page:good_evening",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:good_evening",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:welcome_world",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:welcome_world",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:welcome_world",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_message_contract",
+        "to": "page:welcome_world",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:welcome_world",
+        "to": "app:integration",
+        "type": "depends_on"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "unit_skeleton": {
+    "input_fingerprint": "603e0af483909869d2a5dbd448133e8011ffd74db9593d77a3adc9aeaa7f8f5a",
+    "project_plan_version": null,
+    "workspace_revision": "a0fea40fe99d9dc0d761785c",
+    "reused": false
+  },
+  "task_registry": {
+    "backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business": {
+      "id": "backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business",
+      "unit_id": "backend:module:greeting_message_contract",
+      "owner": "backend",
+      "task_type": "backend.code",
+      "title": "接口业务实现 · 实现获取晚间问候语应用服务与对象模型",
+      "description": "1. 字段：确认并保留必填响应字段 greetingText（String，非空），用于承载晚间问候语响应内容。\n复用要求：保留现有类的既有字段、构造器、Getter/Setter 及已有问候接口所需的兼容定义，不破坏已有调用方。（backend/src/main/java/com/cmbchina/backend/greeting/application/dto/GreetingMessageResponse.java）\n2. 接口/方法：实现 IBizErrorCode，确保包含契约声明的 NOT_FOUND 与 INTERNAL_ERROR 对应业务错误码枚举项（若已具备兼容错误码则直接复用）。\n复用要求：保留既有枚举常量与错误码定义，不重命名或删除已有成员。（backend/src/main/java/com/cmbchina/backend/greeting/domain/exception/GreetingErrorCode.java）\n3. 接口/方法：新增获取晚间问候语方法（如 getGoodEvening()），返回 GreetingMessageResponse。\n处理逻辑：基于已确认的静态数据源（staticData.greetingText = \"示例晚间问候：祝您度过一个宁静愉快的夜晚\"，注意 API summary 提及“晚上好！”，但已确认的 endpoint_api_design 静态源绑定值为 staticData.greetingText，实现须严格按已确认静态源字段 greetingText 直接映射至 GreetingMessageResponse.greetingText）；遵循 missingBehavior = error 约束，当静态问候内容缺失或为空时抛出基于 GreetingErrorCode（NOT_FOUND）的 BizException。\n复用要求：保留类中已有的其他问候语业务方法及注入依赖，仅增量扩展当前端点方法。（backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java）",
+      "dependencies": [],
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/GreetingMessageResponse.java",
+        "backend/src/main/java/com/cmbchina/backend/greeting/domain/exception/GreetingErrorCode.java",
+        "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+      ],
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/GreetingMessageResponse.java",
+        "backend/src/main/java/com/cmbchina/backend/greeting/domain/exception/GreetingErrorCode.java",
+        "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+      ],
+      "change_scope": [
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/GreetingMessageResponse.java",
+          "operation": "modify",
+          "description": "字段：确认并保留必填响应字段 greetingText（String，非空），用于承载晚间问候语响应内容。\n复用要求：保留现有类的既有字段、构造器、Getter/Setter 及已有问候接口所需的兼容定义，不破坏已有调用方。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/greeting/domain/exception/GreetingErrorCode.java",
+          "operation": "modify",
+          "description": "接口/方法：实现 IBizErrorCode，确保包含契约声明的 NOT_FOUND 与 INTERNAL_ERROR 对应业务错误码枚举项（若已具备兼容错误码则直接复用）。\n复用要求：保留既有枚举常量与错误码定义，不重命名或删除已有成员。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java",
+          "operation": "modify",
+          "description": "接口/方法：新增获取晚间问候语方法（如 getGoodEvening()），返回 GreetingMessageResponse。\n处理逻辑：基于已确认的静态数据源（staticData.greetingText = \"示例晚间问候：祝您度过一个宁静愉快的夜晚\"，注意 API summary 提及“晚上好！”，但已确认的 endpoint_api_design 静态源绑定值为 staticData.greetingText，实现须严格按已确认静态源字段 greetingText 直接映射至 GreetingMessageResponse.greetingText）；遵循 missingBehavior = error 约束，当静态问候内容缺失或为空时抛出基于 GreetingErrorCode（NOT_FOUND）的 BizException。\n复用要求：保留类中已有的其他问候语业务方法及注入依赖，仅增量扩展当前端点方法。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business::deliverable:1",
+          "kind": "backend.application_service",
+          "target_id": "greeting_message_contract.get_good_evening",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+          ],
+          "provides": [
+            "backend.application_service:greeting_message_contract:greeting_message_contract.get_good_evening"
+          ]
+        },
+        {
+          "id": "backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business::deliverable:2",
+          "kind": "backend.objects",
+          "target_id": "greeting_message_contract.get_good_evening",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/GreetingMessageResponse.java",
+            "backend/src/main/java/com/cmbchina/backend/greeting/domain/exception/GreetingErrorCode.java"
+          ],
+          "provides": [
+            "backend.endpoint.objects:greeting_message_contract:greeting_message_contract.get_good_evening"
+          ]
+        }
+      ],
+      "impact_scope": {
+        "summary": "接口业务实现 · 实现获取晚间问候语应用服务与对象模型",
+        "affected_modules": [
+          "greeting_message_contract"
+        ],
+        "public_contracts": [],
+        "risks": []
+      },
+      "can_run_in_parallel": true,
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "status": "pending",
+      "source_refs": {
+        "type": "technical_plan_module",
+        "target": {
+          "type": "module",
+          "id": "greeting_message_contract",
+          "api_contract_id": "greeting_message_contract"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "greeting_message_contract.get_good_evening",
+            "api_contract_id": "greeting_message_contract"
+          }
+        ],
+        "endpoint_ids": [
+          "greeting_message_contract.get_good_evening"
+        ],
+        "entity_ids": [
+          "greeting_message"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "0dd1dcca0a8e40219580fb6b7a673e19",
+            "apiContractId": "greeting_message_contract",
+            "endpointId": "greeting_message_contract.get_good_evening",
+            "endpointContract": {
+              "id": "greeting_message_contract.get_good_evening",
+              "name": "获取晚间问候语",
+              "method": "GET",
+              "path": "/api/greetings/good-evening",
+              "summary": "获取晚间问候页所需的问候语内容“晚上好！”，供前端页面直接展示。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingMessageResponse",
+              "error_codes": [
+                "NOT_FOUND",
+                "INTERNAL_ERROR"
+              ],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "greetingText": "示例晚间问候：祝您度过一个宁静愉快的夜晚"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "greetingText",
+                  "type": "string",
+                  "required": true,
+                  "description": "接口返回并供前端页面展示的问候字符串内容"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "greetingText",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "9f1a8ceef67104640473b82e37396fccaca3934b66506b49f6bcbe7a67937dce"
+              }
+            ],
+            "confirmedAt": "2026-11-21T13:22:41.070860Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.greetingText → response.response_body.greetingText"
+        ],
+        "business_descriptions": [],
+        "source_types": [],
+        "backend_stage": "business",
+        "foundation_paths": []
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:module:greeting_message_contract"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap",
+        "backend:auth-resources"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [
+        "backend:bootstrap"
+      ],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business:file_operation:059fce98a38f",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/greeting/application/dto/GreetingMessageResponse.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/GreetingMessageResponse.java"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business:file_operation:14cf6a3fbe43",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/greeting/domain/exception/GreetingErrorCode.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/greeting/domain/exception/GreetingErrorCode.java"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business:file_operation:2fae8405152d",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business:scope_boundary:3b7061fa8fd2",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/GreetingMessageResponse.java",
+            "backend/src/main/java/com/cmbchina/backend/greeting/domain/exception/GreetingErrorCode.java",
+            "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/GreetingMessageResponse.java",
+              "backend/src/main/java/com/cmbchina/backend/greeting/domain/exception/GreetingErrorCode.java",
+              "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": {
+        "$artifact": {
+          "artifactId": "361ef573ddf27c34c75e68079d0c2797ef51d1a3b722aadbc73ca0cf53508b17",
+          "byteLength": 4272,
+          "mediaType": "application/json"
+        }
+      },
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": []
+    },
+    "backend:module:greeting_message_contract::a860e71e98127638::controller": {
+      "id": "backend:module:greeting_message_contract::a860e71e98127638::controller",
+      "unit_id": "backend:module:greeting_message_contract",
+      "owner": "backend",
+      "task_type": "backend.code",
+      "title": "模块 Controller · 暴露获取晚间问候语 Web 控制器路由",
+      "description": "1. 接口/方法：新增晚间问候语查询处理方法，完整有效路由为 GET /api/greetings/good-evening（结合类上已有 @RequestMapping 前缀配置对应 @GetMapping 子路径），无需请求参数与认证鉴权。\n处理逻辑：委托调用 GreetingApplicationService 的获取晚间问候语方法获取 GreetingMessageResponse，并使用项目统一响应包装类 ResponseEntity 封装返回。\n复用要求：保留控制器类上既有的路由前缀、依赖注入及其他已实现的问候端点处理方法。（backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java）",
+      "dependencies": [
+        "backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business"
+      ],
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+      ],
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+      ],
+      "change_scope": [
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java",
+          "operation": "modify",
+          "description": "接口/方法：新增晚间问候语查询处理方法，完整有效路由为 GET /api/greetings/good-evening（结合类上已有 @RequestMapping 前缀配置对应 @GetMapping 子路径），无需请求参数与认证鉴权。\n处理逻辑：委托调用 GreetingApplicationService 的获取晚间问候语方法获取 GreetingMessageResponse，并使用项目统一响应包装类 ResponseEntity 封装返回。\n复用要求：保留控制器类上既有的路由前缀、依赖注入及其他已实现的问候端点处理方法。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:module:greeting_message_contract::a860e71e98127638::controller::deliverable:1",
+          "kind": "backend.endpoint_controller",
+          "target_id": "greeting_message_contract.get_good_evening",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+          ],
+          "provides": [
+            "backend.endpoint_controller:greeting_message_contract:greeting_message_contract.get_good_evening"
+          ]
+        }
+      ],
+      "impact_scope": {
+        "summary": "模块 Controller · 暴露获取晚间问候语 Web 控制器路由",
+        "affected_modules": [
+          "greeting_message_contract"
+        ],
+        "public_contracts": [
+          "greeting_message_contract.get_good_evening"
+        ],
+        "risks": []
+      },
+      "can_run_in_parallel": false,
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "status": "pending",
+      "source_refs": {
+        "type": "technical_plan_module",
+        "target": {
+          "type": "module",
+          "id": "greeting_message_contract",
+          "api_contract_id": "greeting_message_contract"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "greeting_message_contract.get_good_evening",
+            "api_contract_id": "greeting_message_contract"
+          }
+        ],
+        "endpoint_ids": [
+          "greeting_message_contract.get_good_evening"
+        ],
+        "entity_ids": [
+          "greeting_message"
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "0dd1dcca0a8e40219580fb6b7a673e19",
+            "apiContractId": "greeting_message_contract",
+            "endpointId": "greeting_message_contract.get_good_evening",
+            "endpointContract": {
+              "id": "greeting_message_contract.get_good_evening",
+              "name": "获取晚间问候语",
+              "method": "GET",
+              "path": "/api/greetings/good-evening",
+              "summary": "获取晚间问候页所需的问候语内容“晚上好！”，供前端页面直接展示。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingMessageResponse",
+              "error_codes": [
+                "NOT_FOUND",
+                "INTERNAL_ERROR"
+              ],
+              "authentication": {
+                "required": false
+              }
+            },
+            "sourceBinding": {
+              "sourceType": "static"
+            },
+            "staticData": {
+              "greetingText": "示例晚间问候：祝您度过一个宁静愉快的夜晚"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "greetingText",
+                  "type": "string",
+                  "required": true,
+                  "description": "接口返回并供前端页面展示的问候字符串内容"
+                },
+                "mappingType": "source_mapping",
+                "sourceFields": [
+                  {
+                    "sourceType": "static",
+                    "path": "greetingText",
+                    "type": "string",
+                    "description": ""
+                  }
+                ],
+                "endpointFields": [],
+                "builtinFields": [],
+                "processingType": "direct",
+                "missingBehavior": "error"
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "9f1a8ceef67104640473b82e37396fccaca3934b66506b49f6bcbe7a67937dce"
+              }
+            ],
+            "confirmedAt": "2026-11-21T13:22:41.070860Z"
+          }
+        ],
+        "mapping_flows": [
+          "静态数据.greetingText → response.response_body.greetingText"
+        ],
+        "business_descriptions": [],
+        "source_types": [],
+        "backend_stage": "controller"
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:module:greeting_message_contract"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap",
+        "backend:auth-resources"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [
+        "backend:bootstrap"
+      ],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:module:greeting_message_contract::a860e71e98127638::controller:file_operation:40de3008df58",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:greeting_message_contract::a860e71e98127638::controller:scope_boundary:c28d70b482d2",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:backend:module:greeting_message_contract::a860e71e98127638::controller:backend.endpoint_contract:936bd67d51102e88",
+          "deliverable_id": "backend:module:greeting_message_contract::a860e71e98127638::controller::deliverable:1",
+          "kind": "backend.endpoint_contract",
+          "description": "Controller 必须按 API Contract 暴露 method/path、绑定 DTO、返回约定状态码并委托 ApplicationService。",
+          "sources": [
+            {
+              "artifact": "api_contract",
+              "target_id": "greeting_message_contract.get_good_evening",
+              "pointer": "/api_contracts/greeting_message_contract/endpoints/greeting_message_contract.get_good_evening",
+              "sha256": "ecb0e27de52674eefbdd097df59c4b2bb53e4ee5ce8a0f2e0da7835613a9652b"
+            },
+            {
+              "artifact": "api_design",
+              "target_id": "greeting_message_contract.get_good_evening",
+              "pointer": "/endpoint_designs/greeting_message_contract.get_good_evening",
+              "sha256": "30f5a485161ba8aacfe1f88fd5493f31594731665ab45835c6f484bb950a12a6"
+            }
+          ],
+          "expected": {
+            "endpoints": [
+              {
+                "api_contract_id": "greeting_message_contract",
+                "endpoint_id": "greeting_message_contract.get_good_evening",
+                "method": "GET",
+                "path": "/api/greetings/good-evening",
+                "request_schema_ref": "",
+                "response_schema_ref": "GreetingMessageResponse",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "greetingText"
+                  ],
+                  "properties": {
+                    "greetingText": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ],
+            "operations": [
+              {
+                "api_contract_id": "greeting_message_contract",
+                "endpoint_id": "greeting_message_contract.get_good_evening",
+                "operation_kind": "read",
+                "target_cardinality": "object",
+                "selector": {
+                  "source": "endpoint_api_design",
+                  "query": null
+                },
+                "transaction_required": false,
+                "database_writes": [],
+                "external_api_bindings": [],
+                "zero_match_behavior": "confirmed_processing_logic",
+                "multiple_match_behavior": "confirmed_processing_logic",
+                "success_status_code": null,
+                "side_effect": "none",
+                "processing_logic": [],
+                "requires_repository": false
+              }
+            ],
+            "business_descriptions": []
+          },
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "backend_endpoint_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": []
+    }
+  },
+  "task_graph": {
+    "schema_version": "build-task-graph.v3",
+    "nodes": [
+      "backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business",
+      "backend:module:greeting_message_contract::a860e71e98127638::controller"
+    ],
+    "edges": [
+      {
+        "from": "backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business",
+        "to": "backend:module:greeting_message_contract::a860e71e98127638::controller",
+        "type": "depends_on"
+      }
+    ],
+    "roots": [
+      "backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business"
+    ],
+    "leaves": [
+      "backend:module:greeting_message_contract::a860e71e98127638::controller"
+    ],
+    "topological_order": [
+      "backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business",
+      "backend:module:greeting_message_contract::a860e71e98127638::controller"
+    ],
+    "execution_layers": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:greeting_message_contract::a860e71e98127638::controller"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "summary": {
+    "total": 2,
+    "frontend": 0,
+    "backend": 2,
+    "database": 0,
+    "pending": 2,
+    "running": 0,
+    "completed": 0,
+    "already_satisfied": 0,
+    "failed": 0,
+    "results": 4
+  },
+  "execution": {
+    "batches": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:greeting_message_contract::greeting_message_contract.get_good_evening::business"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:greeting_message_contract::a860e71e98127638::controller"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "blocked_batches": []
+  },
+  "build_execution_scope": {
+    "type": "endpoint",
+    "targetId": "greeting_message_contract.get_good_evening",
+    "apiContractId": "greeting_message_contract"
+  },
+  "template_context": {
+    "state_path": ".devagentstudio/template-state.json",
+    "template_revision": "2026.10.19.1",
+    "effective_capabilities": {}
+  },
+  "status": "ready",
+  "confirmation_status": "confirmed",
+  "confirmed_at": "2026-11-21T13:30:22.827908+00:00",
+  "confirmed_from": {
+    "planning_run_id": "planning-98edea6175c445cd8f6df542e1d8b02c",
+    "draft_digest": "379f9cfce0af1e6d4c1dd0a8fc3ee724fb9daac2cef4a20978f613a0117a0a9d"
+  }
+}
