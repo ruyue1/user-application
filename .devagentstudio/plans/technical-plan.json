@@ -24,6 +24,13 @@
           "name": "noon_greeting_text",
           "type": "text",
           "required": true
+        },
+        {
+          "label": "世界欢迎语",
+          "description": "用于世界欢迎页展示的问候字符串“欢迎来到我的世界！”",
+          "name": "my_world_greeting_text",
+          "type": "text",
+          "required": true
         }
       ]
     }
@@ -67,6 +74,20 @@
           "required": [
             "noonGreetingText"
           ]
+        },
+        "MyWorldGreetingResponse": {
+          "type": "object",
+          "description": "世界欢迎页问候语响应",
+          "properties": {
+            "myWorldGreetingText": {
+              "type": "string",
+              "description": "用于世界欢迎页展示的问候字符串“欢迎来到我的世界！”",
+              "entity_field_ref": "greeting.my_world_greeting_text"
+            }
+          },
+          "required": [
+            "myWorldGreetingText"
+          ]
         }
       },
       "endpoints": [
@@ -95,6 +116,23 @@
           "parameters": [],
           "request_schema_ref": null,
           "response_schema_ref": "NoonGreetingResponse",
+          "error_codes": [
+            "NOT_FOUND",
+            "INTERNAL_ERROR"
+          ],
+          "authentication": {
+            "required": false
+          }
+        },
+        {
+          "id": "greeting_contract.get_my_world_greeting",
+          "name": "获取世界欢迎语",
+          "method": "GET",
+          "path": "/api/greetings/my-world",
+          "summary": "获取世界欢迎页展示的问候字符串“欢迎来到我的世界！”",
+          "parameters": [],
+          "request_schema_ref": null,
+          "response_schema_ref": "MyWorldGreetingResponse",
           "error_codes": [
             "NOT_FOUND",
             "INTERNAL_ERROR"
@@ -134,6 +172,20 @@
         ],
         "action_implementations": []
       }
+    },
+    {
+      "pageId": "my_world_greeting",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "greeting_contract.get_my_world_greeting",
+            "usage": "获取世界欢迎页展示的问候字符串“欢迎来到我的世界！”",
+            "trigger": "进入世界欢迎页初始加载时触发",
+            "required_for_initial_load": true
+          }
+        ],
+        "action_implementations": []
+      }
     }
   ],
   "authorization_manifest": {
@@ -154,8 +206,8 @@
     },
     "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
   },
-  "sourceConfigRevision": 18,
-  "product_plan_sha256": "59182946607a43dea663cac08513317cc8df056f0731cc71d3567d3fc0e5d18e",
-  "ui_designs_sha256": "c929ec2de8de5965f9a8d6ef3e2f379cf4aec387eb1a99a2e2660d09153ee9ae",
+  "sourceConfigRevision": 19,
+  "product_plan_sha256": "64a11ac34c964073dce9e0a4e6bca88cd4220eb539e153b382953f87959f3b3f",
+  "ui_designs_sha256": "17438201068f92ad76c721e86d3f4e237fa4a5f8852096d21854020df34f24f8",
   "confirmation_status": "confirmed"
 }

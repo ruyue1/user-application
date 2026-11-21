@@ -3,8 +3,8 @@
     "id": "1795243283440-9i3nkg",
     "name": "欢迎页"
   },
-  "updatedAt": "2026-11-21T11:47:45.612560Z",
-  "revision": 75,
+  "updatedAt": "2026-11-21T11:57:33.211605Z",
+  "revision": 90,
   "developmentArtifacts": {
     "pages": {
       "home": {
@@ -17,7 +17,7 @@
         "lastCompletedThreadId": "f769a8bd-1d4f-4a3c-85e8-bf8bab3c223c",
         "changeStatus": "unchanged",
         "changeReason": null,
-        "checkedChangeId": null
+        "checkedChangeId": "chg_11d0df4ff020480883a6f975b7de8871"
       },
       "noon_greeting": {
         "initialDevelopmentStatus": "completed",
@@ -29,18 +29,18 @@
         "lastCompletedThreadId": "c713917f-10ee-4200-9710-cbc00da146ea",
         "changeStatus": "unchanged",
         "changeReason": null,
-        "checkedChangeId": null
+        "checkedChangeId": "chg_11d0df4ff020480883a6f975b7de8871"
       },
       "my_world_greeting": {
-        "initialDevelopmentStatus": "pending",
+        "initialDevelopmentStatus": "in_progress",
         "completedAt": null,
         "completedRunId": null,
         "completedThreadId": null,
         "completedBranchName": null,
         "lastCompletedRunId": null,
         "lastCompletedThreadId": null,
-        "changeStatus": "unchanged",
-        "changeReason": null,
+        "changeStatus": "changed",
+        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
         "checkedChangeId": null
       }
     },
@@ -64,7 +64,7 @@
           "lastCompletedThreadId": "86ffa26c-d385-460b-95a1-882b3c21b9e0",
           "changeStatus": "unchanged",
           "changeReason": null,
-          "checkedChangeId": null
+          "checkedChangeId": "chg_11d0df4ff020480883a6f975b7de8871"
         },
         "greeting_contract.get_noon_greeting": {
           "initialDevelopmentStatus": "completed",
@@ -76,6 +76,18 @@
           "lastCompletedThreadId": "f1de34be-9ff1-45e9-a2c5-88cf597acb9e",
           "changeStatus": "unchanged",
           "changeReason": null,
+          "checkedChangeId": "chg_11d0df4ff020480883a6f975b7de8871"
+        },
+        "greeting_contract.get_my_world_greeting": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "lastCompletedRunId": null,
+          "lastCompletedThreadId": null,
+          "changeStatus": "changed",
+          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
           "checkedChangeId": null
         }
       }
@@ -85,16 +97,17 @@
       "page:home",
       "page:noon_greeting",
       "page:my_world_greeting",
-      "endpoint:greeting_contract:greeting_contract.get_morning_greeting"
+      "endpoint:greeting_contract:greeting_contract.get_morning_greeting",
+      "endpoint:greeting_contract:greeting_contract.get_my_world_greeting"
     ]
   },
   "initialization": {
-    "stage": "awaiting_planning_stage_entry",
-    "status": "awaiting_user",
-    "threadId": "59250d89-979c-486c-9d02-4e9728e4a46b",
+    "stage": "ready_for_workbench",
+    "status": "completed",
+    "threadId": "32baaf1f-121d-48d5-984c-7a3c980e4f9a",
     "iterationId": "89529b68-d141-400f-a6b4-c5250da5adb0"
   },
-  "activeRunId": "068ec7e6-8f4c-4347-af15-fab27d55a37f",
+  "activeRunId": "0dfb6243-ded6-4a9f-aa36-9e1b318b1d6e",
   "activeExecutions": {
     "d155f439-d164-4bde-84d4-37b764765a0b": {
       "scope": "endpoint",
@@ -310,6 +323,336 @@
       "error": null,
       "startedAt": "2026-11-21T11:45:15.685882Z",
       "updatedAt": "2026-11-21T11:45:19.165950Z"
+    },
+    "0dfb6243-ded6-4a9f-aa36-9e1b318b1d6e": {
+      "scope": "page",
+      "targetId": "my_world_greeting",
+      "pageId": "my_world_greeting",
+      "threadId": "4e512a49-c7a9-458b-914f-56a2f0a8bfc8",
+      "ownerSessionId": "3ba08029-91c9-4dd6-babd-adcd9993d2c8",
+      "runId": "0dfb6243-ded6-4a9f-aa36-9e1b318b1d6e",
+      "phase": "prepare_build_tasks",
+      "status": "awaiting_user",
+      "resourceKeys": [
+        "page:my_world_greeting",
+        "api_contract:greeting_contract",
+        "page:home",
+        "page:noon_greeting"
+      ],
+      "developmentPurpose": "initial",
+      "developmentTarget": {
+        "type": "page",
+        "entityId": null,
+        "pageId": "my_world_greeting",
+        "apiContractId": null,
+        "endpointId": null
+      },
+      "pendingInteraction": {
+        "id": "interaction-be13a91fea1c81bb0da23553",
+        "type": "task_plan_confirmation",
+        "basedOnRevision": 90,
+        "payload": {
+          "mode": "build_task_plan_confirmation",
+          "status": "requires_user_input",
+          "message": "Build DAG 已生成，请确认任务规划后再进入 Build。",
+          "actionValues": [
+            "confirm",
+            "abandon",
+            "regenerate"
+          ],
+          "confirmationStatus": "pending",
+          "buildExecutionScope": {
+            "type": "page",
+            "targetId": "my_world_greeting"
+          },
+          "taskPlan": {
+            "version": null,
+            "schemaVersion": "build-dag.v4",
+            "status": "ready",
+            "confirmationStatus": "pending",
+            "summary": {
+              "total": 4,
+              "frontend": 2,
+              "backend": 2,
+              "database": 0,
+              "pending": 4,
+              "running": 0,
+              "completed": 0,
+              "already_satisfied": 0,
+              "failed": 0,
+              "results": 2
+            },
+            "reviewTasks": [
+              {
+                "id": "backend:module:greeting_contract::greeting_contract.get_my_world_greeting::business",
+                "title": "接口业务实现 · 实现获取世界欢迎语业务服务与响应DTO",
+                "description": "1. 字段：包含必填非空字符串字段 myWorldGreetingText（String），对应 MyWorldGreetingResponse 响应契约，用于承载世界欢迎页展示的问候语文本。（backend/src/main/java/com/cmbchina/backend/greeting/application/dto/MyWorldGreetingResponse.java）\n2. 接口/方法：新增 getMyWorldGreeting() 方法，返回 MyWorldGreetingResponse。\n处理逻辑：基于静态数据源绑定（sourceType=static），将 myWorldGreetingText 直接映射为静态配置值 \"欢迎来到我的世界！这里是虚构测试环境的随机问候语_8742\" 并构造返回 MyWorldGreetingResponse；遵循 missingBehavior=error 的边界约束确保返回字段非空。\n复用要求：保留类中已有的早晨问候、中午问候等相关方法及现有注入依赖。（backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java）",
+                "owner": "backend",
+                "unit_id": "backend:module:greeting_contract",
+                "dependencies": [],
+                "target_files": [
+                  "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/MyWorldGreetingResponse.java",
+                  "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+                ],
+                "allowed_paths": [
+                  "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/MyWorldGreetingResponse.java",
+                  "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+                ],
+                "change_scope": [
+                  {
+                    "path": "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/MyWorldGreetingResponse.java",
+                    "operation": "add",
+                    "description": "字段：包含必填非空字符串字段 myWorldGreetingText（String），对应 MyWorldGreetingResponse 响应契约，用于承载世界欢迎页展示的问候语文本。"
+                  },
+                  {
+                    "path": "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java",
+                    "operation": "modify",
+                    "description": "接口/方法：新增 getMyWorldGreeting() 方法，返回 MyWorldGreetingResponse。\n处理逻辑：基于静态数据源绑定（sourceType=static），将 myWorldGreetingText 直接映射为静态配置值 \"欢迎来到我的世界！这里是虚构测试环境的随机问候语_8742\" 并构造返回 MyWorldGreetingResponse；遵循 missingBehavior=error 的边界约束确保返回字段非空。\n复用要求：保留类中已有的早晨问候、中午问候等相关方法及现有注入依赖。"
+                  }
+                ],
+                "deliverables": [
+                  {
+                    "id": "backend:module:greeting_contract::greeting_contract.get_my_world_greeting::business::deliverable:1",
+                    "kind": "backend.application_service",
+                    "target_id": "greeting_contract.get_my_world_greeting",
+                    "paths": [
+                      "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+                    ],
+                    "provides": [
+                      "backend.application_service:greeting_contract:greeting_contract.get_my_world_greeting"
+                    ]
+                  },
+                  {
+                    "id": "backend:module:greeting_contract::greeting_contract.get_my_world_greeting::business::deliverable:2",
+                    "kind": "backend.objects",
+                    "target_id": "greeting_contract.get_my_world_greeting",
+                    "paths": [
+                      "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/MyWorldGreetingResponse.java"
+                    ],
+                    "provides": [
+                      "backend.endpoint.objects:greeting_contract:greeting_contract.get_my_world_greeting"
+                    ]
+                  }
+                ],
+                "businessAcceptanceTexts": [
+                  "后端 PO、Entity、DTO 与 Converter 必须落实字段、表列绑定和类型化转换链。",
+                  "ApplicationService 必须执行已确认 operation 语义和 Request 业务处理，并在需要时委托 Repository。"
+                ],
+                "status": "pending",
+                "backendStage": "business",
+                "coveredEndpoints": [
+                  {
+                    "id": "greeting_contract.get_my_world_greeting",
+                    "method": "GET",
+                    "path": "/api/greetings/my-world",
+                    "summary": "获取世界欢迎页展示的问候字符串“欢迎来到我的世界！”"
+                  }
+                ],
+                "dependencyTitles": {},
+                "reviewRole": "new"
+              },
+              {
+                "id": "backend:module:greeting_contract::b4770d6ba3d60805::controller",
+                "title": "模块 Controller · 新增获取世界欢迎语Web端点路由",
+                "description": "1. 接口/方法：新增处理 HTTP GET /api/greetings/my-world 请求的端点方法（结合类级别已有路由前缀配置对应方法级 @GetMapping，使最终完整有效路径为 /api/greetings/my-world），无请求参数，无需认证鉴权。\n处理逻辑：委托调用 GreetingApplicationService.getMyWorldGreeting() 获取 MyWorldGreetingResponse，并使用项目统一响应包装类 ResponseEntity 封装后返回。\n复用要求：保留 GreetingController 中已有的其他问候语路由处理方法与类级注解配置。（backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java）",
+                "owner": "backend",
+                "unit_id": "backend:module:greeting_contract",
+                "dependencies": [
+                  "backend:module:greeting_contract::greeting_contract.get_my_world_greeting::business"
+                ],
+                "target_files": [
+                  "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+                ],
+                "allowed_paths": [
+                  "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+                ],
+                "change_scope": [
+                  {
+                    "path": "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java",
+                    "operation": "modify",
+                    "description": "接口/方法：新增处理 HTTP GET /api/greetings/my-world 请求的端点方法（结合类级别已有路由前缀配置对应方法级 @GetMapping，使最终完整有效路径为 /api/greetings/my-world），无请求参数，无需认证鉴权。\n处理逻辑：委托调用 GreetingApplicationService.getMyWorldGreeting() 获取 MyWorldGreetingResponse，并使用项目统一响应包装类 ResponseEntity 封装后返回。\n复用要求：保留 GreetingController 中已有的其他问候语路由处理方法与类级注解配置。"
+                  }
+                ],
+                "deliverables": [
+                  {
+                    "id": "backend:module:greeting_contract::b4770d6ba3d60805::controller::deliverable:1",
+                    "kind": "backend.endpoint_controller",
+                    "target_id": "greeting_contract.get_my_world_greeting",
+                    "paths": [
+                      "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+                    ],
+                    "provides": [
+                      "backend.endpoint_controller:greeting_contract:greeting_contract.get_my_world_greeting"
+                    ]
+                  }
+                ],
+                "businessAcceptanceTexts": [
+                  "Controller 必须按 API Contract 暴露 method/path、绑定 DTO、返回约定状态码并委托 ApplicationService。"
+                ],
+                "status": "pending",
+                "backendStage": "controller",
+                "coveredEndpoints": [
+                  {
+                    "id": "greeting_contract.get_my_world_greeting",
+                    "method": "GET",
+                    "path": "/api/greetings/my-world",
+                    "summary": "获取世界欢迎页展示的问候字符串“欢迎来到我的世界！”"
+                  }
+                ],
+                "dependencyTitles": {
+                  "backend:module:greeting_contract::greeting_contract.get_my_world_greeting::business": "接口业务实现 · 实现获取世界欢迎语业务服务与响应DTO"
+                },
+                "reviewRole": "new"
+              },
+              {
+                "id": "frontend:api-client::greeting_contract::api-module::9e2603873f0b3bdd",
+                "title": "实现世界欢迎语接口前端 API 访问模块",
+                "description": "在 frontend/src/apis/greetingContractApi.ts 中实现正式业务契约 greeting_contract 的前端 API 访问模块，补齐接口 greeting_contract.get_my_world_greeting 的访问职责：复用平台 HTTP 客户端 frontend/src/apis/service.ts 调用 GET /api/greetings/my-world（无需认证、无请求参数），声明并导出 MyWorldGreetingResponse 类型（包含必填字符串字段 myWorldGreetingText）及对应的异步请求函数 getMyWorldGreeting，供前端业务页面调用。",
+                "owner": "frontend",
+                "unit_id": "frontend:api-client",
+                "dependencies": [],
+                "target_files": [
+                  "frontend/src/apis/greetingContractApi.ts"
+                ],
+                "allowed_paths": [
+                  "frontend/src/apis/greetingContractApi.ts"
+                ],
+                "change_scope": [
+                  {
+                    "description": "实现 greeting_contract 下的世界欢迎语查询接口 greeting_contract.get_my_world_greeting（GET /api/greetings/my-world），定义 MyWorldGreetingResponse 强类型响应结构（含必填字段 myWorldGreetingText: string），复用 frontend/src/apis/service.ts 发起 HTTP 请求并导出异步访问函数。",
+                    "operation": "add",
+                    "path": "frontend/src/apis/greetingContractApi.ts"
+                  }
+                ],
+                "deliverables": [
+                  {
+                    "id": "frontend:api-client::greeting_contract::api-module::9e2603873f0b3bdd::deliverable::get_my_world_greeting",
+                    "kind": "frontend.api_module",
+                    "target_id": "greeting_contract.get_my_world_greeting",
+                    "paths": [
+                      "frontend/src/apis/greetingContractApi.ts"
+                    ],
+                    "provides": [
+                      "frontend.api_module:greeting_contract:greeting_contract.get_my_world_greeting"
+                    ]
+                  }
+                ],
+                "businessAcceptanceTexts": [
+                  "前端业务 API 模块必须实现已确认的 method、path、请求参数和响应结构。"
+                ],
+                "status": "pending",
+                "dependencyTitles": {},
+                "reviewRole": "new"
+              },
+              {
+                "id": "page:my_world_greeting::page",
+                "title": "实现世界欢迎页 MyWorldGreeting 页面组件",
+                "description": "依据 my_world_greeting 的 PageImplementationContract 实现世界欢迎页组件（frontend/src/pages/MyWorldGreeting/index.tsx）。页面无需登录鉴权，进入页面初始加载时仅调用声明接口 greeting_contract.get_my_world_greeting 获取 MyWorldGreetingResponse 数据，解析并清晰展示 myWorldGreetingText 字段内容，同时使用 Ant Design 组件规范处理初始加载态与请求异常态；不修改路由注册、菜单配置、API 客户端或共享脚手架文件。",
+                "owner": "frontend",
+                "unit_id": "page:my_world_greeting",
+                "dependencies": [
+                  "frontend:api-client::greeting_contract::api-module::9e2603873f0b3bdd"
+                ],
+                "target_files": [
+                  "frontend/src/pages/MyWorldGreeting/index.tsx"
+                ],
+                "allowed_paths": [
+                  "frontend/src/pages/MyWorldGreeting/index.tsx"
+                ],
+                "change_scope": [
+                  {
+                    "description": "新增世界欢迎页组件 MyWorldGreeting，在页面初始加载时通过前端 API 客户端调用接口 greeting_contract.get_my_world_greeting（GET /api/greetings/my-world），读取响应字段 myWorldGreetingText 并清晰展示问候语（如“欢迎来到我的世界！”），完整处理加载中、异常错误与重试状态，且支持访客免登录直接访问。",
+                    "operation": "add",
+                    "path": "frontend/src/pages/MyWorldGreeting/index.tsx"
+                  }
+                ],
+                "deliverables": [
+                  {
+                    "id": "page:my_world_greeting::page::deliverable",
+                    "kind": "frontend.page",
+                    "target_id": "my_world_greeting",
+                    "paths": [
+                      "frontend/src/pages/MyWorldGreeting/index.tsx"
+                    ],
+                    "provides": [
+                      "frontend.page:my_world_greeting"
+                    ]
+                  }
+                ],
+                "businessAcceptanceTexts": [
+                  "页面或其任务内可达组件必须实际调用 PageImplementationContract 声明的业务接口。"
+                ],
+                "status": "pending",
+                "dependencyTitles": {
+                  "frontend:api-client::greeting_contract::api-module::9e2603873f0b3bdd": "实现世界欢迎语接口前端 API 访问模块"
+                },
+                "reviewRole": "new"
+              }
+            ],
+            "retainedTaskSummary": {
+              "total": 0,
+              "completed": 0,
+              "active": 0,
+              "failed": 0,
+              "other": 0,
+              "statusCounts": {}
+            }
+          },
+          "targetReview": {
+            "target": {
+              "type": "page",
+              "id": "my_world_greeting",
+              "label": "世界欢迎页",
+              "acceptanceCriteria": [
+                "用户进入世界欢迎页后，页面清晰展示字符串“欢迎来到我的世界！”。",
+                "访客用户无需登录即可直接访问世界欢迎页并查看问候语。"
+              ],
+              "acceptanceSource": {
+                "artifact": "product-plan",
+                "field": "pages[].acceptance_criteria",
+                "runtimeField": "PageImplementationContract.productAcceptance"
+              },
+              "path": "/page/my-world-greeting",
+              "description": "世界欢迎页面，进入页面时请求接口获取字符串“欢迎来到我的世界！”并在前端页面展示。"
+            },
+            "relatedEndpoints": [
+              {
+                "id": "greeting_contract.get_my_world_greeting",
+                "label": "获取世界欢迎页展示的问候字符串“欢迎来到我的世界！”",
+                "apiContractId": "greeting_contract",
+                "method": "GET",
+                "path": "/api/greetings/my-world",
+                "summary": "获取世界欢迎页展示的问候字符串“欢迎来到我的世界！”",
+                "parameters": [],
+                "requestSchemaRef": null,
+                "responseSchemaRef": "MyWorldGreetingResponse",
+                "errorCodes": [
+                  "NOT_FOUND",
+                  "INTERNAL_ERROR"
+                ],
+                "authentication": {
+                  "required": false
+                },
+                "source": {
+                  "artifact": "technical-plan",
+                  "field": "api_contracts[].endpoints[]"
+                }
+              }
+            ]
+          },
+          "draftIdentity": {
+            "ownerSessionId": "3ba08029-91c9-4dd6-babd-adcd9993d2c8",
+            "planningRunId": "planning-2d7e1c5d6eb94316814102ebc9138e78",
+            "draftDigest": "5dbbf928ef4fd72ee8c815669dfa2596fdb81fb452e342df5fc054152c30c4d5"
+          }
+        },
+        "artifactRefs": [],
+        "createdAt": "2026-11-21T11:57:33.211574Z",
+        "submittedAt": null
+      },
+      "error": null,
+      "startedAt": "2026-11-21T11:57:07.511697Z",
+      "updatedAt": "2026-11-21T11:57:33.211587Z"
     }
   },
   "endedExecutions": {},
@@ -318,23 +661,39 @@
   "resourceLocks": {
     "application": null,
     "pages": {
-      "noon_greeting": {
-        "runId": "d155f439-d164-4bde-84d4-37b764765a0b",
-        "ownerPageId": null,
+      "my_world_greeting": {
+        "runId": "0dfb6243-ded6-4a9f-aa36-9e1b318b1d6e",
+        "ownerPageId": "my_world_greeting",
+        "mode": "exclusive",
+        "role": "primary",
+        "reason": "primary_target",
+        "acquiredAt": "2026-11-21T11:57:07.511697Z"
+      },
+      "home": {
+        "runId": "0dfb6243-ded6-4a9f-aa36-9e1b318b1d6e",
+        "ownerPageId": "my_world_greeting",
         "mode": "exclusive",
         "role": "dependency",
         "reason": "plan_dependency",
-        "acquiredAt": "2026-11-21T11:45:15.685882Z"
+        "acquiredAt": "2026-11-21T11:57:07.511697Z"
+      },
+      "noon_greeting": {
+        "runId": "0dfb6243-ded6-4a9f-aa36-9e1b318b1d6e",
+        "ownerPageId": "my_world_greeting",
+        "mode": "exclusive",
+        "role": "dependency",
+        "reason": "plan_dependency",
+        "acquiredAt": "2026-11-21T11:57:07.511697Z"
       }
     },
     "apiContracts": {
       "greeting_contract": {
-        "runId": "d155f439-d164-4bde-84d4-37b764765a0b",
-        "ownerPageId": null,
+        "runId": "0dfb6243-ded6-4a9f-aa36-9e1b318b1d6e",
+        "ownerPageId": "my_world_greeting",
         "mode": "exclusive",
         "role": "dependency",
         "reason": "plan_dependency",
-        "acquiredAt": "2026-11-21T11:45:15.685882Z"
+        "acquiredAt": "2026-11-21T11:57:07.511697Z"
       }
     },
     "endpoints": {
@@ -350,33 +709,7 @@
     "dataSources": {}
   },
   "pendingRevisionImpact": null,
-  "activeFormalRevision": {
-    "changeId": "chg_11d0df4ff020480883a6f975b7de8871",
-    "formalBranch": "design_stage_revision",
-    "sourceThreadId": "221b3961-6dc8-4789-93fc-f7c19c7eac6b",
-    "sourceRunId": "09f30445-c34d-4027-b90a-a1179bb811d8",
-    "request": "实现一个前端页面，页面上一个接口返回字符串“欢迎来到我的世界！”，前端展示这个字符串",
-    "target": {
-      "type": "application",
-      "pageId": null,
-      "apiContractId": null,
-      "endpointId": null
-    },
-    "regenerationTarget": null,
-    "impactInteractionId": "impact_ddfe0ecd35f7411a96ea7b171810c9ce",
-    "planningThreadId": "59250d89-979c-486c-9d02-4e9728e4a46b",
-    "planningRunId": "068ec7e6-8f4c-4347-af15-fab27d55a37f",
-    "status": "design_planning",
-    "currentArtifact": "ui-design",
-    "remainingArtifacts": [
-      "technical-plan"
-    ],
-    "technicalPlanSha256": null,
-    "continuationTokenSha256": null,
-    "continuationLifecycleRevision": null,
-    "continuationSourceRunId": null,
-    "continuationConsumedAt": null
-  },
+  "activeFormalRevision": null,
   "error": null,
   "extensions": {
     "testExecutionStatus": "pending",

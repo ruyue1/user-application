@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "17c114564d2846d2845836880271c622",
+  "apiContractId": "greeting_contract",
+  "endpointId": "greeting_contract.get_my_world_greeting",
+  "endpointContract": {
+    "id": "greeting_contract.get_my_world_greeting",
+    "name": "获取世界欢迎语",
+    "method": "GET",
+    "path": "/api/greetings/my-world",
+    "summary": "获取世界欢迎页展示的问候字符串“欢迎来到我的世界！”",
+    "parameters": [],
+    "request_schema_ref": null,
+    "response_schema_ref": "MyWorldGreetingResponse",
+    "error_codes": [
+      "NOT_FOUND",
+      "INTERNAL_ERROR"
+    ],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "myWorldGreetingText": "欢迎来到我的世界！这里是虚构测试环境的随机问候语_8742"
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "myWorldGreetingText",
+        "type": "string",
+        "required": true,
+        "description": "用于世界欢迎页展示的问候字符串“欢迎来到我的世界！”"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "myWorldGreetingText",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "63f4db6214aafbfb4cac9077815ece8105de8905fd3c64e7dd0042f1922a1394"
+    }
+  ],
+  "confirmedAt": "2026-11-21T11:57:05.529827Z"
+}
