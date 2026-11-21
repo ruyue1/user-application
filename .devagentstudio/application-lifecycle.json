@@ -3,8 +3,8 @@
     "id": "1795243283440-9i3nkg",
     "name": "欢迎页"
   },
-  "updatedAt": "2026-11-21T11:45:19.165968Z",
-  "revision": 61,
+  "updatedAt": "2026-11-21T11:45:56.152933Z",
+  "revision": 65,
   "developmentArtifacts": {
     "pages": {
       "home": {
@@ -336,7 +336,40 @@
     },
     "dataSources": {}
   },
-  "pendingRevisionImpact": null,
+  "pendingRevisionImpact": {
+    "changeId": "chg_11d0df4ff020480883a6f975b7de8871",
+    "interactionId": "impact_ddfe0ecd35f7411a96ea7b171810c9ce",
+    "sourceThreadId": "221b3961-6dc8-4789-93fc-f7c19c7eac6b",
+    "sourceRunId": "09f30445-c34d-4027-b90a-a1179bb811d8",
+    "request": "实现一个前端页面，页面上一个接口返回字符串“欢迎来到我的世界！”，前端展示这个字符串",
+    "target": {
+      "type": "application",
+      "pageId": null,
+      "apiContractId": null,
+      "endpointId": null
+    },
+    "impact": {
+      "formalBranch": "design_stage_revision",
+      "revisionType": "requirement_scope_change",
+      "earliestArtifact": "requirement-spec",
+      "affectedArtifacts": [
+        "requirement-spec",
+        "product-plan",
+        "ui-design",
+        "technical-plan"
+      ],
+      "affectedResources": [],
+      "reason": "用户请求新增一个前端页面并配套一个返回“欢迎来到我的世界！”字符串的接口以供页面展示，属于新增页面与业务功能范围的正式需求变更。",
+      "risks": [
+        "所有受影响正式产物必须重新确认后才能进入 Build。",
+        "确认后恢复原 planning thread，并重新经过原设计确认门。"
+      ],
+      "evidence": [],
+      "analysisStatus": "completed"
+    },
+    "basedOnLifecycleRevision": 65,
+    "status": "pending"
+  },
   "activeFormalRevision": null,
   "error": null,
   "extensions": {
