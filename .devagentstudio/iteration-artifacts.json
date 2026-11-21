@@ -25,6 +25,22 @@
         "card_return",
         "cancel_completed"
       ]
+    },
+    {
+      "branch": "v1_24",
+      "designedPageIds": [
+        "home",
+        "access_card_main",
+        "card_return",
+        "cancel_completed"
+      ],
+      "plannedPageIds": [
+        "home",
+        "access_card_main",
+        "card_return",
+        "cancel_completed",
+        "card_claim"
+      ]
     }
   ],
   "schemaVersion": 2
