@@ -1,0 +1,20 @@
+{
+  "rounds": [
+    {
+      "branch": "v1_0",
+      "designedPageIds": [
+        "main",
+        "card_claim",
+        "card_return",
+        "deactivation_done"
+      ],
+      "plannedPageIds": [
+        "main",
+        "card_claim",
+        "card_return",
+        "deactivation_done"
+      ]
+    }
+  ],
+  "schemaVersion": 2
+}

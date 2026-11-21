@@ -1,0 +1,196 @@
+{
+  "application": {
+    "id": "1795220692891-tjtgp2",
+    "name": "门禁卡管理系统"
+  },
+  "updatedAt": "2026-11-21T02:30:12.050770Z",
+  "revision": 11,
+  "developmentArtifacts": {
+    "pages": {
+      "main": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "lastCompletedRunId": null,
+        "lastCompletedThreadId": null,
+        "changeStatus": "changed",
+        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "checkedChangeId": null
+      },
+      "card_claim": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "lastCompletedRunId": null,
+        "lastCompletedThreadId": null,
+        "changeStatus": "changed",
+        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "checkedChangeId": null
+      },
+      "card_return": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "lastCompletedRunId": null,
+        "lastCompletedThreadId": null,
+        "changeStatus": "changed",
+        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "checkedChangeId": null
+      },
+      "deactivation_done": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "lastCompletedRunId": null,
+        "lastCompletedThreadId": null,
+        "changeStatus": "changed",
+        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "checkedChangeId": null
+      }
+    },
+    "entities": {
+      "access_card_claim_application": {
+        "initialDevelopmentStatus": "pending",
+        "skippedAt": null,
+        "skipReason": null,
+        "completedBranchName": null
+      },
+      "access_card": {
+        "initialDevelopmentStatus": "pending",
+        "skippedAt": null,
+        "skipReason": null,
+        "completedBranchName": null
+      },
+      "deactivation_submission": {
+        "initialDevelopmentStatus": "pending",
+        "skippedAt": null,
+        "skipReason": null,
+        "completedBranchName": null
+      }
+    },
+    "endpoints": {
+      "contract_access_card_claim_application": {
+        "contract_access_card_claim_application.list": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "lastCompletedRunId": null,
+          "lastCompletedThreadId": null,
+          "changeStatus": "changed",
+          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "checkedChangeId": null
+        },
+        "contract_access_card_claim_application.complete_claim": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "lastCompletedRunId": null,
+          "lastCompletedThreadId": null,
+          "changeStatus": "changed",
+          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "checkedChangeId": null
+        }
+      },
+      "contract_access_card": {
+        "contract_access_card.list": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "lastCompletedRunId": null,
+          "lastCompletedThreadId": null,
+          "changeStatus": "changed",
+          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "checkedChangeId": null
+        },
+        "contract_access_card.apply_deactivation": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "lastCompletedRunId": null,
+          "lastCompletedThreadId": null,
+          "changeStatus": "changed",
+          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "checkedChangeId": null
+        }
+      },
+      "contract_deactivation_submission": {
+        "contract_deactivation_submission.list": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "lastCompletedRunId": null,
+          "lastCompletedThreadId": null,
+          "changeStatus": "changed",
+          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "checkedChangeId": null
+        },
+        "contract_deactivation_submission.submit_deactivation": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "lastCompletedRunId": null,
+          "lastCompletedThreadId": null,
+          "changeStatus": "changed",
+          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "checkedChangeId": null
+        },
+        "contract_deactivation_submission.get_result": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "lastCompletedRunId": null,
+          "lastCompletedThreadId": null,
+          "changeStatus": "changed",
+          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "checkedChangeId": null
+        }
+      }
+    },
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "03cb095d-dbf8-4b19-8242-7490e1f66435",
+    "iterationId": "8979859b-78da-4d18-a0c3-6e69d4c30667"
+  },
+  "activeRunId": "d3973e19-6578-4f2e-a011-54a5b53979ec",
+  "activeExecutions": {},
+  "endedExecutions": {},
+  "endedPlanningExecution": null,
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}

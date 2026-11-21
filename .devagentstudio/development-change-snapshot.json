@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "sourceBranch": "v1_0",
+  "writtenAt": "2026-11-21T02:30:12.050460+00:00",
+  "pages": {
+    "main": "added",
+    "card_claim": "added",
+    "card_return": "added",
+    "deactivation_done": "added"
+  },
+  "entities": {
+    "access_card_claim_application": "added",
+    "access_card": "added",
+    "deactivation_submission": "added"
+  },
+  "endpoints": {
+    "contract_access_card_claim_application": {
+      "contract_access_card_claim_application.list": "added",
+      "contract_access_card_claim_application.complete_claim": "added"
+    },
+    "contract_access_card": {
+      "contract_access_card.list": "added",
+      "contract_access_card.apply_deactivation": "added"
+    },
+    "contract_deactivation_submission": {
+      "contract_deactivation_submission.list": "added",
+      "contract_deactivation_submission.submit_deactivation": "added",
+      "contract_deactivation_submission.get_result": "added"
+    }
+  }
+}
