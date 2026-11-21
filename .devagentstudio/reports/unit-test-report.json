@@ -1,13 +1,13 @@
 {
   "version": "0.1.0",
-  "generated_at": "2026-11-21T03:49:07.936060+00:00",
+  "generated_at": "2026-11-21T09:19:31.791468+00:00",
   "passed": true,
   "checks": [
     {
-      "id": "backend_test_generation",
-      "name": "后端单元测试生成检查",
-      "layer": "backend",
-      "language": "java",
+      "id": "frontend_test_generation",
+      "name": "前端单元测试生成检查",
+      "layer": "frontend",
+      "language": "typescript",
       "passed": true,
       "skipped": true,
       "required": false,
@@ -25,10 +25,10 @@
       }
     },
     {
-      "id": "backend_unit_tests",
-      "name": "后端单元测试",
-      "layer": "backend",
-      "language": "java",
+      "id": "frontend_unit_tests",
+      "name": "前端单元测试",
+      "layer": "frontend",
+      "language": "typescript",
       "passed": true,
       "skipped": true,
       "required": false,
@@ -60,17 +60,16 @@
   },
   "artifact_context": {
     "build_execution_scope": {
-      "type": "endpoint",
-      "targetId": "contract_deactivation_submission.get_result",
-      "apiContractId": "contract_deactivation_submission"
+      "type": "page",
+      "targetId": "card_return"
     },
-    "plan_sha256": "81b3920aa26f3b418782ac2df39d3b74de04b54b99f0ccc00754405bd633911b",
+    "plan_sha256": "2a2145d415cf368e6b78b9677385de85e6072121fa7598b97ab7965aa1ade00a",
     "files": {
-      "backend/src/main/java/com/cmbchina/backend/adapter/web/ContractDeactivationSubmissionController.java": "3e7d92bd0847660b75e8bd4d517fc46a38bbd684463d92f2faf083383b87f53a",
-      "backend/src/main/java/com/cmbchina/backend/application/service/ContractDeactivationSubmissionService.java": "aa398efc0ff49f0a15bb7bf1781eb4bf45b10fdcbc5beb4e4ddc009932b88e91",
       "frontend/jest.config.cjs": "ce1afcb596c0abefb634ecc399b348b89d998be73221ffc57bdbb84cb7f3f90c",
-      "frontend/package.json": "7ac83000e1d969ac63a3ca602899f695ed63607d1c947990a7ca205e320cce46",
-      "frontend/pnpm-lock.yaml": "2dd9e48d28b43e28ab6c64dc1a6bd26efcd0fbf0a7183da4d416160bf6fa08f3",
+      "frontend/package.json": "47d2017b7139d36b56626cc68f3a8113be38914fb4d15e315387d304d541893f",
+      "frontend/pnpm-lock.yaml": "f0413a4fdb0ef2d9524f410cc3036f791348d8d0f1b041758cdfaeb10c2ffa33",
+      "frontend/src/apis/contractAccessCardApi.ts": "af04b33f88f2c2ea712691c5bd06469664d5f4bb8ea29c9d36e478c7b65535c3",
+      "frontend/src/pages/CardReturn/index.tsx": "626813ffd5fb06a406f22c7b839af979fda529649fdea22a2732edf7ce58f7b9",
       "frontend/tests/__mocks__/fileMock.cjs": "9511e7bc24a9e0589f73af6ec1dd8b8fb1f6fb388decfdcb80a827860181226b",
       "frontend/tests/__mocks__/styleMock.cjs": "35ab14b4a7b597c4cb3c568cddf39ee07c557cdd7e19f2eb8b83467eafd70609",
       "frontend/tests/setupTests.ts": "303f1bcd5f40eb34671db9a66665f46aad22f0e0bc8a4dedf59d08fdbacef2b8",
