@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "sourceBranch": "v1_3",
+  "plan": {
+    "artifact_type": "technical-plan",
+    "architecture": {
+      "frontend": "基于单页应用生成页面、路由和 API 客户端。",
+      "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+      "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+    },
+    "entities": [
+      {
+        "id": "greeting_message",
+        "name": "问候语",
+        "description": "用于承载前端页面请求并展示的问候字符串内容，如“晚上好！”与“欢迎来到我的世界！”。",
+        "fields": [
+          {
+            "label": "场景标识",
+            "description": "标识不同页面或接口对应的问候场景唯一编码，如晚间问候或欢迎世界场景。",
+            "name": "scene_code",
+            "type": "text",
+            "required": true
+          },
+          {
+            "label": "问候语内容",
+            "description": "接口返回并供前端页面展示的问候字符串内容，如“晚上好！”与“欢迎来到我的世界！”。",
+            "name": "greeting_text",
+            "type": "text",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "api_contracts": [
+      {
+        "id": "greeting_message_contract",
+        "name": "问候语",
+        "entity_ids": [
+          "greeting_message"
+        ],
+        "base_path": "/api/greetings",
+        "authentication": {
+          "required": false
+        },
+        "schemas": {
+          "GreetingMessageResponse": {
+            "type": "object",
+            "description": "问候语内容响应",
+            "properties": {
+              "greetingText": {
+                "type": "string",
+                "description": "接口返回并供前端页面展示的问候字符串内容",
+                "entity_field_ref": "greeting_message.greeting_text"
+              }
+            },
+            "required": [
+              "greetingText"
+            ]
+          }
+        },
+        "endpoints": [
+          {
+            "id": "greeting_message_contract.get_good_evening",
+            "name": "获取晚间问候语",
+            "method": "GET",
+            "path": "/api/greetings/good-evening",
+            "summary": "获取晚间问候页所需的问候语内容“晚上好！”，供前端页面直接展示。",
+            "parameters": [],
+            "request_schema_ref": null,
+            "response_schema_ref": "GreetingMessageResponse",
+            "error_codes": [
+              "NOT_FOUND",
+              "INTERNAL_ERROR"
+            ],
+            "authentication": {
+              "required": false
+            }
+          },
+          {
+            "id": "greeting_message_contract.get_welcome_world",
+            "name": "获取欢迎世界问候语",
+            "method": "GET",
+            "path": "/api/greetings/welcome-world",
+            "summary": "获取欢迎世界页所需的问候语内容“欢迎来到我的世界！”，供前端页面直接展示。",
+            "parameters": [],
+            "request_schema_ref": null,
+            "response_schema_ref": "GreetingMessageResponse",
+            "error_codes": [
+              "NOT_FOUND",
+              "INTERNAL_ERROR"
+            ],
+            "authentication": {
+              "required": false
+            }
+          }
+        ]
+      }
+    ],
+    "pages": [
+      {
+        "pageId": "good_evening",
+        "references": {
+          "endpoint_dependencies": [
+            {
+              "endpoint_id": "greeting_message_contract.get_good_evening",
+              "usage": "获取晚间问候语文本内容“晚上好！”用于页面核心信息展示",
+              "trigger": "进入晚间问候页时自动触发初始读取",
+              "required_for_initial_load": true
+            }
+          ],
+          "action_implementations": []
+        }
+      },
+      {
+        "pageId": "welcome_world",
+        "references": {
+          "endpoint_dependencies": [
+            {
+              "endpoint_id": "greeting_message_contract.get_welcome_world",
+              "usage": "读取欢迎世界页展示的问候语文本“欢迎来到我的世界！”",
+              "trigger": "进入欢迎世界页初始化加载时自动触发",
+              "required_for_initial_load": true
+            }
+          ],
+          "action_implementations": []
+        }
+      }
+    ],
+    "authorization_manifest": {
+      "schema_version": "authorization-manifest.v3",
+      "resources": [],
+      "bindings": {
+        "pages": [],
+        "actions": [],
+        "endpoints": []
+      },
+      "systemAuthorization": {
+        "adminRoleSeedKey": "",
+        "managementResourceKey": ""
+      },
+      "defaultRoleAuthorization": {
+        "roles": [],
+        "roleResourceGrants": []
+      },
+      "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+    },
+    "sourceConfigRevision": 2
+  }
+}

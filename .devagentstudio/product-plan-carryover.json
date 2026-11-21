@@ -1,0 +1,52 @@
+{
+  "pages": {
+    "good_evening": {
+      "definition": {
+        "actions": [],
+        "goal": "向访问用户清晰、直接地呈现晚间问候语“晚上好！”。",
+        "information_items": [
+          {
+            "description": "在页面中向访问用户展示的核心问候文本“晚上好！”。",
+            "itemId": "good_evening_greeting_text",
+            "label": "晚间问候语"
+          }
+        ],
+        "navigation_targets": [
+          "welcome_world"
+        ]
+      },
+      "requirement": {
+        "description": "调用接口获取字符串“晚上好！”并在前端页面进行展示。",
+        "module_id": "greeting_display",
+        "name": "晚间问候页",
+        "pageId": "good_evening",
+        "path": "/page/good-evening"
+      }
+    },
+    "welcome_world": {
+      "definition": {
+        "actions": [],
+        "goal": "向访问用户清晰、直接地呈现欢迎语“欢迎来到我的世界！”。",
+        "information_items": [
+          {
+            "description": "在页面中向访问用户展示的核心欢迎文本“欢迎来到我的世界！”。",
+            "itemId": "welcome_world_greeting_text",
+            "label": "欢迎世界问候语"
+          }
+        ],
+        "navigation_targets": [
+          "good_evening"
+        ]
+      },
+      "requirement": {
+        "description": "调用接口获取字符串“欢迎来到我的世界！”并在前端页面进行展示。",
+        "module_id": "greeting_display",
+        "name": "欢迎世界页",
+        "pageId": "welcome_world",
+        "path": "/page/welcome-world"
+      }
+    }
+  },
+  "schemaVersion": 2,
+  "sourceBranch": "v1_3"
+}
