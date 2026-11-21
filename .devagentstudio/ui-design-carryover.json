@@ -1,0 +1,26 @@
+{
+  "pages": {
+    "card_claim": {
+      "pageKey": "CardClaim",
+      "templateId": "",
+      "templateSourcePath": ""
+    },
+    "card_return": {
+      "pageKey": "CardReturn",
+      "templateId": "",
+      "templateSourcePath": ""
+    },
+    "deactivation_done": {
+      "pageKey": "DeactivationDone",
+      "templateId": "",
+      "templateSourcePath": ""
+    },
+    "main": {
+      "pageKey": "Main",
+      "templateId": "",
+      "templateSourcePath": ""
+    }
+  },
+  "schemaVersion": 1,
+  "sourceBranch": "v1_11"
+}

@@ -1,0 +1,267 @@
+{
+  "pages": {
+    "card_claim": {
+      "definition": {
+        "actions": [
+          {
+            "actionId": "select_row",
+            "behavior": {
+              "expectedResult": "被勾选的明细行呈现选中状态，取消勾选后恢复未选中状态。",
+              "type": "interface"
+            },
+            "description": "员工单条勾选或取消勾选申请明细行，用于指定需要签收的明细。",
+            "name": "勾选明细行",
+            "requiresConfirmation": false
+          },
+          {
+            "actionId": "select_all",
+            "behavior": {
+              "expectedResult": "当前列表内所有待领签明细行同时呈现选中状态，再次操作可取消全选。",
+              "type": "interface"
+            },
+            "description": "员工点击全选，一次性选中当前列表中的待领签申请明细。",
+            "name": "一键全选",
+            "requiresConfirmation": false
+          },
+          {
+            "actionId": "complete_claim",
+            "behavior": {
+              "expectedResult": "已勾选明细的领签状态由「待领签」更新为「已领签」，更新结果实时同步至飞码，页面给出签收成功反馈。",
+              "type": "business"
+            },
+            "description": "员工将已勾选（或全选）的申请明细提交领用签收。",
+            "name": "完成领签",
+            "requiresConfirmation": true
+          },
+          {
+            "actionId": "back_home",
+            "behavior": {
+              "expectedResult": "返回主页面，展示四个功能入口按钮。",
+              "targetPageId": "main",
+              "type": "navigation"
+            },
+            "description": "员工点击返回首页按钮，回到主页面。",
+            "name": "返回首页",
+            "requiresConfirmation": false
+          }
+        ],
+        "goal": "让员工核对本人名下待领签的门禁卡申请明细，并以勾选方式一次性完成领用签收，使签收状态同步至飞码端。",
+        "information_items": [
+          {
+            "description": "页面顶部显示标题「门禁卡领用」。",
+            "itemId": "page_title",
+            "label": "页面标题"
+          },
+          {
+            "description": "提示所有字段信息直接从扫码获取，并实时同步到飞码。",
+            "itemId": "claim_notice",
+            "label": "说明文案"
+          },
+          {
+            "description": "展示本人名下待领签的门禁卡申请明细，字段为姓名、员工编号、卡号、领签状态，行数据可勾选，列表支持翻页。",
+            "itemId": "claim_detail_table",
+            "label": "申请明细表格"
+          },
+          {
+            "description": "页面底部展示四个装饰性功能图标。",
+            "itemId": "bottom_icons",
+            "label": "底部图标区"
+          }
+        ],
+        "navigation_targets": [
+          "main"
+        ]
+      },
+      "requirement": {
+        "description": "员工查看本人名下待领签的门禁卡申请明细并完成领用签收的页面。展示姓名、员工编号、卡号、领签状态等字段，支持单条勾选与一键全选、翻页浏览；点击完成领签后将领签状态更新为已领签并同步至飞码，可返回首页。",
+        "module_id": "module_access_card_management",
+        "name": "门禁卡领用页面",
+        "pageId": "card_claim",
+        "path": "/page/card/claim"
+      }
+    },
+    "card_return": {
+      "definition": {
+        "actions": [
+          {
+            "actionId": "apply_deactivation",
+            "behavior": {
+              "expectedResult": "门禁卡的申请注销字段更新为离职并同步至飞码，飞码发起现有注销流程，随后进入已完成界面。",
+              "steps": [
+                {
+                  "expectedResult": "本人名下使用中的门禁卡申请注销字段更新为离职，数据同步至飞码并由飞码触发注销流程。",
+                  "stepId": "submit_deactivation",
+                  "type": "business"
+                },
+                {
+                  "expectedResult": "跳转至已完成界面，提示员工将实体卡交给门禁卡管理员。",
+                  "stepId": "goto_done",
+                  "targetPageId": "deactivation_done",
+                  "type": "navigation"
+                }
+              ],
+              "type": "sequence"
+            },
+            "description": "员工对本人名下使用中的门禁卡发起离职注销申请。",
+            "name": "离职注销",
+            "requiresConfirmation": true
+          },
+          {
+            "actionId": "back_home",
+            "behavior": {
+              "expectedResult": "返回主页面，展示四个功能入口按钮。",
+              "targetPageId": "main",
+              "type": "navigation"
+            },
+            "description": "员工点击返回首页按钮，回到主页面。",
+            "name": "返回首页",
+            "requiresConfirmation": false
+          }
+        ],
+        "goal": "让员工查看本人名下使用中的门禁卡并发起离职注销申请，由飞码端承接后续注销流程，同时明确线下归还实体卡事项。",
+        "information_items": [
+          {
+            "description": "页面顶部显示标题「门禁卡退还」。",
+            "itemId": "page_title",
+            "label": "页面标题"
+          },
+          {
+            "description": "提示所有字段信息直接从扫码获取，并实时同步到飞码。",
+            "itemId": "return_notice",
+            "label": "说明文案"
+          },
+          {
+            "description": "展示本人名下权限状态为使用中的门禁卡信息，字段为姓名、员工编号、卡号、权限状态，支持翻页。",
+            "itemId": "card_info_table",
+            "label": "门禁卡信息表格"
+          },
+          {
+            "description": "页面底部展示四个装饰性功能图标。",
+            "itemId": "bottom_icons",
+            "label": "底部图标区"
+          }
+        ],
+        "navigation_targets": [
+          "deactivation_done",
+          "main"
+        ]
+      },
+      "requirement": {
+        "description": "原型标题为门禁卡退还。员工查看本人名下权限状态为使用中的门禁卡信息（姓名、员工编号、卡号、权限状态），支持翻页；点击离职注销后更新申请注销字段并同步飞码，由飞码触发注销流程，随后进入已完成界面；可返回首页。",
+        "module_id": "module_access_card_management",
+        "name": "门禁卡归还页面",
+        "pageId": "card_return",
+        "path": "/page/card/return"
+      }
+    },
+    "deactivation_done": {
+      "definition": {
+        "actions": [
+          {
+            "actionId": "back_home",
+            "behavior": {
+              "expectedResult": "返回主页面，展示四个功能入口按钮。",
+              "targetPageId": "main",
+              "type": "navigation"
+            },
+            "description": "员工点击蓝底返回首页按钮，回到主页面。",
+            "name": "返回首页",
+            "requiresConfirmation": false
+          }
+        ],
+        "goal": "向员工确认离职注销申请已提交成功，告知线下交还实体卡的要求及对应区域的门禁卡管理员联系方式。",
+        "information_items": [
+          {
+            "description": "页面居中显示的标题「您已完成注销申请！」，用于确认注销申请已提交。",
+            "itemId": "done_title",
+            "label": "确认标题"
+          },
+          {
+            "description": "提示员工将实体卡交给门禁卡管理员。",
+            "itemId": "return_notice",
+            "label": "线下归还提示"
+          },
+          {
+            "description": "展示对应区域的管理员信息：园区为李媛/WS04462，OCG为徐敏/IT006877。",
+            "itemId": "admin_info",
+            "label": "门禁卡管理员信息"
+          },
+          {
+            "description": "页面底部展示四个装饰性功能图标。",
+            "itemId": "bottom_icons",
+            "label": "底部图标区"
+          }
+        ],
+        "navigation_targets": [
+          "main"
+        ]
+      },
+      "requirement": {
+        "description": "离职注销申请提交成功后的确认提示页，标题为「您已完成注销申请！」，提示员工将实体卡交给门禁卡管理员，展示管理员信息（园区：李媛/WS04462；OCG：徐敏/IT006877），并提供蓝色背景的返回首页按钮。",
+        "module_id": "module_access_card_management",
+        "name": "已完成界面",
+        "pageId": "deactivation_done",
+        "path": "/page/card/deactivation-done"
+      }
+    },
+    "main": {
+      "definition": {
+        "actions": [
+          {
+            "actionId": "goto_claim",
+            "behavior": {
+              "expectedResult": "跳转至门禁卡领用页面，展示本人名下待领签的门禁卡申请明细。",
+              "targetPageId": "card_claim",
+              "type": "navigation"
+            },
+            "description": "员工点击门禁卡领用按钮，进入领用签收页面。",
+            "name": "门禁卡领用",
+            "requiresConfirmation": false
+          },
+          {
+            "actionId": "goto_return",
+            "behavior": {
+              "expectedResult": "跳转至门禁卡归还页面，展示本人名下使用中的门禁卡信息。",
+              "targetPageId": "card_return",
+              "type": "navigation"
+            },
+            "description": "员工点击门禁卡归还按钮，进入归还（离职注销）页面。",
+            "name": "门禁卡归还",
+            "requiresConfirmation": false
+          }
+        ],
+        "goal": "作为小程序入口，向员工集中呈现门禁卡领用与归还两项可用功能入口，并明确出差卡相关功能暂未开放。",
+        "information_items": [
+          {
+            "description": "居中展示的小程序标题「成都中心门禁卡管理系统」，用于确认当前所处系统。",
+            "itemId": "page_title",
+            "label": "页面标题"
+          },
+          {
+            "description": "纵向排列的四个矩形按钮：门禁卡领用、门禁卡归还、出差卡借用、出差卡归还；其中出差卡借用与出差卡归还为禁用占位状态。",
+            "itemId": "function_buttons",
+            "label": "功能按钮组"
+          },
+          {
+            "description": "页面底部边缘的高楼大厦、柱状图等装饰性图形，不承载业务信息。",
+            "itemId": "bottom_decoration",
+            "label": "底部装饰图形"
+          }
+        ],
+        "navigation_targets": [
+          "card_claim",
+          "card_return"
+        ]
+      },
+      "requirement": {
+        "description": "小程序首页与功能入口，顶部居中展示标题「成都中心门禁卡管理系统」，主体纵向排列门禁卡领用、门禁卡归还、出差卡借用、出差卡归还四个矩形功能按钮，其中出差卡借用与归还为禁用占位按钮；页面底部为高楼大厦、柱状图等装饰图形。整体蓝色调、简洁扁平化。",
+        "module_id": "module_access_card_management",
+        "name": "主页面",
+        "pageId": "main",
+        "path": "/page/main"
+      }
+    }
+  },
+  "schemaVersion": 2,
+  "sourceBranch": "v1_11"
+}
