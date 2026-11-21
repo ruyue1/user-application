@@ -20,17 +20,7 @@ public class GreetingController {
         this.greetingApplicationService = greetingApplicationService;
     }
 
-    /**
-     * 获取晚间问候语
-     *
-     * @return 统一响应包装的问候语内容响应
-     */
-    @GetMapping("/good-evening")
-    public ResponseEntity<GreetingMessageResponse> getGoodEvening() {
-        return ResponseEntity.success(greetingApplicationService.getGoodEvening());
-    }
-
-    /**
+        /**
      * 获取欢迎世界问候语
      *
      * @return 统一响应包装的问候语内容响应

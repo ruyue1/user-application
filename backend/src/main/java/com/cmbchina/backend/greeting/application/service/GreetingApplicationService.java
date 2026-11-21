@@ -24,22 +24,7 @@ public class GreetingApplicationService {
             GREETING_TEXT_KEY, WELCOME_WORLD_GREETING_TEXT
     );
 
-    /**
-     * 获取晚间问候语
-     *
-     * @return 问候语内容响应
-     */
-    public GreetingMessageResponse getGoodEvening() {
-        String greetingText = STATIC_GREETING_SOURCE.get(GREETING_TEXT_KEY);
-        if (greetingText == null || greetingText.isEmpty()) {
-            throw new BizException(GreetingErrorCode.NOT_FOUND);
-        }
-        return GreetingMessageResponse.builder()
-                .greetingText(greetingText)
-                .build();
-    }
-
-    /**
+        /**
      * 获取欢迎世界问候语
      *
      * @return 问候语内容响应

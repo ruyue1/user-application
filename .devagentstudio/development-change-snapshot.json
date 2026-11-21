@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "sourceBranch": "v1_4",
+  "writtenAt": "2026-11-21T14:29:40.743403+00:00",
+  "pages": {
+    "welcome_world": "unchanged",
+    "good_evening": "deleted"
+  },
+  "entities": {
+    "greeting_message": "unchanged"
+  },
+  "endpoints": {
+    "greeting_message_contract": {
+      "greeting_message_contract.get_welcome_world": "unchanged",
+      "greeting_message_contract.get_good_evening": "deleted"
+    }
+  }
+}
