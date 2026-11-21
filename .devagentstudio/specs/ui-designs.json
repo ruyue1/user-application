@@ -1,13 +1,13 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "3c680b5c6d8e4bbe22ee5f081decd8174ddd4340dccf97fdf4a4e2b6361f794f",
+  "product_plan_sha256": "70f9e4657a08474c253e0cfb261d84b57784bfad4302785e337d0b403743c846",
   "pages": [
     {
       "pageId": "good_evening",
       "page_key": "GoodEvening",
       "preview_path": "/page/good-evening",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112104/.devagentstudio/ui-design/pages/GoodEvening/index.tsx",
+      "code_path": "",
       "status": "confirmed",
       "bindings": {
         "actions": [],
@@ -39,14 +39,13 @@
         ],
         "errors": []
       },
-      "code_sha256": "4b6ff1f0099716c60922f81de9976683ecc2dab9673b6a4d497c87afbd5788aa",
-      "generation_id": "ui-design-78739c8d9963402099945048fe0132d6"
+      "code_sha256": "4b6ff1f0099716c60922f81de9976683ecc2dab9673b6a4d497c87afbd5788aa"
     },
     {
       "pageId": "welcome_world",
       "page_key": "WelcomeWorld",
       "preview_path": "/page/welcome-world",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112104/.devagentstudio/ui-design/pages/WelcomeWorld/index.tsx",
+      "code_path": "",
       "status": "confirmed",
       "bindings": {
         "actions": [],
@@ -78,8 +77,46 @@
         ],
         "errors": []
       },
-      "code_sha256": "5c9794e078d9bcd614a58874040ffd5bf9de9ee3a0e462bab10fcfde64a442df",
-      "generation_id": "ui-design-81ffd525f29245118ec5ef9dffd794d6"
+      "code_sha256": "5c9794e078d9bcd614a58874040ffd5bf9de9ee3a0e462bab10fcfde64a442df"
+    },
+    {
+      "pageId": "good_afternoon",
+      "page_key": "GoodAfternoon",
+      "preview_path": "/page/good-afternoon",
+      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112104/.devagentstudio/ui-design/pages/GoodAfternoon/index.tsx",
+      "status": "confirmed",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "good_afternoon_greeting_text",
+            "controlIds": [
+              "good_afternoon_greeting_text-display"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "passed",
+        "code_sha256": "01920fb0766ee4d3b705f1896d49fdbd175d93f510710f7a2ba430ceeb3b5baa",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      },
+      "code_sha256": "01920fb0766ee4d3b705f1896d49fdbd175d93f510710f7a2ba430ceeb3b5baa",
+      "generation_id": "ui-design-9788730394c5403388aec375c18bde82"
     }
   ]
 }

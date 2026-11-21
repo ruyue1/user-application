@@ -10,6 +10,19 @@
         "good_evening",
         "welcome_world"
       ]
+    },
+    {
+      "branch": "v1_5",
+      "designedPageIds": [
+        "good_evening",
+        "welcome_world",
+        "good_afternoon"
+      ],
+      "plannedPageIds": [
+        "good_evening",
+        "welcome_world",
+        "good_afternoon"
+      ]
     }
   ],
   "schemaVersion": 2
