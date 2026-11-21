@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "generated_at": "2026-11-21T10:18:55.766631+00:00",
+  "generated_at": "2026-11-21T11:43:20.356788+00:00",
   "passed": true,
   "checks": [
     {
@@ -24,14 +24,14 @@
         "returncode": 0,
         "timed_out": false,
         "error": null,
-        "started_at": "2026-11-21T10:18:42.357600+00:00",
-        "finished_at": "2026-11-21T10:18:48.096840+00:00",
+        "started_at": "2026-11-21T11:43:11.769513+00:00",
+        "finished_at": "2026-11-21T11:43:12.711534+00:00",
         "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/opendesign-skill/2026112102/.devagentstudio/runtime/tests/frontend_install/stdout.log",
         "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/opendesign-skill/2026112102/.devagentstudio/runtime/tests/frontend_install/stderr.log",
         "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stdout.log",
         "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stderr.log",
-        "stdout_tail": "Already up to date\nDone in 224ms using pnpm v11.9.0\n",
-        "stderr_tail": "",
+        "stdout_tail": "Already up to date\nDone in 232ms using pnpm v11.9.0\n",
+        "stderr_tail": "[WARN] The \"pnpm\" field in package.json is no longer read by pnpm. The following keys were ignored: \"pnpm.overrides\". See https://pnpm.io/settings for the new home of each setting.\n",
         "nodeRuntime": {
           "path": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/node",
           "version": "v22.23.1",
@@ -61,14 +61,14 @@
         "returncode": 0,
         "timed_out": false,
         "error": null,
-        "started_at": "2026-11-21T10:18:48.097373+00:00",
-        "finished_at": "2026-11-21T10:18:52.502036+00:00",
+        "started_at": "2026-11-21T11:43:12.712243+00:00",
+        "finished_at": "2026-11-21T11:43:17.093945+00:00",
         "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/opendesign-skill/2026112102/.devagentstudio/runtime/tests/frontend_build/stdout.log",
         "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/opendesign-skill/2026112102/.devagentstudio/runtime/tests/frontend_build/stderr.log",
         "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stdout.log",
         "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stderr.log",
-        "stdout_tail": "  Rsbuild v1.0.14\n\nready   Built in 1.06 s (web)\nwarn    Compile Warning: \n⚠ Unknown at rule: @theme at static/css/index.8fc59cd2.css:2:7\n\n⚠ Unknown at rule: @theme at static/css/713.dad43946.css:2:9\n\n⚠ Unknown at rule: @theme at static/css/713.dad43946.css:6:9\n\n⚠ Unknown at rule: @tailwind at static/css/713.dad43946.css:325:12\n\n\n  File (web)                                     Size         Gzip    \n  build/index.html                               0.92 kB      0.46 kB\n  build/static/css/index.8fc59cd2.css            2.2 kB       0.58 kB\n  build/static/js/async/586.4c4296c6.js          2.8 kB       1.5 kB\n  build/static/svg/icon20.232d197f.svg           4.7 kB       2.1 kB\n  build/static/js/lib-router.8af4ada6.js         19.9 kB      7.3 kB\n  build/static/css/713.dad43946.css              23.1 kB      5.9 kB\n  build/static/js/async/lib-axios.5076e218.js    50.5 kB      18.5 kB\n  build/static/js/index.87cb9c64.js              57.8 kB      19.2 kB\n  build/static/js/lib-react.01625cc3.js          140.3 kB     45.1 kB\n  build/static/js/async/976.de6da3ed.js          199.5 kB     58.2 kB\n  build/static/js/713.30b09902.js                1419.5 kB    364.1 kB\n\n  Total: 1921.2 kB (gzip: 523.0 kB)\n\n",
-        "stderr_tail": "$ tsc -b && rsbuild build\n",
+        "stdout_tail": "  Rsbuild v1.0.14\n\nready   Built in 1.04 s (web)\nwarn    Compile Warning: \n⚠ Unknown at rule: @theme at static/css/index.8fc59cd2.css:2:7\n\n⚠ Unknown at rule: @theme at static/css/713.dad43946.css:2:9\n\n⚠ Unknown at rule: @theme at static/css/713.dad43946.css:6:9\n\n⚠ Unknown at rule: @tailwind at static/css/713.dad43946.css:325:12\n\n\n  File (web)                                     Size         Gzip    \n  build/index.html                               0.92 kB      0.46 kB\n  build/static/css/index.8fc59cd2.css            2.2 kB       0.58 kB\n  build/static/js/async/923.c004e6ec.js          2.9 kB       1.5 kB\n  build/static/js/async/99.14eb5479.js           2.9 kB       1.5 kB\n  build/static/svg/icon20.232d197f.svg           4.7 kB       2.1 kB\n  build/static/js/lib-router.8af4ada6.js         19.9 kB      7.3 kB\n  build/static/css/713.dad43946.css              23.1 kB      5.9 kB\n  build/static/js/async/lib-axios.9e84ec61.js    36.8 kB      14.3 kB\n  build/static/js/index.7580a034.js              57.9 kB      19.3 kB\n  build/static/js/lib-react.01625cc3.js          140.3 kB     45.1 kB\n  build/static/js/async/976.de6da3ed.js          199.5 kB     58.2 kB\n  build/static/js/713.30b09902.js                1419.5 kB    364.1 kB\n\n  Total: 1910.6 kB (gzip: 520.4 kB)\n\n",
+        "stderr_tail": "[WARN] The \"pnpm\" field in package.json is no longer read by pnpm. The following keys were ignored: \"pnpm.overrides\". See https://pnpm.io/settings for the new home of each setting.\n$ tsc -b && rsbuild build\n",
         "nodeRuntime": {
           "path": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/node",
           "version": "v22.23.1",
@@ -117,7 +117,7 @@
         "stdout_log": null,
         "stderr_log": null
       },
-      "source_fingerprint": "a5e179cf2ebdf20b6de79a04ee9d930209a990a57449adae6da8509d5b819205"
+      "source_fingerprint": "dc398ad9507567653a4c9538d54baf7554d30a96f7e4ce1b1826933fbe3a3976"
     },
     {
       "id": "backend_static_check",

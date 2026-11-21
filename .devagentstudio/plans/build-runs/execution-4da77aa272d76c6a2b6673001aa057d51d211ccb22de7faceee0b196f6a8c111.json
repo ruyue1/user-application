@@ -1,0 +1,1605 @@
+{
+  "execution_run_id": "fbb3c35d-05e9-4e2d-91e5-c16357a1c347",
+  "thread_id": "c713917f-10ee-4200-9710-cbc00da146ea",
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "noon_greeting"
+  },
+  "build_run_id": "build-47896b43416044fa93b38c032d18c22a",
+  "build_run_plan_path": "/Users/maomao/Documents/行外开发XcodeAgent/opendesign-skill/2026112102/.devagentstudio/plans/build-runs/build-47896b43416044fa93b38c032d18c22a.json",
+  "build_run_plan_sha256": "b3f64eb73e0501fd0354ff36df90b69c95eafc019ccd4d58f2230c7f809d41ba",
+  "progress": {
+    "build_run_id": "build-47896b43416044fa93b38c032d18c22a",
+    "build_run_plan_path": "/Users/maomao/Documents/行外开发XcodeAgent/opendesign-skill/2026112102/.devagentstudio/plans/build-runs/build-47896b43416044fa93b38c032d18c22a.json",
+    "build_run_plan_sha256": "b3f64eb73e0501fd0354ff36df90b69c95eafc019ccd4d58f2230c7f809d41ba",
+    "active_run_id": "fbb3c35d-05e9-4e2d-91e5-c16357a1c347",
+    "build_execution_scope": {
+      "type": "page",
+      "targetId": "noon_greeting"
+    },
+    "tasks": [
+      {
+        "id": "backend:module:greeting_contract::greeting_contract.get_noon_greeting::business",
+        "unit_id": "backend:module:greeting_contract",
+        "owner": "backend",
+        "task_type": "backend.code",
+        "title": "接口业务实现 · 实现午间问候语响应对象与应用服务方法",
+        "description": "1. 字段：定义必填非空字符串字段 noonGreetingText（String），对应响应 Schema NoonGreetingResponse 中用于午间问候页展示的问候字符串。（backend/src/main/java/com/cmbchina/backend/greeting/application/dto/NoonGreetingResponse.java）\n2. 接口/方法：新增获取午间问候语方法 getNoonGreeting()，返回 NoonGreetingResponse。\n处理逻辑：按确认静态数据源（staticData.noonGreetingText = \"中午好！\"）直接组装并返回包含 noonGreetingText 为 \"中午好！\" 的 NoonGreetingResponse；若静态字段缺失则按契约要求作为异常处理。\n复用要求：保留已有的早间问候语相关业务方法、构造注入及既有成员不变。（backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java）",
+        "dependencies": [],
+        "target_files": [
+          "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/NoonGreetingResponse.java",
+          "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+        ],
+        "allowed_paths": [
+          "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/NoonGreetingResponse.java",
+          "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+        ],
+        "change_scope": [
+          {
+            "path": "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/NoonGreetingResponse.java",
+            "operation": "add",
+            "description": "字段：定义必填非空字符串字段 noonGreetingText（String），对应响应 Schema NoonGreetingResponse 中用于午间问候页展示的问候字符串。"
+          },
+          {
+            "path": "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java",
+            "operation": "modify",
+            "description": "接口/方法：新增获取午间问候语方法 getNoonGreeting()，返回 NoonGreetingResponse。\n处理逻辑：按确认静态数据源（staticData.noonGreetingText = \"中午好！\"）直接组装并返回包含 noonGreetingText 为 \"中午好！\" 的 NoonGreetingResponse；若静态字段缺失则按契约要求作为异常处理。\n复用要求：保留已有的早间问候语相关业务方法、构造注入及既有成员不变。"
+          }
+        ],
+        "deliverables": [
+          {
+            "id": "backend:module:greeting_contract::greeting_contract.get_noon_greeting::business::deliverable:1",
+            "kind": "backend.application_service",
+            "target_id": "greeting_contract.get_noon_greeting",
+            "paths": [
+              "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+            ],
+            "provides": [
+              "backend.application_service:greeting_contract:greeting_contract.get_noon_greeting"
+            ]
+          },
+          {
+            "id": "backend:module:greeting_contract::greeting_contract.get_noon_greeting::business::deliverable:2",
+            "kind": "backend.objects",
+            "target_id": "greeting_contract.get_noon_greeting",
+            "paths": [
+              "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/NoonGreetingResponse.java"
+            ],
+            "provides": [
+              "backend.endpoint.objects:greeting_contract:greeting_contract.get_noon_greeting"
+            ]
+          }
+        ],
+        "impact_scope": {
+          "summary": "接口业务实现 · 实现午间问候语响应对象与应用服务方法",
+          "affected_modules": [
+            "greeting_contract"
+          ],
+          "public_contracts": [],
+          "risks": []
+        },
+        "can_run_in_parallel": true,
+        "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+        "status": "completed",
+        "source_refs": {
+          "type": "technical_plan_module",
+          "target": {
+            "type": "module",
+            "id": "greeting_contract",
+            "api_contract_id": "greeting_contract"
+          },
+          "technical_plan_endpoints": [
+            {
+              "id": "greeting_contract.get_noon_greeting",
+              "api_contract_id": "greeting_contract"
+            }
+          ],
+          "endpoint_ids": [
+            "greeting_contract.get_noon_greeting"
+          ],
+          "entity_ids": [
+            "greeting"
+          ],
+          "endpoint_designs": [
+            {
+              "schemaVersion": "endpoint-field-mapping.v7",
+              "artifactType": "endpoint-field-mapping",
+              "status": "confirmed",
+              "confirmationStatus": "confirmed",
+              "artifactRevision": "befbbafb08b644a8be82489baf5db191",
+              "apiContractId": "greeting_contract",
+              "endpointId": "greeting_contract.get_noon_greeting",
+              "endpointContract": {
+                "id": "greeting_contract.get_noon_greeting",
+                "name": "获取午间问候语",
+                "method": "GET",
+                "path": "/api/greetings/noon",
+                "summary": "获取午间问候页展示的问候字符串“中午好！”",
+                "parameters": [],
+                "request_schema_ref": null,
+                "response_schema_ref": "NoonGreetingResponse",
+                "error_codes": [
+                  "NOT_FOUND",
+                  "INTERNAL_ERROR"
+                ],
+                "authentication": {
+                  "required": false
+                }
+              },
+              "sourceBinding": {
+                "sourceType": "static"
+              },
+              "staticData": {
+                "noonGreetingText": "中午好！"
+              },
+              "fieldMappings": [
+                {
+                  "endpointField": {
+                    "side": "response",
+                    "location": "response_body",
+                    "path": "noonGreetingText",
+                    "type": "string",
+                    "required": true,
+                    "description": "用于午间问候页展示的问候字符串“中午好！”"
+                  },
+                  "mappingType": "source_mapping",
+                  "sourceFields": [
+                    {
+                      "sourceType": "static",
+                      "path": "noonGreetingText",
+                      "type": "string",
+                      "description": ""
+                    }
+                  ],
+                  "endpointFields": [],
+                  "builtinFields": [],
+                  "processingType": "direct",
+                  "missingBehavior": "error"
+                }
+              ],
+              "databaseWrites": [],
+              "externalApiBindings": [],
+              "sourceSnapshots": [],
+              "basedOn": [
+                {
+                  "artifactKey": "technical-plan",
+                  "sha256": "2762351ce4bb102ad97ddedd9ffb9dca4571990563ca2140adbf891372d31c8c"
+                }
+              ],
+              "confirmedAt": "2026-11-21T11:38:12.386001Z"
+            }
+          ],
+          "mapping_flows": [
+            "静态数据.noonGreetingText → response.response_body.noonGreetingText"
+          ],
+          "source_types": [],
+          "business_descriptions": [],
+          "backend_stage": "business",
+          "foundation_paths": []
+        },
+        "requires_capabilities": [],
+        "provides_capabilities": [
+          "backend:module:greeting_contract"
+        ],
+        "unit_dependencies": [
+          "backend:bootstrap",
+          "backend:auth-resources"
+        ],
+        "dependency_rewrites": [],
+        "missing_unit_dependencies": [
+          "backend:bootstrap"
+        ],
+        "invalid_dependencies": [],
+        "acceptance_checks": [
+          {
+            "id": "acceptance:backend:module:greeting_contract::greeting_contract.get_noon_greeting::business:file_operation:eed5d6dbc044",
+            "kind": "file_operation",
+            "description": "工程文件 backend/src/main/java/com/cmbchina/backend/greeting/application/dto/NoonGreetingResponse.java 必须完成 add 操作，工作区差异类型必须为 added。",
+            "required": true,
+            "target_paths": [
+              "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/NoonGreetingResponse.java"
+            ],
+            "expected": {
+              "operation": "add",
+              "change_type": "added"
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:backend:module:greeting_contract::greeting_contract.get_noon_greeting::business:file_operation:2fae8405152d",
+            "kind": "file_operation",
+            "description": "工程文件 backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+            "required": true,
+            "target_paths": [
+              "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+            ],
+            "expected": {
+              "operation": "modify",
+              "change_type": "modified"
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:backend:module:greeting_contract::greeting_contract.get_noon_greeting::business:scope_boundary:17ed00b64358",
+            "kind": "scope_boundary",
+            "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+            "required": true,
+            "target_paths": [
+              "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/NoonGreetingResponse.java",
+              "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+            ],
+            "expected": {
+              "allowed_paths": [
+                "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/NoonGreetingResponse.java",
+                "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+              ]
+            },
+            "verification_stage": "build"
+          }
+        ],
+        "business_acceptance_checks": [
+          {
+            "id": "business:backend:module:greeting_contract::greeting_contract.get_noon_greeting::business:backend.objects_contract:a782418111ad825a",
+            "deliverable_id": "backend:module:greeting_contract::greeting_contract.get_noon_greeting::business::deliverable:2",
+            "kind": "backend.objects_contract",
+            "description": "后端 PO、Entity、DTO 与 Converter 必须落实字段、表列绑定和类型化转换链。",
+            "sources": [
+              {
+                "artifact": "api_contract",
+                "target_id": "greeting_contract.get_noon_greeting",
+                "pointer": "/api_contracts/greeting_contract/endpoints/greeting_contract.get_noon_greeting",
+                "sha256": "4342d830b22ac4cd305ab1902cd1056f4cc617abfe594e0b08fe9d706744d3aa"
+              },
+              {
+                "artifact": "api_contract",
+                "target_id": "greeting_contract.get_noon_greeting",
+                "pointer": "/api_contracts/greeting_contract/endpoints/greeting_contract.get_noon_greeting",
+                "sha256": "4342d830b22ac4cd305ab1902cd1056f4cc617abfe594e0b08fe9d706744d3aa"
+              }
+            ],
+            "expected": {
+              "entities": [
+                {
+                  "entity_id": "greeting",
+                  "entity_name": "问候语",
+                  "data_source_type": "",
+                  "database_table": "",
+                  "fields": [
+                    {
+                      "name": "morning_greeting_text",
+                      "type": "text",
+                      "required": true,
+                      "enum_values": [],
+                      "source_types": []
+                    },
+                    {
+                      "name": "noon_greeting_text",
+                      "type": "text",
+                      "required": true,
+                      "enum_values": [],
+                      "source_types": []
+                    }
+                  ],
+                  "database_bindings": []
+                }
+              ],
+              "endpoints": [
+                {
+                  "api_contract_id": "greeting_contract",
+                  "endpoint_id": "greeting_contract.get_noon_greeting",
+                  "method": "GET",
+                  "path": "/api/greetings/noon",
+                  "request_schema_ref": "",
+                  "response_schema_ref": "NoonGreetingResponse",
+                  "parameters": [],
+                  "request_schema": null,
+                  "response_schema": {
+                    "type": "object",
+                    "required": [
+                      "noonGreetingText"
+                    ],
+                    "properties": {
+                      "noonGreetingText": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "target_paths": [
+              "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/NoonGreetingResponse.java"
+            ],
+            "verification": {
+              "mode": "deterministic",
+              "verifier": "backend_objects_contract"
+            },
+            "required": true,
+            "verification_stage": "build"
+          },
+          {
+            "id": "business:backend:module:greeting_contract::greeting_contract.get_noon_greeting::business:backend.application_service_contract:23b6d71490be0425",
+            "deliverable_id": "backend:module:greeting_contract::greeting_contract.get_noon_greeting::business::deliverable:1",
+            "kind": "backend.application_service_contract",
+            "description": "ApplicationService 必须执行已确认 operation 语义和 Request 业务处理，并在需要时委托 Repository。",
+            "sources": [
+              {
+                "artifact": "api_design",
+                "target_id": "greeting_contract.get_noon_greeting",
+                "pointer": "/endpoint_designs/greeting_contract.get_noon_greeting",
+                "sha256": "13ae6d59ecfada7d218bb02b05c214adbc457dd43522952e55a6834c862ea26b"
+              },
+              {
+                "artifact": "api_contract",
+                "target_id": "greeting_contract.get_noon_greeting",
+                "pointer": "/api_contracts/greeting_contract/endpoints/greeting_contract.get_noon_greeting",
+                "sha256": "4342d830b22ac4cd305ab1902cd1056f4cc617abfe594e0b08fe9d706744d3aa"
+              }
+            ],
+            "expected": {
+              "operations": [
+                {
+                  "api_contract_id": "greeting_contract",
+                  "endpoint_id": "greeting_contract.get_noon_greeting",
+                  "operation_kind": "read",
+                  "target_cardinality": "object",
+                  "selector": {
+                    "source": "endpoint_api_design",
+                    "query": null
+                  },
+                  "transaction_required": false,
+                  "database_writes": [],
+                  "external_api_bindings": [],
+                  "zero_match_behavior": "confirmed_processing_logic",
+                  "multiple_match_behavior": "confirmed_processing_logic",
+                  "success_status_code": null,
+                  "side_effect": "none",
+                  "processing_logic": [],
+                  "requires_repository": false
+                }
+              ],
+              "endpoints": [
+                {
+                  "api_contract_id": "greeting_contract",
+                  "endpoint_id": "greeting_contract.get_noon_greeting",
+                  "method": "GET",
+                  "path": "/api/greetings/noon",
+                  "request_schema_ref": "",
+                  "response_schema_ref": "NoonGreetingResponse",
+                  "parameters": [],
+                  "request_schema": null,
+                  "response_schema": {
+                    "type": "object",
+                    "required": [
+                      "noonGreetingText"
+                    ],
+                    "properties": {
+                      "noonGreetingText": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }
+                }
+              ],
+              "business_descriptions": []
+            },
+            "target_paths": [
+              "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+            ],
+            "verification": {
+              "mode": "deterministic",
+              "verifier": "backend_application_service_contract"
+            },
+            "required": true,
+            "verification_stage": "build"
+          }
+        ],
+        "execution_strategy": "agent",
+        "platform_executor": null,
+        "executionMode": "subagent-direct-write",
+        "assignedAgent": "fullstack-builder",
+        "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+        "parallel_with": [
+          "frontend:api-client::greeting_contract::api-module::2c360eed531904f6"
+        ],
+        "scheduler": {
+          "started_at": "2026-11-21T11:38:52.215124+00:00"
+        },
+        "last_result_status": "completed",
+        "failure_category": null,
+        "failure_reason": null,
+        "failure_detail": null,
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "acceptance_evidence": [],
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:backend:module:greeting_contract::greeting_contract.get_noon_greeting::business:backend.objects_contract:a782418111ad825a",
+            "kind": "backend.objects_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          },
+          {
+            "check_id": "business:backend:module:greeting_contract::greeting_contract.get_noon_greeting::business:backend.application_service_contract:23b6d71490be0425",
+            "kind": "backend.application_service_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 2,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 2,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        },
+        "implementation_document": {
+          "status": "unavailable",
+          "path": "backend/docs/implementation/module-greeting_contract-c0ef57860e9a.md",
+          "summary": "实现说明未更新：任务未提供可核验的实现说明。后续任务将读取源码。"
+        },
+        "updated_by": "build-scheduler",
+        "updated_at": "2026-11-21T11:39:33.751742+00:00"
+      },
+      {
+        "id": "backend:module:greeting_contract::168009332f2a204a::controller",
+        "unit_id": "backend:module:greeting_contract",
+        "owner": "backend",
+        "task_type": "backend.code",
+        "title": "模块 Controller · 在问候语控制器中接入获取午间问候语接口",
+        "description": "1. 接口/方法：新增无需认证（authentication.required=false）的无参处理方法，结合现有类级路径映射暴露有效完整路由 GET /api/greetings/noon。\n处理逻辑：委托 GreetingApplicationService.getNoonGreeting() 获取 NoonGreetingResponse，并使用项目既有统一响应封装 ResponseEntity 包装返回。\n复用要求：保留现有类级路由注解、依赖注入及早间问候语等已有端点处理器不变。（backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java）",
+        "dependencies": [
+          "backend:module:greeting_contract::greeting_contract.get_noon_greeting::business"
+        ],
+        "target_files": [
+          "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+        ],
+        "allowed_paths": [
+          "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+        ],
+        "change_scope": [
+          {
+            "path": "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java",
+            "operation": "modify",
+            "description": "接口/方法：新增无需认证（authentication.required=false）的无参处理方法，结合现有类级路径映射暴露有效完整路由 GET /api/greetings/noon。\n处理逻辑：委托 GreetingApplicationService.getNoonGreeting() 获取 NoonGreetingResponse，并使用项目既有统一响应封装 ResponseEntity 包装返回。\n复用要求：保留现有类级路由注解、依赖注入及早间问候语等已有端点处理器不变。"
+          }
+        ],
+        "deliverables": [
+          {
+            "id": "backend:module:greeting_contract::168009332f2a204a::controller::deliverable:1",
+            "kind": "backend.endpoint_controller",
+            "target_id": "greeting_contract.get_noon_greeting",
+            "paths": [
+              "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+            ],
+            "provides": [
+              "backend.endpoint_controller:greeting_contract:greeting_contract.get_noon_greeting"
+            ]
+          }
+        ],
+        "impact_scope": {
+          "summary": "模块 Controller · 在问候语控制器中接入获取午间问候语接口",
+          "affected_modules": [
+            "greeting_contract"
+          ],
+          "public_contracts": [
+            "greeting_contract.get_noon_greeting"
+          ],
+          "risks": []
+        },
+        "can_run_in_parallel": false,
+        "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+        "status": "completed",
+        "source_refs": {
+          "type": "technical_plan_module",
+          "target": {
+            "type": "module",
+            "id": "greeting_contract",
+            "api_contract_id": "greeting_contract"
+          },
+          "technical_plan_endpoints": [
+            {
+              "id": "greeting_contract.get_noon_greeting",
+              "api_contract_id": "greeting_contract"
+            }
+          ],
+          "endpoint_ids": [
+            "greeting_contract.get_noon_greeting"
+          ],
+          "entity_ids": [
+            "greeting"
+          ],
+          "endpoint_designs": [
+            {
+              "schemaVersion": "endpoint-field-mapping.v7",
+              "artifactType": "endpoint-field-mapping",
+              "status": "confirmed",
+              "confirmationStatus": "confirmed",
+              "artifactRevision": "befbbafb08b644a8be82489baf5db191",
+              "apiContractId": "greeting_contract",
+              "endpointId": "greeting_contract.get_noon_greeting",
+              "endpointContract": {
+                "id": "greeting_contract.get_noon_greeting",
+                "name": "获取午间问候语",
+                "method": "GET",
+                "path": "/api/greetings/noon",
+                "summary": "获取午间问候页展示的问候字符串“中午好！”",
+                "parameters": [],
+                "request_schema_ref": null,
+                "response_schema_ref": "NoonGreetingResponse",
+                "error_codes": [
+                  "NOT_FOUND",
+                  "INTERNAL_ERROR"
+                ],
+                "authentication": {
+                  "required": false
+                }
+              },
+              "sourceBinding": {
+                "sourceType": "static"
+              },
+              "staticData": {
+                "noonGreetingText": "中午好！"
+              },
+              "fieldMappings": [
+                {
+                  "endpointField": {
+                    "side": "response",
+                    "location": "response_body",
+                    "path": "noonGreetingText",
+                    "type": "string",
+                    "required": true,
+                    "description": "用于午间问候页展示的问候字符串“中午好！”"
+                  },
+                  "mappingType": "source_mapping",
+                  "sourceFields": [
+                    {
+                      "sourceType": "static",
+                      "path": "noonGreetingText",
+                      "type": "string",
+                      "description": ""
+                    }
+                  ],
+                  "endpointFields": [],
+                  "builtinFields": [],
+                  "processingType": "direct",
+                  "missingBehavior": "error"
+                }
+              ],
+              "databaseWrites": [],
+              "externalApiBindings": [],
+              "sourceSnapshots": [],
+              "basedOn": [
+                {
+                  "artifactKey": "technical-plan",
+                  "sha256": "2762351ce4bb102ad97ddedd9ffb9dca4571990563ca2140adbf891372d31c8c"
+                }
+              ],
+              "confirmedAt": "2026-11-21T11:38:12.386001Z"
+            }
+          ],
+          "mapping_flows": [
+            "静态数据.noonGreetingText → response.response_body.noonGreetingText"
+          ],
+          "source_types": [],
+          "business_descriptions": [],
+          "backend_stage": "controller"
+        },
+        "requires_capabilities": [],
+        "provides_capabilities": [
+          "backend:module:greeting_contract"
+        ],
+        "unit_dependencies": [
+          "backend:bootstrap",
+          "backend:auth-resources"
+        ],
+        "dependency_rewrites": [],
+        "missing_unit_dependencies": [
+          "backend:bootstrap"
+        ],
+        "invalid_dependencies": [],
+        "acceptance_checks": [
+          {
+            "id": "acceptance:backend:module:greeting_contract::168009332f2a204a::controller:file_operation:40de3008df58",
+            "kind": "file_operation",
+            "description": "工程文件 backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+            "required": true,
+            "target_paths": [
+              "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+            ],
+            "expected": {
+              "operation": "modify",
+              "change_type": "modified"
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:backend:module:greeting_contract::168009332f2a204a::controller:scope_boundary:c28d70b482d2",
+            "kind": "scope_boundary",
+            "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+            "required": true,
+            "target_paths": [
+              "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+            ],
+            "expected": {
+              "allowed_paths": [
+                "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+              ]
+            },
+            "verification_stage": "build"
+          }
+        ],
+        "business_acceptance_checks": [
+          {
+            "id": "business:backend:module:greeting_contract::168009332f2a204a::controller:backend.endpoint_contract:5c5f5fe5e57efcf7",
+            "deliverable_id": "backend:module:greeting_contract::168009332f2a204a::controller::deliverable:1",
+            "kind": "backend.endpoint_contract",
+            "description": "Controller 必须按 API Contract 暴露 method/path、绑定 DTO、返回约定状态码并委托 ApplicationService。",
+            "sources": [
+              {
+                "artifact": "api_contract",
+                "target_id": "greeting_contract.get_noon_greeting",
+                "pointer": "/api_contracts/greeting_contract/endpoints/greeting_contract.get_noon_greeting",
+                "sha256": "4342d830b22ac4cd305ab1902cd1056f4cc617abfe594e0b08fe9d706744d3aa"
+              },
+              {
+                "artifact": "api_design",
+                "target_id": "greeting_contract.get_noon_greeting",
+                "pointer": "/endpoint_designs/greeting_contract.get_noon_greeting",
+                "sha256": "13ae6d59ecfada7d218bb02b05c214adbc457dd43522952e55a6834c862ea26b"
+              }
+            ],
+            "expected": {
+              "endpoints": [
+                {
+                  "api_contract_id": "greeting_contract",
+                  "endpoint_id": "greeting_contract.get_noon_greeting",
+                  "method": "GET",
+                  "path": "/api/greetings/noon",
+                  "request_schema_ref": "",
+                  "response_schema_ref": "NoonGreetingResponse",
+                  "parameters": [],
+                  "request_schema": null,
+                  "response_schema": {
+                    "type": "object",
+                    "required": [
+                      "noonGreetingText"
+                    ],
+                    "properties": {
+                      "noonGreetingText": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }
+                }
+              ],
+              "operations": [
+                {
+                  "api_contract_id": "greeting_contract",
+                  "endpoint_id": "greeting_contract.get_noon_greeting",
+                  "operation_kind": "read",
+                  "target_cardinality": "object",
+                  "selector": {
+                    "source": "endpoint_api_design",
+                    "query": null
+                  },
+                  "transaction_required": false,
+                  "database_writes": [],
+                  "external_api_bindings": [],
+                  "zero_match_behavior": "confirmed_processing_logic",
+                  "multiple_match_behavior": "confirmed_processing_logic",
+                  "success_status_code": null,
+                  "side_effect": "none",
+                  "processing_logic": [],
+                  "requires_repository": false
+                }
+              ],
+              "business_descriptions": []
+            },
+            "target_paths": [
+              "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+            ],
+            "verification": {
+              "mode": "deterministic",
+              "verifier": "backend_endpoint_contract"
+            },
+            "required": true,
+            "verification_stage": "build"
+          }
+        ],
+        "execution_strategy": "agent",
+        "platform_executor": null,
+        "executionMode": "subagent-direct-write",
+        "assignedAgent": "fullstack-builder",
+        "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+        "parallel_with": [
+          "page:noon_greeting::page"
+        ],
+        "scheduler": {
+          "started_at": "2026-11-21T11:39:33.768981+00:00"
+        },
+        "last_result_status": "completed",
+        "failure_category": null,
+        "failure_reason": null,
+        "failure_detail": null,
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "acceptance_evidence": [],
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:backend:module:greeting_contract::168009332f2a204a::controller:backend.endpoint_contract:5c5f5fe5e57efcf7",
+            "kind": "backend.endpoint_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 1,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        },
+        "implementation_document": {
+          "status": "unavailable",
+          "path": "backend/docs/implementation/module-greeting_contract-c0ef57860e9a.md",
+          "summary": "实现说明未更新：任务未提供可核验的实现说明。后续任务将读取源码。"
+        },
+        "updated_by": "build-scheduler",
+        "updated_at": "2026-11-21T11:41:22.870201+00:00"
+      },
+      {
+        "allowed_paths": [
+          "frontend/src/apis/greetingContractApi.ts"
+        ],
+        "can_run_in_parallel": false,
+        "change_scope": [
+          {
+            "description": "在前端 API 模块中封装获取午间问候语接口（GET /api/greetings/noon）及响应类型 NoonGreetingResponse（包含必填 string 字段 noonGreetingText），复用 frontend/src/apis/service.ts 发起 HTTP 请求。",
+            "operation": "add",
+            "path": "frontend/src/apis/greetingContractApi.ts"
+          }
+        ],
+        "deliverables": [
+          {
+            "id": "frontend:api-client::greeting_contract::api-module::2c360eed531904f6::greeting_contract.get_noon_greeting",
+            "kind": "frontend.api_module",
+            "target_id": "greeting_contract.get_noon_greeting",
+            "paths": [
+              "frontend/src/apis/greetingContractApi.ts"
+            ],
+            "provides": [
+              "frontend.api_module:greeting_contract:greeting_contract.get_noon_greeting"
+            ]
+          }
+        ],
+        "dependencies": [],
+        "description": "在 frontend/src/apis/greetingContractApi.ts 中实现 greeting_contract 契约下的午间问候接口前端访问模块：定义 NoonGreetingResponse 响应数据结构（包含必填字段 noonGreetingText: string），复用平台统一请求客户端 frontend/src/apis/service.ts 导出异步请求函数 getNoonGreeting，以 GET /api/greetings/noon 调用后端接口并返回类型化响应数据。",
+        "id": "frontend:api-client::greeting_contract::api-module::2c360eed531904f6",
+        "impact_scope": {
+          "affected_modules": [
+            "frontend/src/apis/greetingContractApi.ts"
+          ],
+          "public_contracts": [
+            "greeting_contract.get_noon_greeting"
+          ],
+          "risks": [
+            "需与后端 GET /api/greetings/noon 接口响应结构 NoonGreetingResponse（noonGreetingText）及统一响应包装解包约定保持一致。"
+          ],
+          "summary": "提供 greeting_contract.get_noon_greeting 正式接口的前端类型化 API 访问函数。"
+        },
+        "owner": "frontend",
+        "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+        "status": "completed",
+        "target_files": [
+          "frontend/src/apis/greetingContractApi.ts"
+        ],
+        "task_type": "frontend.code",
+        "title": "实现 greeting_contract 午间问候接口前端访问模块",
+        "unit_id": "frontend:api-client",
+        "source_refs": {
+          "type": "application_unit",
+          "target": {
+            "type": "application",
+            "id": "application"
+          }
+        },
+        "requires_capabilities": [],
+        "provides_capabilities": [
+          "frontend:api-client"
+        ],
+        "unit_dependencies": [],
+        "dependency_rewrites": [],
+        "missing_unit_dependencies": [],
+        "invalid_dependencies": [],
+        "acceptance_checks": [
+          {
+            "id": "acceptance:frontend:api-client::greeting_contract::api-module::2c360eed531904f6:file_operation:fdc5515d6e5b",
+            "kind": "file_operation",
+            "description": "工程文件 frontend/src/apis/greetingContractApi.ts 必须完成 add 操作，工作区差异类型必须为 added。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/apis/greetingContractApi.ts"
+            ],
+            "expected": {
+              "operation": "add",
+              "change_type": "added"
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:frontend:api-client::greeting_contract::api-module::2c360eed531904f6:scope_boundary:e2c2bd0106c3",
+            "kind": "scope_boundary",
+            "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/apis/greetingContractApi.ts"
+            ],
+            "expected": {
+              "allowed_paths": [
+                "frontend/src/apis/greetingContractApi.ts"
+              ]
+            },
+            "verification_stage": "build"
+          }
+        ],
+        "business_acceptance_checks": [
+          {
+            "id": "business:frontend:api-client::greeting_contract::api-module::2c360eed531904f6:frontend.api_contract:950d5b4ff62d1820",
+            "deliverable_id": "frontend:api-client::greeting_contract::api-module::2c360eed531904f6::greeting_contract.get_noon_greeting",
+            "kind": "frontend.api_contract",
+            "description": "前端业务 API 模块必须实现已确认的 method、path、请求参数和响应结构。",
+            "sources": [
+              {
+                "artifact": "api_contract",
+                "target_id": "greeting_contract.get_noon_greeting",
+                "pointer": "/api_contracts/greeting_contract/endpoints/greeting_contract.get_noon_greeting",
+                "sha256": "4342d830b22ac4cd305ab1902cd1056f4cc617abfe594e0b08fe9d706744d3aa"
+              }
+            ],
+            "expected": {
+              "endpoints": [
+                {
+                  "api_contract_id": "greeting_contract",
+                  "endpoint_id": "greeting_contract.get_noon_greeting",
+                  "method": "GET",
+                  "path": "/api/greetings/noon",
+                  "request_schema_ref": "",
+                  "response_schema_ref": "NoonGreetingResponse",
+                  "parameters": [],
+                  "request_schema": null,
+                  "response_schema": {
+                    "type": "object",
+                    "required": [
+                      "noonGreetingText"
+                    ],
+                    "properties": {
+                      "noonGreetingText": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }
+                }
+              ],
+              "required_endpoints": [
+                {
+                  "api_contract_id": "greeting_contract",
+                  "endpoint_id": "greeting_contract.get_noon_greeting",
+                  "method": "GET",
+                  "path": "/api/greetings/noon",
+                  "request_schema_ref": "",
+                  "response_schema_ref": "NoonGreetingResponse",
+                  "parameters": [],
+                  "request_schema": null,
+                  "response_schema": {
+                    "type": "object",
+                    "required": [
+                      "noonGreetingText"
+                    ],
+                    "properties": {
+                      "noonGreetingText": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }
+                }
+              ],
+              "allowed_existing_endpoints": [
+                {
+                  "api_contract_id": "greeting_contract",
+                  "endpoint_id": "greeting_contract.get_morning_greeting",
+                  "method": "GET",
+                  "path": "/api/greetings/morning",
+                  "request_schema_ref": "",
+                  "response_schema_ref": "MorningGreetingResponse",
+                  "parameters": [],
+                  "request_schema": null,
+                  "response_schema": {
+                    "type": "object",
+                    "required": [
+                      "morningGreetingText"
+                    ],
+                    "properties": {
+                      "morningGreetingText": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "target_paths": [
+              "frontend/src/apis/greetingContractApi.ts"
+            ],
+            "verification": {
+              "mode": "deterministic",
+              "verifier": "frontend_api_contract"
+            },
+            "required": true,
+            "verification_stage": "build"
+          }
+        ],
+        "execution_strategy": "agent",
+        "platform_executor": null,
+        "executionMode": "subagent-direct-write",
+        "assignedAgent": "fullstack-builder",
+        "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+        "parallel_with": [
+          "backend:module:greeting_contract::greeting_contract.get_noon_greeting::business"
+        ],
+        "scheduler": {
+          "started_at": "2026-11-21T11:38:52.215124+00:00"
+        },
+        "last_result_status": "completed",
+        "failure_category": null,
+        "failure_reason": null,
+        "failure_detail": null,
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "acceptance_evidence": [],
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:frontend:api-client::greeting_contract::api-module::2c360eed531904f6:frontend.api_contract:950d5b4ff62d1820",
+            "kind": "frontend.api_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 1,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        },
+        "updated_by": "build-scheduler",
+        "updated_at": "2026-11-21T11:39:36.870777+00:00"
+      },
+      {
+        "allowed_paths": [
+          "frontend/src/pages/NoonGreeting/index.tsx"
+        ],
+        "can_run_in_parallel": false,
+        "change_scope": [
+          {
+            "description": "新增午间问候页面组件，进入页面初始加载时通过前端 API 客户端调用 greeting_contract.get_noon_greeting（GET /api/greetings/noon），处理加载与异常状态，并清晰展示响应字段 noonGreetingText 返回的“中午好！”文本。",
+            "operation": "add",
+            "path": "frontend/src/pages/NoonGreeting/index.tsx"
+          }
+        ],
+        "deliverables": [
+          {
+            "id": "page:noon_greeting::page::deliverable",
+            "kind": "frontend.page",
+            "target_id": "noon_greeting",
+            "paths": [
+              "frontend/src/pages/NoonGreeting/index.tsx"
+            ],
+            "provides": [
+              "frontend.page:noon_greeting"
+            ]
+          }
+        ],
+        "dependencies": [
+          "frontend:api-client::greeting_contract::api-module::2c360eed531904f6"
+        ],
+        "description": "依据 noon_greeting 的 PageImplementationContract 实现前端页面入口 `frontend/src/pages/NoonGreeting/index.tsx`：基于 React 与 Ant Design 实现公开可访问的午间问候视图，在页面初始挂载时仅调用已声明的前端 API 客户端接口 `greeting_contract.get_noon_greeting`（对应 `GET /api/greetings/noon`，响应字段 `noonGreetingText`），管理请求加载态与错误态，并在加载成功后清晰展示问候语“中午好！”；不修改路由注册、菜单壳层或 API 客户端模块。",
+        "id": "page:noon_greeting::page",
+        "impact_scope": {
+          "affected_modules": [
+            "frontend/src/pages/NoonGreeting"
+          ],
+          "public_contracts": [
+            "greeting_contract.get_noon_greeting"
+          ],
+          "risks": [
+            "需严格对接上游 API 客户端导出的 `greeting_contract.get_noon_greeting` 调用方法及 `noonGreetingText` 响应字段，并做好请求异常兜底提示。"
+          ],
+          "summary": "新增午间问候页面组件以完成 noon_greeting 页面契约实现"
+        },
+        "owner": "frontend",
+        "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+        "status": "completed",
+        "target_files": [
+          "frontend/src/pages/NoonGreeting/index.tsx"
+        ],
+        "task_type": "frontend.code",
+        "title": "实现午间问候页面（NoonGreeting）",
+        "unit_id": "page:noon_greeting",
+        "source_refs": {
+          "type": "page_implementation_contract",
+          "target": {
+            "type": "page",
+            "id": "noon_greeting",
+            "page_key": "NoonGreeting"
+          },
+          "page_implementation_contract": {
+            "id": "noon_greeting"
+          },
+          "endpoint_ids": [
+            "greeting_contract.get_noon_greeting"
+          ],
+          "entity_ids": [
+            "greeting"
+          ],
+          "endpoint_designs": [
+            {
+              "schemaVersion": "endpoint-field-mapping.v7",
+              "artifactType": "endpoint-field-mapping",
+              "status": "confirmed",
+              "confirmationStatus": "confirmed",
+              "artifactRevision": "befbbafb08b644a8be82489baf5db191",
+              "apiContractId": "greeting_contract",
+              "endpointId": "greeting_contract.get_noon_greeting",
+              "endpointContract": {
+                "id": "greeting_contract.get_noon_greeting",
+                "name": "获取午间问候语",
+                "method": "GET",
+                "path": "/api/greetings/noon",
+                "summary": "获取午间问候页展示的问候字符串“中午好！”",
+                "parameters": [],
+                "request_schema_ref": null,
+                "response_schema_ref": "NoonGreetingResponse",
+                "error_codes": [
+                  "NOT_FOUND",
+                  "INTERNAL_ERROR"
+                ],
+                "authentication": {
+                  "required": false
+                }
+              },
+              "sourceBinding": {
+                "sourceType": "static"
+              },
+              "staticData": {
+                "noonGreetingText": "中午好！"
+              },
+              "fieldMappings": [
+                {
+                  "endpointField": {
+                    "side": "response",
+                    "location": "response_body",
+                    "path": "noonGreetingText",
+                    "type": "string",
+                    "required": true,
+                    "description": "用于午间问候页展示的问候字符串“中午好！”"
+                  },
+                  "mappingType": "source_mapping",
+                  "sourceFields": [
+                    {
+                      "sourceType": "static",
+                      "path": "noonGreetingText",
+                      "type": "string",
+                      "description": ""
+                    }
+                  ],
+                  "endpointFields": [],
+                  "builtinFields": [],
+                  "processingType": "direct",
+                  "missingBehavior": "error"
+                }
+              ],
+              "databaseWrites": [],
+              "externalApiBindings": [],
+              "sourceSnapshots": [],
+              "basedOn": [
+                {
+                  "artifactKey": "technical-plan",
+                  "sha256": "2762351ce4bb102ad97ddedd9ffb9dca4571990563ca2140adbf891372d31c8c"
+                }
+              ],
+              "confirmedAt": "2026-11-21T11:38:12.386001Z"
+            }
+          ],
+          "mapping_flows": [
+            "静态数据.noonGreetingText → response.response_body.noonGreetingText"
+          ],
+          "source_types": [
+            "static"
+          ],
+          "page_input_sha256": "3ae6b33164e008cf79c26de250f028e0b12efd36f2147bcdbe82e141a40a77d6"
+        },
+        "requires_capabilities": [],
+        "provides_capabilities": [
+          "page:noon_greeting"
+        ],
+        "unit_dependencies": [
+          "frontend:shell",
+          "frontend:api-client",
+          "backend:module:greeting_contract"
+        ],
+        "dependency_rewrites": [],
+        "missing_unit_dependencies": [],
+        "invalid_dependencies": [],
+        "acceptance_checks": [
+          {
+            "id": "acceptance:page:noon_greeting::page:file_operation:692d837bc13d",
+            "kind": "file_operation",
+            "description": "工程文件 frontend/src/pages/NoonGreeting/index.tsx 必须完成 add 操作，工作区差异类型必须为 added。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/pages/NoonGreeting/index.tsx"
+            ],
+            "expected": {
+              "operation": "add",
+              "change_type": "added"
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:page:noon_greeting::page:scope_boundary:01e87608f975",
+            "kind": "scope_boundary",
+            "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/pages/NoonGreeting/index.tsx"
+            ],
+            "expected": {
+              "allowed_paths": [
+                "frontend/src/pages/NoonGreeting/index.tsx"
+              ]
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:page:noon_greeting::page:page_entry:6426f80fed48",
+            "kind": "page_entry",
+            "description": "页面交付物必须包含可读取的 index.tsx 页面入口。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/pages/NoonGreeting/index.tsx"
+            ],
+            "expected": {
+              "page_id": "noon_greeting",
+              "entry_path": "frontend/src/pages/NoonGreeting/index.tsx"
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:page:noon_greeting::page:page_default_export:e6845cb66ac0",
+            "kind": "page_default_export",
+            "description": "页面入口必须提供 default export，确保路由可以加载页面组件。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/pages/NoonGreeting/index.tsx"
+            ],
+            "expected": {
+              "entry_path": "frontend/src/pages/NoonGreeting/index.tsx",
+              "requires_default_export": true
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:page:noon_greeting::page:page_placeholder:ed92b8fb9bc4",
+            "kind": "page_placeholder",
+            "description": "页面入口不得保留模板占位内容。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/pages/NoonGreeting/index.tsx"
+            ],
+            "expected": {
+              "entry_path": "frontend/src/pages/NoonGreeting/index.tsx",
+              "forbidden_markers": [
+                "hello agent!",
+                "待 Agent 生成真实内容",
+                "待agent生成真实内容",
+                "临时占位",
+                "placeholder content"
+              ]
+            },
+            "verification_stage": "build"
+          },
+          {
+            "id": "acceptance:page:noon_greeting::page:frontend_api_boundary:467b0d7b1171",
+            "kind": "frontend_api_boundary",
+            "description": "页面和任务内组件不得直接调用 fetch、axios 或 service；业务接口必须经 src/apis/ 与 useRequest。",
+            "required": true,
+            "target_paths": [
+              "frontend/src/pages/NoonGreeting/index.tsx"
+            ],
+            "expected": {},
+            "verification_stage": "build"
+          }
+        ],
+        "business_acceptance_checks": [
+          {
+            "id": "business:page:noon_greeting::page:frontend.page_endpoint_usage:d4a769abf58f2eca",
+            "deliverable_id": "page:noon_greeting::page::deliverable",
+            "kind": "frontend.page_endpoint_usage",
+            "description": "页面或其任务内可达组件必须实际调用 PageImplementationContract 声明的业务接口。",
+            "sources": [
+              {
+                "artifact": "page_implementation_contract",
+                "target_id": "noon_greeting",
+                "pointer": "/page_implementation_contracts/noon_greeting",
+                "sha256": "37c52fe37334abecc5d34a1eb193d903ba2aff72243ad9faa73298aa0289132f"
+              },
+              {
+                "artifact": "api_contract",
+                "target_id": "greeting_contract.get_noon_greeting",
+                "pointer": "/api_contracts/greeting_contract/endpoints/greeting_contract.get_noon_greeting",
+                "sha256": "4342d830b22ac4cd305ab1902cd1056f4cc617abfe594e0b08fe9d706744d3aa"
+              }
+            ],
+            "expected": {
+              "page_id": "noon_greeting",
+              "required_endpoint_ids": [
+                "greeting_contract.get_noon_greeting"
+              ],
+              "endpoints": [
+                {
+                  "api_contract_id": "greeting_contract",
+                  "endpoint_id": "greeting_contract.get_noon_greeting",
+                  "method": "GET",
+                  "path": "/api/greetings/noon",
+                  "request_schema_ref": "",
+                  "response_schema_ref": "NoonGreetingResponse",
+                  "parameters": [],
+                  "request_schema": null,
+                  "response_schema": {
+                    "type": "object",
+                    "required": [
+                      "noonGreetingText"
+                    ],
+                    "properties": {
+                      "noonGreetingText": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            "target_paths": [
+              "frontend/src/pages/NoonGreeting/index.tsx"
+            ],
+            "verification": {
+              "mode": "deterministic",
+              "verifier": "frontend_page_endpoint_usage"
+            },
+            "required": true,
+            "verification_stage": "build"
+          }
+        ],
+        "execution_strategy": "agent",
+        "platform_executor": null,
+        "executionMode": "subagent-direct-write",
+        "assignedAgent": "fullstack-builder",
+        "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+        "parallel_with": [
+          "backend:module:greeting_contract::168009332f2a204a::controller"
+        ],
+        "scheduler": {
+          "started_at": "2026-11-21T11:39:36.888746+00:00"
+        },
+        "last_result_status": "completed",
+        "failure_category": null,
+        "failure_reason": null,
+        "failure_detail": null,
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "acceptance_evidence": [],
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:page:noon_greeting::page:frontend.page_endpoint_usage:d4a769abf58f2eca",
+            "kind": "frontend.page_endpoint_usage",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 1,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        },
+        "updated_by": "build-scheduler",
+        "updated_at": "2026-11-21T11:41:01.909247+00:00"
+      }
+    ],
+    "build_results": [
+      {
+        "task_id": "backend:module:greeting_contract::greeting_contract.get_noon_greeting::business",
+        "owner": "backend",
+        "status": "completed",
+        "changed_files": [
+          "backend/src/main/java/com/cmbchina/backend/greeting/application/dto/NoonGreetingResponse.java",
+          "backend/src/main/java/com/cmbchina/backend/greeting/application/service/GreetingApplicationService.java"
+        ],
+        "commands": [],
+        "agent_note": "Added NoonGreetingResponse DTO with required non-blank noonGreetingText field and implemented getNoonGreeting() in GreetingApplicationService returning static greeting text \"中午好！\" with INTERNAL_ERROR fallback when missing, while preserving existing morning greeting logic.\n实现说明未更新：任务未提供可核验的实现说明。后续任务将读取源码。",
+        "satisfaction_evidence": null,
+        "failure_category": null,
+        "failure_reason": null,
+        "executed_by": {
+          "agent": "data-source-generation-agent",
+          "mode": "live",
+          "model": "gemini-4-carbon",
+          "source": "data_source_deep_agent",
+          "requiredSkillsLoaded": [
+            "/.devagentstudio/builtin-skills/springboot-backend-business/SKILL.md",
+            "/.devagentstudio/builtin-skills/springboot-backend-business/references/business-error-handling.md"
+          ]
+        },
+        "change_request": null,
+        "structured_response_recovered": false,
+        "scheduler_decision": {
+          "action": "complete",
+          "reason": "runner_completed"
+        },
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:backend:module:greeting_contract::greeting_contract.get_noon_greeting::business:backend.objects_contract:a782418111ad825a",
+            "kind": "backend.objects_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          },
+          {
+            "check_id": "business:backend:module:greeting_contract::greeting_contract.get_noon_greeting::business:backend.application_service_contract:23b6d71490be0425",
+            "kind": "backend.application_service_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 2,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 2,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        },
+        "implementation_document": {
+          "status": "unavailable",
+          "path": "backend/docs/implementation/module-greeting_contract-c0ef57860e9a.md",
+          "summary": "实现说明未更新：任务未提供可核验的实现说明。后续任务将读取源码。"
+        }
+      },
+      {
+        "task_id": "frontend:api-client::greeting_contract::api-module::2c360eed531904f6",
+        "owner": "frontend",
+        "status": "completed",
+        "changed_files": [
+          "frontend/src/apis/greetingContractApi.ts"
+        ],
+        "commands": [],
+        "agent_note": "Incrementally updated frontend/src/apis/greetingContractApi.ts to define NoonGreetingResponse (noonGreetingText: string) and export getNoonGreeting calling GET /api/greetings/noon via service.get<NoonGreetingResponse>(), while preserving existing MorningGreetingResponse and getMorningGreeting exports.",
+        "satisfaction_evidence": null,
+        "failure_category": null,
+        "failure_reason": null,
+        "executed_by": {
+          "agent": "frontend-generation-agent",
+          "mode": "live",
+          "model": "gemini-4-carbon",
+          "source": "frontend_deep_agent",
+          "requiredSkillsLoaded": []
+        },
+        "change_request": null,
+        "structured_response_recovered": false,
+        "scheduler_decision": {
+          "action": "complete",
+          "reason": "runner_completed"
+        },
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:frontend:api-client::greeting_contract::api-module::2c360eed531904f6:frontend.api_contract:950d5b4ff62d1820",
+            "kind": "frontend.api_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 1,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        }
+      },
+      {
+        "task_id": "page:noon_greeting::page",
+        "owner": "frontend",
+        "status": "completed",
+        "changed_files": [
+          "frontend/src/pages/NoonGreeting/index.tsx"
+        ],
+        "commands": [],
+        "agent_note": "新增午间问候页面入口 frontend/src/pages/NoonGreeting/index.tsx，使用 @ant-design/pro-components 的 PageContainer 与 ProCard 构建布局，通过 ahooks 的 useRequest 在初始加载时调用 @/apis/greetingContractApi 中的 getNoonGreeting 接口（对应 greeting_contract.get_noon_greeting，GET /api/greetings/noon），完整处理加载态、错误重试态与空状态，并清晰展示响应字段 noonGreetingText 返回的问候语文本。",
+        "satisfaction_evidence": null,
+        "failure_category": null,
+        "failure_reason": null,
+        "executed_by": {
+          "agent": "frontend-generation-agent",
+          "mode": "live",
+          "model": "gemini-4-carbon",
+          "source": "frontend_deep_agent",
+          "requiredSkillsLoaded": []
+        },
+        "change_request": null,
+        "structured_response_recovered": false,
+        "scheduler_decision": {
+          "action": "complete",
+          "reason": "runner_completed"
+        },
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:page:noon_greeting::page:frontend.page_endpoint_usage:d4a769abf58f2eca",
+            "kind": "frontend.page_endpoint_usage",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 1,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        }
+      },
+      {
+        "task_id": "backend:module:greeting_contract::168009332f2a204a::controller",
+        "owner": "backend",
+        "status": "completed",
+        "changed_files": [
+          "backend/src/main/java/com/cmbchina/backend/greeting/adapter/web/GreetingController.java"
+        ],
+        "commands": [],
+        "agent_note": "在 GreetingController 中新增 GET /api/greetings/noon 无参无需认证端点处理器 getNoonGreeting()，委托 GreetingApplicationService.getNoonGreeting() 并通过 ResponseEntity.success(...) 包装返回 NoonGreetingResponse，同时保留原有路由与早间问候语处理器不变。\n实现说明未更新：任务未提供可核验的实现说明。后续任务将读取源码。",
+        "satisfaction_evidence": null,
+        "failure_category": null,
+        "failure_reason": null,
+        "executed_by": {
+          "agent": "data-source-generation-agent",
+          "mode": "live",
+          "model": "gemini-4-carbon",
+          "source": "data_source_deep_agent",
+          "requiredSkillsLoaded": [
+            "/.devagentstudio/builtin-skills/springboot-backend-controller/SKILL.md"
+          ]
+        },
+        "change_request": null,
+        "structured_response_recovered": false,
+        "scheduler_decision": {
+          "action": "complete",
+          "reason": "runner_completed"
+        },
+        "acceptance_status": {
+          "engineering": "skipped",
+          "business": "skipped"
+        },
+        "business_acceptance_evidence": [
+          {
+            "check_id": "business:backend:module:greeting_contract::168009332f2a204a::controller:backend.endpoint_contract:5c5f5fe5e57efcf7",
+            "kind": "backend.endpoint_contract",
+            "status": "skipped",
+            "evidence": "DAG 业务自检已通过环境变量关闭，本次自动跳过。"
+          }
+        ],
+        "business_acceptance_summary": {
+          "total": 1,
+          "passed": 0,
+          "failed": 0,
+          "blocked": 0,
+          "skipped": 1,
+          "duration_ms_total": 0,
+          "duration_ms_avg": 0,
+          "by_kind": {}
+        },
+        "implementation_document": {
+          "status": "unavailable",
+          "path": "backend/docs/implementation/module-greeting_contract-c0ef57860e9a.md",
+          "summary": "实现说明未更新：任务未提供可核验的实现说明。后续任务将读取源码。"
+        }
+      }
+    ],
+    "build_summary": {
+      "total": 4,
+      "completed": 4,
+      "failed": 0,
+      "pending": 0,
+      "running": 0,
+      "already_satisfied": 0,
+      "results": 4,
+      "retryable_failures": 0,
+      "retryable_task_ids": [],
+      "repairable_failures": 0,
+      "requires_confirmation": 0,
+      "recovery_available": false,
+      "recovery_task_ids": [],
+      "retry_available": false,
+      "status": "completed",
+      "routeProjection": {
+        "status": "applied",
+        "requestedPageIds": [
+          "home",
+          "noon_greeting"
+        ],
+        "appliedPageIds": [
+          "home",
+          "noon_greeting"
+        ],
+        "skippedPageIds": [],
+        "changedFiles": [
+          "frontend/src/constants/routes.tsx"
+        ]
+      }
+    },
+    "repair_task_plan": {},
+    "repair_task_plan_path": null,
+    "repair_tasks": [],
+    "database_change_plan": {},
+    "database_approval_requests": [],
+    "build_task_repair_id": ""
+  },
+  "progress_source_run_id": "fbb3c35d-05e9-4e2d-91e5-c16357a1c347",
+  "execution_stage": "finalized"
+}

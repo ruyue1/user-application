@@ -1,0 +1,68 @@
+{
+  "planning_run_id": "planning-263ad90ac1494e92937d23c24c518b2c",
+  "workflow_run_id": "8ed77bba-03de-41dd-b7f2-fb33a6b046f0",
+  "thread_id": "f1de34be-9ff1-45e9-a2c5-88cf597acb9e",
+  "revision": 8,
+  "status": "active",
+  "phase": "persisting_pending",
+  "build_execution_scope": {
+    "type": "endpoint",
+    "targetId": "greeting_contract.get_noon_greeting",
+    "apiContractId": "greeting_contract"
+  },
+  "input_fingerprint": "9222da1fa3e8fb3619c973f870d21fd1be3cc1d50883bfd0db51400e3918e61b",
+  "base_confirmed_plan_digest": "b3f64eb73e0501fd0354ff36df90b69c95eafc019ccd4d58f2230c7f809d41ba",
+  "required_unit_ids": [
+    "backend:bootstrap",
+    "backend:module:greeting_contract"
+  ],
+  "unit_display_names": {
+    "backend:bootstrap": "后端基础环境配置",
+    "backend:module:greeting_contract": "问候语模块"
+  },
+  "planning_unit_ids": [
+    "backend:module:greeting_contract"
+  ],
+  "global_repair_round": 0,
+  "global_repair_limit": 2,
+  "global_issues": [],
+  "unit_states": {
+    "backend:bootstrap": {
+      "unit_id": "backend:bootstrap",
+      "kind": "backend",
+      "participation": "not_required",
+      "generation_strategy": "not_required",
+      "generation_status": "not_required",
+      "generation_round": 1,
+      "attempt_in_round": 0,
+      "total_attempts": 0,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": null,
+      "candidate_task_count": 0,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "backend:module:greeting_contract": {
+      "unit_id": "backend:module:greeting_contract",
+      "kind": "backend",
+      "participation": "generate_only",
+      "generation_strategy": "model",
+      "generation_status": "candidate_ready",
+      "generation_round": 1,
+      "attempt_in_round": 1,
+      "total_attempts": 1,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": "candidate-8f56d9fee367441fb373fd9ad7332679",
+      "candidate_task_count": 2,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    }
+  },
+  "started_at": "2026-11-21T11:41:28.554877Z",
+  "updated_at": "2026-11-21T11:41:51.396405Z",
+  "failure": null
+}

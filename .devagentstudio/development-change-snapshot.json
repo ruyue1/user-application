@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "sourceBranch": "v1_6",
+  "writtenAt": "2026-11-21T11:37:44.115630+00:00",
+  "pages": {
+    "home": "unchanged",
+    "noon_greeting": "added"
+  },
+  "entities": {
+    "greeting": "modified"
+  },
+  "endpoints": {
+    "greeting_contract": {
+      "greeting_contract.get_morning_greeting": "unchanged",
+      "greeting_contract.get_noon_greeting": "added"
+    }
+  }
+}

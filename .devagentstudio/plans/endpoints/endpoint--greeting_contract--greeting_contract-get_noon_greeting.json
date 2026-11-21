@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "befbbafb08b644a8be82489baf5db191",
+  "apiContractId": "greeting_contract",
+  "endpointId": "greeting_contract.get_noon_greeting",
+  "endpointContract": {
+    "id": "greeting_contract.get_noon_greeting",
+    "name": "获取午间问候语",
+    "method": "GET",
+    "path": "/api/greetings/noon",
+    "summary": "获取午间问候页展示的问候字符串“中午好！”",
+    "parameters": [],
+    "request_schema_ref": null,
+    "response_schema_ref": "NoonGreetingResponse",
+    "error_codes": [
+      "NOT_FOUND",
+      "INTERNAL_ERROR"
+    ],
+    "authentication": {
+      "required": false
+    }
+  },
+  "sourceBinding": {
+    "sourceType": "static"
+  },
+  "staticData": {
+    "noonGreetingText": "中午好！"
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "noonGreetingText",
+        "type": "string",
+        "required": true,
+        "description": "用于午间问候页展示的问候字符串“中午好！”"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "static",
+          "path": "noonGreetingText",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "2762351ce4bb102ad97ddedd9ffb9dca4571990563ca2140adbf891372d31c8c"
+    }
+  ],
+  "confirmedAt": "2026-11-21T11:38:12.386001Z"
+}
