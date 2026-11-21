@@ -16,10 +16,6 @@ export const PAGE_ROUTES: PageRouteDefinition[] = [
   },
   // DEVAGENTSTUDIO_BUSINESS_ROUTES_START
   {
-    path: "good_evening",
-    label: "晚间问候页",
-  },
-  {
     path: "welcome_world",
     label: "欢迎世界页",
   },
