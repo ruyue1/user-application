@@ -3,8 +3,8 @@
     "id": "1795220692891-tjtgp2",
     "name": "门禁卡管理系统"
   },
-  "updatedAt": "2026-11-21T06:42:31.721957Z",
-  "revision": 7,
+  "updatedAt": "2026-11-21T06:44:33.149692Z",
+  "revision": 18,
   "developmentArtifacts": {
     "pages": {
       "main": {
@@ -31,18 +31,6 @@
         "changeReason": null,
         "checkedChangeId": null
       },
-      "card_return": {
-        "initialDevelopmentStatus": "completed",
-        "completedAt": "2026-11-21T03:17:33.378511Z",
-        "completedRunId": "5e6f9f3e-1877-403f-9933-418a0c66b84d",
-        "completedThreadId": "27ad3a32-8a79-46eb-be52-51860a82e8c0",
-        "completedBranchName": "v1_0",
-        "lastCompletedRunId": "5e6f9f3e-1877-403f-9933-418a0c66b84d",
-        "lastCompletedThreadId": "27ad3a32-8a79-46eb-be52-51860a82e8c0",
-        "changeStatus": "unchanged",
-        "changeReason": null,
-        "checkedChangeId": null
-      },
       "deactivation_done": {
         "initialDevelopmentStatus": "completed",
         "completedAt": "2026-11-21T03:24:50.291545Z",
@@ -54,9 +42,40 @@
         "changeStatus": "unchanged",
         "changeReason": null,
         "checkedChangeId": null
+      },
+      "card_return": {
+        "initialDevelopmentStatus": "completed",
+        "completedAt": "2026-11-21T03:17:33.378511Z",
+        "completedRunId": "5e6f9f3e-1877-403f-9933-418a0c66b84d",
+        "completedThreadId": "27ad3a32-8a79-46eb-be52-51860a82e8c0",
+        "completedBranchName": "v1_0",
+        "lastCompletedRunId": "218dddab-9613-4e1d-b172-8be4f1dbc95d",
+        "lastCompletedThreadId": "81244900-d628-4996-8eee-0d01a009b7cb",
+        "changeStatus": "unchanged",
+        "changeReason": null,
+        "checkedChangeId": null
       }
     },
-    "entities": {},
+    "entities": {
+      "access_card_claim_application": {
+        "initialDevelopmentStatus": "pending",
+        "skippedAt": null,
+        "skipReason": null,
+        "completedBranchName": null
+      },
+      "access_card": {
+        "initialDevelopmentStatus": "pending",
+        "skippedAt": null,
+        "skipReason": null,
+        "completedBranchName": null
+      },
+      "deactivation_submission": {
+        "initialDevelopmentStatus": "pending",
+        "skippedAt": null,
+        "skipReason": null,
+        "completedBranchName": null
+      }
+    },
     "endpoints": {
       "contract_access_card_claim_application": {
         "contract_access_card_claim_application.list": {
@@ -111,6 +130,18 @@
         }
       },
       "contract_deactivation_submission": {
+        "contract_deactivation_submission.get_result": {
+          "initialDevelopmentStatus": "completed",
+          "completedAt": "2026-11-21T03:49:08.293816Z",
+          "completedRunId": "48dc0380-07ed-4f03-a0a4-03824e4abb6c",
+          "completedThreadId": "fc3be4a8-7bee-459b-a575-0fa07b2c5730",
+          "completedBranchName": "v1_0",
+          "lastCompletedRunId": "21d04586-2f8f-46f7-be07-57c21351b31e",
+          "lastCompletedThreadId": "fc3be4a8-7bee-459b-a575-0fa07b2c5730",
+          "changeStatus": "unchanged",
+          "changeReason": null,
+          "checkedChangeId": null
+        },
         "contract_deactivation_submission.list": {
           "initialDevelopmentStatus": "completed",
           "completedAt": "2026-11-21T02:51:54.389680Z",
@@ -129,49 +160,124 @@
           "completedRunId": "5e6f9f3e-1877-403f-9933-418a0c66b84d",
           "completedThreadId": "27ad3a32-8a79-46eb-be52-51860a82e8c0",
           "completedBranchName": "v1_0",
-          "lastCompletedRunId": "9f82449b-4d94-456f-b713-d342d67d8f72",
-          "lastCompletedThreadId": "ee230034-cf64-41c9-b0f0-db4688a83ede",
-          "changeStatus": "unchanged",
-          "changeReason": null,
-          "checkedChangeId": null
-        },
-        "contract_deactivation_submission.get_result": {
-          "initialDevelopmentStatus": "completed",
-          "completedAt": "2026-11-21T03:49:08.293816Z",
-          "completedRunId": "48dc0380-07ed-4f03-a0a4-03824e4abb6c",
-          "completedThreadId": "fc3be4a8-7bee-459b-a575-0fa07b2c5730",
-          "completedBranchName": "v1_0",
-          "lastCompletedRunId": "21d04586-2f8f-46f7-be07-57c21351b31e",
-          "lastCompletedThreadId": "fc3be4a8-7bee-459b-a575-0fa07b2c5730",
+          "lastCompletedRunId": "396aa11b-feb0-4db2-900c-54e1f84825ec",
+          "lastCompletedThreadId": "a418d22a-e5ba-4476-a121-6a65a4bfc5e0",
           "changeStatus": "unchanged",
           "changeReason": null,
           "checkedChangeId": null
         }
       }
     },
-    "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112101/.devagentstudio/plans/technical-plan.json'",
+    "catalogError": null,
     "outOfScope": []
   },
   "initialization": {
-    "stage": "awaiting_planning_stage_entry",
-    "status": "awaiting_user",
-    "threadId": "a40ef0ca-5c31-4db2-8afa-fdb7c9f5def6",
+    "stage": "ready_for_workbench",
+    "status": "completed",
+    "threadId": "579f9147-a692-4dfd-86df-61e237a562dc",
     "iterationId": "a40ef0ca-5c31-4db2-8afa-fdb7c9f5def6"
   },
-  "activeRunId": "7d996bf2-68f2-48f7-b62a-bfcb9163eafa",
-  "activeExecutions": {},
+  "activeRunId": "396aa11b-feb0-4db2-900c-54e1f84825ec",
+  "activeExecutions": {
+    "396aa11b-feb0-4db2-900c-54e1f84825ec": {
+      "scope": "endpoint",
+      "targetId": "contract_deactivation_submission.submit_deactivation",
+      "pageId": null,
+      "threadId": "a418d22a-e5ba-4476-a121-6a65a4bfc5e0",
+      "ownerSessionId": "0d6647b8-947b-446c-8ef3-64a804c17a64",
+      "runId": "396aa11b-feb0-4db2-900c-54e1f84825ec",
+      "phase": "delete_development_endpoint",
+      "status": "awaiting_user",
+      "resourceKeys": [
+        "endpoint:contract_deactivation_submission:contract_deactivation_submission.submit_deactivation",
+        "api_contract:contract_deactivation_submission",
+        "page:card_return"
+      ],
+      "developmentPurpose": "revision",
+      "developmentTarget": {
+        "type": "endpoint",
+        "entityId": null,
+        "pageId": null,
+        "apiContractId": "contract_deactivation_submission",
+        "endpointId": "contract_deactivation_submission.submit_deactivation"
+      },
+      "pendingInteraction": {
+        "id": "interaction-caa824de51dbdcfee9d67200",
+        "type": "test_phase_confirmation",
+        "basedOnRevision": 18,
+        "payload": {
+          "mode": "test_phase_confirmation",
+          "status": "requires_user_input",
+          "message": "接口「对本人名下使用中的门禁卡发起离职注销申请，将申请注销字段更新为离职并同步至飞码端，由飞码触发后续注销流程，返回提交结果用于已完成界面展示。」所在分组仍有其它接口，本轮不改动生成代码；请按引用清单手动移除残留调用。全部开发产物已完成，确认后进入测试阶段。",
+          "testEntryGate": {
+            "allowed": true,
+            "total": 11,
+            "completed": 11,
+            "pending": 0,
+            "inProgress": 0,
+            "blockers": [],
+            "reason": null
+          },
+          "testTarget": {
+            "type": "endpoint",
+            "id": "contract_deactivation_submission.submit_deactivation",
+            "label": "提交离职注销申请"
+          },
+          "questions": []
+        },
+        "artifactRefs": [],
+        "createdAt": "2026-11-21T06:44:33.149660Z",
+        "submittedAt": null
+      },
+      "error": null,
+      "startedAt": "2026-11-21T06:44:31.948280Z",
+      "updatedAt": "2026-11-21T06:44:33.149676Z"
+    }
+  },
   "endedExecutions": {},
   "endedPlanningExecution": null,
   "developmentContinuations": {},
   "resourceLocks": {
     "application": null,
-    "pages": {},
-    "apiContracts": {},
-    "endpoints": {},
+    "pages": {
+      "card_return": {
+        "runId": "396aa11b-feb0-4db2-900c-54e1f84825ec",
+        "ownerPageId": null,
+        "mode": "exclusive",
+        "role": "dependency",
+        "reason": "plan_dependency",
+        "acquiredAt": "2026-11-21T06:44:31.948280Z"
+      }
+    },
+    "apiContracts": {
+      "contract_deactivation_submission": {
+        "runId": "396aa11b-feb0-4db2-900c-54e1f84825ec",
+        "ownerPageId": null,
+        "mode": "exclusive",
+        "role": "dependency",
+        "reason": "plan_dependency",
+        "acquiredAt": "2026-11-21T06:44:31.948280Z"
+      }
+    },
+    "endpoints": {
+      "contract_deactivation_submission:contract_deactivation_submission.submit_deactivation": {
+        "runId": "396aa11b-feb0-4db2-900c-54e1f84825ec",
+        "ownerPageId": null,
+        "mode": "exclusive",
+        "role": "primary",
+        "reason": "primary_target",
+        "acquiredAt": "2026-11-21T06:44:31.948280Z"
+      }
+    },
     "dataSources": {}
   },
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {}
+  "extensions": {
+    "redevelopedChangedTargets": [
+      "endpoint:contract_deactivation_submission:contract_deactivation_submission.submit_deactivation",
+      "page:card_return"
+    ]
+  }
 }
