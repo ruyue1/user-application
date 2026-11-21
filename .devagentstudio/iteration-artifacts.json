@@ -14,6 +14,19 @@
         "card_return",
         "deactivation_done"
       ]
+    },
+    {
+      "branch": "v1_14",
+      "designedPageIds": [
+        "main",
+        "card_claim"
+      ],
+      "plannedPageIds": [
+        "main",
+        "card_claim",
+        "card_return",
+        "deactivation_done"
+      ]
     }
   ],
   "schemaVersion": 2

@@ -1,13 +1,13 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "d0468a0f51ee6bf4514d599ec0ad14bb6065a1d1cbb4d0ada28aa9a20d523d2c",
+  "product_plan_sha256": "eb9b043e3d0f6829951bd523f138afee2c91630c465aeeb6a8fc8576897eb8e7",
   "pages": [
     {
       "pageId": "main",
       "page_key": "Main",
       "preview_path": "/page/main",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112101/.devagentstudio/ui-design/pages/Main/index.tsx",
+      "code_path": "",
       "status": "confirmed",
       "bindings": {
         "actions": [
@@ -64,14 +64,13 @@
         ],
         "errors": []
       },
-      "code_sha256": "f0bdebffe7d9c0cb52405fd64a95c50beb04e9339b47f6c15860b5f1df1e2386",
-      "generation_id": "ui-design-b6ae061a48184b38b464bb46a979710d"
+      "code_sha256": "f0bdebffe7d9c0cb52405fd64a95c50beb04e9339b47f6c15860b5f1df1e2386"
     },
     {
       "pageId": "card_claim",
       "page_key": "CardClaim",
       "preview_path": "/page/card-claim",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112101/.devagentstudio/ui-design/pages/CardClaim/index.tsx",
+      "code_path": "",
       "status": "confirmed",
       "bindings": {
         "actions": [
@@ -149,69 +148,55 @@
         ],
         "errors": []
       },
-      "code_sha256": "282b9e06a15ade0de7145fb3da077a49333504b05b8b9b5df04b8707a879944c",
-      "generation_id": "ui-design-70560f82813e4b91b2ededde745b0f17"
+      "code_sha256": "282b9e06a15ade0de7145fb3da077a49333504b05b8b9b5df04b8707a879944c"
     },
     {
       "pageId": "card_return",
       "page_key": "CardReturn",
       "preview_path": "/page/card-return",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112101/.devagentstudio/ui-design/pages/CardReturn/index.tsx",
-      "status": "confirmed",
+      "code_path": "",
+      "status": "pending",
       "bindings": {
         "actions": [
           {
-            "actionId": "apply_deactivation",
-            "controlIds": [
-              "apply_deactivation-control"
-            ],
-            "uiEffect": "弹出离职注销确认对话框"
+            "actionId": "change_return_page",
+            "controlIds": []
           },
           {
-            "actionId": "back_home",
-            "controlIds": [
-              "back_home-control"
-            ]
+            "actionId": "apply_deactivation",
+            "controlIds": []
+          },
+          {
+            "actionId": "back_to_main",
+            "controlIds": []
           }
         ],
         "information_items": [
           {
-            "informationItemId": "page_title",
-            "controlIds": [
-              "page_title-display"
-            ]
+            "informationItemId": "card_return-header-notice",
+            "controlIds": []
           },
           {
-            "informationItemId": "return_notice",
-            "controlIds": [
-              "return_notice-display"
-            ]
+            "informationItemId": "card_return-active-card-list",
+            "controlIds": []
           },
           {
-            "informationItemId": "card_info_table",
-            "controlIds": [
-              "card_info_table-display"
-            ]
-          },
-          {
-            "informationItemId": "bottom_icons",
-            "controlIds": [
-              "bottom_icons-display"
-            ]
+            "informationItemId": "card_return-deactivation-notice",
+            "controlIds": []
           }
         ]
       },
       "verification": {
-        "status": "passed",
-        "code_sha256": "3027cbfad880add02efbfccd3d7f1afdda9482e763c9b055b783d9667fb2ae33",
+        "status": "pending",
+        "code_sha256": "",
         "checks": [
           {
             "id": "product-action-bindings",
-            "status": "passed"
+            "status": "failed"
           },
           {
             "id": "product-information-bindings",
-            "status": "passed"
+            "status": "failed"
           },
           {
             "id": "no-unowned-business-ui",
@@ -220,54 +205,21 @@
         ],
         "errors": []
       },
-      "code_sha256": "3027cbfad880add02efbfccd3d7f1afdda9482e763c9b055b783d9667fb2ae33",
-      "generation_id": "ui-design-9f3291c1e91b4f06a74a963fabd8a1c9"
+      "inheritance_rejected": true
     },
     {
       "pageId": "deactivation_done",
       "page_key": "DeactivationDone",
       "preview_path": "/page/deactivation-done",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112101/.devagentstudio/ui-design/pages/DeactivationDone/index.tsx",
-      "status": "confirmed",
+      "code_path": "",
+      "status": "deleted",
       "bindings": {
-        "actions": [
-          {
-            "actionId": "back_home",
-            "controlIds": [
-              "back_home-control"
-            ]
-          }
-        ],
-        "information_items": [
-          {
-            "informationItemId": "done_title",
-            "controlIds": [
-              "done_title-display"
-            ]
-          },
-          {
-            "informationItemId": "return_notice",
-            "controlIds": [
-              "return_notice-display"
-            ]
-          },
-          {
-            "informationItemId": "admin_info",
-            "controlIds": [
-              "admin_info-display"
-            ]
-          },
-          {
-            "informationItemId": "bottom_icons",
-            "controlIds": [
-              "bottom_icons-display"
-            ]
-          }
-        ]
+        "actions": [],
+        "information_items": []
       },
       "verification": {
-        "status": "passed",
-        "code_sha256": "2d751157f57c6a5cd530589b3539740ad80caa2cf1768632a0abeb926e0d9614",
+        "status": "pending",
+        "code_sha256": "",
         "checks": [
           {
             "id": "product-action-bindings",
@@ -283,9 +235,7 @@
           }
         ],
         "errors": []
-      },
-      "code_sha256": "2d751157f57c6a5cd530589b3539740ad80caa2cf1768632a0abeb926e0d9614",
-      "generation_id": "ui-design-83be244e7a3d427386ccb5cdf28baa8c"
+      }
     }
   ]
 }
