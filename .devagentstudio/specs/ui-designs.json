@@ -1,52 +1,13 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "3c680b5c6d8e4bbe22ee5f081decd8174ddd4340dccf97fdf4a4e2b6361f794f",
+  "product_plan_sha256": "3eb5d67f626d708d45802e7b82862b1bd19583b57b1bc2418c2ebe1e5bda9019",
   "pages": [
-    {
-      "pageId": "good_evening",
-      "page_key": "GoodEvening",
-      "preview_path": "/page/good-evening",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112104/.devagentstudio/ui-design/pages/GoodEvening/index.tsx",
-      "status": "confirmed",
-      "bindings": {
-        "actions": [],
-        "information_items": [
-          {
-            "informationItemId": "good_evening_greeting_text",
-            "controlIds": [
-              "good_evening_greeting_text-display"
-            ]
-          }
-        ]
-      },
-      "verification": {
-        "status": "passed",
-        "code_sha256": "4b6ff1f0099716c60922f81de9976683ecc2dab9673b6a4d497c87afbd5788aa",
-        "checks": [
-          {
-            "id": "product-action-bindings",
-            "status": "passed"
-          },
-          {
-            "id": "product-information-bindings",
-            "status": "passed"
-          },
-          {
-            "id": "no-unowned-business-ui",
-            "status": "passed"
-          }
-        ],
-        "errors": []
-      },
-      "code_sha256": "4b6ff1f0099716c60922f81de9976683ecc2dab9673b6a4d497c87afbd5788aa",
-      "generation_id": "ui-design-78739c8d9963402099945048fe0132d6"
-    },
     {
       "pageId": "welcome_world",
       "page_key": "WelcomeWorld",
       "preview_path": "/page/welcome-world",
-      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/2026112104/.devagentstudio/ui-design/pages/WelcomeWorld/index.tsx",
+      "code_path": "",
       "status": "confirmed",
       "bindings": {
         "actions": [],
@@ -78,8 +39,37 @@
         ],
         "errors": []
       },
-      "code_sha256": "5c9794e078d9bcd614a58874040ffd5bf9de9ee3a0e462bab10fcfde64a442df",
-      "generation_id": "ui-design-81ffd525f29245118ec5ef9dffd794d6"
+      "code_sha256": "5c9794e078d9bcd614a58874040ffd5bf9de9ee3a0e462bab10fcfde64a442df"
+    },
+    {
+      "pageId": "good_evening",
+      "page_key": "GoodEvening",
+      "preview_path": "/page/good-evening",
+      "code_path": "",
+      "status": "deleted",
+      "bindings": {
+        "actions": [],
+        "information_items": []
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
     }
   ]
 }
