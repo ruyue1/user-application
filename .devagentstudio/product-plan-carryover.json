@@ -35,7 +35,7 @@
         "navigation_targets": []
       },
       "development_page": {
-        "_change_status": "modified",
+        "_change_status": "unchanged",
         "acceptance_criteria": [
           "使用者进入应用后默认看到人员明细列表页，页面以表格形式展示人员明细信息。",
           "人员明细列表采用普通分页方式呈现，使用者可通过分页控件逐页浏览人员明细信息。",
@@ -115,7 +115,7 @@
     "generated_at": "2026-11-24T09:11:01.499598+00:00",
     "pages": [
       {
-        "_change_status": "modified",
+        "_change_status": "unchanged",
         "acceptance_criteria": [
           "使用者进入应用后默认看到人员明细列表页，页面以表格形式展示人员明细信息。",
           "人员明细列表采用普通分页方式呈现，使用者可通过分页控件逐页浏览人员明细信息。",
@@ -169,10 +169,10 @@
       "应用中不存在新增、删除或修改人员信息的操作入口。",
       "人员明细管理模块的只读约束对本应用所有涉及人员明细的页面统一生效。"
     ],
-    "requirement_spec_sha256": "6b35e004b043c8f8db0d02d1aa2df8b6bb6f824b06353dfc3c908f9a9dd4d603",
+    "requirement_spec_sha256": "74508c7b716227dcd250d10e053bb8d6f6e9e409e3f6e2900db6ea34841ab6cf",
     "schema_version": "product-plan.v5",
     "version": "0.1.0"
   },
   "schemaVersion": 2,
-  "sourceBranch": "v1_0"
+  "sourceBranch": "v1_3"
 }

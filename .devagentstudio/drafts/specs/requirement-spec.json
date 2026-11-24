@@ -1,0 +1,211 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "generated_at": "2026-11-24T09:10:56.397425+00:00",
+  "source_request": "请为新应用「人员明细」完成需求、产品、UI（可跳过）和技术规划。；应用场景：人员明细列表页，所有人都可查看人员的明细列表，不能删改查人员信息；；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。；补充确认：分页方式为已选：普通分页",
+  "clarification_questions": [],
+  "agent_note": "{\"version\": \"1.0\", \"status\": \"completed\", \"generated_at\": \"2025-01-01T00:00:00Z\", \"app_info\": {\"name\": \"人员明细\", \"summary\": \"「人员明细」是一款面向 PC 端的人员明细信息查看应用。应用以侧边导航布局呈现（页头启用、页脚禁用），提供人员明细列表页，任何使用者均可查看人员的基本明细信息，但不得新增、删除或修改人员信息。列表采用普通分页方式展示数据，数据来源于数据库，应用不启用登录认证，也不涉及权限控制。\", \"route_root_path\": \"/\"}, \"user_roles\": [{\"id\": \"personnel_viewer\", \"name\": \"人员信息查看者\", \"description\": \"查看人员明细列表及人员基本明细信息的业务参与者，仅具备查看能力，不得删除、修改或查询检索以外的变更人员信息操作。\"}], \"feature_modules\": [{\"id\": \"personnel_detail_management\", \"name\": \"人员明细管理\", \"description\": \"承载人员明细信息的展示能力。维护人员明细列表的展示，包括人员基本明细信息的呈现。仅支持查看操作，不提供新增、删除、修改人员信息的能力。列表采用普通分页方式逐页浏览，不提供额外的检索、筛选或导出能力。该只读约束对本应用所有涉及人员明细的页面统一生效。\"}], \"pages\": [{\"pageId\": \"personnel_detail_list\", \"name\": \"人员明细列表\", \"path\": \"/\", \"module_id\": \"personnel_detail_management\", \"description\": \"人员明细列表页为本应用首页，位于启用页头的侧边导航布局中。页面以表格形式展示人员的明细信息，支持以普通分页方式逐页浏览人员数据。所有使用者均可查看人员明细列表，页面不提供人员信息的新增、删除、修改入口，也不提供除分页浏览外的其他数据处理操作。\"}], \"business_flows\": [{\"id\": \"personnel_detail_viewing\", \"name\": \"人员明细查看流程\", \"description\": \"使用者浏览人员明细信息的只读流程，贯穿列表页，遵循人员明细管理模块的只读约束。\", \"steps\": [\"使用者进入人员明细应用，通过侧边导航进入人员明细列表页\", \"系统以表格形式展示人员的明细信息，并按普通分页方式分页呈现\", \"使用者通过分页控件切换页面，逐页查看人员明细信息\", \"使用者查看人员明细信息，系统不提供新增、删除或修改人员信息的操作入口\"]}], \"authentication_requirements\": {\"enabled\": false, \"sourceRefs\": []}, \"authorization_requirements\": {\"restrictedPages\": [], \"restrictedOperations\": []}}",
+  "approved": true,
+  "confirmation_status": "pending_user_confirmation",
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "deepseek-v4.1-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model",
+  "app_info": {
+    "name": "人员明细",
+    "summary": "「人员明细」是一款面向 PC 端的人员明细信息查看应用。应用以侧边导航布局呈现（页头启用、页脚禁用），提供人员明细列表页，任何使用者均可查看人员的基本明细信息，但不得新增、删除或修改人员信息。列表采用普通分页方式展示数据，数据来源于数据库，应用不启用登录认证，也不涉及权限控制。",
+    "target": "",
+    "route_root_path": "/page",
+    "menu_enabled": true
+  },
+  "summary": "「人员明细」是一款面向 PC 端的人员明细信息查看应用。应用以侧边导航布局呈现（页头启用、页脚禁用），提供人员明细列表页，任何使用者均可查看人员的基本明细信息，但不得新增、删除或修改人员信息。列表采用普通分页方式展示数据，数据来源于数据库，应用不启用登录认证，也不涉及权限控制。",
+  "user_roles": [
+    {
+      "name": "人员信息查看者",
+      "description": "查看人员明细列表及人员基本明细信息的业务参与者，仅具备查看能力，不得删除、修改或查询检索以外的变更人员信息操作。",
+      "id": "personnel_viewer"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "人员明细管理",
+      "description": "承载人员明细信息的展示能力。维护人员明细列表的展示，包括人员基本明细信息的呈现。仅支持查看操作，不提供新增、删除、修改人员信息的能力。列表采用普通分页方式逐页浏览，不提供额外的检索、筛选或导出能力。该只读约束对本应用所有涉及人员明细的页面统一生效。",
+      "priority": "must",
+      "id": "personnel_detail_management"
+    }
+  ],
+  "pages": [
+    {
+      "name": "人员明细列表",
+      "path": "/page/pers-detail",
+      "module_id": "personnel_detail_management",
+      "description": "人员明细列表页为本应用首页，位于启用页头的侧边导航布局中。页面以表格形式展示人员的明细信息，支持以普通分页方式逐页浏览人员数据。所有使用者均可查看人员明细列表，页面不提供人员信息的新增、删除、修改入口，也不提供除分页浏览外的其他数据处理操作。",
+      "pageId": "personnel_detail_list"
+    }
+  ],
+  "entities": [
+    {
+      "id": "personnel_detail",
+      "name": "人员明细",
+      "description": "记录人员的基本明细信息，用于在只读列表中分页查看。",
+      "fields": [
+        {
+          "name": "name",
+          "label": "姓名",
+          "type": "text",
+          "required": true,
+          "unique": true
+        },
+        {
+          "name": "gender",
+          "label": "性别",
+          "type": "enum",
+          "required": false
+        },
+        {
+          "name": "age",
+          "label": "年龄",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "phone",
+          "label": "联系电话",
+          "type": "text",
+          "required": false
+        },
+        {
+          "name": "landline",
+          "label": "座机号",
+          "type": "text",
+          "required": false
+        },
+        {
+          "name": "email",
+          "label": "电子邮箱",
+          "type": "text",
+          "required": false
+        },
+        {
+          "name": "department",
+          "label": "所属部门",
+          "type": "text",
+          "required": false
+        },
+        {
+          "name": "position",
+          "label": "职位",
+          "type": "text",
+          "required": false
+        },
+        {
+          "name": "entry_date",
+          "label": "入职日期",
+          "type": "date",
+          "required": false
+        },
+        {
+          "name": "remark",
+          "label": "备注",
+          "type": "long_text",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "business_flows": [
+    {
+      "name": "人员明细查看流程",
+      "steps": [
+        "使用者进入人员明细应用，通过侧边导航进入人员明细列表页",
+        "系统以表格形式展示人员的明细信息，并按普通分页方式分页呈现",
+        "使用者通过分页控件切换页面，逐页查看人员明细信息",
+        "使用者查看人员明细信息，系统不提供新增、删除或修改人员信息的操作入口"
+      ],
+      "id": "personnel_detail_viewing",
+      "description": "使用者浏览人员明细信息的只读流程，贯穿列表页，遵循人员明细管理模块的只读约束。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [
+    {
+      "id": "ac_readonly_list_default_view",
+      "name": "默认进入人员明细列表",
+      "description": "使用者进入「人员明细」应用后，默认看到人员明细列表页（/page/pers-detail），页面以表格形式逐行展示人员的基本明细信息，无需登录认证。",
+      "relatedPages": [
+        "personnel_detail_list"
+      ],
+      "relatedModules": [
+        "personnel_detail_management"
+      ]
+    },
+    {
+      "id": "ac_pagination_browse",
+      "name": "普通分页逐页浏览",
+      "description": "人员明细列表采用普通分页方式呈现数据，使用者可通过分页控件切换页码，逐页查看人员明细信息，并感知当前所处页码位置。",
+      "relatedPages": [
+        "personnel_detail_list"
+      ],
+      "relatedModules": [
+        "personnel_detail_management"
+      ]
+    },
+    {
+      "id": "ac_no_write_entry",
+      "name": "无新增、删除、修改入口",
+      "description": "人员明细列表页不出现人员信息的新增、删除、修改操作入口，也不提供除分页浏览之外的其他数据处理操作，保证人员的只读查看约束在全部涉及人员明细的页面上统一生效。",
+      "relatedPages": [
+        "personnel_detail_list"
+      ],
+      "relatedModules": [
+        "personnel_detail_management"
+      ]
+    },
+    {
+      "id": "ac_all_users_viewable",
+      "name": "所有人可查看",
+      "description": "任何使用者均可进入人员明细列表页查看人员明细信息，应用不启用登录认证，也不涉及权限控制。",
+      "relatedPages": [
+        "personnel_detail_list"
+      ],
+      "relatedModules": [
+        "personnel_detail_management"
+      ]
+    },
+    {
+      "id": "ac_layout_terminal",
+      "name": "布局与终端约束",
+      "description": "应用面向 PC 端，采用侧边（side）导航布局，页头启用、页脚禁用，且人员明细列表页为应用首页。",
+      "relatedPages": [
+        "personnel_detail_list"
+      ],
+      "relatedModules": [
+        "personnel_detail_management"
+      ]
+    },
+    {
+      "id": "ac_database_source",
+      "name": "数据来源为数据库",
+      "description": "人员明细列表展示的数据来源于数据库，人员明细实体按字段级定义呈现姓名、性别、年龄、联系电话、座机号、电子邮箱、所属部门、职位、入职日期与备注。",
+      "relatedPages": [
+        "personnel_detail_list"
+      ],
+      "relatedModules": [
+        "personnel_detail_management"
+      ]
+    }
+  ]
+}
