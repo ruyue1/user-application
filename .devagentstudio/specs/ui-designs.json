@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "3f948ac61c7eaf51c3c4669579f0bd3e218d5e7a2ff2a5784b12e12809d6bb41",
+  "product_plan_sha256": "2ca8ee35cbe91e1687b9f4b98deb37f574cd9f49c7fa6e226a487efb8c879d40",
   "pages": [
     {
       "pageId": "personnel_detail_list",
@@ -27,6 +27,54 @@
           },
           {
             "informationItemId": "read_only_notice",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "pageId": "greeting_display_page",
+      "page_key": "GreetingDisplayPage",
+      "preview_path": "/page/greeting-display-page",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [
+          {
+            "actionId": "load_greeting",
+            "controlIds": []
+          }
+        ],
+        "information_items": [
+          {
+            "informationItemId": "greeting_text",
+            "controlIds": []
+          },
+          {
+            "informationItemId": "greeting_loading",
+            "controlIds": []
+          },
+          {
+            "informationItemId": "greeting_error",
             "controlIds": []
           }
         ]
