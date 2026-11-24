@@ -1,0 +1,12 @@
+{
+  "rounds": [
+    {
+      "branch": "v1_0",
+      "designedPageIds": [],
+      "plannedPageIds": [
+        "personnel_detail_list"
+      ]
+    }
+  ],
+  "schemaVersion": 2
+}

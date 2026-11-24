@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "sourceBranch": "v1_0",
+  "writtenAt": "2026-11-24T06:24:17.138943+00:00",
+  "pages": {
+    "personnel_detail_list": "added"
+  },
+  "entities": {
+    "personnel": "added"
+  },
+  "endpoints": {
+    "personnel_contract": {
+      "personnel_contract.listPersonnel": "added"
+    }
+  }
+}
