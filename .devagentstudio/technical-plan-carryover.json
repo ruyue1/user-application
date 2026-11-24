@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceBranch": "v1_3",
+  "sourceBranch": "v1_11",
   "plan": {
     "artifact_type": "technical-plan",
     "architecture": {
@@ -164,10 +164,6 @@
                 "type": "string",
                 "description": "所属部门名称"
               },
-              "position": {
-                "type": "string",
-                "description": "职位"
-              },
               "entryDate": {
                 "type": "string",
                 "format": "date",
@@ -187,7 +183,7 @@
             "name": "分页查询人员明细",
             "method": "GET",
             "path": "/personnel-details",
-            "summary": "分页查询人员明细列表，支持按页码和每页条数浏览；返回姓名、性别、年龄、联系电话、座机号、电子邮箱、所属部门、职位、入职日期和备注等明细信息。列表分页。",
+            "summary": "分页查询人员明细列表，支持按页码和每页条数浏览；返回姓名、性别、年龄、联系电话、座机号、电子邮箱、所属部门、入职日期和备注等明细信息。列表分页。",
             "parameters": [
               {
                 "name": "current",
@@ -225,6 +221,45 @@
         "entity_ids": [
           "personnel_detail"
         ]
+      },
+      {
+        "id": "greeting_contract",
+        "name": "问候",
+        "base_path": "/greeting",
+        "authentication": {
+          "required": false
+        },
+        "schemas": {
+          "GreetingResult": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "description": "问候字符串，页面居中展示该内容"
+              }
+            },
+            "required": [
+              "message"
+            ]
+          }
+        },
+        "endpoints": [
+          {
+            "id": "greeting_contract.getGreeting",
+            "name": "获取问候语",
+            "method": "GET",
+            "path": "/greeting",
+            "summary": "获取问候字符串，返回固定字符串「晚上好！」，供问候展示页加载后居中展示。",
+            "parameters": [],
+            "request_schema_ref": null,
+            "response_schema_ref": "GreetingResult",
+            "error_codes": [],
+            "authentication": {
+              "required": false
+            }
+          }
+        ],
+        "entity_ids": []
       }
     ],
     "pages": [
@@ -243,6 +278,25 @@
             {
               "actionId": "change_page",
               "endpointId": "personnel_detail_contract.listPersonnelDetails"
+            }
+          ]
+        }
+      },
+      {
+        "pageId": "greeting_display_page",
+        "references": {
+          "endpoint_dependencies": [
+            {
+              "endpoint_id": "greeting_contract.getGreeting",
+              "usage": "页面加载后调用该接口获取问候字符串，并在请求过程中展示加载提示、失败时展示异常提示。",
+              "trigger": "页面初始加载时自动调用问候接口读取问候字符串。",
+              "required_for_initial_load": true
+            }
+          ],
+          "action_implementations": [
+            {
+              "actionId": "load_greeting",
+              "endpointId": "greeting_contract.getGreeting"
             }
           ]
         }
@@ -266,6 +320,6 @@
       },
       "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
     },
-    "sourceConfigRevision": 8
+    "sourceConfigRevision": 25
   }
 }
