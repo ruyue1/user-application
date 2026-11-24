@@ -3,8 +3,8 @@
     "id": "1795511149523-65a8b1",
     "name": "人员明细"
   },
-  "updatedAt": "2026-11-24T14:02:17.030440Z",
-  "revision": 11,
+  "updatedAt": "2026-11-24T14:04:10.878608Z",
+  "revision": 16,
   "developmentArtifacts": {
     "pages": {
       "personnel_detail_list": {
@@ -41,12 +41,12 @@
     "outOfScope": []
   },
   "initialization": {
-    "stage": "awaiting_planning_stage_entry",
+    "stage": "awaiting_technical_plan_confirmation",
     "status": "awaiting_user",
-    "threadId": "6ca4f1e4-d411-4d0c-90d5-948110778e5f",
+    "threadId": "95effe61-cba9-4d34-bc57-c6ae188d7086",
     "iterationId": "6ca4f1e4-d411-4d0c-90d5-948110778e5f"
   },
-  "activeRunId": "ae207ac4-f6e5-46d3-a726-41d65ac20271",
+  "activeRunId": "cff7b3af-775a-4057-9819-b13d4bc06019",
   "activeExecutions": {},
   "developmentContinuations": {},
   "resourceLocks": {
