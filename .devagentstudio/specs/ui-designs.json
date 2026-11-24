@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "6059c5ac71c80aaf003d3c8333003077fe5bfe94868e297516477317a761dbd7",
+  "product_plan_sha256": "3f948ac61c7eaf51c3c4669579f0bd3e218d5e7a2ff2a5784b12e12809d6bb41",
   "pages": [
     {
       "pageId": "personnel_detail_list",

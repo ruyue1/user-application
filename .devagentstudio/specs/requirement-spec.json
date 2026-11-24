@@ -49,7 +49,76 @@
       "pageId": "personnel_detail_list"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "id": "personnel_detail",
+      "name": "人员明细",
+      "description": "记录人员的基本明细信息，用于在只读列表中分页查看。",
+      "fields": [
+        {
+          "name": "name",
+          "label": "姓名",
+          "type": "text",
+          "required": true,
+          "unique": true
+        },
+        {
+          "name": "gender",
+          "label": "性别",
+          "type": "enum",
+          "required": false
+        },
+        {
+          "name": "age",
+          "label": "年龄",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "phone",
+          "label": "联系电话",
+          "type": "text",
+          "required": false
+        },
+        {
+          "name": "landline",
+          "label": "座机号",
+          "type": "text",
+          "required": false
+        },
+        {
+          "name": "email",
+          "label": "电子邮箱",
+          "type": "text",
+          "required": false
+        },
+        {
+          "name": "department",
+          "label": "所属部门",
+          "type": "text",
+          "required": false
+        },
+        {
+          "name": "position",
+          "label": "职位",
+          "type": "text",
+          "required": false
+        },
+        {
+          "name": "entry_date",
+          "label": "入职日期",
+          "type": "date",
+          "required": false
+        },
+        {
+          "name": "remark",
+          "label": "备注",
+          "type": "long_text",
+          "required": false
+        }
+      ]
+    }
+  ],
   "business_flows": [
     {
       "name": "人员明细查看流程",

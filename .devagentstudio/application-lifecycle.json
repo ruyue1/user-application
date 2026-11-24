@@ -3,8 +3,8 @@
     "id": "1795511149523-65a8b1",
     "name": "人员明细"
   },
-  "updatedAt": "2026-11-24T09:34:21.094220Z",
-  "revision": 87,
+  "updatedAt": "2026-11-24T12:17:09.770000Z",
+  "revision": 7,
   "developmentArtifacts": {
     "pages": {
       "personnel_detail_list": {
@@ -20,14 +20,7 @@
         "checkedChangeId": null
       }
     },
-    "entities": {
-      "personnel_detail": {
-        "initialDevelopmentStatus": "pending",
-        "skippedAt": null,
-        "skipReason": null,
-        "completedBranchName": null
-      }
-    },
+    "entities": {},
     "endpoints": {
       "personnel_detail_contract": {
         "personnel_detail_contract.listPersonnelDetails": {
@@ -44,18 +37,16 @@
         }
       }
     },
-    "catalogError": null,
-    "outOfScope": [
-      "endpoint:personnel_detail_contract:personnel_detail_contract.listPersonnelDetails"
-    ]
+    "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/112406/.devagentstudio/plans/technical-plan.json'",
+    "outOfScope": []
   },
   "initialization": {
-    "stage": "ready_for_workbench",
-    "status": "completed",
-    "threadId": "58c914ac-3b38-4c76-997f-c9bb8dd12fd1",
-    "iterationId": "9c4d6712-83a6-4739-9bee-673c9017e6ca"
+    "stage": "awaiting_planning_stage_entry",
+    "status": "awaiting_user",
+    "threadId": "058a83ee-8daf-473d-ba1e-6f46abd76c88",
+    "iterationId": "058a83ee-8daf-473d-ba1e-6f46abd76c88"
   },
-  "activeRunId": null,
+  "activeRunId": "3d3004cf-d621-4845-9f12-85a94a3e519a",
   "activeExecutions": {},
   "developmentContinuations": {},
   "resourceLocks": {
@@ -68,13 +59,5 @@
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {
-    "testExecutionStatus": "passed",
-    "reviewStatus": "passed",
-    "acceptanceStatus": "passed",
-    "redevelopedChangedTargets": [
-      "endpoint:personnel_detail_contract:personnel_detail_contract.listPersonnelDetails",
-      "page:personnel_detail_list"
-    ]
-  }
+  "extensions": {}
 }
