@@ -21,6 +21,11 @@
         "personnel_detail_list",
         "greeting_display_page"
       ]
+    },
+    {
+      "branch": "v1_12",
+      "designedPageIds": [],
+      "plannedPageIds": []
     }
   ],
   "schemaVersion": 2
