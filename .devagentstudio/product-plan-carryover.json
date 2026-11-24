@@ -1,0 +1,156 @@
+{
+  "pages": {
+    "personnel_detail_list": {
+      "definition": {
+        "actions": [],
+        "goal": "为所有进入应用的用户提供人员明细信息的只读列表浏览能力，使用户能够集中查看数据库中的人员明细，同时确保不提供任何删除、修改或查询（筛选）人员信息的操作。",
+        "information_items": [
+          {
+            "description": "以列表形式展示数据库中的人员明细信息，供用户浏览查看。",
+            "itemId": "personnel_detail_list-records",
+            "label": "人员明细列表"
+          },
+          {
+            "description": "列表中每条人员记录所呈现的明细字段内容，用户无需进行操作即可阅读。",
+            "itemId": "personnel_detail_list-field-content",
+            "label": "人员明细字段内容"
+          },
+          {
+            "description": "向用户表明该列表仅供查看，不提供删除、修改或查询（筛选）人员信息的操作。",
+            "itemId": "personnel_detail_list-readonly-notice",
+            "label": "只读说明"
+          },
+          {
+            "description": "以「人员明细」为标题的侧边导航菜单，标识当前所处的唯一页面入口。",
+            "itemId": "personnel_detail_list-navigation",
+            "label": "侧边导航菜单"
+          }
+        ],
+        "navigation_targets": []
+      },
+      "development_page": {
+        "_change_status": "modified",
+        "acceptance_criteria": [
+          "用户进入应用后默认落在「人员明细」列表页。",
+          "页面以列表形式展示数据库中的人员明细信息，所有进入应用的用户均可查看。",
+          "页面采用侧边导航布局，页头启用、页脚禁用，导航菜单标题显示为「人员明细」。",
+          "页面不提供删除、修改或查询（筛选）人员信息的任何操作入口，用户仅能浏览列表内容。"
+        ],
+        "actions": [],
+        "description": "人员明细列表页，也是应用进入后的唯一落地页。以列表形式展示数据库中的人员明细信息，供所有用户查看。用户仅可浏览列表，不能删除、修改或查询（筛选）人员信息。页面采用侧边导航布局，页头启用、页脚禁用，导航菜单标题为「人员明细」。",
+        "goal": "为所有进入应用的用户提供人员明细信息的只读列表浏览能力，使用户能够集中查看数据库中的人员明细，同时确保不提供任何删除、修改或查询（筛选）人员信息的操作。",
+        "information_items": [
+          {
+            "description": "以列表形式展示数据库中的人员明细信息，供用户浏览查看。",
+            "itemId": "personnel_detail_list-records",
+            "label": "人员明细列表"
+          },
+          {
+            "description": "列表中每条人员记录所呈现的明细字段内容，用户无需进行操作即可阅读。",
+            "itemId": "personnel_detail_list-field-content",
+            "label": "人员明细字段内容"
+          },
+          {
+            "description": "向用户表明该列表仅供查看，不提供删除、修改或查询（筛选）人员信息的操作。",
+            "itemId": "personnel_detail_list-readonly-notice",
+            "label": "只读说明"
+          },
+          {
+            "description": "以「人员明细」为标题的侧边导航菜单，标识当前所处的唯一页面入口。",
+            "itemId": "personnel_detail_list-navigation",
+            "label": "侧边导航菜单"
+          }
+        ],
+        "module_id": "personnel_detail_viewing",
+        "name": "人员明细",
+        "navigation_targets": [],
+        "pageId": "personnel_detail_list",
+        "path": "/page/detail"
+      },
+      "requirement": {
+        "description": "人员明细列表页，也是应用进入后的唯一落地页。以列表形式展示数据库中的人员明细信息，供所有用户查看。用户仅可浏览列表，不能删除、修改或查询（筛选）人员信息。页面采用侧边导航布局，页头启用、页脚禁用，导航菜单标题为「人员明细」。",
+        "module_id": "personnel_detail_viewing",
+        "name": "人员明细",
+        "pageId": "personnel_detail_list",
+        "path": "/page/detail"
+      }
+    }
+  },
+  "plan": {
+    "app": {
+      "name": "人员明细",
+      "summary": "「人员明细」是一个面向 PC 端的只读人员信息查看应用，采用侧边导航布局，启用页头、禁用页脚，数据来源于数据库。应用仅包含一个人员明细列表页并作为进入应用后的落地页。所有用户均可查看人员的明细列表，但不能对人员信息进行删除、修改或查询（筛选）操作。应用不启用认证，也不涉及权限控制。"
+    },
+    "authorizationTargets": {
+      "operationRules": [],
+      "pageRules": []
+    },
+    "business_flows": [
+      {
+        "description": "用户进入应用后查看人员明细列表的只读浏览流程，不涉及任何数据修改操作。",
+        "id": "browse_personnel_detail_list",
+        "name": "浏览人员明细列表",
+        "steps": [
+          "用户进入应用，应用默认落地到人员明细列表页。",
+          "系统以列表形式展示数据库中的人员明细信息。",
+          "用户浏览人员明细列表内容。",
+          "用户不被提供删除、修改或查询（筛选）人员信息的操作。"
+        ]
+      }
+    ],
+    "confirmation_status": "confirmed",
+    "generated_at": "2026-11-24T06:20:54.800999+00:00",
+    "pages": [
+      {
+        "_change_status": "modified",
+        "acceptance_criteria": [
+          "用户进入应用后默认落在「人员明细」列表页。",
+          "页面以列表形式展示数据库中的人员明细信息，所有进入应用的用户均可查看。",
+          "页面采用侧边导航布局，页头启用、页脚禁用，导航菜单标题显示为「人员明细」。",
+          "页面不提供删除、修改或查询（筛选）人员信息的任何操作入口，用户仅能浏览列表内容。"
+        ],
+        "actions": [],
+        "description": "人员明细列表页，也是应用进入后的唯一落地页。以列表形式展示数据库中的人员明细信息，供所有用户查看。用户仅可浏览列表，不能删除、修改或查询（筛选）人员信息。页面采用侧边导航布局，页头启用、页脚禁用，导航菜单标题为「人员明细」。",
+        "goal": "为所有进入应用的用户提供人员明细信息的只读列表浏览能力，使用户能够集中查看数据库中的人员明细，同时确保不提供任何删除、修改或查询（筛选）人员信息的操作。",
+        "information_items": [
+          {
+            "description": "以列表形式展示数据库中的人员明细信息，供用户浏览查看。",
+            "itemId": "personnel_detail_list-records",
+            "label": "人员明细列表"
+          },
+          {
+            "description": "列表中每条人员记录所呈现的明细字段内容，用户无需进行操作即可阅读。",
+            "itemId": "personnel_detail_list-field-content",
+            "label": "人员明细字段内容"
+          },
+          {
+            "description": "向用户表明该列表仅供查看，不提供删除、修改或查询（筛选）人员信息的操作。",
+            "itemId": "personnel_detail_list-readonly-notice",
+            "label": "只读说明"
+          },
+          {
+            "description": "以「人员明细」为标题的侧边导航菜单，标识当前所处的唯一页面入口。",
+            "itemId": "personnel_detail_list-navigation",
+            "label": "侧边导航菜单"
+          }
+        ],
+        "module_id": "personnel_detail_viewing",
+        "name": "人员明细",
+        "navigation_targets": [],
+        "pageId": "personnel_detail_list",
+        "path": "/page/detail"
+      }
+    ],
+    "product_acceptance_criteria": [
+      "应用名称为「人员明细」，面向 PC 端，采用侧边导航布局，页头启用、页脚禁用。",
+      "应用仅包含一个「人员明细」列表页，并作为进入应用后的唯一落地页。",
+      "所有进入应用的用户均可浏览人员明细列表，应用不启用认证，也不涉及权限控制。",
+      "应用不提供对人员信息的删除、修改或查询（筛选）操作。"
+    ],
+    "requirement_spec_sha256": "c6f77f08deb40065c4522c7e7c9b2c753cbcf7d86ecd1c9980cea5dc89d7bd8c",
+    "schema_version": "product-plan.v5",
+    "version": "0.1.0"
+  },
+  "schemaVersion": 2,
+  "sourceBranch": "v1_0"
+}

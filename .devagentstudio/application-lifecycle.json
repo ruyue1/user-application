@@ -3,8 +3,8 @@
     "id": "1795501151575-pcfb3y",
     "name": "人员明细"
   },
-  "updatedAt": "2026-11-24T08:31:27.796865Z",
-  "revision": 85,
+  "updatedAt": "2026-11-24T08:35:25.203151Z",
+  "revision": 5,
   "developmentArtifacts": {
     "pages": {
       "personnel_detail_list": {
@@ -20,14 +20,7 @@
         "checkedChangeId": null
       }
     },
-    "entities": {
-      "personnel": {
-        "initialDevelopmentStatus": "pending",
-        "skippedAt": null,
-        "skipReason": null,
-        "completedBranchName": null
-      }
-    },
+    "entities": {},
     "endpoints": {
       "personnel_contract": {
         "personnel_contract.listPersonnel": {
@@ -44,18 +37,16 @@
         }
       }
     },
-    "catalogError": null,
-    "outOfScope": [
-      "endpoint:personnel_contract:personnel_contract.listPersonnel"
-    ]
+    "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/112405/.devagentstudio/plans/product-plan.json'",
+    "outOfScope": []
   },
   "initialization": {
-    "stage": "ready_for_workbench",
-    "status": "completed",
-    "threadId": "0d14b849-70f9-426b-aab1-a7561fb2e2d4",
-    "iterationId": "c5867d96-52e9-4ad3-a205-cc00d8b631cb"
+    "stage": "awaiting_requirement_clarification",
+    "status": "awaiting_user",
+    "threadId": "4605c02c-2b7a-4900-aa3d-d2a78110e6d8",
+    "iterationId": "4605c02c-2b7a-4900-aa3d-d2a78110e6d8"
   },
-  "activeRunId": null,
+  "activeRunId": "76e09109-ccb4-4d9c-86b2-bfd48162f2d6",
   "activeExecutions": {},
   "developmentContinuations": {},
   "resourceLocks": {
@@ -68,13 +59,5 @@
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {
-    "testExecutionStatus": "passed",
-    "reviewStatus": "passed",
-    "acceptanceStatus": "passed",
-    "redevelopedChangedTargets": [
-      "endpoint:personnel_contract:personnel_contract.listPersonnel",
-      "page:personnel_detail_list"
-    ]
-  }
+  "extensions": {}
 }

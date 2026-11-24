@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "sourceBranch": "v1_0",
+  "spec": {
+    "acceptance_criteria": [],
+    "agent_spec_used": true,
+    "analysis_source": "direct_chat_model",
+    "analyzed_by": {
+      "agent": "chat-model",
+      "mode": "direct",
+      "model": "deepseek-v4.1-flash",
+      "source": "direct_chat_model"
+    },
+    "app_info": {
+      "menu_enabled": true,
+      "name": "人员明细",
+      "route_root_path": "/page",
+      "summary": "「人员明细」是一个面向 PC 端的只读人员信息查看应用，采用侧边导航布局，启用页头、禁用页脚，数据来源于数据库。应用仅包含一个人员明细列表页并作为进入应用后的落地页。所有用户均可查看人员的明细列表，但不能对人员信息进行删除、修改或查询（筛选）操作。应用不启用认证，也不涉及权限控制。",
+      "target": ""
+    },
+    "approved": true,
+    "authentication_requirements": {
+      "sourceRefs": []
+    },
+    "authorization_requirements": {
+      "restrictedOperations": [],
+      "restrictedPages": [],
+      "sourceRefs": []
+    },
+    "business_flows": [
+      {
+        "description": "用户进入应用后查看人员明细列表的只读浏览流程，不涉及任何数据修改操作。",
+        "id": "browse_personnel_detail_list",
+        "name": "浏览人员明细列表",
+        "steps": [
+          "用户进入应用，应用默认落地到人员明细列表页。",
+          "系统以列表形式展示数据库中的人员明细信息。",
+          "用户浏览人员明细列表内容。",
+          "用户不被提供删除、修改或查询（筛选）人员信息的操作。"
+        ]
+      }
+    ],
+    "clarification_questions": [],
+    "clarification_status": "clear",
+    "confirmation_status": "confirmed",
+    "entities": [],
+    "feature_modules": [
+      {
+        "description": "提供人员明细列表的只读查看能力，管理并展示数据库中的人员明细信息。支持浏览人员明细列表；不支持删除、修改或查询（筛选）人员信息。该模块仅包含一个列表页面作为应用落地页，未提供任何首页或仪表盘页面。所有用户均可查看，无权限限制。",
+        "id": "personnel_detail_viewing",
+        "name": "人员明细查看",
+        "priority": "must"
+      }
+    ],
+    "generated_at": "2026-11-24T06:20:45.214461+00:00",
+    "pages": [
+      {
+        "description": "人员明细列表页，也是应用进入后的唯一落地页。以列表形式展示数据库中的人员明细信息，供所有用户查看。用户仅可浏览列表，不能删除、修改或查询（筛选）人员信息。页面采用侧边导航布局，页头启用、页脚禁用，导航菜单标题为「人员明细」。",
+        "module_id": "personnel_detail_viewing",
+        "name": "人员明细",
+        "pageId": "personnel_detail_list",
+        "path": "/page/detail"
+      }
+    ],
+    "source_request": "请为新应用「人员明细」完成需求、产品、UI（可跳过）和技术规划。；应用场景：人员明细列表页，所有人都可查看人员的明细列表，不能删改查人员信息；；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。；补充确认：页面结构为已选：仅人员明细列表页；页面命名为人员明细",
+    "status": "draft",
+    "summary": "「人员明细」是一个面向 PC 端的只读人员信息查看应用，采用侧边导航布局，启用页头、禁用页脚，数据来源于数据库。应用仅包含一个人员明细列表页并作为进入应用后的落地页。所有用户均可查看人员的明细列表，但不能对人员信息进行删除、修改或查询（筛选）操作。应用不启用认证，也不涉及权限控制。",
+    "unresolved_requirement_dimensions": [],
+    "user_roles": [
+      {
+        "description": "所有进入应用的用户，均可查看人员明细列表，但不能删除、修改或查询人员信息。",
+        "id": "personnel_viewer",
+        "name": "人员查看者"
+      }
+    ],
+    "version": "1.0"
+  }
+}
