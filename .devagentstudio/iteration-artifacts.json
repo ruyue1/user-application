@@ -13,6 +13,16 @@
       "plannedPageIds": [
         "personnel_detail_list"
       ]
+    },
+    {
+      "branch": "v1_6",
+      "designedPageIds": [
+        "greeting"
+      ],
+      "plannedPageIds": [
+        "personnel_detail_list",
+        "greeting"
+      ]
     }
   ],
   "schemaVersion": 2
