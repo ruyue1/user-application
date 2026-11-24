@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "sourceBranch": "v1_0",
+  "sourceBranch": "v1_3",
   "spec": {
     "acceptance_criteria": [],
     "agent_spec_used": true,
@@ -43,7 +43,76 @@
     "clarification_questions": [],
     "clarification_status": "clear",
     "confirmation_status": "confirmed",
-    "entities": [],
+    "entities": [
+      {
+        "description": "记录人员的基本明细信息，用于在只读列表中分页查看。",
+        "fields": [
+          {
+            "label": "姓名",
+            "name": "name",
+            "required": true,
+            "type": "text",
+            "unique": true
+          },
+          {
+            "label": "性别",
+            "name": "gender",
+            "required": false,
+            "type": "enum"
+          },
+          {
+            "label": "年龄",
+            "name": "age",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "label": "联系电话",
+            "name": "phone",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "label": "座机号",
+            "name": "landline",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "label": "电子邮箱",
+            "name": "email",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "label": "所属部门",
+            "name": "department",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "label": "职位",
+            "name": "position",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "label": "入职日期",
+            "name": "entry_date",
+            "required": false,
+            "type": "date"
+          },
+          {
+            "label": "备注",
+            "name": "remark",
+            "required": false,
+            "type": "long_text"
+          }
+        ],
+        "id": "personnel_detail",
+        "name": "人员明细"
+      }
+    ],
     "feature_modules": [
       {
         "description": "承载人员明细信息的展示能力。维护人员明细列表的展示，包括人员基本明细信息的呈现。仅支持查看操作，不提供新增、删除、修改人员信息的能力。列表采用普通分页方式逐页浏览，不提供额外的检索、筛选或导出能力。该只读约束对本应用所有涉及人员明细的页面统一生效。",
