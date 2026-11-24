@@ -1,0 +1,32 @@
+{
+  "version": "0.1.0",
+  "status": "terminal_failure",
+  "decision": "terminal_failure",
+  "generated_at": "2026-11-24T08:26:09.719209+00:00",
+  "source": "integration_test",
+  "tasks": [],
+  "candidateTasks": [],
+  "planId": "94f7bb1c9ef7e3a7",
+  "requestedPaths": [],
+  "repair_scope": {
+    "type": "page",
+    "targetId": "personnel_detail_list",
+    "unit_id": "page:personnel_detail_list"
+  },
+  "summary": {
+    "total": 0,
+    "frontend": 0,
+    "backend": 0,
+    "database": 0
+  },
+  "agent_note": "{\"decision\": \"terminal_failure\", \"escalationKind\": null, \"strategy\": \"无法在授权路径内修复。诊断显示后端启动检查失败的原因是运行环境缺少 Java Runtime（\\\"Unable to locate a Java Runtime\\\"），属于环境/工具链问题，而非代码缺陷。可尝试的方向仅限环境层面：在 CI/执行机上安装并配置 JDK，或设置 JAVA_HOME 指向有效 JDK 后重跑 backend_startup 检查。\", \"reason\": \"checkId=backend_startup 退出码 1，stderr 明确为找不到 Java 运行时，与 authorizedPaths 中的任何源码文件无关。禁止在缺少运行环境时修改业务代码来\\\"绕过\\\"启动检查，也不得禁用检查或猜测凭据。\", \"failure_handling\": \"建议运维/平台方在构建执行环境中安装 JDK 并导出 JAVA_HOME 与 PATH，然后重新触发集成验证。若环境已修复但启动仍失败，需提供 stdout/stderr 日志窗口以定位后续真实错误，再进入代码级修复。\"}",
+  "reason": "checkId=backend_startup 退出码 1，stderr 明确为找不到 Java 运行时，与 authorizedPaths 中的任何源码文件无关。禁止在缺少运行环境时修改业务代码来\"绕过\"启动检查，也不得禁用检查或猜测凭据。",
+  "escalationKind": null,
+  "failure_handling": "建议运维/平台方在构建执行环境中安装 JDK 并导出 JAVA_HOME 与 PATH，然后重新触发集成验证。若环境已修复但启动仍失败，需提供 stdout/stderr 日志窗口以定位后续真实错误，再进入代码级修复。",
+  "prepared_by": {
+    "agent": "repair-planner-agent",
+    "mode": "bounded_model",
+    "model": "deepseek-v4.1-flash",
+    "requiredSkillsLoaded": []
+  }
+}

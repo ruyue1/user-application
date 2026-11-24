@@ -1,0 +1,17 @@
+{
+  "sources": [
+    {
+      "id": "ds-60b5caff714044e9",
+      "type": "database",
+      "name": "studio",
+      "mode": "direct",
+      "hasPassword": true,
+      "managedTables": [
+        {
+          "table": "personnel",
+          "description": "人员明细"
+        }
+      ]
+    }
+  ]
+}
