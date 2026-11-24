@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "3f948ac61c7eaf51c3c4669579f0bd3e218d5e7a2ff2a5784b12e12809d6bb41",
+  "product_plan_sha256": "e6cb38dd180000b5ee616a6ad508798b83a754442c3702e098c738885cf4381d",
   "pages": [
     {
       "pageId": "personnel_detail_list",
@@ -50,6 +50,53 @@
         ],
         "errors": []
       }
+    },
+    {
+      "pageId": "react_string_display",
+      "page_key": "ReactStringDisplay",
+      "preview_path": "/page/react-string-display",
+      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/112406/.devagentstudio/ui-design/pages/ReactStringDisplay/index.tsx",
+      "status": "confirmed",
+      "bindings": {
+        "actions": [
+          {
+            "actionId": "load_string",
+            "controlIds": [
+              "load_string-control"
+            ],
+            "uiEffect": "重新加载并展示后端接口返回的字符串"
+          }
+        ],
+        "information_items": [
+          {
+            "informationItemId": "react_string_content",
+            "controlIds": [
+              "react_string_content-display"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "passed",
+        "code_sha256": "94d93849b7e88925237f492946e35c256358ecef3a8c73f0afb207fdbc416c43",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      },
+      "code_sha256": "94d93849b7e88925237f492946e35c256358ecef3a8c73f0afb207fdbc416c43",
+      "generation_id": "ui-design-ab21cbf9659c46b992e1fa9fcb531ddd"
     }
   ]
 }
