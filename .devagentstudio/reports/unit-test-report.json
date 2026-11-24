@@ -1,0 +1,80 @@
+{
+  "version": "0.1.0",
+  "generated_at": "2026-11-24T09:31:52.624227+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "id": "frontend_test_generation",
+      "name": "前端单元测试生成检查",
+      "layer": "frontend",
+      "language": "typescript",
+      "passed": true,
+      "skipped": true,
+      "required": false,
+      "command": null,
+      "evidence": "用户选择跳过单元测试，本轮不生成、不执行单元测试。",
+      "failure_category": null,
+      "execution": {
+        "tool": "none",
+        "argv": [],
+        "cwd": ".",
+        "returncode": null,
+        "timed_out": false,
+        "stdout_log": null,
+        "stderr_log": null
+      }
+    },
+    {
+      "id": "frontend_unit_tests",
+      "name": "前端单元测试",
+      "layer": "frontend",
+      "language": "typescript",
+      "passed": true,
+      "skipped": true,
+      "required": false,
+      "command": null,
+      "evidence": "用户选择跳过单元测试，本轮不生成、不执行单元测试。",
+      "failure_category": null,
+      "execution": {
+        "tool": "none",
+        "argv": [],
+        "cwd": ".",
+        "returncode": null,
+        "timed_out": false,
+        "stdout_log": null,
+        "stderr_log": null
+      }
+    }
+  ],
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  },
+  "needs_revision": false,
+  "revision_requests": [],
+  "quality_gate": {
+    "passed": true,
+    "required_checks": [],
+    "evaluated_by": "deterministic-quality-gate"
+  },
+  "artifact_context": {
+    "build_execution_scope": {
+      "type": "page",
+      "targetId": "personnel_detail_list"
+    },
+    "plan_sha256": "1dfeff4c422f52c36b0193e2099e12600875b46d63ce8adf866fa022ad2dadd6",
+    "files": {
+      "frontend/jest.config.cjs": "ce1afcb596c0abefb634ecc399b348b89d998be73221ffc57bdbb84cb7f3f90c",
+      "frontend/package.json": "7ac83000e1d969ac63a3ca602899f695ed63607d1c947990a7ca205e320cce46",
+      "frontend/pnpm-lock.yaml": "2dd9e48d28b43e28ab6c64dc1a6bd26efcd0fbf0a7183da4d416160bf6fa08f3",
+      "frontend/src/apis/personnelDetailContractApi.ts": "f4fe0da128c9d8f33509d68a5820d9d9b8bfc16baa231aeba70d38de76d2ab8b",
+      "frontend/src/constants/routes.tsx": "0f52eb6199f921a0807ad6ad54b425575b368411737321596ed8163365d87d68",
+      "frontend/src/pages/PersonnelDetailList/index.tsx": "003c77e9bc7c44c7f7b7014368a2c89d39214fbd2d59bc6f9b3e8bc12cc75737",
+      "frontend/tests/__mocks__/fileMock.cjs": "9511e7bc24a9e0589f73af6ec1dd8b8fb1f6fb388decfdcb80a827860181226b",
+      "frontend/tests/__mocks__/styleMock.cjs": "35ab14b4a7b597c4cb3c568cddf39ee07c557cdd7e19f2eb8b83467eafd70609",
+      "frontend/tests/setupTests.ts": "303f1bcd5f40eb34671db9a66665f46aad22f0e0bc8a4dedf59d08fdbacef2b8",
+      "frontend/tsconfig.test.json": "be8f9f0a65c3faebc87c48a8de537fefc6638eceaca3934881ef6824019eccae"
+    }
+  }
+}

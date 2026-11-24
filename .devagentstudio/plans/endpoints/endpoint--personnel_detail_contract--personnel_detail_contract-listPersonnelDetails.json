@@ -1,0 +1,436 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "da09f168fa22481999bc22fdf51d9a0d",
+  "apiContractId": "personnel_detail_contract",
+  "endpointId": "personnel_detail_contract.listPersonnelDetails",
+  "endpointContract": {
+    "id": "personnel_detail_contract.listPersonnelDetails",
+    "name": "分页查询人员明细",
+    "method": "GET",
+    "path": "/personnel-details",
+    "summary": "分页查询人员明细列表，支持按页码和每页条数浏览；返回人员姓名、性别、年龄、电子邮箱、所属部门、职位、入职日期和备注等明细信息。列表分页。",
+    "parameters": [
+      {
+        "name": "current",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1
+        }
+      },
+      {
+        "name": "pageSize",
+        "in": "query",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 20
+        }
+      }
+    ],
+    "request_schema_ref": null,
+    "response_schema_ref": "PageResult",
+    "error_codes": [],
+    "authentication": {
+      "required": false
+    }
+  },
+  "implementationDescription": "分页查询人员明细列表，返回姓名、性别、电子邮箱、部门、职位、入职日期和备注等字段，并返回符合条件的人员总数及实际页码、每页条数；年龄字段未配置映射。接口未设置筛选条件。",
+  "databaseOperation": "read",
+  "sourceBinding": {
+    "sourceType": "database",
+    "sourceId": "ds-0cafd44bf2b1444f",
+    "schema": "business_db",
+    "table": "personnel"
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "total",
+        "type": "integer",
+        "required": false,
+        "description": ""
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "business",
+        "origin": "business",
+        "endpointFields": [],
+        "builtinFields": [],
+        "businessDescription": "符合条件的人员明细总数",
+        "missingBehavior": "error"
+      }
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "current",
+        "type": "integer",
+        "required": false,
+        "description": ""
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "business",
+        "origin": "business",
+        "endpointFields": [],
+        "builtinFields": [],
+        "businessDescription": "实际页码",
+        "missingBehavior": "error"
+      }
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "pageSize",
+        "type": "integer",
+        "required": false,
+        "description": ""
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "business",
+        "origin": "business",
+        "endpointFields": [],
+        "builtinFields": [],
+        "businessDescription": "实际每页条数",
+        "missingBehavior": "error"
+      }
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].name",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "database",
+          "sourceId": "ds-0cafd44bf2b1444f",
+          "schema": "business_db",
+          "table": "personnel",
+          "column": "name",
+          "type": "varchar(100)",
+          "usage": "read",
+          "description": "姓名"
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].gender",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "database",
+          "sourceId": "ds-0cafd44bf2b1444f",
+          "schema": "business_db",
+          "table": "personnel",
+          "column": "gender",
+          "type": "varchar(8)",
+          "usage": "read",
+          "description": "性别"
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].age",
+        "type": "integer",
+        "required": false,
+        "description": ""
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "database",
+          "sourceId": "ds-0cafd44bf2b1444f",
+          "schema": "business_db",
+          "table": "personnel",
+          "column": "id",
+          "type": "bigint",
+          "usage": "read",
+          "description": "记录ID（唯一标识）"
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].email",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "database",
+          "sourceId": "ds-0cafd44bf2b1444f",
+          "schema": "business_db",
+          "table": "personnel",
+          "column": "email",
+          "type": "varchar(128)",
+          "usage": "read",
+          "description": "电子邮箱"
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].department",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "database",
+          "sourceId": "ds-0cafd44bf2b1444f",
+          "schema": "business_db",
+          "table": "personnel",
+          "column": "department",
+          "type": "varchar(128)",
+          "usage": "read",
+          "description": "所属部门"
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].position",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "database",
+          "sourceId": "ds-0cafd44bf2b1444f",
+          "schema": "business_db",
+          "table": "personnel",
+          "column": "position",
+          "type": "varchar(128)",
+          "usage": "read",
+          "description": "职位"
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].entryDate",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "database",
+          "sourceId": "ds-0cafd44bf2b1444f",
+          "schema": "business_db",
+          "table": "personnel",
+          "column": "hire_date",
+          "type": "date",
+          "usage": "read",
+          "description": "入职日期"
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].remark",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "database",
+          "sourceId": "ds-0cafd44bf2b1444f",
+          "schema": "business_db",
+          "table": "personnel",
+          "column": "remark",
+          "type": "text",
+          "usage": "read",
+          "description": "备注"
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [
+    {
+      "sourceType": "database",
+      "sourceId": "ds-0cafd44bf2b1444f",
+      "name": "studio",
+      "details": {
+        "sourceId": "ds-0cafd44bf2b1444f",
+        "schema": "business_db",
+        "tables": [
+          {
+            "name": "personnel",
+            "description": "人员明细"
+          }
+        ],
+        "table": "personnel",
+        "columns": [
+          {
+            "name": "id",
+            "type": "bigint",
+            "required": true,
+            "description": "记录ID（唯一标识）",
+            "nullable": false,
+            "primaryKey": true,
+            "autoIncrement": true,
+            "defaultValue": null
+          },
+          {
+            "name": "name",
+            "type": "varchar(100)",
+            "required": true,
+            "description": "姓名",
+            "nullable": false,
+            "primaryKey": false,
+            "autoIncrement": false,
+            "defaultValue": null
+          },
+          {
+            "name": "gender",
+            "type": "varchar(8)",
+            "required": false,
+            "description": "性别",
+            "nullable": true,
+            "primaryKey": false,
+            "autoIncrement": false,
+            "defaultValue": null
+          },
+          {
+            "name": "email",
+            "type": "varchar(128)",
+            "required": false,
+            "description": "电子邮箱",
+            "nullable": true,
+            "primaryKey": false,
+            "autoIncrement": false,
+            "defaultValue": null
+          },
+          {
+            "name": "department",
+            "type": "varchar(128)",
+            "required": false,
+            "description": "所属部门",
+            "nullable": true,
+            "primaryKey": false,
+            "autoIncrement": false,
+            "defaultValue": null
+          },
+          {
+            "name": "position",
+            "type": "varchar(128)",
+            "required": false,
+            "description": "职位",
+            "nullable": true,
+            "primaryKey": false,
+            "autoIncrement": false,
+            "defaultValue": null
+          },
+          {
+            "name": "hire_date",
+            "type": "date",
+            "required": false,
+            "description": "入职日期",
+            "nullable": true,
+            "primaryKey": false,
+            "autoIncrement": false,
+            "defaultValue": null
+          },
+          {
+            "name": "remark",
+            "type": "text",
+            "required": false,
+            "description": "备注",
+            "nullable": true,
+            "primaryKey": false,
+            "autoIncrement": false,
+            "defaultValue": null
+          }
+        ]
+      }
+    }
+  ],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "5a75e62a3d7e633a79619c3207394c102c33569bc32f78cdab4ed6b5197c99c6"
+    }
+  ],
+  "confirmedAt": "2026-11-24T09:25:02.651128Z"
+}

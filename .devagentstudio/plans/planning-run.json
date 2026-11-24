@@ -1,0 +1,127 @@
+{
+  "planning_run_id": "planning-553435b0d55744d58ba0b0196630ce6d",
+  "workflow_run_id": "4b9a5c5f-84ac-4de9-9de4-57f76bf55819",
+  "thread_id": "2554c495-4616-49b4-afa0-3979bede9ff9",
+  "revision": 11,
+  "status": "active",
+  "phase": "persisting_pending",
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "personnel_detail_list"
+  },
+  "input_fingerprint": "bd4b528dda7f10b0fc9f21226da0718b389bb12a007ef9ed5737bf0f6aa793ff",
+  "base_confirmed_plan_digest": "2a04d44d3b1f0adf91dfa3b6174e9a58e982435ac9d3d02f8d0c33974c5b9a10",
+  "required_unit_ids": [
+    "backend:bootstrap",
+    "backend:module:personnel_detail_contract",
+    "frontend:api-client",
+    "frontend:shell",
+    "page:personnel_detail_list"
+  ],
+  "unit_display_names": {
+    "backend:bootstrap": "后端基础环境配置",
+    "backend:module:personnel_detail_contract": "人员明细模块",
+    "frontend:api-client": "前端接口调用封装",
+    "frontend:shell": "前端应用环境",
+    "page:personnel_detail_list": "人员明细列表页面"
+  },
+  "planning_unit_ids": [
+    "frontend:api-client",
+    "page:personnel_detail_list"
+  ],
+  "global_repair_round": 0,
+  "global_repair_limit": 2,
+  "global_issues": [],
+  "unit_states": {
+    "backend:bootstrap": {
+      "unit_id": "backend:bootstrap",
+      "kind": "backend",
+      "participation": "not_required",
+      "generation_strategy": "not_required",
+      "generation_status": "not_required",
+      "generation_round": 1,
+      "attempt_in_round": 0,
+      "total_attempts": 0,
+      "retained_task_ids": [],
+      "reusable_capabilities": [
+        "backend.bootstrap:database"
+      ],
+      "latest_candidate_id": null,
+      "candidate_task_count": 0,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "backend:module:personnel_detail_contract": {
+      "unit_id": "backend:module:personnel_detail_contract",
+      "kind": "backend",
+      "participation": "not_required",
+      "generation_strategy": "not_required",
+      "generation_status": "not_required",
+      "generation_round": 1,
+      "attempt_in_round": 0,
+      "total_attempts": 0,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": null,
+      "candidate_task_count": 0,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "frontend:api-client": {
+      "unit_id": "frontend:api-client",
+      "kind": "frontend",
+      "participation": "generate_only",
+      "generation_strategy": "model",
+      "generation_status": "candidate_ready",
+      "generation_round": 1,
+      "attempt_in_round": 1,
+      "total_attempts": 1,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": "candidate-a64c6de75cc14250a9d4342a79c1a28c",
+      "candidate_task_count": 1,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "frontend:shell": {
+      "unit_id": "frontend:shell",
+      "kind": "frontend",
+      "participation": "prerequisite_only",
+      "generation_strategy": "prerequisite_only",
+      "generation_status": "not_required",
+      "generation_round": 1,
+      "attempt_in_round": 0,
+      "total_attempts": 0,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": null,
+      "candidate_task_count": 0,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "page:personnel_detail_list": {
+      "unit_id": "page:personnel_detail_list",
+      "kind": "page",
+      "participation": "generate_only",
+      "generation_strategy": "model",
+      "generation_status": "candidate_ready",
+      "generation_round": 1,
+      "attempt_in_round": 1,
+      "total_attempts": 1,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": "candidate-edb539a06b5842a790492511b7a81a94",
+      "candidate_task_count": 1,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    }
+  },
+  "started_at": "2026-11-24T09:29:23.111525Z",
+  "updated_at": "2026-11-24T09:29:33.718330Z",
+  "failure": null
+}

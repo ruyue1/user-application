@@ -1,0 +1,17 @@
+{
+  "type": "database",
+  "mode": "direct",
+  "id": "ds-0cafd44bf2b1444f",
+  "name": "studio",
+  "domain": "127.0.0.1",
+  "port": 3306,
+  "schema": "business_db",
+  "userName": "root",
+  "passwordCiphertext": "devagentstudio-secret:v1:rsa-oaep-256:platform-key-v1:TZxhBoRz_eFqbajNqkGxV-mgJSCZcLd-5S0gfX2NSKJVYnxXNBrrGkkKoNgUo-gfLJsRNIo0iMdbPHoP57perYN4SmV8aSajGck2adWo6-FthU68uMos98pErRv0I3OnaNivvs9c86z9rg9u5RgsAnDz4eaUO6X14XKdLyXy1axjkXTIOhzX53e_XHevcPJCvdhdBOzLd55aQqkF2TjbkeijoPX3lre8EEQHtgDyYuiIQu0Z4yOXby-vA8v1IOZFB9VInq4VFKEj-56UO0lzfIomqOSv7qwMfTcwIh6fc2crqBFnsllF3JOBsXg47fPkRyZBP4DvLG4xswAPUdtPcbQ3p7S_vD2snhdizkIX0Ca42bJYHf_oI8cdLguQPb7ArmzKavx_pIADivyx3UKJAKw-ab8MoSW-PgL_rzhkx59iOUieOuf1tY2OUkFRfcux4T0qAYP0eC_N_Sz1GbEfnXBmUh2W6PEnzb1pqdiS2DXWEEWOv8wqmskWWHkpofjw",
+  "managedTables": [
+    {
+      "table": "personnel",
+      "description": "人员明细"
+    }
+  ]
+}

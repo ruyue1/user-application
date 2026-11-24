@@ -1,0 +1,32 @@
+{
+  "version": "0.1.0",
+  "status": "terminal_failure",
+  "decision": "terminal_failure",
+  "generated_at": "2026-11-24T09:32:07.858390+00:00",
+  "source": "integration_test",
+  "tasks": [],
+  "candidateTasks": [],
+  "planId": "3f2e4eba3c1a97b9",
+  "requestedPaths": [],
+  "repair_scope": {
+    "type": "page",
+    "targetId": "personnel_detail_list",
+    "unit_id": "page:personnel_detail_list"
+  },
+  "summary": {
+    "total": 0,
+    "frontend": 0,
+    "backend": 0,
+    "database": 0
+  },
+  "agent_note": "{\"decision\": \"terminal_failure\", \"escalationKind\": null, \"strategy\": \"后端构建失败的证据显示为环境/工具链层面的问题：编译阶段抛出 java.lang.ExceptionInInitializerError: com.sun.tools.javac.tree.EndPosTable，并伴随 Lombok 通过 sun.misc.Unsafe::objectFieldOffset 触发的废弃警告。这两者共同指向 JDK 版本与 Lombok / maven-compiler-plugin 不兼容（新版 JDK 内部 javac API 变化导致注解处理器/Lombok 初始化失败），而非授权路径内业务代码的编译错误。\", \"reason\": \"日志中没有任何指向 authorizedPaths 内源码（backend 业务类或前端文件）的具体编译错误行号或符号缺失信息，错误发生在注解处理/编译器初始化的环境层。此前已尝试并在最终尝试仍无法通过代码修复消除该错误，属于环境阻塞（JDK 与 Lombok 版本不匹配），超出在现有代码范围内可安全修复的边界；不得通过禁用检查或放宽校验规避。\", \"failure_handling\": \"需由平台/环境维护方处理：确认并统一构建所用的 JDK 版本（例如使用与当前 Lombok 版本兼容的 JDK，或将 Lombok / maven-compiler-plugin 升级到支持当前 JDK 的版本），并在 CI 镜像中固定该工具链。修复工具链后重新触发集成构建以验证。不修改业务代码、不禁用任何检查或权限。\"}",
+  "reason": "日志中没有任何指向 authorizedPaths 内源码（backend 业务类或前端文件）的具体编译错误行号或符号缺失信息，错误发生在注解处理/编译器初始化的环境层。此前已尝试并在最终尝试仍无法通过代码修复消除该错误，属于环境阻塞（JDK 与 Lombok 版本不匹配），超出在现有代码范围内可安全修复的边界；不得通过禁用检查或放宽校验规避。",
+  "escalationKind": null,
+  "failure_handling": "需由平台/环境维护方处理：确认并统一构建所用的 JDK 版本（例如使用与当前 Lombok 版本兼容的 JDK，或将 Lombok / maven-compiler-plugin 升级到支持当前 JDK 的版本），并在 CI 镜像中固定该工具链。修复工具链后重新触发集成构建以验证。不修改业务代码、不禁用任何检查或权限。",
+  "prepared_by": {
+    "agent": "repair-planner-agent",
+    "mode": "bounded_model",
+    "model": "deepseek-v4.1-flash",
+    "requiredSkillsLoaded": []
+  }
+}
