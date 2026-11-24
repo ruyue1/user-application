@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "3f948ac61c7eaf51c3c4669579f0bd3e218d5e7a2ff2a5784b12e12809d6bb41",
+  "product_plan_sha256": "28a2bbf6843b8508ed53b991610a2a821e43d84b6141fc7be308b470c74500aa",
   "pages": [
     {
       "pageId": "personnel_detail_list",
@@ -50,6 +50,52 @@
         ],
         "errors": []
       }
+    },
+    {
+      "pageId": "greeting_display_page",
+      "page_key": "GreetingDisplayPage",
+      "preview_path": "/page/greeting-display-page",
+      "code_path": "/Users/maomao/Documents/行外开发XcodeAgent/ith/112406/.devagentstudio/ui-design/pages/GreetingDisplayPage/index.tsx",
+      "status": "confirmed",
+      "bindings": {
+        "actions": [
+          {
+            "actionId": "load_greeting",
+            "controlIds": [
+              "load_greeting-control"
+            ]
+          }
+        ],
+        "information_items": [
+          {
+            "informationItemId": "greeting_text",
+            "controlIds": [
+              "greeting_text-display"
+            ]
+          }
+        ]
+      },
+      "verification": {
+        "status": "passed",
+        "code_sha256": "b3266ba62b0cd8a2a1593b41e94286e1456a6971254cdf8ab1112ee65faf8270",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      },
+      "code_sha256": "b3266ba62b0cd8a2a1593b41e94286e1456a6971254cdf8ab1112ee65faf8270",
+      "generation_id": "ui-design-99e31b5c732a4414b1ba5bce94f3b938"
     }
   ]
 }
