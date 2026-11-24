@@ -48,11 +48,6 @@ public class PersonnelDetailItemDTO {
     private String department;
 
     /**
-     * 职位
-     */
-    private String position;
-
-    /**
      * 入职日期
      */
     private String entryDate;

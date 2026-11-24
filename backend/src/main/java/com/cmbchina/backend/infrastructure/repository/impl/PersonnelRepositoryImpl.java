@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * 人员明细仓储实现。
+ * 人员明细仓储实现，PO 与 MyBatis Page 均不穿透到基础设施层之外。
  */
 @Repository
 @RequiredArgsConstructor
@@ -25,13 +25,13 @@ public class PersonnelRepositoryImpl implements PersonnelRepository {
     private final PersonnelPoConverter personnelPoConverter;
 
     @Override
-    public PageResult<Personnel> pagePersonnel(int current, int pageSize) {
+    public PageResult<Personnel> pageQuery(int current, int pageSize) {
         Page<PersonnelPO> page = new Page<>(current, pageSize);
         LambdaQueryWrapper<PersonnelPO> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.orderByAsc(PersonnelPO::getId);
         Page<PersonnelPO> poPage = personnelMapper.selectPage(page, queryWrapper);
 
-        List<Personnel> personnelList = personnelPoConverter.toEntityList(poPage.getRecords());
+        List<Personnel> personnelList = personnelPoConverter.toEntities(poPage.getRecords());
         long total = poPage.getTotal();
         long actualCurrent = poPage.getCurrent();
         long actualPageSize = poPage.getSize();

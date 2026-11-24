@@ -16,61 +16,49 @@ import java.time.LocalDate;
 public class PersonnelPO {
 
     /**
-     * 记录ID（唯一标识）
+     * 记录ID（唯一标识），BIGINT 自增主键
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
-     * 姓名
+     * 姓名，VARCHAR(100)，非空
      */
     @TableField("name")
     private String name;
 
     /**
-     * 性别
+     * 性别，VARCHAR(8)
      */
     @TableField("gender")
     private String gender;
 
     /**
-     * 出生日期
-     */
-    @TableField("birth_date")
-    private LocalDate birthDate;
-
-    /**
-     * 联系电话
+     * 联系电话，VARCHAR(32)
      */
     @TableField("phone")
     private String phone;
 
     /**
-     * 电子邮箱
+     * 电子邮箱，VARCHAR(128)
      */
     @TableField("email")
     private String email;
 
     /**
-     * 所属部门
+     * 所属部门，VARCHAR(128)
      */
     @TableField("department")
     private String department;
 
     /**
-     * 职位
-     */
-    @TableField("position")
-    private String position;
-
-    /**
-     * 入职日期
+     * 入职日期，DATE
      */
     @TableField("hire_date")
     private LocalDate hireDate;
 
     /**
-     * 备注
+     * 备注，TEXT
      */
     @TableField("remark")
     private String remark;

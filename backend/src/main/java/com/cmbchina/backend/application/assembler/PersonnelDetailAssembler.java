@@ -12,12 +12,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 人员明细 DTO 与领域实体转换器。
+ * 人员明细 DTO 组装器。
  */
 @Component
 public class PersonnelDetailAssembler {
 
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+    /**
+     * 领域分页结果转人员明细分页响应 DTO。
+     *
+     * @param page 领域分页结果
+     * @return 人员明细分页响应 DTO
+     */
+    public PersonnelDetailPageDTO toPageDTO(PageResult<Personnel> page) {
+        if (page == null) {
+            return new PersonnelDetailPageDTO(0L, 1, 20, new ArrayList<>());
+        }
+        return new PersonnelDetailPageDTO(
+                page.getTotal(),
+                (int) page.getCurrent(),
+                (int) page.getPageSize(),
+                toDetailItems(page.getList()));
+    }
 
     /**
      * 领域实体转人员明细列表项 DTO。
@@ -31,34 +48,12 @@ public class PersonnelDetailAssembler {
         item.setGender(personnel.getGender());
         item.setAge(toAge(personnel.getId()));
         item.setPhone(personnel.getPhone());
-        item.setLandline(formatDate(personnel.getBirthDate()));
+        item.setLandline(personnel.getName());
         item.setEmail(personnel.getEmail());
         item.setDepartment(personnel.getDepartment());
-        item.setPosition(personnel.getPosition());
         item.setEntryDate(formatDate(personnel.getHireDate()));
         item.setRemark(personnel.getRemark());
         return item;
-    }
-
-    /**
-     * 人员在应用层共用的组装器：领域分页结果转人员明细分页响应 DTO。
-     */
-    public PersonnelDetailPageDTO toPage(PageResult<Personnel> pageResult) {
-        if (pageResult == null) {
-            return new PersonnelDetailPageDTO(0L, 1L, 20L, new ArrayList<>());
-        }
-        return new PersonnelDetailPageDTO(
-                pageResult.getTotal(),
-                pageResult.getCurrent(),
-                pageResult.getPageSize(),
-                toDetailItems(pageResult.getList()));
-    }
-
-    /**
-     * 领域实体转人员明细列表项 DTO。
-     */
-    public PersonnelDetailItemDTO toDetailItem(Personnel personnel) {
-        return toItem(personnel);
     }
 
     /**

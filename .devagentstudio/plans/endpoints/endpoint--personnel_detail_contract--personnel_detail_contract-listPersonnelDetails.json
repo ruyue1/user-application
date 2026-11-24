@@ -3,7 +3,7 @@
   "artifactType": "endpoint-field-mapping",
   "status": "confirmed",
   "confirmationStatus": "confirmed",
-  "artifactRevision": "2e8baf84a7494f638c74573c3580d039",
+  "artifactRevision": "5939b0bbe1414ff3b5ccc63db10ec280",
   "apiContractId": "personnel_detail_contract",
   "endpointId": "personnel_detail_contract.listPersonnelDetails",
   "endpointContract": {
@@ -11,7 +11,7 @@
     "name": "分页查询人员明细",
     "method": "GET",
     "path": "/personnel-details",
-    "summary": "分页查询人员明细列表，支持按页码和每页条数浏览；返回姓名、性别、年龄、联系电话、座机号、电子邮箱、所属部门、职位、入职日期和备注等明细信息。列表分页。",
+    "summary": "分页查询人员明细列表，支持按页码和每页条数浏览；返回姓名、性别、年龄、联系电话、座机号、电子邮箱、所属部门、入职日期和备注等明细信息。列表分页。",
     "parameters": [
       {
         "name": "current",
@@ -45,7 +45,7 @@
       "required": false
     }
   },
-  "implementationDescription": "分页查询人员明细，未设置筛选条件，按页码和每页条数浏览人员记录。返回姓名、性别、电话、邮箱、部门、职位、入职日期和备注等直接映射字段，并返回符合条件的人员总数及实际页码、每页条数。",
+  "implementationDescription": "分页查询人员明细，支持按页码和每页条数浏览。返回总条数、当前页码、每页条数，以及姓名、性别、联系电话、电子邮箱、所属部门、入职日期和备注等明细信息，均直接读取返回；年龄与座机号当前未配置。",
   "databaseOperation": "read",
   "sourceBinding": {
     "sourceType": "database",
@@ -235,10 +235,10 @@
           "sourceId": "ds-0cafd44bf2b1444f",
           "schema": "business_db",
           "table": "personnel",
-          "column": "birth_date",
-          "type": "date",
+          "column": "name",
+          "type": "varchar(100)",
           "usage": "read",
-          "description": "出生日期"
+          "description": "姓名"
         }
       ],
       "endpointFields": [],
@@ -293,33 +293,6 @@
           "type": "varchar(128)",
           "usage": "read",
           "description": "所属部门"
-        }
-      ],
-      "endpointFields": [],
-      "builtinFields": [],
-      "processingType": "direct",
-      "missingBehavior": "error"
-    },
-    {
-      "endpointField": {
-        "side": "response",
-        "location": "response_body",
-        "path": "list[].position",
-        "type": "string",
-        "required": false,
-        "description": "职位"
-      },
-      "mappingType": "source_mapping",
-      "sourceFields": [
-        {
-          "sourceType": "database",
-          "sourceId": "ds-0cafd44bf2b1444f",
-          "schema": "business_db",
-          "table": "personnel",
-          "column": "position",
-          "type": "varchar(128)",
-          "usage": "read",
-          "description": "职位"
         }
       ],
       "endpointFields": [],
@@ -431,16 +404,6 @@
             "defaultValue": null
           },
           {
-            "name": "birth_date",
-            "type": "date",
-            "required": false,
-            "description": "出生日期",
-            "nullable": true,
-            "primaryKey": false,
-            "autoIncrement": false,
-            "defaultValue": null
-          },
-          {
             "name": "phone",
             "type": "varchar(32)",
             "required": false,
@@ -465,16 +428,6 @@
             "type": "varchar(128)",
             "required": false,
             "description": "所属部门",
-            "nullable": true,
-            "primaryKey": false,
-            "autoIncrement": false,
-            "defaultValue": null
-          },
-          {
-            "name": "position",
-            "type": "varchar(128)",
-            "required": false,
-            "description": "职位",
             "nullable": true,
             "primaryKey": false,
             "autoIncrement": false,
@@ -507,8 +460,8 @@
   "basedOn": [
     {
       "artifactKey": "technical-plan",
-      "sha256": "70c68c1ffcf906a4614209057f6f1651c3c576dcbdaff71ad68f158ef6fc2759"
+      "sha256": "410293c3ed434d02cd7dc22ba7a20ce54239fed4106d05deb127104aa4f2acdf"
     }
   ],
-  "confirmedAt": "2026-11-24T12:20:44.998156Z"
+  "confirmedAt": "2026-11-24T15:10:38.609223Z"
 }

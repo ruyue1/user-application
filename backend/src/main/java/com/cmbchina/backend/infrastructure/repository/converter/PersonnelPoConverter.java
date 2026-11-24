@@ -14,7 +14,7 @@ import java.util.List;
 public class PersonnelPoConverter {
 
     /**
-     * PO 转领域实体，字段一一直接映射。
+     * PO 转领域实体，字段逐一同名映射。
      */
     public Personnel toEntity(PersonnelPO po) {
         if (po == null) {
@@ -24,62 +24,25 @@ public class PersonnelPoConverter {
         personnel.setId(po.getId());
         personnel.setName(po.getName());
         personnel.setGender(po.getGender());
-        personnel.setBirthDate(po.getBirthDate());
         personnel.setPhone(po.getPhone());
         personnel.setEmail(po.getEmail());
         personnel.setDepartment(po.getDepartment());
-        personnel.setPosition(po.getPosition());
         personnel.setHireDate(po.getHireDate());
         personnel.setRemark(po.getRemark());
         return personnel;
     }
 
     /**
-     * 领域实体转 PO，字段一一直接映射。
-     */
-    public PersonnelPO toPO(Personnel personnel) {
-        if (personnel == null) {
-            return null;
-        }
-        PersonnelPO po = new PersonnelPO();
-        po.setId(personnel.getId());
-        po.setName(personnel.getName());
-        po.setGender(personnel.getGender());
-        po.setBirthDate(personnel.getBirthDate());
-        po.setPhone(personnel.getPhone());
-        po.setEmail(personnel.getEmail());
-        po.setDepartment(personnel.getDepartment());
-        po.setPosition(personnel.getPosition());
-        po.setHireDate(personnel.getHireDate());
-        po.setRemark(personnel.getRemark());
-        return po;
-    }
-
-    /**
      * PO 列表转领域实体列表。
      */
-    public List<Personnel> toEntityList(List<PersonnelPO> poList) {
+    public List<Personnel> toEntities(List<PersonnelPO> pos) {
         List<Personnel> personnelList = new ArrayList<>();
-        if (poList == null || poList.isEmpty()) {
+        if (pos == null || pos.isEmpty()) {
             return personnelList;
         }
-        for (PersonnelPO po : poList) {
+        for (PersonnelPO po : pos) {
             personnelList.add(toEntity(po));
         }
         return personnelList;
-    }
-
-    /**
-     * 领域实体列表转 PO 列表。
-     */
-    public List<PersonnelPO> toPOList(List<Personnel> personnelList) {
-        List<PersonnelPO> poList = new ArrayList<>();
-        if (personnelList == null || personnelList.isEmpty()) {
-            return poList;
-        }
-        for (Personnel personnel : personnelList) {
-            poList.add(toPO(personnel));
-        }
-        return poList;
     }
 }

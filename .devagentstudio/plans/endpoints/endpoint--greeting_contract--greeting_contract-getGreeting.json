@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "endpoint-field-mapping.v7",
+  "artifactType": "endpoint-field-mapping",
+  "status": "confirmed",
+  "confirmationStatus": "confirmed",
+  "artifactRevision": "46aa44908ebc4d3e91f6a025c0e7bfe5",
+  "apiContractId": "greeting_contract",
+  "endpointId": "greeting_contract.getGreeting",
+  "endpointContract": {
+    "id": "greeting_contract.getGreeting",
+    "name": "获取问候语",
+    "method": "GET",
+    "path": "/greeting",
+    "summary": "获取问候字符串，返回固定字符串「晚上好！」，供问候展示页加载后居中展示。",
+    "parameters": [],
+    "request_schema_ref": null,
+    "response_schema_ref": "GreetingResult",
+    "error_codes": [],
+    "authentication": {
+      "required": false
+    }
+  },
+  "implementationDescription": "用于问候展示页加载后居中展示问候语。接口返回固定字符串「晚上好！」，不依赖数据库查询条件。",
+  "databaseOperation": "read",
+  "sourceBinding": {
+    "sourceType": "database",
+    "sourceId": "ds-0cafd44bf2b1444f",
+    "schema": "business_db",
+    "table": "personnel"
+  },
+  "fieldMappings": [
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "message",
+        "type": "string",
+        "required": true,
+        "description": "问候字符串，页面居中展示该内容"
+      },
+      "mappingType": "value_mapping",
+      "right": {
+        "kind": "fixed",
+        "value": "晚上好！"
+      }
+    }
+  ],
+  "databaseWrites": [],
+  "externalApiBindings": [],
+  "sourceSnapshots": [
+    {
+      "sourceType": "database",
+      "sourceId": "ds-0cafd44bf2b1444f",
+      "name": "studio",
+      "details": {
+        "sourceId": "ds-0cafd44bf2b1444f",
+        "schema": "business_db",
+        "tables": [],
+        "table": "personnel",
+        "columns": []
+      }
+    }
+  ],
+  "basedOn": [
+    {
+      "artifactKey": "technical-plan",
+      "sha256": "410293c3ed434d02cd7dc22ba7a20ce54239fed4106d05deb127104aa4f2acdf"
+    }
+  ],
+  "confirmedAt": "2026-11-24T15:19:49.227912Z"
+}

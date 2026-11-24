@@ -22,12 +22,12 @@ public class PersonnelDetailPageDTO {
     /**
      * 当前页码
      */
-    private Long current;
+    private Integer current;
 
     /**
      * 每页条数
      */
-    private Long pageSize;
+    private Integer pageSize;
 
     /**
      * 当前页人员明细记录列表

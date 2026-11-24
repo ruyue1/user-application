@@ -13,7 +13,7 @@ public interface PersonnelRepository {
      *
      * @param current  页码
      * @param pageSize 每页条数
-     * @return 人员明细分页结果，含总数、实际页码与实际每页条数
+     * @return 人员明细分页结果，含总条数与当前页数据
      */
-    PageResult<Personnel> pagePersonnel(int current, int pageSize);
+    PageResult<Personnel> pageQuery(int current, int pageSize);
 }

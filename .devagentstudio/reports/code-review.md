@@ -6,26 +6,27 @@
 - 结论：审查通过，未发现需要处理的问题。
 - 问题总数：0
 - 审查模式：Diff 审查
-- 实际审查文件数：1
+- 实际审查文件数：2
 - 跳过文件数：0
 
 ## Diff 审查文件
 
-- `frontend/src/pages/PersonnelDetailList/index.tsx`
+- `frontend/src/apis/greetingContractApi.ts`
+- `frontend/src/pages/GreetingDisplayPage/index.tsx`
 
 ## 扫描汇总
 
 | 范围 | 扫描根目录 | 状态 | 文件总数 |
 | --- | --- | --- | ---: |
-| 前端 | `frontend` | 已完成 | 1 |
+| 前端 | `frontend` | 已完成 | 2 |
 | 后端 | `backend` | 已跳过 | 0 |
 
-**前后端扫描文件总数：1**
+**前后端扫描文件总数：2**
 
 ## 扫描提示
 
-- frontend-code-scan 仅包含依赖版本规则（axios / form-data，需 package.json 与 pnpm-lock.yaml），本次目标清单未包含依赖清单文件，无适用规则，未报告前端问题。
-- 本次请求未提供任何后端目标文件（含 pom.xml、资源与配置文件），后端扫描根跳过。
+- frontend-code-scan Skill 仅包含 npm 依赖版本风险规则（axios、form-data），但本次清单未包含 package.json 或 pnpm-lock.yaml，因此前端目标文件已全部读取但无适用规则可检查，未报告前端问题。
+- 本次变更清单未包含后端文件，无后端扫描目标。
 
 ## 问题详情
 

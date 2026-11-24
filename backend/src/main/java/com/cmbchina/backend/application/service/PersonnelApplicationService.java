@@ -43,7 +43,7 @@ public class PersonnelApplicationService {
         int actualCurrent = (current == null) ? DEFAULT_CURRENT : current;
         int actualPageSize = (pageSize == null) ? DEFAULT_PAGE_SIZE : pageSize;
 
-        PageResult<Personnel> pageResult = personnelRepository.pagePersonnel(actualCurrent, actualPageSize);
-        return personnelDetailAssembler.toPage(pageResult);
+        PageResult<Personnel> pageResult = personnelRepository.pageQuery(actualCurrent, actualPageSize);
+        return personnelDetailAssembler.toPageDTO(pageResult);
     }
 }

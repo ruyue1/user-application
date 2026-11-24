@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 /**
- * 人员明细领域实体。
+ * 人员明细领域实体，对应 personnel 表，纯数据容器。
  */
 @Data
 @NoArgsConstructor
@@ -30,11 +30,6 @@ public class Personnel {
     private String gender;
 
     /**
-     * 出生日期
-     */
-    private LocalDate birthDate;
-
-    /**
      * 联系电话
      */
     private String phone;
@@ -48,11 +43,6 @@ public class Personnel {
      * 所属部门
      */
     private String department;
-
-    /**
-     * 职位
-     */
-    private String position;
 
     /**
      * 入职日期

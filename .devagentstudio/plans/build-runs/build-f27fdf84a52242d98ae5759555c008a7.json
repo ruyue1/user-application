@@ -1,0 +1,2653 @@
+{
+  "schema_version": "build-dag.v4",
+  "application": {
+    "unit_id": "application:root",
+    "status": "prepared"
+  },
+  "build_units": {
+    "application:root": {
+      "id": "application:root",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:auth-resources": {
+      "id": "backend:auth-resources",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:shell": {
+      "id": "frontend:shell",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "generation_strategy": "prerequisite_only",
+      "participation": "prerequisite_only",
+      "generation_status": "not_required",
+      "input_fingerprint": "99ba9989baf0b60e7a4fb779cf6ca6b4642ff5295c811a95273134cb6d661551"
+    },
+    "frontend:api-client": {
+      "id": "frontend:api-client",
+      "kind": "frontend",
+      "status": "prepared",
+      "task_ids": [
+        "frontend:api-client::greeting_contract::api-module::1e313d7dbb686dab"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "input_fingerprint": "6c0fbb3d86ebb4165d490997f5b86f46d84e150f6f03f5b7b4f4f7fc1c6c7453"
+    },
+    "frontend:auth-guard": {
+      "id": "frontend:auth-guard",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:bootstrap": {
+      "id": "backend:bootstrap",
+      "kind": "backend",
+      "status": "prepared",
+      "task_ids": [
+        "backend:bootstrap::database::bootstrap"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "business_descriptions": [
+          {
+            "api_contract_id": "greeting_contract",
+            "endpoint_id": "greeting_contract.getGreeting",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "固定值 '晚上好！'",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "46aa44908ebc4d3e91f6a025c0e7bfe5",
+            "apiContractId": "greeting_contract",
+            "endpointId": "greeting_contract.getGreeting",
+            "endpointContract": {
+              "id": "greeting_contract.getGreeting",
+              "name": "获取问候语",
+              "method": "GET",
+              "path": "/greeting",
+              "summary": "获取问候字符串，返回固定字符串「晚上好！」，供问候展示页加载后居中展示。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingResult",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "implementationDescription": "用于问候展示页加载后居中展示问候语。接口返回固定字符串「晚上好！」，不依赖数据库查询条件。",
+            "databaseOperation": "read",
+            "sourceBinding": {
+              "sourceType": "database",
+              "sourceId": "ds-0cafd44bf2b1444f",
+              "schema": "business_db",
+              "table": "personnel"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "问候字符串，页面居中展示该内容"
+                },
+                "mappingType": "value_mapping",
+                "right": {
+                  "kind": "fixed",
+                  "value": "晚上好！"
+                }
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "ds-0cafd44bf2b1444f",
+                "name": "studio",
+                "details": {
+                  "sourceId": "ds-0cafd44bf2b1444f",
+                  "schema": "business_db",
+                  "tables": [],
+                  "table": "personnel",
+                  "columns": []
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "410293c3ed434d02cd7dc22ba7a20ce54239fed4106d05deb127104aa4f2acdf"
+              }
+            ],
+            "confirmedAt": "2026-11-24T15:19:49.227912Z"
+          }
+        ],
+        "endpoint_ids": [
+          "greeting_contract.getGreeting"
+        ],
+        "entity_ids": [],
+        "mapping_flows": [
+          "数据库操作：read",
+          "固定值 '晚上好！' → response.response_body.message"
+        ],
+        "target": {
+          "type": "page",
+          "id": "greeting_display_page",
+          "page_key": "GreetingDisplayPage"
+        },
+        "type": "backend_bootstrap",
+        "source_types": [
+          "database"
+        ]
+      },
+      "input_fingerprint": "dc1c6291e262c7db9b96e07852b48530dd93f8542359710a4cb5313029a7199c"
+    },
+    "app:integration": {
+      "id": "app:integration",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:module:personnel_detail_contract": {
+      "id": "backend:module:personnel_detail_contract",
+      "kind": "backend",
+      "api_contract_id": "personnel_detail_contract",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "business_descriptions": [],
+        "endpoint_designs": [],
+        "endpoint_ids": [],
+        "entity_ids": [
+          "personnel_detail"
+        ],
+        "mapping_flows": [
+          "数据库操作：read",
+          "业务规则：符合条件的人员明细总数；依赖：无；缺值时：报错 → response.response_body.total",
+          "业务规则：实际页码；依赖：无；缺值时：报错 → response.response_body.current",
+          "业务规则：实际每页条数；依赖：无；缺值时：报错 → response.response_body.pageSize",
+          "ds-0cafd44bf2b1444f.personnel.name → response.response_body.list[].name",
+          "ds-0cafd44bf2b1444f.personnel.gender → response.response_body.list[].gender",
+          "ds-0cafd44bf2b1444f.personnel.id → response.response_body.list[].age",
+          "ds-0cafd44bf2b1444f.personnel.phone → response.response_body.list[].phone",
+          "ds-0cafd44bf2b1444f.personnel.name → response.response_body.list[].landline",
+          "ds-0cafd44bf2b1444f.personnel.email → response.response_body.list[].email",
+          "ds-0cafd44bf2b1444f.personnel.department → response.response_body.list[].department",
+          "ds-0cafd44bf2b1444f.personnel.hire_date → response.response_body.list[].entryDate",
+          "ds-0cafd44bf2b1444f.personnel.remark → response.response_body.list[].remark"
+        ],
+        "target": {
+          "type": "module",
+          "id": "personnel_detail_contract",
+          "api_contract_id": "personnel_detail_contract"
+        },
+        "technical_plan_endpoints": [],
+        "type": "technical_plan_module",
+        "source_types": [
+          "database"
+        ]
+      },
+      "input_fingerprint": "a41120168e3d1e8a94dd95a0b8345394129d3790171b536b3e0ec1dee03f5669"
+    },
+    "backend:module:greeting_contract": {
+      "id": "backend:module:greeting_contract",
+      "kind": "backend",
+      "api_contract_id": "greeting_contract",
+      "status": "prepared",
+      "task_ids": [
+        "backend:module:greeting_contract::bcc4e92cf3d1685c::foundation",
+        "backend:module:greeting_contract::greeting_contract.getGreeting::business",
+        "backend:module:greeting_contract::3dd0fc50055c0ecd::controller"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "technical_plan_module",
+        "target": {
+          "type": "module",
+          "id": "greeting_contract",
+          "api_contract_id": "greeting_contract"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "greeting_contract.getGreeting",
+            "api_contract_id": "greeting_contract"
+          }
+        ],
+        "endpoint_ids": [
+          "greeting_contract.getGreeting"
+        ],
+        "entity_ids": [],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "46aa44908ebc4d3e91f6a025c0e7bfe5",
+            "apiContractId": "greeting_contract",
+            "endpointId": "greeting_contract.getGreeting",
+            "endpointContract": {
+              "id": "greeting_contract.getGreeting",
+              "name": "获取问候语",
+              "method": "GET",
+              "path": "/greeting",
+              "summary": "获取问候字符串，返回固定字符串「晚上好！」，供问候展示页加载后居中展示。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingResult",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "implementationDescription": "用于问候展示页加载后居中展示问候语。接口返回固定字符串「晚上好！」，不依赖数据库查询条件。",
+            "databaseOperation": "read",
+            "sourceBinding": {
+              "sourceType": "database",
+              "sourceId": "ds-0cafd44bf2b1444f",
+              "schema": "business_db",
+              "table": "personnel"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "问候字符串，页面居中展示该内容"
+                },
+                "mappingType": "value_mapping",
+                "right": {
+                  "kind": "fixed",
+                  "value": "晚上好！"
+                }
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "ds-0cafd44bf2b1444f",
+                "name": "studio",
+                "details": {
+                  "sourceId": "ds-0cafd44bf2b1444f",
+                  "schema": "business_db",
+                  "tables": [],
+                  "table": "personnel",
+                  "columns": []
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "410293c3ed434d02cd7dc22ba7a20ce54239fed4106d05deb127104aa4f2acdf"
+              }
+            ],
+            "confirmedAt": "2026-11-24T15:19:49.227912Z"
+          }
+        ],
+        "mapping_flows": [
+          "数据库操作：read",
+          "固定值 '晚上好！' → response.response_body.message"
+        ],
+        "source_types": [
+          "database"
+        ],
+        "business_descriptions": [
+          {
+            "api_contract_id": "greeting_contract",
+            "endpoint_id": "greeting_contract.getGreeting",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "固定值 '晚上好！'",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ]
+      },
+      "input_fingerprint": "14ad5b5acac5916ad59c3910f1e0aca0aed3e036fd3985a9ebcd10ab6f2d89aa"
+    },
+    "page:personnel_detail_list": {
+      "id": "page:personnel_detail_list",
+      "kind": "page",
+      "page_id": "personnel_detail_list",
+      "status": "prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "84a9a077febd02d9a5d2979f481e7ad39ed987f67e79f9561dd408b22966dc71",
+          "byteLength": 2604,
+          "mediaType": "application/json"
+        }
+      },
+      "input_fingerprint": "abb961f4b71db70a906aaa961f6f6bb47b3643b690461f8904edcf98a16754b8"
+    },
+    "page:greeting_display_page": {
+      "id": "page:greeting_display_page",
+      "kind": "page",
+      "page_id": "greeting_display_page",
+      "status": "prepared",
+      "task_ids": [
+        "page:greeting_display_page::page"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "page_implementation_contract",
+        "target": {
+          "type": "page",
+          "id": "greeting_display_page",
+          "page_key": "GreetingDisplayPage"
+        },
+        "page_implementation_contract": {
+          "id": "greeting_display_page"
+        },
+        "endpoint_ids": [
+          "greeting_contract.getGreeting"
+        ],
+        "entity_ids": [],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "46aa44908ebc4d3e91f6a025c0e7bfe5",
+            "apiContractId": "greeting_contract",
+            "endpointId": "greeting_contract.getGreeting",
+            "endpointContract": {
+              "id": "greeting_contract.getGreeting",
+              "name": "获取问候语",
+              "method": "GET",
+              "path": "/greeting",
+              "summary": "获取问候字符串，返回固定字符串「晚上好！」，供问候展示页加载后居中展示。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingResult",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "implementationDescription": "用于问候展示页加载后居中展示问候语。接口返回固定字符串「晚上好！」，不依赖数据库查询条件。",
+            "databaseOperation": "read",
+            "sourceBinding": {
+              "sourceType": "database",
+              "sourceId": "ds-0cafd44bf2b1444f",
+              "schema": "business_db",
+              "table": "personnel"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "问候字符串，页面居中展示该内容"
+                },
+                "mappingType": "value_mapping",
+                "right": {
+                  "kind": "fixed",
+                  "value": "晚上好！"
+                }
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "ds-0cafd44bf2b1444f",
+                "name": "studio",
+                "details": {
+                  "sourceId": "ds-0cafd44bf2b1444f",
+                  "schema": "business_db",
+                  "tables": [],
+                  "table": "personnel",
+                  "columns": []
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "410293c3ed434d02cd7dc22ba7a20ce54239fed4106d05deb127104aa4f2acdf"
+              }
+            ],
+            "confirmedAt": "2026-11-24T15:19:49.227912Z"
+          }
+        ],
+        "mapping_flows": [
+          "数据库操作：read",
+          "固定值 '晚上好！' → response.response_body.message"
+        ],
+        "source_types": [
+          "database"
+        ],
+        "business_descriptions": [
+          {
+            "api_contract_id": "greeting_contract",
+            "endpoint_id": "greeting_contract.getGreeting",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "固定值 '晚上好！'",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ]
+      },
+      "input_fingerprint": "11d2c3db2fccb4ec228d6fd9f1245990a0e11619bf7e27777226a8d0abc868f5"
+    }
+  },
+  "unit_graph": {
+    "schema_version": "build-unit-graph.v3",
+    "nodes": [
+      "application:root",
+      "backend:auth-resources",
+      "frontend:shell",
+      "frontend:api-client",
+      "frontend:auth-guard",
+      "backend:bootstrap",
+      "app:integration",
+      "backend:module:personnel_detail_contract",
+      "backend:module:greeting_contract",
+      "page:personnel_detail_list",
+      "page:greeting_display_page"
+    ],
+    "edges": [
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:bootstrap",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:auth-resources",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:shell",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:api-client",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:auth-guard",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:bootstrap",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:personnel_detail_contract",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:personnel_detail_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:personnel_detail_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:personnel_detail_contract",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:greeting_contract",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:greeting_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:greeting_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_contract",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:personnel_detail_list",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:personnel_detail_list",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:personnel_detail_list",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:personnel_detail_contract",
+        "to": "page:personnel_detail_list",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:personnel_detail_list",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:greeting_display_page",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:greeting_display_page",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:greeting_display_page",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_contract",
+        "to": "page:greeting_display_page",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:greeting_display_page",
+        "to": "app:integration",
+        "type": "depends_on"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "unit_skeleton": {
+    "input_fingerprint": "998aeb4eb163ab639b4ccb4c1945b82e57b2988f42678689942e760b043cf150",
+    "project_plan_version": null,
+    "workspace_revision": "8ef446c24e8facc92c169260",
+    "reused": true
+  },
+  "task_registry": {
+    "backend:bootstrap::database::bootstrap": {
+      "allowed_paths": [
+        "backend/pom.xml",
+        "backend/src/main/resources/application.yml",
+        "backend/src/main/resources/application-dev.yml",
+        "backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java"
+      ],
+      "can_run_in_parallel": true,
+      "change_scope": [
+        {
+          "description": "在 Maven 配置中核对并补齐数据库相关依赖与通用依赖、注解处理器配置，确保 MyBatis-Plus 与数据库驱动可用。",
+          "operation": "modify",
+          "path": "backend/pom.xml"
+        },
+        {
+          "description": "核对并补齐数据库连接配置（数据源 URL、驱动、用户名、密码等），保持主配置结构完整。",
+          "operation": "modify",
+          "path": "backend/src/main/resources/application.yml"
+        },
+        {
+          "description": "核对并补齐开发环境数据库连接配置，覆盖数据源 URL、驱动、用户名、密码等开发环境参数。",
+          "operation": "modify",
+          "path": "backend/src/main/resources/application-dev.yml"
+        },
+        {
+          "description": "核对 MyBatis-Plus 分页插件配置，保证分页拦截器已正确注册。",
+          "operation": "modify",
+          "path": "backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:bootstrap::database::bootstrap::deliverable",
+          "kind": "backend.bootstrap",
+          "target_id": "database",
+          "paths": [
+            "backend/pom.xml",
+            "backend/src/main/resources/application.yml",
+            "backend/src/main/resources/application-dev.yml",
+            "backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java"
+          ],
+          "provides": [
+            "backend.bootstrap:database"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "description": "完成 backend:bootstrap 的数据库引导配置：1) 检查 pom.xml 中的通用依赖与注解处理器配置，核对并补齐数据库 Maven 依赖（数据库驱动、MyBatis-Plus 等）；2) 检查 application.yml 与 application-dev.yml 中的数据库连接配置，核对并补齐数据源连接信息；3) 检查 MybatisPlusConfiguration.java 中的 MyBatis-Plus 分页配置，确保分页拦截器正确注册。已有配置只做核对与必要修改，不假设缺失。",
+      "id": "backend:bootstrap::database::bootstrap",
+      "impact_scope": {
+        "affected_modules": [
+          "backend"
+        ],
+        "public_contracts": [],
+        "risks": [
+          "数据源连接参数错误可能导致应用启动或数据库访问失败",
+          "分页插件未正确注册可能导致分页查询失效"
+        ],
+        "summary": "为后端引导补充数据库依赖、连接配置与 MyBatis-Plus 分页配置"
+      },
+      "owner": "backend",
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "status": "pending",
+      "target_files": [
+        "backend/pom.xml",
+        "backend/src/main/resources/application.yml",
+        "backend/src/main/resources/application-dev.yml",
+        "backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java"
+      ],
+      "task_type": "backend.code",
+      "title": "后端数据库引导配置",
+      "unit_id": "backend:bootstrap",
+      "source_refs": {
+        "business_descriptions": [
+          {
+            "api_contract_id": "greeting_contract",
+            "endpoint_id": "greeting_contract.getGreeting",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "固定值 '晚上好！'",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "46aa44908ebc4d3e91f6a025c0e7bfe5",
+            "apiContractId": "greeting_contract",
+            "endpointId": "greeting_contract.getGreeting",
+            "endpointContract": {
+              "id": "greeting_contract.getGreeting",
+              "name": "获取问候语",
+              "method": "GET",
+              "path": "/greeting",
+              "summary": "获取问候字符串，返回固定字符串「晚上好！」，供问候展示页加载后居中展示。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingResult",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "implementationDescription": "用于问候展示页加载后居中展示问候语。接口返回固定字符串「晚上好！」，不依赖数据库查询条件。",
+            "databaseOperation": "read",
+            "sourceBinding": {
+              "sourceType": "database",
+              "sourceId": "ds-0cafd44bf2b1444f",
+              "schema": "business_db",
+              "table": "personnel"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "问候字符串，页面居中展示该内容"
+                },
+                "mappingType": "value_mapping",
+                "right": {
+                  "kind": "fixed",
+                  "value": "晚上好！"
+                }
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "ds-0cafd44bf2b1444f",
+                "name": "studio",
+                "details": {
+                  "sourceId": "ds-0cafd44bf2b1444f",
+                  "schema": "business_db",
+                  "tables": [],
+                  "table": "personnel",
+                  "columns": []
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "410293c3ed434d02cd7dc22ba7a20ce54239fed4106d05deb127104aa4f2acdf"
+              }
+            ],
+            "confirmedAt": "2026-11-24T15:19:49.227912Z"
+          }
+        ],
+        "endpoint_ids": [
+          "greeting_contract.getGreeting"
+        ],
+        "entity_ids": [],
+        "mapping_flows": [
+          "数据库操作：read",
+          "固定值 '晚上好！' → response.response_body.message"
+        ],
+        "target": {
+          "type": "page",
+          "id": "greeting_display_page",
+          "page_key": "GreetingDisplayPage"
+        },
+        "type": "backend_bootstrap",
+        "source_types": [
+          "database"
+        ]
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:bootstrap"
+      ],
+      "unit_dependencies": [
+        "backend:auth-resources"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:bootstrap::database::bootstrap:file_operation:97ef5bd006df",
+          "kind": "file_operation",
+          "description": "工程文件 backend/pom.xml 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/pom.xml"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:bootstrap::database::bootstrap:file_operation:a068f252119e",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/resources/application.yml 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/resources/application.yml"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:bootstrap::database::bootstrap:file_operation:071e02761fb3",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/resources/application-dev.yml 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/resources/application-dev.yml"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:bootstrap::database::bootstrap:file_operation:887df1b4e81a",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:bootstrap::database::bootstrap:scope_boundary:4a2b2d170ec9",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/pom.xml",
+            "backend/src/main/resources/application.yml",
+            "backend/src/main/resources/application-dev.yml",
+            "backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/pom.xml",
+              "backend/src/main/resources/application.yml",
+              "backend/src/main/resources/application-dev.yml",
+              "backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": [
+        "frontend:api-client::greeting_contract::api-module::1e313d7dbb686dab"
+      ]
+    },
+    "backend:module:greeting_contract::bcc4e92cf3d1685c::foundation": {
+      "id": "backend:module:greeting_contract::bcc4e92cf3d1685c::foundation",
+      "unit_id": "backend:module:greeting_contract",
+      "owner": "backend",
+      "task_type": "backend.code",
+      "title": "模块基础骨架 · 问候模块数据库基础设施骨架",
+      "description": "1. 复用已有 PersonnelPO 作为 personnel 表的持久化对象，保持既有字段与 MyBatis-Plus 表/主键映射不变，不为固定值接口新增列。（backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java）\n2. 复用已有 PersonnelMapper（继承 BaseMapper<PersonnelPO>），保持现有接口声明与注解不变。（backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java）\n3. 复用已有领域仓储接口，保持现有方法签名，不引入 PO、Mapper 或应用层 DTO 依赖。（backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java）\n4. 复用已有 PersonnelPO↔Personnel 转换器，保持既有转换方法与实现不变。（backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java）\n5. 复用已有仓储实现，保持既有注入、方法实现与查询逻辑不变。（backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java）",
+      "dependencies": [
+        "backend:bootstrap::database::bootstrap"
+      ],
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java",
+        "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java"
+      ],
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java",
+        "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java"
+      ],
+      "change_scope": [
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java",
+          "operation": "modify",
+          "description": "复用已有 PersonnelPO 作为 personnel 表的持久化对象，保持既有字段与 MyBatis-Plus 表/主键映射不变，不为固定值接口新增列。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java",
+          "operation": "modify",
+          "description": "复用已有 PersonnelMapper（继承 BaseMapper<PersonnelPO>），保持现有接口声明与注解不变。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+          "operation": "modify",
+          "description": "复用已有领域仓储接口，保持现有方法签名，不引入 PO、Mapper 或应用层 DTO 依赖。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java",
+          "operation": "modify",
+          "description": "复用已有 PersonnelPO↔Personnel 转换器，保持既有转换方法与实现不变。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java",
+          "operation": "modify",
+          "description": "复用已有仓储实现，保持既有注入、方法实现与查询逻辑不变。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:module:greeting_contract::bcc4e92cf3d1685c::foundation::deliverable:1",
+          "kind": "backend.foundation",
+          "target_id": "greeting_contract.getGreeting",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java",
+            "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java"
+          ],
+          "provides": [
+            "backend.foundation:greeting_contract:greeting_contract.getGreeting"
+          ]
+        }
+      ],
+      "impact_scope": {
+        "summary": "模块基础骨架 · 问候模块数据库基础设施骨架",
+        "affected_modules": [
+          "greeting_contract"
+        ],
+        "public_contracts": [],
+        "risks": []
+      },
+      "can_run_in_parallel": true,
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "status": "pending",
+      "source_refs": {
+        "type": "technical_plan_module",
+        "target": {
+          "type": "module",
+          "id": "greeting_contract",
+          "api_contract_id": "greeting_contract"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "greeting_contract.getGreeting",
+            "api_contract_id": "greeting_contract"
+          }
+        ],
+        "endpoint_ids": [
+          "greeting_contract.getGreeting"
+        ],
+        "entity_ids": [],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "46aa44908ebc4d3e91f6a025c0e7bfe5",
+            "apiContractId": "greeting_contract",
+            "endpointId": "greeting_contract.getGreeting",
+            "endpointContract": {
+              "id": "greeting_contract.getGreeting",
+              "name": "获取问候语",
+              "method": "GET",
+              "path": "/greeting",
+              "summary": "获取问候字符串，返回固定字符串「晚上好！」，供问候展示页加载后居中展示。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingResult",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "implementationDescription": "用于问候展示页加载后居中展示问候语。接口返回固定字符串「晚上好！」，不依赖数据库查询条件。",
+            "databaseOperation": "read",
+            "sourceBinding": {
+              "sourceType": "database",
+              "sourceId": "ds-0cafd44bf2b1444f",
+              "schema": "business_db",
+              "table": "personnel"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "问候字符串，页面居中展示该内容"
+                },
+                "mappingType": "value_mapping",
+                "right": {
+                  "kind": "fixed",
+                  "value": "晚上好！"
+                }
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "ds-0cafd44bf2b1444f",
+                "name": "studio",
+                "details": {
+                  "sourceId": "ds-0cafd44bf2b1444f",
+                  "schema": "business_db",
+                  "tables": [],
+                  "table": "personnel",
+                  "columns": []
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "410293c3ed434d02cd7dc22ba7a20ce54239fed4106d05deb127104aa4f2acdf"
+              }
+            ],
+            "confirmedAt": "2026-11-24T15:19:49.227912Z"
+          }
+        ],
+        "mapping_flows": [
+          "数据库操作：read",
+          "固定值 '晚上好！' → response.response_body.message"
+        ],
+        "source_types": [
+          "database"
+        ],
+        "business_descriptions": [
+          {
+            "api_contract_id": "greeting_contract",
+            "endpoint_id": "greeting_contract.getGreeting",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "固定值 '晚上好！'",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ],
+        "backend_stage": "foundation"
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:module:greeting_contract"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap",
+        "backend:auth-resources"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:module:greeting_contract::bcc4e92cf3d1685c::foundation:file_operation:a3dae3eec9e0",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:greeting_contract::bcc4e92cf3d1685c::foundation:file_operation:1b35e00b70af",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:greeting_contract::bcc4e92cf3d1685c::foundation:file_operation:ba1558894050",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:greeting_contract::bcc4e92cf3d1685c::foundation:file_operation:759bbd5fed48",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:greeting_contract::bcc4e92cf3d1685c::foundation:file_operation:c44dfd5db30c",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:greeting_contract::bcc4e92cf3d1685c::foundation:scope_boundary:c348f4543e7b",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java",
+            "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java",
+              "backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java",
+              "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+              "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java",
+              "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:backend:module:greeting_contract::bcc4e92cf3d1685c::foundation:backend.foundation_contract:2297770730c73781",
+          "deliverable_id": "backend:module:greeting_contract::bcc4e92cf3d1685c::foundation::deliverable:1",
+          "kind": "backend.foundation_contract",
+          "description": "模块基础任务必须落实已确认的数据库骨架或外部 API 连接配置。",
+          "sources": [
+            {
+              "artifact": "api_design",
+              "target_id": "greeting_contract.getGreeting",
+              "pointer": "/endpoint_designs/greeting_contract.getGreeting",
+              "sha256": "d7610ca21bd0092a5decc224a4147e9b3766f6f4f0e1d16e006eefed34132d56"
+            }
+          ],
+          "expected": {
+            "source_types": [
+              "database"
+            ],
+            "tables": [
+              {
+                "name": "personnel",
+                "columns": []
+              }
+            ],
+            "config_keys": []
+          },
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java",
+            "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "backend_foundation_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": [
+        "page:greeting_display_page::page"
+      ]
+    },
+    "backend:module:greeting_contract::greeting_contract.getGreeting::business": {
+      "id": "backend:module:greeting_contract::greeting_contract.getGreeting::business",
+      "unit_id": "backend:module:greeting_contract",
+      "owner": "backend",
+      "task_type": "backend.code",
+      "title": "接口业务实现 · 获取问候语业务实现",
+      "description": "1. 字段：message（String，必填，对应响应体 message，问候字符串，页面居中展示）。作为 GET /greeting 的响应 DTO 数据容器，不含业务逻辑。（backend/src/main/java/com/cmbchina/backend/application/dto/GreetingResultDTO.java）\n2. 处理逻辑：提供 getGreeting() 方法，按合同返回固定问候字符串「晚上好！」并封装为 GreetingResultDTO，不依赖数据库查询条件；保留已有 PersonnelApplicationService 不变，本类为问候模块独立应用服务。\n边界约束：不访问 PO、Mapper 或 RepositoryImpl。（backend/src/main/java/com/cmbchina/backend/application/service/GreetingApplicationService.java）\n3. 接口/方法：按合同 databaseOperation=read 但结果由固定值提供，声明问候模块领域仓储接口，仅保留供应用服务依赖的类型边界，不引入 infrastructure 或应用层 DTO 依赖；查询实现细节与数据来源由后续实现决定。\n说明：合同 fieldMappings 为 fixed value_mapping，无需新增数据库查询方法。（backend/src/main/java/com/cmbchina/backend/domain/repository/GreetingRepository.java）\n4. 实现 GreetingRepository，注入已有 PersonnelMapper 以复用 personnel 表来源绑定；本轮无确认的查询/写入条件，方法体不新增查询逻辑，仅保持实现类结构与来源绑定一致。\n边界约束：PO、MyBatis 类型仅限本层使用。（backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/GreetingRepositoryImpl.java）",
+      "dependencies": [
+        "backend:module:greeting_contract::bcc4e92cf3d1685c::foundation",
+        "backend:bootstrap::database::bootstrap"
+      ],
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/application/dto/GreetingResultDTO.java",
+        "backend/src/main/java/com/cmbchina/backend/application/service/GreetingApplicationService.java",
+        "backend/src/main/java/com/cmbchina/backend/domain/repository/GreetingRepository.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/GreetingRepositoryImpl.java"
+      ],
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/application/dto/GreetingResultDTO.java",
+        "backend/src/main/java/com/cmbchina/backend/application/service/GreetingApplicationService.java",
+        "backend/src/main/java/com/cmbchina/backend/domain/repository/GreetingRepository.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/GreetingRepositoryImpl.java"
+      ],
+      "change_scope": [
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/application/dto/GreetingResultDTO.java",
+          "operation": "add",
+          "description": "字段：message（String，必填，对应响应体 message，问候字符串，页面居中展示）。作为 GET /greeting 的响应 DTO 数据容器，不含业务逻辑。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/application/service/GreetingApplicationService.java",
+          "operation": "add",
+          "description": "处理逻辑：提供 getGreeting() 方法，按合同返回固定问候字符串「晚上好！」并封装为 GreetingResultDTO，不依赖数据库查询条件；保留已有 PersonnelApplicationService 不变，本类为问候模块独立应用服务。\n边界约束：不访问 PO、Mapper 或 RepositoryImpl。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/domain/repository/GreetingRepository.java",
+          "operation": "add",
+          "description": "接口/方法：按合同 databaseOperation=read 但结果由固定值提供，声明问候模块领域仓储接口，仅保留供应用服务依赖的类型边界，不引入 infrastructure 或应用层 DTO 依赖；查询实现细节与数据来源由后续实现决定。\n说明：合同 fieldMappings 为 fixed value_mapping，无需新增数据库查询方法。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/GreetingRepositoryImpl.java",
+          "operation": "add",
+          "description": "实现 GreetingRepository，注入已有 PersonnelMapper 以复用 personnel 表来源绑定；本轮无确认的查询/写入条件，方法体不新增查询逻辑，仅保持实现类结构与来源绑定一致。\n边界约束：PO、MyBatis 类型仅限本层使用。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:module:greeting_contract::greeting_contract.getGreeting::business::deliverable:1",
+          "kind": "backend.application_service",
+          "target_id": "greeting_contract.getGreeting",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/application/service/GreetingApplicationService.java"
+          ],
+          "provides": [
+            "backend.application_service:greeting_contract:greeting_contract.getGreeting"
+          ]
+        },
+        {
+          "id": "backend:module:greeting_contract::greeting_contract.getGreeting::business::deliverable:2",
+          "kind": "backend.objects",
+          "target_id": "greeting_contract.getGreeting",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/application/dto/GreetingResultDTO.java"
+          ],
+          "provides": [
+            "backend.endpoint.objects:greeting_contract:greeting_contract.getGreeting"
+          ]
+        },
+        {
+          "id": "backend:module:greeting_contract::greeting_contract.getGreeting::business::deliverable:3",
+          "kind": "backend.repository",
+          "target_id": "greeting_contract.getGreeting",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/domain/repository/GreetingRepository.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/GreetingRepositoryImpl.java"
+          ],
+          "provides": [
+            "backend.repository:greeting_contract:greeting_contract.getGreeting"
+          ]
+        }
+      ],
+      "impact_scope": {
+        "summary": "接口业务实现 · 获取问候语业务实现",
+        "affected_modules": [
+          "greeting_contract"
+        ],
+        "public_contracts": [],
+        "risks": []
+      },
+      "can_run_in_parallel": true,
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "status": "pending",
+      "source_refs": {
+        "type": "technical_plan_module",
+        "target": {
+          "type": "module",
+          "id": "greeting_contract",
+          "api_contract_id": "greeting_contract"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "greeting_contract.getGreeting",
+            "api_contract_id": "greeting_contract"
+          }
+        ],
+        "endpoint_ids": [
+          "greeting_contract.getGreeting"
+        ],
+        "entity_ids": [],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "46aa44908ebc4d3e91f6a025c0e7bfe5",
+            "apiContractId": "greeting_contract",
+            "endpointId": "greeting_contract.getGreeting",
+            "endpointContract": {
+              "id": "greeting_contract.getGreeting",
+              "name": "获取问候语",
+              "method": "GET",
+              "path": "/greeting",
+              "summary": "获取问候字符串，返回固定字符串「晚上好！」，供问候展示页加载后居中展示。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingResult",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "implementationDescription": "用于问候展示页加载后居中展示问候语。接口返回固定字符串「晚上好！」，不依赖数据库查询条件。",
+            "databaseOperation": "read",
+            "sourceBinding": {
+              "sourceType": "database",
+              "sourceId": "ds-0cafd44bf2b1444f",
+              "schema": "business_db",
+              "table": "personnel"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "问候字符串，页面居中展示该内容"
+                },
+                "mappingType": "value_mapping",
+                "right": {
+                  "kind": "fixed",
+                  "value": "晚上好！"
+                }
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "ds-0cafd44bf2b1444f",
+                "name": "studio",
+                "details": {
+                  "sourceId": "ds-0cafd44bf2b1444f",
+                  "schema": "business_db",
+                  "tables": [],
+                  "table": "personnel",
+                  "columns": []
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "410293c3ed434d02cd7dc22ba7a20ce54239fed4106d05deb127104aa4f2acdf"
+              }
+            ],
+            "confirmedAt": "2026-11-24T15:19:49.227912Z"
+          }
+        ],
+        "mapping_flows": [
+          "数据库操作：read",
+          "固定值 '晚上好！' → response.response_body.message"
+        ],
+        "source_types": [
+          "database"
+        ],
+        "business_descriptions": [
+          {
+            "api_contract_id": "greeting_contract",
+            "endpoint_id": "greeting_contract.getGreeting",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "固定值 '晚上好！'",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ],
+        "backend_stage": "business",
+        "foundation_paths": [
+          "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+          "backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java",
+          "backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java",
+          "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java",
+          "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java"
+        ]
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:module:greeting_contract"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap",
+        "backend:auth-resources"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:module:greeting_contract::greeting_contract.getGreeting::business:file_operation:965be29642a3",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/application/dto/GreetingResultDTO.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/application/dto/GreetingResultDTO.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:greeting_contract::greeting_contract.getGreeting::business:file_operation:78d548309832",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/application/service/GreetingApplicationService.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/application/service/GreetingApplicationService.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:greeting_contract::greeting_contract.getGreeting::business:file_operation:afbe73276ab3",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/domain/repository/GreetingRepository.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/domain/repository/GreetingRepository.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:greeting_contract::greeting_contract.getGreeting::business:file_operation:6358ca2337d4",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/GreetingRepositoryImpl.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/GreetingRepositoryImpl.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:greeting_contract::greeting_contract.getGreeting::business:scope_boundary:27dd0b9b96bb",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/application/dto/GreetingResultDTO.java",
+            "backend/src/main/java/com/cmbchina/backend/application/service/GreetingApplicationService.java",
+            "backend/src/main/java/com/cmbchina/backend/domain/repository/GreetingRepository.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/GreetingRepositoryImpl.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/src/main/java/com/cmbchina/backend/application/dto/GreetingResultDTO.java",
+              "backend/src/main/java/com/cmbchina/backend/application/service/GreetingApplicationService.java",
+              "backend/src/main/java/com/cmbchina/backend/domain/repository/GreetingRepository.java",
+              "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/GreetingRepositoryImpl.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:backend:module:greeting_contract::greeting_contract.getGreeting::business:backend.application_service_contract:ccdeaa1223542e62",
+          "deliverable_id": "backend:module:greeting_contract::greeting_contract.getGreeting::business::deliverable:1",
+          "kind": "backend.application_service_contract",
+          "description": "ApplicationService 必须执行已确认 operation 语义和 Request 业务处理，并在需要时委托 Repository。",
+          "sources": [
+            {
+              "artifact": "api_design",
+              "target_id": "greeting_contract.getGreeting",
+              "pointer": "/endpoint_designs/greeting_contract.getGreeting",
+              "sha256": "d7610ca21bd0092a5decc224a4147e9b3766f6f4f0e1d16e006eefed34132d56"
+            },
+            {
+              "artifact": "api_contract",
+              "target_id": "greeting_contract.getGreeting",
+              "pointer": "/api_contracts/greeting_contract/endpoints/greeting_contract.getGreeting",
+              "sha256": "a97de8f2c6174da2601551c8740c8caace4ed5d8d68bb027fc24db579255c9b0"
+            }
+          ],
+          "expected": {
+            "operations": [
+              {
+                "api_contract_id": "greeting_contract",
+                "endpoint_id": "greeting_contract.getGreeting",
+                "operation_kind": "read",
+                "target_cardinality": "object",
+                "selector": {
+                  "source": "endpoint_api_design",
+                  "query": null
+                },
+                "transaction_required": false,
+                "database_writes": [],
+                "external_api_bindings": [],
+                "zero_match_behavior": "confirmed_processing_logic",
+                "multiple_match_behavior": "confirmed_processing_logic",
+                "success_status_code": null,
+                "side_effect": "none",
+                "processing_logic": [
+                  "固定值 '晚上好！'"
+                ],
+                "requires_repository": false
+              }
+            ],
+            "endpoints": [
+              {
+                "api_contract_id": "greeting_contract",
+                "endpoint_id": "greeting_contract.getGreeting",
+                "method": "GET",
+                "path": "/greeting",
+                "request_schema_ref": "",
+                "response_schema_ref": "GreetingResult",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ],
+            "business_descriptions": [
+              {
+                "api_contract_id": "greeting_contract",
+                "endpoint_id": "greeting_contract.getGreeting",
+                "path": "message",
+                "location": "response_body",
+                "side": "response",
+                "description": "固定值 '晚上好！'",
+                "processing_type": null,
+                "source_fields": []
+              }
+            ]
+          },
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/application/service/GreetingApplicationService.java"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "backend_application_service_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": []
+    },
+    "backend:module:greeting_contract::3dd0fc50055c0ecd::controller": {
+      "id": "backend:module:greeting_contract::3dd0fc50055c0ecd::controller",
+      "unit_id": "backend:module:greeting_contract",
+      "owner": "backend",
+      "task_type": "backend.code",
+      "title": "模块 Controller · 问候语查询接口 Controller",
+      "description": "1. 路由：GET /greeting，无路径参数与请求体。处理逻辑：绑定后委派 GreetingApplicationService.getGreeting()，将返回 DTO 的 message 放入统一响应包装 ResponseEntity 返回。\n边界约束：合同 authentication.required=false 且无 operationResourceKeys，不加鉴权注解或权限校验；不包含业务算法。（backend/src/main/java/com/cmbchina/backend/adapter/web/GreetingController.java）",
+      "dependencies": [
+        "backend:module:greeting_contract::greeting_contract.getGreeting::business",
+        "backend:bootstrap::database::bootstrap"
+      ],
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/adapter/web/GreetingController.java"
+      ],
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/adapter/web/GreetingController.java"
+      ],
+      "change_scope": [
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/adapter/web/GreetingController.java",
+          "operation": "add",
+          "description": "路由：GET /greeting，无路径参数与请求体。处理逻辑：绑定后委派 GreetingApplicationService.getGreeting()，将返回 DTO 的 message 放入统一响应包装 ResponseEntity 返回。\n边界约束：合同 authentication.required=false 且无 operationResourceKeys，不加鉴权注解或权限校验；不包含业务算法。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:module:greeting_contract::3dd0fc50055c0ecd::controller::deliverable:1",
+          "kind": "backend.endpoint_controller",
+          "target_id": "greeting_contract.getGreeting",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/adapter/web/GreetingController.java"
+          ],
+          "provides": [
+            "backend.endpoint_controller:greeting_contract:greeting_contract.getGreeting"
+          ]
+        }
+      ],
+      "impact_scope": {
+        "summary": "模块 Controller · 问候语查询接口 Controller",
+        "affected_modules": [
+          "greeting_contract"
+        ],
+        "public_contracts": [
+          "greeting_contract.getGreeting"
+        ],
+        "risks": []
+      },
+      "can_run_in_parallel": false,
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "status": "pending",
+      "source_refs": {
+        "type": "technical_plan_module",
+        "target": {
+          "type": "module",
+          "id": "greeting_contract",
+          "api_contract_id": "greeting_contract"
+        },
+        "technical_plan_endpoints": [
+          {
+            "id": "greeting_contract.getGreeting",
+            "api_contract_id": "greeting_contract"
+          }
+        ],
+        "endpoint_ids": [
+          "greeting_contract.getGreeting"
+        ],
+        "entity_ids": [],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "46aa44908ebc4d3e91f6a025c0e7bfe5",
+            "apiContractId": "greeting_contract",
+            "endpointId": "greeting_contract.getGreeting",
+            "endpointContract": {
+              "id": "greeting_contract.getGreeting",
+              "name": "获取问候语",
+              "method": "GET",
+              "path": "/greeting",
+              "summary": "获取问候字符串，返回固定字符串「晚上好！」，供问候展示页加载后居中展示。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingResult",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "implementationDescription": "用于问候展示页加载后居中展示问候语。接口返回固定字符串「晚上好！」，不依赖数据库查询条件。",
+            "databaseOperation": "read",
+            "sourceBinding": {
+              "sourceType": "database",
+              "sourceId": "ds-0cafd44bf2b1444f",
+              "schema": "business_db",
+              "table": "personnel"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "问候字符串，页面居中展示该内容"
+                },
+                "mappingType": "value_mapping",
+                "right": {
+                  "kind": "fixed",
+                  "value": "晚上好！"
+                }
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "ds-0cafd44bf2b1444f",
+                "name": "studio",
+                "details": {
+                  "sourceId": "ds-0cafd44bf2b1444f",
+                  "schema": "business_db",
+                  "tables": [],
+                  "table": "personnel",
+                  "columns": []
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "410293c3ed434d02cd7dc22ba7a20ce54239fed4106d05deb127104aa4f2acdf"
+              }
+            ],
+            "confirmedAt": "2026-11-24T15:19:49.227912Z"
+          }
+        ],
+        "mapping_flows": [
+          "数据库操作：read",
+          "固定值 '晚上好！' → response.response_body.message"
+        ],
+        "source_types": [
+          "database"
+        ],
+        "business_descriptions": [
+          {
+            "api_contract_id": "greeting_contract",
+            "endpoint_id": "greeting_contract.getGreeting",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "固定值 '晚上好！'",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ],
+        "backend_stage": "controller"
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:module:greeting_contract"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap",
+        "backend:auth-resources"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:module:greeting_contract::3dd0fc50055c0ecd::controller:file_operation:bb08413f2e1e",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/adapter/web/GreetingController.java 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/adapter/web/GreetingController.java"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:greeting_contract::3dd0fc50055c0ecd::controller:scope_boundary:24a9db8570ca",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/adapter/web/GreetingController.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/src/main/java/com/cmbchina/backend/adapter/web/GreetingController.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:backend:module:greeting_contract::3dd0fc50055c0ecd::controller:backend.endpoint_contract:857643cd50a1e71c",
+          "deliverable_id": "backend:module:greeting_contract::3dd0fc50055c0ecd::controller::deliverable:1",
+          "kind": "backend.endpoint_contract",
+          "description": "Controller 必须按 API Contract 暴露 method/path、绑定 DTO、返回约定状态码并委托 ApplicationService。",
+          "sources": [
+            {
+              "artifact": "api_contract",
+              "target_id": "greeting_contract.getGreeting",
+              "pointer": "/api_contracts/greeting_contract/endpoints/greeting_contract.getGreeting",
+              "sha256": "a97de8f2c6174da2601551c8740c8caace4ed5d8d68bb027fc24db579255c9b0"
+            },
+            {
+              "artifact": "api_design",
+              "target_id": "greeting_contract.getGreeting",
+              "pointer": "/endpoint_designs/greeting_contract.getGreeting",
+              "sha256": "d7610ca21bd0092a5decc224a4147e9b3766f6f4f0e1d16e006eefed34132d56"
+            }
+          ],
+          "expected": {
+            "endpoints": [
+              {
+                "api_contract_id": "greeting_contract",
+                "endpoint_id": "greeting_contract.getGreeting",
+                "method": "GET",
+                "path": "/greeting",
+                "request_schema_ref": "",
+                "response_schema_ref": "GreetingResult",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ],
+            "operations": [
+              {
+                "api_contract_id": "greeting_contract",
+                "endpoint_id": "greeting_contract.getGreeting",
+                "operation_kind": "read",
+                "target_cardinality": "object",
+                "selector": {
+                  "source": "endpoint_api_design",
+                  "query": null
+                },
+                "transaction_required": false,
+                "database_writes": [],
+                "external_api_bindings": [],
+                "zero_match_behavior": "confirmed_processing_logic",
+                "multiple_match_behavior": "confirmed_processing_logic",
+                "success_status_code": null,
+                "side_effect": "none",
+                "processing_logic": [
+                  "固定值 '晚上好！'"
+                ],
+                "requires_repository": false
+              }
+            ],
+            "business_descriptions": [
+              {
+                "api_contract_id": "greeting_contract",
+                "endpoint_id": "greeting_contract.getGreeting",
+                "path": "message",
+                "location": "response_body",
+                "side": "response",
+                "description": "固定值 '晚上好！'",
+                "processing_type": null,
+                "source_fields": []
+              }
+            ]
+          },
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/adapter/web/GreetingController.java"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "backend_endpoint_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": []
+    },
+    "frontend:api-client::greeting_contract::api-module::1e313d7dbb686dab": {
+      "id": "frontend:api-client::greeting_contract::api-module::1e313d7dbb686dab",
+      "unit_id": "frontend:api-client",
+      "owner": "frontend",
+      "task_type": "frontend.code",
+      "status": "pending",
+      "title": "实现问候语接口前端访问模块",
+      "description": "新建 frontend/src/apis/greetingContractApi.ts，复用平台提供的 frontend/src/apis/service.ts 发起 HTTP 请求，实现正式接口 greeting_contract.getGreeting 的业务访问职责：以 GET 方法请求路径 /greeting，无请求参数，定义 GreetingResult（含必填 string 字段 message）响应类型，并导出异步函数 getGreeting 返回该类型结果。不涉及页面、路由、静态数据或后端实现。",
+      "dependencies": [],
+      "target_files": [
+        "frontend/src/apis/greetingContractApi.ts"
+      ],
+      "allowed_paths": [
+        "frontend/src/apis/greetingContractApi.ts"
+      ],
+      "change_scope": [
+        {
+          "path": "frontend/src/apis/greetingContractApi.ts",
+          "operation": "add",
+          "description": "新增问候语接口访问模块，导出 getGreeting 异步函数，GET /greeting，返回 GreetingResult 类型（message: string）"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "frontend:api-client::greeting_contract::greeting_contract.getGreeting::api-module::1e313d7dbb686dab::deliverable",
+          "kind": "frontend.api_module",
+          "target_id": "greeting_contract.getGreeting",
+          "paths": [
+            "frontend/src/apis/greetingContractApi.ts"
+          ],
+          "provides": [
+            "frontend.api_module:greeting_contract:greeting_contract.getGreeting"
+          ]
+        }
+      ],
+      "impact_scope": {
+        "summary": "新增问候语前端 API 模块，供问候展示页调用获取问候语字符串",
+        "affected_modules": [
+          "frontend/src/apis"
+        ],
+        "public_contracts": [
+          "greeting_contract.getGreeting"
+        ],
+        "risks": []
+      },
+      "can_run_in_parallel": false,
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "frontend:api-client"
+      ],
+      "unit_dependencies": [],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:frontend:api-client::greeting_contract::api-module::1e313d7dbb686dab:file_operation:fdc5515d6e5b",
+          "kind": "file_operation",
+          "description": "工程文件 frontend/src/apis/greetingContractApi.ts 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/apis/greetingContractApi.ts"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:frontend:api-client::greeting_contract::api-module::1e313d7dbb686dab:scope_boundary:e2c2bd0106c3",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/apis/greetingContractApi.ts"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "frontend/src/apis/greetingContractApi.ts"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:frontend:api-client::greeting_contract::api-module::1e313d7dbb686dab:frontend.api_contract:235579f9f48c0d75",
+          "deliverable_id": "frontend:api-client::greeting_contract::greeting_contract.getGreeting::api-module::1e313d7dbb686dab::deliverable",
+          "kind": "frontend.api_contract",
+          "description": "前端业务 API 模块必须实现已确认的 method、path、请求参数和响应结构。",
+          "sources": [
+            {
+              "artifact": "api_contract",
+              "target_id": "greeting_contract.getGreeting",
+              "pointer": "/api_contracts/greeting_contract/endpoints/greeting_contract.getGreeting",
+              "sha256": "a97de8f2c6174da2601551c8740c8caace4ed5d8d68bb027fc24db579255c9b0"
+            }
+          ],
+          "expected": {
+            "endpoints": [
+              {
+                "api_contract_id": "greeting_contract",
+                "endpoint_id": "greeting_contract.getGreeting",
+                "method": "GET",
+                "path": "/greeting",
+                "request_schema_ref": "",
+                "response_schema_ref": "GreetingResult",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ],
+            "required_endpoints": [
+              {
+                "api_contract_id": "greeting_contract",
+                "endpoint_id": "greeting_contract.getGreeting",
+                "method": "GET",
+                "path": "/greeting",
+                "request_schema_ref": "",
+                "response_schema_ref": "GreetingResult",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ],
+            "allowed_existing_endpoints": []
+          },
+          "target_paths": [
+            "frontend/src/apis/greetingContractApi.ts"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "frontend_api_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": [
+        "backend:bootstrap::database::bootstrap"
+      ]
+    },
+    "page:greeting_display_page::page": {
+      "id": "page:greeting_display_page::page",
+      "unit_id": "page:greeting_display_page",
+      "owner": "frontend",
+      "task_type": "frontend.code",
+      "status": "pending",
+      "title": "实现问候展示页 greeting_display_page",
+      "description": "在 frontend/src/pages/GreetingDisplayPage/index.tsx 实现问候展示页。页面加载时自动调用 greeting_contract.getGreeting（GET /greeting）获取问候字符串，请求进行中展示加载提示，失败时展示异常提示，成功后以居中文本展示接口返回的 message 内容（固定「晚上好！」）。页面不含任何增删改查入口，不做登录认证与权限控制，不涉及页面跳转与导航注册。",
+      "target_files": [
+        "frontend/src/pages/GreetingDisplayPage/index.tsx"
+      ],
+      "allowed_paths": [
+        "frontend/src/pages/GreetingDisplayPage/index.tsx"
+      ],
+      "change_scope": [
+        {
+          "operation": "add",
+          "path": "frontend/src/pages/GreetingDisplayPage/index.tsx",
+          "description": "新增问候展示页组件：初始加载调用问候接口，居中展示返回字符串，含加载中与异常提示状态"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "page:greeting_display_page::page::deliverable",
+          "kind": "frontend.page",
+          "target_id": "greeting_display_page",
+          "paths": [
+            "frontend/src/pages/GreetingDisplayPage/index.tsx"
+          ],
+          "provides": [
+            "frontend.page:greeting_display_page"
+          ]
+        }
+      ],
+      "dependencies": [
+        "frontend:api-client::greeting_contract::api-module::1e313d7dbb686dab"
+      ],
+      "can_run_in_parallel": false,
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "impact_scope": {
+        "affected_modules": [
+          "frontend/src/pages/GreetingDisplayPage"
+        ],
+        "public_contracts": [
+          "frontend.page:greeting_display_page"
+        ],
+        "risks": [
+          "接口异常分支需保证异常提示可见",
+          "需确保展示内容与接口返回完全一致"
+        ],
+        "summary": "新增问候展示页，消费问候接口并展示居中问候文本"
+      },
+      "source_refs": {
+        "type": "page_implementation_contract",
+        "target": {
+          "type": "page",
+          "id": "greeting_display_page",
+          "page_key": "GreetingDisplayPage"
+        },
+        "page_implementation_contract": {
+          "id": "greeting_display_page"
+        },
+        "endpoint_ids": [
+          "greeting_contract.getGreeting"
+        ],
+        "entity_ids": [],
+        "endpoint_designs": [
+          {
+            "schemaVersion": "endpoint-field-mapping.v7",
+            "artifactType": "endpoint-field-mapping",
+            "status": "confirmed",
+            "confirmationStatus": "confirmed",
+            "artifactRevision": "46aa44908ebc4d3e91f6a025c0e7bfe5",
+            "apiContractId": "greeting_contract",
+            "endpointId": "greeting_contract.getGreeting",
+            "endpointContract": {
+              "id": "greeting_contract.getGreeting",
+              "name": "获取问候语",
+              "method": "GET",
+              "path": "/greeting",
+              "summary": "获取问候字符串，返回固定字符串「晚上好！」，供问候展示页加载后居中展示。",
+              "parameters": [],
+              "request_schema_ref": null,
+              "response_schema_ref": "GreetingResult",
+              "error_codes": [],
+              "authentication": {
+                "required": false
+              }
+            },
+            "implementationDescription": "用于问候展示页加载后居中展示问候语。接口返回固定字符串「晚上好！」，不依赖数据库查询条件。",
+            "databaseOperation": "read",
+            "sourceBinding": {
+              "sourceType": "database",
+              "sourceId": "ds-0cafd44bf2b1444f",
+              "schema": "business_db",
+              "table": "personnel"
+            },
+            "fieldMappings": [
+              {
+                "endpointField": {
+                  "side": "response",
+                  "location": "response_body",
+                  "path": "message",
+                  "type": "string",
+                  "required": true,
+                  "description": "问候字符串，页面居中展示该内容"
+                },
+                "mappingType": "value_mapping",
+                "right": {
+                  "kind": "fixed",
+                  "value": "晚上好！"
+                }
+              }
+            ],
+            "databaseWrites": [],
+            "externalApiBindings": [],
+            "sourceSnapshots": [
+              {
+                "sourceType": "database",
+                "sourceId": "ds-0cafd44bf2b1444f",
+                "name": "studio",
+                "details": {
+                  "sourceId": "ds-0cafd44bf2b1444f",
+                  "schema": "business_db",
+                  "tables": [],
+                  "table": "personnel",
+                  "columns": []
+                }
+              }
+            ],
+            "basedOn": [
+              {
+                "artifactKey": "technical-plan",
+                "sha256": "410293c3ed434d02cd7dc22ba7a20ce54239fed4106d05deb127104aa4f2acdf"
+              }
+            ],
+            "confirmedAt": "2026-11-24T15:19:49.227912Z"
+          }
+        ],
+        "mapping_flows": [
+          "数据库操作：read",
+          "固定值 '晚上好！' → response.response_body.message"
+        ],
+        "source_types": [
+          "database"
+        ],
+        "business_descriptions": [
+          {
+            "api_contract_id": "greeting_contract",
+            "endpoint_id": "greeting_contract.getGreeting",
+            "path": "message",
+            "side": "response",
+            "location": "response_body",
+            "type": "string",
+            "required": true,
+            "description": "固定值 '晚上好！'",
+            "processing_type": "",
+            "source_fields": []
+          }
+        ],
+        "page_input_sha256": "d38714b6c79ecb17ed9ecbf95b696bd788d2117326f8dbc92603673da79b14cf"
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "page:greeting_display_page"
+      ],
+      "unit_dependencies": [
+        "frontend:shell",
+        "frontend:api-client",
+        "backend:module:greeting_contract"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:page:greeting_display_page::page:file_operation:3987d424cb32",
+          "kind": "file_operation",
+          "description": "工程文件 frontend/src/pages/GreetingDisplayPage/index.tsx 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/GreetingDisplayPage/index.tsx"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:greeting_display_page::page:scope_boundary:74289882c01c",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/GreetingDisplayPage/index.tsx"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "frontend/src/pages/GreetingDisplayPage/index.tsx"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:greeting_display_page::page:page_entry:6d7469a54c0c",
+          "kind": "page_entry",
+          "description": "页面交付物必须包含可读取的 index.tsx 页面入口。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/GreetingDisplayPage/index.tsx"
+          ],
+          "expected": {
+            "page_id": "greeting_display_page",
+            "entry_path": "frontend/src/pages/GreetingDisplayPage/index.tsx"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:greeting_display_page::page:page_default_export:2df4ef1f91e9",
+          "kind": "page_default_export",
+          "description": "页面入口必须提供 default export，确保路由可以加载页面组件。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/GreetingDisplayPage/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/GreetingDisplayPage/index.tsx",
+            "requires_default_export": true
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:greeting_display_page::page:page_placeholder:9b1c6db48ef2",
+          "kind": "page_placeholder",
+          "description": "页面入口不得保留模板占位内容。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/GreetingDisplayPage/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/GreetingDisplayPage/index.tsx",
+            "forbidden_markers": [
+              "hello agent!",
+              "待 Agent 生成真实内容",
+              "待agent生成真实内容",
+              "临时占位",
+              "placeholder content"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:greeting_display_page::page:frontend_api_boundary:04e8f57ccfce",
+          "kind": "frontend_api_boundary",
+          "description": "页面及任务内组件经业务模块消费 API，查询由 useRequest 管理，UI request 属性不执行请求。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/GreetingDisplayPage/index.tsx"
+          ],
+          "expected": {},
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:page:greeting_display_page::page:frontend.page_endpoint_usage:a8eb33f8e0f5aaaf",
+          "deliverable_id": "page:greeting_display_page::page::deliverable",
+          "kind": "frontend.page_endpoint_usage",
+          "description": "页面或其任务内可达组件必须实际调用 PageImplementationContract 声明的业务接口。",
+          "sources": [
+            {
+              "artifact": "page_implementation_contract",
+              "target_id": "greeting_display_page",
+              "pointer": "/page_implementation_contracts/greeting_display_page",
+              "sha256": "7e327652ed96ccd7766368afdef0a03ad8fe827a893197e91d6fc675a7cd1e71"
+            },
+            {
+              "artifact": "api_contract",
+              "target_id": "greeting_contract.getGreeting",
+              "pointer": "/api_contracts/greeting_contract/endpoints/greeting_contract.getGreeting",
+              "sha256": "a97de8f2c6174da2601551c8740c8caace4ed5d8d68bb027fc24db579255c9b0"
+            }
+          ],
+          "expected": {
+            "page_id": "greeting_display_page",
+            "required_endpoint_ids": [
+              "greeting_contract.getGreeting"
+            ],
+            "endpoints": [
+              {
+                "api_contract_id": "greeting_contract",
+                "endpoint_id": "greeting_contract.getGreeting",
+                "method": "GET",
+                "path": "/greeting",
+                "request_schema_ref": "",
+                "response_schema_ref": "GreetingResult",
+                "parameters": [],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [
+                    "message"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "target_paths": [
+            "frontend/src/pages/GreetingDisplayPage/index.tsx"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "frontend_page_endpoint_usage"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": [
+        "backend:module:greeting_contract::bcc4e92cf3d1685c::foundation"
+      ]
+    }
+  },
+  "task_graph": {
+    "schema_version": "build-task-graph.v3",
+    "nodes": [
+      "backend:bootstrap::database::bootstrap",
+      "backend:module:greeting_contract::bcc4e92cf3d1685c::foundation",
+      "backend:module:greeting_contract::greeting_contract.getGreeting::business",
+      "backend:module:greeting_contract::3dd0fc50055c0ecd::controller",
+      "frontend:api-client::greeting_contract::api-module::1e313d7dbb686dab",
+      "page:greeting_display_page::page"
+    ],
+    "edges": [
+      {
+        "from": "backend:bootstrap::database::bootstrap",
+        "to": "backend:module:greeting_contract::bcc4e92cf3d1685c::foundation",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_contract::bcc4e92cf3d1685c::foundation",
+        "to": "backend:module:greeting_contract::greeting_contract.getGreeting::business",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:bootstrap::database::bootstrap",
+        "to": "backend:module:greeting_contract::greeting_contract.getGreeting::business",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_contract::greeting_contract.getGreeting::business",
+        "to": "backend:module:greeting_contract::3dd0fc50055c0ecd::controller",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:bootstrap::database::bootstrap",
+        "to": "backend:module:greeting_contract::3dd0fc50055c0ecd::controller",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client::greeting_contract::api-module::1e313d7dbb686dab",
+        "to": "page:greeting_display_page::page",
+        "type": "depends_on"
+      }
+    ],
+    "roots": [
+      "backend:bootstrap::database::bootstrap",
+      "frontend:api-client::greeting_contract::api-module::1e313d7dbb686dab"
+    ],
+    "leaves": [
+      "backend:module:greeting_contract::3dd0fc50055c0ecd::controller",
+      "page:greeting_display_page::page"
+    ],
+    "topological_order": [
+      "backend:bootstrap::database::bootstrap",
+      "backend:module:greeting_contract::bcc4e92cf3d1685c::foundation",
+      "backend:module:greeting_contract::greeting_contract.getGreeting::business",
+      "backend:module:greeting_contract::3dd0fc50055c0ecd::controller",
+      "frontend:api-client::greeting_contract::api-module::1e313d7dbb686dab",
+      "page:greeting_display_page::page"
+    ],
+    "execution_layers": [
+      {
+        "index": 1,
+        "mode": "parallel",
+        "tasks": [
+          "backend:bootstrap::database::bootstrap",
+          "frontend:api-client::greeting_contract::api-module::1e313d7dbb686dab"
+        ],
+        "reason": "这些任务依赖已满足，且 target_files 互斥，可由受限 subagent 并行推进。"
+      },
+      {
+        "index": 2,
+        "mode": "parallel",
+        "tasks": [
+          "backend:module:greeting_contract::bcc4e92cf3d1685c::foundation",
+          "page:greeting_display_page::page"
+        ],
+        "reason": "这些任务依赖已满足，且 target_files 互斥，可由受限 subagent 并行推进。"
+      },
+      {
+        "index": 3,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:greeting_contract::greeting_contract.getGreeting::business"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 4,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:greeting_contract::3dd0fc50055c0ecd::controller"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "summary": {
+    "total": 6,
+    "frontend": 2,
+    "backend": 4,
+    "database": 0,
+    "pending": 6,
+    "running": 0,
+    "completed": 0,
+    "already_satisfied": 0,
+    "failed": 0,
+    "results": 2
+  },
+  "execution": {
+    "batches": [
+      {
+        "index": 1,
+        "mode": "parallel",
+        "tasks": [
+          "backend:bootstrap::database::bootstrap",
+          "frontend:api-client::greeting_contract::api-module::1e313d7dbb686dab"
+        ],
+        "reason": "这些任务依赖已满足，且 target_files 互斥，可由受限 subagent 并行推进。"
+      },
+      {
+        "index": 2,
+        "mode": "parallel",
+        "tasks": [
+          "backend:module:greeting_contract::bcc4e92cf3d1685c::foundation",
+          "page:greeting_display_page::page"
+        ],
+        "reason": "这些任务依赖已满足，且 target_files 互斥，可由受限 subagent 并行推进。"
+      },
+      {
+        "index": 3,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:greeting_contract::greeting_contract.getGreeting::business"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 4,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:greeting_contract::3dd0fc50055c0ecd::controller"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "blocked_batches": []
+  },
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "greeting_display_page"
+  },
+  "template_context": {
+    "state_path": ".devagentstudio/template-state.json",
+    "template_revision": "2026.10.19.1",
+    "effective_capabilities": {}
+  },
+  "status": "ready",
+  "confirmation_status": "confirmed",
+  "confirmed_at": "2026-11-24T15:20:13.665692+00:00",
+  "confirmed_from": {
+    "planning_run_id": "planning-ebd31e0b0507407a8d2f459dd4466653",
+    "draft_digest": "1f696373e7b0067ef0258fe8d7457abd10988335f98594acd4bb706eb003ca6f"
+  }
+}
