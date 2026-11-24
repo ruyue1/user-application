@@ -1,0 +1,55 @@
+{
+  "schema_version": "ui-manifest.v3",
+  "confirmation_status": "confirmed",
+  "product_plan_sha256": "6059c5ac71c80aaf003d3c8333003077fe5bfe94868e297516477317a761dbd7",
+  "pages": [
+    {
+      "pageId": "personnel_detail_list",
+      "page_key": "PersonnelDetailList",
+      "preview_path": "/page/personnel-detail-list",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [
+          {
+            "actionId": "change_page",
+            "controlIds": []
+          }
+        ],
+        "information_items": [
+          {
+            "informationItemId": "personnel_basic_details",
+            "controlIds": []
+          },
+          {
+            "informationItemId": "pagination_position",
+            "controlIds": []
+          },
+          {
+            "informationItemId": "read_only_notice",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    }
+  ]
+}

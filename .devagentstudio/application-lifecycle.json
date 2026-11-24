@@ -1,0 +1,70 @@
+{
+  "application": {
+    "id": "1795511149523-65a8b1",
+    "name": "人员明细"
+  },
+  "updatedAt": "2026-11-24T09:17:25.151472Z",
+  "revision": 35,
+  "developmentArtifacts": {
+    "pages": {
+      "personnel_detail_list": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "lastCompletedRunId": null,
+        "lastCompletedThreadId": null,
+        "changeStatus": "changed",
+        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "checkedChangeId": null
+      }
+    },
+    "entities": {
+      "personnel_detail": {
+        "initialDevelopmentStatus": "pending",
+        "skippedAt": null,
+        "skipReason": null,
+        "completedBranchName": null
+      }
+    },
+    "endpoints": {
+      "personnel_detail_contract": {
+        "personnel_detail_contract.listPersonnelDetails": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "lastCompletedRunId": null,
+          "lastCompletedThreadId": null,
+          "changeStatus": "changed",
+          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "checkedChangeId": null
+        }
+      }
+    },
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "58c914ac-3b38-4c76-997f-c9bb8dd12fd1",
+    "iterationId": "9c4d6712-83a6-4739-9bee-673c9017e6ca"
+  },
+  "activeRunId": "ff07e7a1-a9a2-49b8-b5c4-f865ebd8f5fc",
+  "activeExecutions": {},
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}
