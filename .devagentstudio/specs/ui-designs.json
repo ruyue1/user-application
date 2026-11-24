@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "2ca8ee35cbe91e1687b9f4b98deb37f574cd9f49c7fa6e226a487efb8c879d40",
+  "product_plan_sha256": "22df274a973d924e12385fb5b41f49f8d4700d134462138c0284ee6af4e0d05e",
   "pages": [
     {
       "pageId": "personnel_detail_list",
@@ -56,7 +56,7 @@
       "page_key": "GreetingDisplayPage",
       "preview_path": "/page/greeting-display-page",
       "code_path": "",
-      "status": "pending",
+      "status": "deleted",
       "bindings": {
         "actions": [
           {

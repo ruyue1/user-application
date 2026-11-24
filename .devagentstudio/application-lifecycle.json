@@ -3,8 +3,8 @@
     "id": "1795511149523-65a8b1",
     "name": "人员明细"
   },
-  "updatedAt": "2026-11-24T15:24:42.767797Z",
-  "revision": 92,
+  "updatedAt": "2026-11-24T16:00:53.281299Z",
+  "revision": 9,
   "developmentArtifacts": {
     "pages": {
       "personnel_detail_list": {
@@ -32,14 +32,7 @@
         "checkedChangeId": null
       }
     },
-    "entities": {
-      "personnel_detail": {
-        "initialDevelopmentStatus": "pending",
-        "skippedAt": null,
-        "skipReason": null,
-        "completedBranchName": null
-      }
-    },
+    "entities": {},
     "endpoints": {
       "personnel_detail_contract": {
         "personnel_detail_contract.listPersonnelDetails": {
@@ -70,18 +63,16 @@
         }
       }
     },
-    "catalogError": null,
-    "outOfScope": [
-      "endpoint:personnel_detail_contract:personnel_detail_contract.listPersonnelDetails"
-    ]
+    "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/112406/.devagentstudio/plans/technical-plan.json'",
+    "outOfScope": []
   },
   "initialization": {
-    "stage": "ready_for_workbench",
-    "status": "completed",
-    "threadId": "6c742639-5609-4154-9564-bce3d6a85615",
-    "iterationId": "ea7ce68a-a0c5-4f3d-b970-b1eb609265ff"
+    "stage": "awaiting_planning_stage_entry",
+    "status": "awaiting_user",
+    "threadId": "2294b86e-d0bd-4506-88f8-ae4b628bd03e",
+    "iterationId": "2294b86e-d0bd-4506-88f8-ae4b628bd03e"
   },
-  "activeRunId": null,
+  "activeRunId": "5ce35b09-089b-4f76-a27a-14552b183166",
   "activeExecutions": {},
   "developmentContinuations": {},
   "resourceLocks": {
@@ -94,15 +85,5 @@
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {
-    "testExecutionStatus": "passed",
-    "reviewStatus": "passed",
-    "acceptanceStatus": "passed",
-    "redevelopedChangedTargets": [
-      "endpoint:greeting_contract:greeting_contract.getGreeting",
-      "endpoint:personnel_detail_contract:personnel_detail_contract.listPersonnelDetails",
-      "page:greeting_display_page",
-      "page:personnel_detail_list"
-    ]
-  }
+  "extensions": {}
 }
