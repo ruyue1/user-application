@@ -1,0 +1,40 @@
+{
+  "version": "0.1.0",
+  "status": "terminal_failure",
+  "generated_at": "2026-11-24T12:25:44.587808+00:00",
+  "source": "build_scheduler",
+  "decision": "terminal_failure",
+  "planId": "2252b1a3e709fc67",
+  "requestedPaths": [],
+  "requestedResources": [],
+  "tasks": [],
+  "repair_tasks": [],
+  "requires_user_confirmation": [],
+  "terminal_failures": [],
+  "reason": "",
+  "skipped": [
+    {
+      "task_id": "frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011",
+      "reason": "repair_already_exists"
+    },
+    {
+      "task_id": "repair:frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011:acceptance_v",
+      "reason": "repair_depth_exhausted"
+    }
+  ],
+  "planner_inputs": [],
+  "planner_outputs": [],
+  "summary": {
+    "total": 0,
+    "frontend": 0,
+    "backend": 0,
+    "database": 0,
+    "requires_user_confirmation": 0,
+    "terminal_failure": 0
+  },
+  "prepared_by": {
+    "agent": "build-repair-planner",
+    "mode": "deep_agent_constrained",
+    "source": "build_scheduler_failure_classification"
+  }
+}

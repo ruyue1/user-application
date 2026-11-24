@@ -1,8 +1,7 @@
 package com.cmbchina.backend.adapter.web;
 
-import com.cmbchina.backend.application.dto.PersonnelDetailItemDTO;
+import com.cmbchina.backend.application.dto.PersonnelDetailPageDTO;
 import com.cmbchina.backend.application.service.PersonnelApplicationService;
-import com.cmbchina.backend.common.page.PageResult;
 import com.cmbchina.backend.common.response.ResponseEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +31,7 @@ public class PersonnelController {
      * @return 人员明细分页结果
      */
     @GetMapping
-    public ResponseEntity<PageResult<PersonnelDetailItemDTO>> listPersonnelDetails(
+    public ResponseEntity<PersonnelDetailPageDTO> listPersonnelDetails(
             @RequestParam(value = "current", required = false, defaultValue = DEFAULT_CURRENT) Integer current,
             @RequestParam(value = "pageSize", required = false, defaultValue = DEFAULT_PAGE_SIZE) Integer pageSize) {
         return ResponseEntity.success(

@@ -3,7 +3,7 @@
   "artifactType": "endpoint-field-mapping",
   "status": "confirmed",
   "confirmationStatus": "confirmed",
-  "artifactRevision": "da09f168fa22481999bc22fdf51d9a0d",
+  "artifactRevision": "2e8baf84a7494f638c74573c3580d039",
   "apiContractId": "personnel_detail_contract",
   "endpointId": "personnel_detail_contract.listPersonnelDetails",
   "endpointContract": {
@@ -11,7 +11,7 @@
     "name": "分页查询人员明细",
     "method": "GET",
     "path": "/personnel-details",
-    "summary": "分页查询人员明细列表，支持按页码和每页条数浏览；返回人员姓名、性别、年龄、电子邮箱、所属部门、职位、入职日期和备注等明细信息。列表分页。",
+    "summary": "分页查询人员明细列表，支持按页码和每页条数浏览；返回姓名、性别、年龄、联系电话、座机号、电子邮箱、所属部门、职位、入职日期和备注等明细信息。列表分页。",
     "parameters": [
       {
         "name": "current",
@@ -20,7 +20,8 @@
         "schema": {
           "type": "integer",
           "minimum": 1,
-          "default": 1
+          "default": 1,
+          "description": "当前页码"
         }
       },
       {
@@ -30,18 +31,21 @@
         "schema": {
           "type": "integer",
           "minimum": 1,
-          "default": 20
+          "default": 20,
+          "description": "每页条数"
         }
       }
     ],
     "request_schema_ref": null,
     "response_schema_ref": "PageResult",
-    "error_codes": [],
+    "error_codes": [
+      "INVALID_PARAMETER"
+    ],
     "authentication": {
       "required": false
     }
   },
-  "implementationDescription": "分页查询人员明细列表，返回姓名、性别、电子邮箱、部门、职位、入职日期和备注等字段，并返回符合条件的人员总数及实际页码、每页条数；年龄字段未配置映射。接口未设置筛选条件。",
+  "implementationDescription": "分页查询人员明细，未设置筛选条件，按页码和每页条数浏览人员记录。返回姓名、性别、电话、邮箱、部门、职位、入职日期和备注等直接映射字段，并返回符合条件的人员总数及实际页码、每页条数。",
   "databaseOperation": "read",
   "sourceBinding": {
     "sourceType": "database",
@@ -57,7 +61,7 @@
         "path": "total",
         "type": "integer",
         "required": false,
-        "description": ""
+        "description": "总记录数"
       },
       "mappingType": "value_mapping",
       "right": {
@@ -76,7 +80,7 @@
         "path": "current",
         "type": "integer",
         "required": false,
-        "description": ""
+        "description": "当前页码"
       },
       "mappingType": "value_mapping",
       "right": {
@@ -95,7 +99,7 @@
         "path": "pageSize",
         "type": "integer",
         "required": false,
-        "description": ""
+        "description": "每页条数"
       },
       "mappingType": "value_mapping",
       "right": {
@@ -114,7 +118,7 @@
         "path": "list[].name",
         "type": "string",
         "required": false,
-        "description": ""
+        "description": "姓名，人员的唯一业务标识"
       },
       "mappingType": "source_mapping",
       "sourceFields": [
@@ -141,7 +145,7 @@
         "path": "list[].gender",
         "type": "string",
         "required": false,
-        "description": ""
+        "description": "性别"
       },
       "mappingType": "source_mapping",
       "sourceFields": [
@@ -168,7 +172,7 @@
         "path": "list[].age",
         "type": "integer",
         "required": false,
-        "description": ""
+        "description": "年龄，正整数"
       },
       "mappingType": "source_mapping",
       "sourceFields": [
@@ -192,10 +196,64 @@
       "endpointField": {
         "side": "response",
         "location": "response_body",
+        "path": "list[].phone",
+        "type": "string",
+        "required": false,
+        "description": "联系电话号码"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "database",
+          "sourceId": "ds-0cafd44bf2b1444f",
+          "schema": "business_db",
+          "table": "personnel",
+          "column": "phone",
+          "type": "varchar(32)",
+          "usage": "read",
+          "description": "联系电话"
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
+        "path": "list[].landline",
+        "type": "string",
+        "required": false,
+        "description": "座机号码"
+      },
+      "mappingType": "source_mapping",
+      "sourceFields": [
+        {
+          "sourceType": "database",
+          "sourceId": "ds-0cafd44bf2b1444f",
+          "schema": "business_db",
+          "table": "personnel",
+          "column": "birth_date",
+          "type": "date",
+          "usage": "read",
+          "description": "出生日期"
+        }
+      ],
+      "endpointFields": [],
+      "builtinFields": [],
+      "processingType": "direct",
+      "missingBehavior": "error"
+    },
+    {
+      "endpointField": {
+        "side": "response",
+        "location": "response_body",
         "path": "list[].email",
         "type": "string",
         "required": false,
-        "description": ""
+        "description": "电子邮箱地址"
       },
       "mappingType": "source_mapping",
       "sourceFields": [
@@ -222,7 +280,7 @@
         "path": "list[].department",
         "type": "string",
         "required": false,
-        "description": ""
+        "description": "所属部门名称"
       },
       "mappingType": "source_mapping",
       "sourceFields": [
@@ -249,7 +307,7 @@
         "path": "list[].position",
         "type": "string",
         "required": false,
-        "description": ""
+        "description": "职位"
       },
       "mappingType": "source_mapping",
       "sourceFields": [
@@ -276,7 +334,7 @@
         "path": "list[].entryDate",
         "type": "string",
         "required": false,
-        "description": ""
+        "description": "入职日期"
       },
       "mappingType": "source_mapping",
       "sourceFields": [
@@ -303,7 +361,7 @@
         "path": "list[].remark",
         "type": "string",
         "required": false,
-        "description": ""
+        "description": "备注信息"
       },
       "mappingType": "source_mapping",
       "sourceFields": [
@@ -373,6 +431,26 @@
             "defaultValue": null
           },
           {
+            "name": "birth_date",
+            "type": "date",
+            "required": false,
+            "description": "出生日期",
+            "nullable": true,
+            "primaryKey": false,
+            "autoIncrement": false,
+            "defaultValue": null
+          },
+          {
+            "name": "phone",
+            "type": "varchar(32)",
+            "required": false,
+            "description": "联系电话",
+            "nullable": true,
+            "primaryKey": false,
+            "autoIncrement": false,
+            "defaultValue": null
+          },
+          {
             "name": "email",
             "type": "varchar(128)",
             "required": false,
@@ -429,8 +507,8 @@
   "basedOn": [
     {
       "artifactKey": "technical-plan",
-      "sha256": "5a75e62a3d7e633a79619c3207394c102c33569bc32f78cdab4ed6b5197c99c6"
+      "sha256": "70c68c1ffcf906a4614209057f6f1651c3c576dcbdaff71ad68f158ef6fc2759"
     }
   ],
-  "confirmedAt": "2026-11-24T09:25:02.651128Z"
+  "confirmedAt": "2026-11-24T12:20:44.998156Z"
 }

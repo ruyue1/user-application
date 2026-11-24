@@ -1,6 +1,8 @@
 package com.cmbchina.backend.application.assembler;
 
 import com.cmbchina.backend.application.dto.PersonnelDetailItemDTO;
+import com.cmbchina.backend.application.dto.PersonnelDetailPageDTO;
+import com.cmbchina.backend.common.page.PageResult;
 import com.cmbchina.backend.domain.entity.Personnel;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +22,7 @@ public class PersonnelDetailAssembler {
     /**
      * 领域实体转人员明细列表项 DTO。
      */
-    public PersonnelDetailItemDTO toDetailItem(Personnel personnel) {
+    public PersonnelDetailItemDTO toItem(Personnel personnel) {
         if (personnel == null) {
             return null;
         }
@@ -28,12 +30,35 @@ public class PersonnelDetailAssembler {
         item.setName(personnel.getName());
         item.setGender(personnel.getGender());
         item.setAge(toAge(personnel.getId()));
+        item.setPhone(personnel.getPhone());
+        item.setLandline(formatDate(personnel.getBirthDate()));
         item.setEmail(personnel.getEmail());
         item.setDepartment(personnel.getDepartment());
         item.setPosition(personnel.getPosition());
         item.setEntryDate(formatDate(personnel.getHireDate()));
         item.setRemark(personnel.getRemark());
         return item;
+    }
+
+    /**
+     * 人员在应用层共用的组装器：领域分页结果转人员明细分页响应 DTO。
+     */
+    public PersonnelDetailPageDTO toPage(PageResult<Personnel> pageResult) {
+        if (pageResult == null) {
+            return new PersonnelDetailPageDTO(0L, 1L, 20L, new ArrayList<>());
+        }
+        return new PersonnelDetailPageDTO(
+                pageResult.getTotal(),
+                pageResult.getCurrent(),
+                pageResult.getPageSize(),
+                toDetailItems(pageResult.getList()));
+    }
+
+    /**
+     * 领域实体转人员明细列表项 DTO。
+     */
+    public PersonnelDetailItemDTO toDetailItem(Personnel personnel) {
+        return toItem(personnel);
     }
 
     /**
@@ -45,7 +70,7 @@ public class PersonnelDetailAssembler {
             return itemList;
         }
         for (Personnel personnel : personnelList) {
-            itemList.add(toDetailItem(personnel));
+            itemList.add(toItem(personnel));
         }
         return itemList;
     }

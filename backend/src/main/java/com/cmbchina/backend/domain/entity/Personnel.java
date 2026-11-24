@@ -30,6 +30,16 @@ public class Personnel {
     private String gender;
 
     /**
+     * 出生日期
+     */
+    private LocalDate birthDate;
+
+    /**
+     * 联系电话
+     */
+    private String phone;
+
+    /**
      * 电子邮箱
      */
     private String email;

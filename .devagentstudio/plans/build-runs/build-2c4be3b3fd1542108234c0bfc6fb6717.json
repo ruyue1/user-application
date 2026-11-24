@@ -1,0 +1,975 @@
+{
+  "schema_version": "build-dag.v4",
+  "application": {
+    "unit_id": "application:root",
+    "status": "prepared"
+  },
+  "build_units": {
+    "application:root": {
+      "id": "application:root",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:auth-resources": {
+      "id": "backend:auth-resources",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:shell": {
+      "id": "frontend:shell",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {},
+      "generation_strategy": "prerequisite_only",
+      "participation": "prerequisite_only",
+      "generation_status": "not_required"
+    },
+    "frontend:api-client": {
+      "id": "frontend:api-client",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:auth-guard": {
+      "id": "frontend:auth-guard",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:bootstrap": {
+      "id": "backend:bootstrap",
+      "kind": "backend",
+      "status": "prepared",
+      "task_ids": [
+        "backend:bootstrap::database::bootstrap"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "67b0c81af8c8e95fb8a3daf1a30e1a4d51b9615c3d21550e08a1a0f3e0aab44c",
+          "byteLength": 2663,
+          "mediaType": "application/json"
+        }
+      },
+      "input_fingerprint": "d6d255825abecfde18dd57bfa92ed033e7836eec79e0ef6be2f227f7a75e3c52"
+    },
+    "app:integration": {
+      "id": "app:integration",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:module:personnel_detail_contract": {
+      "id": "backend:module:personnel_detail_contract",
+      "kind": "backend",
+      "api_contract_id": "personnel_detail_contract",
+      "status": "prepared",
+      "task_ids": [
+        "backend:module:personnel_detail_contract::fdf7600cca980d83::foundation",
+        "backend:module:personnel_detail_contract::personnel_detail_contract.listPersonnelDetails::business",
+        "backend:module:personnel_detail_contract::a1d5739caa93d02e::controller"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "67c61284f5409d95c3360a7d48fa31d1abf9bb63dd17a40ec22ae896ea856e42",
+          "byteLength": 2775,
+          "mediaType": "application/json"
+        }
+      },
+      "input_fingerprint": "e11ff67ad0f97f646c3e83cdc8d6d8466ca2c60d024f5ae7281339855fb2a80d"
+    },
+    "page:personnel_detail_list": {
+      "id": "page:personnel_detail_list",
+      "kind": "page",
+      "page_id": "personnel_detail_list",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    }
+  },
+  "unit_graph": {
+    "schema_version": "build-unit-graph.v3",
+    "nodes": [
+      "application:root",
+      "backend:auth-resources",
+      "frontend:shell",
+      "frontend:api-client",
+      "frontend:auth-guard",
+      "backend:bootstrap",
+      "app:integration",
+      "backend:module:personnel_detail_contract",
+      "page:personnel_detail_list"
+    ],
+    "edges": [
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:bootstrap",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:auth-resources",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:shell",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:api-client",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:auth-guard",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:bootstrap",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:personnel_detail_contract",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:personnel_detail_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:personnel_detail_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:personnel_detail_contract",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:personnel_detail_list",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:personnel_detail_list",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:personnel_detail_list",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:personnel_detail_contract",
+        "to": "page:personnel_detail_list",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:personnel_detail_list",
+        "to": "app:integration",
+        "type": "depends_on"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "unit_skeleton": {
+    "input_fingerprint": "719811ced4bf81ba1eba1213303a65dd76a874d76017eca9ba269db0c757d6c7",
+    "project_plan_version": null,
+    "workspace_revision": "9332e453765296fdd40719b3",
+    "reused": false
+  },
+  "task_registry": {
+    "backend:bootstrap::database::bootstrap": {
+      "id": "backend:bootstrap::database::bootstrap",
+      "unit_id": "backend:bootstrap",
+      "owner": "backend",
+      "task_type": "backend.code",
+      "status": "pending",
+      "title": "初始化数据库访问与 MyBatis-Plus 分页配置",
+      "description": "为 personnel_detail_contract.listPersonnelDetails 端点补齐后端数据库引导能力：1) 在 pom.xml 中检查并补齐数据库相关 Maven 依赖（如 MySQL 驱动、MyBatis-Plus 等）及注解处理器配置；2) 在 application.yml 与 application-dev.yml 中检查并补齐数据库连接配置（数据源 URL、驱动、用户名、密码、连接池等），不预设现有配置缺失；3) 在 MybatisPlusConfiguration.java 中检查并配置 MyBatis-Plus 分页插件，确保分页查询可用；4) 确认与 PersonnelMapper、PersonnelPO、PersonnelRepositoryImpl 等现有持久层文件协同工作。",
+      "allowed_paths": [
+        "backend/pom.xml",
+        "backend/src/main/resources/application.yml",
+        "backend/src/main/resources/application-dev.yml",
+        "backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java"
+      ],
+      "target_files": [
+        "backend/pom.xml",
+        "backend/src/main/resources/application.yml",
+        "backend/src/main/resources/application-dev.yml",
+        "backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java"
+      ],
+      "change_scope": [
+        {
+          "path": "backend/pom.xml",
+          "operation": "modify",
+          "description": "检查并补齐数据库相关 Maven 依赖与注解处理器配置"
+        },
+        {
+          "path": "backend/src/main/resources/application.yml",
+          "operation": "modify",
+          "description": "检查并补齐数据库连接基础配置"
+        },
+        {
+          "path": "backend/src/main/resources/application-dev.yml",
+          "operation": "modify",
+          "description": "检查并补齐开发环境数据库连接配置"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java",
+          "operation": "modify",
+          "description": "检查并配置 MyBatis-Plus 分页插件"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:bootstrap::database::bootstrap::deliverable",
+          "kind": "backend.bootstrap",
+          "target_id": "database",
+          "paths": [
+            "backend/pom.xml",
+            "backend/src/main/resources/application.yml",
+            "backend/src/main/resources/application-dev.yml",
+            "backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java"
+          ],
+          "provides": [
+            "backend.bootstrap:database"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "can_run_in_parallel": true,
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "impact_scope": {
+        "summary": "补齐数据库依赖、连接配置及 MyBatis-Plus 分页配置，支撑人员明细查询端点的持久层访问",
+        "affected_modules": [
+          "backend"
+        ],
+        "public_contracts": [],
+        "risks": [
+          "数据库连接参数需与实际环境匹配，配置错误可能导致启动或查询失败"
+        ]
+      },
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "67b0c81af8c8e95fb8a3daf1a30e1a4d51b9615c3d21550e08a1a0f3e0aab44c",
+          "byteLength": 2663,
+          "mediaType": "application/json"
+        }
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:bootstrap"
+      ],
+      "unit_dependencies": [
+        "backend:auth-resources"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:bootstrap::database::bootstrap:file_operation:97ef5bd006df",
+          "kind": "file_operation",
+          "description": "工程文件 backend/pom.xml 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/pom.xml"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:bootstrap::database::bootstrap:file_operation:a068f252119e",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/resources/application.yml 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/resources/application.yml"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:bootstrap::database::bootstrap:file_operation:071e02761fb3",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/resources/application-dev.yml 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/resources/application-dev.yml"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:bootstrap::database::bootstrap:file_operation:887df1b4e81a",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:bootstrap::database::bootstrap:scope_boundary:4a2b2d170ec9",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/pom.xml",
+            "backend/src/main/resources/application.yml",
+            "backend/src/main/resources/application-dev.yml",
+            "backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/pom.xml",
+              "backend/src/main/resources/application.yml",
+              "backend/src/main/resources/application-dev.yml",
+              "backend/src/main/java/com/cmbchina/backend/common/config/MybatisPlusConfiguration.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": []
+    },
+    "backend:module:personnel_detail_contract::fdf7600cca980d83::foundation": {
+      "id": "backend:module:personnel_detail_contract::fdf7600cca980d83::foundation",
+      "unit_id": "backend:module:personnel_detail_contract",
+      "owner": "backend",
+      "task_type": "backend.code",
+      "title": "模块基础骨架 · 人员明细持久化基础骨架",
+      "description": "1. 人员明细持久化对象，保留现有成员。\n字段：与 personnel 表列映射对应，id（Long，主键，自增）、name（String，非空）、gender（String）、birthDate（LocalDate）、phone（String）、email（String）、department（String）、position（String）、hireDate（LocalDate）、remark（String）。\n映射：使用 MyBatis-Plus 注解声明表名 personnel 及主键列 id。（backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java）\n2. 人员明细 Mapper 接口，保留现有成员；继承 BaseMapper<PersonnelPO>，单表查询与分页由 BaseMapper 提供，无需自定义 XML。（backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java）\n3. 人员领域实体，保留现有成员：id（Long）、name（String）、gender（String）、birthDate（LocalDate）、phone（String）、email（String）、department（String）、position（String）、hireDate（LocalDate）、remark（String）。（backend/src/main/java/com/cmbchina/backend/domain/entity/Personnel.java）\n4. 人员领域仓储接口，保留现有成员；仅依赖领域实体与通用分页类型，不引入 PO、Mapper 或应用层 DTO。（backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java）\n5. 人员 PO 与领域实体转换器，保留现有成员；提供 PersonnelPO 到 Personnel 及反向的转换方法，字段同名直接映射，birthDate、hireDate 使用同名同类型直接赋值。（backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java）\n6. 人员仓储实现，保留现有成员；实现 PersonnelRepository，注入 PersonnelMapper 与 PersonnelPoConverter，PO、MyBatis Page 均封装在本类内部。（backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java）",
+      "dependencies": [
+        "backend:bootstrap::database::bootstrap"
+      ],
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java",
+        "backend/src/main/java/com/cmbchina/backend/domain/entity/Personnel.java",
+        "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java"
+      ],
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java",
+        "backend/src/main/java/com/cmbchina/backend/domain/entity/Personnel.java",
+        "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java"
+      ],
+      "change_scope": [
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java",
+          "operation": "modify",
+          "description": "人员明细持久化对象，保留现有成员。\n字段：与 personnel 表列映射对应，id（Long，主键，自增）、name（String，非空）、gender（String）、birthDate（LocalDate）、phone（String）、email（String）、department（String）、position（String）、hireDate（LocalDate）、remark（String）。\n映射：使用 MyBatis-Plus 注解声明表名 personnel 及主键列 id。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java",
+          "operation": "modify",
+          "description": "人员明细 Mapper 接口，保留现有成员；继承 BaseMapper<PersonnelPO>，单表查询与分页由 BaseMapper 提供，无需自定义 XML。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/domain/entity/Personnel.java",
+          "operation": "modify",
+          "description": "人员领域实体，保留现有成员：id（Long）、name（String）、gender（String）、birthDate（LocalDate）、phone（String）、email（String）、department（String）、position（String）、hireDate（LocalDate）、remark（String）。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+          "operation": "modify",
+          "description": "人员领域仓储接口，保留现有成员；仅依赖领域实体与通用分页类型，不引入 PO、Mapper 或应用层 DTO。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java",
+          "operation": "modify",
+          "description": "人员 PO 与领域实体转换器，保留现有成员；提供 PersonnelPO 到 Personnel 及反向的转换方法，字段同名直接映射，birthDate、hireDate 使用同名同类型直接赋值。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java",
+          "operation": "modify",
+          "description": "人员仓储实现，保留现有成员；实现 PersonnelRepository，注入 PersonnelMapper 与 PersonnelPoConverter，PO、MyBatis Page 均封装在本类内部。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:module:personnel_detail_contract::fdf7600cca980d83::foundation::deliverable:1",
+          "kind": "backend.foundation",
+          "target_id": "personnel_detail_contract.listPersonnelDetails",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java",
+            "backend/src/main/java/com/cmbchina/backend/domain/entity/Personnel.java",
+            "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java"
+          ],
+          "provides": [
+            "backend.foundation:personnel_detail_contract:personnel_detail_contract.listPersonnelDetails"
+          ]
+        }
+      ],
+      "impact_scope": {
+        "summary": "模块基础骨架 · 人员明细持久化基础骨架",
+        "affected_modules": [
+          "personnel_detail_contract"
+        ],
+        "public_contracts": [],
+        "risks": []
+      },
+      "can_run_in_parallel": false,
+      "parallel_reason": "任务 target_files 与其他任务重叠，由同一受限执行器按依赖顺序串行写入。",
+      "status": "pending",
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "9e3b10efea638051a1a53bbfd466211ebd250c3798022bb284736dbf6c8a09a4",
+          "byteLength": 2804,
+          "mediaType": "application/json"
+        }
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:module:personnel_detail_contract"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap",
+        "backend:auth-resources"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": {
+        "$artifact": {
+          "artifactId": "6946bfe0277c6b5366acef7e13f5bdf4517887507542e6ddf6f77b35013d4827",
+          "byteLength": 4692,
+          "mediaType": "application/json"
+        }
+      },
+      "business_acceptance_checks": [
+        {
+          "id": "business:backend:module:personnel_detail_contract::fdf7600cca980d83::foundation:backend.foundation_contract:99f8809117f11c9e",
+          "deliverable_id": "backend:module:personnel_detail_contract::fdf7600cca980d83::foundation::deliverable:1",
+          "kind": "backend.foundation_contract",
+          "description": "模块基础任务必须落实已确认的数据库骨架或外部 API 连接配置。",
+          "sources": [
+            {
+              "artifact": "api_design",
+              "target_id": "personnel_detail_contract.listPersonnelDetails",
+              "pointer": "/endpoint_designs/personnel_detail_contract.listPersonnelDetails",
+              "sha256": "f063d8ad71b18ecc53fc5853d448ec59ea9c00e330137bb1c5e2f5cd15d707f8"
+            }
+          ],
+          "expected": {
+            "source_types": [
+              "database"
+            ],
+            "tables": [
+              {
+                "name": "personnel",
+                "columns": [
+                  "id",
+                  "name",
+                  "gender",
+                  "birth_date",
+                  "phone",
+                  "email",
+                  "department",
+                  "position",
+                  "hire_date",
+                  "remark"
+                ]
+              }
+            ],
+            "config_keys": []
+          },
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/po/PersonnelPO.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/mapper/PersonnelMapper.java",
+            "backend/src/main/java/com/cmbchina/backend/domain/entity/Personnel.java",
+            "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/converter/PersonnelPoConverter.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "backend_foundation_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 与其他任务重叠，由同一受限执行器按依赖顺序串行写入。",
+      "parallel_with": []
+    },
+    "backend:module:personnel_detail_contract::personnel_detail_contract.listPersonnelDetails::business": {
+      "id": "backend:module:personnel_detail_contract::personnel_detail_contract.listPersonnelDetails::business",
+      "unit_id": "backend:module:personnel_detail_contract",
+      "owner": "backend",
+      "task_type": "backend.code",
+      "title": "接口业务实现 · 分页查询人员明细业务实现",
+      "description": "1. 在现有仓储接口中追加分页查询方法：PageResult<Personnel> pagePersonnel(long current, long pageSize)，语义为按页码与每页条数返回人员明细列表及总数；保留原有方法签名。（backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java）\n2. 实现新增的分页查询方法：使用 Page<PersonnelPO> 与 LambdaQueryWrapper 对 personnel 表分页查询，未设置筛选条件，按主键 id 排序保证分页稳定；通过 PersonnelPoConverter 将 PO 列表转换为领域实体，并组装 PageResult<Personnel>（总数、当前页码、每页条数、列表）；保留原有成员与方法。（backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java）\n3. 人员明细列表项响应 DTO，保留现有成员。\n字段：name（String）、gender（String）、age（Integer）、phone（String）、landline（String）、email（String）、department（String）、position（String）、entryDate（String）、remark（String）；均为响应可选字段，不追加合同未声明的校验。（backend/src/main/java/com/cmbchina/backend/application/dto/PersonnelDetailItemDTO.java）\n4. 人员明细分页响应 DTO，对应响应结构 total、current、pageSize、list。\n字段：total（Long）、current（Long）、pageSize（Long）、list（List<PersonnelDetailItemDTO>），均为响应可选字段。（backend/src/main/java/com/cmbchina/backend/application/dto/PersonnelDetailPageDTO.java）\n5. 人员在应用层共用的组装器，保留现有成员并追加本端点方法。\n新增方法：PersonnelDetailItemDTO toItem(Personnel personnel)，字段映射 name→name、gender→gender、phone→phone、email→email、department→department、position→position、remark→remark 直接映射；landline 取 birthDate 对应源列映射，age 取 id 对应源列映射（合同 source_mapping 指定 birth_date→landline、id→age，按源值直接赋值）；entryDate 由 hireDate 转换并采用与响应类型一致的字符串表示，具体格式合同未明确，实施时按项目统一日期序列化约定处理。\n新增方法：PersonnelDetailPageDTO toPage(PageResult<Personnel> pageResult)，组装 total、current、pageSize 与 list（逐项调用 toItem）。（backend/src/main/java/com/cmbchina/backend/application/assembler/PersonnelDetailAssembler.java）\n6. 人员在应用层共用的应用服务，保留现有成员与注入依赖，追加本端点方法：PersonnelDetailPageDTO listPersonnelDetails(Integer current, Integer pageSize)。\n处理逻辑：current 为空取默认值 1、pageSize 为空取默认值 20；current 或 pageSize 小于 1 时抛出 BizException(INVALID_PARAMETER)；调用 PersonnelRepository.pagePersonnel 获取分页领域结果，再通过 PersonnelDetailAssembler.toPage 组装响应，实际页码与每页条数取自分页结果。\n边界约束：只依赖领域 Repository 接口，不接触 PO、Mapper 或 RepositoryImpl。（backend/src/main/java/com/cmbchina/backend/application/service/PersonnelApplicationService.java）\n7. 人员模块业务错误码枚举，实现 IBizErrorCode，包含 INVALID_PARAMETER 错误码（对应合同 error_codes 中的 INVALID_PARAMETER），供应用服务在分页参数非法时抛出 BizException 使用。（backend/src/main/java/com/cmbchina/backend/domain/exception/PersonnelErrorCode.java）",
+      "dependencies": [
+        "backend:module:personnel_detail_contract::fdf7600cca980d83::foundation",
+        "backend:bootstrap::database::bootstrap"
+      ],
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java",
+        "backend/src/main/java/com/cmbchina/backend/application/dto/PersonnelDetailItemDTO.java",
+        "backend/src/main/java/com/cmbchina/backend/application/dto/PersonnelDetailPageDTO.java",
+        "backend/src/main/java/com/cmbchina/backend/application/assembler/PersonnelDetailAssembler.java",
+        "backend/src/main/java/com/cmbchina/backend/application/service/PersonnelApplicationService.java",
+        "backend/src/main/java/com/cmbchina/backend/domain/exception/PersonnelErrorCode.java"
+      ],
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+        "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java",
+        "backend/src/main/java/com/cmbchina/backend/application/dto/PersonnelDetailItemDTO.java",
+        "backend/src/main/java/com/cmbchina/backend/application/dto/PersonnelDetailPageDTO.java",
+        "backend/src/main/java/com/cmbchina/backend/application/assembler/PersonnelDetailAssembler.java",
+        "backend/src/main/java/com/cmbchina/backend/application/service/PersonnelApplicationService.java",
+        "backend/src/main/java/com/cmbchina/backend/domain/exception/PersonnelErrorCode.java"
+      ],
+      "change_scope": [
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+          "operation": "modify",
+          "description": "在现有仓储接口中追加分页查询方法：PageResult<Personnel> pagePersonnel(long current, long pageSize)，语义为按页码与每页条数返回人员明细列表及总数；保留原有方法签名。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java",
+          "operation": "modify",
+          "description": "实现新增的分页查询方法：使用 Page<PersonnelPO> 与 LambdaQueryWrapper 对 personnel 表分页查询，未设置筛选条件，按主键 id 排序保证分页稳定；通过 PersonnelPoConverter 将 PO 列表转换为领域实体，并组装 PageResult<Personnel>（总数、当前页码、每页条数、列表）；保留原有成员与方法。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/application/dto/PersonnelDetailItemDTO.java",
+          "operation": "modify",
+          "description": "人员明细列表项响应 DTO，保留现有成员。\n字段：name（String）、gender（String）、age（Integer）、phone（String）、landline（String）、email（String）、department（String）、position（String）、entryDate（String）、remark（String）；均为响应可选字段，不追加合同未声明的校验。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/application/dto/PersonnelDetailPageDTO.java",
+          "operation": "add",
+          "description": "人员明细分页响应 DTO，对应响应结构 total、current、pageSize、list。\n字段：total（Long）、current（Long）、pageSize（Long）、list（List<PersonnelDetailItemDTO>），均为响应可选字段。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/application/assembler/PersonnelDetailAssembler.java",
+          "operation": "modify",
+          "description": "人员在应用层共用的组装器，保留现有成员并追加本端点方法。\n新增方法：PersonnelDetailItemDTO toItem(Personnel personnel)，字段映射 name→name、gender→gender、phone→phone、email→email、department→department、position→position、remark→remark 直接映射；landline 取 birthDate 对应源列映射，age 取 id 对应源列映射（合同 source_mapping 指定 birth_date→landline、id→age，按源值直接赋值）；entryDate 由 hireDate 转换并采用与响应类型一致的字符串表示，具体格式合同未明确，实施时按项目统一日期序列化约定处理。\n新增方法：PersonnelDetailPageDTO toPage(PageResult<Personnel> pageResult)，组装 total、current、pageSize 与 list（逐项调用 toItem）。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/application/service/PersonnelApplicationService.java",
+          "operation": "modify",
+          "description": "人员在应用层共用的应用服务，保留现有成员与注入依赖，追加本端点方法：PersonnelDetailPageDTO listPersonnelDetails(Integer current, Integer pageSize)。\n处理逻辑：current 为空取默认值 1、pageSize 为空取默认值 20；current 或 pageSize 小于 1 时抛出 BizException(INVALID_PARAMETER)；调用 PersonnelRepository.pagePersonnel 获取分页领域结果，再通过 PersonnelDetailAssembler.toPage 组装响应，实际页码与每页条数取自分页结果。\n边界约束：只依赖领域 Repository 接口，不接触 PO、Mapper 或 RepositoryImpl。"
+        },
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/domain/exception/PersonnelErrorCode.java",
+          "operation": "add",
+          "description": "人员模块业务错误码枚举，实现 IBizErrorCode，包含 INVALID_PARAMETER 错误码（对应合同 error_codes 中的 INVALID_PARAMETER），供应用服务在分页参数非法时抛出 BizException 使用。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:module:personnel_detail_contract::personnel_detail_contract.listPersonnelDetails::business::deliverable:1",
+          "kind": "backend.application_service",
+          "target_id": "personnel_detail_contract.listPersonnelDetails",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/application/service/PersonnelApplicationService.java",
+            "backend/src/main/java/com/cmbchina/backend/domain/exception/PersonnelErrorCode.java"
+          ],
+          "provides": [
+            "backend.application_service:personnel_detail_contract:personnel_detail_contract.listPersonnelDetails"
+          ]
+        },
+        {
+          "id": "backend:module:personnel_detail_contract::personnel_detail_contract.listPersonnelDetails::business::deliverable:2",
+          "kind": "backend.objects",
+          "target_id": "personnel_detail_contract.listPersonnelDetails",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/application/dto/PersonnelDetailItemDTO.java",
+            "backend/src/main/java/com/cmbchina/backend/application/dto/PersonnelDetailPageDTO.java",
+            "backend/src/main/java/com/cmbchina/backend/application/assembler/PersonnelDetailAssembler.java"
+          ],
+          "provides": [
+            "backend.endpoint.objects:personnel_detail_contract:personnel_detail_contract.listPersonnelDetails"
+          ]
+        },
+        {
+          "id": "backend:module:personnel_detail_contract::personnel_detail_contract.listPersonnelDetails::business::deliverable:3",
+          "kind": "backend.repository",
+          "target_id": "personnel_detail_contract.listPersonnelDetails",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/domain/repository/PersonnelRepository.java",
+            "backend/src/main/java/com/cmbchina/backend/infrastructure/repository/impl/PersonnelRepositoryImpl.java"
+          ],
+          "provides": [
+            "backend.repository:personnel_detail_contract:personnel_detail_contract.listPersonnelDetails"
+          ]
+        }
+      ],
+      "impact_scope": {
+        "summary": "接口业务实现 · 分页查询人员明细业务实现",
+        "affected_modules": [
+          "personnel_detail_contract"
+        ],
+        "public_contracts": [],
+        "risks": []
+      },
+      "can_run_in_parallel": false,
+      "parallel_reason": "任务 target_files 与其他任务重叠，由同一受限执行器按依赖顺序串行写入。",
+      "status": "pending",
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "10bd38a8a8669a6a2718c961abe70227f7e4b3bab28081ea46bd6eb84276df29",
+          "byteLength": 3365,
+          "mediaType": "application/json"
+        }
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:module:personnel_detail_contract"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap",
+        "backend:auth-resources"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": {
+        "$artifact": {
+          "artifactId": "0ee3a3533bb56bf4403df0178c178c2feca3327f4d579d170bb7d0401fcfdb9a",
+          "byteLength": 5695,
+          "mediaType": "application/json"
+        }
+      },
+      "business_acceptance_checks": {
+        "$artifact": {
+          "artifactId": "6b6afe29ad72b9800d4b2de1e09ddde9dea07b34b2bdc26a3b8c82e1cc25cf81",
+          "byteLength": 11198,
+          "mediaType": "application/json"
+        }
+      },
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 与其他任务重叠，由同一受限执行器按依赖顺序串行写入。",
+      "parallel_with": []
+    },
+    "backend:module:personnel_detail_contract::a1d5739caa93d02e::controller": {
+      "id": "backend:module:personnel_detail_contract::a1d5739caa93d02e::controller",
+      "unit_id": "backend:module:personnel_detail_contract",
+      "owner": "backend",
+      "task_type": "backend.code",
+      "title": "模块 Controller · 人员明细分页查询接口",
+      "description": "1. 人员在 Web 适配层共用的控制器，保留现有类级映射与已有路由；新增处理方法映射 GET /personnel-details。\n绑定：@RequestParam(value=\"current\", required=false) Integer current、@RequestParam(value=\"pageSize\", required=false) Integer pageSize，默认值由应用服务处理。\n处理逻辑：委托 PersonnelApplicationService.listPersonnelDetails(current, pageSize)，使用统一响应包装 ResponseEntity 返回 PersonnelDetailPageDTO。\n边界约束：不实现分页与映射业务逻辑；本端点合同未声明鉴权要求，不添加权限校验。（backend/src/main/java/com/cmbchina/backend/adapter/web/PersonnelController.java）",
+      "dependencies": [
+        "backend:module:personnel_detail_contract::personnel_detail_contract.listPersonnelDetails::business",
+        "backend:bootstrap::database::bootstrap"
+      ],
+      "target_files": [
+        "backend/src/main/java/com/cmbchina/backend/adapter/web/PersonnelController.java"
+      ],
+      "allowed_paths": [
+        "backend/src/main/java/com/cmbchina/backend/adapter/web/PersonnelController.java"
+      ],
+      "change_scope": [
+        {
+          "path": "backend/src/main/java/com/cmbchina/backend/adapter/web/PersonnelController.java",
+          "operation": "modify",
+          "description": "人员在 Web 适配层共用的控制器，保留现有类级映射与已有路由；新增处理方法映射 GET /personnel-details。\n绑定：@RequestParam(value=\"current\", required=false) Integer current、@RequestParam(value=\"pageSize\", required=false) Integer pageSize，默认值由应用服务处理。\n处理逻辑：委托 PersonnelApplicationService.listPersonnelDetails(current, pageSize)，使用统一响应包装 ResponseEntity 返回 PersonnelDetailPageDTO。\n边界约束：不实现分页与映射业务逻辑；本端点合同未声明鉴权要求，不添加权限校验。"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "backend:module:personnel_detail_contract::a1d5739caa93d02e::controller::deliverable:1",
+          "kind": "backend.endpoint_controller",
+          "target_id": "personnel_detail_contract.listPersonnelDetails",
+          "paths": [
+            "backend/src/main/java/com/cmbchina/backend/adapter/web/PersonnelController.java"
+          ],
+          "provides": [
+            "backend.endpoint_controller:personnel_detail_contract:personnel_detail_contract.listPersonnelDetails"
+          ]
+        }
+      ],
+      "impact_scope": {
+        "summary": "模块 Controller · 人员明细分页查询接口",
+        "affected_modules": [
+          "personnel_detail_contract"
+        ],
+        "public_contracts": [
+          "personnel_detail_contract.listPersonnelDetails"
+        ],
+        "risks": []
+      },
+      "can_run_in_parallel": false,
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "status": "pending",
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "61ede72cfc87e7bf16e2ea7b7bcebfdc7f60b2825275032eee84397abf610eda",
+          "byteLength": 2804,
+          "mediaType": "application/json"
+        }
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "backend:module:personnel_detail_contract"
+      ],
+      "unit_dependencies": [
+        "backend:bootstrap",
+        "backend:auth-resources"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:backend:module:personnel_detail_contract::a1d5739caa93d02e::controller:file_operation:000cba3dc289",
+          "kind": "file_operation",
+          "description": "工程文件 backend/src/main/java/com/cmbchina/backend/adapter/web/PersonnelController.java 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/adapter/web/PersonnelController.java"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:backend:module:personnel_detail_contract::a1d5739caa93d02e::controller:scope_boundary:414f1cbd5089",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "backend/src/main/java/com/cmbchina/backend/adapter/web/PersonnelController.java"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "backend/src/main/java/com/cmbchina/backend/adapter/web/PersonnelController.java"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": {
+        "$artifact": {
+          "artifactId": "161b0163aa23ee0e389acbc35a1bdcdd117a60248b3cfc30e1eae90aedf34db1",
+          "byteLength": 4178,
+          "mediaType": "application/json"
+        }
+      },
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": []
+    }
+  },
+  "task_graph": {
+    "schema_version": "build-task-graph.v3",
+    "nodes": [
+      "backend:bootstrap::database::bootstrap",
+      "backend:module:personnel_detail_contract::fdf7600cca980d83::foundation",
+      "backend:module:personnel_detail_contract::personnel_detail_contract.listPersonnelDetails::business",
+      "backend:module:personnel_detail_contract::a1d5739caa93d02e::controller"
+    ],
+    "edges": [
+      {
+        "from": "backend:bootstrap::database::bootstrap",
+        "to": "backend:module:personnel_detail_contract::fdf7600cca980d83::foundation",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:personnel_detail_contract::fdf7600cca980d83::foundation",
+        "to": "backend:module:personnel_detail_contract::personnel_detail_contract.listPersonnelDetails::business",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:bootstrap::database::bootstrap",
+        "to": "backend:module:personnel_detail_contract::personnel_detail_contract.listPersonnelDetails::business",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:personnel_detail_contract::personnel_detail_contract.listPersonnelDetails::business",
+        "to": "backend:module:personnel_detail_contract::a1d5739caa93d02e::controller",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:bootstrap::database::bootstrap",
+        "to": "backend:module:personnel_detail_contract::a1d5739caa93d02e::controller",
+        "type": "depends_on"
+      }
+    ],
+    "roots": [
+      "backend:bootstrap::database::bootstrap"
+    ],
+    "leaves": [
+      "backend:module:personnel_detail_contract::a1d5739caa93d02e::controller"
+    ],
+    "topological_order": [
+      "backend:bootstrap::database::bootstrap",
+      "backend:module:personnel_detail_contract::fdf7600cca980d83::foundation",
+      "backend:module:personnel_detail_contract::personnel_detail_contract.listPersonnelDetails::business",
+      "backend:module:personnel_detail_contract::a1d5739caa93d02e::controller"
+    ],
+    "execution_layers": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "backend:bootstrap::database::bootstrap"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:personnel_detail_contract::fdf7600cca980d83::foundation"
+        ],
+        "reason": "任务 target_files 与其他任务重叠，由同一受限执行器按依赖顺序串行写入。"
+      },
+      {
+        "index": 3,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:personnel_detail_contract::personnel_detail_contract.listPersonnelDetails::business"
+        ],
+        "reason": "任务 target_files 与其他任务重叠，由同一受限执行器按依赖顺序串行写入。"
+      },
+      {
+        "index": 4,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:personnel_detail_contract::a1d5739caa93d02e::controller"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "summary": {
+    "total": 4,
+    "frontend": 0,
+    "backend": 4,
+    "database": 0,
+    "pending": 4,
+    "running": 0,
+    "completed": 0,
+    "already_satisfied": 0,
+    "failed": 0
+  },
+  "execution": {
+    "batches": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "backend:bootstrap::database::bootstrap"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:personnel_detail_contract::fdf7600cca980d83::foundation"
+        ],
+        "reason": "任务 target_files 与其他任务重叠，由同一受限执行器按依赖顺序串行写入。"
+      },
+      {
+        "index": 3,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:personnel_detail_contract::personnel_detail_contract.listPersonnelDetails::business"
+        ],
+        "reason": "任务 target_files 与其他任务重叠，由同一受限执行器按依赖顺序串行写入。"
+      },
+      {
+        "index": 4,
+        "mode": "serial",
+        "tasks": [
+          "backend:module:personnel_detail_contract::a1d5739caa93d02e::controller"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "blocked_batches": []
+  },
+  "build_execution_scope": {
+    "type": "endpoint",
+    "targetId": "personnel_detail_contract.listPersonnelDetails",
+    "apiContractId": "personnel_detail_contract"
+  },
+  "template_context": {
+    "state_path": ".devagentstudio/template-state.json",
+    "template_revision": "2026.10.19.1",
+    "effective_capabilities": {}
+  },
+  "status": "ready",
+  "confirmation_status": "confirmed",
+  "confirmed_at": "2026-11-24T12:21:14.497353+00:00",
+  "confirmed_from": {
+    "planning_run_id": "planning-9b23fc714c7542668701bba271d75f12",
+    "draft_digest": "a5917ab6c0b36788bda184ad63f6d899f5d270b9ef726a64af974b3252336a22"
+  }
+}

@@ -34,6 +34,18 @@ public class PersonnelPO {
     private String gender;
 
     /**
+     * 出生日期
+     */
+    @TableField("birth_date")
+    private LocalDate birthDate;
+
+    /**
+     * 联系电话
+     */
+    @TableField("phone")
+    private String phone;
+
+    /**
      * 电子邮箱
      */
     @TableField("email")

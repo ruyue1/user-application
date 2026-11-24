@@ -24,6 +24,8 @@ public class PersonnelPoConverter {
         personnel.setId(po.getId());
         personnel.setName(po.getName());
         personnel.setGender(po.getGender());
+        personnel.setBirthDate(po.getBirthDate());
+        personnel.setPhone(po.getPhone());
         personnel.setEmail(po.getEmail());
         personnel.setDepartment(po.getDepartment());
         personnel.setPosition(po.getPosition());
@@ -43,6 +45,8 @@ public class PersonnelPoConverter {
         po.setId(personnel.getId());
         po.setName(personnel.getName());
         po.setGender(personnel.getGender());
+        po.setBirthDate(personnel.getBirthDate());
+        po.setPhone(personnel.getPhone());
         po.setEmail(personnel.getEmail());
         po.setDepartment(personnel.getDepartment());
         po.setPosition(personnel.getPosition());

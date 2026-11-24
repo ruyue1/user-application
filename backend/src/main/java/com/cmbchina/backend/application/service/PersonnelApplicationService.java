@@ -1,14 +1,14 @@
 package com.cmbchina.backend.application.service;
 
 import com.cmbchina.backend.application.assembler.PersonnelDetailAssembler;
-import com.cmbchina.backend.application.dto.PersonnelDetailItemDTO;
+import com.cmbchina.backend.application.dto.PersonnelDetailPageDTO;
+import com.cmbchina.backend.common.exception.BizException;
 import com.cmbchina.backend.common.page.PageResult;
 import com.cmbchina.backend.domain.entity.Personnel;
+import com.cmbchina.backend.domain.exception.PersonnelErrorCode;
 import com.cmbchina.backend.domain.repository.PersonnelRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 
 /**
  * 人员明细应用服务。
@@ -28,18 +28,22 @@ public class PersonnelApplicationService {
     /**
      * 分页查询人员明细。
      *
-     * @param current  页码，缺省取 1
-     * @param pageSize 每页条数，缺省取 20
-     * @return 人员明细分页结果
+     * @param current  页码，缺省取 1；小于 1 视为非法参数
+     * @param pageSize 每页条数，缺省取 20；小于 1 视为非法参数
+     * @return 人员明细分页结果，页码与每页条数取自实际分页结果
      */
-    public PageResult<PersonnelDetailItemDTO> listPersonnelDetails(Integer current, Integer pageSize) {
-        int actualCurrent = (current == null || current < 1) ? DEFAULT_CURRENT : current;
-        int actualPageSize = (pageSize == null || pageSize < 1) ? DEFAULT_PAGE_SIZE : pageSize;
+    public PersonnelDetailPageDTO listPersonnelDetails(Integer current, Integer pageSize) {
+        if (current != null && current < 1) {
+            throw new BizException(PersonnelErrorCode.INVALID_PARAMETER);
+        }
+        if (pageSize != null && pageSize < 1) {
+            throw new BizException(PersonnelErrorCode.INVALID_PARAMETER);
+        }
+
+        int actualCurrent = (current == null) ? DEFAULT_CURRENT : current;
+        int actualPageSize = (pageSize == null) ? DEFAULT_PAGE_SIZE : pageSize;
 
         PageResult<Personnel> pageResult = personnelRepository.pagePersonnel(actualCurrent, actualPageSize);
-        if (pageResult == null) {
-            return new PageResult<>(0L, new ArrayList<>(), actualCurrent, actualPageSize, 0L);
-        }
-        return PageResult.convert(pageResult, personnelDetailAssembler::toDetailItem);
+        return personnelDetailAssembler.toPage(pageResult);
     }
 }

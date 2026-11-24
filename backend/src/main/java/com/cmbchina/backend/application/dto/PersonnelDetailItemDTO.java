@@ -28,6 +28,16 @@ public class PersonnelDetailItemDTO {
     private Integer age;
 
     /**
+     * 联系电话
+     */
+    private String phone;
+
+    /**
+     * 座机号码
+     */
+    private String landline;
+
+    /**
      * 电子邮箱
      */
     private String email;

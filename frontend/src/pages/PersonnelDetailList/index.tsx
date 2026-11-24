@@ -31,6 +31,16 @@ const columns: ProColumns<PersonnelDetailListItem>[] = [
     width: 80,
   },
   {
+    title: '联系电话',
+    dataIndex: 'phone',
+    width: 140,
+  },
+  {
+    title: '座机号',
+    dataIndex: 'landline',
+    width: 140,
+  },
+  {
     title: '电子邮箱',
     dataIndex: 'email',
     ellipsis: true,
@@ -63,12 +73,18 @@ export default function PersonnelDetailListPage() {
   const [current, setCurrent] = useState(1);
   const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
 
+  // 分页查询由 useRequest 管理；加载中保留上次成功数据并用 loading 标识
   const { data, loading, error, run } = useRequest(
     () => listPersonnelDetails({ current, pageSize }),
     {
       refreshDeps: [current, pageSize],
     },
   );
+
+  // 分页展示值取自最近一次成功查询结果，避免请求失败后页码与列表不一致
+  const resolvedCurrent = data?.current ?? current;
+  const resolvedPageSize = data?.pageSize ?? pageSize;
+  const resolvedTotal = data?.total ?? 0;
 
   /** 请求失败后按当前页条件重试 */
   const handleRetry = () => {
@@ -78,7 +94,7 @@ export default function PersonnelDetailListPage() {
   /** 切换分页：更新查询条件，由 useRequest 的 refreshDeps 触发对应页查询 */
   const handlePageChange = (nextCurrent: number, nextPageSize: number) => {
     // 改变每页条数时复位到第一页，保持页码与页容量一致
-    if (nextPageSize !== pageSize) {
+    if (nextPageSize !== resolvedPageSize) {
       setPageSize(nextPageSize);
       setCurrent(1);
       return;
@@ -116,9 +132,9 @@ export default function PersonnelDetailListPage() {
         options={false}
         toolBarRender={false}
         pagination={{
-          current,
-          pageSize,
-          total: data?.total ?? 0,
+          current: resolvedCurrent,
+          pageSize: resolvedPageSize,
+          total: resolvedTotal,
           showSizeChanger: true,
           showQuickJumper: false,
           onChange: handlePageChange,
