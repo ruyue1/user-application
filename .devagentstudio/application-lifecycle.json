@@ -3,20 +3,20 @@
     "id": "1795592357683-h3xavu",
     "name": "历史预览测试"
   },
-  "updatedAt": "2026-11-25T08:36:56.879842Z",
-  "revision": 14,
+  "updatedAt": "2026-11-25T08:43:58.574803Z",
+  "revision": 51,
   "developmentArtifacts": {
     "pages": {
       "system_time_display": {
-        "initialDevelopmentStatus": "pending",
-        "completedAt": null,
-        "completedRunId": null,
-        "completedThreadId": null,
-        "completedBranchName": null,
-        "lastCompletedRunId": null,
-        "lastCompletedThreadId": null,
-        "changeStatus": "changed",
-        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "initialDevelopmentStatus": "completed",
+        "completedAt": "2026-11-25T08:43:07.501603Z",
+        "completedRunId": "d7d298a4-efb0-41ee-93b7-180b54721f9f",
+        "completedThreadId": "8cd545ab-bfab-4109-b32b-c858350eb41c",
+        "completedBranchName": "v1_0",
+        "lastCompletedRunId": "bea30ad0-4b15-4cd9-a74c-7a4c4ccfc1e5",
+        "lastCompletedThreadId": "8cd545ab-bfab-4109-b32b-c858350eb41c",
+        "changeStatus": "unchanged",
+        "changeReason": null,
         "checkedChangeId": null
       }
     },
@@ -26,17 +26,239 @@
     "outOfScope": []
   },
   "initialization": {
-    "stage": "generating_application_template_files",
-    "status": "running",
+    "stage": "ready_for_workbench",
+    "status": "completed",
     "threadId": "458516ac-4547-47ed-9317-c83825e5f05c",
     "iterationId": "4f28646f-d489-4b80-b7e2-ee6bf8bd170f"
   },
-  "activeRunId": "6a99850e-6907-4e97-bf0e-b4392c9c689d",
-  "activeExecutions": {},
-  "developmentContinuations": {},
+  "activeRunId": "0385e3d9-0cae-475a-86ee-554dd26d1c5d",
+  "activeExecutions": {
+    "0385e3d9-0cae-475a-86ee-554dd26d1c5d": {
+      "scope": "page",
+      "targetId": "system_time_display",
+      "pageId": "system_time_display",
+      "threadId": "8cd545ab-bfab-4109-b32b-c858350eb41c",
+      "ownerSessionId": "9743fce3-f342-4962-997a-e68d2eab807d",
+      "runId": "0385e3d9-0cae-475a-86ee-554dd26d1c5d",
+      "phase": "acceptance",
+      "status": "awaiting_user",
+      "resourceKeys": [
+        "page:system_time_display"
+      ],
+      "developmentPurpose": null,
+      "developmentTarget": null,
+      "pendingInteraction": {
+        "id": "interaction-ee8cda76ac58934adc78dc4d",
+        "type": "page_acceptance",
+        "basedOnRevision": 51,
+        "payload": {
+          "mode": "page_acceptance",
+          "message": "项目已通过集成测试并启动预览，请用户验收。",
+          "previewUrl": "http://127.0.0.1:3000",
+          "testSummary": {
+            "version": "0.1.0",
+            "generated_at": "2026-11-25T08:43:37.953760+00:00",
+            "passed": true,
+            "checks": [
+              {
+                "id": "frontend_install",
+                "name": "前端依赖安装检查",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": false,
+                "required": true,
+                "command": "/Users/sbw/.nvm/versions/node/v24.14.0/bin/pnpm install",
+                "evidence": "Node v24.14.0 (NVM_BIN) /Users/sbw/.nvm/versions/node/v24.14.0/bin/node\n命令执行通过：/Users/sbw/.nvm/versions/node/v24.14.0/bin/pnpm install",
+                "failure_category": null,
+                "execution": {
+                  "tool": "subprocess",
+                  "argv": [
+                    "/Users/sbw/.nvm/versions/node/v24.14.0/bin/pnpm",
+                    "install"
+                  ],
+                  "cwd": "frontend",
+                  "returncode": 0,
+                  "timed_out": false,
+                  "error": null,
+                  "started_at": "2026-11-25T08:43:10.124553+00:00",
+                  "finished_at": "2026-11-25T08:43:15.192908+00:00",
+                  "stdout_log": "/Users/sbw/Documents/xc8/.devagentstudio/runtime/tests/frontend_install/stdout.log",
+                  "stderr_log": "/Users/sbw/Documents/xc8/.devagentstudio/runtime/tests/frontend_install/stderr.log",
+                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stdout.log",
+                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stderr.log",
+                  "stdout_tail": "[WARN] Unsupported engine: wanted: {\"node\":\">=20.19 <23\"} (current: {\"node\":\"v24.14.0\",\"pnpm\":\"11.9.0\"})\n✓ Lockfile passes supply-chain policies (verified 5d ago)\nLockfile is up to date, resolution step is skipped\nProgress: resolved 1, reused 0, downloaded 0, added 0\nPackages: +821\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n   ╭──────────────────────────────────────────╮\n   │                                          │\n   │   Update available! 11.9.0 → 12.23.0.    │\n   │   Changelog: https://pnpm.io/v/12.23.0   │\n   │     To update, run: pnpm add -g pnpm     │\n   │                                          │\n   ╰──────────────────────────────────────────╯\n\nProgress: resolved 821, reused 821, downloaded 0, added 89\nProgress: resolved 821, reused 821, downloaded 0, added 242\nProgress: resolved 821, reused 821, downloaded 0, added 530\nProgress: resolved 821, reused 821, downloaded 0, added 821, done\n\ndependencies:\n+ @ant-design/cssinjs 1.21.1\n+ @ant-design/icons 5.0.1\n+ @ant-design/pro-components 2.8.10\n+ ahooks 3.10.0\n+ antd 5.29.3\n+ axios 1.20.0\n+ clsx 2.1.1\n+ date-fns 4.4.0\n+ lodash 4.18.1\n+ mermaid 10.9.8\n+ qs 6.16.0\n+ react 18.2.0\n+ react-dom 18.2.0\n+ react-markdown 8.0.7\n+ react-router 6.30.6\n+ react-router-dom 6.30.6\n+ remark-gfm 3.0.1\n+ uuid 13.0.2\n\ndevDependencies:\n+ @babel/core 7.29.7\n+ @rsbuild/core 1.0.14\n+ @rsbuild/plugin-react 1.0.4\n+ @tailwindcss/postcss 4.3.3\n+ @testing-library/jest-dom 6.6.3\n+ @testing-library/react 16.2.0\n+ @types/jest 29.5.14\n+ @types/lodash 4.17.25\n+ @types/node 26.5.1\n+ @types/qs 6.15.1\n+ @types/react 18.3.31\n+ @types/react-dom 18.0.9\n+ autoprefixer 10.5.5\n+ babel-jest 29.7.0\n+ jest 29.7.0\n+ jest-config 29.7.0\n+ jest-environment-jsdom 29.7.0\n+ jest-sonar-reporter 2.0.0\n+ jest-watch-typeahead 2.2.2\n+ postcss 8.5.28\n+ tailwindcss 4.3.3\n+ ts-jest 29.4.1\n+ typescript 5.3.2\n\nDone in 4.3s using pnpm v11.9.0\n",
+                  "stderr_tail": "",
+                  "nodeRuntime": {
+                    "path": "/Users/sbw/.nvm/versions/node/v24.14.0/bin/node",
+                    "version": "v24.14.0",
+                    "source": "NVM_BIN"
+                  }
+                }
+              },
+              {
+                "id": "frontend_build",
+                "name": "前端构建检查",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": false,
+                "required": true,
+                "command": "/Users/sbw/.nvm/versions/node/v24.14.0/bin/pnpm run build",
+                "evidence": "Node v24.14.0 (NVM_BIN) /Users/sbw/.nvm/versions/node/v24.14.0/bin/node\n命令执行通过：/Users/sbw/.nvm/versions/node/v24.14.0/bin/pnpm run build",
+                "failure_category": null,
+                "execution": {
+                  "tool": "subprocess",
+                  "argv": [
+                    "/Users/sbw/.nvm/versions/node/v24.14.0/bin/pnpm",
+                    "run",
+                    "build"
+                  ],
+                  "cwd": "frontend",
+                  "returncode": 0,
+                  "timed_out": false,
+                  "error": null,
+                  "started_at": "2026-11-25T08:43:15.193294+00:00",
+                  "finished_at": "2026-11-25T08:43:21.645643+00:00",
+                  "stdout_log": "/Users/sbw/Documents/xc8/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+                  "stderr_log": "/Users/sbw/Documents/xc8/.devagentstudio/runtime/tests/frontend_build/stderr.log",
+                  "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+                  "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stderr.log",
+                  "stdout_tail": "[WARN] Unsupported engine: wanted: {\"node\":\">=20.19 <23\"} (current: {\"node\":\"v24.14.0\",\"pnpm\":\"11.9.0\"})\n  Rsbuild v1.0.14\n\nready   Built in 1.07 s (web)\nwarn    Compile Warning: \n⚠ Unknown at rule: @theme at static/css/index.ad7b979e.css:19:7\n\n⚠ Unknown at rule: @theme at static/css/620.dad43946.css:2:9\n\n⚠ Unknown at rule: @theme at static/css/620.dad43946.css:6:9\n\n⚠ Unknown at rule: @tailwind at static/css/620.dad43946.css:325:12\n\n\n  File (web)                                Size         Gzip    \n  build/static/js/async/923.6f96c215.js     0.38 kB      0.30 kB\n  build/static/js/async/445.17641862.js     0.90 kB      0.60 kB\n  build/index.html                          0.92 kB      0.46 kB\n  build/static/css/index.ad7b979e.css       1.4 kB       0.54 kB\n  build/static/svg/icon20.232d197f.svg      4.7 kB       2.1 kB\n  build/static/js/lib-router.8af4ada6.js    19.9 kB      7.3 kB\n  build/static/css/620.dad43946.css         23.1 kB      5.9 kB\n  build/static/js/index.24774694.js         58.3 kB      19.4 kB\n  build/static/js/async/953.7c1dce99.js     63.8 kB      19.1 kB\n  build/static/js/lib-react.01625cc3.js     140.3 kB     45.1 kB\n  build/static/js/620.6cd9d277.js           1467.8 kB    377.4 kB\n\n  Total: 1781.5 kB (gzip: 478.3 kB)\n\n",
+                  "stderr_tail": "$ tsc -b && rsbuild build\n",
+                  "nodeRuntime": {
+                    "path": "/Users/sbw/.nvm/versions/node/v24.14.0/bin/node",
+                    "version": "v24.14.0",
+                    "source": "NVM_BIN"
+                  }
+                }
+              },
+              {
+                "id": "backend_build",
+                "name": "后端构建检查",
+                "layer": "backend",
+                "language": "java",
+                "passed": true,
+                "skipped": true,
+                "required": false,
+                "command": null,
+                "evidence": "应用无后端业务实体与 API 契约，跳过后端检查。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "none",
+                  "argv": [],
+                  "cwd": ".",
+                  "returncode": null,
+                  "timed_out": false,
+                  "stdout_log": null,
+                  "stderr_log": null
+                }
+              },
+              {
+                "id": "backend_startup",
+                "name": "后端启动检查",
+                "layer": "backend",
+                "language": "java",
+                "passed": true,
+                "skipped": true,
+                "required": false,
+                "command": null,
+                "evidence": "应用无后端业务实体与 API 契约，跳过后端启动检查。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "none",
+                  "argv": [],
+                  "cwd": ".",
+                  "returncode": null,
+                  "timed_out": false,
+                  "stdout_log": null,
+                  "stderr_log": null
+                },
+                "source_fingerprint": "741035106e96d0ba71b7d3cf5978979f8bceaf646a849cdb2c3455512a619c38"
+              },
+              {
+                "id": "backend_static_check",
+                "name": "后端静态检查通过",
+                "layer": "backend",
+                "language": "java",
+                "passed": true,
+                "skipped": true,
+                "required": false,
+                "command": null,
+                "evidence": "应用无后端业务实体与 API 契约，跳过后端检查。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "none",
+                  "argv": [],
+                  "cwd": ".",
+                  "returncode": null,
+                  "timed_out": false,
+                  "stdout_log": null,
+                  "stderr_log": null
+                }
+              },
+              {
+                "id": "frontend_performance",
+                "name": "前端性能测试",
+                "layer": "frontend",
+                "language": "typescript",
+                "passed": true,
+                "skipped": true,
+                "required": false,
+                "blocking": false,
+                "advisory": true,
+                "command": null,
+                "evidence": "本轮跳过前端性能测试，不启动前端、不执行 Lighthouse。",
+                "failure_category": null,
+                "execution": {
+                  "tool": "none",
+                  "argv": [],
+                  "cwd": ".",
+                  "returncode": null,
+                  "timed_out": false,
+                  "stdout_log": null,
+                  "stderr_log": null
+                }
+              }
+            ],
+            "summary": {
+              "total": 6,
+              "passed": 6,
+              "failed": 0
+            },
+            "needs_revision": false,
+            "revision_requests": [],
+            "quality_gate": {
+              "passed": true,
+              "required_checks": [
+                "frontend_install",
+                "frontend_build"
+              ],
+              "evaluated_by": "deterministic-quality-gate"
+            }
+          }
+        },
+        "artifactRefs": [],
+        "createdAt": "2026-11-25T08:43:58.574769Z",
+        "submittedAt": null
+      },
+      "error": null,
+      "startedAt": "2026-11-25T08:43:52.133525Z",
+      "updatedAt": "2026-11-25T08:43:58.574784Z"
+    }
+  },
   "resourceLocks": {
     "application": null,
-    "pages": {},
+    "pages": {
+      "system_time_display": {
+        "runId": "0385e3d9-0cae-475a-86ee-554dd26d1c5d",
+        "ownerPageId": "system_time_display",
+        "mode": "exclusive",
+        "role": "primary",
+        "reason": "primary_target",
+        "acquiredAt": "2026-11-25T08:43:52.133525Z"
+      }
+    },
     "apiContracts": {},
     "endpoints": {},
     "dataSources": {}
@@ -44,5 +266,13 @@
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {}
+  "extensions": {
+    "testExecutionStatus": "pending",
+    "reviewStatus": "pending",
+    "acceptanceStatus": "pending",
+    "redevelopedChangedTargets": [
+      "page:system_time_display"
+    ]
+  },
+  "developmentContinuations": {}
 }
