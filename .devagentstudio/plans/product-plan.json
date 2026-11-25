@@ -5,7 +5,7 @@
   },
   "confirmation_status": "confirmed",
   "generated_at": "2026-11-24T09:11:01.499598+00:00",
-  "requirement_spec_sha256": "58b913638441af7be821de03d806d424ded0575d85f3d0888f99187cafcec7c7",
+  "requirement_spec_sha256": "46aef6db33728d217808af2bca3c3a34feeb6295c64f2ff056ce1fdb74829a97",
   "schema_version": "product-plan.v5",
   "version": "0.1.0",
   "app": {
@@ -42,6 +42,7 @@
       "acceptance_criteria": [
         "使用者进入应用后默认看到人员明细列表页，页面以表格形式展示人员明细信息。",
         "人员明细列表采用普通分页方式呈现，使用者可通过分页控件逐页浏览人员明细信息。",
+        "人员明细信息中包含「最高学历」字段（education，文本、选填），并随列表逐条展示。",
         "页面不出现新增、删除、修改人员信息的操作入口。",
         "页面不提供除分页浏览之外的其他数据处理操作。",
         "所有使用者均可查看人员明细列表，无需登录认证。",
@@ -63,7 +64,7 @@
       "goal": "让所有使用者在一个只读列表中按普通分页方式逐页查看人员的明细信息，且不出现任何新增、删除、修改人员信息的入口。",
       "information_items": [
         {
-          "description": "以表格形式呈现的人员基本明细信息，供使用者逐条查看每位人员的具体明细内容。",
+          "description": "以表格形式呈现的人员基本明细信息（含性别、年龄、联系电话、座机号、电子邮箱、所属部门、职位、入职日期、最高学历、备注等），供使用者逐条查看每位人员的具体明细内容。",
           "itemId": "personnel_basic_details",
           "label": "人员明细信息"
         },
@@ -130,7 +131,7 @@
       "navigation_targets": [],
       "pageId": "greeting_display_page",
       "path": "/page/greeting",
-      "_change_status": "added"
+      "_change_status": "unchanged"
     }
   ],
   "product_acceptance_criteria": [
