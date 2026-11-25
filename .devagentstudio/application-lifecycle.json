@@ -1,0 +1,48 @@
+{
+  "application": {
+    "id": "1795588282848-cav73k",
+    "name": "yst登录"
+  },
+  "updatedAt": "2026-11-25T06:52:28.211013Z",
+  "revision": 14,
+  "developmentArtifacts": {
+    "pages": {
+      "current_time_display_page": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "lastCompletedRunId": null,
+        "lastCompletedThreadId": null,
+        "changeStatus": "changed",
+        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "checkedChangeId": null
+      }
+    },
+    "entities": {},
+    "endpoints": {},
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "3677b5b1-eebf-409d-b0d9-fa67b404a7de",
+    "iterationId": "34cbfca2-ef14-4a9a-9d46-8b64b69a6968"
+  },
+  "activeRunId": "3d00145d-75e7-4de7-8e21-6a0a6280b107",
+  "activeExecutions": {},
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}

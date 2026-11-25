@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 3,
+  "templateRevision": "2026.11.20.1002",
+  "requested": {
+    "login": {
+      "enabled": true,
+      "config": {}
+    }
+  },
+  "effective": {
+    "login": {
+      "enabled": true,
+      "config": {}
+    }
+  },
+  "installedArtifacts": {
+    "backend:login:src/main/java/com/cmb/oa/one/account/oauth/client/login/context/TokenContextHolder.java": {
+      "capabilityId": "login",
+      "target": "backend/src/main/java/com/cmb/oa/one/account/oauth/client/login/context/TokenContextHolder.java",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "backend:login:src/main/java/com/cmb/oa/one/account/oauth/client/login/model/LocalToken.java": {
+      "capabilityId": "login",
+      "target": "backend/src/main/java/com/cmb/oa/one/account/oauth/client/login/model/LocalToken.java",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "backend:login:src/main/java/com/cmbchina/backend/standalone/login/MockIdentityFilter.java": {
+      "capabilityId": "login",
+      "target": "backend/src/main/java/com/cmbchina/backend/standalone/login/MockIdentityFilter.java",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "backend:login:src/main/java/com/cmbchina/backend/standalone/login/MockIdentityService.java": {
+      "capabilityId": "login",
+      "target": "backend/src/main/java/com/cmbchina/backend/standalone/login/MockIdentityService.java",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "backend:login:src/main/java/com/cmbchina/backend/standalone/login/MockLoginConfiguration.java": {
+      "capabilityId": "login",
+      "target": "backend/src/main/java/com/cmbchina/backend/standalone/login/MockLoginConfiguration.java",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "backend:login:src/main/java/com/cmbchina/backend/standalone/login/MockLoginController.java": {
+      "capabilityId": "login",
+      "target": "backend/src/main/java/com/cmbchina/backend/standalone/login/MockLoginController.java",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "frontend:login:src/apis/login.ts": {
+      "capabilityId": "login",
+      "target": "frontend/src/apis/login.ts",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "frontend:login:src/constants/login.ts": {
+      "capabilityId": "login",
+      "target": "frontend/src/constants/login.ts",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "frontend:login:src/constants/yst.ts": {
+      "capabilityId": "login",
+      "target": "frontend/src/constants/yst.ts",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "frontend:login:src/context/LoginContext.tsx": {
+      "capabilityId": "login",
+      "target": "frontend/src/context/LoginContext.tsx",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "frontend:login:src/hooks/useGuard.ts": {
+      "capabilityId": "login",
+      "target": "frontend/src/hooks/useGuard.ts",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "frontend:login:src/pages/Login/index.tsx": {
+      "capabilityId": "login",
+      "target": "frontend/src/pages/Login/index.tsx",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "frontend:login:src/pages/Logout/index.tsx": {
+      "capabilityId": "login",
+      "target": "frontend/src/pages/Logout/index.tsx",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "frontend:login:src/providers/LoginProvider.tsx": {
+      "capabilityId": "login",
+      "target": "frontend/src/providers/LoginProvider.tsx",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "frontend:login:src/typings/login.ts": {
+      "capabilityId": "login",
+      "target": "frontend/src/typings/login.ts",
+      "installedRevision": "2026.11.20.1002"
+    },
+    "frontend:login:src/typings/yst.ts": {
+      "capabilityId": "login",
+      "target": "frontend/src/typings/yst.ts",
+      "installedRevision": "2026.11.20.1002"
+    }
+  },
+  "managedContributions": {},
+  "stateSequence": 0
+}

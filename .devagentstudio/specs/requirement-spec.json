@@ -1,0 +1,78 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "generated_at": "2026-11-25T06:51:32.509182+00:00",
+  "summary": "「yst登录」是面向 PC 终端的单页面应用，启用登录认证，不涉及权限控制。用户登录后进入唯一页面，页面仅显示当前时间，不提供任何后端 API 与业务实体操作。页面采用侧边导航布局，页头启用、页脚禁用。",
+  "source_request": "请为新应用「yst登录」完成需求、产品、UI（可跳过）和技术规划。；应用场景：只有一个页面，页面上显示当前时间，没有任何后端api和实体；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。；补充确认：用户角色为已选：普通用户",
+  "app_info": {
+    "name": "yst登录",
+    "summary": "「yst登录」是面向 PC 终端的单页面应用，启用登录认证，不涉及权限控制。用户登录后进入唯一页面，页面仅显示当前时间，不提供任何后端 API 与业务实体操作。页面采用侧边导航布局，页头启用、页脚禁用。",
+    "target": "",
+    "route_root_path": "/page",
+    "menu_enabled": true
+  },
+  "user_roles": [
+    {
+      "name": "普通用户",
+      "description": "登录后可查看页面上显示的当前时间，无其他业务操作。",
+      "id": "ordinary_user"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "当前时间展示",
+      "description": "应用唯一的业务能力：在唯一页面中展示当前时间。仅提供时间信息的展示，不涉及后端数据读写、业务实体维护或其他操作。用户需先完成登录才能访问该页面；本模块不做任何权限区分，所有登录用户看到的展示内容一致。",
+      "priority": "must",
+      "id": "current_time_display"
+    }
+  ],
+  "pages": [
+    {
+      "name": "当前时间展示页",
+      "path": "/page/current-time-display",
+      "module_id": "current_time_display",
+      "description": "应用唯一的页面，也是首页。页面采用侧边导航布局，页头启用、页脚禁用。用户登录后进入该页面，页面展示当前的日期与时间信息，供用户查看；页面上不提供任何业务操作、表单或数据维护入口。",
+      "pageId": "current_time_display_page"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "查看当前时间",
+      "steps": [
+        "普通用户打开「yst登录」应用。",
+        "用户完成登录认证。",
+        "系统进入唯一的当前时间展示页（首页）。",
+        "页面展示当前日期与时间信息，用户查看该信息。"
+      ],
+      "id": "view_current_time",
+      "description": "普通用户登录应用后，在唯一页面查看当前时间的流程。该流程不涉及数据提交或业务处理。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": [
+      "认证：启用。",
+      "普通用户（登录后可查看页面上显示的当前时间，无其他业务操作）。"
+    ]
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\"version\": \"1.0\", \"status\": \"completed\", \"generated_at\": \"2025-06-01T00:00:00Z\", \"app_info\": {\"name\": \"yst登录\", \"summary\": \"「yst登录」是面向 PC 终端的单页面应用，启用登录认证，不涉及权限控制。用户登录后进入唯一页面，页面仅显示当前时间，不提供任何后端 API 与业务实体操作。页面采用侧边导航布局，页头启用、页脚禁用。\", \"route_root_path\": \"/\"}, \"user_roles\": [{\"id\": \"ordinary_user\", \"name\": \"普通用户\", \"description\": \"登录后可查看页面上显示的当前时间，无其他业务操作。\"}], \"feature_modules\": [{\"id\": \"current_time_display\", \"name\": \"当前时间展示\", \"description\": \"应用唯一的业务能力：在唯一页面中展示当前时间。仅提供时间信息的展示，不涉及后端数据读写、业务实体维护或其他操作。用户需先完成登录才能访问该页面；本模块不做任何权限区分，所有登录用户看到的展示内容一致。\"}], \"pages\": [{\"pageId\": \"current_time_display_page\", \"name\": \"当前时间展示页\", \"path\": \"/\", \"module_id\": \"current_time_display\", \"description\": \"应用唯一的页面，也是首页。页面采用侧边导航布局，页头启用、页脚禁用。用户登录后进入该页面，页面展示当前的日期与时间信息，供用户查看；页面上不提供任何业务操作、表单或数据维护入口。\"}], \"business_flows\": [{\"id\": \"view_current_time\", \"name\": \"查看当前时间\", \"description\": \"普通用户登录应用后，在唯一页面查看当前时间的流程。该流程不涉及数据提交或业务处理。\", \"steps\": [\"普通用户打开「yst登录」应用。\", \"用户完成登录认证。\", \"系统进入唯一的当前时间展示页（首页）。\", \"页面展示当前日期与时间信息，用户查看该信息。\"]}], \"authentication_requirements\": {\"enabled\": true, \"sourceRefs\": [\"认证：启用。\", \"普通用户（登录后可查看页面上显示的当前时间，无其他业务操作）。\"]}, \"authorization_requirements\": {\"restrictedPages\": [], \"restrictedOperations\": []}}",
+  "approved": true,
+  "confirmation_status": "confirmed",
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "deepseek-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model"
+}

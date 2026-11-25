@@ -1,0 +1,61 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-11-25T06:51:43.748556+00:00",
+  "requirement_spec_sha256": "b0132a3b0a89cbabfc10fcae1c069072587ba577a2e7790a75d2067e969d3dd0",
+  "app": {
+    "name": "yst登录",
+    "summary": "「yst登录」是面向 PC 终端的单页面应用，启用登录认证，不涉及权限控制。用户登录后进入唯一页面，页面仅显示当前时间，不提供任何后端 API 与业务实体操作。页面采用侧边导航布局，页头启用、页脚禁用。"
+  },
+  "business_flows": [
+    {
+      "name": "查看当前时间",
+      "steps": [
+        "普通用户打开「yst登录」应用。",
+        "用户完成登录认证。",
+        "系统进入唯一的当前时间展示页（首页）。",
+        "页面展示当前日期与时间信息，用户查看该信息。"
+      ],
+      "id": "view_current_time",
+      "description": "普通用户登录应用后，在唯一页面查看当前时间的流程。该流程不涉及数据提交或业务处理。"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "current_time_display_page",
+      "name": "当前时间展示页",
+      "path": "/page/current-time-display",
+      "module_id": "current_time_display",
+      "description": "应用唯一的页面，也是首页。页面采用侧边导航布局，页头启用、页脚禁用。用户登录后进入该页面，页面展示当前的日期与时间信息，供用户查看；页面上不提供任何业务操作、表单或数据维护入口。",
+      "goal": "让已登录的普通用户在唯一页面查看当前日期与时间，不提供其他业务操作入口。",
+      "information_items": [
+        {
+          "itemId": "current_date_time",
+          "label": "当前日期与时间",
+          "description": "页面展示当前的日期与时间信息，供已登录用户查看。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "acceptance_criteria": [
+        "已登录用户进入当前时间展示页后，无需执行任何操作即可看到当前的日期与时间信息。",
+        "当前时间展示页仅展示当前日期与时间，不提供业务操作、表单或数据维护入口。",
+        "页面采用侧边导航布局，页头启用、页脚禁用。",
+        "未完成登录认证的用户不能进入当前时间展示页。"
+      ],
+      "_change_status": "added"
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "普通用户打开「yst登录」应用后，需完成登录认证才能进入当前时间展示页。",
+    "登录后用户进入唯一的当前时间展示页，并在该页查看当前日期与时间信息。",
+    "应用仅包含当前时间展示页一个页面，不提供其他业务页面或业务操作入口。",
+    "所有登录用户看到的当前日期与时间展示内容一致，无差异化功能入口。",
+    "应用采用侧边导航布局，页头启用、页脚禁用。"
+  ],
+  "confirmation_status": "confirmed"
+}

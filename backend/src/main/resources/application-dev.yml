@@ -1,0 +1,18 @@
+server:
+  address: 127.0.0.1
+datasource:
+  ds1:
+    url: ${DATASOURCE_DS1_URL:127.0.0.1}
+    port: ${DATASOURCE_DS1_PORT:3306}
+    schema: ${DATASOURCE_DS1_SCHEMA:database}
+    username: ${DATASOURCE_DS1_USERNAME:root}
+    password: ${DATASOURCE_DS1_PASSWORD:password}
+yht:
+  authentication:
+    client-id: '345'
+    private-key: '345'
+    public-key: '345'
+    center-public-key: '345'
+    center-uri: http://one-account-gateway.paasuat.cmbchina.cn/auth-server
+    authorize-uri: https://one-account-gateway.paasuat.cmbchina.cn/auth-server/auth
+    redirect-uri: http://localhost/login
