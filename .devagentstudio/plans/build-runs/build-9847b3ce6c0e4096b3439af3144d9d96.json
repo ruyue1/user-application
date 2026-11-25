@@ -1,0 +1,1059 @@
+{
+  "schema_version": "build-dag.v4",
+  "application": {
+    "unit_id": "application:root",
+    "status": "prepared"
+  },
+  "build_units": {
+    "application:root": {
+      "id": "application:root",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:auth-resources": {
+      "id": "backend:auth-resources",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:shell": {
+      "id": "frontend:shell",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "generation_strategy": "prerequisite_only",
+      "participation": "prerequisite_only",
+      "generation_status": "not_required",
+      "input_fingerprint": "99ba9989baf0b60e7a4fb779cf6ca6b4642ff5295c811a95273134cb6d661551"
+    },
+    "frontend:api-client": {
+      "id": "frontend:api-client",
+      "kind": "frontend",
+      "status": "prepared",
+      "task_ids": [
+        "frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "input_fingerprint": "6c0fbb3d86ebb4165d490997f5b86f46d84e150f6f03f5b7b4f4f7fc1c6c7453"
+    },
+    "frontend:auth-guard": {
+      "id": "frontend:auth-guard",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:bootstrap": {
+      "id": "backend:bootstrap",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "6d4b93161edb1e0ae607848a4a0bccd538c97e9ffa96539987bdc79fdc933fd8",
+          "byteLength": 2531,
+          "mediaType": "application/json"
+        }
+      },
+      "input_fingerprint": "5844145dd0af88819e2ee0d76c05990ce4203df1a51655292262fce98cfa1724"
+    },
+    "app:integration": {
+      "id": "app:integration",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:module:personnel_detail_contract": {
+      "id": "backend:module:personnel_detail_contract",
+      "kind": "backend",
+      "api_contract_id": "personnel_detail_contract",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "technical_plan_module",
+        "target": {
+          "type": "module",
+          "id": "personnel_detail_contract",
+          "api_contract_id": "personnel_detail_contract"
+        },
+        "technical_plan_endpoints": [],
+        "endpoint_ids": [],
+        "entity_ids": [
+          "personnel_detail"
+        ],
+        "endpoint_designs": [],
+        "mapping_flows": [
+          "数据库操作：read",
+          "业务规则：符合条件的人员明细总数；依赖：无；缺值时：报错 → response.response_body.total",
+          "业务规则：实际页码；依赖：无；缺值时：报错 → response.response_body.current",
+          "业务规则：实际每页条数；依赖：无；缺值时：报错 → response.response_body.pageSize",
+          "ds-0cafd44bf2b1444f.personnel.name → response.response_body.list[].name",
+          "ds-0cafd44bf2b1444f.personnel.gender → response.response_body.list[].gender",
+          "ds-0cafd44bf2b1444f.personnel.id → response.response_body.list[].age",
+          "ds-0cafd44bf2b1444f.personnel.phone → response.response_body.list[].phone",
+          "ds-0cafd44bf2b1444f.personnel.name → response.response_body.list[].landline",
+          "ds-0cafd44bf2b1444f.personnel.email → response.response_body.list[].email",
+          "ds-0cafd44bf2b1444f.personnel.department → response.response_body.list[].department",
+          "ds-0cafd44bf2b1444f.personnel.hire_date → response.response_body.list[].entryDate",
+          "ds-0cafd44bf2b1444f.personnel.remark → response.response_body.list[].remark"
+        ],
+        "source_types": [
+          "database"
+        ],
+        "business_descriptions": []
+      },
+      "input_fingerprint": "a41120168e3d1e8a94dd95a0b8345394129d3790171b536b3e0ec1dee03f5669"
+    },
+    "backend:module:greeting_contract": {
+      "id": "backend:module:greeting_contract",
+      "kind": "backend",
+      "api_contract_id": "greeting_contract",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "page:personnel_detail_list": {
+      "id": "page:personnel_detail_list",
+      "kind": "page",
+      "page_id": "personnel_detail_list",
+      "status": "prepared",
+      "task_ids": [
+        "page:personnel_detail_list::page"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "84a9a077febd02d9a5d2979f481e7ad39ed987f67e79f9561dd408b22966dc71",
+          "byteLength": 2604,
+          "mediaType": "application/json"
+        }
+      },
+      "input_fingerprint": "abb961f4b71db70a906aaa961f6f6bb47b3643b690461f8904edcf98a16754b8"
+    },
+    "page:greeting_display_page": {
+      "id": "page:greeting_display_page",
+      "kind": "page",
+      "page_id": "greeting_display_page",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    }
+  },
+  "unit_graph": {
+    "schema_version": "build-unit-graph.v3",
+    "nodes": [
+      "application:root",
+      "backend:auth-resources",
+      "frontend:shell",
+      "frontend:api-client",
+      "frontend:auth-guard",
+      "backend:bootstrap",
+      "app:integration",
+      "backend:module:personnel_detail_contract",
+      "backend:module:greeting_contract",
+      "page:personnel_detail_list",
+      "page:greeting_display_page"
+    ],
+    "edges": [
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:bootstrap",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:auth-resources",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:shell",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:api-client",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:auth-guard",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:bootstrap",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:personnel_detail_contract",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:personnel_detail_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:personnel_detail_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:personnel_detail_contract",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:module:greeting_contract",
+        "type": "contains"
+      },
+      {
+        "from": "backend:bootstrap",
+        "to": "backend:module:greeting_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:module:greeting_contract",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_contract",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:personnel_detail_list",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:personnel_detail_list",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:personnel_detail_list",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:personnel_detail_contract",
+        "to": "page:personnel_detail_list",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:personnel_detail_list",
+        "to": "app:integration",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "page:greeting_display_page",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:greeting_display_page",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:greeting_display_page",
+        "type": "depends_on"
+      },
+      {
+        "from": "backend:module:greeting_contract",
+        "to": "page:greeting_display_page",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:greeting_display_page",
+        "to": "app:integration",
+        "type": "depends_on"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "unit_skeleton": {
+    "input_fingerprint": "ce3f5450d1c2b67731d1a7122fd7e6852c8079fa05f735f77db22afb2697c014",
+    "project_plan_version": null,
+    "workspace_revision": "ecdf4ea479626b8dd320f0bc",
+    "reused": false
+  },
+  "task_registry": {
+    "frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011": {
+      "id": "frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011",
+      "unit_id": "frontend:api-client",
+      "owner": "frontend",
+      "task_type": "frontend.code",
+      "status": "pending",
+      "title": "实现人员明细分页查询接口前端访问模块",
+      "description": "在 frontend/src/apis/personnelDetailContractApi.ts 中基于平台自有的 frontend/src/apis/service.ts HTTP 客户端，实现 personnel_detail_contract.listPersonnelDetails 的前端业务访问职责：导出异步函数 listPersonnelDetails，以 GET 方式请求 /personnel-details，支持可选查询参数 current（默认 1）与 pageSize（默认 20），并定义分页响应类型（total、current、pageSize 及 list 中人员明细项 name、gender、age、phone、landline、email、department、entryDate、remark）与请求参数类型，确保类型化返回结果。",
+      "deliverables": [
+        {
+          "id": "frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011::deliverable",
+          "kind": "frontend.api_module",
+          "target_id": "personnel_detail_contract.listPersonnelDetails",
+          "paths": [
+            "frontend/src/apis/personnelDetailContractApi.ts"
+          ],
+          "provides": [
+            "frontend.api_module:personnel_detail_contract:personnel_detail_contract.listPersonnelDetails"
+          ]
+        }
+      ],
+      "target_files": [
+        "frontend/src/apis/personnelDetailContractApi.ts"
+      ],
+      "allowed_paths": [
+        "frontend/src/apis/personnelDetailContractApi.ts"
+      ],
+      "change_scope": [
+        {
+          "path": "frontend/src/apis/personnelDetailContractApi.ts",
+          "operation": "modify",
+          "description": "补充并完善分页查询人员明细接口的请求参数类型、响应数据类型定义与导出的异步访问函数 listPersonnelDetails（GET /personnel-details），复用 service.ts 发起 HTTP 请求。"
+        }
+      ],
+      "dependencies": [],
+      "can_run_in_parallel": false,
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "impact_scope": {
+        "summary": "新增/完善人员明细分页查询的前端 API 访问模块，供页面层调用。",
+        "affected_modules": [
+          "frontend/src/apis/personnelDetailContractApi.ts"
+        ],
+        "public_contracts": [
+          "personnel_detail_contract.listPersonnelDetails"
+        ],
+        "risks": [
+          "需与后端返回的分页结构与字段命名保持一致，避免类型不匹配"
+        ]
+      },
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "frontend:api-client"
+      ],
+      "unit_dependencies": [],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011:file_operation:e2803cb7e545",
+          "kind": "file_operation",
+          "description": "工程文件 frontend/src/apis/personnelDetailContractApi.ts 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/apis/personnelDetailContractApi.ts"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011:scope_boundary:a8c7d16149b0",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/apis/personnelDetailContractApi.ts"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "frontend/src/apis/personnelDetailContractApi.ts"
+            ]
+          },
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011:frontend.api_contract:cfa3923f8c9b7ec7",
+          "deliverable_id": "frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011::deliverable",
+          "kind": "frontend.api_contract",
+          "description": "前端业务 API 模块必须实现已确认的 method、path、请求参数和响应结构。",
+          "sources": [
+            {
+              "artifact": "api_contract",
+              "target_id": "personnel_detail_contract.listPersonnelDetails",
+              "pointer": "/api_contracts/personnel_detail_contract/endpoints/personnel_detail_contract.listPersonnelDetails",
+              "sha256": "935112eee605f7c45a908f3d990351d12f30764d69981689f54b4572fa9c73a2"
+            }
+          ],
+          "expected": {
+            "endpoints": [
+              {
+                "api_contract_id": "personnel_detail_contract",
+                "endpoint_id": "personnel_detail_contract.listPersonnelDetails",
+                "method": "GET",
+                "path": "/personnel-details",
+                "request_schema_ref": "",
+                "response_schema_ref": "PageResult",
+                "parameters": [
+                  {
+                    "name": "current",
+                    "in": "query",
+                    "required": false,
+                    "schema": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 1,
+                      "description": "当前页码"
+                    }
+                  },
+                  {
+                    "name": "pageSize",
+                    "in": "query",
+                    "required": false,
+                    "schema": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 20,
+                      "description": "每页条数"
+                    }
+                  }
+                ],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [],
+                  "properties": {
+                    "total": {
+                      "type": "integer",
+                      "required": false
+                    },
+                    "current": {
+                      "type": "integer",
+                      "required": false
+                    },
+                    "pageSize": {
+                      "type": "integer",
+                      "required": false
+                    },
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "PersonnelDetailListItem",
+                        "type": "object",
+                        "required": [],
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "gender": {
+                            "type": "string",
+                            "enum": [
+                              "男",
+                              "女"
+                            ],
+                            "required": false
+                          },
+                          "age": {
+                            "type": "integer",
+                            "required": false
+                          },
+                          "phone": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "landline": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "email": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "department": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "entryDate": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "remark": {
+                            "type": "string",
+                            "required": false
+                          }
+                        }
+                      },
+                      "required": false
+                    }
+                  }
+                }
+              }
+            ],
+            "required_endpoints": [
+              {
+                "api_contract_id": "personnel_detail_contract",
+                "endpoint_id": "personnel_detail_contract.listPersonnelDetails",
+                "method": "GET",
+                "path": "/personnel-details",
+                "request_schema_ref": "",
+                "response_schema_ref": "PageResult",
+                "parameters": [
+                  {
+                    "name": "current",
+                    "in": "query",
+                    "required": false,
+                    "schema": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 1,
+                      "description": "当前页码"
+                    }
+                  },
+                  {
+                    "name": "pageSize",
+                    "in": "query",
+                    "required": false,
+                    "schema": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 20,
+                      "description": "每页条数"
+                    }
+                  }
+                ],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [],
+                  "properties": {
+                    "total": {
+                      "type": "integer",
+                      "required": false
+                    },
+                    "current": {
+                      "type": "integer",
+                      "required": false
+                    },
+                    "pageSize": {
+                      "type": "integer",
+                      "required": false
+                    },
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "PersonnelDetailListItem",
+                        "type": "object",
+                        "required": [],
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "gender": {
+                            "type": "string",
+                            "enum": [
+                              "男",
+                              "女"
+                            ],
+                            "required": false
+                          },
+                          "age": {
+                            "type": "integer",
+                            "required": false
+                          },
+                          "phone": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "landline": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "email": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "department": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "entryDate": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "remark": {
+                            "type": "string",
+                            "required": false
+                          }
+                        }
+                      },
+                      "required": false
+                    }
+                  }
+                }
+              }
+            ],
+            "allowed_existing_endpoints": []
+          },
+          "target_paths": [
+            "frontend/src/apis/personnelDetailContractApi.ts"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "frontend_api_contract"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": []
+    },
+    "page:personnel_detail_list::page": {
+      "allowed_paths": [
+        "frontend/src/pages/PersonnelDetailList/index.tsx"
+      ],
+      "can_run_in_parallel": false,
+      "change_scope": [
+        {
+          "description": "实现人员明细列表页：基于 Ant Design 表格按分页展示人员明细（姓名、性别、年龄、联系电话、座机号、电子邮箱、所属部门、入职日期、备注），页面初始加载调用 personnel_detail_contract.listPersonnelDetails 获取第一页数据，分页控件切换页码时刷新对应页数据，仅提供分页浏览，不提供新增/删除/修改入口与登录鉴权要求。",
+          "operation": "modify",
+          "path": "frontend/src/pages/PersonnelDetailList/index.tsx"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "page:personnel_detail_list::page::deliverable",
+          "kind": "frontend.page",
+          "target_id": "personnel_detail_list",
+          "paths": [
+            "frontend/src/pages/PersonnelDetailList/index.tsx"
+          ],
+          "provides": [
+            "frontend.page:personnel_detail_list"
+          ]
+        }
+      ],
+      "dependencies": [
+        "frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011"
+      ],
+      "description": "在既有页面入口 frontend/src/pages/PersonnelDetailList/index.tsx 中实现 personnel_detail_list 的 PageImplementationContract：使用 Ant Design 表格展示人员明细列表，绑定 personnel_detail_contract.listPersonnelDetails 接口，页面初始加载读取第一页数据，分页控件切换页码时按当前页码与每页条数请求并刷新列表，展示总条数、当前页码等分页信息；仅提供分页浏览能力，不含新增、删除、修改等操作入口，也不引入登录鉴权或路由/菜单注册逻辑。",
+      "id": "page:personnel_detail_list::page",
+      "impact_scope": {
+        "affected_modules": [
+          "frontend/src/pages/PersonnelDetailList"
+        ],
+        "public_contracts": [
+          "frontend.page:personnel_detail_list"
+        ],
+        "risks": [
+          "分页参数与响应 total/current/pageSize 字段需与接口契约保持一致，字段缺失时需按契约容错展示"
+        ],
+        "summary": "新增/补全人员明细列表页实现，仅涉及页面自身入口文件的表格展示与分页浏览逻辑。"
+      },
+      "owner": "frontend",
+      "parallel_reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "status": "pending",
+      "target_files": [
+        "frontend/src/pages/PersonnelDetailList/index.tsx"
+      ],
+      "task_type": "frontend.code",
+      "title": "实现人员明细列表页（表格展示与分页浏览）",
+      "unit_id": "page:personnel_detail_list",
+      "source_refs": {
+        "$artifact": {
+          "artifactId": "5239340f14568a037abcd63c0e8103b7613fe702746f9579772fbdb01c0bb1e5",
+          "byteLength": 2691,
+          "mediaType": "application/json"
+        }
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "page:personnel_detail_list"
+      ],
+      "unit_dependencies": [
+        "frontend:shell",
+        "frontend:api-client",
+        "backend:module:personnel_detail_contract"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:page:personnel_detail_list::page:file_operation:77666f7f8664",
+          "kind": "file_operation",
+          "description": "工程文件 frontend/src/pages/PersonnelDetailList/index.tsx 必须完成 modify 操作，工作区差异类型必须为 modified。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/PersonnelDetailList/index.tsx"
+          ],
+          "expected": {
+            "operation": "modify",
+            "change_type": "modified"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:personnel_detail_list::page:scope_boundary:cdfd7ab41f88",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/PersonnelDetailList/index.tsx"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "frontend/src/pages/PersonnelDetailList/index.tsx"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:personnel_detail_list::page:page_entry:c66330294bc0",
+          "kind": "page_entry",
+          "description": "页面交付物必须包含可读取的 index.tsx 页面入口。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/PersonnelDetailList/index.tsx"
+          ],
+          "expected": {
+            "page_id": "personnel_detail_list",
+            "entry_path": "frontend/src/pages/PersonnelDetailList/index.tsx"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:personnel_detail_list::page:page_default_export:b415cd9efadb",
+          "kind": "page_default_export",
+          "description": "页面入口必须提供 default export，确保路由可以加载页面组件。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/PersonnelDetailList/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/PersonnelDetailList/index.tsx",
+            "requires_default_export": true
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:personnel_detail_list::page:page_placeholder:689d5caaf9ff",
+          "kind": "page_placeholder",
+          "description": "页面入口不得保留模板占位内容。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/PersonnelDetailList/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/PersonnelDetailList/index.tsx",
+            "forbidden_markers": [
+              "hello agent!",
+              "待 Agent 生成真实内容",
+              "待agent生成真实内容",
+              "临时占位",
+              "placeholder content"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:personnel_detail_list::page:frontend_api_boundary:07eb498ef1e6",
+          "kind": "frontend_api_boundary",
+          "description": "页面及任务内组件经业务模块消费 API，查询由 useRequest 管理，UI request 属性不执行请求。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/PersonnelDetailList/index.tsx"
+          ],
+          "expected": {},
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [
+        {
+          "id": "business:page:personnel_detail_list::page:frontend.page_endpoint_usage:a62f4a07add46ad9",
+          "deliverable_id": "page:personnel_detail_list::page::deliverable",
+          "kind": "frontend.page_endpoint_usage",
+          "description": "页面或其任务内可达组件必须实际调用 PageImplementationContract 声明的业务接口。",
+          "sources": [
+            {
+              "artifact": "page_implementation_contract",
+              "target_id": "personnel_detail_list",
+              "pointer": "/page_implementation_contracts/personnel_detail_list",
+              "sha256": "d66ec159d09cb6b4049c83cf68f8369d726f571b4ba58dcdde1fb7fe13372be8"
+            },
+            {
+              "artifact": "api_contract",
+              "target_id": "personnel_detail_contract.listPersonnelDetails",
+              "pointer": "/api_contracts/personnel_detail_contract/endpoints/personnel_detail_contract.listPersonnelDetails",
+              "sha256": "935112eee605f7c45a908f3d990351d12f30764d69981689f54b4572fa9c73a2"
+            }
+          ],
+          "expected": {
+            "page_id": "personnel_detail_list",
+            "required_endpoint_ids": [
+              "personnel_detail_contract.listPersonnelDetails"
+            ],
+            "endpoints": [
+              {
+                "api_contract_id": "personnel_detail_contract",
+                "endpoint_id": "personnel_detail_contract.listPersonnelDetails",
+                "method": "GET",
+                "path": "/personnel-details",
+                "request_schema_ref": "",
+                "response_schema_ref": "PageResult",
+                "parameters": [
+                  {
+                    "name": "current",
+                    "in": "query",
+                    "required": false,
+                    "schema": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 1,
+                      "description": "当前页码"
+                    }
+                  },
+                  {
+                    "name": "pageSize",
+                    "in": "query",
+                    "required": false,
+                    "schema": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "default": 20,
+                      "description": "每页条数"
+                    }
+                  }
+                ],
+                "request_schema": null,
+                "response_schema": {
+                  "type": "object",
+                  "required": [],
+                  "properties": {
+                    "total": {
+                      "type": "integer",
+                      "required": false
+                    },
+                    "current": {
+                      "type": "integer",
+                      "required": false
+                    },
+                    "pageSize": {
+                      "type": "integer",
+                      "required": false
+                    },
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "PersonnelDetailListItem",
+                        "type": "object",
+                        "required": [],
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "gender": {
+                            "type": "string",
+                            "enum": [
+                              "男",
+                              "女"
+                            ],
+                            "required": false
+                          },
+                          "age": {
+                            "type": "integer",
+                            "required": false
+                          },
+                          "phone": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "landline": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "email": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "department": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "entryDate": {
+                            "type": "string",
+                            "required": false
+                          },
+                          "remark": {
+                            "type": "string",
+                            "required": false
+                          }
+                        }
+                      },
+                      "required": false
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "target_paths": [
+            "frontend/src/pages/PersonnelDetailList/index.tsx"
+          ],
+          "verification": {
+            "mode": "deterministic",
+            "verifier": "frontend_page_endpoint_usage"
+          },
+          "required": true,
+          "verification_stage": "build"
+        }
+      ],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。",
+      "parallel_with": []
+    }
+  },
+  "task_graph": {
+    "schema_version": "build-task-graph.v3",
+    "nodes": [
+      "frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011",
+      "page:personnel_detail_list::page"
+    ],
+    "edges": [
+      {
+        "from": "frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011",
+        "to": "page:personnel_detail_list::page",
+        "type": "depends_on"
+      }
+    ],
+    "roots": [
+      "frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011"
+    ],
+    "leaves": [
+      "page:personnel_detail_list::page"
+    ],
+    "topological_order": [
+      "frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011",
+      "page:personnel_detail_list::page"
+    ],
+    "execution_layers": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "page:personnel_detail_list::page"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "summary": {
+    "total": 2,
+    "frontend": 2,
+    "backend": 0,
+    "database": 0,
+    "pending": 2,
+    "running": 0,
+    "completed": 0,
+    "already_satisfied": 0,
+    "failed": 0
+  },
+  "execution": {
+    "batches": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "frontend:api-client::personnel_detail_contract::api-module::41811d106b75a011"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      },
+      {
+        "index": 2,
+        "mode": "serial",
+        "tasks": [
+          "page:personnel_detail_list::page"
+        ],
+        "reason": "任务涉及共享文件或公共契约，由对应受限执行器串行写入。"
+      }
+    ],
+    "blocked_batches": []
+  },
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "personnel_detail_list"
+  },
+  "template_context": {
+    "state_path": ".devagentstudio/template-state.json",
+    "template_revision": "2026.10.19.1",
+    "effective_capabilities": {}
+  },
+  "status": "ready",
+  "confirmation_status": "confirmed",
+  "confirmed_at": "2026-11-24T16:01:49.599898+00:00",
+  "confirmed_from": {
+    "planning_run_id": "planning-3fd4cd28cd3c4bebb65984c7a120428e",
+    "draft_digest": "18d96589b3ad4b49428bd36b98f4d724c9471c7259eb8822c1917b041f243fa2"
+  }
+}

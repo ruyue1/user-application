@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "sourceBranch": "v1_14",
+  "writtenAt": "2026-11-24T16:01:15.590040+00:00",
+  "pages": {
+    "personnel_detail_list": "modified",
+    "greeting_display_page": "deleted"
+  },
+  "entities": {
+    "personnel_detail": "unchanged"
+  },
+  "endpoints": {
+    "personnel_detail_contract": {
+      "personnel_detail_contract.listPersonnelDetails": "unchanged"
+    },
+    "greeting_contract": {
+      "greeting_contract.getGreeting": "deleted"
+    }
+  }
+}

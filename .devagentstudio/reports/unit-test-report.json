@@ -1,96 +1,11 @@
 {
   "version": "0.1.0",
-  "generated_at": "2026-11-24T15:23:24.084357+00:00",
+  "generated_at": "2026-11-24T16:04:17.465059+00:00",
   "passed": true,
-  "checks": [
-    {
-      "id": "frontend_test_generation",
-      "name": "前端单元测试生成检查",
-      "layer": "frontend",
-      "language": "typescript",
-      "passed": true,
-      "skipped": true,
-      "required": false,
-      "command": null,
-      "evidence": "用户选择跳过单元测试，本轮不生成、不执行单元测试。",
-      "failure_category": null,
-      "execution": {
-        "tool": "none",
-        "argv": [],
-        "cwd": ".",
-        "returncode": null,
-        "timed_out": false,
-        "stdout_log": null,
-        "stderr_log": null
-      }
-    },
-    {
-      "id": "backend_test_generation",
-      "name": "后端单元测试生成检查",
-      "layer": "backend",
-      "language": "java",
-      "passed": true,
-      "skipped": true,
-      "required": false,
-      "command": null,
-      "evidence": "用户选择跳过单元测试，本轮不生成、不执行单元测试。",
-      "failure_category": null,
-      "execution": {
-        "tool": "none",
-        "argv": [],
-        "cwd": ".",
-        "returncode": null,
-        "timed_out": false,
-        "stdout_log": null,
-        "stderr_log": null
-      }
-    },
-    {
-      "id": "frontend_unit_tests",
-      "name": "前端单元测试",
-      "layer": "frontend",
-      "language": "typescript",
-      "passed": true,
-      "skipped": true,
-      "required": false,
-      "command": null,
-      "evidence": "用户选择跳过单元测试，本轮不生成、不执行单元测试。",
-      "failure_category": null,
-      "execution": {
-        "tool": "none",
-        "argv": [],
-        "cwd": ".",
-        "returncode": null,
-        "timed_out": false,
-        "stdout_log": null,
-        "stderr_log": null
-      }
-    },
-    {
-      "id": "backend_unit_tests",
-      "name": "后端单元测试",
-      "layer": "backend",
-      "language": "java",
-      "passed": true,
-      "skipped": true,
-      "required": false,
-      "command": null,
-      "evidence": "用户选择跳过单元测试，本轮不生成、不执行单元测试。",
-      "failure_category": null,
-      "execution": {
-        "tool": "none",
-        "argv": [],
-        "cwd": ".",
-        "returncode": null,
-        "timed_out": false,
-        "stdout_log": null,
-        "stderr_log": null
-      }
-    }
-  ],
+  "checks": [],
   "summary": {
-    "total": 4,
-    "passed": 4,
+    "total": 0,
+    "passed": 0,
     "failed": 0
   },
   "needs_revision": false,
@@ -103,19 +18,13 @@
   "artifact_context": {
     "build_execution_scope": {
       "type": "page",
-      "targetId": "greeting_display_page"
+      "targetId": "personnel_detail_list"
     },
-    "plan_sha256": "ade18f30488cc5c0fe43aabb3b1c4cf2bdf22d4dd2bc3f4b39992b7b684f5420",
+    "plan_sha256": "005a1d1c87d9ab5cac38681eab04597e4e2ef1679c74c229d5d031395fa08432",
     "files": {
-      "backend/src/main/java/com/cmbchina/backend/adapter/web/GreetingController.java": "f06a854424f8ad2b5bdf09d2244f3e2358e39c2f302262f44120516ba1195d6b",
-      "backend/src/main/java/com/cmbchina/backend/application/service/GreetingApplicationService.java": "3763468defb6380f501bc62c6e11a9e1972c576fc580e18a87c3874a92a22220",
-      "backend/src/main/java/com/cmbchina/backend/domain/repository/GreetingRepository.java": "51b8f5d0e3b44a256e05223195f4a0b76c27aa9e7fe980a993cca42049f80ed1",
       "frontend/jest.config.cjs": "ce1afcb596c0abefb634ecc399b348b89d998be73221ffc57bdbb84cb7f3f90c",
       "frontend/package.json": "7ac83000e1d969ac63a3ca602899f695ed63607d1c947990a7ca205e320cce46",
       "frontend/pnpm-lock.yaml": "2dd9e48d28b43e28ab6c64dc1a6bd26efcd0fbf0a7183da4d416160bf6fa08f3",
-      "frontend/src/apis/greetingContractApi.ts": "1db2420c5d2441c4675ac6623a565aed211fe16b02e9d1783be17553e2e35e8e",
-      "frontend/src/constants/routes.tsx": "ccd9d8f958d00dd7db84ecacc5c4ceaf9e8c97890cc1f32f7f193d1e0e81df88",
-      "frontend/src/pages/GreetingDisplayPage/index.tsx": "64ba40fdc683ac6cc043a9a660cbca82a46fe5cecfcc31f66c168d8006fa670b",
       "frontend/tests/__mocks__/fileMock.cjs": "9511e7bc24a9e0589f73af6ec1dd8b8fb1f6fb388decfdcb80a827860181226b",
       "frontend/tests/__mocks__/styleMock.cjs": "35ab14b4a7b597c4cb3c568cddf39ee07c557cdd7e19f2eb8b83467eafd70609",
       "frontend/tests/setupTests.ts": "303f1bcd5f40eb34671db9a66665f46aad22f0e0bc8a4dedf59d08fdbacef2b8",

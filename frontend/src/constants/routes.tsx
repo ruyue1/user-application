@@ -19,9 +19,5 @@ export const PAGE_ROUTES: PageRouteDefinition[] = [
     path: "personnel_detail_list",
     label: "人员明细列表",
   },
-  {
-    path: "greeting_display_page",
-    label: "问候展示",
-  },
   // DEVAGENTSTUDIO_BUSINESS_ROUTES_END
 ];
