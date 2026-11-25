@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "generated_at": "2026-11-25T08:36:27.218608+00:00",
+  "summary": "「历史预览测试」是一个面向 PC 终端的单页应用，唯一目标是向使用者直接展示当前系统时间，页面以只读方式实时呈现时间信息。应用采用侧边导航布局，页头启用、页脚禁用，不使用后端 API，也不涉及任何业务实体数据。所有使用者身份相同，均只通过打开该页面查看系统时间，不区分角色、不启用登录认证、不涉及权限控制。",
+  "source_request": "请为新应用「历史预览测试」完成需求、产品、UI（可跳过）和技术规划。；应用场景：只有一个页面，页面显示系统时间，没有后端API和实体；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。；补充确认：使用角色为已选：仅一个访问使用者",
+  "app_info": {
+    "name": "历史预览测试",
+    "summary": "「历史预览测试」是一个面向 PC 终端的单页应用，唯一目标是向使用者直接展示当前系统时间，页面以只读方式实时呈现时间信息。应用采用侧边导航布局，页头启用、页脚禁用，不使用后端 API，也不涉及任何业务实体数据。所有使用者身份相同，均只通过打开该页面查看系统时间，不区分角色、不启用登录认证、不涉及权限控制。",
+    "target": "",
+    "route_root_path": "/page",
+    "menu_enabled": true
+  },
+  "user_roles": [
+    {
+      "name": "访问使用者",
+      "description": "所有使用本应用的使用者身份相同，职责为打开系统时间展示页面并查看页面呈现的系统时间，不区分不同角色，也不包含任何维护或配置职责。",
+      "id": "system_time_visitor"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "系统时间展示",
+      "description": "本模块负责在页面上向使用者呈现当前系统时间，是本应用唯一业务能力。模块维护并输出的信息仅为当前系统时间这一项展示内容；支持的操作是页面加载后自动读取并显示系统时间，使用者无需任何输入。模块不涉及后端 API 调用、不涉及业务实体数据的创建、修改或存储，也不包含时间格式、刷新方式之外的其他业务规则，不新增状态或权限约束。",
+      "priority": "must",
+      "id": "system_time_display"
+    }
+  ],
+  "pages": [
+    {
+      "name": "系统时间展示",
+      "path": "/page/system-time-display",
+      "module_id": "system_time_display",
+      "description": "本应用的首页也是唯一页面，用途是直接向访问使用者展示当前系统时间。页面加载后自动呈现系统时间，使用者只能查看、不能编辑或提交任何内容；页面不提供搜索、筛选、分页等操作，也不展示其他业务信息。页面采用侧边导航布局，页头启用、页脚禁用，作为应用根路径页面承载全部展示内容。",
+      "pageId": "system_time_display"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "查看系统时间",
+      "steps": [
+        "访问使用者打开「历史预览测试」应用，进入作为根路径的系统时间展示页面。",
+        "页面加载后自动获取当前系统时间并在页面中显示。",
+        "访问使用者查看页面上呈现的系统时间，无需任何输入或操作。",
+        "访问使用者关闭或离开页面，流程结束。"
+      ],
+      "id": "view_system_time",
+      "description": "访问使用者打开应用后查看当前系统时间的完整流程，是本应用唯一业务流程，无前置业务数据条件、无登录前置要求。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\n  \"version\": \"1.0\",\n  \"status\": \"draft\",\n  \"generated_at\": \"2025-06-01T00:00:00Z\",\n  \"app_info\": {\n    \"name\": \"历史预览测试\",\n    \"summary\": \"「历史预览测试」是一个面向 PC 终端的单页应用，唯一目标是向使用者直接展示当前系统时间，页面以只读方式实时呈现时间信息。应用采用侧边导航布局，页头启用、页脚禁用，不使用后端 API，也不涉及任何业务实体数据。所有使用者身份相同，均只通过打开该页面查看系统时间，不区分角色、不启用登录认证、不涉及权限控制。\",\n    \"route_root_path\": \"/\"\n  },\n  \"user_roles\": [\n    {\n      \"id\": \"system_time_visitor\",\n      \"name\": \"访问使用者\",\n      \"description\": \"所有使用本应用的使用者身份相同，职责为打开系统时间展示页面并查看页面呈现的系统时间，不区分不同角色，也不包含任何维护或配置职责。\"\n    }\n  ],\n  \"feature_modules\": [\n    {\n      \"id\": \"system_time_display\",\n      \"name\": \"系统时间展示\",\n      \"description\": \"本模块负责在页面上向使用者呈现当前系统时间，是本应用唯一业务能力。模块维护并输出的信息仅为当前系统时间这一项展示内容；支持的操作是页面加载后自动读取并显示系统时间，使用者无需任何输入。模块不涉及后端 API 调用、不涉及业务实体数据的创建、修改或存储，也不包含时间格式、刷新方式之外的其他业务规则，不新增状态或权限约束。\"\n    }\n  ],\n  \"pages\": [\n    {\n      \"pageId\": \"system_time_display\",\n      \"name\": \"系统时间展示\",\n      \"path\": \"/\",\n      \"module_id\": \"system_time_display\",\n      \"description\": \"本应用的首页也是唯一页面，用途是直接向访问使用者展示当前系统时间。页面加载后自动呈现系统时间，使用者只能查看、不能编辑或提交任何内容；页面不提供搜索、筛选、分页等操作，也不展示其他业务信息。页面采用侧边导航布局，页头启用、页脚禁用，作为应用根路径页面承载全部展示内容。\"\n    }\n  ],\n  \"business_flows\": [\n    {\n      \"id\": \"view_system_time\",\n      \"name\": \"查看系统时间\",\n      \"description\": \"访问使用者打开应用后查看当前系统时间的完整流程，是本应用唯一业务流程，无前置业务数据条件、无登录前置要求。\",\n      \"steps\": [\n        \"访问使用者打开「历史预览测试」应用，进入作为根路径的系统时间展示页面。\",\n        \"页面加载后自动获取当前系统时间并在页面中显示。\",\n        \"访问使用者查看页面上呈现的系统时间，无需任何输入或操作。\",\n        \"访问使用者关闭或离开页面，流程结束。\"\n      ]\n    }\n  ],\n  \"authentication_requirements\": {\n    \"enabled\": false,\n    \"sourceRefs\": []\n  },\n  \"authorization_requirements\": {\n    \"restrictedPages\": [],\n    \"restrictedOperations\": []\n  }\n}",
+  "approved": true,
+  "confirmation_status": "confirmed",
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "deepseek-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model"
+}

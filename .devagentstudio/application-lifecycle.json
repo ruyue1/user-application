@@ -1,0 +1,48 @@
+{
+  "application": {
+    "id": "1795592357683-h3xavu",
+    "name": "历史预览测试"
+  },
+  "updatedAt": "2026-11-25T08:36:56.879842Z",
+  "revision": 14,
+  "developmentArtifacts": {
+    "pages": {
+      "system_time_display": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "lastCompletedRunId": null,
+        "lastCompletedThreadId": null,
+        "changeStatus": "changed",
+        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "checkedChangeId": null
+      }
+    },
+    "entities": {},
+    "endpoints": {},
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "458516ac-4547-47ed-9317-c83825e5f05c",
+    "iterationId": "4f28646f-d489-4b80-b7e2-ee6bf8bd170f"
+  },
+  "activeRunId": "6a99850e-6907-4e97-bf0e-b4392c9c689d",
+  "activeExecutions": {},
+  "developmentContinuations": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}
