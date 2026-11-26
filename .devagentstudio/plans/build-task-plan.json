@@ -1,0 +1,485 @@
+{
+  "schema_version": "build-dag.v4",
+  "application": {
+    "unit_id": "application:root",
+    "status": "prepared"
+  },
+  "build_units": {
+    "application:root": {
+      "id": "application:root",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:auth-resources": {
+      "id": "backend:auth-resources",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:shell": {
+      "id": "frontend:shell",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "application_unit",
+        "target": {
+          "type": "application",
+          "id": "application"
+        }
+      },
+      "generation_strategy": "prerequisite_only",
+      "participation": "prerequisite_only",
+      "generation_status": "not_required",
+      "input_fingerprint": "99ba9989baf0b60e7a4fb779cf6ca6b4642ff5295c811a95273134cb6d661551"
+    },
+    "frontend:api-client": {
+      "id": "frontend:api-client",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "frontend:auth-guard": {
+      "id": "frontend:auth-guard",
+      "kind": "frontend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "backend:bootstrap": {
+      "id": "backend:bootstrap",
+      "kind": "backend",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "app:integration": {
+      "id": "app:integration",
+      "kind": "application",
+      "status": "not_prepared",
+      "task_ids": [],
+      "depends_on_unit_ids": [],
+      "source_refs": {}
+    },
+    "page:hello_world_display": {
+      "id": "page:hello_world_display",
+      "kind": "page",
+      "page_id": "hello_world_display",
+      "status": "prepared",
+      "task_ids": [
+        "page:hello_world_display::page"
+      ],
+      "depends_on_unit_ids": [],
+      "source_refs": {
+        "type": "page_implementation_contract",
+        "target": {
+          "type": "page",
+          "id": "hello_world_display",
+          "page_key": "HelloWorldDisplay"
+        },
+        "page_implementation_contract": {
+          "id": "hello_world_display"
+        },
+        "endpoint_ids": [],
+        "entity_ids": [],
+        "endpoint_designs": [],
+        "mapping_flows": []
+      },
+      "input_fingerprint": "2afe95ca2fd4e26ae268789e167d7d8bd26650e32ca0623f953e8bf234f07cb6"
+    }
+  },
+  "unit_graph": {
+    "schema_version": "build-unit-graph.v3",
+    "nodes": [
+      "application:root",
+      "backend:auth-resources",
+      "frontend:shell",
+      "frontend:api-client",
+      "frontend:auth-guard",
+      "backend:bootstrap",
+      "app:integration",
+      "page:hello_world_display"
+    ],
+    "edges": [
+      {
+        "from": "backend:auth-resources",
+        "to": "backend:bootstrap",
+        "type": "depends_on"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:auth-resources",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:shell",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:api-client",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "frontend:auth-guard",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "backend:bootstrap",
+        "type": "contains"
+      },
+      {
+        "from": "application:root",
+        "to": "page:hello_world_display",
+        "type": "contains"
+      },
+      {
+        "from": "frontend:shell",
+        "to": "page:hello_world_display",
+        "type": "depends_on"
+      },
+      {
+        "from": "frontend:api-client",
+        "to": "page:hello_world_display",
+        "type": "depends_on"
+      },
+      {
+        "from": "page:hello_world_display",
+        "to": "app:integration",
+        "type": "depends_on"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "unit_skeleton": {
+    "input_fingerprint": "622d05a120cb00ffba8d33b26896448b4f26207c1a8ae612895111b6ee274c93",
+    "project_plan_version": null,
+    "workspace_revision": "31d02fc136591b804edb9373",
+    "reused": false
+  },
+  "task_registry": {
+    "page:hello_world_display::page": {
+      "id": "page:hello_world_display::page",
+      "unit_id": "page:hello_world_display",
+      "owner": "frontend",
+      "task_type": "frontend.code",
+      "status": "completed",
+      "title": "实现 Hello World 展示页",
+      "description": "在 frontend/src/pages/HelloWorldDisplay/index.tsx 新建 Hello World 展示页组件并作为默认导出：以侧边导航布局呈现，显示页头、不显示页脚；页面主体固定展示字符串「hello world」，内容与需求完全一致；不提供任何数据录入、编辑、删除、查询或导出等业务操作入口；不调用任何后端接口（requiredEndpointIds 为空），不涉及权限校验与导航跳转；页面无需登录即可直接打开，内容为静态固定值，刷新后保持一致。",
+      "target_files": [
+        "frontend/src/pages/HelloWorldDisplay/index.tsx"
+      ],
+      "allowed_paths": [
+        "frontend/src/pages/HelloWorldDisplay/index.tsx"
+      ],
+      "change_scope": [
+        {
+          "operation": "add",
+          "path": "frontend/src/pages/HelloWorldDisplay/index.tsx",
+          "description": "新建 HelloWorldDisplay 页面组件，按 PageImplementationContract 渲染固定文案 hello world 的只读展示页"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "page:hello_world_display::page::deliverable",
+          "kind": "frontend.page",
+          "target_id": "hello_world_display",
+          "paths": [
+            "frontend/src/pages/HelloWorldDisplay/index.tsx"
+          ],
+          "provides": [
+            "frontend.page:hello_world_display"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "can_run_in_parallel": true,
+      "parallel_reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "impact_scope": {
+        "affected_modules": [
+          "frontend/pages"
+        ],
+        "public_contracts": [],
+        "risks": [
+          "页面入口路径由平台按 PageKey HelloWorldDisplay 确定，需保持路径完全一致",
+          "页面不得引入任何接口调用或业务操作入口，避免与合同约束冲突"
+        ],
+        "summary": "新增一个仅展示固定文案 hello world 的静态页面组件，无外部依赖与接口调用。"
+      },
+      "source_refs": {
+        "type": "page_implementation_contract",
+        "target": {
+          "type": "page",
+          "id": "hello_world_display",
+          "page_key": "HelloWorldDisplay"
+        },
+        "page_implementation_contract": {
+          "id": "hello_world_display"
+        },
+        "endpoint_ids": [],
+        "entity_ids": [],
+        "endpoint_designs": [],
+        "mapping_flows": [],
+        "page_input_sha256": "0e09435b39e0ac69ff3304d560c5dbfa958825dd23f0e850ca9a1cf0712de947"
+      },
+      "requires_capabilities": [],
+      "provides_capabilities": [
+        "page:hello_world_display"
+      ],
+      "unit_dependencies": [
+        "frontend:shell",
+        "frontend:api-client"
+      ],
+      "dependency_rewrites": [],
+      "missing_unit_dependencies": [
+        "frontend:api-client"
+      ],
+      "invalid_dependencies": [],
+      "acceptance_checks": [
+        {
+          "id": "acceptance:page:hello_world_display::page:file_operation:9b6b59ff0e16",
+          "kind": "file_operation",
+          "description": "工程文件 frontend/src/pages/HelloWorldDisplay/index.tsx 必须完成 add 操作，工作区差异类型必须为 added。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/HelloWorldDisplay/index.tsx"
+          ],
+          "expected": {
+            "operation": "add",
+            "change_type": "added"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:hello_world_display::page:scope_boundary:808192f71903",
+          "kind": "scope_boundary",
+          "description": "任务实际文件变更必须全部位于 change_scope 或 allowed_paths 声明范围内。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/HelloWorldDisplay/index.tsx"
+          ],
+          "expected": {
+            "allowed_paths": [
+              "frontend/src/pages/HelloWorldDisplay/index.tsx"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:hello_world_display::page:page_entry:811cf32ac201",
+          "kind": "page_entry",
+          "description": "页面交付物必须包含可读取的 index.tsx 页面入口。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/HelloWorldDisplay/index.tsx"
+          ],
+          "expected": {
+            "page_id": "hello_world_display",
+            "entry_path": "frontend/src/pages/HelloWorldDisplay/index.tsx"
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:hello_world_display::page:page_default_export:a423d3467e7b",
+          "kind": "page_default_export",
+          "description": "页面入口必须提供 default export，确保路由可以加载页面组件。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/HelloWorldDisplay/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/HelloWorldDisplay/index.tsx",
+            "requires_default_export": true
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:hello_world_display::page:page_placeholder:61cbcc65385f",
+          "kind": "page_placeholder",
+          "description": "页面入口不得保留模板占位内容。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/HelloWorldDisplay/index.tsx"
+          ],
+          "expected": {
+            "entry_path": "frontend/src/pages/HelloWorldDisplay/index.tsx",
+            "forbidden_markers": [
+              "hello agent!",
+              "待 Agent 生成真实内容",
+              "待agent生成真实内容",
+              "临时占位",
+              "placeholder content"
+            ]
+          },
+          "verification_stage": "build"
+        },
+        {
+          "id": "acceptance:page:hello_world_display::page:frontend_api_boundary:69d405f65d6f",
+          "kind": "frontend_api_boundary",
+          "description": "页面及任务内组件经业务模块消费 API，查询由 useRequest 管理，UI request 属性不执行请求。",
+          "required": true,
+          "target_paths": [
+            "frontend/src/pages/HelloWorldDisplay/index.tsx"
+          ],
+          "expected": {},
+          "verification_stage": "build"
+        }
+      ],
+      "business_acceptance_checks": [],
+      "execution_strategy": "agent",
+      "platform_executor": null,
+      "executionMode": "subagent-direct-write",
+      "assignedAgent": "fullstack-builder",
+      "directWriteReason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。",
+      "parallel_with": [],
+      "updated_at": "2026-11-26T09:40:27.146276+00:00",
+      "business_acceptance_evidence": [],
+      "failure_reason": null,
+      "failure_category": null,
+      "updated_by": "build-scheduler",
+      "acceptance_status": {
+        "engineering": "passed",
+        "business": "skipped"
+      },
+      "scheduler": {
+        "started_at": "2026-11-26T09:39:34.958682+00:00"
+      },
+      "failure_detail": null,
+      "last_result_status": "completed",
+      "acceptance_evidence": [
+        {
+          "check_id": "acceptance:page:hello_world_display::page:frontend_api_boundary:69d405f65d6f",
+          "kind": "frontend_api_boundary",
+          "status": "passed",
+          "error": null,
+          "evidence": "任务文件中的可验证前端请求规则通过。",
+          "rule_results": [
+            {
+              "task_id": "page:hello_world_display::page",
+              "step_id": "step_4",
+              "rule_id": "FE-NO-DIRECT-HTTP",
+              "status": "passed",
+              "file_path": "frontend/src/pages/HelloWorldDisplay/index.tsx",
+              "line": null,
+              "message": "规则检查通过。",
+              "file_version": "00fea905cd0de187cb829710fdb4e108643f8428cee9f9b873245da3079b30b1"
+            },
+            {
+              "task_id": "page:hello_world_display::page",
+              "step_id": "step_4",
+              "rule_id": "FE-NO-UI-REQUEST-PROP",
+              "status": "passed",
+              "file_path": "frontend/src/pages/HelloWorldDisplay/index.tsx",
+              "line": null,
+              "message": "规则检查通过。",
+              "file_version": "00fea905cd0de187cb829710fdb4e108643f8428cee9f9b873245da3079b30b1"
+            }
+          ]
+        }
+      ],
+      "business_acceptance_summary": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0,
+        "blocked": 0,
+        "skipped": 0,
+        "duration_ms_total": 0,
+        "duration_ms_avg": 0,
+        "by_kind": {}
+      }
+    }
+  },
+  "task_graph": {
+    "schema_version": "build-task-graph.v3",
+    "nodes": [
+      "page:hello_world_display::page"
+    ],
+    "edges": [],
+    "roots": [
+      "page:hello_world_display::page"
+    ],
+    "leaves": [
+      "page:hello_world_display::page"
+    ],
+    "topological_order": [
+      "page:hello_world_display::page"
+    ],
+    "execution_layers": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "page:hello_world_display::page"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      }
+    ],
+    "validation": {
+      "is_valid": true,
+      "errors": []
+    }
+  },
+  "summary": {
+    "total": 1,
+    "frontend": 1,
+    "backend": 0,
+    "database": 0,
+    "pending": 0,
+    "running": 0,
+    "completed": 1,
+    "already_satisfied": 0,
+    "failed": 0,
+    "results": 1
+  },
+  "execution": {
+    "batches": [
+      {
+        "index": 1,
+        "mode": "serial",
+        "tasks": [
+          "page:hello_world_display::page"
+        ],
+        "reason": "任务 target_files 明确且互斥，允许受限 subagent 直接写入。"
+      }
+    ],
+    "blocked_batches": []
+  },
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "hello_world_display"
+  },
+  "template_context": {
+    "state_path": ".devagentstudio/template-state.json",
+    "template_revision": "2026.10.19.1",
+    "effective_capabilities": {}
+  },
+  "status": "ready",
+  "confirmation_status": "confirmed",
+  "confirmed_at": "2026-11-26T09:39:34.791165+00:00",
+  "confirmed_from": {
+    "planning_run_id": "planning-1608e118fabe4995b9b343ec214aa730",
+    "draft_digest": "29f53b5486f8239e7d08ad5e2e37a512ac6f3dd471167bfac0dfbb6e8025709c"
+  },
+  "last_update": {
+    "stage": "build_scheduler",
+    "updated_by": "build-scheduler",
+    "build_run_id": "build-7e04b1ebd3f746e8922644297545ca5e",
+    "updated_at": "2026-11-26T09:40:27.149623+00:00"
+  }
+}

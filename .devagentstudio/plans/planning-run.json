@@ -1,0 +1,67 @@
+{
+  "planning_run_id": "planning-1608e118fabe4995b9b343ec214aa730",
+  "workflow_run_id": "ac41fdc2-5147-446c-8394-25b5419dc993",
+  "thread_id": "ad5fc029-9036-4105-890f-e3d1dc75cba8",
+  "revision": 8,
+  "status": "active",
+  "phase": "persisting_pending",
+  "build_execution_scope": {
+    "type": "page",
+    "targetId": "hello_world_display"
+  },
+  "input_fingerprint": "1ac2f1b902d126d0331d38e58b3f40cc1043cfbca1e21ced67a56811a49cddda",
+  "base_confirmed_plan_digest": null,
+  "required_unit_ids": [
+    "frontend:shell",
+    "page:hello_world_display"
+  ],
+  "unit_display_names": {
+    "frontend:shell": "前端应用环境",
+    "page:hello_world_display": "Hello World 展示页页面"
+  },
+  "planning_unit_ids": [
+    "page:hello_world_display"
+  ],
+  "global_repair_round": 0,
+  "global_repair_limit": 2,
+  "global_issues": [],
+  "unit_states": {
+    "frontend:shell": {
+      "unit_id": "frontend:shell",
+      "kind": "frontend",
+      "participation": "prerequisite_only",
+      "generation_strategy": "prerequisite_only",
+      "generation_status": "not_required",
+      "generation_round": 1,
+      "attempt_in_round": 0,
+      "total_attempts": 0,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": null,
+      "candidate_task_count": 0,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    },
+    "page:hello_world_display": {
+      "unit_id": "page:hello_world_display",
+      "kind": "page",
+      "participation": "generate_only",
+      "generation_strategy": "model",
+      "generation_status": "candidate_ready",
+      "generation_round": 1,
+      "attempt_in_round": 1,
+      "total_attempts": 1,
+      "retained_task_ids": [],
+      "reusable_capabilities": [],
+      "latest_candidate_id": "candidate-d3d3a19d3df34651986feafe4f430b8b",
+      "candidate_task_count": 1,
+      "current_issues": [],
+      "round_history": [],
+      "expected_identity": null
+    }
+  },
+  "started_at": "2026-11-26T09:39:08.790101Z",
+  "updated_at": "2026-11-26T09:39:16.066774Z",
+  "failure": null
+}

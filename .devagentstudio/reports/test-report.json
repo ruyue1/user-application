@@ -1,0 +1,182 @@
+{
+  "version": "0.1.0",
+  "generated_at": "2026-11-26T09:40:48.134407+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "id": "frontend_install",
+      "name": "前端依赖安装检查",
+      "layer": "frontend",
+      "language": "typescript",
+      "passed": true,
+      "skipped": false,
+      "required": true,
+      "command": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm install",
+      "evidence": "Node v22.23.1 (NVM_BIN) /Users/maomao/.nvm/versions/node/v22.23.1/bin/node\n命令执行通过：/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm install",
+      "failure_category": null,
+      "execution": {
+        "tool": "subprocess",
+        "argv": [
+          "/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm",
+          "install"
+        ],
+        "cwd": "frontend",
+        "returncode": 0,
+        "timed_out": false,
+        "error": null,
+        "started_at": "2026-11-26T09:40:34.735771+00:00",
+        "finished_at": "2026-11-26T09:40:39.737805+00:00",
+        "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/112607/.devagentstudio/runtime/tests/frontend_install/stdout.log",
+        "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/112607/.devagentstudio/runtime/tests/frontend_install/stderr.log",
+        "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stdout.log",
+        "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_install/stderr.log",
+        "stdout_tail": "✓ Lockfile passes supply-chain policies (verified 17d ago)\nLockfile is up to date, resolution step is skipped\nProgress: resolved 1, reused 0, downloaded 0, added 0\nPackages: +860\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\nProgress: resolved 860, reused 860, downloaded 0, added 99\nProgress: resolved 860, reused 860, downloaded 0, added 276\nProgress: resolved 860, reused 860, downloaded 0, added 816\nProgress: resolved 860, reused 860, downloaded 0, added 860, done\n\ndependencies:\n+ @ant-design/cssinjs 1.21.1\n+ @ant-design/icons 5.0.1\n+ @ant-design/pro-components 2.8.10\n+ ahooks 3.10.0\n+ antd 5.29.3\n+ axios 1.20.0\n+ clsx 2.1.1\n+ date-fns 4.4.0\n+ lodash 4.18.1\n+ mermaid 10.9.8\n+ qs 6.16.0\n+ react 18.2.0\n+ react-dom 18.2.0\n+ react-markdown 8.0.7\n+ react-router 6.30.6\n+ react-router-dom 6.30.6\n+ remark-gfm 3.0.1\n+ uuid 13.0.2\n\ndevDependencies:\n+ @babel/core 7.29.7\n+ @rsbuild/core 1.0.14\n+ @rsbuild/plugin-react 1.0.4\n+ @tailwindcss/postcss 4.3.3\n+ @testing-library/jest-dom 6.6.3\n+ @testing-library/react 16.2.0\n+ @types/jest 27.5.2\n+ @types/lodash 4.17.25\n+ @types/node 26.5.1\n+ @types/qs 6.15.1\n+ @types/react 18.3.31\n+ @types/react-dom 18.0.9\n+ autoprefixer 10.5.5\n+ babel-jest 27.0.0\n+ jest 27.0.0\n+ jest-config 27.0.0\n+ jest-environment-jsdom 27.0.0\n+ jest-sonar-reporter 2.0.0\n+ jest-watch-typeahead 2.2.2\n+ postcss 8.5.28\n+ tailwindcss 4.3.3\n+ ts-jest 27.0.0\n+ typescript 5.3.2\n\nDone in 4.2s using pnpm v11.9.0\n",
+        "stderr_tail": "",
+        "nodeRuntime": {
+          "path": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/node",
+          "version": "v22.23.1",
+          "source": "NVM_BIN"
+        }
+      }
+    },
+    {
+      "id": "frontend_build",
+      "name": "前端构建检查",
+      "layer": "frontend",
+      "language": "typescript",
+      "passed": true,
+      "skipped": false,
+      "required": true,
+      "command": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm run build",
+      "evidence": "Node v22.23.1 (NVM_BIN) /Users/maomao/.nvm/versions/node/v22.23.1/bin/node\n命令执行通过：/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm run build",
+      "failure_category": null,
+      "execution": {
+        "tool": "subprocess",
+        "argv": [
+          "/Users/maomao/.nvm/versions/node/v22.23.1/bin/pnpm",
+          "run",
+          "build"
+        ],
+        "cwd": "frontend",
+        "returncode": 0,
+        "timed_out": false,
+        "error": null,
+        "started_at": "2026-11-26T09:40:39.738489+00:00",
+        "finished_at": "2026-11-26T09:40:44.007801+00:00",
+        "stdout_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/112607/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+        "stderr_log": "/Users/maomao/Documents/行外开发XcodeAgent/ith/112607/.devagentstudio/runtime/tests/frontend_build/stderr.log",
+        "stdout_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stdout.log",
+        "stderr_log_virtual": "/.devagentstudio/runtime/tests/frontend_build/stderr.log",
+        "stdout_tail": "  Rsbuild v1.0.14\n\nready   Built in 0.99 s (web)\nwarn    Compile Warning: \n⚠ Unknown at rule: @theme at static/css/index.8fc59cd2.css:2:7\n\n⚠ Unknown at rule: @theme at static/css/657.dad43946.css:2:9\n\n⚠ Unknown at rule: @theme at static/css/657.dad43946.css:6:9\n\n⚠ Unknown at rule: @tailwind at static/css/657.dad43946.css:325:12\n\n\n  File (web)                                Size         Gzip    \n  build/static/js/async/338.19a05c48.js     0.33 kB      0.24 kB\n  build/static/js/async/923.110ef26e.js     0.38 kB      0.30 kB\n  build/index.html                          0.92 kB      0.46 kB\n  build/static/css/index.8fc59cd2.css       2.2 kB       0.58 kB\n  build/static/svg/icon20.232d197f.svg      4.7 kB       2.1 kB\n  build/static/js/lib-router.8af4ada6.js    19.9 kB      7.3 kB\n  build/static/css/657.dad43946.css         23.1 kB      5.9 kB\n  build/static/js/index.57482b12.js         57.8 kB      19.2 kB\n  build/static/js/lib-react.01625cc3.js     140.3 kB     45.1 kB\n  build/static/js/657.3b9220ad.js           1413.2 kB    362.4 kB\n\n  Total: 1662.8 kB (gzip: 443.6 kB)\n\n",
+        "stderr_tail": "$ tsc -b && rsbuild build\n",
+        "nodeRuntime": {
+          "path": "/Users/maomao/.nvm/versions/node/v22.23.1/bin/node",
+          "version": "v22.23.1",
+          "source": "NVM_BIN"
+        }
+      }
+    },
+    {
+      "id": "backend_build",
+      "name": "后端构建检查",
+      "layer": "backend",
+      "language": "java",
+      "passed": true,
+      "skipped": true,
+      "required": false,
+      "command": null,
+      "evidence": "应用无后端业务实体与 API 契约，跳过后端检查。",
+      "failure_category": null,
+      "execution": {
+        "tool": "none",
+        "argv": [],
+        "cwd": ".",
+        "returncode": null,
+        "timed_out": false,
+        "stdout_log": null,
+        "stderr_log": null
+      }
+    },
+    {
+      "id": "backend_startup",
+      "name": "后端启动检查",
+      "layer": "backend",
+      "language": "java",
+      "passed": true,
+      "skipped": true,
+      "required": false,
+      "command": null,
+      "evidence": "应用无后端业务实体与 API 契约，跳过后端启动检查。",
+      "failure_category": null,
+      "execution": {
+        "tool": "none",
+        "argv": [],
+        "cwd": ".",
+        "returncode": null,
+        "timed_out": false,
+        "stdout_log": null,
+        "stderr_log": null
+      },
+      "source_fingerprint": "ee6a1dd008ad004743eb0db57fa3a14936c8a825d12594ddbb1e96d2dd939fe6"
+    },
+    {
+      "id": "backend_static_check",
+      "name": "后端静态检查通过",
+      "layer": "backend",
+      "language": "java",
+      "passed": true,
+      "skipped": true,
+      "required": false,
+      "command": null,
+      "evidence": "应用无后端业务实体与 API 契约，跳过后端检查。",
+      "failure_category": null,
+      "execution": {
+        "tool": "none",
+        "argv": [],
+        "cwd": ".",
+        "returncode": null,
+        "timed_out": false,
+        "stdout_log": null,
+        "stderr_log": null
+      }
+    },
+    {
+      "id": "frontend_performance",
+      "name": "前端性能测试",
+      "layer": "frontend",
+      "language": "typescript",
+      "passed": true,
+      "skipped": true,
+      "required": false,
+      "blocking": false,
+      "advisory": true,
+      "command": null,
+      "evidence": "本轮跳过前端性能测试，不启动前端、不执行 Lighthouse。",
+      "failure_category": null,
+      "execution": {
+        "tool": "none",
+        "argv": [],
+        "cwd": ".",
+        "returncode": null,
+        "timed_out": false,
+        "stdout_log": null,
+        "stderr_log": null
+      }
+    }
+  ],
+  "summary": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0
+  },
+  "needs_revision": false,
+  "revision_requests": [],
+  "quality_gate": {
+    "passed": true,
+    "required_checks": [
+      "frontend_install",
+      "frontend_build"
+    ],
+    "evaluated_by": "deterministic-quality-gate"
+  }
+}
