@@ -1,0 +1,41 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "基于单页应用生成页面、路由和 API 客户端。",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [],
+  "api_contracts": [],
+  "pages": [
+    {
+      "pageId": "hello_world_display",
+      "references": {
+        "endpoint_dependencies": [],
+        "action_implementations": []
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 2,
+  "product_plan_sha256": "6bf28161d9d23f3ebe03d57c3c6c386927474ca714cbe10840306d6b2586f324",
+  "ui_designs_sha256": "c66bfafea30df6f7a564d3990d2bb7e7aaa54f2b06f0f0c89e0b24c5783f1dbf",
+  "confirmation_status": "confirmed"
+}

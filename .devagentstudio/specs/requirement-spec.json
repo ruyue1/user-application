@@ -1,0 +1,74 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "generated_at": "2026-11-26T09:30:28.013545+00:00",
+  "summary": "一个简单的纯展示型 PC 应用，仅包含一个静态展示页面，页面上直接展示写死的字符串“hello world”。应用不使用任何后端 API 接口，认证未启用，也没有权限控制要求。采用带页头的侧边导航布局，页脚禁用。",
+  "source_request": "请为新应用「纯展示页面」完成需求、产品、UI（可跳过）和技术规划。；应用场景：我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+  "app_info": {
+    "name": "纯展示页面",
+    "summary": "一个简单的纯展示型 PC 应用，仅包含一个静态展示页面，页面上直接展示写死的字符串“hello world”。应用不使用任何后端 API 接口，认证未启用，也没有权限控制要求。采用带页头的侧边导航布局，页脚禁用。",
+    "target": "",
+    "route_root_path": "/page",
+    "menu_enabled": true
+  },
+  "user_roles": [
+    {
+      "name": "访问者",
+      "description": "访问并查看纯展示页面内容的用户。",
+      "id": "visitor"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "Hello World 展示",
+      "description": "提供纯展示性质的页面内容管理能力。该模块承载一个静态页面，页面内容为固定写死的字符串“hello world”，不涉及任何数据交互、编辑或提交操作，也不依赖后端 API 接口。",
+      "priority": "must",
+      "id": "hello_world_display_management"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Hello World 展示",
+      "path": "/page/hello-world-display",
+      "module_id": "hello_world_display_management",
+      "description": "应用首页，纯展示页面。页面中直接展示写死的字符串“hello world”，不可编辑、无输入控件、无任何数据请求；采用带页头的侧边导航布局，页脚禁用。",
+      "pageId": "hello_world_display"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "查看 Hello World 内容",
+      "steps": [
+        "访问者打开应用首页。",
+        "页面通过侧边导航布局加载，展示页头并隐藏页脚。",
+        "页面直接显示写死的字符串“hello world”，流程结束。"
+      ],
+      "id": "hello_world_viewing",
+      "description": "访问者打开应用首页即可查看静态展示的“hello world”字符串，无需登录，无需任何数据交互。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\"version\":\"1.0\",\"status\":\"completed\",\"generated_at\":\"2025-06-05T00:00:00Z\",\"app_info\":{\"name\":\"纯展示页面\",\"summary\":\"一个简单的纯展示型 PC 应用，仅包含一个静态展示页面，页面上直接展示写死的字符串“hello world”。应用不使用任何后端 API 接口，认证未启用，也没有权限控制要求。采用带页头的侧边导航布局，页脚禁用。\",\"route_root_path\":\"/\"},\"user_roles\":[{\"id\":\"visitor\",\"name\":\"访问者\",\"description\":\"访问并查看纯展示页面内容的用户。\"}],\"feature_modules\":[{\"id\":\"hello_world_display_management\",\"name\":\"Hello World 展示\",\"description\":\"提供纯展示性质的页面内容管理能力。该模块承载一个静态页面，页面内容为固定写死的字符串“hello world”，不涉及任何数据交互、编辑或提交操作，也不依赖后端 API 接口。\"}],\"pages\":[{\"pageId\":\"hello_world_display\",\"name\":\"Hello World 展示\",\"path\":\"/\",\"module_id\":\"hello_world_display_management\",\"description\":\"应用首页，纯展示页面。页面中直接展示写死的字符串“hello world”，不可编辑、无输入控件、无任何数据请求；采用带页头的侧边导航布局，页脚禁用。\"}],\"business_flows\":[{\"id\":\"hello_world_viewing\",\"name\":\"查看 Hello World 内容\",\"description\":\"访问者打开应用首页即可查看静态展示的“hello world”字符串，无需登录，无需任何数据交互。\",\"steps\":[\"访问者打开应用首页。\",\"页面通过侧边导航布局加载，展示页头并隐藏页脚。\",\"页面直接显示写死的字符串“hello world”，流程结束。\"]}],\"authentication_requirements\":{\"enabled\":false,\"sourceRefs\":[]},\"authorization_requirements\":{\"restrictedPages\":[],\"restrictedOperations\":[]},\"deleted_pages\":[]}",
+  "approved": true,
+  "confirmation_status": "confirmed",
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "deepseek-v4.1-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model"
+}
