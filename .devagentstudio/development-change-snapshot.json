@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "sourceBranch": "v1_27",
+  "changeId": null,
+  "writtenAt": "2026-11-26T09:27:14.010928+00:00",
+  "pages": {
+    "personnel_detail_list": "added"
+  },
+  "entities": {
+    "personnel_detail": "added"
+  },
+  "endpoints": {
+    "personnel_detail": {
+      "personnel_detail.listPersonnelDetails": "added"
+    }
+  }
+}

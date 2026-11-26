@@ -1,0 +1,265 @@
+{
+  "artifact_type": "technical-plan",
+  "architecture": {
+    "frontend": "基于单页应用生成页面、路由和 API 客户端。",
+    "backend": "后端技术栈固定为 Java8 + Springboot，提供真实 HTTP API、资源接口和业务契约实现。",
+    "data": "数据库固定使用 MySQL8，缓存固定使用 Redis。"
+  },
+  "entities": [
+    {
+      "id": "personnel_detail",
+      "name": "人员明细",
+      "description": "记录单个人员基本信息与明细属性、供访问者只读浏览的人员明细记录。",
+      "fields": [
+        {
+          "label": "记录ID（唯一标识）",
+          "description": "人员明细记录的整数记录标识，每条记录都有值且在人员明细内唯一。",
+          "name": "id",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "姓名",
+          "description": "人员的姓名，用于在列表中识别该人员。",
+          "name": "name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "性别",
+          "description": "人员的性别，取值范围限于已确认的男、女两项。",
+          "name": "gender",
+          "type": "enum",
+          "required": false,
+          "enum_values": [
+            "男",
+            "女"
+          ]
+        },
+        {
+          "label": "年龄",
+          "description": "人员的年龄，以整数年表示，取值应为正整数。",
+          "name": "age",
+          "type": "number",
+          "required": false
+        },
+        {
+          "label": "联系电话",
+          "description": "人员的联系电话号码，便于查看人员联系信息。",
+          "name": "phone",
+          "type": "text",
+          "required": false
+        },
+        {
+          "label": "电子邮箱",
+          "description": "人员的电子邮箱地址，便于查看人员联系信息。",
+          "name": "email",
+          "type": "text",
+          "required": false
+        },
+        {
+          "label": "所属部门",
+          "description": "人员所属的部门名称，用于区分人员归属。",
+          "name": "department",
+          "type": "text",
+          "required": false
+        },
+        {
+          "label": "职位",
+          "description": "人员在所属部门中的职位名称。",
+          "name": "position",
+          "type": "text",
+          "required": false
+        },
+        {
+          "label": "入职日期",
+          "description": "人员的入职日期，用于了解其在岗起始时间。",
+          "name": "hire_date",
+          "type": "date",
+          "required": false
+        },
+        {
+          "label": "备注",
+          "description": "关于该人员的补充说明信息。",
+          "name": "remark",
+          "type": "long_text",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "api_contracts": [
+    {
+      "id": "personnel_detail",
+      "name": "人员明细",
+      "base_path": "/api/personnel-details",
+      "authentication": {
+        "required": false
+      },
+      "schemas": {
+        "PageResult": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "总记录数"
+            },
+            "current": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "当前页码"
+            },
+            "pageSize": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "每页记录数"
+            },
+            "list": {
+              "type": "array",
+              "description": "当前页记录列表",
+              "items": {
+                "$ref": "PersonnelDetailListItem"
+              }
+            }
+          },
+          "required": []
+        },
+        "PersonnelDetailListItem": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "记录ID"
+            },
+            "name": {
+              "type": "string",
+              "description": "姓名"
+            },
+            "gender": {
+              "type": "string",
+              "enum": [
+                "男",
+                "女"
+              ],
+              "description": "性别"
+            },
+            "age": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "年龄"
+            },
+            "phone": {
+              "type": "string",
+              "description": "联系电话"
+            },
+            "email": {
+              "type": "string",
+              "description": "电子邮箱"
+            },
+            "department": {
+              "type": "string",
+              "description": "所属部门"
+            },
+            "position": {
+              "type": "string",
+              "description": "职位"
+            },
+            "hireDate": {
+              "type": "string",
+              "format": "date",
+              "description": "入职日期"
+            },
+            "remark": {
+              "type": "string",
+              "description": "备注"
+            }
+          },
+          "required": []
+        }
+      },
+      "endpoints": [
+        {
+          "id": "personnel_detail.listPersonnelDetails",
+          "name": "分页查询人员明细列表",
+          "method": "GET",
+          "path": "/api/personnel-details",
+          "summary": "分页查询人员明细记录列表，供所有访问者浏览，只读，不提供新增、修改、删除或查询筛选能力。分页参数为 current（默认 1）和 pageSize（默认 20），响应为 PageResult，列表项包含记录ID、姓名、性别、年龄、联系电话、电子邮箱、所属部门、职位、入职日期与备注。",
+          "parameters": [
+            {
+              "name": "current",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "minimum": 1,
+                "default": 1,
+                "description": "当前页码，默认 1"
+              }
+            },
+            {
+              "name": "pageSize",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "minimum": 1,
+                "default": 20,
+                "description": "每页记录数，默认 20"
+              }
+            }
+          ],
+          "request_schema_ref": null,
+          "response_schema_ref": "PageResult",
+          "error_codes": [
+            "INVALID_PAGINATION"
+          ],
+          "authentication": {
+            "required": false
+          }
+        }
+      ],
+      "entity_ids": [
+        "personnel_detail"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "personnel_detail_list",
+      "references": {
+        "endpoint_dependencies": [
+          {
+            "endpoint_id": "personnel_detail.listPersonnelDetails",
+            "usage": "分页查询人员明细列表，用于页面初始加载以及列表分页浏览时读取人员记录",
+            "trigger": "初始加载页面时读取人员明细列表首屏数据；用户翻页时重新读取对应分页数据",
+            "required_for_initial_load": true
+          }
+        ],
+        "action_implementations": []
+      }
+    }
+  ],
+  "authorization_manifest": {
+    "schema_version": "authorization-manifest.v3",
+    "resources": [],
+    "bindings": {
+      "pages": [],
+      "actions": [],
+      "endpoints": []
+    },
+    "systemAuthorization": {
+      "adminRoleSeedKey": "",
+      "managementResourceKey": ""
+    },
+    "defaultRoleAuthorization": {
+      "roles": [],
+      "roleResourceGrants": []
+    },
+    "fingerprint": "sha256:322b4621177476bce45b77aeec3acf6bf4bb9ae05e952dcb8e69b82efbb03adc"
+  },
+  "sourceConfigRevision": 2,
+  "product_plan_sha256": "0d57409ea1ca25ad67f098abf492fe683c4149e12309c59a8bbe0bef96e42687",
+  "ui_designs_sha256": "5e45152321842b4f3db9e06886a8004fa131b15c0f913009090460f7e7e01207",
+  "confirmation_status": "confirmed"
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-11-26T09:26:11.126361+00:00",
+  "requirement_spec_sha256": "e9ef078888df8fc06978763fb3da0827c6c542179e421680ccdb278ad6228d01",
+  "app": {
+    "name": "人员明细",
+    "summary": "面向 PC 端的人员明细应用，提供人员明细列表页，所有访问者均可查看人员明细列表，但不提供对人员信息的新增、修改、删除或查询操作。采用侧边导航布局，启用页头、禁用页脚。数据源类型为 database。应用不启用认证，不涉及权限控制。"
+  },
+  "business_flows": [
+    {
+      "name": "人员明细查看",
+      "steps": [
+        "访问者进入人员明细应用首页",
+        "系统展示人员明细列表",
+        "访问者浏览列表中的人员明细信息"
+      ],
+      "id": "personnel_detail_viewing",
+      "description": "访问者浏览人员明细列表的流程，遵循人员明细管理模块的只读约束。"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "personnel_detail_list",
+      "name": "人员明细列表",
+      "path": "/page/personnel-detail-list",
+      "module_id": "personnel_detail_management",
+      "description": "应用首页，以列表形式展示人员明细信息。页面展示人员明细列表数据，所有访问者均可查看；页面不提供人员信息的新增、修改、删除及查询操作，也不展示对应的操作入口。采用侧边导航布局，启用页头，禁用页脚。",
+      "goal": "让所有访问者在一个页面上完整浏览人员明细信息，并明确该应用仅提供查看能力，不提供任何新增、修改、删除或查询入口。",
+      "information_items": [
+        {
+          "itemId": "personnel_detail_list-list",
+          "label": "人员明细列表",
+          "description": "以列表形式集中展示全部人员明细记录，访问者可直接浏览每条记录包含的人员信息内容。"
+        },
+        {
+          "itemId": "personnel_detail_list-person-fields",
+          "label": "人员信息字段",
+          "description": "每条人员记录展示的人员属性信息，帮助访问者了解人员的基本情况。"
+        },
+        {
+          "itemId": "personnel_detail_list-readonly-notice",
+          "label": "只读说明",
+          "description": "向访问者说明本应用仅提供人员明细查看能力，不提供新增、修改、删除及查询操作。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "acceptance_criteria": [
+        "访问者进入应用后，首页即为人员明细列表页，无需登录或额外授权即可查看。",
+        "页面以列表形式展示人员明细记录，访问者可完整浏览每条人员记录的信息内容。",
+        "人员明细列表数据为空时，页面给出明确的无数据提示，不出现空白区域或异常显示。",
+        "页面不出现新增、修改、删除、查询任何形式的操作入口，也不提供行级操作按钮。",
+        "页面采用侧边导航布局并显示页头，页面底部不出现页脚。",
+        "页面在 PC 端常见分辨率下正常显示，列表内容可阅读、不出现明显溢出或错位。"
+      ],
+      "_change_status": "added"
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "应用仅包含人员明细列表页一个页面，访问者进入应用即可直接浏览人员明细列表。",
+    "所有访问者均可查看人员明细列表，无需登录、无需任何身份或授权校验。",
+    "应用内不存在对人员信息的新增、修改、删除与查询能力，任何页面均不暴露对应操作入口。",
+    "人员明细列表可正常呈现全部人员明细记录，并在无数据时给出明确提示。",
+    "应用采用侧边导航布局，启用页头、禁用页脚。",
+    "应用目标终端为 PC 端，页面布局与内容在 PC 端浏览体验完整可用。"
+  ],
+  "confirmation_status": "confirmed"
+}

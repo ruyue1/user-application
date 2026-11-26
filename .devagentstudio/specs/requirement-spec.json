@@ -1,0 +1,74 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "generated_at": "2026-11-26T09:26:05.811437+00:00",
+  "summary": "面向 PC 端的人员明细应用，提供人员明细列表页，所有访问者均可查看人员明细列表，但不提供对人员信息的新增、修改、删除或查询操作。采用侧边导航布局，启用页头、禁用页脚。数据源类型为 database。应用不启用认证，不涉及权限控制。",
+  "source_request": "请为新应用「人员明细」完成需求、产品、UI（可跳过）和技术规划。；应用场景：人员明细列表页，所有人都可查看人员的明细列表，不能删改查人员信息；；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+  "app_info": {
+    "name": "人员明细",
+    "summary": "面向 PC 端的人员明细应用，提供人员明细列表页，所有访问者均可查看人员明细列表，但不提供对人员信息的新增、修改、删除或查询操作。采用侧边导航布局，启用页头、禁用页脚。数据源类型为 database。应用不启用认证，不涉及权限控制。",
+    "target": "",
+    "route_root_path": "/page",
+    "menu_enabled": true
+  },
+  "user_roles": [
+    {
+      "name": "业务用户",
+      "description": "所有访问该应用的用户，可查看人员明细列表，不能新增、修改、删除或查询人员信息。",
+      "id": "business_user"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "人员明细管理",
+      "description": "负责人员明细信息的集中展示。模块管理人员明细数据（来自 database 数据源），对外仅提供查看人员明细列表的能力；不提供人员信息的新增、修改、删除与查询操作。该只读约束适用于所有页面，模块内所有页面均不得暴露上述写操作入口。",
+      "priority": "must",
+      "id": "personnel_detail_management"
+    }
+  ],
+  "pages": [
+    {
+      "name": "人员明细列表",
+      "path": "/page/personnel-detail-list",
+      "module_id": "personnel_detail_management",
+      "description": "应用首页，以列表形式展示人员明细信息。页面展示人员明细列表数据，所有访问者均可查看；页面不提供人员信息的新增、修改、删除及查询操作，也不展示对应的操作入口。采用侧边导航布局，启用页头，禁用页脚。",
+      "pageId": "personnel_detail_list"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "人员明细查看",
+      "steps": [
+        "访问者进入人员明细应用首页",
+        "系统展示人员明细列表",
+        "访问者浏览列表中的人员明细信息"
+      ],
+      "id": "personnel_detail_viewing",
+      "description": "访问者浏览人员明细列表的流程，遵循人员明细管理模块的只读约束。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\"version\": \"1.0\", \"status\": \"draft\", \"generated_at\": \"2025-06-01T00:00:00Z\", \"app_info\": {\"name\": \"人员明细\", \"summary\": \"面向 PC 端的人员明细应用，提供人员明细列表页，所有访问者均可查看人员明细列表，但不提供对人员信息的新增、修改、删除或查询操作。采用侧边导航布局，启用页头、禁用页脚。数据源类型为 database。应用不启用认证，不涉及权限控制。\", \"route_root_path\": \"/\"}, \"user_roles\": [{\"id\": \"business_user\", \"name\": \"业务用户\", \"description\": \"所有访问该应用的用户，可查看人员明细列表，不能新增、修改、删除或查询人员信息。\"}], \"feature_modules\": [{\"id\": \"personnel_detail_management\", \"name\": \"人员明细管理\", \"description\": \"负责人员明细信息的集中展示。模块管理人员明细数据（来自 database 数据源），对外仅提供查看人员明细列表的能力；不提供人员信息的新增、修改、删除与查询操作。该只读约束适用于所有页面，模块内所有页面均不得暴露上述写操作入口。\"}], \"pages\": [{\"pageId\": \"personnel_detail_list\", \"name\": \"人员明细列表\", \"path\": \"/\", \"module_id\": \"personnel_detail_management\", \"description\": \"应用首页，以列表形式展示人员明细信息。页面展示人员明细列表数据，所有访问者均可查看；页面不提供人员信息的新增、修改、删除及查询操作，也不展示对应的操作入口。采用侧边导航布局，启用页头，禁用页脚。\"}], \"business_flows\": [{\"id\": \"personnel_detail_viewing\", \"name\": \"人员明细查看\", \"description\": \"访问者浏览人员明细列表的流程，遵循人员明细管理模块的只读约束。\", \"steps\": [\"访问者进入人员明细应用首页\", \"系统展示人员明细列表\", \"访问者浏览列表中的人员明细信息\"]}], \"authentication_requirements\": {\"enabled\": false, \"sourceRefs\": []}, \"authorization_requirements\": {\"restrictedPages\": [], \"restrictedOperations\": []}, \"deleted_pages\": []}",
+  "approved": true,
+  "confirmation_status": "confirmed",
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "deepseek-v4.1-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model"
+}

@@ -1,0 +1,69 @@
+{
+  "application": {
+    "id": "1795684572026-ftqa83",
+    "name": "人员明细"
+  },
+  "updatedAt": "2026-11-26T09:27:14.011517Z",
+  "revision": 12,
+  "developmentArtifacts": {
+    "pages": {
+      "personnel_detail_list": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "lastCompletedRunId": null,
+        "lastCompletedThreadId": null,
+        "changeStatus": "changed",
+        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "checkedChangeId": null
+      }
+    },
+    "entities": {
+      "personnel_detail": {
+        "initialDevelopmentStatus": "pending",
+        "skippedAt": null,
+        "skipReason": null,
+        "completedBranchName": null
+      }
+    },
+    "endpoints": {
+      "personnel_detail": {
+        "personnel_detail.listPersonnelDetails": {
+          "initialDevelopmentStatus": "pending",
+          "completedAt": null,
+          "completedRunId": null,
+          "completedThreadId": null,
+          "completedBranchName": null,
+          "lastCompletedRunId": null,
+          "lastCompletedThreadId": null,
+          "changeStatus": "changed",
+          "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+          "checkedChangeId": null
+        }
+      }
+    },
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "89938144-6233-4693-a2be-6052677d793a",
+    "iterationId": "d422d969-27b2-4a03-912d-7eb63cdb08e3"
+  },
+  "activeRunId": "6286142d-25a1-4211-a116-387737b3db3f",
+  "activeExecutions": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}
