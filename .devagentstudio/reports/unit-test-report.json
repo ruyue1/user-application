@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "generated_at": "2026-11-27T02:09:27.472512+00:00",
+  "generated_at": "2026-11-27T02:32:27.595252+00:00",
   "passed": true,
   "checks": [
     {
@@ -63,13 +63,13 @@
       "type": "page",
       "targetId": "hello_world_display"
     },
-    "plan_sha256": "6919b90f257d5493032332b5536d6048db3492bc25fd8535bf90f2edc67b34f8",
+    "plan_sha256": "a2cbba17a0a72ec8240d2d18079ff028da5eed1a206c487e69abccfae92d4d60",
     "files": {
       "frontend/jest.config.cjs": "ce1afcb596c0abefb634ecc399b348b89d998be73221ffc57bdbb84cb7f3f90c",
       "frontend/package.json": "7ac83000e1d969ac63a3ca602899f695ed63607d1c947990a7ca205e320cce46",
       "frontend/pnpm-lock.yaml": "2dd9e48d28b43e28ab6c64dc1a6bd26efcd0fbf0a7183da4d416160bf6fa08f3",
-      "frontend/src/constants/routes.tsx": "7901b26e982222e1351d799fc04b43fee784025384cc78396ba9c967769f5b3c",
-      "frontend/src/pages/HelloWorldDisplay/index.tsx": "e055f69b6fb682ac7f3ffd9e54545359dca5990c5894c2bf5e77e2f882b527df",
+      "frontend/src/constants/routes.tsx": "ed5588b701827e83608578f884a9f6b1d265f1b586009056a6b90a126db38d4a",
+      "frontend/src/pages/HelloWorldDisplay/index.tsx": "0e9d3ebece81b7a3c28abc7e806d39bc46b9699b51e14a8e43ffdd6600d9adae",
       "frontend/tests/__mocks__/fileMock.cjs": "9511e7bc24a9e0589f73af6ec1dd8b8fb1f6fb388decfdcb80a827860181226b",
       "frontend/tests/__mocks__/styleMock.cjs": "35ab14b4a7b597c4cb3c568cddf39ee07c557cdd7e19f2eb8b83467eafd70609",
       "frontend/tests/setupTests.ts": "303f1bcd5f40eb34671db9a66665f46aad22f0e0bc8a4dedf59d08fdbacef2b8",

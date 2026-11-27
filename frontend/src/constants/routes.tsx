@@ -17,7 +17,7 @@ export const PAGE_ROUTES: PageRouteDefinition[] = [
   // DEVAGENTSTUDIO_BUSINESS_ROUTES_START
   {
     path: "hello_world_display",
-    label: "Hello World 展示页",
+    label: "文案展示页",
   },
   // DEVAGENTSTUDIO_BUSINESS_ROUTES_END
 ];

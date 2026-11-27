@@ -24,7 +24,8 @@
 
 ## 扫描提示
 
-- 本次目标文件清单中不包含后端文件（无 Java 源码、pom.xml、资源或配置文件），后端扫描根跳过。
+- frontend-code-scan 仅提供 axios/form-data 版本风险规则，需读取 package.json 与 pnpm-lock.yaml，本次清单未包含依赖清单文件，无适用规则，未报告前端问题
+- 本次目标清单未包含任何后端文件（Java 源码 / pom.xml / 资源与配置文件），后端扫描根目录已跳过
 
 ## 问题详情
 
