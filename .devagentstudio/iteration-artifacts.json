@@ -6,6 +6,13 @@
       "plannedPageIds": [
         "hello_world_display"
       ]
+    },
+    {
+      "branch": "v1_32",
+      "designedPageIds": [],
+      "plannedPageIds": [
+        "hello_world_display"
+      ]
     }
   ],
   "schemaVersion": 2

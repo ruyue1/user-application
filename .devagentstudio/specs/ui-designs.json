@@ -1,7 +1,7 @@
 {
   "schema_version": "ui-manifest.v3",
   "confirmation_status": "confirmed",
-  "product_plan_sha256": "74c92104013771970e19c822ce9b63bff49af83a8c27cb43825f11d29b54af20",
+  "product_plan_sha256": "1e3fb97927d09b43495f80728da4fa7917189ff98ee7fd1aa6f4452c887c1f9d",
   "pages": [
     {
       "pageId": "hello_world_display",

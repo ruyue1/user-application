@@ -3,8 +3,8 @@
     "id": "1795744299213-x5ixw6",
     "name": "纯展示页面"
   },
-  "updatedAt": "2026-11-27T02:10:12.463244Z",
-  "revision": 46,
+  "updatedAt": "2026-11-27T02:30:55.424618Z",
+  "revision": 7,
   "developmentArtifacts": {
     "pages": {
       "hello_world_display": {
@@ -22,16 +22,16 @@
     },
     "entities": {},
     "endpoints": {},
-    "catalogError": null,
+    "catalogError": "开发产物目录不可用：[Errno 2] No such file or directory: '/Users/maomao/Documents/行外开发XcodeAgent/ith/112700/.devagentstudio/plans/technical-plan.json'",
     "outOfScope": []
   },
   "initialization": {
-    "stage": "ready_for_workbench",
-    "status": "completed",
-    "threadId": "e7059c07-c25e-4f15-87bd-7d79c4c70fc3",
-    "iterationId": "9e333a77-b47b-44e9-9b09-8362d392a9dd"
+    "stage": "awaiting_planning_stage_entry",
+    "status": "awaiting_user",
+    "threadId": "c7435df0-0cb6-4e7a-a644-ce642ebd5015",
+    "iterationId": "c7435df0-0cb6-4e7a-a644-ce642ebd5015"
   },
-  "activeRunId": null,
+  "activeRunId": "b6f476db-fcc1-48ae-ad14-b50e1d2d7b34",
   "activeExecutions": {},
   "resourceLocks": {
     "application": null,
@@ -43,12 +43,5 @@
   "pendingRevisionImpact": null,
   "activeFormalRevision": null,
   "error": null,
-  "extensions": {
-    "testExecutionStatus": "passed",
-    "reviewStatus": "passed",
-    "acceptanceStatus": "passed",
-    "redevelopedChangedTargets": [
-      "page:hello_world_display"
-    ]
-  }
+  "extensions": {}
 }

@@ -2,61 +2,7 @@
   "version": "1.0",
   "status": "draft",
   "generated_at": "2026-11-27T01:54:55.290000+00:00",
-  "summary": "一个仅面向 PC 端的纯展示型 Hello World 应用，核心页面固定展示字符串 “hello world”，不含任何后端 API 接口与业务操作；采用侧边导航布局，启用页头、禁用页脚；不启用认证与权限控制。",
   "source_request": "请为新应用「纯展示页面」完成需求、产品、UI（可跳过）和技术规划。；应用场景：我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
-  "app_info": {
-    "name": "纯展示页面",
-    "summary": "一个仅面向 PC 端的纯展示型 Hello World 应用，核心页面固定展示字符串 “hello world”，不含任何后端 API 接口与业务操作；采用侧边导航布局，启用页头、禁用页脚；不启用认证与权限控制。",
-    "target": "",
-    "route_root_path": "/page",
-    "menu_enabled": true
-  },
-  "user_roles": [
-    {
-      "name": "访问者",
-      "description": "浏览纯展示页面的使用者，仅查看页面上写死的 “hello world” 字符串，无任何业务操作权限。",
-      "id": "visitor"
-    }
-  ],
-  "feature_modules": [
-    {
-      "name": "Hello World 展示管理",
-      "description": "负责应用唯一展示能力：在页面固定位置展示写死的字符串 “hello world”。该字符串为静态内容，不依赖任何后端 API 接口或数据交互；不做唯一性校验、不提供编辑、删除或搜索等操作；整体布局采用侧边导航，启用页头、禁用页脚，目标终端为 PC。",
-      "priority": "must",
-      "id": "hello_world_display_management"
-    }
-  ],
-  "pages": [
-    {
-      "name": "Hello World 展示页",
-      "path": "/page/hello-world-display",
-      "module_id": "hello_world_display_management",
-      "description": "应用首页，纯静态展示页面。页面固定展示字符串 “hello world”，无任何输入、按钮、表单或数据请求；作为侧边导航布局下的默认内容区，顶部显示页头，底部不显示页脚。",
-      "pageId": "hello_world_display"
-    }
-  ],
-  "entities": [],
-  "business_flows": [
-    {
-      "name": "查看 Hello World 展示页",
-      "steps": [
-        "访问者在 PC 端打开应用，进入首页 Hello World 展示页。",
-        "页面直接渲染写死的字符串 “hello world”。",
-        "访问者浏览页面内容，流程结束，无需任何后续操作。"
-      ],
-      "id": "view_hello_world",
-      "description": "访问者打开应用首页并直接看到固定的 “hello world” 字符串，全程无需登录、无需交互、不触发任何后端请求。"
-    }
-  ],
-  "authorization_requirements": {
-    "sourceRefs": [],
-    "restrictedPages": [],
-    "restrictedOperations": []
-  },
-  "authentication_requirements": {
-    "sourceRefs": []
-  },
-  "acceptance_criteria": [],
   "clarification_questions": [],
   "agent_note": "{\"version\": \"1.0\", \"status\": \"completed\", \"generated_at\": \"2025-01-01T00:00:00Z\", \"app_info\": {\"name\": \"纯展示页面\", \"summary\": \"一个仅面向 PC 端的纯展示型 Hello World 应用，核心页面固定展示字符串 “hello world”，不含任何后端 API 接口与业务操作；采用侧边导航布局，启用页头、禁用页脚；不启用认证与权限控制。\", \"route_root_path\": \"/\"}, \"user_roles\": [{\"id\": \"visitor\", \"name\": \"访问者\", \"description\": \"浏览纯展示页面的使用者，仅查看页面上写死的 “hello world” 字符串，无任何业务操作权限。\"}], \"feature_modules\": [{\"id\": \"hello_world_display_management\", \"name\": \"Hello World 展示管理\", \"description\": \"负责应用唯一展示能力：在页面固定位置展示写死的字符串 “hello world”。该字符串为静态内容，不依赖任何后端 API 接口或数据交互；不做唯一性校验、不提供编辑、删除或搜索等操作；整体布局采用侧边导航，启用页头、禁用页脚，目标终端为 PC。\"}], \"pages\": [{\"pageId\": \"hello_world_display\", \"name\": \"Hello World 展示页\", \"path\": \"/\", \"module_id\": \"hello_world_display_management\", \"description\": \"应用首页，纯静态展示页面。页面固定展示字符串 “hello world”，无任何输入、按钮、表单或数据请求；作为侧边导航布局下的默认内容区，顶部显示页头，底部不显示页脚。\"}], \"business_flows\": [{\"id\": \"view_hello_world\", \"name\": \"查看 Hello World 展示页\", \"description\": \"访问者打开应用首页并直接看到固定的 “hello world” 字符串，全程无需登录、无需交互、不触发任何后端请求。\", \"steps\": [\"访问者在 PC 端打开应用，进入首页 Hello World 展示页。\", \"页面直接渲染写死的字符串 “hello world”。\", \"访问者浏览页面内容，流程结束，无需任何后续操作。\"]}], \"authentication_requirements\": {\"enabled\": false, \"sourceRefs\": []}, \"authorization_requirements\": {\"restrictedPages\": [], \"restrictedOperations\": []}, \"deleted_pages\": []}",
   "approved": true,
@@ -70,5 +16,59 @@
     "model": "deepseek-v4.1-flash",
     "source": "direct_chat_model"
   },
-  "analysis_source": "direct_chat_model"
+  "analysis_source": "direct_chat_model",
+  "app_info": {
+    "name": "纯展示页面",
+    "summary": "一个仅面向 PC 端的纯展示应用，核心页面固定展示字符串 “你好”，不含任何后端 API 接口与业务操作；采用侧边导航布局，启用页头、禁用页脚；不启用认证与权限控制。",
+    "target": "",
+    "route_root_path": "/page",
+    "menu_enabled": true
+  },
+  "summary": "一个仅面向 PC 端的纯展示应用，核心页面固定展示字符串 “你好”，不含任何后端 API 接口与业务操作；采用侧边导航布局，启用页头、禁用页脚；不启用认证与权限控制。",
+  "user_roles": [
+    {
+      "name": "访问者",
+      "description": "浏览纯展示页面的使用者，仅查看页面上写死的 “你好” 字符串，无任何业务操作权限。",
+      "id": "visitor"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "固定文案展示管理",
+      "description": "负责应用唯一展示能力：在页面固定位置展示写死的字符串 “你好”。该字符串为静态内容，不依赖任何后端 API 接口或数据交互；不做唯一性校验、不提供编辑、删除或搜索等操作；整体布局采用侧边导航，启用页头、禁用页脚，目标终端为 PC。",
+      "priority": "must",
+      "id": "hello_world_display_management"
+    }
+  ],
+  "pages": [
+    {
+      "name": "文案展示页",
+      "path": "/page/text-display",
+      "module_id": "hello_world_display_management",
+      "description": "应用首页，纯静态展示页面。页面固定展示字符串 “你好”，无任何输入、按钮、表单或数据请求；作为侧边导航布局下的默认内容区，顶部显示页头，底部不显示页脚。",
+      "pageId": "hello_world_display"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "查看文案展示页",
+      "steps": [
+        "访问者在 PC 端打开应用，进入首页文案展示页。",
+        "页面直接渲染写死的字符串 “你好”。",
+        "访问者浏览页面内容，流程结束，无需任何后续操作。"
+      ],
+      "id": "view_hello_world",
+      "description": "访问者打开应用首页并直接看到固定的 “你好” 字符串，全程无需登录、无需交互、不触发任何后端请求。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": []
 }
