@@ -1,0 +1,66 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-11-27T01:55:04.120432+00:00",
+  "requirement_spec_sha256": "ebf164d03fea51ee3ad37c9123f2eea11ea06e1c85c8dcd3a6bbab7134839e14",
+  "app": {
+    "name": "纯展示页面",
+    "summary": "一个仅面向 PC 端的纯展示型 Hello World 应用，核心页面固定展示字符串 “hello world”，不含任何后端 API 接口与业务操作；采用侧边导航布局，启用页头、禁用页脚；不启用认证与权限控制。"
+  },
+  "business_flows": [
+    {
+      "name": "查看 Hello World 展示页",
+      "steps": [
+        "访问者在 PC 端打开应用，进入首页 Hello World 展示页。",
+        "页面直接渲染写死的字符串 “hello world”。",
+        "访问者浏览页面内容，流程结束，无需任何后续操作。"
+      ],
+      "id": "view_hello_world",
+      "description": "访问者打开应用首页并直接看到固定的 “hello world” 字符串，全程无需登录、无需交互、不触发任何后端请求。"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "hello_world_display",
+      "name": "Hello World 展示页",
+      "path": "/page/hello-world-display",
+      "module_id": "hello_world_display_management",
+      "description": "应用首页，纯静态展示页面。页面固定展示字符串 “hello world”，无任何输入、按钮、表单或数据请求；作为侧边导航布局下的默认内容区，顶部显示页头，底部不显示页脚。",
+      "goal": "作为应用默认落地内容区，让访问者在进入应用后立即看到固定的 “hello world” 字符串，确认应用可正常访问，不提供任何交互或业务操作。",
+      "information_items": [
+        {
+          "itemId": "hello_world_text",
+          "label": "Hello World 展示字符串",
+          "description": "页面内容区固定展示的字符串 “hello world”，为静态写死内容，不随任何操作或数据变化。"
+        },
+        {
+          "itemId": "app_identity",
+          "label": "应用标识与页头信息",
+          "description": "页头展示应用名称「纯展示页面」，表示访问者当前所处的应用；侧边导航标识当前所在的 Hello World 展示页。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "acceptance_criteria": [
+        "访问者在 PC 端打开应用后，默认进入 Hello World 展示页，页面内容区完整展示字符串 “hello world”。",
+        "页面上不存在任何输入框、按钮、表单、链接或其他可触发业务操作的控件，也不发起任何后端数据请求。",
+        "页面采用侧边导航布局，顶部显示页头，底部不显示页脚。",
+        "访问者无需登录即可直接查看页面内容，未被要求提供任何身份信息。",
+        "页面展示内容在任何情况下均保持为固定的 “hello world” 字符串，不会因刷新或重复访问而改变。"
+      ],
+      "_change_status": "added"
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "访问者无需登录即可在 PC 端打开应用，并直接进入 Hello World 展示页看到固定的 “hello world” 字符串。",
+    "应用仅包含 Hello World 展示页一个页面，不提供除该页面之外的任何业务功能入口。",
+    "页面采用侧边导航布局，启用页头、禁用页脚，整体面向 PC 终端展示。",
+    "应用不包含任何业务操作、输入或数据提交行为，全程不依赖后端接口返回内容即可完成展示。",
+    "应用不启用认证与权限控制，所有访问者看到的页面内容完全一致。"
+  ],
+  "confirmation_status": "confirmed"
+}
