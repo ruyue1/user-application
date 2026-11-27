@@ -1,0 +1,46 @@
+{
+  "schema_version": "ui-manifest.v3",
+  "confirmation_status": "confirmed",
+  "product_plan_sha256": "5984106d412e8ed0af26e473e5162942430ee21dbf45b7152f720f7301ae7d13",
+  "pages": [
+    {
+      "pageId": "hello_world_display",
+      "page_key": "HelloWorldDisplay",
+      "preview_path": "/page/hello-world-display",
+      "code_path": "",
+      "status": "pending",
+      "bindings": {
+        "actions": [],
+        "information_items": [
+          {
+            "informationItemId": "hello_world_text",
+            "controlIds": []
+          },
+          {
+            "informationItemId": "page_identity",
+            "controlIds": []
+          }
+        ]
+      },
+      "verification": {
+        "status": "pending",
+        "code_sha256": "",
+        "checks": [
+          {
+            "id": "product-action-bindings",
+            "status": "passed"
+          },
+          {
+            "id": "product-information-bindings",
+            "status": "failed"
+          },
+          {
+            "id": "no-unowned-business-ui",
+            "status": "passed"
+          }
+        ],
+        "errors": []
+      }
+    }
+  ]
+}

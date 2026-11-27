@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "status": "draft",
+  "generated_at": "2026-11-27T04:27:21.298562+00:00",
+  "summary": "一个仅用于静态展示的 PC 端单页应用。应用只有一个首页，页面固定展示硬编码字符串“hello world”，不依赖任何后端 API 接口。整体采用侧边导航布局，启用页头、禁用页脚，数据源类型为 database，不启用登录认证，也不涉及权限控制。",
+  "source_request": "请为新应用「纯展示页面」完成需求、产品、UI（可跳过）和技术规划。；应用场景：我要开发一个简单的纯展示的hello world页面，只展示写死的字符串“hello world”，不需要任何后端api接口；目标终端：PC。；导航布局：side，页头=启用，页脚=禁用。；数据源类型：database。；认证：不启用。；涉及权限控制：否。；初始管理员成员标识：未提供。；本轮按需求文档、产品规划、UI 设计（可按需跳过）和技术规划顺序推进，不直接生成业务代码。",
+  "app_info": {
+    "name": "纯展示页面",
+    "summary": "一个仅用于静态展示的 PC 端单页应用。应用只有一个首页，页面固定展示硬编码字符串“hello world”，不依赖任何后端 API 接口。整体采用侧边导航布局，启用页头、禁用页脚，数据源类型为 database，不启用登录认证，也不涉及权限控制。",
+    "target": "",
+    "route_root_path": "/page",
+    "menu_enabled": true
+  },
+  "user_roles": [
+    {
+      "name": "访客",
+      "description": "打开并浏览应用的访问者，负责查看首页展示的固定内容“hello world”；应用不设登录，无需身份区分。",
+      "id": "visitor"
+    }
+  ],
+  "feature_modules": [
+    {
+      "name": "Hello World 展示",
+      "description": "应用唯一的核心业务能力：在首页向访客展示固定的字符串内容“hello world”。该内容为写死的静态文案，不随用户操作变化，不需要任何后端 API 接口获取或保存数据，也不提供新增、编辑、删除等维护操作。页面整体采用 side 侧边导航布局，页头启用、页脚禁用。",
+      "priority": "must",
+      "id": "hello_world_display_management"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Hello World 展示页",
+      "path": "/page/hello-world-display",
+      "module_id": "hello_world_display_management",
+      "description": "应用首页与唯一页面。页面在内容区居中展示硬编码的字符串“hello world”，无任何交互控件、无表单、无数据加载行为。页面采用侧边导航布局（side），顶部提供页头，不显示页脚。访客只能查看该静态文案，不能修改内容。",
+      "pageId": "hello_world_display"
+    }
+  ],
+  "entities": [],
+  "business_flows": [
+    {
+      "name": "Hello World 内容查看流程",
+      "steps": [
+        "访客在浏览器中打开应用首页路径 '/'。",
+        "系统加载侧边导航布局，显示页头并隐藏页脚。",
+        "页面内容区展示硬编码字符串“hello world”。",
+        "访客浏览该静态文案，流程结束，页面不触发任何后续业务操作。"
+      ],
+      "id": "hello_world_viewing_flow",
+      "description": "访客访问应用并查看固定展示内容的完整过程。该流程无前置条件，无需登录，也不涉及任何数据提交或后端接口调用。"
+    }
+  ],
+  "authorization_requirements": {
+    "sourceRefs": [],
+    "restrictedPages": [],
+    "restrictedOperations": []
+  },
+  "authentication_requirements": {
+    "sourceRefs": []
+  },
+  "acceptance_criteria": [],
+  "clarification_questions": [],
+  "agent_note": "{\"version\": \"1.0\", \"status\": \"complete\", \"generated_at\": \"2025-01-01T00:00:00Z\", \"app_info\": {\"name\": \"纯展示页面\", \"summary\": \"一个仅用于静态展示的 PC 端单页应用。应用只有一个首页，页面固定展示硬编码字符串“hello world”，不依赖任何后端 API 接口。整体采用侧边导航布局，启用页头、禁用页脚，数据源类型为 database，不启用登录认证，也不涉及权限控制。\", \"route_root_path\": \"/\"}, \"user_roles\": [{\"id\": \"visitor\", \"name\": \"访客\", \"description\": \"打开并浏览应用的访问者，负责查看首页展示的固定内容“hello world”；应用不设登录，无需身份区分。\"}], \"feature_modules\": [{\"id\": \"hello_world_display_management\", \"name\": \"Hello World 展示\" , \"description\": \"应用唯一的核心业务能力：在首页向访客展示固定的字符串内容“hello world”。该内容为写死的静态文案，不随用户操作变化，不需要任何后端 API 接口获取或保存数据，也不提供新增、编辑、删除等维护操作。页面整体采用 side 侧边导航布局，页头启用、页脚禁用。\"}], \"pages\": [{\"pageId\": \"hello_world_display\", \"name\": \"Hello World 展示页\", \"path\": \"/\", \"module_id\": \"hello_world_display_management\", \"description\": \"应用首页与唯一页面。页面在内容区居中展示硬编码的字符串“hello world”，无任何交互控件、无表单、无数据加载行为。页面采用侧边导航布局（side），顶部提供页头，不显示页脚。访客只能查看该静态文案，不能修改内容。\"}], \"business_flows\": [{\"id\": \"hello_world_viewing_flow\", \"name\": \"Hello World 内容查看流程\", \"description\": \"访客访问应用并查看固定展示内容的完整过程。该流程无前置条件，无需登录，也不涉及任何数据提交或后端接口调用。\", \"steps\": [\"访客在浏览器中打开应用首页路径 '/'。\", \"系统加载侧边导航布局，显示页头并隐藏页脚。\", \"页面内容区展示硬编码字符串“hello world”。\", \"访客浏览该静态文案，流程结束，页面不触发任何后续业务操作。\"]}], \"authentication_requirements\": {\"enabled\": false, \"sourceRefs\": []}, \"authorization_requirements\": {\"restrictedPages\": [], \"restrictedOperations\": []}, \"deleted_pages\": []}",
+  "approved": true,
+  "confirmation_status": "confirmed",
+  "agent_spec_used": true,
+  "clarification_status": "clear",
+  "unresolved_requirement_dimensions": [],
+  "analyzed_by": {
+    "agent": "chat-model",
+    "mode": "direct",
+    "model": "deepseek-v4.1-flash",
+    "source": "direct_chat_model"
+  },
+  "analysis_source": "direct_chat_model"
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "product-plan.v5",
+  "version": "0.1.0",
+  "generated_at": "2026-11-27T04:27:26.925933+00:00",
+  "requirement_spec_sha256": "835cabf1ace5c14736410adea36000acbc0b44ff2d08d455355eada31e26331d",
+  "app": {
+    "name": "纯展示页面",
+    "summary": "一个仅用于静态展示的 PC 端单页应用。应用只有一个首页，页面固定展示硬编码字符串“hello world”，不依赖任何后端 API 接口。整体采用侧边导航布局，启用页头、禁用页脚，数据源类型为 database，不启用登录认证，也不涉及权限控制。"
+  },
+  "business_flows": [
+    {
+      "name": "Hello World 内容查看流程",
+      "steps": [
+        "访客在浏览器中打开应用首页路径 '/'。",
+        "系统加载侧边导航布局，显示页头并隐藏页脚。",
+        "页面内容区展示硬编码字符串“hello world”。",
+        "访客浏览该静态文案，流程结束，页面不触发任何后续业务操作。"
+      ],
+      "id": "hello_world_viewing_flow",
+      "description": "访客访问应用并查看固定展示内容的完整过程。该流程无前置条件，无需登录，也不涉及任何数据提交或后端接口调用。"
+    }
+  ],
+  "pages": [
+    {
+      "pageId": "hello_world_display",
+      "name": "Hello World 展示页",
+      "path": "/page/hello-world-display",
+      "module_id": "hello_world_display_management",
+      "description": "应用首页与唯一页面。页面在内容区居中展示硬编码的字符串“hello world”，无任何交互控件、无表单、无数据加载行为。页面采用侧边导航布局（side），顶部提供页头，不显示页脚。访客只能查看该静态文案，不能修改内容。",
+      "goal": "向访问应用的访客展示固定的欢迎文案“hello world”，让访客无需登录、无需任何操作即可确认应用已可正常访问，并作为侧边导航布局下的唯一入口。",
+      "information_items": [
+        {
+          "itemId": "hello_world_text",
+          "label": "固定展示文案",
+          "description": "页面内容区居中呈现的字符串“hello world”，为写死的静态内容，不随用户操作、时间或外部数据变化。"
+        },
+        {
+          "itemId": "page_identity",
+          "label": "页面入口标识",
+          "description": "访客可识别当前处于应用首页，唯一菜单入口“Hello World 展示页”处于可达状态。"
+        }
+      ],
+      "actions": [],
+      "navigation_targets": [],
+      "acceptance_criteria": [
+        "访客打开首页路径 '/page/hello-world-display' 后，内容区居中展示字符串“hello world”，大小写与拼写完全一致。",
+        "页面上不出现任何按钮、表单、输入框或可点击的业务控件，访客无法修改或删除展示文案。",
+        "页面采用侧边导航布局，顶部显示页头，底部不显示页脚。",
+        "页面加载与浏览全过程无需登录，也不会要求访客进行身份认证。",
+        "页面展示不依赖任何后端数据获取，文案在任何刷新或重复访问后保持完全一致。"
+      ],
+      "_change_status": "added"
+    }
+  ],
+  "authorizationTargets": {
+    "pageRules": [],
+    "operationRules": []
+  },
+  "product_acceptance_criteria": [
+    "应用仅包含一个页面“Hello World 展示页”，在首页路径下可直接打开，不存在其他业务页面。",
+    "首页内容区固定展示硬编码字符串“hello world”，任何访客在任何时间访问均看到相同文案。",
+    "全站采用侧边导航布局，页头启用、页脚禁用，导航中呈现唯一页面入口。",
+    "应用不启用登录认证与权限控制，访客打开即可浏览全部内容，无任何受限功能或操作。",
+    "应用不提供任何业务数据提交、编辑、删除或导出能力，也不依赖后端接口返回展示内容。"
+  ],
+  "confirmation_status": "confirmed"
+}

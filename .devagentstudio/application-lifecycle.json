@@ -1,0 +1,47 @@
+{
+  "application": {
+    "id": "1795746831756-mj03c1",
+    "name": "纯展示页面"
+  },
+  "updatedAt": "2026-11-27T06:07:34.863706Z",
+  "revision": 12,
+  "developmentArtifacts": {
+    "pages": {
+      "hello_world_display": {
+        "initialDevelopmentStatus": "pending",
+        "completedAt": null,
+        "completedRunId": null,
+        "completedThreadId": null,
+        "completedBranchName": null,
+        "lastCompletedRunId": null,
+        "lastCompletedThreadId": null,
+        "changeStatus": "changed",
+        "changeReason": "本轮技术规划新增或修改了该产物，需要按最新正式产物重新开发。",
+        "checkedChangeId": null
+      }
+    },
+    "entities": {},
+    "endpoints": {},
+    "catalogError": null,
+    "outOfScope": []
+  },
+  "initialization": {
+    "stage": "generating_application_template_files",
+    "status": "running",
+    "threadId": "5ee20398-6fac-45b7-a242-ece30654edc2",
+    "iterationId": "dee12808-9ab4-404e-b95c-78a89327fa93"
+  },
+  "activeRunId": "aa015840-f53c-4b8c-989e-24db0f4e60df",
+  "activeExecutions": {},
+  "resourceLocks": {
+    "application": null,
+    "pages": {},
+    "apiContracts": {},
+    "endpoints": {},
+    "dataSources": {}
+  },
+  "pendingRevisionImpact": null,
+  "activeFormalRevision": null,
+  "error": null,
+  "extensions": {}
+}
